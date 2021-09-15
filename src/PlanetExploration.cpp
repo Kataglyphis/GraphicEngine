@@ -7,9 +7,6 @@
 #include <thread>
 #include <mutex>
 
-// add music to our game 
-#include <irrKlang.h>
-
 //all vector math helper includes :)
 #include <limits>
 #include <vector>
@@ -108,9 +105,6 @@ Terrain_Generator* tGenerator;
 Quad loading_screen;
 Texture loading_screen_tex;
 Texture logo;
-
-// our sound engine 
-irrklang::ISoundEngine* SoundEngine;
 
 // all variables for gui 
 glm::vec3 directional_light_starting_position = glm::vec3(0.0f, -1.0f, 0.1f);
@@ -403,9 +397,6 @@ int main()
 
             if (!loading_screen_finished) {
 
-                // play the audio 
-                SoundEngine = irrklang::createIrrKlangDevice();
-                SoundEngine->play2D("Audio/space_ambient.mp3", true);
                 loading_screen_finished = true;
 
             }
@@ -633,7 +624,7 @@ int main()
         main_light.get_shadow_map()->set_pcf_radius(pcf_radius);
 
         if (loading_screen_finished) {
-            SoundEngine->setSoundVolume(sound_volume);
+            
         }
         if (shadow_resolution_changed) {
 
