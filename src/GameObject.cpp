@@ -1,0 +1,76 @@
+#include "GameObject.h"
+
+GameObject::GameObject()
+{
+}
+
+void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
+{
+	model = new Model();
+	model->load_model_in_ram(model_path);
+	this->translation = translation;
+	this->scale_factor = scale;
+	this->rot = rot;
+	this->material_id = material_id;
+
+}
+
+glm::mat4 GameObject::get_world_trafo()
+{
+	glm::mat4 model_to_world = glm::mat4(1.0);
+	model_to_world = glm::translate(model_to_world, translation);
+	model_to_world = glm::scale(model_to_world, glm::vec3(scale_factor));
+	model_to_world = glm::rotate(model_to_world, glm::radians(rot.degrees), rot.axis);
+
+	return model_to_world;
+}
+
+glm::mat4 GameObject::get_normal_world_trafo()
+{
+	glm::mat4 world_trafo = get_world_trafo();
+	return glm::transpose(glm::inverse(world_trafo));
+}
+
+void GameObject::set_material_id(GLuint material_id)
+{
+	this->material_id = material_id;
+}
+
+GLuint GameObject::get_material_id()
+{
+	return material_id;
+}
+
+void GameObject::render()
+{
+	model->render();
+}
+
+AABB* GameObject::get_aabb()
+{
+	return model->get_aabb();
+}
+
+Model* GameObject::get_model()
+{
+	return model;
+}
+
+void GameObject::translate(glm::vec3 translate)
+{
+	this->translation = translate;
+}
+
+void GameObject::rotate(Rotation rot)
+{
+	this->rot = rot;
+}
+
+void GameObject::scale(GLfloat scale_factor)
+{
+	this->scale_factor = scale_factor;
+}
+
+GameObject::~GameObject()
+{
+}
