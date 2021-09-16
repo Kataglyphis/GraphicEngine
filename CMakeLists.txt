@@ -33,17 +33,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../src"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/TOL"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends")
-
-# glew settings
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${PROJECT_SOURCE_DIR}/ExternalLib/GLEW/glew-2.1.0/include
-)
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends"
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/include/GL"
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/include")
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+
 install(FILES "${PROJECT_BINARY_DIR}/src/Config.h"
-  DESTINATION include
-  )
+  DESTINATION include)
+
 install(FILES src/PlanetExploration.cpp DESTINATION src)
 
 # we depend on OpenGL
@@ -57,8 +55,8 @@ add_subdirectory(ExternalLib/GLFW/glfw-3.3.4)
 target_link_libraries(${PROJECT_NAME} glfw)
 
 # set all glew dependencies
-add_subdirectory(ExternalLib/GLEW/glew-2.1.0/build/cmake)
-target_link_libraries(${PROJECT_NAME} glew32s)
+add_subdirectory(ExternalLib/GLEW)
+target_link_libraries(${PROJECT_NAME} glew)
 
 # add tests 
 include(CTest)
