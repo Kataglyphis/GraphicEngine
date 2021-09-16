@@ -63,6 +63,7 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(ExternalLib/GLFW/glfw-3.3.4)
+
 target_link_libraries(${PROJECT_NAME} glfw)
 
 # set all glew dependencies
@@ -77,4 +78,10 @@ add_test(test1 ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME})
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${GraphicsEngine_VERSION_MINOR}")
+
+set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY 
+                       ${PROJECT_BINARY_DIR}/bin )
+set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
+                       ${PROJECT_BINARY_DIR}/bin )
+
 include(CPack)
