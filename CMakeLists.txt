@@ -21,14 +21,14 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 configure_file(src/Config.h.in src/Config.h)
 
 #set all your sources accordingly
-file(GLOB SOURCES "src/*.cpp"
-                  "src/*.c"
+file(GLOB SOURCES "Src/*.cpp"
+                  "Src/*.c"
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
 
-file(GLOB HEADERS "src/*.h"
-                  "src/*.hpp"
+file(GLOB HEADERS "Src/*.h"
+                  "Src/*.hpp"
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
@@ -49,10 +49,18 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../src"
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
-install(FILES "${PROJECT_BINARY_DIR}/src/Config.h"
+install(FILES "${PROJECT_BINARY_DIR}/Src/Config.h"
   DESTINATION include)
 
-install(FILES src/PlanetExploration.cpp DESTINATION src)
+file(COPY Resources/Shaders DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY Resources/Models DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY Resources/Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+# add_custom_command(
+#   TARGET ${PROJECT_NAME} PRE_BUILD
+#   COMMAND ${CMAKE_COMMAND} -E copy
+#           ${CMAKE_SOURCE_DIR}/Resources/Shaders/*
+#           ${CMAKE_CURRENT_BINARY_DIR}/Shaders/)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED )
