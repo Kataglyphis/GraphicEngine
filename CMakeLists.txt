@@ -21,10 +21,19 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 configure_file(src/Config.h.in src/Config.h)
 
 #set all your sources accordingly
-file(GLOB SOURCES "src/*")
+file(GLOB SOURCES "src/*.cpp"
+                  "src/*.c"
+                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
+                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
+                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
 
+file(GLOB HEADERS "src/*.h"
+                  "src/*.hpp"
+                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
+                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
+                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
 # add the executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 
 # include the normal header file 
@@ -34,8 +43,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../src"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/TOL"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/include/GL"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/include")
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include/GL"
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include"
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLFW/glfw-3.3.4/include/GLFW")
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
@@ -46,6 +56,7 @@ install(FILES src/PlanetExploration.cpp DESTINATION src)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED )
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
 
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -55,7 +66,7 @@ add_subdirectory(ExternalLib/GLFW/glfw-3.3.4)
 target_link_libraries(${PROJECT_NAME} glfw)
 
 # set all glew dependencies
-add_subdirectory(ExternalLib/GLEW)
+add_subdirectory(ExternalLib/GLEW/glew-2.2.0/build/cmake)
 target_link_libraries(${PROJECT_NAME} glew)
 
 # add tests 
