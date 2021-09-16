@@ -18,7 +18,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
 # configure a header file to pass the version number only
-configure_file(src/Config.h.in src/Config.h)
+configure_file(Src/Config.h.in Src/Config.h)
 
 #set all your sources accordingly
 file(GLOB SOURCES "Src/*.cpp"
@@ -37,7 +37,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 
 # include the normal header file 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../src" 
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src" 
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLM"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"
@@ -63,8 +63,11 @@ file(COPY Resources/Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 #           ${CMAKE_CURRENT_BINARY_DIR}/Shaders/)
 
 # we depend on OpenGL
-find_package( OpenGL REQUIRED )
-target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
+# find_package( OpenGL REQUIRED )
+# target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
+
+#surpress warnings
+set(OpenGL_GL_PREFERENCE LEGACY)
 
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -91,5 +94,14 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR}/bin )
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR}/bin )
+
+target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
+
+set(GCC_COMPILE_FLAGS "-pthread")
+#set(GCC_LINK_FLAGS  "-nostartfiles -g")
+
+set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}")
+#set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_LINK_FLAGS}")
+
 
 include(CPack)
