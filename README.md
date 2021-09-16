@@ -92,8 +92,9 @@ Right now everything is included. So after cloning you are ready to go :))
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:Kataglyphis/OpenGLEngine.git
+   git clone --recurse-submodules git@github.com:Kataglyphis/OpenGLEngine.git
    ```
+   Important for init the submodules
 
 
 <!-- USAGE EXAMPLES -->
