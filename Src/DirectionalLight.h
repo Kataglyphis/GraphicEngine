@@ -30,7 +30,7 @@ public:
 	float get_ambient_intensity();
 	glm::mat4 get_light_view_matrix();
 	std::vector<GLfloat> get_cascaded_slots();
-	glm::mat4* get_cascaded_light_matrices();
+	std::vector<glm::mat4>& get_cascaded_light_matrices();
 
 	void update_shadow_map(GLfloat shadow_width, GLfloat shadow_height, GLuint num_cascades);
 
@@ -54,6 +54,6 @@ private:
 	GLfloat shadow_near_plane, shadow_far_plane;
 
 	GLfloat cascade_slots[NUM_MAX_CASCADES + 1];
-	glm::mat4 cascade_light_matrices[NUM_MAX_CASCADES];
+	std::vector<glm::mat4> cascade_light_matrices;
 };
 

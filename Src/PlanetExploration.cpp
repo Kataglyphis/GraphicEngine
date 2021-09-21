@@ -92,7 +92,7 @@ Scene scene;
 // we will need a bunch of shader programs
 GeometryPassShaderProgram g_buffer_geometry_pass_shader_program;
 LightingPassShaderProgram g_buffer_lighting_pass_shader_program;
-ShadowMapShaderProgram shadow_map_shader_program;
+std::shared_ptr<ShadowMapShaderProgram> shadow_map_shader_program;
 OmniDirShadowShaderProgram omni_dir_shadow_shader_program;
 LoadingScreenShaderProgram loading_screen_shader_program;
 
@@ -170,8 +170,8 @@ void create_lighting_pass_shader_program() {
 
 void create_shadow_map_shader_program() {
 
-    shadow_map_shader_program = ShadowMapShaderProgram();
-    shadow_map_shader_program.create_from_files("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag");
+    shadow_map_shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
+    shadow_map_shader_program->create_from_files("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag");
 }
 
 void create_omni_shadow_map_shader_program() {
@@ -202,7 +202,7 @@ void create_shader_programs() {
 void reload_shader_programs()
 {
 
-    shadow_map_shader_program.reload();
+    shadow_map_shader_program->reload();
     g_buffer_geometry_pass_shader_program.reload();
     g_buffer_lighting_pass_shader_program.reload();
     omni_dir_shadow_shader_program.reload();
@@ -312,7 +312,7 @@ int main()
 
     //after creati gprograms one can init render passes
     omni_shadow_map_pass = OmniShadowMapPass(&omni_dir_shadow_shader_program);
-    directional_shadow_map_pass = DirectionalShadowMapPass(&shadow_map_shader_program);
+    directional_shadow_map_pass = DirectionalShadowMapPass(shadow_map_shader_program);
     geometry_pass = GeometryPass(&g_buffer_geometry_pass_shader_program);
     //lighting_pass = LightingPass();
     lighting_pass.init(&g_buffer_lighting_pass_shader_program);

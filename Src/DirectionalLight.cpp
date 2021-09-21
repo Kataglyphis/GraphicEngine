@@ -1,12 +1,14 @@
 #include "DirectionalLight.h"
 
 DirectionalLight::DirectionalLight() : Light(), 
-                                                                shadow_map(std::make_unique<CascadedShadowMap>())
+                                                                shadow_map(std::make_unique<CascadedShadowMap>()),
+                                                                cascade_light_matrices(NUM_MAX_CASCADES, glm::mat4(0.f))
 {
     //shadow_map = new CascadedShadowMap{};
 	direction = glm::vec3{0, 0, 0};
 	light_proj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.f);
 
+    
 }
 
 
@@ -20,7 +22,8 @@ DirectionalLight::DirectionalLight(GLuint shadow_width, GLuint shadow_height,
                                                                           Light(shadow_width, shadow_height,
                                                                                                     red, green, blue,
                                                                                                     a_intensity, d_intensity),
-                                                                        shadow_map(std::make_unique<CascadedShadowMap>())
+                                                                        shadow_map(std::make_unique<CascadedShadowMap>()),
+                                                                        cascade_light_matrices(NUM_MAX_CASCADES, glm::mat4(0.f))
     {
 
     direction = glm::vec3{ x_dir, y_dir, z_dir };
@@ -61,7 +64,7 @@ std::vector<GLfloat> DirectionalLight::get_cascaded_slots()
     return result;
 }
 
-glm::mat4* DirectionalLight::get_cascaded_light_matrices()
+std::vector<glm::mat4>& DirectionalLight::get_cascaded_light_matrices()
 {
     return cascade_light_matrices;
 }

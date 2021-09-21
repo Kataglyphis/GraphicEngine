@@ -4,7 +4,7 @@ DirectionalShadowMapPass::DirectionalShadowMapPass()
 {
 }
 
-DirectionalShadowMapPass::DirectionalShadowMapPass(ShadowMapShaderProgram* shader_program)
+DirectionalShadowMapPass::DirectionalShadowMapPass(std::shared_ptr<ShadowMapShaderProgram> shader_program)
 {
     this->shader_program = shader_program;
 }
@@ -24,7 +24,7 @@ void DirectionalShadowMapPass::execute(DirectionalLight* d_light, glm::mat4 view
         d_light->get_shadow_map()->write(i);
         glClear(GL_DEPTH_BUFFER_BIT);
 
-        glm::mat4* cascade_light_matrices = d_light->get_cascaded_light_matrices();
+        std::vector<glm::mat4> cascade_light_matrices = d_light->get_cascaded_light_matrices();
         glm::mat4 l_traf = cascade_light_matrices[i] * d_light->get_light_view_matrix();
         shader_program->set_directional_light_transform(l_traf);
 

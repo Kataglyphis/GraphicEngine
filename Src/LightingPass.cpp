@@ -161,7 +161,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     glm::mat4 light_view = main_light->get_light_view_matrix();
 
-    glm::mat4* cascade_light_matrices = main_light->get_cascaded_light_matrices();
+    std::vector<glm::mat4> cascade_light_matrices = main_light->get_cascaded_light_matrices();
 
     for (int i = 0; i < NUM_MAX_CASCADES; i++) {
 

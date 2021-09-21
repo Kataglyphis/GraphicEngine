@@ -12,7 +12,7 @@ class DirectionalShadowMapPass :
 {
 public:
     DirectionalShadowMapPass();
-    DirectionalShadowMapPass(ShadowMapShaderProgram* shader_program);
+    DirectionalShadowMapPass(std::shared_ptr<ShadowMapShaderProgram> shader_program);
 
     void execute(DirectionalLight* d_light, glm::mat4 viewmatrix,
                           bool first_person_mode, Scene* scene);
@@ -25,7 +25,7 @@ public:
 
 private:
 
-    ShadowMapShaderProgram* shader_program;
+    std::shared_ptr<ShadowMapShaderProgram> shader_program;
 
     glErrorChecker glErrorChecker_ins;
 };
