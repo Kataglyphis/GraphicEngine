@@ -17,7 +17,7 @@ class GeometryPass :
 public:
 
     GeometryPass();
-    GeometryPass(GeometryPassShaderProgram* shader_program);
+    GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program);
 
     void execute(glm::mat4 projection_matrix, glm::mat4 view_matrix,  GLfloat window_width, GLfloat window_height, 
                             GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene);
@@ -29,9 +29,9 @@ public:
 
 private:
 
-    void retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, Terrain_Generator* terrain_generator);
+    void retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<Terrain_Generator> terrain_generator);
 
-    GeometryPassShaderProgram* shader_program;
+    std::shared_ptr<GeometryPassShaderProgram> shader_program;
 
     SkyBox skybox;
 

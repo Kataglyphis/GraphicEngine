@@ -15,9 +15,9 @@ public:
 
 	Scene();
 
-	Terrain_Generator* get_terrain_generator();
+	std::shared_ptr<Terrain_Generator> get_terrain_generator();
 
-	void init(Camera* main_camera, MyWindow* main_window, Terrain_Generator* terrain_generator, Clouds* clouds);
+	void init(std::shared_ptr<Camera> main_camera, std::shared_ptr<MyWindow> main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds);
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
 	void add_space_ship(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
 	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
@@ -31,7 +31,7 @@ public:
 	bool get_context_setup();
 
 	glm::vec3 get_position_of_current_ship();
-	Clouds* get_clouds();
+	std::shared_ptr<Clouds> get_clouds();
 	
 	~Scene();
 
@@ -39,14 +39,14 @@ private:
 
 	bool object_is_visible(GameObject* game_object);
 
-	Camera* main_camera;
-	MyWindow* main_window;
-	Terrain_Generator* terrain_generator;
+	std::shared_ptr<Camera> main_camera;
+	std::shared_ptr<MyWindow> main_window;
+	std::shared_ptr<Terrain_Generator> terrain_generator;
 	ViewFrustumCulling* view_frustum_culling;
-	Clouds* clouds;
+	std::shared_ptr<Clouds> clouds;
 
-	std::vector<GameObject*> space_ships;
-	std::vector<GameObject*> ambient_objects;
+	std::vector<std::shared_ptr<GameObject>> space_ships;
+	std::vector<std::shared_ptr<GameObject>> ambient_objects;
 
 	std::vector<glm::vec3> space_ship_offsets;
 	std::vector<GLfloat> rotation_offset;

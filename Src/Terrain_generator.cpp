@@ -20,7 +20,7 @@ Terrain_Generator::Terrain_Generator() {
 void Terrain_Generator::init() {
 
 	// initialize t_texture
-	t_texture = new Terrain_Texture();
+	t_texture = std::make_shared<Terrain_Texture>(Terrain_Texture());
 	t_texture->load_all_texture();
 
 	// Maximal Texture heights
@@ -51,23 +51,16 @@ void Terrain_Generator::init() {
 
 }
 
-void Terrain_Generator::retreive_uniform_locations(GeometryPassShaderProgram* shader_program)
+void Terrain_Generator::retreive_uniform_locations(std::shared_ptr<GeometryPassShaderProgram> shader_program)
 {
 
-	t_texture->retreive_uniform_locations(shader_program);
+	t_texture->retreive_uniform_locations(shader_program.get());
 
 }
 
 
 Terrain_Generator::~Terrain_Generator() {
 	// destroy everything!
-	for (int i = 0; i < meshes.size(); i++) {
-		meshes[i]->~Mesh();
-		delete t_texture;
-	}
-
-		// TODO delet plants ?
-
 
 }
 
@@ -96,7 +89,7 @@ GLuint Terrain_Generator::get_material_id()
 	return material_id;
 }
 
-Terrain_Texture* Terrain_Generator::get_textures()
+std::shared_ptr<Terrain_Texture> Terrain_Generator::get_textures()
 {
 	return t_texture;
 }
@@ -156,7 +149,7 @@ void Terrain_Generator::load_plants()
 	for (int i = 0; i < treePaths.size(); i++)
 	{
 
-		trees.push_back(new Model());
+		trees.push_back(std::make_shared<Model>(Model()));
 		trees[i]->load_model_in_ram(treePaths[i]);
 
 		// Transform ??
@@ -168,7 +161,7 @@ void Terrain_Generator::load_plants()
 
 	for (int i = 0; i < bushPaths.size(); i++)
 	{
-		bushes.push_back(new Model());
+		bushes.push_back(std::make_shared<Model>(Model()));
 		bushes[i]->load_model_in_ram(bushPaths[i]);
 
 		// Transform ??
@@ -180,7 +173,7 @@ void Terrain_Generator::load_plants()
 
 	for (int i = 0; i < stonePahts.size(); i++)
 	{
-		stones.push_back(new Model());
+		stones.push_back(std::make_shared<Model>(Model()));
 		stones[i]->load_model_in_ram(stonePahts[i]);
 
 		// Transform ??
@@ -298,9 +291,8 @@ void Terrain_Generator::generate_render_context()
 {
 	for (int i = 0; i < vertices_per_shape.size(); i++) {
 
-		Mesh* result_mesh = new Mesh(vertices_per_shape[i], indices_per_shape[i]);
-		this->meshes.push_back(result_mesh);
-		AABB* map_chunck_aabb = new AABB();
+		this->meshes.push_back(std::make_shared<Mesh>(Mesh(vertices_per_shape[i], indices_per_shape[i])));
+		std::shared_ptr<AABB> map_chunck_aabb = std::make_shared<AABB>(AABB());
 
 		map_chunck_aabb->init(aabbs_per_chunck[i][0], 
 													aabbs_per_chunck[i][1],
@@ -314,15 +306,15 @@ void Terrain_Generator::generate_render_context()
 
 	}
 
-	for (Model* tree : trees) {
+	for (std::shared_ptr<Model> tree : trees) {
 		tree->create_render_context();
 	}
 
-	for (Model* bush : bushes) {
+	for (std::shared_ptr<Model> bush : bushes) {
 		bush->create_render_context();
 	}
 
-	for (Model* stone : stones) {
+	for (std::shared_ptr<Model> stone : stones) {
 		stone->create_render_context();
 	}
 
@@ -545,7 +537,7 @@ std::vector<glm::vec3> Terrain_Generator::calc_smooth_normals(std::vector<glm::v
 }
 
 
-std::vector<bool> Terrain_Generator::render(GLfloat ratio, Camera* camera , ViewFrustumCulling* view_cull, RenderPassSceneDependend* shader_pass) {
+std::vector<bool> Terrain_Generator::render(GLfloat ratio, std::shared_ptr<Camera> camera, ViewFrustumCulling* view_cull, RenderPassSceneDependend* shader_pass) {
 	
 	//get_textures()->use_texture();
 	// this to flag with chunks is rendered
@@ -556,7 +548,7 @@ std::vector<bool> Terrain_Generator::render(GLfloat ratio, Camera* camera , View
 
 	for (int i = 0; i < meshes.size(); i++) {
 		//texture_list[shapes_to_tex[i]]->use_texture();
-		AABB* aabb = aabbs[i];
+		std::shared_ptr<AABB> aabb = aabbs[i];
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		//aabb->render();
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);

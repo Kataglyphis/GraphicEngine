@@ -30,7 +30,7 @@ public:
 	Terrain_Generator();
 
 	void init();
-	void retreive_uniform_locations(GeometryPassShaderProgram* shader_program);
+	void retreive_uniform_locations(std::shared_ptr<GeometryPassShaderProgram> shader_program);
 
 	~Terrain_Generator();
 
@@ -40,13 +40,13 @@ public:
 	void set_material_id(GLuint material_id);
 	GLuint get_material_id();
 
-	Terrain_Texture* get_textures();
+	std::shared_ptr<Terrain_Texture> get_textures();
 
 	void generateMesh(GLfloat& progress);
 	void load_plants();
 
-	std::vector<Mesh*> meshes;
-	std::vector<AABB*> aabbs;
+	std::vector<std::shared_ptr<Mesh>> meshes;
+	std::vector<std::shared_ptr<AABB>> aabbs;
 
 	// TODO:
 	void expandTerrain();
@@ -70,7 +70,7 @@ public:
 	// view: is the camera position (GetViewMatrix)	
 	// model:
 	// projection: 
-	std::vector<bool> render(GLfloat ratio, Camera* camera, ViewFrustumCulling* view_cull, RenderPassSceneDependend* shader_pass);
+	std::vector<bool> render(GLfloat ratio, std::shared_ptr<Camera> camera, ViewFrustumCulling* view_cull, RenderPassSceneDependend* shader_pass);
 
 	void render_plants(std::vector<bool> is_chunk_rendered_flags, RenderPassSceneDependend *shader_pass);
 
@@ -121,14 +121,14 @@ private:
 	float lacunarity = 2;
 
 	//Texture terrainTex;
-	Terrain_Texture* t_texture;
+	std::shared_ptr<Terrain_Texture> t_texture;
 	std::vector<float> biomHeights;
 
 	
 	// Terrain Models 
 	// spawn information of all Models of the Terrain
 	std::vector<std::vector<Terrain_Model>> chunk_models;
-	vector<Model*> trees, bushes, stones;
+	vector<std::shared_ptr<Model>> trees, bushes, stones;
 
 
 

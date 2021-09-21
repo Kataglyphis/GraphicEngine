@@ -35,7 +35,8 @@ public:
 	void set_scale(glm::vec3 scale);
 	void set_translation(glm::vec3 translation);
 	void set_movement_direction(glm::vec3 movement_dir);
-	std::unique_ptr<CloudsShaderProgram>& get_shader_program();
+
+	std::shared_ptr<CloudsShaderProgram> get_shader_program();
 
 	~Clouds();
 
@@ -56,7 +57,7 @@ private:
 
 	bool powder_effect;
 
-	std::unique_ptr<CloudsShaderProgram> shader_program;
+	std::shared_ptr<CloudsShaderProgram> shader_program;
 
 	GLuint attatchments[1] = {GL_COLOR_ATTACHMENT0};
 };

@@ -5,12 +5,12 @@ Scene::Scene()
 
 }
 
-Terrain_Generator* Scene::get_terrain_generator()
+std::shared_ptr<Terrain_Generator> Scene::get_terrain_generator()
 {
     return terrain_generator;
 }
 
-void Scene::init(Camera* main_camera, MyWindow* main_window, Terrain_Generator* terrain_generator, Clouds* clouds)
+void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<MyWindow> main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds)
 {
 
     this->main_camera = main_camera;
@@ -34,13 +34,13 @@ void Scene::load_models()
 
     lock_guard<mutex> guard{ mx_space_ship };
 
-    GameObject* space_ship_1 = new GameObject();
-    GameObject* space_ship_2 = new GameObject();
-    GameObject* space_ship_3 = new GameObject();
-    GameObject* space_ship_4 = new GameObject();
+    std::shared_ptr<GameObject> space_ship_1 = std::make_shared<GameObject>(GameObject());
+    std::shared_ptr<GameObject> space_ship_2 = std::make_shared<GameObject>(GameObject());
+    std::shared_ptr<GameObject> space_ship_3 = std::make_shared<GameObject>(GameObject());
+    std::shared_ptr<GameObject> space_ship_4 = std::make_shared<GameObject>(GameObject());
 
-    GameObject* rocket = new GameObject();
-    GameObject* space_station = new GameObject();
+    std::shared_ptr<GameObject> rocket = std::make_shared<GameObject>(GameObject());
+    std::shared_ptr<GameObject> space_station = std::make_shared<GameObject>(GameObject());
 
     glm::vec3 space_ship1_offset = glm::vec3(0.0f, 25.0f, 0.0f);
     GLfloat space_ship1_scale = 10.0f;
@@ -136,13 +136,13 @@ GLfloat Scene::get_progress()
 void Scene::setup_game_object_context()
 {
     if (context_setup) return;
-    for (GameObject* space_ship : space_ships) {
+    for (std::shared_ptr<GameObject>& space_ship : space_ships) {
 
         space_ship->get_model()->create_render_context();
 
     }
 
-    for (GameObject* ambient_object : ambient_objects) {
+    for (std::shared_ptr<GameObject>& ambient_object : ambient_objects) {
 
         ambient_object->get_model()->create_render_context();
 
@@ -194,14 +194,14 @@ void Scene::render(RenderPassSceneDependend* render_pass, bool first_person_mode
 
     }*/
 
-    GameObject* current_space_ship = space_ships[current_space_ship_selected];
+    //GameObject* current_space_ship = space_ships[current_space_ship_selected];
 
-    render_pass->set_game_object_uniforms(current_space_ship->get_world_trafo(),
-                                                                                current_space_ship->get_normal_world_trafo(),
-                                                                                current_space_ship->get_material_id());
-    current_space_ship->render();
+    render_pass->set_game_object_uniforms(space_ships[current_space_ship_selected]->get_world_trafo(),
+        space_ships[current_space_ship_selected]->get_normal_world_trafo(),
+        space_ships[current_space_ship_selected]->get_material_id());
+    space_ships[current_space_ship_selected]->render();
 
-    for (GameObject* object : ambient_objects) {
+    for (std::shared_ptr<GameObject>& object : ambient_objects) {
 
        /* if (object_is_visible(object)) {*/
 
@@ -235,16 +235,15 @@ void Scene::render(RenderPassSceneDependend* render_pass, bool first_person_mode
 
 void Scene::add_space_ship(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
 {
-    GameObject* space_ship = new GameObject();
-    space_ship->init(model_path, translation, scale, rot, material_id);
-    space_ships.push_back(space_ship);
+
+    space_ships.push_back(std::make_shared<GameObject>(GameObject()));
+    space_ships.back()->init(model_path, translation, scale, rot, material_id);
 }
 
 void Scene::add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
 {
-    GameObject* ambient_object = new GameObject();
-    ambient_object->init(model_path, translation, scale, rot, material_id);
-    space_ships.push_back(ambient_object);
+    ambient_objects.push_back(std::make_shared<GameObject>(GameObject()));
+    ambient_objects.back()->init(model_path, translation, scale, rot, material_id);
 }
 
 void Scene::update_current_space_ship(GLuint selected_space_ship)
@@ -257,7 +256,7 @@ glm::vec3 Scene::get_position_of_current_ship()
     return glm::vec3(space_ships[current_space_ship_selected]->get_world_trafo()[3]);
 }
 
-Clouds* Scene::get_clouds()
+std::shared_ptr<Clouds> Scene::get_clouds()
 {
     return clouds;
 }

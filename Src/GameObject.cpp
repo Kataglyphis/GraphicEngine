@@ -1,12 +1,12 @@
 #include "GameObject.h"
 
-GameObject::GameObject()
+GameObject::GameObject() : model(std::make_shared<Model>(Model()))
 {
 }
 
 void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
 {
-	model = new Model();
+
 	model->load_model_in_ram(model_path);
 	this->translation = translation;
 	this->scale_factor = scale;
@@ -46,12 +46,12 @@ void GameObject::render()
 	model->render();
 }
 
-AABB* GameObject::get_aabb()
+std::shared_ptr<AABB> GameObject::get_aabb()
 {
 	return model->get_aabb();
 }
 
-Model* GameObject::get_model()
+std::shared_ptr<Model> GameObject::get_model()
 {
 	return model;
 }

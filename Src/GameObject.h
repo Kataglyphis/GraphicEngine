@@ -14,8 +14,8 @@ public:
 	glm::mat4 get_world_trafo();
 	glm::mat4 get_normal_world_trafo();
 	GLuint get_material_id();
-	AABB* get_aabb();
-	Model* get_model();
+	std::shared_ptr<AABB> get_aabb();
+	std::shared_ptr<Model> get_model();
 
 	void translate(glm::vec3 translate);
 	void scale(GLfloat scale_factor);
@@ -29,7 +29,7 @@ public:
 private:
 
 	GLuint material_id;
-	Model* model;
+	std::shared_ptr<Model> model;
 	
 	GLfloat scale_factor;
 	Rotation rot;

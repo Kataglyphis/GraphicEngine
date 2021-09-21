@@ -22,11 +22,11 @@ public:
 
     LightingPass();
 
-    void init(LightingPassShaderProgram* shader_program);
+    void init(std::shared_ptr<LightingPassShaderProgram> shader_program);
 
     void execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, GBuffer* gbuffer, DirectionalLight* main_light, 
                             PointLight* point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
-                            Material* materials, Noise* noise, Clouds* cloud, float delta_time);
+                            Material* materials, Noise* noise, std::shared_ptr<Clouds> cloud, float delta_time);
 
     ~LightingPass();
 
@@ -43,13 +43,13 @@ private:
     void retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, 
                                                                         GBuffer* gbuffer, DirectionalLight* main_light, 
                                                                         PointLight* point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
-                                                                        Material* materials, Clouds* cloud, float delta_time);
+                                                                        Material* materials, std::shared_ptr<Clouds> cloud, float delta_time);
 
-    void bind_buffers_for_lighting(GBuffer* gbuffer, DirectionalLight* main_light, Noise* noise, GLuint point_light_count, Clouds* cloud);
+    void bind_buffers_for_lighting(GBuffer* gbuffer, DirectionalLight* main_light, Noise* noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud);
 
     void bind_random_numbers(GLuint texture_unit);
 
-    LightingPassShaderProgram* shader_program;
+    std::shared_ptr<LightingPassShaderProgram> shader_program;
 
     Quad quad;
 

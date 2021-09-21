@@ -14,7 +14,7 @@ class OmniShadowMapPass :
 public:
 
     OmniShadowMapPass();
-    OmniShadowMapPass(OmniDirShadowShaderProgram* shader_program);
+    OmniShadowMapPass(std::shared_ptr<OmniDirShadowShaderProgram> shader_program);
 
     void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id);
 
@@ -26,7 +26,7 @@ public:
 
 private:
 
-    OmniDirShadowShaderProgram* shader_program;
+    std::shared_ptr<OmniDirShadowShaderProgram> shader_program;
 
     // this is for GL error checking
     glErrorChecker glErrorChecker_ins;

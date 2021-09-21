@@ -4,7 +4,7 @@ OmniShadowMapPass::OmniShadowMapPass()
 {
 }
 
-OmniShadowMapPass::OmniShadowMapPass(OmniDirShadowShaderProgram* shader_program)
+OmniShadowMapPass::OmniShadowMapPass(std::shared_ptr<OmniDirShadowShaderProgram> shader_program)
 {
     this->shader_program = shader_program;
 }

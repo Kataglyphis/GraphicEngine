@@ -1,11 +1,10 @@
 #include "Model.h"
 
-Model::Model()
+Model::Model() : aabb(std::make_shared<AABB>(AABB())), 
+                             num_tex(0)
 {
-    aabb = AABB();
-    num_tex = 0;
+    
 }
-
 
 std::string Model::get_base_dir(const std::string& filepath) {
 
@@ -15,9 +14,9 @@ std::string Model::get_base_dir(const std::string& filepath) {
 
 }
 
-AABB* Model::get_aabb()
+std::shared_ptr<AABB>& Model::get_aabb()
 {
-    return &aabb;
+    return aabb;
 }
 
 void Model::load_model_in_ram(std::string model_path) {
@@ -59,7 +58,7 @@ void Model::load_model_in_ram(std::string model_path) {
 
 
 
-                texture_list.push_back(new Texture(texture_filename.c_str(), new RepeatMode()));
+                texture_list.push_back(Texture(texture_filename.c_str(), new RepeatMode()));
 
                 /*if (!texture_list[num_tex]->load_texture_without_alpha_channel()) {
                     printf("Failed to load texture at: %s\n", texture_filename.c_str());
@@ -149,24 +148,22 @@ void Model::create_render_context() {
 
     for (int i = 0; i < texture_list.size(); i++) {
 
-        std::string texture_filename = texture_list[i]->get_filename();
+        std::string texture_filename = texture_list[i].get_filename();
 
-        if (!texture_list[i]->load_texture_without_alpha_channel()) {
+        if (!texture_list[i].load_texture_without_alpha_channel()) {
             printf("Failed to load texture at: %s\n", texture_filename.c_str());
-            delete texture_list[i];
-            texture_list[i] = nullptr;
+            texture_list[i] = Texture();
         }
 
     }
 
     for (int i = 0; i < vertices_per_shape.size(); i++) {
 
-        Mesh* result_mesh = new Mesh(vertices_per_shape[i], indices_per_shape[i]);
-        this->shapes.push_back(result_mesh);
+        this->shapes.push_back(Mesh(vertices_per_shape[i], indices_per_shape[i]));
 
     }
         
-    aabb.init(minX, maxX, minY, maxY, minZ, maxZ);
+    aabb->init(minX, maxX, minY, maxY, minZ, maxZ);
                                                                         
 }
 
@@ -175,9 +172,9 @@ void Model::render()
     
     for (int i = 0; i < shapes.size(); i++) {
 
-       if(material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]]->use_texture();
-       shapes[i]->render();
-       if (material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]]->unbind_texture();
+       if(material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]].use_texture();
+       shapes[i].render();
+       if (material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]].unbind_texture();
     }
 
 }
@@ -186,7 +183,7 @@ void Model::render()
 void Model::transform_model(glm::vec3 translate_vec, glm::vec3 scale, float angle, glm::vec3 rotateAxis) {
     for (int i = 0; i < shapes.size(); i++)
     {
-        shapes[i]->transform_Mesh(translate_vec, scale, angle, rotateAxis);
+        shapes[i].transform_Mesh(translate_vec, scale, angle, rotateAxis);
     }
 }
 

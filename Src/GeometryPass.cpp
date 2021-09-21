@@ -6,7 +6,7 @@ GeometryPass::GeometryPass()
 {
 }
 
-GeometryPass::GeometryPass(GeometryPassShaderProgram* shader_program)
+GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program)
 {
 
     this->shader_program = shader_program;
@@ -24,7 +24,7 @@ GeometryPass::GeometryPass(GeometryPassShaderProgram* shader_program)
 
 }
 
-void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix , Terrain_Generator* terrain_generator)
+void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix , std::shared_ptr<Terrain_Generator> terrain_generator)
 {
 
     glUniformMatrix4fv(shader_program->get_projection_location(), 1, GL_FALSE, glm::value_ptr(projection_matrix));

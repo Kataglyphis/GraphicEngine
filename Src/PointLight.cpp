@@ -8,13 +8,13 @@ PointLight::PointLight()
 }
 
 PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
-    GLfloat near, GLfloat far,
-    GLfloat red, GLfloat green, GLfloat blue,
-    GLfloat a_intensity, GLfloat d_intensity,
-    GLfloat x_pos, GLfloat y_pos, GLfloat z_pos,
-    GLfloat con, GLfloat lin, GLfloat exp) : Light(shadow_width, shadow_height,
-        red, green, blue,
-        a_intensity, d_intensity)
+                                        GLfloat near, GLfloat far,
+                                        GLfloat red, GLfloat green, GLfloat blue,
+                                        GLfloat a_intensity, GLfloat d_intensity,
+                                        GLfloat x_pos, GLfloat y_pos, GLfloat z_pos,
+                                        GLfloat con, GLfloat lin, GLfloat exp) : Light(shadow_width, shadow_height,
+                                            red, green, blue,
+                                            a_intensity, d_intensity)
 {
     position = glm::vec3(x_pos, y_pos, z_pos);
     constant = con;

@@ -6,7 +6,7 @@ ViewFrustumCulling::ViewFrustumCulling() {
 
 
 
-bool ViewFrustumCulling::is_inside(GLfloat ratio, Camera* main_camera, AABB* bounding_box, glm::mat4 model)
+bool ViewFrustumCulling::is_inside(GLfloat ratio, std::shared_ptr<Camera> main_camera, std::shared_ptr<AABB> bounding_box, glm::mat4 model)
 {
 	GLfloat near_plane = main_camera->get_near_plane();
 	GLfloat far_plane = main_camera->get_far_plane();
@@ -108,7 +108,7 @@ GLfloat ViewFrustumCulling::plane_point_distance(frustum_plane plane, glm::vec3 
 	return result;
 }
 
-void ViewFrustumCulling::update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, Camera* main_camera)
+void ViewFrustumCulling::update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, std::shared_ptr<Camera> main_camera)
 {
 	this->near_plane = near_plane;
 	this->far_plane = far_plane;

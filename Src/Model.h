@@ -19,7 +19,7 @@ public:
 
     void create_render_context();
     std::string get_base_dir(const std::string& filepath);
-    AABB* get_aabb();
+    std::shared_ptr<AABB>& get_aabb();
 
     void render();
 
@@ -29,13 +29,13 @@ public:
 
 private:
 
-    AABB aabb;
+    std::shared_ptr<AABB> aabb;
 
     GLuint num_tex;
 
-    std::vector<Mesh*> shapes;
+    std::vector<Mesh> shapes;
     //std::vector<Mesh*> mesh_list;
-    std::vector<Texture*> texture_list;
+    std::vector<Texture> texture_list;
 
     std::vector<std::vector<Vertex>> vertices_per_shape;
     std::vector<std::vector<unsigned int>> indices_per_shape;

@@ -15,7 +15,7 @@ public:
 
 	ViewFrustumCulling();
 
-	bool is_inside(GLfloat ratio, Camera* main_camera, AABB* bounding_box, 
+	bool is_inside(GLfloat ratio, std::shared_ptr<Camera> main_camera, std::shared_ptr<AABB> bounding_box,
 																										glm::mat4 model);
 
 	void render_view_frustum();
@@ -35,7 +35,7 @@ private:
 	//calculate as soon as we become params
 	GLfloat tan, near_height, near_width, far_height, far_width;
 
-	Camera* main_camera;
+	std::shared_ptr<Camera> main_camera;
 
 	glm::vec3 dir, near_center, far_center;
 
@@ -60,7 +60,7 @@ private:
 
 	GLfloat plane_point_distance(frustum_plane plane, glm::vec3 corner);
 
-	void update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, Camera* main_camera);
+	void update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, std::shared_ptr<Camera> main_camera);
 
 	void init(std::vector<glm::vec3> frustum_corner);
 };

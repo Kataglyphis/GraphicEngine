@@ -1,12 +1,12 @@
 #include "Clouds.h"
 
-Clouds::Clouds() : 
-							shader_program(new CloudsShaderProgram{})
+Clouds::Clouds() : shader_program(std::make_shared<CloudsShaderProgram>(CloudsShaderProgram{}))
 {
 }
 
 void Clouds::init(GLfloat window_width, GLfloat window_height, GLuint movement_speed)
 {
+
 	model = glm::mat4(1.f);
 	aabb = AABB();
 
@@ -208,7 +208,7 @@ void Clouds::set_movement_direction(glm::vec3 movement_dir)
 	this->movement_direction = movement_dir;
 }
 
-std::unique_ptr<CloudsShaderProgram>& Clouds::get_shader_program()
+std::shared_ptr<CloudsShaderProgram> Clouds::get_shader_program()
 {
 	return shader_program;
 }

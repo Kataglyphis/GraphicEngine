@@ -76,8 +76,8 @@ GLuint shadow_map_resolution = 4096;
 GLfloat fov= 60.0f;
 
 //global objects
-MyWindow main_window;
-Camera main_camera;
+std::shared_ptr<MyWindow> main_window;
+std::shared_ptr<Camera> main_camera;
 DirectionalLight main_light;
 PointLight point_lights[MAX_POINT_LIGHTS];
 
@@ -86,22 +86,22 @@ Material materials[MAX_MATERIALS];
 GBuffer gbuffer;
 
 Noise noise;
-Clouds clouds;
+std::shared_ptr<Clouds> clouds;
 Scene scene;
 
 // we will need a bunch of shader programs
-GeometryPassShaderProgram g_buffer_geometry_pass_shader_program;
-LightingPassShaderProgram g_buffer_lighting_pass_shader_program;
+std::shared_ptr<GeometryPassShaderProgram> g_buffer_geometry_pass_shader_program;
+std::shared_ptr<LightingPassShaderProgram> g_buffer_lighting_pass_shader_program;
 std::shared_ptr<ShadowMapShaderProgram> shadow_map_shader_program;
-OmniDirShadowShaderProgram omni_dir_shadow_shader_program;
-LoadingScreenShaderProgram loading_screen_shader_program;
+std::shared_ptr<OmniDirShadowShaderProgram> omni_dir_shadow_shader_program;
+std::shared_ptr<LoadingScreenShaderProgram> loading_screen_shader_program;
 
 OmniShadowMapPass omni_shadow_map_pass;
 DirectionalShadowMapPass directional_shadow_map_pass;
 GeometryPass geometry_pass;
 LightingPass lighting_pass;
 
-Terrain_Generator* tGenerator;
+std::shared_ptr<Terrain_Generator> tGenerator;
 
 //everything necessary for the loading screen
 Quad loading_screen;
@@ -156,15 +156,15 @@ const char* available_shadow_map_resolutions[] = { "512","1024","2048", "4096"};
 
 void create_geometry_pass_shader_program() {
 
-    g_buffer_geometry_pass_shader_program = GeometryPassShaderProgram();
-    g_buffer_geometry_pass_shader_program.create_from_files("Shaders/g_buffer_geometry_pass.vert", "Shaders/g_buffer_geometry_pass.frag");
+    g_buffer_geometry_pass_shader_program = std::make_shared<GeometryPassShaderProgram>(GeometryPassShaderProgram{});
+    g_buffer_geometry_pass_shader_program->create_from_files("Shaders/g_buffer_geometry_pass.vert", "Shaders/g_buffer_geometry_pass.frag");
 
 }
 
 void create_lighting_pass_shader_program() {
     
-    g_buffer_lighting_pass_shader_program = LightingPassShaderProgram();
-    g_buffer_lighting_pass_shader_program.create_from_files("Shaders/g_buffer_lighting_pass.vert", "Shaders/g_buffer_lighting_pass.frag");
+    g_buffer_lighting_pass_shader_program = std::make_shared<LightingPassShaderProgram>(LightingPassShaderProgram{});
+    g_buffer_lighting_pass_shader_program->create_from_files("Shaders/g_buffer_lighting_pass.vert", "Shaders/g_buffer_lighting_pass.frag");
 
 }
 
@@ -176,15 +176,15 @@ void create_shadow_map_shader_program() {
 
 void create_omni_shadow_map_shader_program() {
 
-    omni_dir_shadow_shader_program = OmniDirShadowShaderProgram();
-    omni_dir_shadow_shader_program.create_from_files("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag");
+    omni_dir_shadow_shader_program = std::make_shared<OmniDirShadowShaderProgram>(OmniDirShadowShaderProgram{});
+    omni_dir_shadow_shader_program->create_from_files("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag");
 
 }
 
 void create_loading_screen_shader_program() {
 
-    loading_screen_shader_program = LoadingScreenShaderProgram();
-    loading_screen_shader_program.create_from_files("Shaders/loading_screen.vert", "Shaders/loading_screen.frag");
+    loading_screen_shader_program = std::make_shared<LoadingScreenShaderProgram>( LoadingScreenShaderProgram{});
+    loading_screen_shader_program->create_from_files("Shaders/loading_screen.vert", "Shaders/loading_screen.frag");
 
 }
 
@@ -203,10 +203,10 @@ void reload_shader_programs()
 {
 
     shadow_map_shader_program->reload();
-    g_buffer_geometry_pass_shader_program.reload();
-    g_buffer_lighting_pass_shader_program.reload();
-    omni_dir_shadow_shader_program.reload();
-    clouds.get_shader_program()->reload();
+    g_buffer_geometry_pass_shader_program->reload();
+    g_buffer_lighting_pass_shader_program->reload();
+    omni_dir_shadow_shader_program->reload();
+    clouds->get_shader_program()->reload();
 
 }
 
@@ -230,27 +230,28 @@ int main()
     GLint window_width = 1900;
     GLint window_height = 1020;
 
-    main_window = MyWindow(window_width, window_height);
-    main_window.initialize();
+    main_window = std::make_shared<MyWindow>(MyWindow(window_width, window_height));
+    main_window->initialize();
 
     noise.init();
 
-    tGenerator = new Terrain_Generator();
+    tGenerator = std::make_shared<Terrain_Generator>(Terrain_Generator());
 
-    //clouds = Clouds();
-    clouds.init(window_width, window_height, cloud_speed);
+    clouds = std::make_shared<Clouds>(Clouds());
+    clouds->init(window_width, window_height, cloud_speed);
+
+    //play with the speeds ! :) Kansei changed the speed to 75 ;) 
+    main_camera = std::make_shared<Camera>(Camera(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
+                                            0.0f, 75.0f, 0.25f, 
+                                            near_plane, far_plane, fov));
 
     //scene = Scene();
-    scene.init(&main_camera, &main_window, tGenerator, &clouds);
+    scene.init(main_camera, main_window, tGenerator, clouds);
    
     gbuffer = GBuffer(window_width, window_height);
     gbuffer.create();
 
 
-    //play with the speeds ! :) Kansei changed the speed to 75 ;) 
-    main_camera = Camera(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
-                                            0.0f, 75.0f, 0.25f, 
-                                            near_plane, far_plane, fov);
     
     //initialize main dir light
     main_light = DirectionalLight ( shadow_map_resolution,
@@ -263,7 +264,7 @@ int main()
                                                         directional_light_starting_position.x,
                                                         directional_light_starting_position.y,
                                                         directional_light_starting_position.z,
-                                                        main_camera.get_near_plane(), main_camera.get_far_plane(),
+                                                        main_camera->get_near_plane(), main_camera->get_far_plane(),
                                                         far_plane_shadow, num_shadow_cascades );
 
     point_lights[0] = PointLight(1024, 1024,
@@ -311,11 +312,11 @@ int main()
     create_shader_programs();
 
     //after creati gprograms one can init render passes
-    omni_shadow_map_pass = OmniShadowMapPass(&omni_dir_shadow_shader_program);
+    omni_shadow_map_pass = OmniShadowMapPass(omni_dir_shadow_shader_program);
     directional_shadow_map_pass = DirectionalShadowMapPass(shadow_map_shader_program);
-    geometry_pass = GeometryPass(&g_buffer_geometry_pass_shader_program);
+    geometry_pass = GeometryPass(g_buffer_geometry_pass_shader_program);
     //lighting_pass = LightingPass();
-    lighting_pass.init(&g_buffer_lighting_pass_shader_program);
+    lighting_pass.init(g_buffer_lighting_pass_shader_program);
     //textures
     //ornament1 = Texture(_strdup("Textures/dirt.png"), new RepeatMode());
     //ornament1.load_texture_with_alpha_channel();
@@ -331,7 +332,7 @@ int main()
     ImGuiIO& io = ImGui::GetIO();
     ImGuiStyle& style = ImGui::GetStyle();
     // Setup Platform/Renderer bindings
-    ImGui_ImplGlfw_InitForOpenGL(main_window.get_window(), true);
+    ImGui_ImplGlfw_InitForOpenGL(main_window->get_window(), true);
     const char* glsl_version = "#version 330";
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
@@ -361,17 +362,17 @@ int main()
 
     //
 
-    while (!main_window.get_should_close()) {
+    while (!main_window->get_should_close()) {
 
         glViewport(0, 0, window_width, window_height);
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        GLfloat ratio = main_window.get_buffer_width() / main_window.get_buffer_height();
+        GLfloat ratio = main_window->get_buffer_width() / main_window->get_buffer_height();
         //we need the projection matrix, just use glm::perspective function
-        glm::mat4 projection_matrix = glm::perspective(glm::radians(main_camera.get_fov()),
-            ratio, main_camera.get_near_plane(), main_camera.get_far_plane());
+        glm::mat4 projection_matrix = glm::perspective(glm::radians(main_camera->get_fov()),
+            ratio, main_camera->get_near_plane(), main_camera->get_far_plane());
 
         //we should make the application independet of processor speed :)
         // take time into account is crucial
@@ -384,8 +385,8 @@ int main()
         glfwPollEvents();
 
         // handle events for the camera
-        main_camera.key_control(main_window.get_keys(), delta_time);
-        main_camera.mouse_control(main_window.get_x_change(), main_window.get_y_change());
+        main_camera->key_control(main_window->get_keys(), delta_time);
+        main_camera->mouse_control(main_window->get_x_change(), main_window->get_y_change());
 
         //update light positions
 
@@ -410,10 +411,10 @@ int main()
             point_lights[2].set_position(scene.get_position_of_current_ship() + glm::vec3(-15.0, 0.f, 0.0));
 
             //retreive shadow map before our geometry pass
-            main_light.calc_orthogonal_projections(main_camera.calculate_viewmatrix(),
-                main_window.get_buffer_width(), main_window.get_buffer_height(), fov, num_shadow_cascades);
+            main_light.calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
+                main_window->get_buffer_width(), main_window->get_buffer_height(), fov, num_shadow_cascades);
 
-            directional_shadow_map_pass.execute(&main_light, main_camera.calculate_viewmatrix(),
+            directional_shadow_map_pass.execute(&main_light, main_camera->calculate_viewmatrix(),
                 first_person_mode, &scene);
 
             // omni shadow map passes for our point lights
@@ -422,17 +423,17 @@ int main()
             }
 
             //we will now start the geometry pass 
-            geometry_pass.execute(projection_matrix, main_camera.calculate_viewmatrix(), window_width, window_height, gbuffer.get_id(),
+            geometry_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer.get_id(),
                 first_person_mode, delta_time, &scene);
 
             // render the AABB for the clouds
-            clouds.render(projection_matrix, main_camera.calculate_viewmatrix(), window_width, window_height);
+            clouds->render(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height);
 
             // after geometry pass we can now do the lighting
 
-            lighting_pass.execute(projection_matrix, main_camera.calculate_viewmatrix(), &gbuffer, &main_light,
-                point_lights, point_light_count, main_camera.get_camera_position(),
-                material_counter, materials, &noise, &clouds, delta_time);
+            lighting_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), &gbuffer, &main_light,
+                point_lights, point_light_count, main_camera->get_camera_position(),
+                material_counter, materials, &noise, clouds, delta_time);
 
         }
         else {
@@ -444,7 +445,7 @@ int main()
 
             loading_screen_tex.use_texture();
 
-            loading_screen_shader_program.use_shader_program();
+            loading_screen_shader_program->use_shader_program();
 
             loading_screen.render();
 
@@ -596,9 +597,9 @@ int main()
 
         if (scene.is_loaded()) scene.update_current_space_ship(choosen_space_ship);
 
-        main_window.update_viewport();
-        GLfloat new_window_width = main_window.get_buffer_width();
-        GLfloat new_window_height = main_window.get_buffer_height();
+        main_window->update_viewport();
+        GLfloat new_window_width = main_window->get_buffer_width();
+        GLfloat new_window_height = main_window->get_buffer_height();
 
         if ((new_window_width == window_width && window_height == window_height) == false) {
 
@@ -606,7 +607,7 @@ int main()
             window_width = new_window_width;;
             gbuffer.update_window_params(window_width, window_height);
             gbuffer.create();
-            clouds.update_window_params(window_width, window_height);
+            clouds->update_window_params(window_width, window_height);
 
         }
 
@@ -615,14 +616,14 @@ int main()
         cloud_move.y = cloud_movement_direction[1];
         cloud_move.x = cloud_movement_direction[2];
 
-        clouds.set_movement_direction(cloud_move);
-        clouds.set_movement_speed(cloud_speed);
-        clouds.set_density(cloud_density);
-        clouds.set_scale(cloud_scale);
-        clouds.set_pillowness(cloud_pillowness);
-        clouds.set_cirrus_effect(cloud_cirrus_effect);
-        clouds.set_powder_effect(cloud_powder_effect);
-        clouds.set_scale(glm::vec3(cloud_mesh_scale[0], cloud_mesh_scale[1], cloud_mesh_scale[2]));
+        clouds->set_movement_direction(cloud_move);
+        clouds->set_movement_speed(cloud_speed);
+        clouds->set_density(cloud_density);
+        clouds->set_scale(cloud_scale);
+        clouds->set_pillowness(cloud_pillowness);
+        clouds->set_cirrus_effect(cloud_cirrus_effect);
+        clouds->set_powder_effect(cloud_powder_effect);
+        clouds->set_scale(glm::vec3(cloud_mesh_scale[0], cloud_mesh_scale[1], cloud_mesh_scale[2]));
         main_light.get_shadow_map()->set_pcf_radius(pcf_radius);
 
         if (loading_screen_finished) {
@@ -649,7 +650,7 @@ int main()
                 shadow_resolution_changed = false;
         }
 
-        main_window.swap_buffers();
+        main_window->swap_buffers();
     }
 
     ImGui_ImplOpenGL3_Shutdown();
