@@ -97,7 +97,7 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
 
 target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
 
-if(!WIN32)
+if(UNIX)
 	set(GCC_COMPILE_FLAGS "-pthread")
 	#set(GCC_LINK_FLAGS  "-nostartfiles -g")
 
