@@ -7,6 +7,8 @@
 #include "Vertex.h"
 #include "AABB.h"
 
+#include <memory>
+
 #include "GlobalValues.h"
 
 class Model
