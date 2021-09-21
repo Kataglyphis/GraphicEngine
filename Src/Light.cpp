@@ -2,9 +2,9 @@
 
 Light::Light() {
 
-	color = glm::vec3(1.0f, 1.0f, 1.0f);
-	ambient_intensity = 1.0f;
-	diffuse_intensity = 0.0f;
+	color = glm::vec3(1.0f);
+	ambient_intensity = float(1.0f);
+	diffuse_intensity = float(0.0f);
 
 }
 
@@ -14,8 +14,8 @@ Light::Light(GLfloat shadow_width, GLfloat shadow_height,
 	
 
 	color = glm::vec3(red, green, blue);
-	ambient_intensity = a_intensity;
-	diffuse_intensity = d_intensity;
+	ambient_intensity = float(a_intensity);
+	diffuse_intensity = float(d_intensity);
 
 }
 

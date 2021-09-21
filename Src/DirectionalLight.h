@@ -1,5 +1,6 @@
 #pragma once
 #include "Light.h"
+#include <memory>
 #include <limits>
 
 class DirectionalLight : public Light
@@ -8,21 +9,25 @@ public:
 
 	DirectionalLight();
 
-	DirectionalLight(GLfloat shadow_width, GLfloat shadow_height, 
+	DirectionalLight(GLuint shadow_width, GLuint shadow_height,
 									GLfloat red, GLfloat green, GLfloat blue,
 									GLfloat a_intensity, GLfloat d_intensity,
 									GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
 									GLfloat near_plane, GLfloat far_plane, 
-								    GLfloat shadow_far_plane, GLuint num_cascades);
+								    GLfloat shadow_far_plane, int num_cascades);
+
+	DirectionalLight(const DirectionalLight& other) ;
+
+	DirectionalLight& operator=(const DirectionalLight& other);
 
 	glm::mat4 calculate_light_transform();
 
-	CascadedShadowMap* get_shadow_map() { return shadow_map; }
+	std::unique_ptr<CascadedShadowMap>& get_shadow_map() { return shadow_map; }
 
-	glm::vec3& get_direction();
-	glm::vec3& get_color();
-	float& get_diffuse_intensity();
-	float& get_ambient_intensity();
+	glm::vec3 get_direction();
+	glm::vec3 get_color();
+	float get_diffuse_intensity();
+	float get_ambient_intensity();
 	glm::mat4 get_light_view_matrix();
 	std::vector<GLfloat> get_cascaded_slots();
 	glm::mat4* get_cascaded_light_matrices();
@@ -43,7 +48,8 @@ private:
 
 	void calc_cascaded_slots();
 
-	CascadedShadowMap* shadow_map;
+	std::unique_ptr<CascadedShadowMap> shadow_map;
+	//CascadedShadowMap*  shadow_map;
 	glm::vec3 direction;
 	GLfloat shadow_near_plane, shadow_far_plane;
 

@@ -97,11 +97,14 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
 
 target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
 
-set(GCC_COMPILE_FLAGS "-pthread")
-#set(GCC_LINK_FLAGS  "-nostartfiles -g")
+if(!WIN32)
+	set(GCC_COMPILE_FLAGS "-pthread")
+	#set(GCC_LINK_FLAGS  "-nostartfiles -g")
 
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}")
-#set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_LINK_FLAGS}")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}")
+	#set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_LINK_FLAGS}")
+else()
+endif()
 
 
 include(CPack)

@@ -20,8 +20,8 @@ public:
 protected:
 
 	glm::vec3 color;
-	GLfloat ambient_intensity;
-	GLfloat diffuse_intensity;
+	float ambient_intensity;
+	float diffuse_intensity;
 
 	glm::mat4 light_proj;
 };

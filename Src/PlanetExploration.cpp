@@ -7,6 +7,8 @@
 #include <thread>
 #include <mutex>
 
+#include <memory>
+
 //all vector math helper includes :)
 #include <limits>
 #include <vector>
@@ -251,7 +253,7 @@ int main()
                                             near_plane, far_plane, fov);
     
     //initialize main dir light
-    main_light = DirectionalLight(shadow_map_resolution,
+    main_light = DirectionalLight ( shadow_map_resolution,
                                                         shadow_map_resolution,
                                                         directional_light_starting_color.x,
                                                         directional_light_starting_color.y,
@@ -259,10 +261,10 @@ int main()
                                                         direcional_light_ambient_intensity,
                                                         direcional_light_diffuse_intensity,
                                                         directional_light_starting_position.x,
-                                                        directional_light_starting_position.y, 
+                                                        directional_light_starting_position.y,
                                                         directional_light_starting_position.z,
-                                                        main_camera.get_near_plane(), main_camera.get_far_plane(), 
-                                                        far_plane_shadow, num_shadow_cascades);
+                                                        main_camera.get_near_plane(), main_camera.get_far_plane(),
+                                                        far_plane_shadow, num_shadow_cascades );
 
     point_lights[0] = PointLight(1024, 1024,
                                     0.01f, 100.f,

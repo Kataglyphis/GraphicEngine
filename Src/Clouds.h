@@ -1,6 +1,7 @@
 #pragma once
 #include "AABB.h"
 #include "CloudsShaderProgram.h"
+#include <memory>
 
 class Clouds
 {
@@ -34,7 +35,7 @@ public:
 	void set_scale(glm::vec3 scale);
 	void set_translation(glm::vec3 translation);
 	void set_movement_direction(glm::vec3 movement_dir);
-	CloudsShaderProgram* get_shader_program();
+	std::unique_ptr<CloudsShaderProgram>& get_shader_program();
 
 	~Clouds();
 
@@ -55,7 +56,7 @@ private:
 
 	bool powder_effect;
 
-	CloudsShaderProgram* shader_program;
+	std::unique_ptr<CloudsShaderProgram> shader_program;
 
 	GLuint attatchments[1] = {GL_COLOR_ATTACHMENT0};
 };

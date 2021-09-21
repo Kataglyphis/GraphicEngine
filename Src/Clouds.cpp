@@ -1,6 +1,7 @@
 #include "Clouds.h"
 
-Clouds::Clouds()
+Clouds::Clouds() : 
+							shader_program(new CloudsShaderProgram{})
 {
 }
 
@@ -29,7 +30,7 @@ void Clouds::init(GLfloat window_width, GLfloat window_height, GLuint movement_s
 	translation = glm::vec3(0.0f);
 	scale_factor = glm::vec3(1.f);
 
-	shader_program = new CloudsShaderProgram();
+	//shader_program = std::unique_ptr<CloudsShaderProgram>{ new CloudsShaderProgram{} };
 
 	shader_program->create_from_files("Shaders/Clouds.vert","Shaders/Clouds.frag");
 
@@ -207,7 +208,7 @@ void Clouds::set_movement_direction(glm::vec3 movement_dir)
 	this->movement_direction = movement_dir;
 }
 
-CloudsShaderProgram* Clouds::get_shader_program()
+std::unique_ptr<CloudsShaderProgram>& Clouds::get_shader_program()
 {
 	return shader_program;
 }

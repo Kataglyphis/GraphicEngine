@@ -1,33 +1,48 @@
 #include "DirectionalLight.h"
 
-DirectionalLight::DirectionalLight() : Light()
+DirectionalLight::DirectionalLight() : Light(), 
+                                                                shadow_map(std::make_unique<CascadedShadowMap>())
 {
-
-	direction = glm::vec3(0.0f, -1.0f, 0.0f);
+    //shadow_map = new CascadedShadowMap{};
+	direction = glm::vec3{0, 0, 0};
 	light_proj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.f);
 
 }
 
 
-DirectionalLight::DirectionalLight(GLfloat shadow_width, GLfloat shadow_height, 
-															GLfloat red, GLfloat green, GLfloat blue,
-															GLfloat a_intensity, GLfloat d_intensity,
-															GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
-                                                            GLfloat near_plane, GLfloat far_plane, 
+DirectionalLight::DirectionalLight(GLuint shadow_width, GLuint shadow_height,
+                                                            GLfloat red, GLfloat green, GLfloat blue,
+                                                            GLfloat a_intensity, GLfloat d_intensity,
+                                                            GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
+                                                            GLfloat near_plane, GLfloat far_plane,
                                                             GLfloat shadow_far_plane,
-                                                            GLuint num_cascades) : Light(shadow_width, shadow_height,
-																																					red, green, blue,
-																																					a_intensity, d_intensity) {
+                                                            int num_cascades) : 
+                                                                          Light(shadow_width, shadow_height,
+                                                                                                    red, green, blue,
+                                                                                                    a_intensity, d_intensity),
+                                                                        shadow_map(std::make_unique<CascadedShadowMap>())
+    {
 
-	direction = glm::vec3(x_dir, y_dir, z_dir);
+    direction = glm::vec3{ x_dir, y_dir, z_dir };
 	light_proj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.f);
 
-	shadow_map = new CascadedShadowMap();
-	shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height, num_cascades);
+	shadow_map->init(shadow_width, shadow_height, num_cascades);
 
     shadow_near_plane = near_plane;
     this->shadow_far_plane = shadow_far_plane;
 }
+
+DirectionalLight::DirectionalLight(const DirectionalLight& other) : shadow_map(new CascadedShadowMap(*(other.shadow_map)))
+{
+}
+
+DirectionalLight& DirectionalLight::operator=(const DirectionalLight& other)
+{
+    shadow_map.reset(new CascadedShadowMap(*(other.shadow_map)));
+    return *this;
+}
+
+
 
 glm::mat4 DirectionalLight::get_light_view_matrix() {
 	return glm::lookAt(-direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -53,9 +68,7 @@ glm::mat4* DirectionalLight::get_cascaded_light_matrices()
 
 void DirectionalLight::update_shadow_map(GLfloat shadow_width, GLfloat shadow_height, GLuint num_cascades)
 {
-    //shadow_map = NULL;
-    delete shadow_map;
-    shadow_map = new CascadedShadowMap();
+    shadow_map.reset(new CascadedShadowMap);
     shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height, num_cascades);
 }
 
@@ -149,22 +162,22 @@ glm::mat4 DirectionalLight::calculate_light_transform()
 	return light_proj * glm::lookAt(-direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
-glm::vec3& DirectionalLight::get_direction()
+glm::vec3 DirectionalLight::get_direction()
 {
 	return direction;
 }
 
-glm::vec3& DirectionalLight::get_color()
+glm::vec3 DirectionalLight::get_color()
 {
 	return color;
 }
 
-float& DirectionalLight::get_diffuse_intensity()
+float DirectionalLight::get_diffuse_intensity()
 {
 	return diffuse_intensity;
 }
 
-float& DirectionalLight::get_ambient_intensity()
+float DirectionalLight::get_ambient_intensity()
 {
 	return ambient_intensity;
 }
@@ -191,4 +204,5 @@ void DirectionalLight::set_color(glm::vec3 color)
 
 DirectionalLight::~DirectionalLight()
 {
+
 }
