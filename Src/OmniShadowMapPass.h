@@ -20,7 +20,7 @@ public:
 
     bool use_terrain_textures();
 
-    void execute(PointLight* p_light, bool first_person_mode, Scene* scene);
+    void execute(PointLight* p_light, bool first_person_mode, std::shared_ptr<Scene> scene);
 
     ~OmniShadowMapPass();
 

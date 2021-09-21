@@ -27,9 +27,9 @@ void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_progra
 
 }
 
-void LightingPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, GBuffer* gbuffer, DirectionalLight* main_light, 
+void LightingPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, 
                                                     PointLight* point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
-                                                    Material* materials, Noise* noise, std::shared_ptr<Clouds> cloud, float delta_time)
+                                                    Material* materials, std::shared_ptr<Noise> noise, std::shared_ptr<Clouds> cloud, float delta_time)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -69,8 +69,8 @@ void LightingPass::generate_random_numbers()
     }
 }
 
-void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, GBuffer* gbuffer,
-                                                                        DirectionalLight* main_light, PointLight* point_lights, GLuint point_light_count,
+void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer,
+                                                                        std::shared_ptr<DirectionalLight> main_light, PointLight* point_lights, GLuint point_light_count,
                                                                          glm::vec3 camera_position, GLuint material_counter,
                                                                           Material* materials, std::shared_ptr<Clouds> cloud, float delta_time)
 {
@@ -178,7 +178,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     shader_program->validate_program();
 }
 
-void LightingPass::bind_buffers_for_lighting(GBuffer* gbuffer, DirectionalLight* main_light, Noise* noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud)
+void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, std::shared_ptr<Noise> noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud)
 {
 
     GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();

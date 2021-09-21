@@ -78,16 +78,16 @@ GLfloat fov= 60.0f;
 //global objects
 std::shared_ptr<MyWindow> main_window;
 std::shared_ptr<Camera> main_camera;
-DirectionalLight main_light;
+std::shared_ptr<DirectionalLight> main_light;
 PointLight point_lights[MAX_POINT_LIGHTS];
 
 Texture ornament1;
 Material materials[MAX_MATERIALS];
-GBuffer gbuffer;
+std::shared_ptr<GBuffer> gbuffer;
 
-Noise noise;
+std::shared_ptr<Noise> noise;
 std::shared_ptr<Clouds> clouds;
-Scene scene;
+std::shared_ptr<Scene> scene;
 
 // we will need a bunch of shader programs
 std::shared_ptr<GeometryPassShaderProgram> g_buffer_geometry_pass_shader_program;
@@ -212,14 +212,14 @@ void reload_shader_programs()
 
 void create_noise_textures() {
 
-    noise.create_worley_noise();
-    noise.create_grad_noise();
+    noise->create_worley_noise();
+    noise->create_grad_noise();
 
 }
 
 void reload_noise_programs() {
 
-    noise.update();
+    noise->update();
     create_noise_textures();
 }
 
@@ -233,7 +233,8 @@ int main()
     main_window = std::make_shared<MyWindow>(MyWindow(window_width, window_height));
     main_window->initialize();
 
-    noise.init();
+    noise = std::make_shared<Noise>(Noise{});
+    noise->init();
 
     tGenerator = std::make_shared<Terrain_Generator>(Terrain_Generator());
 
@@ -245,16 +246,16 @@ int main()
                                             0.0f, 75.0f, 0.25f, 
                                             near_plane, far_plane, fov));
 
-    //scene = Scene();
-    scene.init(main_camera, main_window, tGenerator, clouds);
+    scene = std::make_shared<Scene>(Scene());
+    scene->init(main_camera, main_window, tGenerator, clouds);
    
-    gbuffer = GBuffer(window_width, window_height);
-    gbuffer.create();
+    gbuffer = std::make_shared<GBuffer>(GBuffer(window_width, window_height));
+    gbuffer->create();
 
 
     
     //initialize main dir light
-    main_light = DirectionalLight ( shadow_map_resolution,
+    main_light = std::make_shared<DirectionalLight> (DirectionalLight( shadow_map_resolution,
                                                         shadow_map_resolution,
                                                         directional_light_starting_color.x,
                                                         directional_light_starting_color.y,
@@ -265,7 +266,7 @@ int main()
                                                         directional_light_starting_position.y,
                                                         directional_light_starting_position.z,
                                                         main_camera->get_near_plane(), main_camera->get_far_plane(),
-                                                        far_plane_shadow, num_shadow_cascades );
+                                                        far_plane_shadow, num_shadow_cascades ));
 
     point_lights[0] = PointLight(1024, 1024,
                                     0.01f, 100.f,
@@ -354,7 +355,7 @@ int main()
     //scene.load_models();
     std::thread load_scene{ [] {
 
-        scene.load_models();
+        scene->load_models();
 
     } };
 
@@ -396,7 +397,7 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        if (scene.is_loaded()) {
+        if (scene->is_loaded()) {
 
             if (!loading_screen_finished) {
 
@@ -404,36 +405,36 @@ int main()
 
             }
 
-            scene.setup_game_object_context();
+            scene->setup_game_object_context();
 
-            point_lights[0].set_position(scene.get_position_of_current_ship() + glm::vec3(0.0, -24.f, -24.0));
-            point_lights[1].set_position(scene.get_position_of_current_ship() + glm::vec3(15.0, 0.f, 0.0f));
-            point_lights[2].set_position(scene.get_position_of_current_ship() + glm::vec3(-15.0, 0.f, 0.0));
+            point_lights[0].set_position(scene->get_position_of_current_ship() + glm::vec3(0.0, -24.f, -24.0));
+            point_lights[1].set_position(scene->get_position_of_current_ship() + glm::vec3(15.0, 0.f, 0.0f));
+            point_lights[2].set_position(scene->get_position_of_current_ship() + glm::vec3(-15.0, 0.f, 0.0));
 
             //retreive shadow map before our geometry pass
-            main_light.calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
+            main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
                 main_window->get_buffer_width(), main_window->get_buffer_height(), fov, num_shadow_cascades);
 
-            directional_shadow_map_pass.execute(&main_light, main_camera->calculate_viewmatrix(),
-                first_person_mode, &scene);
+            directional_shadow_map_pass.execute(main_light, main_camera->calculate_viewmatrix(),
+                first_person_mode, scene);
 
             // omni shadow map passes for our point lights
             for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
-                omni_shadow_map_pass.execute(&point_lights[p_light_count], first_person_mode, &scene);
+                omni_shadow_map_pass.execute(&point_lights[p_light_count], first_person_mode, scene);
             }
 
             //we will now start the geometry pass 
-            geometry_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer.get_id(),
-                first_person_mode, delta_time, &scene);
+            geometry_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),
+                first_person_mode, delta_time, scene);
 
             // render the AABB for the clouds
             clouds->render(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height);
 
             // after geometry pass we can now do the lighting
 
-            lighting_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), &gbuffer, &main_light,
+            lighting_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), gbuffer, main_light,
                 point_lights, point_light_count, main_camera->get_camera_position(),
-                material_counter, materials, &noise, clouds, delta_time);
+                material_counter, materials, noise, clouds, delta_time);
 
         }
         else {
@@ -456,9 +457,9 @@ int main()
         // render your GUI
         ImGui::Begin("GUI v1.3.1");
 
-        if (!scene.is_loaded())
+        if (!scene->is_loaded())
         {
-            ImGui::ProgressBar(scene.get_progress(), ImVec2(0.0f, 0.0f));
+            ImGui::ProgressBar(scene->get_progress(), ImVec2(0.0f, 0.0f));
             ImGui::SameLine(0.0f, ImGui::GetStyle().ItemInnerSpacing.x);
             ImGui::Text("Load Planet");
             ImGui::Separator();
@@ -585,17 +586,17 @@ int main()
 
         //update all vaiables
         //update light parameters
-        main_light.set_ambient_intensity(direcional_light_ambient_intensity);
-        main_light.set_diffuse_intensity(direcional_light_diffuse_intensity);
-        main_light.get_shadow_map()->set_intensity(cascaded_shadow_intensity);
+        main_light->set_ambient_intensity(direcional_light_ambient_intensity);
+        main_light->set_diffuse_intensity(direcional_light_diffuse_intensity);
+        main_light->get_shadow_map()->set_intensity(cascaded_shadow_intensity);
 
         glm::vec3 new_main_light_color(directional_light_color[0], directional_light_color[1], directional_light_color[2]);
-        main_light.set_color(new_main_light_color);
+        main_light->set_color(new_main_light_color);
 
         glm::vec3 new_main_light_pos(directional_light_direction[0], directional_light_direction[1], directional_light_direction[2]);
-        main_light.set_direction(new_main_light_pos);
+        main_light->set_direction(new_main_light_pos);
 
-        if (scene.is_loaded()) scene.update_current_space_ship(choosen_space_ship);
+        if (scene->is_loaded()) scene->update_current_space_ship(choosen_space_ship);
 
         main_window->update_viewport();
         GLfloat new_window_width = main_window->get_buffer_width();
@@ -605,8 +606,8 @@ int main()
 
             window_height = new_window_height;
             window_width = new_window_width;;
-            gbuffer.update_window_params(window_width, window_height);
-            gbuffer.create();
+            gbuffer->update_window_params(window_width, window_height);
+            gbuffer->create();
             clouds->update_window_params(window_width, window_height);
 
         }
@@ -624,7 +625,7 @@ int main()
         clouds->set_cirrus_effect(cloud_cirrus_effect);
         clouds->set_powder_effect(cloud_powder_effect);
         clouds->set_scale(glm::vec3(cloud_mesh_scale[0], cloud_mesh_scale[1], cloud_mesh_scale[2]));
-        main_light.get_shadow_map()->set_pcf_radius(pcf_radius);
+        main_light->get_shadow_map()->set_pcf_radius(pcf_radius);
 
         if (loading_screen_finished) {
             
@@ -645,7 +646,7 @@ int main()
                     shadow_map_resolution = 4096.f;
                 }
 
-                main_light.update_shadow_map(shadow_map_resolution, shadow_map_resolution, num_shadow_cascades);
+                main_light->update_shadow_map(shadow_map_resolution, shadow_map_resolution, num_shadow_cascades);
 
                 shadow_resolution_changed = false;
         }

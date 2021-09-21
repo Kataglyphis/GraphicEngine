@@ -39,7 +39,7 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
 }
 
 void GeometryPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height,
-                                                GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene)
+                                                GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, std::shared_ptr<Scene> scene)
 {
 
     glBindFramebuffer(GL_FRAMEBUFFER, gbuffer_id);
