@@ -7,6 +7,8 @@
 #include "MirroredRepeatMode.h"
 #include "ClampToEdgeMode.h"
 
+#include <memory>
+
 #include "GlobalValues.h"
 
 #include "glErrorChecker.h"
