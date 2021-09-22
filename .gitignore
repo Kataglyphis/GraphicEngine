@@ -33,3 +33,5 @@
 
 # ignore build file 
 build/*
+Release/*
+Debug/*
