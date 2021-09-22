@@ -45,7 +45,7 @@ private:
 	ComputeShaderProgram texture_1_shader_program;
 	ComputeShaderProgram texture_2_shader_program;
 
-	GLfloat* cell_data[NUM_CELLS];
+	GLfloat* cell_data [NUM_CELLS];
 
 	glErrorChecker glErrorChecker_ins;
 
