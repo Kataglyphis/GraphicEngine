@@ -6,7 +6,7 @@ Ka 1 1 1
 Kd 1 1 1
 Ks 1 1 1
 Km 0
-map_Kd Textures\wnd3b.jpg
+map_Kd Textures/wnd3b.jpg
 
 newmtl default_sign
 d 1

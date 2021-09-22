@@ -6,7 +6,7 @@ Ka 0 0 0
 Kd 1 1 1
 Ks 1 1 1
 Km 0
-map_Kd Maps\1pt.jpg
+map_Kd Maps/1pt.jpg
 
 newmtl default_fire
 d 1
@@ -34,7 +34,7 @@ Ka 0 0 0
 Kd 1 1 1
 Ks 1 1 1
 Km 0
-map_Kd Maps\1pt2.jpg
+map_Kd Maps/1pt2.jpg
 
 newmtl default_lights
 d 1

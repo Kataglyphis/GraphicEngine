@@ -324,7 +324,7 @@ int main()
     tGenerator->init();
 
     //precompute our noise textures ones
-    //create_noise_textures();
+    create_noise_textures();
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
