@@ -243,7 +243,5 @@ void Noise::read_grad_noise(GLenum start_buffer_index)
 
 Noise::~Noise()
 {
-	/*for (int i = 0; i < NUM_CELLS; i++) {
-		delete cell_data[i];
-	}*/
+	delete_textures();
 }

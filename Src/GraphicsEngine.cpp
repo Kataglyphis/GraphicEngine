@@ -1,9 +1,8 @@
-#pragma once
 //necessary for the stb header file ....
 #define STB_IMAGE_IMPLEMENTATION
 #define TINYOBJLOADER_IMPLEMENTATION
 
-// include ability to execute threads 
+// include ability to execute threads
 #include <thread>
 #include <mutex>
 
@@ -108,7 +107,7 @@ Quad loading_screen;
 Texture loading_screen_tex;
 Texture logo;
 
-// all variables for gui 
+// all variables for gui
 glm::vec3 directional_light_starting_position = glm::vec3(0.0f, -1.0f, 0.1f);
 glm::vec3 directional_light_starting_color = glm::vec3(1.0f);
 
@@ -119,8 +118,8 @@ static float directional_light_color[3] = {directional_light_starting_color.x,
                                                                         directional_light_starting_color.y,
                                                                         directional_light_starting_color.z };
 
-static float directional_light_direction[3] = { directional_light_starting_position.x, 
-                                                                                directional_light_starting_position.y, 
+static float directional_light_direction[3] = { directional_light_starting_position.x,
+                                                                                directional_light_starting_position.y,
                                                                                 directional_light_starting_position.z };
 
 unsigned int material_counter = 0;
@@ -133,7 +132,7 @@ float cloud_scale = 0.63f;
 float cloud_density = 0.667f;
 float cloud_pillowness = 0.966f;
 float cloud_cirrus_effect = 0.0f;
-float cloud_mesh_scale[3] = { 1000.f, 20.f, 1000.f }; 
+float cloud_mesh_scale[3] = { 1000.f, 20.f, 1000.f };
 bool cloud_powder_effect = false;
 float cloud_movement_direction [3] = { 1.f, 1.f, 1.f };
 
@@ -162,7 +161,7 @@ void create_geometry_pass_shader_program() {
 }
 
 void create_lighting_pass_shader_program() {
-    
+
     g_buffer_lighting_pass_shader_program = std::make_shared<LightingPassShaderProgram>(LightingPassShaderProgram{});
     g_buffer_lighting_pass_shader_program->create_from_files("Shaders/g_buffer_lighting_pass.vert", "Shaders/g_buffer_lighting_pass.frag");
 
@@ -241,19 +240,19 @@ int main()
     clouds = std::make_shared<Clouds>(Clouds());
     clouds->init(window_width, window_height, cloud_speed);
 
-    //play with the speeds ! :) Kansei changed the speed to 75 ;) 
+    //play with the speeds ! :) Kansei changed the speed to 75 ;)
     main_camera = std::make_shared<Camera>(Camera(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
-                                            0.0f, 75.0f, 0.25f, 
+                                            0.0f, 75.0f, 0.25f,
                                             near_plane, far_plane, fov));
 
     scene = std::make_shared<Scene>(Scene());
     scene->init(main_camera, main_window, tGenerator, clouds);
-   
+
     gbuffer = std::make_shared<GBuffer>(GBuffer(window_width, window_height));
     gbuffer->create();
 
 
-    
+
     //initialize main dir light
     main_light = std::make_shared<DirectionalLight> (DirectionalLight( shadow_map_resolution,
                                                         shadow_map_resolution,
@@ -325,7 +324,7 @@ int main()
     tGenerator->init();
 
     //precompute our noise textures ones
-    create_noise_textures();
+    //create_noise_textures();
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -423,7 +422,7 @@ int main()
                 omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene);
             }
 
-            //we will now start the geometry pass 
+            //we will now start the geometry pass
             geometry_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),
                 first_person_mode, delta_time, scene);
 
@@ -439,8 +438,8 @@ int main()
         }
         else {
 
-            // play the audio 
-            //SoundEngine->play2D("Audio/Red_Dead_Redemption_2 _Loading_Screen.mp3", true); // 
+            // play the audio
+            //SoundEngine->play2D("Audio/Red_Dead_Redemption_2 _Loading_Screen.mp3", true); //
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -499,7 +498,7 @@ int main()
                 ImGui::ColorEdit3("Directional Light Color", directional_light_color);
                 ImGui::Separator();
                 ImGui::SliderFloat3("Light Direction", directional_light_direction, -1.f, 1.0f);
-                
+
                 if (ImGui::TreeNode("Shadows")) {
                     int shadow_map_res_index_before = shadow_map_res_index;
                     ImGui::Combo("Shadow Map Resolution", &shadow_map_res_index, available_shadow_map_resolutions, IM_ARRAYSIZE(available_shadow_map_resolutions));
@@ -509,7 +508,7 @@ int main()
                     if (num_cascades_before != num_shadow_cascades) shadow_resolution_changed = true;
                     ImGui::SliderInt("PCF radius", &pcf_radius, 1, 20 );
                     ImGui::SliderFloat("Shadow intensity", &cascaded_shadow_intensity ,0.0f, 1.0f);
-                    
+
                     ImGui::TreePop();
 
                 }
@@ -549,7 +548,7 @@ int main()
         if (ImGui::CollapsingHeader("Audio Settings")) {
 
             ImGui::SliderFloat("Volume", &sound_volume, 0.0f, 1.0f);
-           
+
         }
 
         ImGui::Separator();
@@ -628,7 +627,7 @@ int main()
         main_light->get_shadow_map()->set_pcf_radius(pcf_radius);
 
         if (loading_screen_finished) {
-            
+
         }
         if (shadow_resolution_changed) {
 

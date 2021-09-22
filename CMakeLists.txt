@@ -63,11 +63,11 @@ file(COPY Resources/Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 #           ${CMAKE_CURRENT_BINARY_DIR}/Shaders/)
 
 # we depend on OpenGL
-# find_package( OpenGL REQUIRED )
-# target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
+# find_package( OpenGL REQUIRED COMPONENTS OpenGL EGL)
+# target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} OpenGL::OpenGL OpenGL::EGL)
 
 #surpress warnings
-set(OpenGL_GL_PREFERENCE LEGACY)
+set(OpenGL_GL_PREFERENCE GLVND)
 
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -98,11 +98,7 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
 target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
 
 if(UNIX)
-	set(GCC_COMPILE_FLAGS "-pthread")
-	#set(GCC_LINK_FLAGS  "-nostartfiles -g")
-
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}")
-	#set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_LINK_FLAGS}")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 else()
 endif()
 
