@@ -1,6 +1,6 @@
 #include "Noise.h"
 
-Noise::Noise()
+Noise::Noise() 
 {
 
 }
@@ -52,7 +52,7 @@ void Noise::generate_textures()
 
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 		// i think we won't need nearest option; so stick to linear
-		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, num_cells_per_axis[i], num_cells_per_axis[i], num_cells_per_axis[i], 0, GL_RGBA, GL_FLOAT, cell_data[i]);
+		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, num_cells_per_axis[i], num_cells_per_axis[i], num_cells_per_axis[i], 0, GL_RGBA, GL_FLOAT, cell_data[i].get());
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
@@ -129,7 +129,7 @@ void Noise::set_num_cells(GLuint num_cells_per_axis, GLuint index)
 void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 {
 
-	cell_data[cell_index]= new GLfloat[num_cells_per_axis* num_cells_per_axis* num_cells_per_axis * 4];
+	cell_data[cell_index] = std::shared_ptr<GLfloat[]>(new GLfloat[num_cells_per_axis* num_cells_per_axis* num_cells_per_axis * 4]);
 	GLfloat cell_size = 1.f / (GLfloat)num_cells_per_axis;
 
 	std::mt19937_64 gen64 (25121995);
@@ -144,10 +144,10 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 
 				GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;
 
-				*(cell_data[cell_index] + index) = position[0];//
-				*(cell_data[cell_index] + index + 1) = position[1];//
-				*(cell_data[cell_index] + index + 2) = position[2];//
-				*(cell_data[cell_index] + index + 3) = 1.0f;
+				*(cell_data[cell_index].get() + index) = position[0];//
+				*(cell_data[cell_index].get() + index + 1) = position[1];//
+				*(cell_data[cell_index].get() + index + 2) = position[2];//
+				*(cell_data[cell_index].get() + index + 3) = 1.0f;
 			}
 		}
 	}
@@ -243,7 +243,7 @@ void Noise::read_grad_noise(GLenum start_buffer_index)
 
 Noise::~Noise()
 {
-	for (int i = 0; i < NUM_CELLS; i++) {
+	/*for (int i = 0; i < NUM_CELLS; i++) {
 		delete cell_data[i];
-	}
+	}*/
 }
