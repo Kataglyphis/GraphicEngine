@@ -17,7 +17,7 @@ class Texture
 public:
 
 	Texture();
-	Texture(const char* file_loc, TextureWrappingMode* wrapping_mode);
+	Texture(const char* file_loc, std::shared_ptr<TextureWrappingMode> wrapping_mode);
 
 	bool load_texture_without_alpha_channel();
 	bool load_texture_with_alpha_channel();
@@ -35,7 +35,7 @@ private:
 	GLuint textureID;
 	int width, height, bit_depth;
 
-	TextureWrappingMode* wrapping_mode;
+	std::shared_ptr<TextureWrappingMode> wrapping_mode;
 
 	std::string file_location; //  Git merge conflict
 	//const char* file_location; // //  Git merge conflict

@@ -44,7 +44,7 @@ public:
 	GLuint get_uniform_num_active_cascades_location();
 	GLuint get_uniform_pcf_radius_location();
 
-	void set_point_lights(PointLight* p_light, unsigned int light_count, unsigned int texture_unit, unsigned int offset);
+	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int light_count, unsigned int texture_unit, unsigned int offset);
 	void set_noise_textures(GLuint start);
 	void set_cloud_texture(GLuint index);
 

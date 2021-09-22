@@ -15,6 +15,8 @@ public:
 
 	Scene();
 
+	Scene(const Scene& other);
+
 	std::shared_ptr<Terrain_Generator> get_terrain_generator();
 
 	void init(std::shared_ptr<Camera> main_camera, std::shared_ptr<MyWindow> main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds);
@@ -37,12 +39,12 @@ public:
 
 private:
 
-	bool object_is_visible(GameObject* game_object);
+	bool object_is_visible(std::shared_ptr<GameObject> game_object);
 
 	std::shared_ptr<Camera> main_camera;
 	std::shared_ptr<MyWindow> main_window;
 	std::shared_ptr<Terrain_Generator> terrain_generator;
-	ViewFrustumCulling* view_frustum_culling;
+	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 	std::shared_ptr<Clouds> clouds;
 
 	std::vector<std::shared_ptr<GameObject>> space_ships;

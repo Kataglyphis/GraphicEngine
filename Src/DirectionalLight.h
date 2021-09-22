@@ -16,13 +16,9 @@ public:
 									GLfloat near_plane, GLfloat far_plane, 
 								    GLfloat shadow_far_plane, int num_cascades);
 
-	DirectionalLight(const DirectionalLight& other) ;
-
-	DirectionalLight& operator=(const DirectionalLight& other);
-
 	glm::mat4 calculate_light_transform();
 
-	std::unique_ptr<CascadedShadowMap>& get_shadow_map() { return shadow_map; }
+	std::shared_ptr<CascadedShadowMap> get_shadow_map() { return shadow_map; }
 
 	glm::vec3 get_direction();
 	glm::vec3 get_color();
@@ -48,7 +44,7 @@ private:
 
 	void calc_cascaded_slots();
 
-	std::unique_ptr<CascadedShadowMap> shadow_map;
+	std::shared_ptr<CascadedShadowMap> shadow_map;
 	//CascadedShadowMap*  shadow_map;
 	glm::vec3 direction;
 	GLfloat shadow_near_plane, shadow_far_plane;

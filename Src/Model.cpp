@@ -56,9 +56,7 @@ void Model::load_model_in_ram(std::string model_path) {
                 std::string relative_texture_filename = mp->diffuse_texname;
                 std::string texture_filename = get_base_dir(model_path) + "/" + relative_texture_filename;
 
-
-
-                texture_list.push_back(Texture(texture_filename.c_str(), new RepeatMode()));
+                texture_list.push_back(std::make_shared<Texture>(Texture(texture_filename.c_str(), std::make_shared<RepeatMode>(RepeatMode()))));
 
                 /*if (!texture_list[num_tex]->load_texture_without_alpha_channel()) {
                     printf("Failed to load texture at: %s\n", texture_filename.c_str());
@@ -148,18 +146,18 @@ void Model::create_render_context() {
 
     for (int i = 0; i < texture_list.size(); i++) {
 
-        std::string texture_filename = texture_list[i].get_filename();
+        std::string texture_filename = texture_list[i]->get_filename();
 
-        if (!texture_list[i].load_texture_without_alpha_channel()) {
+        if (!texture_list[i]->load_texture_without_alpha_channel()) {
             printf("Failed to load texture at: %s\n", texture_filename.c_str());
-            texture_list[i] = Texture();
+            texture_list[i].reset();
         }
 
     }
 
     for (int i = 0; i < vertices_per_shape.size(); i++) {
 
-        this->shapes.push_back(Mesh(vertices_per_shape[i], indices_per_shape[i]));
+        this->shapes.push_back(std::make_shared<Mesh>(Mesh(vertices_per_shape[i], indices_per_shape[i])));
 
     }
         
@@ -172,9 +170,9 @@ void Model::render()
     
     for (int i = 0; i < shapes.size(); i++) {
 
-       if(material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]].use_texture();
-       shapes[i].render();
-       if (material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]].unbind_texture();
+       if(material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]]->use_texture();
+       shapes[i]->render();
+       if (material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]]->unbind_texture();
     }
 
 }
@@ -183,7 +181,7 @@ void Model::render()
 void Model::transform_model(glm::vec3 translate_vec, glm::vec3 scale, float angle, glm::vec3 rotateAxis) {
     for (int i = 0; i < shapes.size(); i++)
     {
-        shapes[i].transform_Mesh(translate_vec, scale, angle, rotateAxis);
+        shapes[i]->transform_Mesh(translate_vec, scale, angle, rotateAxis);
     }
 }
 

@@ -5,6 +5,28 @@ Scene::Scene()
 
 }
 
+Scene::Scene(const Scene& other)
+{
+    main_camera = other.main_camera;
+    main_window = other.main_window;
+    terrain_generator = other.terrain_generator;
+    view_frustum_culling = other.view_frustum_culling;
+    clouds = other.clouds;
+
+    space_ships = other.space_ships;
+    ambient_objects = other.ambient_objects;
+
+     space_ship_offsets = other.space_ship_offsets;
+     rotation_offset = other.rotation_offset;
+
+     progress = other.progress;
+     loaded_scene = other.loaded_scene;
+
+     current_space_ship_selected = other.current_space_ship_selected;
+
+     context_setup = other.context_setup;
+}
+
 std::shared_ptr<Terrain_Generator> Scene::get_terrain_generator()
 {
     return terrain_generator;
@@ -20,7 +42,7 @@ void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<MyWindow> 
 
     loaded_scene = false;
 
-    view_frustum_culling = new ViewFrustumCulling();
+    view_frustum_culling = std::make_shared<ViewFrustumCulling>(ViewFrustumCulling{});
     current_space_ship_selected = 0;
 
     progress = 0;
@@ -261,7 +283,7 @@ std::shared_ptr<Clouds> Scene::get_clouds()
     return clouds;
 }
 
-bool Scene::object_is_visible(GameObject* game_object)
+bool Scene::object_is_visible(std::shared_ptr<GameObject> game_object)
 {
     return view_frustum_culling->is_inside(main_window->get_buffer_width()/main_window->get_buffer_height(),
                                                             main_camera, game_object->get_aabb(), game_object->get_world_trafo());

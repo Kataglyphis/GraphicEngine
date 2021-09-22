@@ -70,7 +70,7 @@ public:
 	// view: is the camera position (GetViewMatrix)	
 	// model:
 	// projection: 
-	std::vector<bool> render(GLfloat ratio, std::shared_ptr<Camera> camera, ViewFrustumCulling* view_cull, RenderPassSceneDependend* shader_pass);
+	std::vector<bool> render(GLfloat ratio, std::shared_ptr<Camera> camera, std::shared_ptr<ViewFrustumCulling> view_cull, RenderPassSceneDependend* shader_pass);
 
 	void render_plants(std::vector<bool> is_chunk_rendered_flags, RenderPassSceneDependend *shader_pass);
 

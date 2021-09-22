@@ -35,9 +35,9 @@ private:
 
     GLuint num_tex;
 
-    std::vector<Mesh> shapes;
+    std::vector<std::shared_ptr<Mesh>> shapes;
     //std::vector<Mesh*> mesh_list;
-    std::vector<Texture> texture_list;
+    std::vector<std::shared_ptr<Texture>> texture_list;
 
     std::vector<std::vector<Vertex>> vertices_per_shape;
     std::vector<std::vector<unsigned int>> indices_per_shape;

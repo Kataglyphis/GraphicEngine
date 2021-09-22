@@ -1,7 +1,7 @@
 #include "DirectionalLight.h"
 
 DirectionalLight::DirectionalLight() : Light(), 
-                                                                shadow_map(std::make_unique<CascadedShadowMap>()),
+                                                                shadow_map(std::make_shared<CascadedShadowMap>()),
                                                                 cascade_light_matrices(NUM_MAX_CASCADES, glm::mat4(0.f))
 {
     //shadow_map = new CascadedShadowMap{};
@@ -22,7 +22,7 @@ DirectionalLight::DirectionalLight(GLuint shadow_width, GLuint shadow_height,
                                                                           Light(shadow_width, shadow_height,
                                                                                                     red, green, blue,
                                                                                                     a_intensity, d_intensity),
-                                                                        shadow_map(std::make_unique<CascadedShadowMap>()),
+                                                                        shadow_map(std::make_shared<CascadedShadowMap>()),
                                                                         cascade_light_matrices(NUM_MAX_CASCADES, glm::mat4(0.f))
     {
 
@@ -34,18 +34,6 @@ DirectionalLight::DirectionalLight(GLuint shadow_width, GLuint shadow_height,
     shadow_near_plane = near_plane;
     this->shadow_far_plane = shadow_far_plane;
 }
-
-DirectionalLight::DirectionalLight(const DirectionalLight& other) : shadow_map(new CascadedShadowMap(*(other.shadow_map)))
-{
-}
-
-DirectionalLight& DirectionalLight::operator=(const DirectionalLight& other)
-{
-    shadow_map.reset(new CascadedShadowMap(*(other.shadow_map)));
-    return *this;
-}
-
-
 
 glm::mat4 DirectionalLight::get_light_view_matrix() {
 	return glm::lookAt(-direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));

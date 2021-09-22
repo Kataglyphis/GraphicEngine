@@ -28,8 +28,8 @@ void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_progra
 }
 
 void LightingPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, 
-                                                    PointLight* point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
-                                                    Material* materials, std::shared_ptr<Noise> noise, std::shared_ptr<Clouds> cloud, float delta_time)
+                                                    std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
+                                                    std::vector<std::shared_ptr<Material>>& materials, std::shared_ptr<Noise> noise, std::shared_ptr<Clouds> cloud, float delta_time)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -70,9 +70,9 @@ void LightingPass::generate_random_numbers()
 }
 
 void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer,
-                                                                        std::shared_ptr<DirectionalLight> main_light, PointLight* point_lights, GLuint point_light_count,
+                                                                       std::shared_ptr<DirectionalLight> main_light, std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count,
                                                                          glm::vec3 camera_position, GLuint material_counter,
-                                                                          Material* materials, std::shared_ptr<Clouds> cloud, float delta_time)
+                                                                          std::vector<std::shared_ptr<Material>>& materials, std::shared_ptr<Clouds> cloud, float delta_time)
 {
     DirectionalLightUniformLocations d_light_uniform_locations;
 
@@ -128,7 +128,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     for (size_t i = 0; i < material_counter; i++) {
 
-        materials[i].use_material(shader_program->get_uniform_material_metallic_location(i),
+        materials[i]->use_material(shader_program->get_uniform_material_metallic_location(i),
             shader_program->get_uniform_material_roughness_location(i),
             shader_program->get_uniform_IOR_location(i), 
             shader_program->get_uniform_absorption_location(i));

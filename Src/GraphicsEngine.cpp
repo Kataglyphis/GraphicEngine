@@ -79,10 +79,10 @@ GLfloat fov= 60.0f;
 std::shared_ptr<MyWindow> main_window;
 std::shared_ptr<Camera> main_camera;
 std::shared_ptr<DirectionalLight> main_light;
-PointLight point_lights[MAX_POINT_LIGHTS];
+std::vector<std::shared_ptr<PointLight>> point_lights(MAX_POINT_LIGHTS, NULL);
 
 Texture ornament1;
-Material materials[MAX_MATERIALS];
+std::vector<std::shared_ptr<Material>> materials(MAX_MATERIALS, NULL);
 std::shared_ptr<GBuffer> gbuffer;
 
 std::shared_ptr<Noise> noise;
@@ -268,30 +268,30 @@ int main()
                                                         main_camera->get_near_plane(), main_camera->get_far_plane(),
                                                         far_plane_shadow, num_shadow_cascades ));
 
-    point_lights[0] = PointLight(1024, 1024,
+    point_lights[0] = std::make_shared<PointLight>(PointLight(1024, 1024,
                                     0.01f, 100.f,
                                     0.0f, 1.0f, 0.0f,
                                     1.f, 1.0f,
                                     0.0f, 0.0f, 0.0f,
-                                    0.1f, 0.1f, 0.1f);
+                                    0.1f, 0.1f, 0.1f));
 
     point_light_count++;
 
-    point_lights[1] = PointLight(1024, 1024,
+    point_lights[1] = std::make_shared<PointLight>(PointLight(1024, 1024,
         0.01f, 100.f,
         1.0f, 0.0f, 0.0f,
         1.f, 1.0f,
         0.0f, 0.0f, 0.0f,
-        0.1f, 0.1f, 0.1f);
+        0.1f, 0.1f, 0.1f));
 
     point_light_count++;
 
-    point_lights[2] = PointLight(1024, 1024,
+    point_lights[2] = std::make_shared<PointLight>(PointLight(1024, 1024,
         0.01f, 100.f,
         0.0f, 0.0f, 1.0f,
         1.f, 1.0f,
         0.0f, 0.0f, 0.0f,
-        0.1f, 0.1f, 0.1f);
+        0.1f, 0.1f, 0.1f));
 
     point_light_count++;
 
@@ -301,11 +301,11 @@ int main()
     GLfloat absorption_coeff_cond = 4.f;
     GLfloat absorption_coeff_diel = 0.0f;
 
-    materials[0] = Material(1.0f, 0.1f, silizium_carbide_IOR, absorption_coeff_cond);
+    materials[0] = std::make_shared<Material>(Material(1.0f, 0.1f, silizium_carbide_IOR, absorption_coeff_cond));
 
     material_counter++;
 
-    materials[1] = Material(1.0f, 0.8f, water_IOR, absorption_coeff_diel);
+    materials[1] = std::make_shared<Material>(Material(1.0f, 0.8f, water_IOR, absorption_coeff_diel));
 
     material_counter++;
 
@@ -347,9 +347,9 @@ int main()
 
     //init texture for loading screen
     loading_screen.init();
-    loading_screen_tex = Texture("Textures/Loading_Screen/SpaceX_rocket_with_logo.png", new RepeatMode());
+    loading_screen_tex = Texture("Textures/Loading_Screen/SpaceX_rocket_with_logo.png", std::make_shared<RepeatMode>(RepeatMode()));
     loading_screen_tex.load_texture_with_alpha_channel();
-    logo = Texture("Textures/Loading_Screen/logo.png", new RepeatMode());
+    logo = Texture("Textures/Loading_Screen/logo.png", std::make_shared<RepeatMode>(RepeatMode()));
     logo.load_texture_with_alpha_channel();
 
     //scene.load_models();
@@ -407,9 +407,9 @@ int main()
 
             scene->setup_game_object_context();
 
-            point_lights[0].set_position(scene->get_position_of_current_ship() + glm::vec3(0.0, -24.f, -24.0));
-            point_lights[1].set_position(scene->get_position_of_current_ship() + glm::vec3(15.0, 0.f, 0.0f));
-            point_lights[2].set_position(scene->get_position_of_current_ship() + glm::vec3(-15.0, 0.f, 0.0));
+            point_lights[0]->set_position(scene->get_position_of_current_ship() + glm::vec3(0.0, -24.f, -24.0));
+            point_lights[1]->set_position(scene->get_position_of_current_ship() + glm::vec3(15.0, 0.f, 0.0f));
+            point_lights[2]->set_position(scene->get_position_of_current_ship() + glm::vec3(-15.0, 0.f, 0.0));
 
             //retreive shadow map before our geometry pass
             main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
@@ -420,7 +420,7 @@ int main()
 
             // omni shadow map passes for our point lights
             for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
-                omni_shadow_map_pass.execute(&point_lights[p_light_count], first_person_mode, scene);
+                omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene);
             }
 
             //we will now start the geometry pass 

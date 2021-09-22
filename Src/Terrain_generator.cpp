@@ -537,7 +537,7 @@ std::vector<glm::vec3> Terrain_Generator::calc_smooth_normals(std::vector<glm::v
 }
 
 
-std::vector<bool> Terrain_Generator::render(GLfloat ratio, std::shared_ptr<Camera> camera, ViewFrustumCulling* view_cull, RenderPassSceneDependend* shader_pass) {
+std::vector<bool> Terrain_Generator::render(GLfloat ratio, std::shared_ptr<Camera> camera, std::shared_ptr<ViewFrustumCulling> view_cull, RenderPassSceneDependend* shader_pass) {
 	
 	//get_textures()->use_texture();
 	// this to flag with chunks is rendered

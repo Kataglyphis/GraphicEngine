@@ -278,7 +278,7 @@ GLuint LightingPassShaderProgram::get_uniform_cloud_scale_location()
     return cloud.uniform_scale_location;
 }
 
-void LightingPassShaderProgram::set_point_lights(PointLight* p_light, unsigned int light_count, unsigned int texture_unit, unsigned int offset)
+void LightingPassShaderProgram::set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int light_count, unsigned int texture_unit, unsigned int offset)
 {
 
     if (light_count > MAX_POINT_LIGHTS) {
@@ -289,13 +289,13 @@ void LightingPassShaderProgram::set_point_lights(PointLight* p_light, unsigned i
 
     for (size_t i = 0; i < light_count; i++) {
 
-        p_light[i].use_light(uniform_point_light[i].uniform_ambient_intensity, uniform_point_light[i].uniform_color,
+        p_light[i]->use_light(uniform_point_light[i].uniform_ambient_intensity, uniform_point_light[i].uniform_color,
             uniform_point_light[i].uniform_diffuse_intensity, uniform_point_light[i].uniform_position,
             uniform_point_light[i].uniform_constant, uniform_point_light[i].uniform_linear, uniform_point_light[i].uniform_exponent);
 
-        p_light[i].get_omni_shadow_map()->read((GLenum)(GL_TEXTURE0 + texture_unit + i));
+        p_light[i]->get_omni_shadow_map()->read((GLenum)(GL_TEXTURE0 + texture_unit + i));
         glUniform1i(uniform_omni_shadow_map[i + offset].uniform_shadow_map, (GLint)(texture_unit + i));
-        glUniform1f(uniform_omni_shadow_map[i + offset].uniform_far_plane, p_light[i].get_far_plane());
+        glUniform1f(uniform_omni_shadow_map[i + offset].uniform_far_plane, p_light[i]->get_far_plane());
 
     }
 
