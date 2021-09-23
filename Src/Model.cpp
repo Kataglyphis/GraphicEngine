@@ -14,7 +14,7 @@ std::string Model::get_base_dir(const std::string& filepath) {
 
 }
 
-std::shared_ptr<AABB>& Model::get_aabb()
+std::shared_ptr<AABB> Model::get_aabb()
 {
     return aabb;
 }
@@ -56,7 +56,7 @@ void Model::load_model_in_ram(std::string model_path) {
                 std::string relative_texture_filename = mp->diffuse_texname;
                 std::string texture_filename = get_base_dir(model_path) + "/" + relative_texture_filename;
 
-                texture_list.push_back(std::make_shared<Texture>(Texture(texture_filename.c_str(), std::make_shared<RepeatMode>(RepeatMode()))));
+                texture_list.push_back(std::make_shared<Texture>(texture_filename.c_str(), std::make_shared<RepeatMode>()));
 
                 /*if (!texture_list[num_tex]->load_texture_without_alpha_channel()) {
                     printf("Failed to load texture at: %s\n", texture_filename.c_str());
@@ -157,7 +157,8 @@ void Model::create_render_context() {
 
     for (int i = 0; i < vertices_per_shape.size(); i++) {
 
-        this->shapes.push_back(std::make_shared<Mesh>(Mesh(vertices_per_shape[i], indices_per_shape[i])));
+        this->shapes.push_back(std::make_shared<Mesh>(vertices_per_shape[i], indices_per_shape[i]));
+        //this->shapes.push_back(new Mesh(vertices_per_shape[i], indices_per_shape[i]));
 
     }
         

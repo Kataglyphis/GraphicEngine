@@ -39,7 +39,7 @@ private:
 
 	std::shared_ptr<TextureWrappingMode> wrapping_mode;
 
-	std::string file_location; //  Git merge conflict
+	std::string file_location;
 	//const char* file_location; // //  Git merge conflict
 
 	// this is for checking GL errors.

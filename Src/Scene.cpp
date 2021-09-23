@@ -223,7 +223,7 @@ void Scene::render(RenderPassSceneDependend* render_pass, bool first_person_mode
         space_ships[current_space_ship_selected]->get_material_id());
     space_ships[current_space_ship_selected]->render();
 
-    for (std::shared_ptr<GameObject>& object : ambient_objects) {
+    for (std::shared_ptr<GameObject> object : ambient_objects) {
 
        /* if (object_is_visible(object)) {*/
 

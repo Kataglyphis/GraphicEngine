@@ -9,7 +9,7 @@ Texture::Texture()
 	bit_depth = 0;
 	file_location = strdup("");
 	//go with reapeat as standard ...
-	this->wrapping_mode = std::make_shared<RepeatMode>(RepeatMode());
+	this->wrapping_mode = std::make_shared<RepeatMode>();
 }
 
 Texture::Texture(const char* file_loc, std::shared_ptr<TextureWrappingMode> wrapping_mode)

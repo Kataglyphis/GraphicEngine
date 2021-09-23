@@ -21,7 +21,7 @@ public:
 
     void create_render_context();
     std::string get_base_dir(const std::string& filepath);
-    std::shared_ptr<AABB>& get_aabb();
+    std::shared_ptr<AABB> get_aabb();
 
     void render();
 

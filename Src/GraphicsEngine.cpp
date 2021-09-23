@@ -229,32 +229,32 @@ int main()
     GLint window_width = 1900;
     GLint window_height = 1020;
 
-    main_window = std::make_shared<MyWindow>(MyWindow(window_width, window_height));
+    main_window = std::make_shared<MyWindow>(window_width, window_height);
     main_window->initialize();
 
-    noise = std::make_shared<Noise>(Noise{});
+    noise = std::make_shared<Noise>();
     noise->init();
 
-    tGenerator = std::make_shared<Terrain_Generator>(Terrain_Generator());
+    tGenerator = std::make_shared<Terrain_Generator>();
 
-    clouds = std::make_shared<Clouds>(Clouds());
+    clouds = std::make_shared<Clouds>();
     clouds->init(window_width, window_height, cloud_speed);
 
     //play with the speeds ! :) Kansei changed the speed to 75 ;)
-    main_camera = std::make_shared<Camera>(Camera(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
+    main_camera = std::make_shared<Camera>(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
                                             0.0f, 75.0f, 0.25f,
-                                            near_plane, far_plane, fov));
+                                            near_plane, far_plane, fov);
 
-    scene = std::make_shared<Scene>(Scene());
+    scene = std::make_shared<Scene>();
     scene->init(main_camera, main_window, tGenerator, clouds);
 
-    gbuffer = std::make_shared<GBuffer>(GBuffer(window_width, window_height));
+    gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
 
 
 
     //initialize main dir light
-    main_light = std::make_shared<DirectionalLight> (DirectionalLight( shadow_map_resolution,
+    main_light = std::make_shared<DirectionalLight>(shadow_map_resolution,
                                                         shadow_map_resolution,
                                                         directional_light_starting_color.x,
                                                         directional_light_starting_color.y,
@@ -265,32 +265,32 @@ int main()
                                                         directional_light_starting_position.y,
                                                         directional_light_starting_position.z,
                                                         main_camera->get_near_plane(), main_camera->get_far_plane(),
-                                                        far_plane_shadow, num_shadow_cascades ));
+                                                        far_plane_shadow, num_shadow_cascades);
 
-    point_lights[0] = std::make_shared<PointLight>(PointLight(1024, 1024,
+    point_lights[0] = std::make_shared<PointLight>(1024, 1024,
                                     0.01f, 100.f,
                                     0.0f, 1.0f, 0.0f,
                                     1.f, 1.0f,
                                     0.0f, 0.0f, 0.0f,
-                                    0.1f, 0.1f, 0.1f));
+                                    0.1f, 0.1f, 0.1f);
 
     point_light_count++;
 
-    point_lights[1] = std::make_shared<PointLight>(PointLight(1024, 1024,
+    point_lights[1] = std::make_shared<PointLight>(1024, 1024,
         0.01f, 100.f,
         1.0f, 0.0f, 0.0f,
         1.f, 1.0f,
         0.0f, 0.0f, 0.0f,
-        0.1f, 0.1f, 0.1f));
+        0.1f, 0.1f, 0.1f);
 
     point_light_count++;
 
-    point_lights[2] = std::make_shared<PointLight>(PointLight(1024, 1024,
+    point_lights[2] = std::make_shared<PointLight>(1024, 1024,
         0.01f, 100.f,
         0.0f, 0.0f, 1.0f,
         1.f, 1.0f,
         0.0f, 0.0f, 0.0f,
-        0.1f, 0.1f, 0.1f));
+        0.1f, 0.1f, 0.1f);
 
     point_light_count++;
 
@@ -300,11 +300,11 @@ int main()
     GLfloat absorption_coeff_cond = 4.f;
     GLfloat absorption_coeff_diel = 0.0f;
 
-    materials[0] = std::make_shared<Material>(Material(1.0f, 0.1f, silizium_carbide_IOR, absorption_coeff_cond));
+    materials[0] = std::make_shared<Material>(1.0f, 0.1f, silizium_carbide_IOR, absorption_coeff_cond);
 
     material_counter++;
 
-    materials[1] = std::make_shared<Material>(Material(1.0f, 0.8f, water_IOR, absorption_coeff_diel));
+    materials[1] = std::make_shared<Material>(1.0f, 0.8f, water_IOR, absorption_coeff_diel);
 
     material_counter++;
 
@@ -346,9 +346,9 @@ int main()
 
     //init texture for loading screen
     loading_screen.init();
-    loading_screen_tex = Texture("Textures/Loading_Screen/SpaceX_rocket_with_logo.png", std::make_shared<RepeatMode>(RepeatMode()));
+    loading_screen_tex = Texture("Textures/Loading_Screen/SpaceX_rocket_with_logo.png", std::make_shared<RepeatMode>());
     loading_screen_tex.load_texture_with_alpha_channel();
-    logo = Texture("Textures/Loading_Screen/logo.png", std::make_shared<RepeatMode>(RepeatMode()));
+    logo = Texture("Textures/Loading_Screen/logo.png", std::make_shared<RepeatMode>());
     logo.load_texture_with_alpha_channel();
 
     //scene.load_models();

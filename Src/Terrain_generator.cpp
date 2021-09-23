@@ -20,7 +20,7 @@ Terrain_Generator::Terrain_Generator() {
 void Terrain_Generator::init() {
 
 	// initialize t_texture
-	t_texture = std::make_shared<Terrain_Texture>(Terrain_Texture());
+	t_texture = std::make_shared<Terrain_Texture>();
 	t_texture->load_all_texture();
 
 	// Maximal Texture heights
@@ -149,7 +149,7 @@ void Terrain_Generator::load_plants()
 	for (int i = 0; i < treePaths.size(); i++)
 	{
 
-		trees.push_back(std::make_shared<Model>(Model()));
+		trees.push_back(std::make_shared<Model>());
 		trees[i]->load_model_in_ram(treePaths[i]);
 
 		// Transform ??
@@ -161,7 +161,7 @@ void Terrain_Generator::load_plants()
 
 	for (int i = 0; i < bushPaths.size(); i++)
 	{
-		bushes.push_back(std::make_shared<Model>(Model()));
+		bushes.push_back(std::make_shared<Model>());
 		bushes[i]->load_model_in_ram(bushPaths[i]);
 
 		// Transform ??
@@ -173,7 +173,7 @@ void Terrain_Generator::load_plants()
 
 	for (int i = 0; i < stonePahts.size(); i++)
 	{
-		stones.push_back(std::make_shared<Model>(Model()));
+		stones.push_back(std::make_shared<Model>());
 		stones[i]->load_model_in_ram(stonePahts[i]);
 
 		// Transform ??
@@ -291,8 +291,8 @@ void Terrain_Generator::generate_render_context()
 {
 	for (int i = 0; i < vertices_per_shape.size(); i++) {
 
-		this->meshes.push_back(std::make_shared<Mesh>(Mesh(vertices_per_shape[i], indices_per_shape[i])));
-		std::shared_ptr<AABB> map_chunck_aabb = std::make_shared<AABB>(AABB());
+		this->meshes.push_back(std::make_shared<Mesh>(vertices_per_shape[i], indices_per_shape[i]));
+		std::shared_ptr<AABB> map_chunck_aabb = std::make_shared<AABB>();
 
 		map_chunck_aabb->init(aabbs_per_chunck[i][0], 
 													aabbs_per_chunck[i][1],
