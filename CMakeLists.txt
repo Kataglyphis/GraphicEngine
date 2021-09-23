@@ -35,6 +35,12 @@ file(GLOB HEADERS "Src/*.h"
 # add the executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
+# we depend on OpenGL
+find_package( OpenGL REQUIRED COMPONENTS OpenGL EGL)
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} OpenGL::OpenGL OpenGL::EGL)
+
+#surpress warnings
+set(OpenGL_GL_PREFERENCE GLVND)
 
 # include the normal header file 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src" 
@@ -45,7 +51,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include/GL"
                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLFW/glfw-3.3.4/include/GLFW")
+                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLFW/glfw-3.3.4/include/GLFW"
+                                           ${OPENGL_INCLUDE_DIRS})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
@@ -62,12 +69,6 @@ file(COPY Resources/Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 #           ${CMAKE_SOURCE_DIR}/Resources/Shaders/*
 #           ${CMAKE_CURRENT_BINARY_DIR}/Shaders/)
 
-# we depend on OpenGL
-# find_package( OpenGL REQUIRED COMPONENTS OpenGL EGL)
-# target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} OpenGL::OpenGL OpenGL::EGL)
-
-#surpress warnings
-set(OpenGL_GL_PREFERENCE GLVND)
 
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -95,12 +96,17 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR}/bin )
 
-target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
 
-if(UNIX)
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-else()
-endif()
+target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS}
+                                      Threads::Threads)
+
+
+#if(UNIX)
+#	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+#else()
+#endif()
 
 
 include(CPack)
