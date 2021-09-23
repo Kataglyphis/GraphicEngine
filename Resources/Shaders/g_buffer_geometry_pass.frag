@@ -1,4 +1,4 @@
-#version 330 
+#version 400 
 
 layout(location = 0) out vec3 g_position;
 layout(location = 1) out vec3 g_normal;
@@ -59,7 +59,6 @@ void main() {
             // if the max height aren't correct (sometimes height can heigher than max)
             biom_index = i;
         }
-
 
         float alpha = texture(biom_texture[biom_index], tex_coords).rgba.a;
         if (alpha <= 0.1f) {

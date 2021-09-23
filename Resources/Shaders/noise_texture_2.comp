@@ -212,7 +212,7 @@ float perlinfbm(vec3 p, float freq, int octaves)
 {
 	vec3 grad;
     float G = exp2(-.5);
-    float amp = 2f;
+    float amp = 2.f;
     float noise = 0.f;
     for (int i = 0; i < octaves; ++i)
     {

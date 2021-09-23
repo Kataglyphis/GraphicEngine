@@ -212,7 +212,7 @@ void reload_shader_programs()
 void create_noise_textures() {
 
     noise->create_worley_noise();
-    noise->create_grad_noise();
+    //noise->create_grad_noise();
 
 }
 

@@ -125,6 +125,7 @@ void ShaderProgram::add_shader(GLuint program, const char* shader_code, GLenum s
     if (!result) {
         glGetShaderInfoLog(shader, sizeof(eLog), NULL, eLog);
         printf("Error compiling the %d shader:  '%s'\n", shader_type, eLog);
+        printf("%s",shader_code);
         return;
     }
 

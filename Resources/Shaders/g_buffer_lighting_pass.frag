@@ -1,4 +1,4 @@
-#version 330
+#version 400
 
  //params for clouds
 #define NUM_MARCH_STEPS 32
