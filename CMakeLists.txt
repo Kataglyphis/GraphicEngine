@@ -36,8 +36,8 @@ file(GLOB HEADERS "Src/*.h"
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # we depend on OpenGL
-find_package( OpenGL REQUIRED COMPONENTS OpenGL EGL)
-target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} OpenGL::OpenGL OpenGL::EGL)
+find_package( OpenGL REQUIRED COMPONENTS OpenGL)
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
 
 #surpress warnings
 set(OpenGL_GL_PREFERENCE GLVND)
