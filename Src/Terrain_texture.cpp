@@ -8,7 +8,7 @@ Terrain_Texture::Terrain_Texture() {
 }
 
 
-void Terrain_Texture::retreive_uniform_locations(GeometryPassShaderProgram* shader_program) {
+void Terrain_Texture::retreive_uniform_locations(std::shared_ptr<GeometryPassShaderProgram> shader_program) {
 
 	// check if they are errors before the function is executed
 	if (glErrorChecker_ins.arePreError("From set_unifomrs function in Terrain_texture.cpp")) {
@@ -138,7 +138,7 @@ bool Terrain_Texture::load_texture(char* file_location, BIOMETYPE type) {
 	// generrate Texture
 	glGenTextures(1, Texture_type_ID);
 	glBindTexture(GL_TEXTURE_2D, *Texture_type_ID);
-	wrapping_mode = new RepeatMode();
+	wrapping_mode = std::make_shared<RepeatMode>();
 	wrapping_mode->activate();
 
 	// i think we won't need nearest option; so stick to linear

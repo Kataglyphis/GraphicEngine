@@ -39,8 +39,8 @@ private:
 
 	GLfloat shader_playback_time;
 
-	Mesh* sky_mesh;
-	SkyBoxShaderProgram* sky_shader_program;
+	std::shared_ptr<Mesh> sky_mesh;
+	std::shared_ptr<SkyBoxShaderProgram> sky_shader_program;
 
 	GLuint texture_id;
 	GLuint uniform_projection, uniform_view;

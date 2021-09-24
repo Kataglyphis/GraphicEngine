@@ -15,6 +15,7 @@
 #include <random>
 #include <cassert>
 #include <time.h>  
+#include <memory>
 
 class LightingPass 
 {
@@ -34,7 +35,7 @@ private:
 
     glm::vec3 current_offset;
 
-    GLfloat* random_number_data;
+    std::shared_ptr<GLfloat[]> random_number_data;
 
     GLuint random_number;
 

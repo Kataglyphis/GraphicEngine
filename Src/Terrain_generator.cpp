@@ -54,7 +54,7 @@ void Terrain_Generator::init() {
 void Terrain_Generator::retreive_uniform_locations(std::shared_ptr<GeometryPassShaderProgram> shader_program)
 {
 
-	t_texture->retreive_uniform_locations(shader_program.get());
+	t_texture->retreive_uniform_locations(shader_program);
 
 }
 
@@ -798,7 +798,7 @@ void Terrain_Generator::changeMaxHeight(float newMaxHeight) {
 
 
 
-void Terrain_Generator::render_plants(std::vector<bool> is_chunk_rendered_flags, RenderPassSceneDependend *shader_pass) {
+void Terrain_Generator::render_plants(std::vector<bool> is_chunk_rendered_flags, RenderPassSceneDependend* shader_pass) {
 		
 
 		// All flowers are on the chunk (1,y), where y 0-255

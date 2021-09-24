@@ -72,7 +72,7 @@ public:
 	// projection: 
 	std::vector<bool> render(GLfloat ratio, std::shared_ptr<Camera> camera, std::shared_ptr<ViewFrustumCulling> view_cull, RenderPassSceneDependend* shader_pass);
 
-	void render_plants(std::vector<bool> is_chunk_rendered_flags, RenderPassSceneDependend *shader_pass);
+	void render_plants(std::vector<bool> is_chunk_rendered_flags, RenderPassSceneDependend* shader_pass);
 
 	void transform(glm::vec3 translate_vector, glm::vec3 scale);
 

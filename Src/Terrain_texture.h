@@ -25,7 +25,7 @@ public:
 
 	bool load_texture(char * file_location,BIOMETYPE type);
 	
-	void retreive_uniform_locations(GeometryPassShaderProgram* shader_program);
+	void retreive_uniform_locations(std::shared_ptr<GeometryPassShaderProgram> shader_program);
 
 	void use_texture();
 	void unbind_texture();
@@ -60,7 +60,7 @@ private:
 
 	int width[8], height[8], bit_depth[8];
 
-	TextureWrappingMode* wrapping_mode;
+	std::shared_ptr<TextureWrappingMode> wrapping_mode;
 
 	char* file_location;
 	glErrorChecker glErrorChecker_ins;

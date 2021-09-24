@@ -12,7 +12,7 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 
 	srand(time(NULL));
 	shader_playback_time = 1;
-	sky_shader_program = new SkyBoxShaderProgram();
+	sky_shader_program = std::make_shared<SkyBoxShaderProgram>();
 	sky_shader_program->create_from_files("Shaders/SkyBox.vert", "Shaders/SkyBox.frag");
 
 	uniform_projection = sky_shader_program->get_projection_location();
@@ -85,7 +85,7 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 				
 	};
 
-	sky_mesh = new Mesh(sky_box_vertices, sky_box_indices);
+	sky_mesh = std::make_shared<Mesh>(sky_box_vertices, sky_box_indices);
 
 }
 
@@ -127,7 +127,7 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 
 void SkyBox::reload()
 {
-	sky_shader_program = new SkyBoxShaderProgram();
+	sky_shader_program = std::make_shared<SkyBoxShaderProgram>();
 	sky_shader_program->create_from_files("Shaders/SkyBox.vert", "Shaders/SkyBox.frag");
 
 	uniform_projection = sky_shader_program->get_projection_location();
@@ -136,4 +136,5 @@ void SkyBox::reload()
 
 SkyBox::~SkyBox()
 {
+
 }

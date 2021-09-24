@@ -14,7 +14,8 @@ PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
                                         GLfloat x_pos, GLfloat y_pos, GLfloat z_pos,
                                         GLfloat con, GLfloat lin, GLfloat exp) : Light(shadow_width, shadow_height,
                                             red, green, blue,
-                                            a_intensity, d_intensity)
+                                            a_intensity, d_intensity), 
+                                        omni_dir_shadow_map(std::make_shared<OmniDirShadowMap>())
 {
     position = glm::vec3(x_pos, y_pos, z_pos);
     constant = con;
@@ -25,7 +26,7 @@ PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
     float aspect = (float)shadow_width / (float)shadow_height;
     light_proj = glm::perspective(glm::radians(90.0f), aspect, near, far);
 
-    omni_dir_shadow_map = new OmniDirShadowMap();
+    
     omni_dir_shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height);
 }
 

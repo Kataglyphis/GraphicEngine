@@ -24,7 +24,7 @@ public:
 
     void set_position(glm::vec3 position);
 
-    OmniDirShadowMap* get_omni_shadow_map()  { return omni_dir_shadow_map; };
+    std::shared_ptr<OmniDirShadowMap> get_omni_shadow_map()  { return omni_dir_shadow_map; };
 
     GLfloat get_far_plane();
     glm::vec3 get_position();
@@ -33,7 +33,7 @@ public:
 
 protected:
 
-    OmniDirShadowMap* omni_dir_shadow_map;
+    std::shared_ptr<OmniDirShadowMap> omni_dir_shadow_map;
 
     glm::vec3 position;
 
