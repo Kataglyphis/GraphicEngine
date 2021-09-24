@@ -36,7 +36,11 @@ file(GLOB HEADERS "Src/*.h"
 # add the executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
+if(UNIX)
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+else()
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src" 
                                             PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLM"
