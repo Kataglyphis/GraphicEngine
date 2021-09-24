@@ -146,7 +146,7 @@ void Terrain_Generator::load_plants()
 	stones.clear();
 	bushes.clear();
 
-	for (int i = 0; i < treePaths.size(); i++)
+	for (int i = 0; i < static_cast<int>(treePaths.size()); i++)
 	{
 
 		trees.push_back(std::make_shared<Model>());
@@ -159,7 +159,7 @@ void Terrain_Generator::load_plants()
 		//tree.transform_model(def0, tscale);
 	}
 
-	for (int i = 0; i < bushPaths.size(); i++)
+	for (int i = 0; i < static_cast<int>(bushPaths.size()); i++)
 	{
 		bushes.push_back(std::make_shared<Model>());
 		bushes[i]->load_model_in_ram(bushPaths[i]);
@@ -171,7 +171,7 @@ void Terrain_Generator::load_plants()
 		//tree.transform_model(def0, tscale);
 	}
 
-	for (int i = 0; i < stonePahts.size(); i++)
+	for (int i = 0; i < static_cast<int>(stonePahts.size()); i++)
 	{
 		stones.push_back(std::make_shared<Model>());
 		stones[i]->load_model_in_ram(stonePahts[i]);
@@ -247,20 +247,20 @@ void Terrain_Generator::generate_map_chunk(int xOffset, int yOffset , std::vecto
 	// Size should be:
 	// size indices 126*126*2*3 entries
 	// => here Triangle 126 * 126 * 2 (ChunkHeight -1) * (Chunkwidth-1) * 2 Triangles
-	int sizeIndices = indices.size();
+	//int sizeIndices = indices.size();
 	// -> return a size of a normal = #vertices here 127*127
 	int sizeVertices = vertices.size();
 
 	mesh_vertex.clear();
 
 	// savty check
-	if (smooth_normals.size() != sizeVertices || sizeVertices != texCoords.size()) {
+	if (static_cast<int>(smooth_normals.size()) != sizeVertices || sizeVertices != static_cast<int>(texCoords.size())) {
 		cout << "Error, from generate_map_chunk form Terrain_Generator class: Size of the vertices and size of the normals doesnt match." << endl;
 		exit(EXIT_FAILURE);
 	}
 
 	// assgin the data to a Vertex Vector as a Chunk Vertex 
-	for (int i = 0; i < vertices.size(); i++)
+	for (int i = 0; i < static_cast<int>(vertices.size()); i++)
 	{
 		glm::vec3 offset = glm::vec3(xOffset * (chunkWidth -1) , 0, yOffset * (chunkHeight - 1));
 		mesh_vertex.push_back(Vertex(vertices[i] + offset, smooth_normals[i], texCoords[i]));
@@ -289,7 +289,7 @@ void Terrain_Generator::generate_map_chunk(int xOffset, int yOffset , std::vecto
 
 void Terrain_Generator::generate_render_context()
 {
-	for (int i = 0; i < vertices_per_shape.size(); i++) {
+	for (int i = 0; i < static_cast<int>(vertices_per_shape.size()); i++) {
 
 		this->meshes.push_back(std::make_shared<Mesh>(vertices_per_shape[i], indices_per_shape[i]));
 		std::shared_ptr<AABB> map_chunck_aabb = std::make_shared<AABB>();
@@ -456,10 +456,10 @@ std::vector<glm::vec3> Terrain_Generator::generate_normals(const std::vector<GLu
 	// For each group of indices
 
 	// 126*126 *2 Triangle ind
-	int indSize = indices.size(); // size if 95256 (triangle(a,b,c), triangle(d,b,c), ... ) = [t1.1, t1.2, t1.3, t2.1, t2.2, t2.3, ...]
-	int verSize = vertices.size(); // is chunkHight * chunkWidth = here 16129 = 11111100000001
+	//int indSize = indices.size(); // size if 95256 (triangle(a,b,c), triangle(d,b,c), ... ) = [t1.1, t1.2, t1.3, t2.1, t2.2, t2.3, ...]
+	//int verSize = vertices.size(); // is chunkHight * chunkWidth = here 16129 = 11111100000001
 
-	for (int i = 0; i < indices.size(); i += 3) {
+	for (int i = 0; i < static_cast<int>(indices.size()); i += 3) {
 		// iterate over all trianlge (number Triangle = 126*126*2)
 
 		// Get the 3 vertices for each trianlge
@@ -472,7 +472,7 @@ std::vector<glm::vec3> Terrain_Generator::generate_normals(const std::vector<GLu
 
 			// get pos of the vertex in vertices
 			pos = indices[i + j];
-			if (pos < vertices.size()) {
+			if (pos < static_cast<int>(vertices.size())) {
 				// index is in the range of the vertice 
 
 
@@ -509,7 +509,7 @@ std::vector<glm::vec3> Terrain_Generator::calc_smooth_normals(std::vector<glm::v
 	normalCollector.resize(verticesPos.size());
 	std::vector<glm::vec3> smoothNormals;
 
-	for (int i = 0; i < indices.size(); i += 3) {
+	for (int i = 0; i < static_cast<int>(indices.size()); i += 3) {
 		// iterate over all Trianlges here sizeIndices = 9526 -> 31.752 Triangles
 
 		
@@ -524,7 +524,7 @@ std::vector<glm::vec3> Terrain_Generator::calc_smooth_normals(std::vector<glm::v
 
 	// std::for_each(normalCollector.begin(), normalCollector.end(), [](std::vector<glm::vec3> normals) {std::accumulate(normals.begin(), normals.end(), glm::vec3(0)) / (float)normals.size(); });
 
-	for (int i = 0; i < normalCollector.size(); i++)
+	for (int i = 0; i < static_cast<int>(normalCollector.size()); i++)
 	{
 		if (normalCollector[i].size() <=0) {
 			cout << "Error from the calc_smooth_normals() function in Terrain_generator class" << endl;
@@ -546,7 +546,7 @@ std::vector<bool> Terrain_Generator::render(GLfloat ratio, std::shared_ptr<Camer
 
 
 
-	for (int i = 0; i < meshes.size(); i++) {
+	for (int i = 0; i < static_cast<int>(meshes.size()); i++) {
 		//texture_list[shapes_to_tex[i]]->use_texture();
 		std::shared_ptr<AABB> aabb = aabbs[i];
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -601,17 +601,17 @@ std::vector<glm::vec2> Terrain_Generator::generate_biome(const std::vector<glm::
 	// 
 	// ----------------------Define Terrain_Model spawn Position ----------------------
 	 //Iterate through vertex y values
-	for (int i = 0; i < vertices.size(); i += 1) {
+	for (int i = 0; i < static_cast<int>(vertices.size()); i += 1) {
 		 /*
 		 iterate over all triangles
 				 go throw all triangles. calculate the average hight of the vertex. 
 		 decide which the textue you need.
 		 */
 
-		for (int j = 1; j < biomHeights.size(); j++) {
+		for (int j = 1; j < static_cast<int>(biomHeights.size()); j++) {
 			// NOTE: The max height of a vertex is ca. "meshHeight"
 			// Wird garnicht erreicht......
-			if (vertices[i].y <= biomHeights[j] * meshHeight || j == biomHeights.size() - 1) {
+			if (vertices[i].y <= biomHeights[j] * meshHeight || j == static_cast<int>(biomHeights.size()) - 1) {
 				// found a match between vertex height and 
 
 				if (j > 3) { // light grean biom
@@ -640,7 +640,7 @@ std::vector<glm::vec2> Terrain_Generator::generate_biome(const std::vector<glm::
 					glm::vec3 plant_pos = vertices[i] + offset;
 					int checkNumber = chunk_models[xOffset + yOffset * xMapChunks].size();
 					chunk_models[xOffset + yOffset * xMapChunks].push_back(Terrain_Model(plantType, plant_pos, xOffset, yOffset, variantSelection));
-					if (chunk_models[xOffset + yOffset * xMapChunks].size() == checkNumber) {
+					if (static_cast<int>(chunk_models[xOffset + yOffset * xMapChunks].size()) == checkNumber) {
 						cout << "Error something went wrong. vector no expanded" << endl;
 						exit(EXIT_FAILURE);
 					}
@@ -694,7 +694,7 @@ std::vector<glm::vec2> Terrain_Generator::generate_biome(const std::vector<glm::
 					glm::vec3 plant_pos = vertices[i] + offset;
 					int checkNumber = chunk_models[xOffset + yOffset * xMapChunks].size();
 					chunk_models[xOffset + yOffset * xMapChunks].push_back(Terrain_Model(plantType, plant_pos, xOffset, yOffset, variantSelection));
-					if (chunk_models[xOffset + yOffset * xMapChunks].size() == checkNumber) {
+					if (static_cast<int>(chunk_models[xOffset + yOffset * xMapChunks].size()) == checkNumber) {
 						cout << "Error something went wrong. vector no expanded" << endl;
 						exit(EXIT_FAILURE);
 					}
@@ -709,7 +709,7 @@ std::vector<glm::vec2> Terrain_Generator::generate_biome(const std::vector<glm::
 
 	// test if all texCoord are assigned
 	std::vector<int> not_index;
-	for (int i = 0; i < texCoords.size(); i++)
+	for (int i = 0; i < static_cast<int>(texCoords.size()); i++)
 	{
 		if (texCoords[i] == default_vec2) {
 
@@ -752,7 +752,7 @@ void Terrain_Generator::regenerate() {
 				cout << "Error from ChangeMaxHeight, new generated Vertex size isn't equal to the als size." << endl;
 				exit(EXIT_FAILURE);
 			}
-			for (int i = 0; i < newPos.size(); i++)
+			for (int i = 0; i < static_cast<int>(newPos.size()); i++)
 			{
 				// update new Vertex positions
 				glm::vec3 vertex_offset = { x * (chunkWidth-1), 0 , y * (chunkHeight -1 )};
@@ -781,7 +781,7 @@ void Terrain_Generator::changeMaxHeight(float newMaxHeight) {
 
 			// TODO Calculate new normals
 
-			for (int i = 0; i < tempVertex.size(); i++)
+			for (int i = 0; i < static_cast<int>(tempVertex.size()); i++)
 			{
 				tempVertex[i].position = glm::vec3(tempVertex[i].position.x, (tempVertex[i].position.y/meshHeight) * newMaxHeight, tempVertex[i].position.z);
 			}
@@ -802,7 +802,7 @@ void Terrain_Generator::render_plants(std::vector<bool> is_chunk_rendered_flags,
 		
 
 		// All flowers are on the chunk (1,y), where y 0-255
-		for (int i = 0; i < chunk_models.size(); i++)
+		for (int i = 0; i < static_cast<int>(chunk_models.size()); i++)
 		{
 			int chunk_index = i;
 
@@ -810,7 +810,7 @@ void Terrain_Generator::render_plants(std::vector<bool> is_chunk_rendered_flags,
 			if (is_chunk_rendered_flags[chunk_index]) {
 
 				// render all plants
-				for (int model_index = 0; model_index < chunk_models[chunk_index].size(); model_index++) // 
+				for (int model_index = 0; model_index < static_cast<int>(chunk_models[chunk_index].size()); model_index++) // 
 				{
 					glErrorChecker_ins.arePreError(" GL Error, from render_plants function in Terrain_generator.cpp.\nFunction Iteration: Chunk_index = " + std::to_string(chunk_index) + ", plant Index = " + std::to_string(model_index));
 
@@ -832,21 +832,21 @@ void Terrain_Generator::render_plants(std::vector<bool> is_chunk_rendered_flags,
 					switch (chunk_models[chunk_index][model_index].type)
 					{
 					case(Terrain_Model::TREE):
-						if (chunk_models[chunk_index][model_index].variation >= trees.size()) {
+						if (chunk_models[chunk_index][model_index].variation >= static_cast<int>(trees.size())) {
 							cout << "Error, out of bounds from renderPlants function in Terrain_generatr.cpp" << endl;
 						}
 						//trees[chunk_models[chunk_index][model_index].variation]->create_render_context();
 						trees[chunk_models[chunk_index][model_index].variation]->render();
 						break;
 					case(Terrain_Model::BUSH):
-						if (chunk_models[chunk_index][model_index].variation >= bushes.size()) {
+						if (chunk_models[chunk_index][model_index].variation >= static_cast<int>(bushes.size())) {
 							cout << "Error, out of bounds from renderPlants function in Terrain_generatr.cpp" << endl;
 						}
 						//bushes[chunk_models[chunk_index][model_index].variation]->create_render_context();
 						bushes[chunk_models[chunk_index][model_index].variation]->render();
 						break;
 					case(Terrain_Model::STONE):
-						if (chunk_models[chunk_index][model_index].variation >= stones.size()) {
+						if (chunk_models[chunk_index][model_index].variation >= static_cast<int>(stones.size())) {
 							cout << "Error, out of bounds from renderPlants function in Terrain_generatr.cpp" << endl;
 						}
 						//stones[chunk_models[chunk_index][model_index].variation]->create_render_context();

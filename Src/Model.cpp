@@ -49,9 +49,9 @@ void Model::load_model_in_ram(std::string model_path) {
 
             if (mp->diffuse_texname.length() > 0) {
 
-                GLuint texture_id;
-                int texture_width, texture_height;
-                int comp;
+                //GLuint texture_id;
+                //int texture_width, texture_height;
+                //int comp;
 
                 std::string relative_texture_filename = mp->diffuse_texname;
                 std::string texture_filename = get_base_dir(model_path) + "/" + relative_texture_filename;
@@ -144,7 +144,7 @@ void Model::load_model_in_ram(std::string model_path) {
 }
 void Model::create_render_context() {
 
-    for (int i = 0; i < texture_list.size(); i++) {
+    for (int i = 0; i < static_cast<int>(texture_list.size()); i++) {
 
         std::string texture_filename = texture_list[i]->get_filename();
 
@@ -155,7 +155,7 @@ void Model::create_render_context() {
 
     }
 
-    for (int i = 0; i < vertices_per_shape.size(); i++) {
+    for (int i = 0; i < static_cast<int>(vertices_per_shape.size()); i++) {
 
         this->shapes.push_back(std::make_shared<Mesh>(vertices_per_shape[i], indices_per_shape[i]));
         //this->shapes.push_back(new Mesh(vertices_per_shape[i], indices_per_shape[i]));
@@ -169,7 +169,7 @@ void Model::create_render_context() {
 void Model::render()
 {
     
-    for (int i = 0; i < shapes.size(); i++) {
+    for (int i = 0; i < static_cast<int>(shapes.size()); i++) {
 
        if(material_to_tex[shapes_to_material[i]] >= 0) texture_list[material_to_tex[shapes_to_material[i]]]->use_texture();
        shapes[i]->render();
@@ -180,7 +180,7 @@ void Model::render()
 
 
 void Model::transform_model(glm::vec3 translate_vec, glm::vec3 scale, float angle, glm::vec3 rotateAxis) {
-    for (int i = 0; i < shapes.size(); i++)
+    for (int i = 0; i < static_cast<int>(shapes.size()); i++)
     {
         shapes[i]->transform_Mesh(translate_vec, scale, angle, rotateAxis);
     }

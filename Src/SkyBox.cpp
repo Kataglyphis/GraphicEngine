@@ -102,7 +102,7 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 
 	glDepthMask(GL_FALSE);
 
-	std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+	//std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 
 	sky_shader_program->use_shader_program();
 	glUniformMatrix4fv(uniform_projection, 1, GL_FALSE, glm::value_ptr(projection_matrix));

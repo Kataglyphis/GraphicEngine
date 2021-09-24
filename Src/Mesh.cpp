@@ -88,7 +88,7 @@ void Mesh::changeVertex(std::vector<Vertex> vertices) {
 		glBufferSubData(GL_ARRAY_BUFFER, 0, numVertices * sizeof(this->vertices[0]), vertices.data());
 	}
 	// update vertices
-	for (int i = 0; i < vertices.size(); i++)
+	for (int i = 0; i < static_cast<int>(vertices.size()); i++)
 	{
 		this->vertices[i] = vertices[i];
 	}
@@ -104,7 +104,7 @@ glm::mat4 Mesh::transform_Mesh(glm::vec3 translate_vec, glm::vec3 scale, float a
 	transMatr = glm::scale(transMatr, scale);
 	transMatr = glm::rotate(transMatr, angle, rotateAxis);
 
-	for (int i = 0; i < this->vertices.size(); i++) {
+	for (int i = 0; i < static_cast<int>(this->vertices.size()); i++) {
 
 		glm::vec4 nPos = glm::vec4(this->vertices[i].position, 1.0f);
 		nPos = transMatr * nPos;

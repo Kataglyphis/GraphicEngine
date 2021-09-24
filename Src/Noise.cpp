@@ -130,14 +130,14 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 {
 
 	cell_data[cell_index] = std::shared_ptr<GLfloat[]>(new GLfloat[num_cells_per_axis* num_cells_per_axis* num_cells_per_axis * 4]);
-	GLfloat cell_size = 1.f / (GLfloat)num_cells_per_axis;
+	//GLfloat cell_size = 1.f / (GLfloat)num_cells_per_axis;
 
 	std::mt19937_64 gen64 (25121995);
-	std::uniform_real_distribution<double> dis(0, 1);
+	std::uniform_real_distribution<float> dis(0, 1);
 	
-	for (int i = 0; i < num_cells_per_axis; i++) {
-		for (int k = 0; k < num_cells_per_axis; k++) {
-			for (int m = 0; m < num_cells_per_axis; m++) {
+	for (int i = 0; i < static_cast<int>(num_cells_per_axis); i++) {
+		for (int k = 0; k < static_cast<int>(num_cells_per_axis); k++) {
+			for (int m = 0; m < static_cast<int>(num_cells_per_axis); m++) {
 
 				GLfloat random_offset[3] = { dis(gen64), dis(gen64),dis(gen64)};
 				GLfloat position[3] = {(i + random_offset[0]), (k + random_offset[1]), (m + random_offset[2])};
