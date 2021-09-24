@@ -32,32 +32,31 @@ file(GLOB HEADERS "Src/*.h"
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
                   ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
+
 # add the executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
-# we depend on OpenGL
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src" 
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLM"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/TOL"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include/GL"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLFW/glfw-3.3.4/include/GLFW"
+                                            ${OPENGL_INCLUDE_DIRS})
+
+                                            # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
 
 #surpress warnings
 set(OpenGL_GL_PREFERENCE GLVND)
 
-# include the normal header file 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src" 
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLM"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/TOL"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include/GL"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include"
-                                           PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLFW/glfw-3.3.4/include/GLFW"
-                                           ${OPENGL_INCLUDE_DIRS})
-
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-
-install(FILES "${PROJECT_BINARY_DIR}/Src/Config.h"
-  DESTINATION include)
+install(FILES "${PROJECT_BINARY_DIR}/Src/Config.h" DESTINATION include)
 
 file(COPY Resources/Shaders DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY Resources/Models DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -92,13 +91,13 @@ set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${GraphicsEngine_VERSION_MINOR}")
 
 set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY 
-                       ${PROJECT_BINARY_DIR}/bin )
+                       ${PROJECT_BINARY_DIR})
+
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
-                       ${PROJECT_BINARY_DIR}/bin )
+                       ${PROJECT_BINARY_DIR})
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-
 target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS}
                                       Threads::Threads)
 
@@ -107,6 +106,5 @@ if(UNIX)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g")
 else()
 endif()
-
 
 include(CPack)
