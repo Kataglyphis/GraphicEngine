@@ -71,7 +71,7 @@ bool Texture::load_texture_with_alpha_channel()
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char* texture_data = stbi_load(file_location.c_str(), &width, &height, &bit_depth, 0);
 	if (!texture_data) {
-		printf("Failed to find: %s\n", file_location);
+		printf("Failed to find: %s\n", file_location.c_str());
 		return false;
 	}
 

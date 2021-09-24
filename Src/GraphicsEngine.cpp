@@ -75,7 +75,6 @@ GLuint shadow_map_resolution = 4096;
 GLfloat fov= 60.0f;
 
 //global objects
-std::shared_ptr<MyWindow> main_window;
 std::shared_ptr<Camera> main_camera;
 std::shared_ptr<DirectionalLight> main_light;
 std::vector<std::shared_ptr<PointLight>> point_lights(MAX_POINT_LIGHTS, NULL);
@@ -225,12 +224,13 @@ void reload_noise_programs() {
 
 int main()
 {
-
+    MyWindow main_window;
+    
     GLint window_width = 1900;
     GLint window_height = 1020;
 
-    main_window = std::make_shared<MyWindow>(window_width, window_height);
-    main_window->initialize();
+    main_window = MyWindow(window_width, window_height);
+    main_window.initialize();
 
     noise = std::make_shared<Noise>();
     noise->init();
@@ -246,7 +246,7 @@ int main()
                                             near_plane, far_plane, fov);
 
     scene = std::make_shared<Scene>();
-    scene->init(main_camera, main_window, tGenerator, clouds);
+    scene->init(main_camera, &main_window, tGenerator, clouds);
 
     gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
@@ -329,10 +329,10 @@ int main()
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
+    //ImGuiIO& io = ImGui::GetIO();
     ImGuiStyle& style = ImGui::GetStyle();
     // Setup Platform/Renderer bindings
-    ImGui_ImplGlfw_InitForOpenGL(main_window->get_window(), true);
+    ImGui_ImplGlfw_InitForOpenGL(main_window.get_window(), true);
     const char* glsl_version = "#version 330";
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
@@ -362,14 +362,14 @@ int main()
 
     //
 
-    while (!main_window->get_should_close()) {
+    while (!main_window.get_should_close()) {
 
         glViewport(0, 0, window_width, window_height);
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        GLfloat ratio = main_window->get_buffer_width() / main_window->get_buffer_height();
+        GLfloat ratio = main_window.get_buffer_width() / main_window.get_buffer_height();
         //we need the projection matrix, just use glm::perspective function
         glm::mat4 projection_matrix = glm::perspective(glm::radians(main_camera->get_fov()),
             ratio, main_camera->get_near_plane(), main_camera->get_far_plane());
@@ -385,8 +385,8 @@ int main()
         glfwPollEvents();
 
         // handle events for the camera
-        main_camera->key_control(main_window->get_keys(), delta_time);
-        main_camera->mouse_control(main_window->get_x_change(), main_window->get_y_change());
+        main_camera->key_control(main_window.get_keys(), delta_time);
+        main_camera->mouse_control(main_window.get_x_change(), main_window.get_y_change());
 
         //update light positions
 
@@ -412,7 +412,7 @@ int main()
 
             //retreive shadow map before our geometry pass
             main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
-                main_window->get_buffer_width(), main_window->get_buffer_height(), fov, num_shadow_cascades);
+                main_window.get_buffer_width(), main_window.get_buffer_height(), fov, num_shadow_cascades);
 
             directional_shadow_map_pass.execute(main_light, main_camera->calculate_viewmatrix(),
                 first_person_mode, scene);
@@ -597,11 +597,11 @@ int main()
 
         if (scene->is_loaded()) scene->update_current_space_ship(choosen_space_ship);
 
-        main_window->update_viewport();
-        GLfloat new_window_width = main_window->get_buffer_width();
-        GLfloat new_window_height = main_window->get_buffer_height();
+        main_window.update_viewport();
+        GLfloat new_window_width = main_window.get_buffer_width();
+        GLfloat new_window_height = main_window.get_buffer_height();
 
-        if ((new_window_width == window_width && window_height == window_height) == false) {
+        if ((new_window_width == window_width && window_height == new_window_height) == false) {
 
             window_height = new_window_height;
             window_width = new_window_width;;
@@ -650,7 +650,7 @@ int main()
                 shadow_resolution_changed = false;
         }
 
-        main_window->swap_buffers();
+        main_window.swap_buffers();
     }
 
     ImGui_ImplOpenGL3_Shutdown();

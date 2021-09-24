@@ -18,7 +18,7 @@ void GeometryPassShaderProgram::retrieve_uniform_locations() {
     for (int i = 0; i < NUM_BIOM_TEXTURES; i++) {
 
         char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "biom_texture[%zd]", i);
+        snprintf(loc_buff, sizeof(loc_buff), "biom_texture[%d]", i);
         uniform_biom_texture_locations[i] = glGetUniformLocation(program_id, loc_buff);
 
     }

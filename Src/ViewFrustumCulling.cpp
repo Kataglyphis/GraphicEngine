@@ -27,7 +27,7 @@ bool ViewFrustumCulling::is_inside(GLfloat ratio, std::shared_ptr<Camera> main_c
 	GLint outcode_bottom = 8;
 	GLint outcode_left = 2;
 	GLint outcode_right = 1;
-	GLint outcode;
+	//GLint outcode;
 
 
 	GLint outcodes_pattern[NUM_FRUSTUM_PLANES] = { outcode_near_plane,
@@ -69,7 +69,7 @@ bool ViewFrustumCulling::corners_outside_plane(std::vector<glm::vec3> aabb_corne
 	
 	GLint outcode = outcode_pattern;
 
-	for (int i = 0; i < aabb_corners.size(); i++) {
+	for (int i = 0; i < static_cast<int>(aabb_corners.size()); i++) {
 
 		if (plane_point_distance(plane, aabb_corners[i]) < 0.0f) {
 			
@@ -189,7 +189,7 @@ void ViewFrustumCulling::update_frustum_param(GLfloat near_plane, GLfloat far_pl
 void ViewFrustumCulling::init(std::vector<glm::vec3> frustum_corner)
 {
 
-	unsigned int num_corners = 8;
+	//unsigned int num_corners = 8;
 	m_drawCount = 36;//num_corners;
 
 	float vertices[] = {

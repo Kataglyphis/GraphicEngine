@@ -40,7 +40,7 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
      corners.push_back(glm::vec3(maxX, maxY, minZ));
      corners.push_back(glm::vec3(maxX, maxY, maxZ));
 
-	 unsigned int num_corners = (int)corners.size();
+	 //unsigned int num_corners = (int)corners.size();
      m_drawCount = 36;//num_corners;
 
      float vertices[] = {

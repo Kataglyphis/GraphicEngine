@@ -45,7 +45,7 @@ void Terrain_Texture::setHeights(std::vector<float> bio_heights, float max_heigh
 		return;
 	}
 	
-	for (int i = 0; i < bio_heights.size(); i++)
+	for (int i = 0; i < static_cast<int>(bio_heights.size()); i++)
 	{
 		biomHeights[i] = bio_heights[i];
 	}
@@ -73,7 +73,7 @@ bool Terrain_Texture::load_all_texture() {
 												Terrain_Texture::BIOMETYPE::SNOW
 	};
 
-	for (int i = 0; i < biomtype.size(); i++)
+	for (int i = 0; i < static_cast<int>(biomtype.size()); i++)
 	{
 		if (!load_texture(strdup(tex_paths[i]), biomtype[i])) {
 			exit(EXIT_FAILURE);

@@ -32,7 +32,7 @@ std::shared_ptr<Terrain_Generator> Scene::get_terrain_generator()
     return terrain_generator;
 }
 
-void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<MyWindow> main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds)
+void Scene::init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds)
 {
 
     this->main_camera = main_camera;

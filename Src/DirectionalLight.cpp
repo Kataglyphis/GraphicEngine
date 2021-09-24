@@ -73,7 +73,7 @@ void DirectionalLight::calc_cascaded_slots()
 
     }
 
-    for (int i = 0; i < number_of_elements + 1; i++) {
+    for (int i = 0; i < static_cast<int>(number_of_elements + 1); i++) {
         if (i == 0) {
 
             (cascade_slots)[i] = shadow_near_plane;
@@ -99,7 +99,7 @@ void DirectionalLight::calc_orthogonal_projections(glm::mat4 camera_view_matrix,
     GLfloat tan_half_v_fov = glm::tan(glm::radians(((fov + 20.f) * aspect_ratio) / 2.0f));
     GLfloat tan_half_h_fov = glm::tan(glm::radians((fov + 20.f) / 2.0f));
 
-    for (int i = 0; i < current_num_cascades; i++) {
+    for (int i = 0; i < static_cast<int>(current_num_cascades); i++) {
 
         GLfloat xn = cascade_slots[i] * tan_half_h_fov;
         GLfloat xf = cascade_slots[i + 1] * tan_half_h_fov;

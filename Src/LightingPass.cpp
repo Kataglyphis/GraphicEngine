@@ -51,7 +51,7 @@ void LightingPass::generate_random_numbers()
     random_number_data = std::shared_ptr<GLfloat[]>(new GLfloat[MAX_RESOLUTION_X * MAX_RESOLUTION_Y * 4]); // we only store one float in the red channel
 
     std::mt19937_64 gen64(25121995);
-    std::uniform_real_distribution<double> dis(0, 1);
+    std::uniform_real_distribution<float> dis(0, 1);
 
     for (int i = 0; i < MAX_RESOLUTION_X; i++) {
 
@@ -181,7 +181,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, std::shared_ptr<Noise> noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud)
 {
 
-    GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
+    //GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
 
     GLuint start_texture = 1;
 

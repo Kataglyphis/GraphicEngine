@@ -19,7 +19,7 @@ public:
 
 	std::shared_ptr<Terrain_Generator> get_terrain_generator();
 
-	void init(std::shared_ptr<Camera> main_camera, std::shared_ptr<MyWindow> main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds);
+	void init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds);
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
 	void add_space_ship(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
 	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
@@ -42,7 +42,7 @@ private:
 	bool object_is_visible(std::shared_ptr<GameObject> game_object);
 
 	std::shared_ptr<Camera> main_camera;
-	std::shared_ptr<MyWindow> main_window;
+	MyWindow* main_window;
 	std::shared_ptr<Terrain_Generator> terrain_generator;
 	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 	std::shared_ptr<Clouds> clouds;

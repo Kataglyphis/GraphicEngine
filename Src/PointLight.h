@@ -2,6 +2,7 @@
 #include "Light.h"
 #include <vector>
 #include "OmniDirShadowMap.h"
+#include <memory>
 
 class PointLight :
     public Light

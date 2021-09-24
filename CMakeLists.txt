@@ -103,10 +103,10 @@ target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS}
                                       Threads::Threads)
 
 
-#if(UNIX)
-#	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-#else()
-#endif()
+if(UNIX)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g")
+else()
+endif()
 
 
 include(CPack)
