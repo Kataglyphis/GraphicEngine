@@ -20,7 +20,7 @@ bool OmniShadowMapPass::use_terrain_textures()
     return false;
 }
 
-void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light, bool first_person_mode, std::shared_ptr<Scene> scene)
+void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light, bool first_person_mode, Scene* scene)
 {
     shader_program->use_shader_program();
 

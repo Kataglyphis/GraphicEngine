@@ -85,7 +85,6 @@ std::shared_ptr<GBuffer> gbuffer;
 
 std::shared_ptr<Noise> noise;
 std::shared_ptr<Clouds> clouds;
-std::shared_ptr<Scene> scene;
 
 // we will need a bunch of shader programs
 std::shared_ptr<GeometryPassShaderProgram> g_buffer_geometry_pass_shader_program;
@@ -245,7 +244,8 @@ int main()
                                             0.0f, 75.0f, 0.25f,
                                             near_plane, far_plane, fov);
 
-    scene = std::make_shared<Scene>();
+    std::shared_ptr<Scene> scene = std::make_shared<Scene>();
+
     scene->init(main_camera, &main_window, tGenerator, clouds);
 
     gbuffer = std::make_shared<GBuffer>(window_width, window_height);
@@ -351,14 +351,16 @@ int main()
     logo = Texture("Textures/Loading_Screen/logo.png", std::make_shared<RepeatMode>());
     logo.load_texture_with_alpha_channel();
 
-    //scene.load_models();
-    std::thread load_scene{ [] {
+    //scene->load_models();
+    // std::thread load_scene{ [scene]() {
 
-        scene->load_models();
+    //     scene->load_models();
 
-    } };
+    // } };
+    std::thread t1 = scene->spwan();
+    t1.detach();
 
-    load_scene.detach();
+    //load_scene->detach();
 
     //
 
@@ -415,16 +417,16 @@ int main()
                 main_window.get_buffer_width(), main_window.get_buffer_height(), fov, num_shadow_cascades);
 
             directional_shadow_map_pass.execute(main_light, main_camera->calculate_viewmatrix(),
-                first_person_mode, scene);
+                first_person_mode, scene.get());
 
             // omni shadow map passes for our point lights
             for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
-                omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene);
+                omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene.get());
             }
 
             //we will now start the geometry pass
             geometry_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),
-                first_person_mode, delta_time, scene);
+                first_person_mode, delta_time, scene.get());
 
             // render the AABB for the clouds
             clouds->render(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height);

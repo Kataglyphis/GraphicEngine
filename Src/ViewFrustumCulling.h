@@ -17,7 +17,7 @@ public:
 	ViewFrustumCulling();
 
 	bool is_inside(GLfloat ratio, std::shared_ptr<Camera> main_camera, std::shared_ptr<AABB> bounding_box,
-																										glm::mat4 model);
+														glm::mat4 model);
 
 	void render_view_frustum();
 

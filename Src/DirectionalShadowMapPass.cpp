@@ -10,7 +10,7 @@ DirectionalShadowMapPass::DirectionalShadowMapPass(std::shared_ptr<ShadowMapShad
 }
 
 void DirectionalShadowMapPass::execute(std::shared_ptr<DirectionalLight> d_light, glm::mat4 view_matrix,
-                                                                    bool first_person_mode, std::shared_ptr<Scene> scene)
+                                                                    bool first_person_mode, Scene* scene)
 {
     
     shader_program->use_shader_program();

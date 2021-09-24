@@ -7,6 +7,8 @@ public:
 
 	GameObject();
 
+	GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
+
 	void init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
 
 	void set_material_id(GLuint material_id);

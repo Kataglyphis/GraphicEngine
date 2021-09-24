@@ -1,12 +1,22 @@
 #include "GameObject.h"
 
-GameObject::GameObject() : model(std::make_shared<Model>(Model()))
+GameObject::GameObject() : model(std::make_shared<Model>(Model())) {
+
+}
+
+GameObject::GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id): 
+									model(std::make_shared<Model>())
 {
+	model->load_model_in_ram(model_path);
+	this->translation = translation;
+	this->scale_factor = scale;
+	this->rot = rot;
+	this->material_id = material_id;
 }
 
 void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
 {
-
+	model = std::make_shared<Model>(Model());
 	model->load_model_in_ram(model_path);
 	this->translation = translation;
 	this->scale_factor = scale;

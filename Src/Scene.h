@@ -7,6 +7,7 @@
 #include <mutex>
 #include "Terrain_generator.h"
 #include "Clouds.h"
+#include <thread>
 
 class Scene
 {
@@ -18,6 +19,10 @@ public:
 	Scene(const Scene& other);
 
 	std::shared_ptr<Terrain_Generator> get_terrain_generator();
+
+	std::thread spwan() {
+		return std::thread([=] {load_models();});
+	}
 
 	void init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds);
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);

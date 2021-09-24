@@ -56,13 +56,13 @@ void Scene::load_models()
 
     lock_guard<mutex> guard{ mx_space_ship };
 
-    std::shared_ptr<GameObject> space_ship_1 = std::make_shared<GameObject>(GameObject());
-    std::shared_ptr<GameObject> space_ship_2 = std::make_shared<GameObject>(GameObject());
-    std::shared_ptr<GameObject> space_ship_3 = std::make_shared<GameObject>(GameObject());
-    std::shared_ptr<GameObject> space_ship_4 = std::make_shared<GameObject>(GameObject());
+    // = std::make_shared<GameObject>();
+    // = std::make_shared<GameObject>();
+    // = std::make_shared<GameObject>();
+    // = std::make_shared<GameObject>();
 
-    std::shared_ptr<GameObject> rocket = std::make_shared<GameObject>(GameObject());
-    std::shared_ptr<GameObject> space_station = std::make_shared<GameObject>(GameObject());
+    // = std::make_shared<GameObject>();
+    // = std::make_shared<GameObject>();
 
     glm::vec3 space_ship1_offset = glm::vec3(0.0f, 25.0f, 0.0f);
     GLfloat space_ship1_scale = 10.0f;
@@ -103,17 +103,17 @@ void Scene::load_models()
     rot_space_ship_4.degrees = 90.f;
     rot_space_ship_4.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    space_ship_1->init("Models/Aircraft/E_45_Aircraft_obj.obj", space_ship1_offset, space_ship1_scale, rot_space_ship_1, 0);
+    std::shared_ptr<GameObject> space_ship_1 = make_shared<GameObject>("Models/Aircraft/E_45_Aircraft_obj.obj", space_ship1_offset, space_ship1_scale, rot_space_ship_1, 0);
     progress += 0.1f;
-    space_ship_2->init("Models/sd85_cargo_starship/sd85_cargo_starship_flying.obj", space_ship2_offset, space_ship2_scale, rot_space_ship_2, 0);
+    std::shared_ptr<GameObject> space_ship_2 = make_shared<GameObject>("Models/sd85_cargo_starship/sd85_cargo_starship_flying.obj", space_ship2_offset, space_ship2_scale, rot_space_ship_2, 0);
     progress += 0.1f;
-    space_ship_3->init("Models/SS1_OBJ/SS1.obj", space_ship3_offset, space_ship3_scale, rot_space_ship_3, 0);
+    std::shared_ptr<GameObject> space_ship_3 = make_shared<GameObject>("Models/SS1_OBJ/SS1.obj", space_ship3_offset, space_ship3_scale, rot_space_ship_3, 0);
     progress += 0.1f;
-    space_ship_4->init("Models/Viper-mk-IV-fighter_obj/Viper-mk-IV-fighter.obj", space_ship4_offset, space_ship4_scale, rot_space_ship_4, 0);
+    std::shared_ptr<GameObject> space_ship_4 = make_shared<GameObject>("Models/Viper-mk-IV-fighter_obj/Viper-mk-IV-fighter.obj", space_ship4_offset, space_ship4_scale, rot_space_ship_4, 0);
     progress += 0.1f;
-    rocket->init("Models/Rocket/Rocket.obj", rocket_offset, rocket_scale, rocket_rot, 0);
+    std::shared_ptr<GameObject> rocket = make_shared<GameObject>("Models/Rocket/Rocket.obj", rocket_offset, rocket_scale, rocket_rot, 0);
     progress += 0.1f;
-    space_station->init("Models/helidrone-station/Helidrone_Station.obj", space_station_offset, space_station_scale, space_station_rot, 0);
+    std::shared_ptr<GameObject> space_station = make_shared<GameObject>("Models/helidrone-station/Helidrone_Station.obj", space_station_offset, space_station_scale, space_station_rot, 0);
     progress += 0.1f;
     terrain_generator->load_plants();
     progress += 0.1f;

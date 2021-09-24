@@ -20,7 +20,7 @@ public:
     GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program);
 
     void execute(glm::mat4 projection_matrix, glm::mat4 view_matrix,  GLfloat window_width, GLfloat window_height, 
-                            GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, std::shared_ptr<Scene> scene);
+                            GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene);
 
     void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id);
     bool use_terrain_textures();

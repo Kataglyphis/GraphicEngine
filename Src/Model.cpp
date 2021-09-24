@@ -1,7 +1,7 @@
 #include "Model.h"
 
-Model::Model() : aabb(std::make_shared<AABB>(AABB())), 
-                             num_tex(0)
+Model::Model() : aabb(std::make_shared<AABB>()), 
+                num_tex(0)
 {
     
 }
