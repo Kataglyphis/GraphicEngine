@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_render_pass_scene_dependend.html" title=" " alt="" coords="5,56,200,83"/>
+<area shape="rect" id="node2" href="$class_directional_shadow_map_pass.html" title=" " alt="" coords="248,5,432,32"/>
+<area shape="rect" id="node3" href="$class_geometry_pass.html" title=" " alt="" coords="285,56,395,83"/>
+<area shape="rect" id="node4" href="$class_omni_shadow_map_pass.html" title=" " alt="" coords="263,107,417,133"/>
+</map>

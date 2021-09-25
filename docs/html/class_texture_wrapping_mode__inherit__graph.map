@@ -1,0 +1,6 @@
+<map id="TextureWrappingMode" name="TextureWrappingMode">
+<area shape="rect" id="node1" title=" " alt="" coords="187,5,367,112"/>
+<area shape="rect" id="node2" href="$class_clamp_to_edge_mode.html" title=" " alt="" coords="5,160,168,267"/>
+<area shape="rect" id="node3" href="$class_mirrored_repeat_mode.html" title=" " alt="" coords="192,160,363,267"/>
+<area shape="rect" id="node4" href="$class_repeat_mode.html" title=" " alt="" coords="387,160,509,267"/>
+</map>
