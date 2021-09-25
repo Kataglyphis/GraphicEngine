@@ -1,6 +1,0 @@
-<map id="Terrain_Generator::render_plants" name="Terrain_Generator::render_plants">
-<area shape="rect" id="node1" title=" " alt="" coords="5,57,139,98"/>
-<area shape="rect" id="node2" href="$classgl_error_checker.html#a52ecaba9c80b88687c4a6ede8295dd8a" title=" " alt="" coords="193,5,375,32"/>
-<area shape="rect" id="node3" href="$class_terrain___generator.html#a6d21e99a02e93bd1227490f856b40bac" title=" " alt="" coords="217,57,351,98"/>
-<area shape="rect" id="node4" href="$class_render_pass_scene_dependend.html#ad1603e9b435c17597c67306ba1afff61" title=" " alt="" coords="187,122,381,163"/>
-</map>
