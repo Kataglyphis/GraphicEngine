@@ -2,17 +2,17 @@
   <br>
   <a href="https://jotrocken.blog/"><img src="images/logo.png" alt="OpenGLEngine" width="200"></a>
   <br>
-  Cataglyphis_Engine
+  Cataglyphis Engine
   <br>
 </h1>
 
 <h4 align="center">A graphics engine built on top of OpenGL <a href="https://jotrocken.blog/" target="_blank"></a>.</h4>
 
-<p align="center">
+<!-- <p align="center">
   <a href="https://paypal.me/JonasHeinle?locale.x=de_DE">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
   </a>
-</p>
+</p> -->
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
@@ -57,8 +57,14 @@
 
 [![Kataglyphis Engine][product-screenshot]](https://jotrocken.blog/)
 
-There is a high demand in high-performance real-time graphic applications.
-With this project you get access to a tool enabling you to build such.
+The thought behind this project is to implement modern algortihms and 
+techniques that modern graphic engines rely on. 
+Furthermore it should serve as a framework to enable further investigations
+in own research topics.
+Feel free to contribute and adding stuff :)
+Reminder: This project is based on my interest in implementing algortihms by
+my own and make own research. Hence you might encounter some bugs. Feel free 
+to report.
 
 ### Key Features
 
@@ -70,14 +76,23 @@ With this project you get access to a tool enabling you to build such.
 | Spot Lights                     |         ✔️         |        ❌      |
 | Directional Shadow Mapping      |         ✔️         |        ❌      |
 | Omni-Directional Shadow Mapping |         ✔️         |        ❌      |
+| Cascaded Shadow Mapping         |         ✔️         |        ❌      |
+| Cloud system                    |         ✔️         |        ❌      |
+| Sky box                         |         ✔️         |        ❌      |
 
 ### Built With
+
+With the provided CMake file you are able to built the project on Linux (Ubuntu is tested)
+and Windows. I do not provide support for MacOS. Be aware of the dependencies: 
 
 * [OpenGL 4.6](https://www.opengl.org//)
 * [GLM](https://github.com/g-truc/glm)
 * [GLFW](https://www.glfw.org/)
-* [ASSIMP](https://github.com/assimp/assimp)
-
+* [TINYOBJLOADER](https://github.com/tinyobjloader/tinyobjloader)
+* [IMGUI](https://github.com/ocornut/imgui)
+* [GLEW] (https://github.com/Perlmint/glew-cmake)
+* [STB] (https://github.com/nothings/stb)
+* [DOXYGEN] (https://www.doxygen.nl/index.html)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -86,21 +101,25 @@ You might only clone the repo and get to go immediately :)
 
 ### Prerequisites
 
-Right now everything is included. So after cloning you are ready to go :))
+You will need OpenGL. If you want to build documantaries you will need [DOXYGEN] (https://www.doxygen.nl/index.html).
+
 
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone --recurse-submodules git@github.com:Kataglyphis/OpenGLEngine.git
    ```
    Important for init the submodules
 
+2. Then build your solution with [CMAKE] (https://cmake.org/)
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_For more examples, please refer to the [Documentation](https://jotrocken.blog/)_
+
 
 
 
@@ -142,9 +161,8 @@ Project Link: [https://github.com/Kataglyphis/OpenGLEngine](https://github.com/K
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [OpenGL 4.6](https://www.opengl.org//)
-* [GLM](https://github.com/g-truc/glm)
-* [GLFW](https://www.glfw.org/)
+
+I want to thank my partner Kansei who worked with me on a project. This project arised from this university project.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -161,6 +179,6 @@ Project Link: [https://github.com/Kataglyphis/OpenGLEngine](https://github.com/K
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jonas-heinle-0b2a301a0/
-[product-screenshot]: images/Screenshot.png
+[product-screenshot]: images/Screenshot1.png
 
 
