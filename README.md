@@ -167,6 +167,13 @@ Project Link: [https://github.com/Kataglyphis/OpenGLEngine](https://github.com/K
 I want to thank my partner Kansei who worked with me on a project. This project arised from this university project.
 
 
+## Literature 
+
+Some very helpful literature, tutorials, etc. 
+
+* [learnopengl.com](https://learnopengl.com/)
+* [ogldev.org](https://ogldev.org/)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
