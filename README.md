@@ -111,7 +111,7 @@ You will need OpenGL. If you want to build documantaries you will need [DOXYGEN]
 1. Clone the repo
 
    ```sh
-   git clone --recurse-submodules git@github.com:Kataglyphis/OpenGLEngine.git
+   git clone --recurse-submodules git@github.com:Kataglyphis/GraphicEngine.git
    ```
    Important for init the submodules
 
