@@ -171,8 +171,12 @@ I want to thank my partner Kansei who worked with me on a project. This project 
 
 Some very helpful literature, tutorials, etc. 
 
+OpenGL 
 * [learnopengl.com](https://learnopengl.com/)
 * [ogldev.org](https://ogldev.org/)
+
+Clouds
+* [PBR](https://www.pbr-book.org/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
