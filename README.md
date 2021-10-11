@@ -157,7 +157,7 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 
 Jonas Heinle - [@your_twitter](https://twitter.com/Cataglyphis_) - jonasheinle@googlemail.com
 
-Project Link: [https://github.com/Kataglyphis/OpenGLEngine](https://github.com/Kataglyphis/OpenGLEngine)
+Project Link: [https://github.com/Kataglyphis/GraphicsEngine](https://github.com/Kataglyphis/OpenGLEngine)
 
 
 
@@ -171,8 +171,12 @@ I want to thank my partner Kansei who worked with me on a project. This project 
 
 Some very helpful literature, tutorials, etc. 
 
+OpenGL 
 * [learnopengl.com](https://learnopengl.com/)
 * [ogldev.org](https://ogldev.org/)
+
+Clouds
+* [PBR](https://www.pbr-book.org/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
