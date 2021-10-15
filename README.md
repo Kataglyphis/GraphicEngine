@@ -1,8 +1,9 @@
 <h1 align="center">
   <br>
-  <a href="https://jotrocken.blog/"><img src="images/logo.png" alt="OpenGLEngine" width="200"></a>
+  <a href="https://jotrocken.blog/"><img src="images/logo.png" alt="OpenGLEngine" width="150"></a>
   <br>
   Cataglyphis Engine
+  <br>
   <br>
   <a href="https://jotrocken.blog/"><img src="images/Opengl-logo.png" alt="OpenGLEngine" width="200"></a>
   <br>
