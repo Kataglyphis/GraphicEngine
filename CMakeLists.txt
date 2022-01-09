@@ -17,24 +17,79 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
-# configure a header file to pass the version number only
-configure_file(Src/Config.h.in Src/Config.h)
+FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h" 
+                                "ExternalLib/IMGUI/backends/imgui_impl_glfw.h"
+                                "ExternalLib/IMGUI/backends/imgui_impl_opengl3.h"
+                                "ExternalLib/IMGUI/*.cpp"
+                                "ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp"
+                                "ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp"
+                                )
+
+FILE(GLOB COMPUTE_FILTER                "Src/compute/*.h"                               "Src/compute/*.cpp")
+FILE(GLOB RENDERER_FILTER               "Src/renderer/*.h"                              "Src/renderer/*.cpp")
+FILE(GLOB CLOUD_FILTER                  "Src/scene/atmospheric_effects/clouds/*.h"      "Src/scene/atmospheric_effects/clouds/*.cpp")
+FILE(GLOB LIGHT_FILTER                  "Src/scene/light/*.h"                           "Src/scene/light/*.cpp")
+FILE(GLOB PROC_GENERATOR_FILTER         "Src/scene/procedural_generator/*.h"            "Src/scene/procedural_generator/*.cpp")
+FILE(GLOB SHADOWS_FILTER                "Src/scene/shadows/*.h"                         "Src/scene/shadows/*.cpp")
+FILE(GLOB SKY_BOX_FILTER                "Src/scene/sky_box/*.h"                         "Src/scene/sky_box/*.cpp")
+FILE(GLOB TEXTURE_FILTER                "Src/scene/texture/*.h"                         "Src/scene/texture/*.cpp")
+FILE(GLOB SCENE_FILTER                  "Src/scene/*.h"                                 "Src/scene/*.cpp")
+FILE(GLOB MAIN_FILTER                   "Src/*.h"                                       "Src/*.cpp")
+
+# add filters to the solution explorer for the shaders :))
+file(GLOB SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.geom
+)
+
+source_group("gui"                                      FILES ${GUI_FILTER})
+
+source_group("shaders"                                  FILES ${SHADER_FILTER})
+
+source_group("compute"                                  FILES ${COMPUTE_FILTER})
+source_group("renderer"                                 FILES ${RENDERER_FILTER})
+
+source_group("scene/atmospheric_effects/clouds"         FILES ${CLOUD_FILTER})
+source_group("scene/lights"                             FILES ${LIGHT_FILTER})
+source_group("scene/shadows"                            FILES ${SHADOWS_FILTER})
+source_group("scene/procedural_generation"              FILES ${PROC_GENERATOR_FILTER})
+source_group("scene/sky_box"                            FILES ${SKY_BOX_FILTER})
+source_group("scene/texture"                            FILES ${TEXTURE_FILTER})
+source_group("scene"                                    FILES ${SCENE_FILTER})
+
+source_group("main"                                     FILES ${MAIN_FILTER})
 
 #set all your sources accordingly
-file(GLOB SOURCES "Src/*.cpp"
-                  "Src/*.c"
-                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
-                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
-                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
+file(GLOB_RECURSE SOURCES "Src/*.cpp"
+                          "Src/*.c"
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
 
-file(GLOB HEADERS "Src/*.h"
-                  "Src/*.hpp"
-                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
-                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
-                  ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
+file(GLOB_RECURSE HEADERS "Src/*.h"
+                          "Src/*.hpp"
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
 
 # add the executable
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} 
+                ${SHADER_FILTER} 
+                ${GUI_FILTER}
+                ${COMPUTE_FILTER}
+                ${RENDERER_FILTER}
+                ${ATMOSPHERE_EFFECTS_FILTER}
+                ${LIGHT_FILTER}
+                ${PROC_GENERATOR_FILTER}
+                ${CLOUD_FILTER}
+                ${SHADOWS_FILTER}
+                ${SKY_BOX_FILTER}
+                ${TEXTURE_FILTER}
+                ${SCENE_FILTER}
+                ${MAIN_FILTER})
 
 if(UNIX)
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -42,7 +97,16 @@ else()
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 endif()
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/../Src" 
+target_include_directories(${PROJECT_NAME}  PUBLIC "${PROJECT_BINARY_DIR}/../Src"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/compute"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/renderer"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/atmospheric_effects/clouds"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/light"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/procedural_generator"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/shadows"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/sky_box"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/texture"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLM"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"

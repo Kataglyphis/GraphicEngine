@@ -85,7 +85,7 @@ void Scene::load_models()
     space_station_rot.degrees = 0.0f;
     space_station_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    glm::vec3 clouds_offset = space_ship1_offset + glm::vec3(30.f, 200.0f, 30.0f);
+    glm::vec3 clouds_offset = space_ship1_offset + glm::vec3(30.f, 400.0f, 30.0f);
     glm::vec3 clouds_scale = glm::vec3(64.f, 64.f, 64.f);
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);
@@ -113,19 +113,21 @@ void Scene::load_models()
     progress += 0.1f;
     std::shared_ptr<GameObject> rocket = make_shared<GameObject>("Models/Rocket/Rocket.obj", rocket_offset, rocket_scale, rocket_rot, 0);
     progress += 0.1f;
-    std::shared_ptr<GameObject> space_station = make_shared<GameObject>("Models/helidrone-station/Helidrone_Station.obj", space_station_offset, space_station_scale, space_station_rot, 0);
-    progress += 0.1f;
-    terrain_generator->load_plants();
-    progress += 0.1f;
-    terrain_generator->generateMesh(progress);
+    //std::shared_ptr<GameObject> space_station = make_shared<GameObject>("Models/helidrone-station/Helidrone_Station.obj", space_station_offset, space_station_scale, space_station_rot, 0);
+    //progress += 0.1f;
+    //terrain_generator->load_plants();
+    std::shared_ptr<GameObject> sponza = make_shared<GameObject>("Models/crytek-sponza/sponza_triag.obj", space_station_offset, space_station_scale, space_station_rot, 0);
+    progress += 0.2f;
+    //terrain_generator->generateMesh(progress);
 
     space_ships.push_back(space_ship_1);
     space_ships.push_back(space_ship_2);
     space_ships.push_back(space_ship_3);
     space_ships.push_back(space_ship_4);
 
-    ambient_objects.push_back(space_station);
+    //ambient_objects.push_back(space_station);
     ambient_objects.push_back(rocket);
+    ambient_objects.push_back(sponza);
 
     space_ship_offsets.push_back(glm::vec3(0.f, -24.f, 0.f));
     space_ship_offsets.push_back(glm::vec3(0.f, -50.f, 0.f));
@@ -170,7 +172,7 @@ void Scene::setup_game_object_context()
 
     }
 
-    terrain_generator->generate_render_context();
+    //terrain_generator->generate_render_context();
 
     context_setup = true;
 }
@@ -236,21 +238,21 @@ void Scene::render(RenderPassSceneDependend* render_pass, bool first_person_mode
 
     }
 
-    render_pass->set_game_object_uniforms(terrain_generator->get_world_trafo(),
+    /*render_pass->set_game_object_uniforms(terrain_generator->get_world_trafo(),
                                                                         terrain_generator->get_normal_world_trafo(),
-                                                                        terrain_generator->get_material_id());
+                                                                        terrain_generator->get_material_id());*/
 
-    std::vector<bool> terrainRenderedFlags;
-    if (render_pass->use_terrain_textures()) terrain_generator->get_textures()->use_texture();
+    //std::vector<bool> terrainRenderedFlags;
+    //if (render_pass->use_terrain_textures()) terrain_generator->get_textures()->use_texture();
     
-    terrainRenderedFlags = terrain_generator->render(main_window->get_buffer_width() / main_window->get_buffer_height(),
-                                                main_camera, view_frustum_culling, render_pass);
+    //terrainRenderedFlags = terrain_generator->render(main_window->get_buffer_width() / main_window->get_buffer_height(),
+                                                //main_camera, view_frustum_culling, render_pass);
 
 
-    if (render_pass->use_terrain_textures()) terrain_generator->get_textures()->unbind_texture();
+    //if (render_pass->use_terrain_textures()) terrain_generator->get_textures()->unbind_texture();
 
 
-    terrain_generator->render_plants(terrainRenderedFlags, render_pass);
+    //terrain_generator->render_plants(terrainRenderedFlags, render_pass);
     
     
 }

@@ -321,7 +321,7 @@ int main()
     //ornament1 = Texture(_strdup("Textures/dirt.png"), new RepeatMode());
     //ornament1.load_texture_with_alpha_channel();
 
-    tGenerator->init();
+    //tGenerator->init();
 
     //precompute our noise textures ones
     create_noise_textures();

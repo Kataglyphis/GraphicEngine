@@ -30,7 +30,7 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
     glUniformMatrix4fv(shader_program->get_projection_location(), 1, GL_FALSE, glm::value_ptr(projection_matrix));
     glUniformMatrix4fv(shader_program->get_view_location(), 1, GL_FALSE, glm::value_ptr(view_matrix));
 
-    terrain_generator->retreive_uniform_locations(shader_program);
+    //terrain_generator->retreive_uniform_locations(shader_program);
 
     shader_program->validate_program();
 
