@@ -158,7 +158,7 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Jonas Heinle - [@your_twitter](https://twitter.com/Cataglyphis_) - jonasheinle@googlemail.com
+Jonas Heinle - [@Cataglyphis_](https://twitter.com/Cataglyphis_) - jonasheinle@googlemail.com
 
 Project Link: [https://github.com/Kataglyphis/GraphicsEngine](https://github.com/Kataglyphis/OpenGLEngine)
 
@@ -177,9 +177,18 @@ Some very helpful literature, tutorials, etc.
 OpenGL 
 * [learnopengl.com](https://learnopengl.com/)
 * [ogldev.org](https://ogldev.org/)
+* [Cascaded Shadow Maps](https://ahbejarano.gitbook.io/lwjglgamedev/chapter26)
+* []()
 
 Clouds
-* [PBR](https://www.pbr-book.org/)
+* [pbr-book](https://www.pbr-book.org/)
+* [Inigo Quilez](https://iquilezles.org)
+* [Shadertoy Horizon Zero Dawn](https://www.shadertoy.com/view/WddSDr)
+* [Sebastian Lague](https://m.youtube.com/watch?v=4QOcCGI6xOU&t=97s)
+* [Horizon Zero Dawn](http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf)
+* []()
+* []()
+* []()
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
