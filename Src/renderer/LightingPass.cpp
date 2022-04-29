@@ -128,10 +128,10 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     for (size_t i = 0; i < material_counter; i++) {
 
-        materials[i]->use_material(shader_program->get_uniform_material_metallic_location(i),
-            shader_program->get_uniform_material_roughness_location(i),
-            shader_program->get_uniform_IOR_location(i), 
-            shader_program->get_uniform_absorption_location(i));
+        materials[i]->use_material( shader_program->get_uniform_material_metallic_location(i),
+                                    shader_program->get_uniform_material_roughness_location(i),
+                                    shader_program->get_uniform_IOR_location(i), 
+                                    shader_program->get_uniform_absorption_location(i));
 
     }
 

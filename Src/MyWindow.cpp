@@ -68,8 +68,10 @@ int MyWindow::initialize() {
     // set context for GLEW to use
     glfwMakeContextCurrent(main_window);
 
+    //disabling frame limits!!!
+    glfwSwapInterval(0);
+
     //Handle key + mouse Input
-    //TODO: here we need to further go on and implement game logic
     init_callbacks();
     glfwSetInputMode(main_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 

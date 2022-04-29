@@ -263,46 +263,80 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
     return shadow;
 }
 
+#include "../common/ShadingLibrary.glsl"
 
-//all functions for lighting with microfacet model
-vec3 fresnel_schlick(float cos_theta, vec3 f0) {
+// source: https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf
 
-    return f0 + ((vec3(1.0f) - f0) * pow(max(0.0f,1.0 - cos_theta), 5.0));
-
+vec3 F_Schlick(in vec3 f0, in float f90, in float u)
+{
+    return f0 + (f90 - f0) * pow(1.f - u, 5.f);
 }
 
-float chi_GGX(float v) {
+float FrostbiteDiffuse(float NdotV, float NdotL, float LdotH, float roughness) {
 
-    return v > 0.0f ? 1.0f : 0.0f;
-
-}
-
-float D_GGX(vec3 N, vec3 H, float roughness) {
+    float energyBias = mix(0, 0.5, roughness);
+    float energyFactor = mix(1.0, 1.0 / 1.51, roughness);
+    float fd90 = energyBias + 2.0 * LdotH * LdotH * roughness;
+    vec3 f0 = vec3(1.0f, 1.0f, 1.0f);
+    float lightScatter = F_Schlick(f0, fd90, NdotL).r;
+    float viewScatter = F_Schlick(f0, fd90, NdotL).r;
     
-    float n_dot_h = dot(N,H);
-    float n_dot_h_2 = n_dot_h * n_dot_h;
-    float roughness_2 = roughness * roughness;
-    float distributor = (n_dot_h_2 * (roughness_2 - 1.f)) + 1.f;//+ ((1.f /n_dot_h_2) - 1.f)
-
-    return  (chi_GGX(n_dot_h)* roughness_2) / (PI * distributor * distributor);
+    return lightScatter * viewScatter * energyFactor;
 
 }
 
-float G_GGX_P(vec3 V, vec3 N, vec3 H, float roughness) {
+float V_SmithGGXCorrelated(float NdotL, float NdotV, float alphaG)
+{
+    // Original formulation of G_SmithGGX Correlated
+    // lambda_v = ( -1 + sqrt ( alphaG2 * (1 - NdotL2 ) / NdotL2 + 1)) * 0.5 f;
+    // lambda_l = ( -1 + sqrt ( alphaG2 * (1 - NdotV2 ) / NdotV2 + 1)) * 0.5 f;
+    // G_SmithGGXCorrelated = 1 / (1 + lambda_v + lambda_l );
+    // V_SmithGGXCorrelated = G_SmithGGXCorrelated / (4.0 f * NdotL * NdotV );
+        
+    // This is the optimize version
+    float alphaG2 = alphaG * alphaG;
+    // Caution : the " NdotL *" and " NdotV *" are explicitely inversed , this is not a mistake .
+    float Lambda_GGXV = NdotL * sqrt((-NdotV * alphaG2 + NdotV) * NdotV + alphaG2);
+    float Lambda_GGXL = NdotV * sqrt((-NdotL * alphaG2 + NdotL) * NdotL + alphaG2);
     
-    float v_dot_h = dot(V,H);
-    float v_dot_n = dot(V,N);
+    return 0.5f / (Lambda_GGXV + Lambda_GGXL);
+}
 
-    float v_dot_h_2 = v_dot_h * v_dot_h;
+float D_GGX(float NdotH, float m)
+{
+    // Divide by PI is apply later
+    float m2 = m * m;
+    float f = (NdotH * m2 - NdotH) * NdotH + 1;
+    return m2 / (f * f);
+}
 
-    //catch divide by zero case
-    if(chi_GGX(v_dot_n) == 0.0f) return 0.0f;
+vec3 evaluateFrostbitePBR(vec3 ambient, vec3 N, vec3 L, vec3 V, float roughness, vec3 light_color, float light_intensity) {
 
-    float chi = chi_GGX(v_dot_h) / chi_GGX(v_dot_n);
-    //already normed
-    float tan_2 = (1.f / v_dot_h_2) - 1.f; 
 
-    return max((chi * 2.f) / (1.f + sqrt(1.f + (roughness * roughness * tan_2))), 1.0f);
+    float NdotV = abs(dot(N, V)) + 1e-5f; // avoid artifact
+    vec3 H = normalize(V + L);
+    float LdotH = clamp(dot(L, H),0.0f, 1.0f);
+    float NdotH = clamp(dot(N, H),0.0f, 1.0f);
+    float NdotL = clamp(dot(N, L),0.0f, 1.0f);
+
+    // add lambertian diffuse term vec3(0.f);// 
+    vec3 color = FrostbiteDiffuse(NdotV, NdotL, LdotH, roughness)* (ambient / PI);
+    //
+    if (LdotH > 0 && NdotH > 0 && NdotL > 0) {
+
+        // Specular BRDF
+        // renge [0,1] from non-/to metallic
+        float reflectence = 0.6;
+        vec3 f0 = vec3(0.16f * reflectence * reflectence);
+        // lets assume that at 90 degrees everything will be reflected
+        float f90 = 1.f;
+        vec3 F = F_Schlick(f0, f90, LdotH);
+        float Vis = V_SmithGGXCorrelated(NdotV, NdotL, roughness);
+        float D = D_GGX(NdotH, roughness);
+        color += light_color * light_intensity * (1.f/PI) * evaluateCookTorrenceSpecularBRDF(D, Vis, F, NdotL, NdotV) * NdotL;
+    }
+
+    return color;
 }
 
 vec3 gamma_correction(vec3 color) {
@@ -314,51 +348,17 @@ vec3 gamma_correction(vec3 color) {
 vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int material_id = int(texture(g_material_id, tex_coords).r);
-    vec3 albedo = texture(g_albedo, tex_coords).rgb;
-    vec3 frag_pos = texture(g_position, tex_coords).rgb;
-    vec3 N = normalize(texture(g_normal, tex_coords).rgb);
+    vec3 ambient    = texture(g_albedo, tex_coords).rgb;
+    vec3 frag_pos   = texture(g_position, tex_coords).rgb;
+    vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
 
-    vec3 V = normalize(eye_position - frag_pos);
-    vec3 L = normalize(direction);
-    vec3 H = normalize(V+L);
-
-    //fresnel-schlick approximation
-    //we always assum to come from vaccum
-    float n1 = 1.0f;
-    float n2 = materials[material_id].IOR;
-   
-    //if(materials[material_id].absorption_coefficient <= 0.05f) {
+    vec3 V          = normalize(eye_position - frag_pos);
+    vec3 L          = normalize(-direction);
+    vec3 H          = normalize(V+L);
     
-    vec3 f0 = vec3( (n1-n2) / (n1+n2));
-    f0 = f0 * f0;
-    //vec3 f0 = vec3(0.04f);
-    //f0 = mix(f0, albedo, materials[material_id].metallic);
-    vec3 F = fresnel_schlick(dot(H, V), f0);
-    
-//    } else {
-//        
-//        float k = materials[material_id].absorption_coefficient;
-//        F = vec3(((n2 - 1.0f) * (n2 - 1.0f) + 4.f * n2 * pow(1.f - max(dot(H, V),0.0f),5) + k * k) 
-//                    / (((n2 + 1.f) * (n2 + 1.f)) + k * k));
-//    
-//    }
+    float roughness = 0.5f;
 
-    //cook-torrance brdf  
-    float D = D_GGX(N, H, materials[material_id].roughness);
-    float G = G_GGX_P(V, N, H, materials[material_id].roughness) * G_GGX_P(L, N, H, materials[material_id].roughness);
-
-    //calc cook torrence brdf 
-    vec3 cook_torrence_diffuse = albedo / PI;
-    vec3 cook_torrence_specular = (D *G* F) / max(4.0f * max(0.0f,dot(V, N)) * max(dot(N, L),0.0f), 0.001f);
-
-    vec3 radiance = light.color * light.ambient_intensity;
-
-    vec3 k_s = F;
-    vec3 k_d = (vec3(1.0f) - k_s);
-
-    vec3 L_outgoing = (cook_torrence_diffuse * k_d + cook_torrence_specular * k_s) * max(0.0f,dot(N, L)) *  radiance; 
-
-    return (1.f - (shadow_factor * directional_light.shadow_intensity)) * vec4(L_outgoing, 1.0f); // vec4(vec3(G_GGX_P(L, N, H, materials[material_id].roughness) ),1.0f); // 
+    return vec4(evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity),1.0f);
 
 }
 
@@ -668,8 +668,10 @@ void main () {
         color = texture(g_albedo, tex_coords);
 
     }
+    
+    color = gamma_correction(color);
 
-   calc_clouds();
+    calc_clouds();
    //debug_cascaded_shadow_maps();
 
 }

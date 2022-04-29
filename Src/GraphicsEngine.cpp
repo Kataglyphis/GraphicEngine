@@ -65,7 +65,7 @@ unsigned int point_light_count = 0;
 
 //define near and far plane
 GLfloat near_plane = 0.1f;
-GLfloat far_plane = 500.f;
+GLfloat far_plane = 1000.f;
 GLfloat far_plane_shadow = 900.f;
 
 //shadow map var
@@ -360,6 +360,7 @@ int main()
     std::thread t1 = scene->spwan();
     t1.detach();
 
+    scene->setup_game_object_context();
     //load_scene->detach();
 
     //
@@ -371,7 +372,8 @@ int main()
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        GLfloat ratio = main_window.get_buffer_width() / main_window.get_buffer_height();
+        //GLfloat ratio = main_window.get_buffer_width() / main_window.get_buffer_height();
+        GLfloat ratio = (GLfloat)window_width / (GLfloat)window_height;
         //we need the projection matrix, just use glm::perspective function
         glm::mat4 projection_matrix = glm::perspective(glm::radians(main_camera->get_fov()),
             ratio, main_camera->get_near_plane(), main_camera->get_far_plane());
@@ -406,11 +408,10 @@ int main()
 
             }
 
-            scene->setup_game_object_context();
 
-            point_lights[0]->set_position(scene->get_position_of_current_ship() + glm::vec3(0.0, -24.f, -24.0));
-            point_lights[1]->set_position(scene->get_position_of_current_ship() + glm::vec3(15.0, 0.f, 0.0f));
-            point_lights[2]->set_position(scene->get_position_of_current_ship() + glm::vec3(-15.0, 0.f, 0.0));
+            point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
+            point_lights[1]->set_position(glm::vec3(15.0, 0.f, 0.0f));
+            point_lights[2]->set_position(glm::vec3(-15.0, 0.f, 0.0));
 
             //retreive shadow map before our geometry pass
             main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
@@ -456,13 +457,13 @@ int main()
         }
 
         // render your GUI
-        ImGui::Begin("GUI v1.3.1");
+        ImGui::Begin("GUI v1.3.2");
 
         if (!scene->is_loaded())
         {
             ImGui::ProgressBar(scene->get_progress(), ImVec2(0.0f, 0.0f));
             ImGui::SameLine(0.0f, ImGui::GetStyle().ItemInnerSpacing.x);
-            ImGui::Text("Load Planet");
+            ImGui::Text("Loading scene");
             ImGui::Separator();
         }
 
@@ -533,16 +534,9 @@ int main()
                 if (ImGui::Button("Update Cloud params")) {
                     reload_noise_programs();
                 }
+                ImGui::TreePop();
             }
 
-        }
-
-        ImGui::Separator();
-
-        if (ImGui::CollapsingHeader("Control Settings")) {
-
-            ImGui::Checkbox("Control Space Ship", &first_person_mode);
-            ImGui::SliderInt("Choosen space ship", &choosen_space_ship, 1, 4);
         }
 
         ImGui::Separator();
@@ -597,8 +591,6 @@ int main()
         glm::vec3 new_main_light_pos(directional_light_direction[0], directional_light_direction[1], directional_light_direction[2]);
         main_light->set_direction(new_main_light_pos);
 
-        if (scene->is_loaded()) scene->update_current_space_ship(choosen_space_ship);
-
         main_window.update_viewport();
         GLfloat new_window_width = main_window.get_buffer_width();
         GLfloat new_window_height = main_window.get_buffer_height();
@@ -606,7 +598,7 @@ int main()
         if ((new_window_width == window_width && window_height == new_window_height) == false) {
 
             window_height = new_window_height;
-            window_width = new_window_width;;
+            window_width = new_window_width;
             gbuffer->update_window_params(window_width, window_height);
             gbuffer->create();
             clouds->update_window_params(window_width, window_height);

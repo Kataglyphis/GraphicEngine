@@ -58,12 +58,6 @@ void Model::load_model_in_ram(std::string model_path) {
 
                 texture_list.push_back(std::make_shared<Texture>(texture_filename.c_str(), std::make_shared<RepeatMode>()));
 
-                /*if (!texture_list[num_tex]->load_texture_without_alpha_channel()) {
-                    printf("Failed to load texture at: %s\n", texture_filename.c_str());
-                    delete texture_list[i];
-                    texture_list[i] = nullptr;
-                }*/
-
                 material_to_tex.push_back(num_tex);
                 num_tex++;
 
@@ -120,9 +114,6 @@ void Model::load_model_in_ram(std::string model_path) {
             }
 
             Vertex vert(pos, normals, tex_coords);
-
-            /* vertices.push_back(vert);
-             indices.push_back(indices.size());*/
 
             if (vertices_map.count(vert) == 0) {
 

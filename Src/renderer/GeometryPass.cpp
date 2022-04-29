@@ -13,13 +13,12 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 
     // create skybox
     std::vector<std::string> skybox_faces;
-    skybox_faces.push_back("Textures/Skybox/space_left.jpg");
-    skybox_faces.push_back("Textures/Skybox/space_right.jpg");
-    skybox_faces.push_back("Textures/Skybox/space_up.jpg");
-    skybox_faces.push_back("Textures/Skybox/space_down.jpg");
-    skybox_faces.push_back("Textures/Skybox/space_front.jpg");
-    skybox_faces.push_back("Textures/Skybox/space_back.jpg");
-
+    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16RT.png");
+    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16LF.png");
+    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16UP.png");
+    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16DN.png");
+    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16FT.png");
+    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16BK.png");
     skybox = SkyBox(skybox_faces);
 
 }
