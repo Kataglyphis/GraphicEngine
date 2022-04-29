@@ -6,6 +6,7 @@
   <br>
   <br>
   <a href="https://jotrocken.blog/"><img src="images/Opengl-logo.png" alt="OpenGLEngine" width="200"></a>
+  <a href="https://jotrocken.blog/"><img src="images/glm_logo.png" alt="OpenGLEngine" width="200"></a>
   <br>
 </h1>
 
@@ -74,17 +75,20 @@ the milestone document.
 
 ### Key Features
 
-
-|          Feature                |   Implement Status | ◾ Other Configs |
-| --------------------------------| :----------------: | :-------------: |
-| Directional Lights              |         ✔️         |        ❌      |
-| Point Lights                    |         ✔️         |        ❌      |
-| Spot Lights                     |         ✔️         |        ❌      |
-| Directional Shadow Mapping      |         ✔️         |        ❌      |
-| Omni-Directional Shadow Mapping |         ✔️         |        ❌      |
-| Cascaded Shadow Mapping         |         ✔️         |        ❌      |
-| Cloud system                    |         ✔️         |        ❌      |
-| Sky box                         |         ✔️         |        ❌      |
+<!-- ❌ -->
+|          Feature                      |   Implement Status | 
+| --------------------------------      | :----------------: | 
+| Directional Lights                    |         ✔️         |
+| Point Lights                          |         ✔️         |
+| Spot Lights                           |         ✔️         |
+| Directional Shadow Mapping            |         ✔️         |
+| Omni-Directional Shadow Mapping       |         ✔️         |
+| Cascaded Shadow Mapping               |         ✔️         |
+| Cloud system                          |         ✔️         |
+| .obj Model loading                    |         ✔️         |
+| PBR support (UE4,disney,phong, etc.)  |         ✔️         |
+| Sky box                               |         ✔️         |
+| Sky box                               |         ✔️         |
 
 ### Built With
 
@@ -169,6 +173,8 @@ Project Link: [https://github.com/Kataglyphis/GraphicsEngine](https://github.com
 I want to thank my partner Kansei who worked with me on a project. This project arised from this university project.
 * [Loading Screen Image](https://www.golem.de/news/raumfahrt-spacex-macht-sicherheitstest-bei-hoechster-belastung-2001-146124.html)
 
+Thanks for free 3D Models: 
+* [Morgan McGuire, Computer Graphics Archive, July 2017 (https://casual-effects.com/data)](http://casual-effects.com/data/)
 ## Literature 
 
 Some very helpful literature, tutorials, etc. 
@@ -193,6 +199,14 @@ Clouds
 
 Noise
 * [Worley noise online demo](https://github.com/Erkaman/glsl-worley)
+
+Physically Based Shading
+* [The Bible: PBR book](https://pbr-book.org/3ed-2018/Reflection_Models/Microfacet_Models)
+* [Real shading in Unreal engine 4](https://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf)
+* [Physically Based Shading at Disney](https://blog.selfshadow.com/publications/s2012-shading-course/burley/s2012_pbs_disney_brdf_notes_v3.pdf)
+* [RealTimeRendering](https://www.realtimerendering.com/)
+* [Understanding the Masking-Shadowing Function in Microfacet-Based BRDFs](https://hal.inria.fr/hal-01024289/)
+* [Sampling the GGX Distribution of Visible Normals](https://pdfs.semanticscholar.org/63bc/928467d760605cdbf77a25bb7c3ad957e40e.pdf)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
