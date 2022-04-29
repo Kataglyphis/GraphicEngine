@@ -14,7 +14,7 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 	shader_playback_time = 1;
 
 	sky_shader_program = std::make_shared<SkyBoxShaderProgram>();
-	sky_shader_program->create_from_files("SkyBox.vert", "SkyBox.frag");
+	sky_shader_program->create_from_files("skybox/SkyBox.vert", "skybox/SkyBox.frag");
 
 	uniform_projection = sky_shader_program->get_projection_location();
 	uniform_view = sky_shader_program->get_view_location();

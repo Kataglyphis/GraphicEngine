@@ -44,9 +44,72 @@ file(GLOB SHADER_FILTER
 	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.geom
 )
 
+file(GLOB BRDF_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.geom
+)
+
+file(GLOB COMMON_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.geom
+)
+
+file(GLOB CLOUDS_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.geom
+)
+
+file(GLOB LOADING_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.geom
+)
+
+file(GLOB RASTERIZER_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.geom
+)
+
+file(GLOB RASTERIZER_SHADOWS_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.geom
+)
+
+file(GLOB SKYBOX_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.comp
+	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.geom
+)
+
 source_group("gui"                                      FILES ${GUI_FILTER})
 
 source_group("shaders"                                  FILES ${SHADER_FILTER})
+source_group("shaders/brdf"                             FILES ${BRDF_SHADER_FILTER})
+source_group("shaders/common"                           FILES ${COMMON_SHADER_FILTER})
+source_group("shaders/clouds"                           FILES ${CLOUDS_SHADER_FILTER})
+source_group("shaders/loading_screen"                   FILES ${LOADING_SHADER_FILTER})
+source_group("shaders/rasterizer"                       FILES ${RASTERIZER_SHADER_FILTER})
+source_group("shaders/rasterizer/shadows"               FILES ${RASTERIZER_SHADOWS_SHADER_FILTER})
+source_group("shaders/skybox"                           FILES ${SKYBOX_SHADER_FILTER})
 
 source_group("compute"                                  FILES ${COMPUTE_FILTER})
 source_group("renderer"                                 FILES ${RENDERER_FILTER})
@@ -75,7 +138,14 @@ file(GLOB_RECURSE HEADERS "Src/*.h"
 
 # add the executable
 add_executable(${PROJECT_NAME} 
-                ${SHADER_FILTER} 
+                ${SHADER_FILTER}
+                ${BRDF_SHADER_FILTER} 
+                ${COMMON_SHADER_FILTER}  
+                ${CLOUDS_SHADER_FILTER}
+                ${LOADING_SHADER_FILTER}
+                ${RASTERIZER_SHADER_FILTER}
+                ${RASTERIZER_SHADOWS_SHADER_FILTER}
+                ${SKYBOX_SHADER_FILTER}
                 ${GUI_FILTER}
                 ${COMPUTE_FILTER}
                 ${RENDERER_FILTER}

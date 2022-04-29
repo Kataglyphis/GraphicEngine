@@ -3,7 +3,17 @@
 #extension GL_ARB_shading_language_include : require
 
 #include "/Globals.h"
+
+#include "/disney.glsl"
+#include "/frostbite.glsl"
+#include "/pbrBook.glsl"
+#include "/phong.glsl"
+#include "/unreal4.glsl"
+
 in vec2 tex_coords;
+
+#define NUM_MARCH_STEPS 32
+#define NUM_MARCH_STEPS_TO_LIGHT 6
 
 out vec4 color;
 
@@ -255,92 +265,6 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
     return shadow;
 }
 
-// source: https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf
-
-vec3 evaluateCookTorrenceSpecularBRDF(float D, float G, vec3 F, float cosThetaI, float cosThetaO) {
-
-    return vec3((D * G * F) / (4.f * cosThetaI * cosThetaO));
-
-}
-
-vec3 F_Schlick(in vec3 f0, in float f90, in float u)
-{
-    return f0 + (f90 - f0) * pow(1.f - u, 5.f);
-}
-
-float FrostbiteDiffuse(float NdotV, float NdotL, float LdotH, float roughness) {
-
-    float energyBias = mix(0.0, 0.5, roughness);
-    float energyFactor = mix(1.0, 1.0 / 1.51, roughness);
-    float fd90 = energyBias + 2.0 * LdotH * LdotH * roughness;
-    vec3 f0 = vec3(1.0f, 1.0f, 1.0f);
-    float lightScatter = F_Schlick(f0, fd90, NdotL).r;
-    float viewScatter = F_Schlick(f0, fd90, NdotL).r;
-    
-    return lightScatter * viewScatter * energyFactor;
-
-}
-
-float V_SmithGGXCorrelated(float NdotL, float NdotV, float alphaG)
-{
-    // Original formulation of G_SmithGGX Correlated
-    // lambda_v = ( -1 + sqrt ( alphaG2 * (1 - NdotL2 ) / NdotL2 + 1)) * 0.5 f;
-    // lambda_l = ( -1 + sqrt ( alphaG2 * (1 - NdotV2 ) / NdotV2 + 1)) * 0.5 f;
-    // G_SmithGGXCorrelated = 1 / (1 + lambda_v + lambda_l );
-    // V_SmithGGXCorrelated = G_SmithGGXCorrelated / (4.0 f * NdotL * NdotV );
-        
-    // This is the optimize version
-    float alphaG2 = alphaG * alphaG;
-    // Caution : the " NdotL *" and " NdotV *" are explicitely inversed , this is not a mistake .
-    float Lambda_GGXV = NdotL * sqrt((-NdotV * alphaG2 + NdotV) * NdotV + alphaG2);
-    float Lambda_GGXL = NdotV * sqrt((-NdotL * alphaG2 + NdotL) * NdotL + alphaG2);
-    
-    return 0.5f / (Lambda_GGXV + Lambda_GGXL);
-}
-
-float D_GGX(float NdotH, float m)
-{
-    // Divide by PI is apply later
-    float m2 = m * m;
-    float f = (NdotH * m2 - NdotH) * NdotH + 1;
-    return m2 / (f * f);
-}
-
-vec3 evaluateFrostbitePBR(vec3 ambient, vec3 N, vec3 L, vec3 V, float roughness, vec3 light_color, float light_intensity) {
-
-
-    float NdotV = abs(dot(N, V)) + 1e-5f; // avoid artifact
-    vec3 H = normalize(V + L);
-    float LdotH = clamp(dot(L, H),0.0f, 1.0f);
-    float NdotH = clamp(dot(N, H),0.0f, 1.0f);
-    float NdotL = clamp(dot(N, L),0.0f, 1.0f);
-
-    // add lambertian diffuse term vec3(0.f);// 
-    vec3 color = FrostbiteDiffuse(NdotV, NdotL, LdotH, roughness)* (ambient / PI);
-    //
-    if (LdotH > 0 && NdotH > 0 && NdotL > 0) {
-
-        // Specular BRDF
-        // renge [0,1] from non-/to metallic
-        float reflectence = 0.6;
-        vec3 f0 = vec3(0.16f * reflectence * reflectence);
-        // lets assume that at 90 degrees everything will be reflected
-        float f90 = 1.f;
-        vec3 F = F_Schlick(f0, f90, LdotH);
-        float Vis = V_SmithGGXCorrelated(NdotV, NdotL, roughness);
-        float D = D_GGX(NdotH, roughness);
-        color += light_color * light_intensity * (1.f/PI) * evaluateCookTorrenceSpecularBRDF(D, Vis, F, NdotL, NdotV) * NdotL;
-    }
-
-    return color;
-}
-
-vec3 gamma_correction(vec3 color) {
-
-    return pow(color / (color + vec3(1.0f)), vec3(1.0f/2.2f));
-
-}
-
 vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int material_id = int(texture(g_material_id, tex_coords).r);
@@ -354,7 +278,23 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
     
     float roughness = 0.5f;
 
-    return (1.f - shadow_factor) * vec4(evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity),1.0f);
+    vec3 color = vec3(0.f);
+
+    int mode = 2;
+	switch (mode) {
+	case 0: color += evaluteUnreal4PBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+		break;
+	case 1: color += evaluatePBRBooksPBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+		break;
+	case 2: color += evaluateDisneysPBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+		break;
+	case 3: color += evaluatePhong(ambient, N, L, V, light.color, light.ambient_intensity);
+		break;		
+	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+		break;
+	}
+
+    return (1.f - shadow_factor) * vec4(color,1.0f);
 
 }
 
@@ -424,52 +364,6 @@ vec4 calc_point_lights() {
     return total_color;
 }
 
-// Calcs intersection and exit distances, normal, face and UVs
-// row is the ray origin in world space
-// rdw is the ray direction in world space
-// txx is the world-to-box transformation
-// txi is the box-to-world transformation
-// ro and rd are in world space
-// rad is the half-length of the box
-//
-// oT contains the entry and exit points
-// oN is the normal in world space
-// oU contains the UVs at the intersection point
-// oF contains the index if the intersected face [0..5]
-bool box_intersect( in vec3 row, in vec3 rdw, in mat4 txx, in mat4 txi, in vec3 rad,
-                   out vec2 oT, out vec3 oN, out vec2 oU, out int oF ) 
-{				 
-    // convert from world to box space
-    vec3 rd = (txx*vec4(rdw,0.0)).xyz;
-    vec3 ro = (txx*vec4(row,1.0)).xyz;
-
-
-    // ray-box intersection in box space
-    vec3 m = 1.0/rd;
-    vec3 s = vec3((rd.x<0.0)?1.0:-1.0,
-                  (rd.y<0.0)?1.0:-1.0,
-                  (rd.z<0.0)?1.0:-1.0);
-    vec3 t1 = m*(-ro + s*rad);
-    vec3 t2 = m*(-ro - s*rad);
-
-    float tN = max( max( t1.x, t1.y ), t1.z );
-    float tF = min( min( t2.x, t2.y ), t2.z );
-	
-    if( tN>tF || tF<0.0) return false;
-
-    // compute normal (in world space), face and UV
-    if( t1.x>t1.y && t1.x>t1.z ) { 
-        oN=txi[0].xyz*s.x; oU=ro.yz+rd.yz*t1.x; oF=(1+int(s.x))/2;
-    } else if (t1.y>t1.z)  { 
-        oN=txi[1].xyz*s.y; oU=ro.zx+rd.zx*t1.y; oF=(5+int(s.y))/2;
-    } else {
-        oN=txi[2].xyz*s.z; oU=ro.xy+rd.xy*t1.z; oF=(9+int(s.z))/2;
-    }
-    oT = vec2(tN,tF);
-    
-    return true;
-}
-
 float sample_density(vec3 position) {
     
     vec3 uvw = (mod(position + cloud.offset , 128)) / 128.f; 
@@ -509,7 +403,7 @@ float light_march(vec3 sample_pos) {
     vec2 oT, oU;
     vec3 oN;
     int oF;
-    bool intersection = box_intersect(eye_position, direction_to_light, inverse(cloud.model_to_world), 
+    bool intersection = box_intersect_with_ray(eye_position, direction_to_light, inverse(cloud.model_to_world), 
                                                     cloud.model_to_world, cloud.rad, oT, oN, oU, oF); 
 
     for(int i  = 0; i < NUM_MARCH_STEPS_TO_LIGHT; i++) {
@@ -554,7 +448,7 @@ void calc_clouds() {
     vec2 oT, oU;
     vec3 oN;
     int oF;
-    bool intersection = box_intersect(eye_position, ray_direction, inverse(cloud.model_to_world), 
+    bool intersection = box_intersect_with_ray(eye_position, ray_direction, inverse(cloud.model_to_world), 
                                                     cloud.model_to_world, cloud.rad, oT, oN, oU, oF); 
 
     float light_energy = 0.0f;

@@ -6,6 +6,8 @@
 #include <thread>
 #include <mutex>
 
+#include <array>
+
 #include <memory>
 #include <sstream>
 
@@ -175,18 +177,42 @@ void set_shader_includes() {
     
     // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
     glErrorChecker glErrorChecker_ins;
-    const char* includeName     = "Globals.h";
-    const char* file_location   = "../Src/host_device_shared.h";
 
-    std::string file_content = read_file(file_location);
+    const int num_include_files = 9;
+    std::array<const char*, num_include_files> includeNames     = { "Globals.h",
+                                                                    "Matlib.glsl",
+                                                                    "microfacet.glsl",
+                                                                    "ShadingLibrary.glsl",
+                                                                    "disney.glsl",
+                                                                    "frostbite.glsl",
+                                                                    "pbrBook.glsl",
+                                                                    "phong.glsl",
+                                                                    "unreal4.glsl"
+                                                                    };
 
-    char tmpstr[200];
-    sprintf(tmpstr, "/%s", includeName);
+    std::array<const char*, num_include_files> file_locations   = { "../Src/host_device_shared.h",
+                                                                    "../Resources/Shaders/common/Matlib.glsl",
+                                                                    "../Resources/Shaders/common/microfacet.glsl",
+                                                                    "../Resources/Shaders/common/ShadingLibrary.glsl" ,
+                                                                    "../Resources/Shaders/brdf/disney.glsl",
+                                                                    "../Resources/Shaders/brdf/frostbite.glsl",
+                                                                    "../Resources/Shaders/brdf/pbrBook.glsl",
+                                                                    "../Resources/Shaders/brdf/phong.glsl",
+                                                                    "../Resources/Shaders/brdf/unreal4.glsl"
+                                                                    };
 
-    glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
-    if (glErrorChecker_ins.areErrorPrintAll("From glNamedStringARB.")) {
-        // DO something?
+
+
+    for (int i = 0; i < num_include_files; i++) {
+
+        std::string file_content = read_file(file_locations[i]);
+        char tmpstr[200];
+        sprintf(tmpstr, "/%s", includeNames[i]);
+        glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
+        glErrorChecker_ins.areErrorPrintAll("From glNamedStringARB.");
+
     }
+
 }
 
 
@@ -194,24 +220,24 @@ void set_shader_includes() {
 void create_geometry_pass_shader_program() {
 
     g_buffer_geometry_pass_shader_program = std::make_shared<GeometryPassShaderProgram>(GeometryPassShaderProgram{});
-    g_buffer_geometry_pass_shader_program->create_from_files(   "g_buffer_geometry_pass.vert", 
-                                                                "g_buffer_geometry_pass.frag");
+    g_buffer_geometry_pass_shader_program->create_from_files(   "rasterizer/g_buffer_geometry_pass.vert", 
+                                                                "rasterizer/g_buffer_geometry_pass.frag");
 
 }
 
 void create_lighting_pass_shader_program() {
 
     g_buffer_lighting_pass_shader_program = std::make_shared<LightingPassShaderProgram>(LightingPassShaderProgram{});
-    g_buffer_lighting_pass_shader_program->create_from_files(   "g_buffer_lighting_pass.vert",
-                                                                "g_buffer_lighting_pass.frag");
+    g_buffer_lighting_pass_shader_program->create_from_files(   "rasterizer/g_buffer_lighting_pass.vert",
+                                                                "rasterizer/g_buffer_lighting_pass.frag");
 
 }
 
 void create_shadow_map_shader_program() {
 
     shadow_map_shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
-    shadow_map_shader_program->create_from_files(   "directional_shadow_map.vert",
-                                                    "directional_shadow_map.frag");
+    shadow_map_shader_program->create_from_files(   "rasterizer/shadows/directional_shadow_map.vert",
+                                                    "rasterizer/shadows/directional_shadow_map.frag");
 
 }
 
@@ -220,17 +246,17 @@ void create_omni_shadow_map_shader_program() {
     
 
     omni_dir_shadow_shader_program = std::make_shared<OmniDirShadowShaderProgram>(OmniDirShadowShaderProgram{});
-    omni_dir_shadow_shader_program->create_from_files(  "omni_shadow_map.vert",
-                                                        "omni_shadow_map.geom", 
-                                                        "omni_shadow_map.frag");
+    omni_dir_shadow_shader_program->create_from_files(  "rasterizer/shadows/omni_shadow_map.vert",
+                                                        "rasterizer/shadows/omni_shadow_map.geom", 
+                                                        "rasterizer/shadows/omni_shadow_map.frag");
 
 }
 
 void create_loading_screen_shader_program() {
 
     loading_screen_shader_program = std::make_shared<LoadingScreenShaderProgram>( LoadingScreenShaderProgram{});
-    loading_screen_shader_program->create_from_files(   "loading_screen.vert",
-                                                        "loading_screen.frag");
+    loading_screen_shader_program->create_from_files(   "loading_screen/loading_screen.vert",
+                                                        "loading_screen/loading_screen.frag");
 
 }
 
@@ -247,7 +273,7 @@ void create_shader_programs() {
 
 void reload_shader_programs()
 {
-
+    set_shader_includes();
     shadow_map_shader_program->reload();
     g_buffer_geometry_pass_shader_program->reload();
     g_buffer_lighting_pass_shader_program->reload();
