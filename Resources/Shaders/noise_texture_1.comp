@@ -1,13 +1,13 @@
-#version 430
+#version 460
 layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+
+layout(rgba32f, location=0) uniform image3D noise;
 
 const int NUM_FBM = 3;
 const int NUM_ADJACENT_CELLS = 26;
 const float RESOLUTION = float(128.f);
 const int NUM_CELL_POSITIONS = 5;
-const int NUM_WORLEY_FREQUENCIES = 3; 
-
-layout(rgba32f, location=0) uniform image3D noise;
+const int NUM_WORLEY_FREQUENCIES = 3;
 
 uniform sampler3D cell_positions[NUM_CELL_POSITIONS];
 uniform int num_cells[NUM_CELL_POSITIONS];

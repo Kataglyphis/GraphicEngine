@@ -12,13 +12,9 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #define NUM_MIN_CASCADES 3
-#define NUM_MAX_CASCADES 10
-#define NUM_BIOM_TEXTURES 8
 #define MAX_RESOLUTION_X 1920
 #define MAX_RESOLUTION_Y 1080
 
-const int MAX_POINT_LIGHTS = 3;
-const int MAX_MATERIALS = 2;
 const int G_BUFFER_SIZE = 5;
 const int NUM_FRUSTUM_PLANES = 6;
 const int NUM_NOISE_TEXTURES = 2;

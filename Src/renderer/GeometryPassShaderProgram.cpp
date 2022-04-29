@@ -15,19 +15,6 @@ void GeometryPassShaderProgram::retrieve_uniform_locations() {
 
     uniform_material_id_location = glGetUniformLocation(program_id, "material_id");
 
-    for (int i = 0; i < NUM_BIOM_TEXTURES; i++) {
-
-        char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "biom_texture[%d]", i);
-        uniform_biom_texture_locations[i] = glGetUniformLocation(program_id, loc_buff);
-
-    }
-
-    uniform_isTerrainValue_id = glGetUniformLocation(program_id, "isTerrainTexture");
-    uniform_biomHeight_id = glGetUniformLocation(program_id, "max_biom_heights[0]");
-    uniform_max_height_id = glGetUniformLocation(program_id, "max_height");
-
-
     // Check if everythin went well.
     glErrorChecker_ins.areErrorPrintAll("From retrieve_uniform_locations in GeometryPassShaderProgram.");
     
@@ -54,11 +41,6 @@ GLuint GeometryPassShaderProgram::get_normal_modal_location()
 GLuint GeometryPassShaderProgram::get_material_id_location()
 {
     return uniform_material_id_location;
-}
-
-GLuint GeometryPassShaderProgram::get_biom_texture_location(GLuint id)
-{
-    return uniform_biom_texture_locations[id];
 }
 
 GLuint GeometryPassShaderProgram::get_terrain_id()

@@ -1,6 +1,7 @@
 #pragma once
 #include "ShaderProgram.h"
 #include "PointLight.h"
+#include "host_device_shared.h"
 
 class LightingPassShaderProgram :
     public ShaderProgram
@@ -59,10 +60,10 @@ private:
 		uniform_eye_position_location, uniform_g_frag_depth_location,
 		uniform_material_id_location, uniform_g_clouds_location;;
 
-	GLuint uniform_directional_shadow_map_locations[NUM_MAX_CASCADES];
-	GLuint uniform_g_directional_light_position_locations[NUM_MAX_CASCADES];
+	GLuint uniform_directional_shadow_map_locations[NUM_CASCADES];
+	GLuint uniform_g_directional_light_position_locations[NUM_CASCADES];
 
-	GLuint uniform_cascade_endpoints_locations[NUM_MAX_CASCADES];
+	GLuint uniform_cascade_endpoints_locations[NUM_CASCADES];
 
 	DirectionalLightUniformLocations d_light_uniform_locations;
 
@@ -113,7 +114,7 @@ private:
 
 	GLuint uniform_cloud_texture_location;
 
-	GLuint uniform_directional_light_transform_locations[NUM_MAX_CASCADES];
+	GLuint uniform_directional_light_transform_locations[NUM_CASCADES];
 
 	GLuint uniform_random_number_location;
 

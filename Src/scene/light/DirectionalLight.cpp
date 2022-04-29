@@ -1,8 +1,8 @@
 #include "DirectionalLight.h"
 
-DirectionalLight::DirectionalLight() : Light(), 
-                                                                shadow_map(std::make_shared<CascadedShadowMap>()),
-                                                                cascade_light_matrices(NUM_MAX_CASCADES, glm::mat4(0.f))
+DirectionalLight::DirectionalLight() :  Light(), 
+                                        shadow_map(std::make_shared<CascadedShadowMap>()),
+                                        cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
 {
     //shadow_map = new CascadedShadowMap{};
 	direction = glm::vec3{0, 0, 0};
@@ -12,18 +12,17 @@ DirectionalLight::DirectionalLight() : Light(),
 }
 
 
-DirectionalLight::DirectionalLight(GLuint shadow_width, GLuint shadow_height,
-                                                            GLfloat red, GLfloat green, GLfloat blue,
-                                                            GLfloat a_intensity, GLfloat d_intensity,
-                                                            GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
-                                                            GLfloat near_plane, GLfloat far_plane,
-                                                            GLfloat shadow_far_plane,
-                                                            int num_cascades) : 
-                                                                          Light(shadow_width, shadow_height,
-                                                                                                    red, green, blue,
-                                                                                                    a_intensity, d_intensity),
-                                                                        shadow_map(std::make_shared<CascadedShadowMap>()),
-                                                                        cascade_light_matrices(NUM_MAX_CASCADES, glm::mat4(0.f))
+DirectionalLight::DirectionalLight( GLuint shadow_width, GLuint shadow_height,
+                                    GLfloat red, GLfloat green, GLfloat blue,
+                                    GLfloat a_intensity, GLfloat d_intensity,
+                                    GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
+                                    GLfloat near_plane, GLfloat far_plane,
+                                    int num_cascades) : 
+                                                        Light(shadow_width, shadow_height,
+                                                        red, green, blue,
+                                                        a_intensity, d_intensity),
+                                                        shadow_map(std::make_shared<CascadedShadowMap>()),
+                                                        cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
     {
 
     direction = glm::vec3{ x_dir, y_dir, z_dir };
@@ -32,7 +31,7 @@ DirectionalLight::DirectionalLight(GLuint shadow_width, GLuint shadow_height,
 	shadow_map->init(shadow_width, shadow_height, num_cascades);
 
     shadow_near_plane = near_plane;
-    this->shadow_far_plane = shadow_far_plane;
+    shadow_far_plane = far_plane;
 }
 
 glm::mat4 DirectionalLight::get_light_view_matrix() {
@@ -43,7 +42,7 @@ std::vector<GLfloat> DirectionalLight::get_cascaded_slots()
 {
     std::vector<GLfloat> result;
 
-    for (int i = 0; i < NUM_MAX_CASCADES + 1; i++) {
+    for (int i = 0; i < NUM_CASCADES + 1; i++) {
 
         result.push_back(cascade_slots[i]);
 
@@ -67,7 +66,7 @@ void DirectionalLight::calc_cascaded_slots()
 {
     GLuint number_of_elements = shadow_map->get_num_active_cascades();// sizeof(cascade_slots) / sizeof(cascade_slots[0]);
 
-    for (int i = 0; i < NUM_MAX_CASCADES + 1; i++) {
+    for (int i = 0; i < NUM_CASCADES + 1; i++) {
 
         cascade_slots[i] = 100000.f;
 

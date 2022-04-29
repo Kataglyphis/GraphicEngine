@@ -6,6 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "glErrorChecker.h"
+#include "host_device_shared.h"
 
 class CascadedShadowMap
 {
@@ -30,7 +31,7 @@ public:
 
 protected:
 
-	GLuint FBO, shadow_map[NUM_MAX_CASCADES];
+	GLuint FBO, shadow_map[NUM_CASCADES];
 	GLuint shadow_width, shadow_height;
 
 	GLuint num_active_cascades;

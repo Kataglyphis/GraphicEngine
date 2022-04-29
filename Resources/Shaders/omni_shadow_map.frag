@@ -1,4 +1,4 @@
-#version 330
+#version 460
 
 in vec4 frag_pos;
 

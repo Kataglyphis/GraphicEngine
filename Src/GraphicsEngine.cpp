@@ -17,6 +17,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "glErrorChecker.h"
 
 //all gui stuff
 #include <imgui.h>
@@ -56,6 +57,7 @@
 #include "Camera.h"
 
 #include "GlobalValues.h"
+#include "host_device_shared.h"
 
 //our global variables
 GLfloat delta_time = 0.0f;
@@ -66,7 +68,6 @@ unsigned int point_light_count = 0;
 //define near and far plane
 GLfloat near_plane = 0.1f;
 GLfloat far_plane = 2000.f;
-GLfloat far_plane_shadow = 900.f;
 
 //shadow map var
 GLuint shadow_map_resolution = 4096;
@@ -149,6 +150,47 @@ int pcf_radius = 2;
 float cascaded_shadow_intensity = 0.65f;
 const char* available_shadow_map_resolutions[] = { "512","1024","2048", "4096"};
 
+std::string read_file(const char* file_location)
+{
+    std::string content;
+    std::ifstream file_stream(file_location, std::ios::in);
+
+    if (!file_stream.is_open()) {
+        printf("Failed to read %s. File does not exist.", file_location);
+        return "";
+    }
+
+    std::string line = "";
+    while (!file_stream.eof()) {
+        std::getline(file_stream, line);
+        content.append(line + "\n");
+    }
+
+    file_stream.close();
+    return content;
+}
+
+// https://cpp.hotexamples.com/examples/-/-/glNamedStringARB/cpp-glnamedstringarb-function-examples.html
+void set_shader_includes() {
+    
+    // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
+    glErrorChecker glErrorChecker_ins;
+    const char* includeName     = "Globals.h";
+    const char* file_location   = "../Src/host_device_shared.h";
+
+    std::string file_content = read_file(file_location);
+
+    char tmpstr[200];
+    sprintf(tmpstr, "/%s", includeName);
+
+    glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
+    if (glErrorChecker_ins.areErrorPrintAll("From glNamedStringARB.")) {
+        // DO something?
+    }
+}
+
+
+
 void create_geometry_pass_shader_program() {
 
     g_buffer_geometry_pass_shader_program = std::make_shared<GeometryPassShaderProgram>(GeometryPassShaderProgram{});
@@ -230,6 +272,7 @@ void reload_noise_programs() {
 
 int main()
 {
+
     MyWindow main_window;
     
     GLint window_width = 1900;
@@ -237,6 +280,9 @@ int main()
 
     main_window = MyWindow(window_width, window_height);
     main_window.initialize();
+
+    // set include file for shaders
+    set_shader_includes();
 
     noise = std::make_shared<Noise>();
     noise->init();
@@ -259,7 +305,7 @@ int main()
 
 
     //initialize main dir light
-    main_light = std::make_shared<DirectionalLight>(shadow_map_resolution,
+    main_light = std::make_shared<DirectionalLight>(    shadow_map_resolution,
                                                         shadow_map_resolution,
                                                         directional_light_starting_color.x,
                                                         directional_light_starting_color.y,
@@ -269,8 +315,8 @@ int main()
                                                         directional_light_starting_position.x,
                                                         directional_light_starting_position.y,
                                                         directional_light_starting_position.z,
-                                                        main_camera->get_near_plane(), main_camera->get_far_plane(),
-                                                        far_plane_shadow, num_shadow_cascades);
+                                                        main_camera->get_near_plane(), main_camera->get_far_plane(), 
+                                                        num_shadow_cascades);
 
     point_lights[0] = std::make_shared<PointLight>(1024, 1024,
                                     0.01f, 100.f,
@@ -505,7 +551,7 @@ int main()
                     ImGui::Combo("Shadow Map Resolution", &shadow_map_res_index, available_shadow_map_resolutions, IM_ARRAYSIZE(available_shadow_map_resolutions));
                     if (shadow_map_res_index_before != shadow_map_res_index) shadow_resolution_changed = true;
                     int num_cascades_before = num_shadow_cascades;
-                    ImGui::SliderInt("# cascades", &num_shadow_cascades, NUM_MIN_CASCADES, NUM_MAX_CASCADES);
+                    ImGui::SliderInt("# cascades", &num_shadow_cascades, NUM_MIN_CASCADES, NUM_CASCADES);
                     if (num_cascades_before != num_shadow_cascades) shadow_resolution_changed = true;
                     ImGui::SliderInt("PCF radius", &pcf_radius, 1, 20 );
                     ImGui::SliderFloat("Shadow intensity", &cascaded_shadow_intensity ,0.0f, 1.0f);

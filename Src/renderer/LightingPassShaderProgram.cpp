@@ -23,7 +23,7 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     uniform_eye_position_location = glGetUniformLocation(program_id, "eye_position");
     uniform_g_frag_depth_location = glGetUniformLocation(program_id, "g_frag_depth");
 
-    for (size_t i = 0; i < NUM_MAX_CASCADES; i++) {
+    for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         char loc_buff[100] = { '\0' };
         snprintf(loc_buff, sizeof(loc_buff), "cascade_endpoints[%zd]", i);
@@ -118,7 +118,7 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
 
 
     //set an array of transormation matrices for the cascade
-    for (size_t i = 0; i < NUM_MAX_CASCADES; i++) {
+    for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         char loc_buff[100] = { '\0' };
         snprintf(loc_buff, sizeof(loc_buff), "directional_light_transform[%zd]", i);

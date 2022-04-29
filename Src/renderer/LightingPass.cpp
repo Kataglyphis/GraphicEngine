@@ -88,16 +88,16 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     std::vector<GLfloat> cascade_slots = main_light->get_cascaded_slots();
 
-    for (int i = 0; i < NUM_MAX_CASCADES; i++) {
+    for (int i = 0; i < NUM_CASCADES; i++) {
 
         glm::vec4 clip_end_slot = projection_matrix * glm::vec4(0.0f, 0.0f, -cascade_slots[i+1], 1.0f);
         glUniform1f(shader_program->get_cascade_endpoint_location(i), clip_end_slot.z);
 
     }
 
-    GLuint g_buffer_lighting_uniform_directional_shadow_map_locations[NUM_MAX_CASCADES];
+    GLuint g_buffer_lighting_uniform_directional_shadow_map_locations[NUM_CASCADES];
 
-    for (size_t i = 0; i < NUM_MAX_CASCADES; i++) {
+    for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         g_buffer_lighting_uniform_directional_shadow_map_locations[i] = shader_program->get_directional_shadow_map_location(i);
 
@@ -109,7 +109,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
         shader_program->get_g_frag_depth_location(),
         shader_program->get_uniform_material_id_location());
 
-    for (size_t i = 0; i < NUM_MAX_CASCADES; i++) {
+    for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         glUniform1i(g_buffer_lighting_uniform_directional_shadow_map_locations[i], G_BUFFER_SIZE + 1 + i);
 
@@ -117,11 +117,11 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
 
-    shader_program->set_point_lights(point_lights, point_light_count, G_BUFFER_SIZE + NUM_MAX_CASCADES + 1, 0);
+    shader_program->set_point_lights(point_lights, point_light_count, G_BUFFER_SIZE + NUM_CASCADES + 1, 0);
 
-    shader_program->set_noise_textures(G_BUFFER_SIZE + point_light_count + NUM_MAX_CASCADES + 1);
+    shader_program->set_noise_textures(G_BUFFER_SIZE + point_light_count + NUM_CASCADES + 1);
 
-    shader_program->set_cloud_texture((GLenum)G_BUFFER_SIZE + NUM_MAX_CASCADES + point_light_count + NUM_NOISE_TEXTURES + 1);
+    shader_program->set_cloud_texture((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + NUM_NOISE_TEXTURES + 1);
 
     glUniform3f(shader_program->get_eye_position_location(), camera_position.x, camera_position.y, camera_position.z);
 
@@ -163,7 +163,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     std::vector<glm::mat4> cascade_light_matrices = main_light->get_cascaded_light_matrices();
 
-    for (int i = 0; i < NUM_MAX_CASCADES; i++) {
+    for (int i = 0; i < NUM_CASCADES; i++) {
 
         glUniformMatrix4fv(shader_program->get_directional_light_transform_location(i), 1, GL_FALSE, glm::value_ptr(cascade_light_matrices[i] * light_view));
 
@@ -189,13 +189,13 @@ void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, s
 
     main_light->get_shadow_map()->read((GLenum)G_BUFFER_SIZE + start_texture);
 
-    cloud->read((GLenum)G_BUFFER_SIZE + NUM_MAX_CASCADES + point_light_count + NUM_NOISE_TEXTURES + 1);
+    cloud->read((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + NUM_NOISE_TEXTURES + 1);
 
-    noise->read_worley_noise((GLenum)G_BUFFER_SIZE + NUM_MAX_CASCADES + point_light_count + 1);
+    noise->read_worley_noise((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + 1);
 
-    noise->read_grad_noise((GLenum)G_BUFFER_SIZE + NUM_MAX_CASCADES + point_light_count + 2);
+    noise->read_grad_noise((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + 2);
 
-    bind_random_numbers(G_BUFFER_SIZE + NUM_MAX_CASCADES + point_light_count + NUM_NOISE_TEXTURES + NUM_CLOUDS + 1);
+    bind_random_numbers(G_BUFFER_SIZE + NUM_CASCADES + point_light_count + NUM_NOISE_TEXTURES + NUM_CLOUDS + 1);
 
 }
 

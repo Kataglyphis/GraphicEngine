@@ -69,6 +69,8 @@ Feel free to contribute and adding stuff :)
 Reminder: This project is based on my interest in implementing algortihms by
 my own and make own research. Hence you might encounter some bugs. Feel free 
 to report.
+This project was a result from an assignment. Under documents you can find 
+the milestone document.
 
 ### Key Features
 
@@ -125,9 +127,6 @@ You will need OpenGL. If you want to build documantaries you will need [DOXYGEN]
 ## Usage
 
 
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 Upcoming :)
@@ -168,17 +167,19 @@ Project Link: [https://github.com/Kataglyphis/GraphicsEngine](https://github.com
 ## Acknowledgements
 
 I want to thank my partner Kansei who worked with me on a project. This project arised from this university project.
-
+* [Loading Screen Image](https://www.golem.de/news/raumfahrt-spacex-macht-sicherheitstest-bei-hoechster-belastung-2001-146124.html)
 
 ## Literature 
 
 Some very helpful literature, tutorials, etc. 
 
+* [View Frustum Culling](http://www.lighthouse3d.com/tutorials/view-frustum-culling/geometric-approach-extracting-the-planes/)
+
 OpenGL 
 * [learnopengl.com](https://learnopengl.com/)
 * [ogldev.org](https://ogldev.org/)
 * [Cascaded Shadow Maps](https://ahbejarano.gitbook.io/lwjglgamedev/chapter26)
-* []()
+* [Compute Shader in OpenGL](https://antongerdelan.net/opengl/compute.html)
 
 Clouds
 * [pbr-book](https://www.pbr-book.org/)
@@ -186,9 +187,12 @@ Clouds
 * [Shadertoy Horizon Zero Dawn](https://www.shadertoy.com/view/WddSDr)
 * [Sebastian Lague](https://m.youtube.com/watch?v=4QOcCGI6xOU&t=97s)
 * [Horizon Zero Dawn](http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf)
+* [Clouds and noise](https://thebookofshaders.com/12/)
+* [Shadertoy Clouds using 3D Perlin noise](https://www.shadertoy.com/view/XlKyRw)
 * []()
-* []()
-* []()
+
+Noise
+* [Worley noise online demo](https://github.com/Erkaman/glsl-worley)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

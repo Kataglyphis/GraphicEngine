@@ -2,6 +2,7 @@
 #include "Light.h"
 #include <memory>
 #include <limits>
+#include "host_device_shared.h"
 
 class DirectionalLight : public Light
 {
@@ -9,12 +10,11 @@ public:
 
 	DirectionalLight();
 
-	DirectionalLight(GLuint shadow_width, GLuint shadow_height,
-									GLfloat red, GLfloat green, GLfloat blue,
-									GLfloat a_intensity, GLfloat d_intensity,
-									GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
-									GLfloat near_plane, GLfloat far_plane, 
-								    GLfloat shadow_far_plane, int num_cascades);
+	DirectionalLight(	GLuint shadow_width, GLuint shadow_height,
+						GLfloat red, GLfloat green, GLfloat blue,
+						GLfloat a_intensity, GLfloat d_intensity,
+						GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
+						GLfloat near_plane, GLfloat far_plane, int num_cascades);
 
 	glm::mat4 calculate_light_transform();
 
@@ -49,7 +49,7 @@ private:
 	glm::vec3 direction;
 	GLfloat shadow_near_plane, shadow_far_plane;
 
-	GLfloat cascade_slots[NUM_MAX_CASCADES + 1];
+	GLfloat cascade_slots[NUM_CASCADES + 1];
 	std::vector<glm::mat4> cascade_light_matrices;
 };
 

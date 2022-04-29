@@ -1,4 +1,4 @@
-#version 330
+#version 460
 
 layout(location = 2) out vec3 g_albedo;
 

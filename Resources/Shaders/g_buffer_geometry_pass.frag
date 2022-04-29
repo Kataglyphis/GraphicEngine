@@ -1,12 +1,13 @@
-#version 400 
+#version 460
+#extension GL_ARB_shading_language_include : require
+
+#include "/Globals.h"
 
 layout(location = 0) out vec3 g_position;
 layout(location = 1) out vec3 g_normal;
 layout(location = 2) out vec3 g_albedo;
 layout(location = 3) out float g_frag_depth;
 layout(location = 4) out float g_material_id;
-
-const int NUM_CASCADES = 3;
 
 in vec2 tex_coords;
 in vec3 frag_pos;

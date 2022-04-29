@@ -1,19 +1,11 @@
-#version 400
+#version 460
 
- //params for clouds
-#define NUM_MARCH_STEPS 32
-#define NUM_MARCH_STEPS_TO_LIGHT 6
-#define CLOUDS 1
+#extension GL_ARB_shading_language_include : require
 
+#include "/Globals.h"
 in vec2 tex_coords;
 
 out vec4 color;
-
-//define all constants here
-const int NUM_CASCADES = 10;
-const int MAX_POINT_LIGHTS = 3;
-const int MAX_MATERIALS = 2;
-const float PI = 3.14159265359f;
 
 struct Clouds {
 
@@ -630,7 +622,7 @@ void debug_cascaded_shadow_maps() {
     if(is_proj_coord_valid(pos_from_cascaded_point_1_proj)) closest_depth_first_cascade = 
                                                 texture(directional_shadow_maps[0], pos_from_cascaded_point_1_proj.xy).r;
 
-   vec4 pos_from_cascaded_point_2 = directional_light_transform[1] * vec4(texture(g_position, tex_coords).rgb, 1.0f);
+    vec4 pos_from_cascaded_point_2 = directional_light_transform[1] * vec4(texture(g_position, tex_coords).rgb, 1.0f);
     vec3 pos_from_cascaded_point_2_proj = pos_from_cascaded_point_2.rgb / pos_from_cascaded_point_2.a;
     pos_from_cascaded_point_2_proj = (pos_from_cascaded_point_2_proj * 0.5f) + 0.5f;
     float closest_depth_second_cascade = 0;

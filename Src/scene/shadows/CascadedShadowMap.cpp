@@ -3,7 +3,7 @@
 CascadedShadowMap::CascadedShadowMap()
 {
 	FBO = 0;
-	for (unsigned int i = 0; i < NUM_MAX_CASCADES; i++) {
+	for (unsigned int i = 0; i < NUM_CASCADES; i++) {
 		shadow_map[i] = 0;
 	}
 	pcf_radius = 1;
@@ -72,7 +72,7 @@ void CascadedShadowMap::write(GLuint cascade_index)
 
 void CascadedShadowMap::read(GLenum texture_unit)
 {
-	for (size_t i = 0; i < NUM_MAX_CASCADES; i++) {
+	for (size_t i = 0; i < NUM_CASCADES; i++) {
 
 		glActiveTexture(GL_TEXTURE0 + texture_unit + i);
 		glBindTexture(GL_TEXTURE_2D, shadow_map[i]);
@@ -117,6 +117,6 @@ CascadedShadowMap::~CascadedShadowMap()
 	}
 
 	if (shadow_map) {
-		glDeleteTextures(NUM_MAX_CASCADES, shadow_map);
+		glDeleteTextures(NUM_CASCADES, shadow_map);
 	}
 }
