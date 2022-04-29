@@ -76,19 +76,19 @@ the milestone document.
 ### Key Features
 
 <!-- ❌ -->
-|          Feature                      |   Implement Status | 
-| --------------------------------      | :----------------: | 
-| Directional Lights                    |         ✔️         |
-| Point Lights                          |         ✔️         |
-| Spot Lights                           |         ✔️         |
-| Directional Shadow Mapping            |         ✔️         |
-| Omni-Directional Shadow Mapping       |         ✔️         |
-| Cascaded Shadow Mapping               |         ✔️         |
-| Cloud system                          |         ✔️         |
-| .obj Model loading                    |         ✔️         |
-| PBR support (UE4,disney,phong, etc.)  |         ✔️         |
-| Sky box                               |         ✔️         |
-| Sky box                               |         ✔️         |
+|          Feature                              |   Implement Status | 
+| --------------------------------              | :----------------: | 
+| Directional Lights                            |         ✔️         |
+| Point Lights                                  |         ✔️         |
+| Spot Lights                                   |         ✔️         |
+| Directional Shadow Mapping                    |         ✔️         |
+| Omni-Directional Shadow Mapping               |         ✔️         |
+| Cascaded Shadow Mapping                       |         ✔️         |
+| Cloud system                                  |         ✔️         |
+| .obj Model loading                            |         ✔️         |
+| PBR support (UE4,disney,phong, etc.)          |         ✔️         |
+| Support for `#include` directives in shaders. |         ✔️         |
+| Sky box                                       |         ✔️         |
 
 ### Built With
 
