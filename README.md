@@ -104,6 +104,7 @@ and Windows. I do not provide support for MacOS. Be aware of the dependencies:
 * [STB](https://github.com/nothings/stb)
 * [DOXYGEN](https://www.doxygen.nl/index.html)
 * [GTEST](https://github.com/google/googletest)
+* [CMAKE](https://cmake.org/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
