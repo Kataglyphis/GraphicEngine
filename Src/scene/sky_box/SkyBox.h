@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include <string>
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
@@ -12,6 +11,8 @@
 #include "Mesh.h"
 #include "Vertex.h"
 #include "SkyBoxShaderProgram.h"
+
+#include <sstream>
 
 #include <ctime>
 #include <chrono>

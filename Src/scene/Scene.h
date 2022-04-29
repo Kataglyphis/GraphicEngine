@@ -5,7 +5,6 @@
 #include "RenderPassSceneDependend.h"
 #include "MyWindow.h"
 #include <mutex>
-#include "Terrain_generator.h"
 #include "Clouds.h"
 #include <thread>
 
@@ -18,13 +17,11 @@ public:
 
 	Scene(const Scene& other);
 
-	std::shared_ptr<Terrain_Generator> get_terrain_generator();
-
 	std::thread spwan() {
 		return std::thread([=] {load_models();});
 	}
 
-	void init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds);
+	void init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Clouds> clouds);
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
 	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
 	void load_models();
@@ -45,7 +42,6 @@ private:
 
 	std::shared_ptr<Camera> main_camera;
 	MyWindow* main_window;
-	std::shared_ptr<Terrain_Generator> terrain_generator;
 	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 	std::shared_ptr<Clouds> clouds;
 

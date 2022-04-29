@@ -7,8 +7,14 @@ ShaderProgram::ShaderProgram()
 
 void ShaderProgram::create_from_files(const char* vertex_location, const char* fragment_location)
 {
-    std::string vertex_string = read_file(vertex_location);
-    std::string fragment_string = read_file(fragment_location);
+    
+    std::stringstream vertex_shader;
+    std::stringstream fragment_shader;
+    vertex_shader << shader_base_dir << vertex_location;
+    fragment_shader << shader_base_dir << fragment_location;
+
+    std::string vertex_string = read_file(vertex_shader.str().c_str());
+    std::string fragment_string = read_file(fragment_shader.str().c_str());
 
     //we need c-like strings ....
     const char* vertex_code = vertex_string.c_str();
@@ -22,9 +28,17 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* f
 
 void ShaderProgram::create_from_files(const char* vertex_location, const char* geometry_location, const char* fragment_location)
 {
-    std::string vertex_string = read_file(vertex_location);
-    std::string geometry_string = read_file(geometry_location);
-    std::string fragment_string = read_file(fragment_location);
+
+    std::stringstream vertex_shader;
+    std::stringstream geometry_shader;
+    std::stringstream fragment_shader;
+    vertex_shader << shader_base_dir << vertex_location;
+    geometry_shader << shader_base_dir << geometry_location;
+    fragment_shader << shader_base_dir << fragment_location;
+
+    std::string vertex_string   = read_file(vertex_shader.str().c_str());
+    std::string geometry_string = read_file(geometry_shader.str().c_str());
+    std::string fragment_string = read_file(fragment_shader.str().c_str());
 
 
     const char* vertex_code = vertex_string.c_str();

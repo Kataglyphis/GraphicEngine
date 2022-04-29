@@ -1,7 +1,5 @@
 #include "GeometryPass.h"
 
-
-
 GeometryPass::GeometryPass()
 {
 }
@@ -10,20 +8,31 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 {
 
     this->shader_program = shader_program;
+    std::string skybox_base_dir = "../Resources/Textures/Skybox/DOOM2016/";
+    stringstream texture_loading;
+    std::array<std::string, 6> skybox_textures = {  "DOOM16RT.png",
+                                                    "DOOM16LF.png",
+                                                    "DOOM16UP.png",
+                                                    "DOOM16DN.png",
+                                                    "DOOM16FT.png",
+                                                    "DOOM16BK.png"
+    };
 
-    // create skybox
     std::vector<std::string> skybox_faces;
-    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16RT.png");
-    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16LF.png");
-    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16UP.png");
-    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16DN.png");
-    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16FT.png");
-    skybox_faces.push_back("Textures/Skybox/DOOM2016/DOOM16BK.png");
+
+    for (int i = 0; i < skybox_textures.size(); i++) {
+
+        texture_loading << skybox_base_dir << skybox_textures[i];
+        skybox_faces.push_back(texture_loading.str());
+        texture_loading.str(std::string());
+
+    }
+
     skybox = SkyBox(skybox_faces);
 
 }
 
-void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix , std::shared_ptr<Terrain_Generator> terrain_generator)
+void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix)
 {
 
     glUniformMatrix4fv(shader_program->get_projection_location(), 1, GL_FALSE, glm::value_ptr(projection_matrix));
@@ -50,7 +59,7 @@ void GeometryPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 
     shader_program->use_shader_program();
 
-    retrieve_geometry_pass_locations(projection_matrix, view_matrix, scene->get_terrain_generator());
+    retrieve_geometry_pass_locations(projection_matrix, view_matrix);
 
     scene->render(this, first_person_mode);
     
@@ -70,9 +79,6 @@ void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_mo
 
     // check if there any gl Errors
     glErrorChecker_ins.areErrorPrintAll("Error, from set_game_object_uniforms function in GeometryPass.");
-
-    //bool useTexture = true;
-    //terrain_generator->render_plants(model_matrix_terrain, is_chunk_rendered_flags, useTexture, shader_program->get_model_location());
 
 
 }

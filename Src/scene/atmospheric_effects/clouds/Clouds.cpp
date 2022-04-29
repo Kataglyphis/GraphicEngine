@@ -32,7 +32,7 @@ void Clouds::init(GLfloat window_width, GLfloat window_height, GLuint movement_s
 
 	//shader_program = std::unique_ptr<CloudsShaderProgram>{ new CloudsShaderProgram{} };
 
-	shader_program->create_from_files("Shaders/Clouds.vert","Shaders/Clouds.frag");
+	shader_program->create_from_files("Clouds.vert","Clouds.frag");
 
 	glGenFramebuffers(1, &FBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, FBO);

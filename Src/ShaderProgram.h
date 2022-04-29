@@ -6,6 +6,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <string>
+#include <sstream>
 
 //#include "DirectionalLight.h"
 #include "DirectionalLightUniformLocations.h"
@@ -31,6 +32,8 @@ public:
 	~ShaderProgram();
 
 protected:
+
+	std::string shader_base_dir = "../Resources/Shaders/";
 
 	GLuint program_id;
 

@@ -9,7 +9,6 @@ Scene::Scene(const Scene& other)
 {
     main_camera = other.main_camera;
     main_window = other.main_window;
-    terrain_generator = other.terrain_generator;
     view_frustum_culling = other.view_frustum_culling;
     clouds = other.clouds;
 
@@ -22,17 +21,11 @@ Scene::Scene(const Scene& other)
      context_setup = other.context_setup;
 }
 
-std::shared_ptr<Terrain_Generator> Scene::get_terrain_generator()
-{
-    return terrain_generator;
-}
-
-void Scene::init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Terrain_Generator> terrain_generator, std::shared_ptr<Clouds> clouds)
+void Scene::init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Clouds> clouds)
 {
 
     this->main_camera = main_camera;
     this->main_window = main_window;
-    this->terrain_generator = terrain_generator;
     this->clouds = clouds;
 
     loaded_scene = false;
@@ -50,18 +43,18 @@ void Scene::load_models()
 
     lock_guard<mutex> guard{ mx_space_ship };
 
-    glm::vec3 space_station_offset = glm::vec3(-130.f, 0.0f, 50.0f);
-    GLfloat space_station_scale = 0.4f;
+    glm::vec3 space_station_offset = glm::vec3(0.f, 0.0f, 0.0f);
+    GLfloat space_station_scale = 80.f;
     Rotation space_station_rot;
     space_station_rot.degrees = 0.0f;
     space_station_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    glm::vec3 clouds_offset = glm::vec3(30.f, 400.0f, 30.0f);
+    glm::vec3 clouds_offset = glm::vec3(30.f, 800.0f, 30.0f);
     glm::vec3 clouds_scale = glm::vec3(64.f, 64.f, 64.f);
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);
 
-    std::shared_ptr<GameObject> sponza = make_shared<GameObject>("Models/crytek-sponza/sponza_triag.obj", space_station_offset, space_station_scale, space_station_rot, 0);
+    std::shared_ptr<GameObject> sponza = make_shared<GameObject>("../Resources/Models/dinosaurs.obj", space_station_offset, space_station_scale, space_station_rot, 0);
     progress += 1.f;
 
     ambient_objects.push_back(sponza);

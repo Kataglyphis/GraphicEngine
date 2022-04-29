@@ -29,7 +29,6 @@ FILE(GLOB COMPUTE_FILTER                "Src/compute/*.h"                       
 FILE(GLOB RENDERER_FILTER               "Src/renderer/*.h"                              "Src/renderer/*.cpp")
 FILE(GLOB CLOUD_FILTER                  "Src/scene/atmospheric_effects/clouds/*.h"      "Src/scene/atmospheric_effects/clouds/*.cpp")
 FILE(GLOB LIGHT_FILTER                  "Src/scene/light/*.h"                           "Src/scene/light/*.cpp")
-FILE(GLOB PROC_GENERATOR_FILTER         "Src/scene/procedural_generator/*.h"            "Src/scene/procedural_generator/*.cpp")
 FILE(GLOB SHADOWS_FILTER                "Src/scene/shadows/*.h"                         "Src/scene/shadows/*.cpp")
 FILE(GLOB SKY_BOX_FILTER                "Src/scene/sky_box/*.h"                         "Src/scene/sky_box/*.cpp")
 FILE(GLOB TEXTURE_FILTER                "Src/scene/texture/*.h"                         "Src/scene/texture/*.cpp")
@@ -55,7 +54,6 @@ source_group("renderer"                                 FILES ${RENDERER_FILTER}
 source_group("scene/atmospheric_effects/clouds"         FILES ${CLOUD_FILTER})
 source_group("scene/lights"                             FILES ${LIGHT_FILTER})
 source_group("scene/shadows"                            FILES ${SHADOWS_FILTER})
-source_group("scene/procedural_generation"              FILES ${PROC_GENERATOR_FILTER})
 source_group("scene/sky_box"                            FILES ${SKY_BOX_FILTER})
 source_group("scene/texture"                            FILES ${TEXTURE_FILTER})
 source_group("scene"                                    FILES ${SCENE_FILTER})
@@ -83,7 +81,6 @@ add_executable(${PROJECT_NAME}
                 ${RENDERER_FILTER}
                 ${ATMOSPHERE_EFFECTS_FILTER}
                 ${LIGHT_FILTER}
-                ${PROC_GENERATOR_FILTER}
                 ${CLOUD_FILTER}
                 ${SHADOWS_FILTER}
                 ${SKY_BOX_FILTER}
@@ -102,7 +99,6 @@ target_include_directories(${PROJECT_NAME}  PUBLIC "${PROJECT_BINARY_DIR}/../Src
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/renderer"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/atmospheric_effects/clouds"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/light"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/procedural_generator"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/shadows"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/sky_box"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/texture"
@@ -123,19 +119,6 @@ target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
 
 #surpress warnings
 set(OpenGL_GL_PREFERENCE GLVND)
-
-install(FILES "${PROJECT_BINARY_DIR}/Src/Config.h" DESTINATION include)
-
-file(COPY Resources/Shaders DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(COPY Resources/Models DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(COPY Resources/Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-
-# add_custom_command(
-#   TARGET ${PROJECT_NAME} PRE_BUILD
-#   COMMAND ${CMAKE_COMMAND} -E copy
-#           ${CMAKE_SOURCE_DIR}/Resources/Shaders/*
-#           ${CMAKE_CURRENT_BINARY_DIR}/Shaders/)
-
 
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)

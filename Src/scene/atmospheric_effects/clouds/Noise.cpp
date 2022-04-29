@@ -12,8 +12,8 @@ void Noise::init()
 	this->texture_dim_2 = 32;
 	texture_1_shader_program = ComputeShaderProgram();
 	texture_2_shader_program = ComputeShaderProgram();
-	texture_1_shader_program.create_computer_shader_program_from_file("Shaders/noise_texture_1.comp");
-	texture_2_shader_program.create_computer_shader_program_from_file("Shaders/noise_texture_2.comp");
+	texture_1_shader_program.create_computer_shader_program_from_file("../Resources/Shaders/noise_texture_1.comp");
+	texture_2_shader_program.create_computer_shader_program_from_file("../Resources/Shaders/noise_texture_2.comp");
 
 	for (int i = 0; i < NUM_CELLS; i++) {
 

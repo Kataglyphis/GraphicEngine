@@ -263,9 +263,13 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
     return shadow;
 }
 
-#include "../common/ShadingLibrary.glsl"
-
 // source: https://seblagarde.files.wordpress.com/2015/07/course_notes_moving_frostbite_to_pbr_v32.pdf
+
+vec3 evaluateCookTorrenceSpecularBRDF(float D, float G, vec3 F, float cosThetaI, float cosThetaO) {
+
+    return vec3((D * G * F) / (4.f * cosThetaI * cosThetaO));
+
+}
 
 vec3 F_Schlick(in vec3 f0, in float f90, in float u)
 {
@@ -274,7 +278,7 @@ vec3 F_Schlick(in vec3 f0, in float f90, in float u)
 
 float FrostbiteDiffuse(float NdotV, float NdotL, float LdotH, float roughness) {
 
-    float energyBias = mix(0, 0.5, roughness);
+    float energyBias = mix(0.0, 0.5, roughness);
     float energyFactor = mix(1.0, 1.0 / 1.51, roughness);
     float fd90 = energyBias + 2.0 * LdotH * LdotH * roughness;
     vec3 f0 = vec3(1.0f, 1.0f, 1.0f);
@@ -348,7 +352,7 @@ vec3 gamma_correction(vec3 color) {
 vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int material_id = int(texture(g_material_id, tex_coords).r);
-    vec3 ambient    = texture(g_albedo, tex_coords).rgb;
+    vec3 ambient    = vec3(1.f);//texture(g_albedo, tex_coords).rgb;
     vec3 frag_pos   = texture(g_position, tex_coords).rgb;
     vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
 
@@ -358,7 +362,7 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
     
     float roughness = 0.5f;
 
-    return vec4(evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity),1.0f);
+    return (1.f - shadow_factor) * vec4(evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity),1.0f);
 
 }
 
@@ -654,7 +658,7 @@ void debug_cascaded_shadow_maps() {
 void main () {
     
     vec4 final_color = calc_directional_light();
-    final_color += calc_point_lights();
+    // final_color += calc_point_lights();
 
     //do not shade when skybox is visible!
     float frag_depth = texture(g_frag_depth, tex_coords).r;
@@ -669,10 +673,10 @@ void main () {
 
     }
     
-    color = gamma_correction(color);
+    color = vec4(gamma_correction(color.xyz),1.0);
 
     calc_clouds();
-   //debug_cascaded_shadow_maps();
+    //debug_cascaded_shadow_maps();
 
 }
 

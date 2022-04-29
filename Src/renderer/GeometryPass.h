@@ -8,6 +8,7 @@
 #include "Clouds.h"
 #include "Scene.h"
 #include "SkyBox.h"
+#include <array>
 
 #include "glErrorChecker.h"
 
@@ -29,7 +30,7 @@ public:
 
 private:
 
-    void retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<Terrain_Generator> terrain_generator);
+    void retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix);
 
     std::shared_ptr<GeometryPassShaderProgram> shader_program;
 

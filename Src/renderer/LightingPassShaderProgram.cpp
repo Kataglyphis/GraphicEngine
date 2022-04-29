@@ -306,7 +306,6 @@ void LightingPassShaderProgram::set_point_lights(std::vector<std::shared_ptr<Poi
 void LightingPassShaderProgram::set_noise_textures(GLuint start)
 {
 
-    // TODO Kansei Is start + 1 a correct location??? xD I dont understand ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     glUniform1i(uniform_noise_texture_1_location, start);
     glUniform1i(uniform_noise_texture_2_location, start + 1);
 

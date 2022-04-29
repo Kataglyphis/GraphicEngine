@@ -7,6 +7,7 @@
 #include <mutex>
 
 #include <memory>
+#include <sstream>
 
 //all vector math helper includes :)
 #include <limits>
@@ -50,7 +51,6 @@
 #include "Material.h"
 #include "Mesh.h"
 #include "Model.h"
-#include "Terrain_generator.h"
 #include "ViewFrustumCulling.h"
 #include "MyWindow.h"
 #include "Camera.h"
@@ -65,7 +65,7 @@ unsigned int point_light_count = 0;
 
 //define near and far plane
 GLfloat near_plane = 0.1f;
-GLfloat far_plane = 1000.f;
+GLfloat far_plane = 2000.f;
 GLfloat far_plane_shadow = 900.f;
 
 //shadow map var
@@ -98,8 +98,6 @@ DirectionalShadowMapPass directional_shadow_map_pass;
 GeometryPass geometry_pass;
 LightingPass lighting_pass;
 
-std::shared_ptr<Terrain_Generator> tGenerator;
-
 //everything necessary for the loading screen
 Quad loading_screen;
 Texture loading_screen_tex;
@@ -112,13 +110,13 @@ glm::vec3 directional_light_starting_color = glm::vec3(1.0f);
 static float direcional_light_ambient_intensity = 4.0f;
 static float direcional_light_diffuse_intensity = 0.5f;
 
-static float directional_light_color[3] = {directional_light_starting_color.x,
-                                                                        directional_light_starting_color.y,
-                                                                        directional_light_starting_color.z };
+static float directional_light_color[3] =   {directional_light_starting_color.x,
+                                            directional_light_starting_color.y,
+                                            directional_light_starting_color.z };
 
 static float directional_light_direction[3] = { directional_light_starting_position.x,
-                                                                                directional_light_starting_position.y,
-                                                                                directional_light_starting_position.z };
+                                                directional_light_starting_position.y,
+                                                directional_light_starting_position.z };
 
 unsigned int material_counter = 0;
 static bool first_person_mode = false;
@@ -154,34 +152,43 @@ const char* available_shadow_map_resolutions[] = { "512","1024","2048", "4096"};
 void create_geometry_pass_shader_program() {
 
     g_buffer_geometry_pass_shader_program = std::make_shared<GeometryPassShaderProgram>(GeometryPassShaderProgram{});
-    g_buffer_geometry_pass_shader_program->create_from_files("Shaders/g_buffer_geometry_pass.vert", "Shaders/g_buffer_geometry_pass.frag");
+    g_buffer_geometry_pass_shader_program->create_from_files(   "g_buffer_geometry_pass.vert", 
+                                                                "g_buffer_geometry_pass.frag");
 
 }
 
 void create_lighting_pass_shader_program() {
 
     g_buffer_lighting_pass_shader_program = std::make_shared<LightingPassShaderProgram>(LightingPassShaderProgram{});
-    g_buffer_lighting_pass_shader_program->create_from_files("Shaders/g_buffer_lighting_pass.vert", "Shaders/g_buffer_lighting_pass.frag");
+    g_buffer_lighting_pass_shader_program->create_from_files(   "g_buffer_lighting_pass.vert",
+                                                                "g_buffer_lighting_pass.frag");
 
 }
 
 void create_shadow_map_shader_program() {
 
     shadow_map_shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
-    shadow_map_shader_program->create_from_files("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag");
+    shadow_map_shader_program->create_from_files(   "directional_shadow_map.vert",
+                                                    "directional_shadow_map.frag");
+
 }
 
 void create_omni_shadow_map_shader_program() {
 
+    
+
     omni_dir_shadow_shader_program = std::make_shared<OmniDirShadowShaderProgram>(OmniDirShadowShaderProgram{});
-    omni_dir_shadow_shader_program->create_from_files("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag");
+    omni_dir_shadow_shader_program->create_from_files(  "omni_shadow_map.vert",
+                                                        "omni_shadow_map.geom", 
+                                                        "omni_shadow_map.frag");
 
 }
 
 void create_loading_screen_shader_program() {
 
     loading_screen_shader_program = std::make_shared<LoadingScreenShaderProgram>( LoadingScreenShaderProgram{});
-    loading_screen_shader_program->create_from_files("Shaders/loading_screen.vert", "Shaders/loading_screen.frag");
+    loading_screen_shader_program->create_from_files(   "loading_screen.vert",
+                                                        "loading_screen.frag");
 
 }
 
@@ -234,8 +241,6 @@ int main()
     noise = std::make_shared<Noise>();
     noise->init();
 
-    tGenerator = std::make_shared<Terrain_Generator>();
-
     clouds = std::make_shared<Clouds>();
     clouds->init(window_width, window_height, cloud_speed);
 
@@ -246,7 +251,7 @@ int main()
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
-    scene->init(main_camera, &main_window, tGenerator, clouds);
+    scene->init(main_camera, &main_window, clouds);
 
     gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
@@ -346,9 +351,14 @@ int main()
 
     //init texture for loading screen
     loading_screen.init();
-    loading_screen_tex = Texture("Textures/Loading_Screen/SpaceX_rocket_with_logo.png", std::make_shared<RepeatMode>());
+    std::string texture_base_dir = "../Resources/Textures/";
+    stringstream texture_loading_screen;
+    texture_loading_screen << texture_base_dir << "Loading_Screen/SpaceX_rocket_with_logo.png";
+    loading_screen_tex = Texture(texture_loading_screen.str().c_str(), std::make_shared<RepeatMode>());
     loading_screen_tex.load_texture_with_alpha_channel();
-    logo = Texture("Textures/Loading_Screen/logo.png", std::make_shared<RepeatMode>());
+    stringstream texture_logo;
+    texture_loading_screen << texture_base_dir << "Loading_Screen/logo.png";
+    logo = Texture(texture_logo.str().c_str(), std::make_shared<RepeatMode>());
     logo.load_texture_with_alpha_channel();
 
     //scene->load_models();
@@ -360,7 +370,6 @@ int main()
     std::thread t1 = scene->spwan();
     t1.detach();
 
-    scene->setup_game_object_context();
     //load_scene->detach();
 
     //
@@ -408,6 +417,7 @@ int main()
 
             }
 
+            if(!scene->get_context_setup()) scene->setup_game_object_context();    
 
             point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
             point_lights[1]->set_position(glm::vec3(15.0, 0.f, 0.0f));
@@ -473,18 +483,6 @@ int main()
 
             if (ImGui::Button("Hot reload ALL shaders!")) {
                 reload_shader_programs();
-            }
-
-        }
-
-        ImGui::Separator();
-
-        if (ImGui::CollapsingHeader("Procedural Generation")) {
-
-            ImGui::InputInt("Height", &terrain_height);
-
-            if (ImGui::Button("Adapt changes")) {
-                tGenerator->changeMaxHeight((float)terrain_height);
             }
 
         }

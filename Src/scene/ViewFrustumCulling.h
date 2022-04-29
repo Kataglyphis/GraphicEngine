@@ -7,8 +7,8 @@
 #include <vector>
 #include "Camera.h"
 #include "AABB.h"
-#include "GlobalValues.h"
 #include <memory>
+#include "GlobalValues.h"
 
 class ViewFrustumCulling
 {
