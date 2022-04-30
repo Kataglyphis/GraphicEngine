@@ -76,17 +76,35 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
 
         char loc_buff[100] = { '\0' };
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].metallic", i);
-        uniform_materials[i].uniform_metallic_location = glGetUniformLocation(program_id, loc_buff);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ambient", i);
+        uniform_material_locations[i].ambient_location = glGetUniformLocation(program_id, loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].roughness", i);
-        uniform_materials[i].uniform_roughness_location = glGetUniformLocation(program_id, loc_buff);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].diffuse", i);
+        uniform_material_locations[i].diffuse_location = glGetUniformLocation(program_id, loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].IOR", i);
-        uniform_materials[i].uniform_IOR_location = glGetUniformLocation(program_id, loc_buff);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].specular", i);
+        uniform_material_locations[i].specular_location = glGetUniformLocation(program_id, loc_buff);
 
-        /*snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].kappa", i);
-        uniform_materials[i].uniform_absorption_coeff_location = glGetUniformLocation(program_id, loc_buff);*/
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].transmittance", i);
+        uniform_material_locations[i].transmittance_location = glGetUniformLocation(program_id, loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].emission", i);
+        uniform_material_locations[i].emission_location = glGetUniformLocation(program_id, loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].shininess", i);
+        uniform_material_locations[i].shininess_location = glGetUniformLocation(program_id, loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ior", i);
+        uniform_material_locations[i].ior_location = glGetUniformLocation(program_id, loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].dissolve", i);
+        uniform_material_locations[i].dissolve_location = glGetUniformLocation(program_id, loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].illum", i);
+        uniform_material_locations[i].illum_location = glGetUniformLocation(program_id, loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].textureID", i);
+        uniform_material_locations[i].textureID_location = glGetUniformLocation(program_id, loc_buff);
 
     }
 
@@ -232,25 +250,11 @@ GLuint LightingPassShaderProgram::get_uniform_point_light_far_plane_location(GLu
     return uniform_omni_shadow_map[index].uniform_far_plane;
 }
 
-GLuint LightingPassShaderProgram::get_uniform_material_roughness_location(GLuint index)
+ObjMaterialLocations LightingPassShaderProgram::get_uniform_material_locations(GLuint index)
 {
-    return uniform_materials[index].uniform_roughness_location;
+    return uniform_material_locations[index];
 }
 
-GLuint LightingPassShaderProgram::get_uniform_material_metallic_location(GLuint index)
-{
-    return uniform_materials[index].uniform_metallic_location;
-}
-
-GLuint LightingPassShaderProgram::get_uniform_absorption_location(GLuint index)
-{
-    return uniform_materials[index].uniform_absorption_coeff_location;
-}
-
-GLuint LightingPassShaderProgram::get_uniform_IOR_location(GLuint index)
-{
-    return uniform_materials[index].uniform_IOR_location;
-}
 
 
 GLuint LightingPassShaderProgram::get_uniform_material_id_location()

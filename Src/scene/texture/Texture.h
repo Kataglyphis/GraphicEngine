@@ -1,6 +1,7 @@
 #pragma once
 #include <GL/glew.h>
 
+#include <stb_image.h>
 #include <string.h>
 #include "TextureWrappingMode.h"
 #include "RepeatMode.h"
@@ -25,8 +26,8 @@ public:
 	bool load_texture_with_alpha_channel();
 	std::string get_filename();
 
-	void use_texture();
-	void unbind_texture();
+	void use_texture(unsigned int index);
+	void unbind_texture(unsigned int index);
 	void clear_texture_context();
 	GLuint get_id();
 
@@ -40,9 +41,7 @@ private:
 	std::shared_ptr<TextureWrappingMode> wrapping_mode;
 
 	std::string file_location;
-	//const char* file_location; // //  Git merge conflict
 
-	// this is for checking GL errors.
 	glErrorChecker glErrorChecker_ins;
 };
 

@@ -3,6 +3,7 @@
 #include <memory>
 #include <limits>
 #include "host_device_shared.h"
+#include <vector>
 
 class DirectionalLight : public Light
 {

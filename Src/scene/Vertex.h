@@ -9,19 +9,23 @@ public:
 	// this is public because to access the size of pos, norm, tex Cood.
 	glm::vec3 position;
 	glm::vec3 normal;
+	glm::vec3 color;
 	glm::vec2 texture_coords;
 
 	Vertex() {
-		this->position = glm::vec3(0);
-		this->normal= glm::vec3(0);
-		this->texture_coords= glm::vec2(0);
 
+		this->position = glm::vec3(0);
+		this->normal = glm::vec3(0);
+		this->color = glm::vec3(0);
+		this->texture_coords= glm::vec2(0);
 
 	}
 
-	Vertex(glm::vec3 pos, glm::vec3 normal, glm::vec2 texture_coords) { 
+	Vertex(glm::vec3 pos, glm::vec3 normal, glm::vec3 color, glm::vec2 texture_coords) {
+
 		this->position = pos;
 		this->normal = normal;
+		this->color = color;
 		this->texture_coords = texture_coords;
 		
 	};
@@ -34,6 +38,10 @@ public:
 		return normal;
 	}
 
+	glm::vec3 get_color() {
+		return color;
+	}
+
 	glm::vec2 get_tex_coors() {
 		return texture_coords;
 	}
@@ -42,7 +50,8 @@ public:
 
 		return position == other.position
 			&& normal == other.normal
-			&& texture_coords == other.texture_coords;
+			&& texture_coords == other.texture_coords
+			&& color == other.color;
 
 	}
 

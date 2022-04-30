@@ -73,15 +73,15 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 
 	std::vector<Vertex> sky_box_vertices = {
 
-		Vertex(glm::vec3(-1.0f, 1.0f, -1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, 1.0f, -1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, -1.0f, -1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-
-		Vertex(glm::vec3(-1.0f, 1.0f, 1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(-1.0f, -1.0f, 1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, -1.0f, 1.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(-1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(-1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(1.0f, 1.0f, -1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+																		   
+		Vertex(glm::vec3(-1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(-1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(glm::vec3(1.0f, -1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
 				
 	};
 

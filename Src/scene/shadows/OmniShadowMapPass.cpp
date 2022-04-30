@@ -9,7 +9,7 @@ OmniShadowMapPass::OmniShadowMapPass(std::shared_ptr<OmniDirShadowShaderProgram>
     this->shader_program = shader_program;
 }
 
-void OmniShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id)
+void OmniShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)
 {
     // DO NOT set neither normal model nor material_id hence we didn't need it
     glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(model));

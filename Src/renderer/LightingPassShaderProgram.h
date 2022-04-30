@@ -3,6 +3,8 @@
 #include "PointLight.h"
 #include "host_device_shared.h"
 
+#include "ObjMaterialLocations.h"
+
 class LightingPassShaderProgram :
     public ShaderProgram
 {
@@ -26,10 +28,7 @@ public:
 	GLuint get_cascade_endpoint_location(GLuint index);
 	GLuint get_uniform_omni_dir_shadow_map_location(GLuint index);
 	GLuint get_uniform_point_light_far_plane_location(GLuint index);
-	GLuint get_uniform_material_roughness_location(GLuint index);
-	GLuint get_uniform_material_metallic_location(GLuint index);
-	GLuint get_uniform_IOR_location(GLuint index);
-	GLuint get_uniform_absorption_location(GLuint index);
+	ObjMaterialLocations get_uniform_material_locations(GLuint index);
 	GLuint get_uniform_material_id_location();
 	GLuint get_uniform_cloud_rad_location();
 	GLuint get_uniform_cloud_offset();
@@ -54,6 +53,7 @@ public:
 private:
 
 	int point_light_counter;
+
 
 	GLuint uniform_g_postion_location,
 		uniform_g_normal_position, uniform_g_tex_color_location,
@@ -89,14 +89,7 @@ private:
 
 	} uniform_omni_shadow_map[MAX_POINT_LIGHTS];
 
-	struct {
-
-		GLuint uniform_metallic_location;
-		GLuint uniform_roughness_location;
-		GLuint uniform_IOR_location;
-		GLuint uniform_absorption_coeff_location;
-
-	} uniform_materials[MAX_MATERIALS];
+	ObjMaterialLocations uniform_material_locations[MAX_MATERIALS];
 
 	GLuint uniform_noise_texture_1_location, uniform_noise_texture_2_location;
 

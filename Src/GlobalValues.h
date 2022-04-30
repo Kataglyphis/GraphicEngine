@@ -1,15 +1,8 @@
 #pragma once
+#include <glm/glm.hpp> 
 
 #ifndef COMMONVALS
 #define COMMONVALS
-#include <stb_image.h>
-#include <tiny_obj_loader.h>
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #define NUM_MIN_CASCADES 3
 #define MAX_RESOLUTION_X 1920

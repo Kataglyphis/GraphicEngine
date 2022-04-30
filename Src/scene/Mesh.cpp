@@ -11,7 +11,7 @@ Mesh::Mesh()
 {
 }
 
-Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices) {
+Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<unsigned int>& indices) {
 
 	glErrorChecker_ins.arePreError("From Mesh konstructor function in Mesh.cpp");
 
@@ -42,9 +42,12 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices) {
 	//Vertex Normal
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normal));
 	glEnableVertexAttribArray(1);
-	// Vertex Texture Cood
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex,texture_coords)));
+	//Vertex Normal
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, color));
 	glEnableVertexAttribArray(2);
+	// Vertex Texture Cood
+	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex,texture_coords)));
+	glEnableVertexAttribArray(3);
 
 	//unbind everything after setting the attribs
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -54,10 +57,6 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices) {
 	glErrorChecker_ins.areErrorPrintAll("From Mesh konstructor function in Mesh.cpp");
 
 }
-
-//void Mesh::expand(std::vector<Vertex> vertices, std::vector<unsigned int> indices) {
-//	// TODO?
-//}
 
 
 void Mesh::render() {
@@ -76,50 +75,6 @@ void Mesh::render() {
 	glErrorChecker_ins.areErrorPrintAll("From render function in Mesh.cpp");
 
 }
-
-// Only one vertex is changed
-void Mesh::changeVertex(std::vector<Vertex> vertices) {
-
-	glErrorChecker_ins.arePreError("From changeVertex function in Mesh.cpp");
-
-	unsigned int numVertices = (int)vertices.size();
-	if (this->vertices.size() >= vertices.size()) {
-		glBindBuffer(GL_ARRAY_BUFFER, m_vab[POSITION_VB]);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, numVertices * sizeof(this->vertices[0]), vertices.data());
-	}
-	// update vertices
-	for (int i = 0; i < static_cast<int>(vertices.size()); i++)
-	{
-		this->vertices[i] = vertices[i];
-	}
-
-	glErrorChecker_ins.areErrorPrintAll("From render function in Mesh.cpp");
-}
-
-
-
-glm::mat4 Mesh::transform_Mesh(glm::vec3 translate_vec, glm::vec3 scale, float angle, glm::vec3 rotateAxis) {
-	glm::mat4 transMatr = glm::mat4(1.0f);
-	transMatr = glm::translate(transMatr, translate_vec);
-	transMatr = glm::scale(transMatr, scale);
-	transMatr = glm::rotate(transMatr, angle, rotateAxis);
-
-	for (int i = 0; i < static_cast<int>(this->vertices.size()); i++) {
-
-		glm::vec4 nPos = glm::vec4(this->vertices[i].position, 1.0f);
-		nPos = transMatr * nPos;
-		// convert vec4 to vec3. Last entry deletet? wxyz 
-		this->vertices[i].position = glm::vec3(nPos);
-
-		if (this->vertices[i].position.x != nPos.x || this->vertices[i].position.y != nPos.y || this->vertices[i].position.z != nPos.z) {
-			cout << "Error from transform_Mesh in Mesh.cpp.\nConvert Vec4 to vec3 failed" << endl;
-			exit(EXIT_FAILURE);
-		}
-	}
-	changeVertex(vertices);
-	return transMatr;
-}
-
 
 Mesh::~Mesh() {
 

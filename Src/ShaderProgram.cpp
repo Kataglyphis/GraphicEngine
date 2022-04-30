@@ -81,8 +81,6 @@ void ShaderProgram::validate_program()
         return;
     }
 
-    // check if they are any gl errors
-
 }
 
 void ShaderProgram::reload()

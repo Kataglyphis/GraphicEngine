@@ -15,11 +15,11 @@ public:
 
 	void read(GLint start_buffer_index);
 
-	void use_gbuffer(GLuint g_buffer_lighting_uniform_position_location,
-									GLuint g_buffer_lighting_uniform_normal_location,
-									GLuint g_buffer_lighting_uniform_albedo_location,
-									GLuint g_buffer_frag_depth_location,
-									GLuint g_buffer_material_id_location);
+	void use_gbuffer(	GLuint g_buffer_lighting_uniform_position_location,
+						GLuint g_buffer_lighting_uniform_normal_location,
+						GLuint g_buffer_lighting_uniform_albedo_location,
+						GLuint g_buffer_frag_depth_location,
+						GLuint g_buffer_material_id_location);
 	
 	void update_window_params(GLfloat window_width, GLfloat window_height);
 

@@ -2,7 +2,8 @@
 
 #extension GL_ARB_shading_language_include : require
 
-#include "/Globals.h"
+#include "/Globals.glsl"
+#include "/host_device_shared.h"
 
 #include "/disney.glsl"
 #include "/frostbite.glsl"
@@ -62,16 +63,6 @@ struct OmniShadowMap {
 
     samplerCube shadow_map;
     float far_plane;
-
-};
-
-struct Material {
-    
-    vec3 albedo;
-    float metallic;
-    float roughness;
-    float IOR;
-    //float kappa;
 
 };
 

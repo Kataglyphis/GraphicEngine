@@ -2,16 +2,18 @@
 
 #extension GL_ARB_shading_language_include : require
 
-#include "/Globals.h"
+#include "/Globals.glsl"
+#include "/host_device_shared.h"
 
 layout(location = 0) in vec3 in_position;
 layout(location = 1) in vec3 in_normal;
-layout(location = 2) in vec2 in_tex_coord;
+layout(location = 2) in vec3 in_color;
+layout(location = 3) in vec2 in_tex_coord;
 
-out vec2 tex_coords;
-out vec3 frag_pos;
-out vec3 normal;
-out float frag_depth;
+out vec2	tex_coords;
+out vec3	frag_pos;
+out vec3	normal;
+out float	frag_depth;
 
 //uniform variables
 uniform mat4 projection;                

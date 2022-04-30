@@ -23,7 +23,7 @@ public:
     void execute(glm::mat4 projection_matrix, glm::mat4 view_matrix,  GLfloat window_width, GLfloat window_height, 
                             GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene);
 
-    void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id);
+    void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
     bool use_terrain_textures();
 
     ~GeometryPass();

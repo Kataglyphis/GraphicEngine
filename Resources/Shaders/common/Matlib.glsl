@@ -1,5 +1,6 @@
 // some common math functions :)
-#include "Globals.h"
+#include "/Globals.glsl"
+#include "/host_device_shared.h"
 
 #ifndef MATH_LIB
 #define MATH_LIB

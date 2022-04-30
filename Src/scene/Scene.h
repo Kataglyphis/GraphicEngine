@@ -7,6 +7,7 @@
 #include <mutex>
 #include "Clouds.h"
 #include <thread>
+#include <ObjMaterial.h>
 
 class Scene
 {
@@ -23,8 +24,9 @@ public:
 
 	void init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Clouds> clouds);
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
-	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
+	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 	void load_models();
+	std::vector<ObjMaterial> get_materials();
 	bool is_loaded();
 	GLfloat get_progress();
 	void setup_game_object_context();

@@ -114,9 +114,9 @@ std::string Texture::get_filename()
 	return file_location;
 }
 
-void Texture::use_texture()
+void Texture::use_texture(unsigned int index)
 {
-	glActiveTexture(GL_TEXTURE0);
+	glActiveTexture(GL_TEXTURE0 + index);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 
 	// check with glErrorChecker_ins.h if they are any glError and print it.
@@ -125,8 +125,8 @@ void Texture::use_texture()
 	}
 }
 
-void Texture::unbind_texture() {
-	glBindTexture(GL_TEXTURE_2D, 0);
+void Texture::unbind_texture(unsigned int index) {
+	glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0 + index);
 }
 
 void Texture::clear_texture_context()

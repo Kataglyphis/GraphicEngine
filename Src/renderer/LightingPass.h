@@ -5,7 +5,7 @@
 #include "LightingPassShaderProgram.h"
 #include "Quad.h"
 #include "GBuffer.h"
-#include "Material.h"
+#include "ObjMaterial.h"
 #include "Noise.h"
 #include "Clouds.h"
 #include "Quad.h"
@@ -27,7 +27,7 @@ public:
 
     void execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, 
                             std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
-                            std::vector<std::shared_ptr<Material>>& materials, std::shared_ptr<Noise> noise, std::shared_ptr<Clouds> cloud, float delta_time);
+                            std::vector<ObjMaterial> materials, std::shared_ptr<Noise> noise, std::shared_ptr<Clouds> cloud, float delta_time);
 
     ~LightingPass();
 
@@ -45,7 +45,7 @@ private:
                                                                         std::shared_ptr<GBuffer> gbuffer,
                                                                         std::shared_ptr<DirectionalLight> main_light,
                                                                         std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count, glm::vec3 camera_position, GLuint material_counter,
-                                                                        std::vector<std::shared_ptr<Material>>& materials, std::shared_ptr<Clouds> cloud, float delta_time);
+                                                                        std::vector<ObjMaterial> materials, std::shared_ptr<Clouds> cloud, float delta_time);
 
     void bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, std::shared_ptr<Noise> noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud);
 

@@ -1,6 +1,5 @@
 //necessary for the stb header file ....
 #define STB_IMAGE_IMPLEMENTATION
-#define TINYOBJLOADER_IMPLEMENTATION
 
 // include ability to execute threads
 #include <thread>
@@ -51,7 +50,7 @@
 #include "Scene.h"
 #include "GameObject.h"
 #include "Texture.h"
-#include "Material.h"
+#include "ObjMaterial.h"
 #include "Mesh.h"
 #include "Model.h"
 #include "ViewFrustumCulling.h"
@@ -82,8 +81,6 @@ std::shared_ptr<Camera> main_camera;
 std::shared_ptr<DirectionalLight> main_light;
 std::vector<std::shared_ptr<PointLight>> point_lights(MAX_POINT_LIGHTS, NULL);
 
-Texture ornament1;
-std::vector<std::shared_ptr<Material>> materials(MAX_MATERIALS, NULL);
 std::shared_ptr<GBuffer> gbuffer;
 
 std::shared_ptr<Noise> noise;
@@ -178,8 +175,9 @@ void set_shader_includes() {
     // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
     glErrorChecker glErrorChecker_ins;
 
-    const int num_include_files = 9;
-    std::array<const char*, num_include_files> includeNames     = { "Globals.h",
+    const int num_include_files = 10;
+    std::array<const char*, num_include_files> includeNames     = { "host_device_shared.h",
+                                                                    "Globals.glsl",
                                                                     "Matlib.glsl",
                                                                     "microfacet.glsl",
                                                                     "ShadingLibrary.glsl",
@@ -191,6 +189,7 @@ void set_shader_includes() {
                                                                     };
 
     std::array<const char*, num_include_files> file_locations   = { "../Src/host_device_shared.h",
+                                                                    "../Resources/Shaders/common/Globals.glsl",
                                                                     "../Resources/Shaders/common/Matlib.glsl",
                                                                     "../Resources/Shaders/common/microfacet.glsl",
                                                                     "../Resources/Shaders/common/ShadingLibrary.glsl" ,
@@ -344,62 +343,42 @@ int main()
                                                         main_camera->get_near_plane(), main_camera->get_far_plane(), 
                                                         num_shadow_cascades);
 
-    point_lights[0] = std::make_shared<PointLight>(1024, 1024,
-                                    0.01f, 100.f,
-                                    0.0f, 1.0f, 0.0f,
-                                    1.f, 1.0f,
-                                    0.0f, 0.0f, 0.0f,
-                                    0.1f, 0.1f, 0.1f);
+    point_lights[0] = std::make_shared<PointLight>( 1024, 1024,
+                                                    0.01f, 100.f,
+                                                    0.0f, 1.0f, 0.0f,
+                                                    1.f, 1.0f,
+                                                    0.0f, 0.0f, 0.0f,
+                                                    0.1f, 0.1f, 0.1f);
 
     point_light_count++;
 
-    point_lights[1] = std::make_shared<PointLight>(1024, 1024,
-        0.01f, 100.f,
-        1.0f, 0.0f, 0.0f,
-        1.f, 1.0f,
-        0.0f, 0.0f, 0.0f,
-        0.1f, 0.1f, 0.1f);
+    point_lights[1] = std::make_shared<PointLight>( 1024, 1024,
+                                                    0.01f, 100.f,
+                                                    1.0f, 0.0f, 0.0f,
+                                                    1.f, 1.0f,
+                                                    0.0f, 0.0f, 0.0f,
+                                                    0.1f, 0.1f, 0.1f);
 
     point_light_count++;
 
-    point_lights[2] = std::make_shared<PointLight>(1024, 1024,
-        0.01f, 100.f,
-        0.0f, 0.0f, 1.0f,
-        1.f, 1.0f,
-        0.0f, 0.0f, 0.0f,
-        0.1f, 0.1f, 0.1f);
+    point_lights[2] = std::make_shared<PointLight>( 1024, 1024,
+                                                    0.01f, 100.f,
+                                                    0.0f, 0.0f, 1.0f,
+                                                    1.f, 1.0f,
+                                                    0.0f, 0.0f, 0.0f,
+                                                    0.1f, 0.1f, 0.1f);
 
     point_light_count++;
-
-    GLfloat silizium_carbide_IOR = 2.65f;
-    GLfloat water_IOR = 2.65f;
-
-    GLfloat absorption_coeff_cond = 4.f;
-    GLfloat absorption_coeff_diel = 0.0f;
-
-    materials[0] = std::make_shared<Material>(1.0f, 0.1f, silizium_carbide_IOR, absorption_coeff_cond);
-
-    material_counter++;
-
-    materials[1] = std::make_shared<Material>(1.0f, 0.8f, water_IOR, absorption_coeff_diel);
-
-    material_counter++;
 
     //create shader programs and use the standard shader
     create_shader_programs();
 
     //after creati gprograms one can init render passes
-    omni_shadow_map_pass = OmniShadowMapPass(omni_dir_shadow_shader_program);
+    omni_shadow_map_pass        = OmniShadowMapPass(omni_dir_shadow_shader_program);
     directional_shadow_map_pass = DirectionalShadowMapPass(shadow_map_shader_program);
-    geometry_pass = GeometryPass(g_buffer_geometry_pass_shader_program);
+    geometry_pass               = GeometryPass(g_buffer_geometry_pass_shader_program);
     //lighting_pass = LightingPass();
     lighting_pass.init(g_buffer_lighting_pass_shader_program);
-    //textures
-    //ornament1 = Texture(_strdup("Textures/dirt.png"), new RepeatMode());
-    //ornament1.load_texture_with_alpha_channel();
-
-    //tGenerator->init();
-
     //precompute our noise textures ones
     create_noise_textures();
 
@@ -410,7 +389,7 @@ int main()
     ImGuiStyle& style = ImGui::GetStyle();
     // Setup Platform/Renderer bindings
     ImGui_ImplGlfw_InitForOpenGL(main_window.get_window(), true);
-    const char* glsl_version = "#version 330";
+    const char* glsl_version = "#version 460";
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
@@ -425,26 +404,16 @@ int main()
     loading_screen.init();
     std::string texture_base_dir = "../Resources/Textures/";
     stringstream texture_loading_screen;
-    texture_loading_screen << texture_base_dir << "Loading_Screen/SpaceX_rocket_with_logo.png";
+    texture_loading_screen << texture_base_dir << "Loading_Screen/Engine_logo.png";
     loading_screen_tex = Texture(texture_loading_screen.str().c_str(), std::make_shared<RepeatMode>());
     loading_screen_tex.load_texture_with_alpha_channel();
     stringstream texture_logo;
-    texture_loading_screen << texture_base_dir << "Loading_Screen/logo.png";
+    texture_logo << texture_base_dir << "Loading_Screen/Engine_logo.png";
     logo = Texture(texture_logo.str().c_str(), std::make_shared<RepeatMode>());
     logo.load_texture_with_alpha_channel();
 
-    //scene->load_models();
-    // std::thread load_scene{ [scene]() {
-
-    //     scene->load_models();
-
-    // } };
     std::thread t1 = scene->spwan();
     t1.detach();
-
-    //load_scene->detach();
-
-    //
 
     while (!main_window.get_should_close()) {
 
@@ -497,7 +466,8 @@ int main()
 
             //retreive shadow map before our geometry pass
             main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
-                main_window.get_buffer_width(), main_window.get_buffer_height(), fov, num_shadow_cascades);
+                                                    main_window.get_buffer_width(), main_window.get_buffer_height(), 
+                                                    fov, num_shadow_cascades);
 
             directional_shadow_map_pass.execute(main_light, main_camera->calculate_viewmatrix(),
                 first_person_mode, scene.get());
@@ -508,17 +478,16 @@ int main()
             }
 
             //we will now start the geometry pass
-            geometry_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),
-                first_person_mode, delta_time, scene.get());
+            geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),
+                                    first_person_mode, delta_time, scene.get());
 
             // render the AABB for the clouds
             clouds->render(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height);
 
             // after geometry pass we can now do the lighting
-
-            lighting_pass.execute(projection_matrix, main_camera->calculate_viewmatrix(), gbuffer, main_light,
-                point_lights, point_light_count, main_camera->get_camera_position(),
-                material_counter, materials, noise, clouds, delta_time);
+            lighting_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), gbuffer, main_light,
+                                    point_lights, point_light_count, main_camera->get_camera_position(),
+                                    material_counter, scene->get_materials(), noise, clouds, delta_time);
 
         }
         else {
@@ -528,7 +497,7 @@ int main()
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            loading_screen_tex.use_texture();
+            loading_screen_tex.use_texture(0);
 
             loading_screen_shader_program->use_shader_program();
 

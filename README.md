@@ -89,6 +89,8 @@ the milestone document.
 | PBR support (UE4,disney,phong, etc.)          |         ✔️         |
 | Support for `#include` directives in shaders. |         ✔️         |
 | Sky box                                       |         ✔️         |
+| Supporting compute shader                     |         ✔️         |
+| On the fly 3D worley/perlin noise creation    |         ✔️         |
 
 ### Built With
 
@@ -196,7 +198,6 @@ Clouds
 * [Horizon Zero Dawn](http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf)
 * [Clouds and noise](https://thebookofshaders.com/12/)
 * [Shadertoy Clouds using 3D Perlin noise](https://www.shadertoy.com/view/XlKyRw)
-* []()
 
 Noise
 * [Worley noise online demo](https://github.com/Erkaman/glsl-worley)

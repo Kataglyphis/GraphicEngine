@@ -33,6 +33,8 @@ FILE(GLOB SHADOWS_FILTER                "Src/scene/shadows/*.h"                 
 FILE(GLOB SKY_BOX_FILTER                "Src/scene/sky_box/*.h"                         "Src/scene/sky_box/*.cpp")
 FILE(GLOB TEXTURE_FILTER                "Src/scene/texture/*.h"                         "Src/scene/texture/*.cpp")
 FILE(GLOB SCENE_FILTER                  "Src/scene/*.h"                                 "Src/scene/*.cpp")
+FILE(GLOB WINDOW_FILTER                 "Src/window/*.h"                                "Src/window/*.cpp")
+FILE(GLOB DEBUG_FILTER                  "Src/debug/*.h"                                 "Src/debug/*.cpp")
 FILE(GLOB MAIN_FILTER                   "Src/*.h"                                       "Src/*.cpp")
 
 # add filters to the solution explorer for the shaders :))
@@ -41,7 +43,7 @@ file(GLOB SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/*.geom
 )
 
 file(GLOB BRDF_SHADER_FILTER   
@@ -49,7 +51,7 @@ file(GLOB BRDF_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.geom
 )
 
 file(GLOB COMMON_SHADER_FILTER   
@@ -57,7 +59,7 @@ file(GLOB COMMON_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.geom
 )
 
 file(GLOB CLOUDS_SHADER_FILTER   
@@ -65,7 +67,7 @@ file(GLOB CLOUDS_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.geom
 )
 
 file(GLOB LOADING_SHADER_FILTER   
@@ -73,7 +75,7 @@ file(GLOB LOADING_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.geom
 )
 
 file(GLOB RASTERIZER_SHADER_FILTER   
@@ -81,7 +83,7 @@ file(GLOB RASTERIZER_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.geom
 )
 
 file(GLOB RASTERIZER_SHADOWS_SHADER_FILTER   
@@ -89,7 +91,7 @@ file(GLOB RASTERIZER_SHADOWS_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.geom
 )
 
 file(GLOB SKYBOX_SHADER_FILTER   
@@ -97,7 +99,7 @@ file(GLOB SKYBOX_SHADER_FILTER
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.frag
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.glsl
         ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.comp
-	      ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.geom
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.geom
 )
 
 source_group("gui"                                      FILES ${GUI_FILTER})
@@ -113,6 +115,8 @@ source_group("shaders/skybox"                           FILES ${SKYBOX_SHADER_FI
 
 source_group("compute"                                  FILES ${COMPUTE_FILTER})
 source_group("renderer"                                 FILES ${RENDERER_FILTER})
+source_group("window"                                   FILES ${WINDOW_FILTER})
+source_group("debug"                                    FILES ${DEBUG_FILTER})
 
 source_group("scene/atmospheric_effects/clouds"         FILES ${CLOUD_FILTER})
 source_group("scene/lights"                             FILES ${LIGHT_FILTER})
@@ -147,6 +151,8 @@ add_executable(${PROJECT_NAME}
                 ${RASTERIZER_SHADOWS_SHADER_FILTER}
                 ${SKYBOX_SHADER_FILTER}
                 ${GUI_FILTER}
+                ${WINDOW_FILTER}
+                ${DEBUG_FILTER}
                 ${COMPUTE_FILTER}
                 ${RENDERER_FILTER}
                 ${ATMOSPHERE_EFFECTS_FILTER}
@@ -167,6 +173,8 @@ endif()
 target_include_directories(${PROJECT_NAME}  PUBLIC "${PROJECT_BINARY_DIR}/../Src"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/compute"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/renderer"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/debug"
+                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/window"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/atmospheric_effects/clouds"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/light"
                                             PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/shadows"

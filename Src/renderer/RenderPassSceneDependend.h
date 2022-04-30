@@ -13,7 +13,7 @@ public:
 
 	RenderPassSceneDependend();
 
-	virtual void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id) = 0;
+	virtual void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model) = 0;
 
 	virtual bool use_terrain_textures() = 0;
 

@@ -70,12 +70,10 @@ void GeometryPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 
 }
 
-void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id)
+void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)
 {
     glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(model));
     glUniformMatrix4fv(shader_program->get_normal_modal_location(), 1, GL_FALSE, glm::value_ptr(normal_model));
-
-    glUniform1i(shader_program->get_material_id_location(), material_id);
 
     // check if there any gl Errors
     glErrorChecker_ins.areErrorPrintAll("Error, from set_game_object_uniforms function in GeometryPass.");

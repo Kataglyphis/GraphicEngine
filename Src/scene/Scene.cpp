@@ -15,10 +15,10 @@ Scene::Scene(const Scene& other)
 
     ambient_objects = other.ambient_objects;
 
-     progress = other.progress;
-     loaded_scene = other.loaded_scene;
+    progress = other.progress;
+    loaded_scene = other.loaded_scene;
 
-     context_setup = other.context_setup;
+    context_setup = other.context_setup;
 }
 
 void Scene::init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Clouds> clouds)
@@ -54,7 +54,10 @@ void Scene::load_models()
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);
 
-    std::shared_ptr<GameObject> sponza = make_shared<GameObject>("../Resources/Models/dinosaurs.obj", space_station_offset, space_station_scale, space_station_rot, 0);
+    std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   /*"../Resources/Models/dinosaurs.obj",*/
+                                                                    "../Resources/Models/crytek-sponza/sponza_triag.obj",
+                                                                    space_station_offset, space_station_scale, 
+                                                                    space_station_rot);
     progress += 1.f;
 
     ambient_objects.push_back(sponza);
@@ -63,6 +66,11 @@ void Scene::load_models()
     loaded_scene = true;
     mx_isLoaded.unlock();
 
+}
+
+std::vector<ObjMaterial> Scene::get_materials()
+{
+    return ambient_objects[0]->get_model()->get_materials();
 }
 
 bool Scene::is_loaded()
@@ -79,15 +87,7 @@ GLfloat Scene::get_progress()
 
 void Scene::setup_game_object_context()
 {
-    
-    for (std::shared_ptr<GameObject>& ambient_object : ambient_objects) {
-
-        ambient_object->get_model()->create_render_context();
-
-    }
-
-    //terrain_generator->generate_render_context();
-
+    ambient_objects[0]->get_model()->create_render_context();
     context_setup = true;
 }
 
@@ -129,37 +129,19 @@ void Scene::render(RenderPassSceneDependend* render_pass, bool first_person_mode
        /* if (object_is_visible(object)) {*/
 
             render_pass->set_game_object_uniforms(  object->get_world_trafo(),
-                                                    object->get_normal_world_trafo(),
-                                                    object->get_material_id());
+                                                    object->get_normal_world_trafo());
 
             object->render();
         //}
 
     }
-
-    /*render_pass->set_game_object_uniforms(terrain_generator->get_world_trafo(),
-                                                                        terrain_generator->get_normal_world_trafo(),
-                                                                        terrain_generator->get_material_id());*/
-
-    //std::vector<bool> terrainRenderedFlags;
-    //if (render_pass->use_terrain_textures()) terrain_generator->get_textures()->use_texture();
-    
-    //terrainRenderedFlags = terrain_generator->render(main_window->get_buffer_width() / main_window->get_buffer_height(),
-                                                //main_camera, view_frustum_culling, render_pass);
-
-
-    //if (render_pass->use_terrain_textures()) terrain_generator->get_textures()->unbind_texture();
-
-
-    //terrain_generator->render_plants(terrainRenderedFlags, render_pass);
-    
     
 }
 
-void Scene::add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
+void Scene::add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
 {
     ambient_objects.push_back(std::make_shared<GameObject>(GameObject()));
-    ambient_objects.back()->init(model_path, translation, scale, rot, material_id);
+    ambient_objects.back()->init(model_path, translation, scale, rot);
 }
 
 std::shared_ptr<Clouds> Scene::get_clouds()

@@ -7,15 +7,13 @@ public:
 
 	GameObject();
 
-	GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
+	GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 
-	void init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id);
-
-	void set_material_id(GLuint material_id);
+	void init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 
 	glm::mat4 get_world_trafo();
 	glm::mat4 get_normal_world_trafo();
-	GLuint get_material_id();
+
 	std::shared_ptr<AABB> get_aabb();
 	std::shared_ptr<Model> get_model();
 
@@ -30,7 +28,6 @@ public:
 
 private:
 
-	GLuint material_id;
 	std::shared_ptr<Model> model;
 	
 	GLfloat scale_factor;

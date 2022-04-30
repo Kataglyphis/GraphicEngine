@@ -4,24 +4,22 @@ GameObject::GameObject() : model(std::make_shared<Model>(Model())) {
 
 }
 
-GameObject::GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id): 
+GameObject::GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot): 
 									model(std::make_shared<Model>())
 {
 	model->load_model_in_ram(model_path);
 	this->translation = translation;
 	this->scale_factor = scale;
 	this->rot = rot;
-	this->material_id = material_id;
 }
 
-void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot, GLuint material_id)
+void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
 {
 	model = std::make_shared<Model>(Model());
 	model->load_model_in_ram(model_path);
 	this->translation = translation;
 	this->scale_factor = scale;
 	this->rot = rot;
-	this->material_id = material_id;
 
 }
 
@@ -39,16 +37,6 @@ glm::mat4 GameObject::get_normal_world_trafo()
 {
 	glm::mat4 world_trafo = get_world_trafo();
 	return glm::transpose(glm::inverse(world_trafo));
-}
-
-void GameObject::set_material_id(GLuint material_id)
-{
-	this->material_id = material_id;
-}
-
-GLuint GameObject::get_material_id()
-{
-	return material_id;
 }
 
 void GameObject::render()

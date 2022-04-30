@@ -37,7 +37,7 @@ void DirectionalShadowMapPass::execute(std::shared_ptr<DirectionalLight> d_light
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void DirectionalShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model, GLuint material_id)
+void DirectionalShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)
 {
     // DO NOT set neither normal model nor material_id hence we didn't need it
     glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(model));
