@@ -72,7 +72,7 @@ void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat 
 
 void Clouds::read(GLuint index)
 {
-	GLuint texture_index = GL_TEXTURE0 +index;
+	GLuint texture_index = GL_TEXTURE0 + index;
 	glActiveTexture(texture_index);
 	glBindTexture(GL_TEXTURE_2D, cloud_id);
 }

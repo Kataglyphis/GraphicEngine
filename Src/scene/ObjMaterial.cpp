@@ -12,6 +12,8 @@ ObjMaterial::ObjMaterial() {
 	this->dissolve = 1.f;
 	this->illum = 0;
 	this->textureID = -1;
+
+	this->uniform_helper = UniformHelper();
 }
 
 ObjMaterial::ObjMaterial(	glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, glm::vec3 transmittance,
@@ -27,22 +29,24 @@ ObjMaterial::ObjMaterial(	glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specul
 	this->dissolve = dissolve;
 	this->illum = illum;
 	this->textureID = textureID;
+
+	this->uniform_helper = UniformHelper();
 }
 
 void ObjMaterial::use_material(ObjMaterialLocations material_locations) {
 
-	glUniform3f(material_locations.ambient_location, ambient.x, ambient.y, ambient.z);
-	glUniform3f(material_locations.diffuse_location, diffuse.x, diffuse.y, diffuse.z);
-	glUniform3f(material_locations.specular_location, specular.x, specular.y, specular.z);
-	glUniform3f(material_locations.transmittance_location, transmittance.x, transmittance.y, transmittance.z);
-	glUniform3f(material_locations.emission_location, emission.x, emission.y, emission.z);
+	uniform_helper.setUniformVec3(ambient, material_locations.ambient_location);
+	uniform_helper.setUniformVec3(diffuse, material_locations.diffuse_location);
+	uniform_helper.setUniformVec3(specular, material_locations.specular_location);
+	uniform_helper.setUniformVec3(transmittance, material_locations.transmittance_location);
+	uniform_helper.setUniformVec3(emission, material_locations.emission_location);
 
-	glUniform1f(material_locations.shininess_location, shininess);
-	glUniform1f(material_locations.ior_location, ior);
-	glUniform1f(material_locations.dissolve_location, dissolve);
+	uniform_helper.setUniformFloat(shininess, material_locations.shininess_location);
+	uniform_helper.setUniformFloat(ior, material_locations.ior_location);
+	uniform_helper.setUniformFloat(dissolve, material_locations.dissolve_location);
 
-	glUniform1f(material_locations.illum_location, illum);
-	glUniform1f(material_locations.textureID_location, textureID);
+	uniform_helper.setUniformInt(illum, material_locations.illum_location);
+	uniform_helper.setUniformInt(textureID, material_locations.textureID_location);
 
 }
 

@@ -42,7 +42,7 @@ struct Light {
 };
 
 struct DirectionalLight {
-    
+
     Light base;
     vec3 direction;
     float shadow_intensity;
@@ -50,7 +50,7 @@ struct DirectionalLight {
 };
 
 struct PointLight {
-    
+
     Light base;
     vec3 position;
     float constant;
@@ -85,7 +85,7 @@ uniform sampler2D cloud_position_depth;
 //in [0,1 ]
 uniform sampler2D random_number;
 
-//our directional shadow maps
+//our directional shadow maps; 
 uniform sampler2D directional_shadow_maps[NUM_CASCADES];
 uniform mat4 directional_light_transform[NUM_CASCADES];
 

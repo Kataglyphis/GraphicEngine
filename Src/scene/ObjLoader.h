@@ -1,10 +1,12 @@
 #pragma once
 #include <memory>
+#include <stdexcept>
 
 #include "Mesh.h"
 #include "Texture.h"
 #include "Vertex.h"
 #include "ObjMaterial.h"
+#include "host_device_shared.h"
 
 class ObjLoader
 {

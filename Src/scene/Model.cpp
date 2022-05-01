@@ -53,22 +53,28 @@ void Model::create_render_context()
 
 }
 
-void Model::render()
+void Model::bind_ressources()
 {
     glBindBuffer(GL_SHADER_STORAGE_BUFFER, ssbo);
 
     for (int i = 0; i < static_cast<int>(texture_list.size()); i++) {
-       texture_list[i]->use_texture(i);
+        texture_list[i]->use_texture(i + MODEL_TEXTURES_SLOT);
     }
+}
 
-    mesh->render();
-
+void Model::unbind_resources()
+{
     for (int i = 0; i < static_cast<int>(texture_list.size()); i++) {
-        texture_list[i]->unbind_texture(i);
+        texture_list[i]->unbind_texture(i + MODEL_TEXTURES_SLOT);
     }
-       
+
     // unbind material index buffer
-    glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0); 
+    glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+}
+
+void Model::render()
+{
+    mesh->render();
 }
 
 Model::~Model()

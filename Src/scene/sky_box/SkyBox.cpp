@@ -108,7 +108,7 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 	glUniformMatrix4fv(uniform_projection, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 	glUniformMatrix4fv(uniform_view, 1, GL_FALSE, glm::value_ptr(new_view_matrix));
 
-	glActiveTexture(GL_TEXTURE0);
+	glActiveTexture(GL_TEXTURE0 + SKYBOX_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id);
 
 	sky_shader_program->validate_program();

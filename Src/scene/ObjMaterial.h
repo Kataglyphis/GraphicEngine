@@ -6,6 +6,8 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "ObjMaterialLocations.h"
+#include "GlobalValues.h"
+#include "UniformHelper.h"
 
 class ObjMaterial
 {
@@ -34,6 +36,7 @@ public:
 
 private:
 
+	UniformHelper uniform_helper;
 
 };
 

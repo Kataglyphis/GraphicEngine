@@ -10,18 +10,19 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     glErrorChecker_ins.arePreError("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
     //setting all uniforms for our directional lights
-    d_light_uniform_locations.uniform_color_location = glGetUniformLocation(program_id, "directional_light.base.color");
-    d_light_uniform_locations.uniform_ambient_intensity_location = glGetUniformLocation(program_id, "directional_light.base.ambient_intensity");
-    d_light_uniform_locations.uniform_diffuse_intensity_location = glGetUniformLocation(program_id, "directional_light.base.diffuse_intensity");
-    d_light_uniform_locations.uniform_direction_location = glGetUniformLocation(program_id, "directional_light.direction");
-    d_light_uniform_locations.uniform_shadow_intensity_location = glGetUniformLocation(program_id, "directional_light.shadow_intensity");
+    d_light_uniform_locations.uniform_color_location                = glGetUniformLocation(program_id, "directional_light.base.color");
+    d_light_uniform_locations.uniform_ambient_intensity_location    = glGetUniformLocation(program_id, "directional_light.base.ambient_intensity");
+    d_light_uniform_locations.uniform_diffuse_intensity_location    = glGetUniformLocation(program_id, "directional_light.base.diffuse_intensity");
+    d_light_uniform_locations.uniform_direction_location            = glGetUniformLocation(program_id, "directional_light.direction");
+    d_light_uniform_locations.uniform_shadow_intensity_location     = glGetUniformLocation(program_id, "directional_light.shadow_intensity");
 
     //buffer locations
-    uniform_g_postion_location = glGetUniformLocation(program_id, "g_position");
-    uniform_g_normal_position = glGetUniformLocation(program_id, "g_normal");
-    uniform_g_tex_color_location = glGetUniformLocation(program_id, "g_albedo");
-    uniform_eye_position_location = glGetUniformLocation(program_id, "eye_position");
-    uniform_g_frag_depth_location = glGetUniformLocation(program_id, "g_frag_depth");
+    uniform_g_postion_location      = glGetUniformLocation(program_id, "g_position");
+    uniform_g_normal_position       = glGetUniformLocation(program_id, "g_normal");
+    uniform_g_tex_color_location    = glGetUniformLocation(program_id, "g_albedo");
+    uniform_eye_position_location   = glGetUniformLocation(program_id, "eye_position");
+    uniform_g_frag_depth_location   = glGetUniformLocation(program_id, "g_frag_depth");
+    uniform_g_material_id_location  = glGetUniformLocation(program_id, "g_material_id");
 
     for (size_t i = 0; i < NUM_CASCADES; i++) {
 
@@ -108,31 +109,21 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
 
     }
 
-    uniform_material_id_location = glGetUniformLocation(program_id, "g_material_id");
-
     uniform_g_clouds_location = glGetUniformLocation(program_id, "g_clouds");
 
     uniform_noise_texture_1_location = glGetUniformLocation(program_id, "noise_texture_1");
-
     uniform_noise_texture_2_location = glGetUniformLocation(program_id, "noise_texture_2");
 
-    cloud.uniform_cloud_rad_location = glGetUniformLocation(program_id, "cloud.rad");
+    cloud.uniform_cloud_rad_location        = glGetUniformLocation(program_id, "cloud.rad");
+    cloud.uniform_cloud_offset_location     = glGetUniformLocation(program_id, "cloud.offset");
+    cloud.uniform_model_to_world            = glGetUniformLocation(program_id, "cloud.model_to_world");
+    cloud.uniform_scale_location            = glGetUniformLocation(program_id, "cloud.scale");
+    cloud.uniform_threshold_location        = glGetUniformLocation(program_id, "cloud.threshold");
+    cloud.uniform_pillowness_location       = glGetUniformLocation(program_id, "cloud.pillowness");
+    cloud.uniform_cirrus_effect_location    = glGetUniformLocation(program_id, "cloud.cirrus_effect");
+    cloud.uniform_powder_effect_location    = glGetUniformLocation(program_id, "cloud.powder_effect");
 
-    cloud.uniform_cloud_offset_location = glGetUniformLocation(program_id, "cloud.offset");
-
-    cloud.uniform_model_to_world = glGetUniformLocation(program_id, "cloud.model_to_world");
-
-    cloud.uniform_scale_location = glGetUniformLocation(program_id, "cloud.scale");
-
-    cloud.uniform_threshold_location = glGetUniformLocation(program_id, "cloud.threshold");
-
-    cloud.uniform_pillowness_location = glGetUniformLocation(program_id, "cloud.pillowness");
-
-    cloud.uniform_cirrus_effect_location = glGetUniformLocation(program_id, "cloud.cirrus_effect");
-
-    cloud.uniform_powder_effect_location = glGetUniformLocation(program_id, "cloud.powder_effect");
-
-    uniform_cloud_texture_location = glGetUniformLocation(program_id, "cloud_position_depth");
+    uniform_cloud_texture_location          = glGetUniformLocation(program_id, "cloud_position_depth");
 
 
     //set an array of transormation matrices for the cascade
@@ -259,7 +250,7 @@ ObjMaterialLocations LightingPassShaderProgram::get_uniform_material_locations(G
 
 GLuint LightingPassShaderProgram::get_uniform_material_id_location()
 {
-    return uniform_material_id_location;
+    return uniform_g_material_id_location;
 }
 
 GLuint LightingPassShaderProgram::get_uniform_cloud_rad_location()
@@ -282,7 +273,8 @@ GLuint LightingPassShaderProgram::get_uniform_cloud_scale_location()
     return cloud.uniform_scale_location;
 }
 
-void LightingPassShaderProgram::set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int light_count, unsigned int texture_unit, unsigned int offset)
+void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int light_count, 
+                                                    unsigned int texture_unit, unsigned int offset)
 {
 
     if (light_count > MAX_POINT_LIGHTS) {
@@ -297,7 +289,7 @@ void LightingPassShaderProgram::set_point_lights(std::vector<std::shared_ptr<Poi
             uniform_point_light[i].uniform_diffuse_intensity, uniform_point_light[i].uniform_position,
             uniform_point_light[i].uniform_constant, uniform_point_light[i].uniform_linear, uniform_point_light[i].uniform_exponent);
 
-        p_light[i]->get_omni_shadow_map()->read((GLenum)(GL_TEXTURE0 + texture_unit + i));
+        p_light[i]->get_omni_shadow_map()->read(texture_unit + i);
         glUniform1i(uniform_omni_shadow_map[i + offset].uniform_shadow_map, (GLint)(texture_unit + i));
         glUniform1f(uniform_omni_shadow_map[i + offset].uniform_far_plane, p_light[i]->get_far_plane());
 

@@ -90,18 +90,18 @@ void GBuffer::read(GLint start_buffer_index)
 
 }
 
-void GBuffer::use_gbuffer(GLuint g_buffer_lighting_uniform_position_location, 
-                                                GLuint g_buffer_lighting_uniform_normal_location,
-                                                GLuint g_buffer_lighting_uniform_albedo_location,
-                                                GLuint g_buffer_frag_depth_location,
-                                                GLuint g_buffer_material_id_location)
+void GBuffer::use_gbuffer(  GLuint g_buffer_lighting_uniform_position_location, 
+                            GLuint g_buffer_lighting_uniform_normal_location,
+                            GLuint g_buffer_lighting_uniform_albedo_location,
+                            GLuint g_buffer_frag_depth_location,
+                            GLuint g_buffer_material_id_location)
 {
 
-    glUniform1i(g_buffer_lighting_uniform_position_location, 1);
-    glUniform1i(g_buffer_lighting_uniform_normal_location, 2);
-    glUniform1i(g_buffer_lighting_uniform_albedo_location, 3);
-    glUniform1i(g_buffer_frag_depth_location, 4);
-    glUniform1i(g_buffer_material_id_location, 5);
+    glUniform1i(g_buffer_lighting_uniform_position_location, GBUFFER_TEXTURES_SLOT);
+    glUniform1i(g_buffer_lighting_uniform_normal_location, GBUFFER_TEXTURES_SLOT + 1);
+    glUniform1i(g_buffer_lighting_uniform_albedo_location, GBUFFER_TEXTURES_SLOT + 2);
+    glUniform1i(g_buffer_frag_depth_location, GBUFFER_TEXTURES_SLOT + 3);
+    glUniform1i(g_buffer_material_id_location, GBUFFER_TEXTURES_SLOT + 4);
 
 }
 

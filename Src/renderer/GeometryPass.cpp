@@ -32,13 +32,20 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 
 }
 
-void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix)
+void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix,
+                                                    std::vector<ObjMaterial>& materials)
 {
 
     glUniformMatrix4fv(shader_program->get_projection_location(), 1, GL_FALSE, glm::value_ptr(projection_matrix));
     glUniformMatrix4fv(shader_program->get_view_location(), 1, GL_FALSE, glm::value_ptr(view_matrix));
 
-    //terrain_generator->retreive_uniform_locations(shader_program);
+    for (int i = 0; i < MAX_TEXTURE_COUNT; i++) {
+        glUniform1i(shader_program->get_uniform_texture_locations(i), i);
+    }
+
+    for (size_t i = 0; i < materials.size(); i++) {
+        materials[i].use_material(shader_program->get_uniform_material_locations(i));
+    }
 
     shader_program->validate_program();
 
@@ -46,8 +53,8 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
     glErrorChecker_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
 }
 
-void GeometryPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height,
-                                                GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene)
+void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height,
+                            GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene)
 {
 
     glBindFramebuffer(GL_FRAMEBUFFER, gbuffer_id);
@@ -59,10 +66,14 @@ void GeometryPass::execute(glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 
     shader_program->use_shader_program();
 
-    retrieve_geometry_pass_locations(projection_matrix, view_matrix);
+    retrieve_geometry_pass_locations(projection_matrix, view_matrix, scene->get_materials());
+
+    scene->bind_textures_and_buffer();
 
     scene->render(this, first_person_mode);
     
+    scene->unbind_textures_and_buffer();
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
     // Check if there any unchecked gl Errors from the render functions

@@ -30,17 +30,17 @@ void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_progra
 void LightingPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer, 
                             std::shared_ptr<DirectionalLight> main_light, 
                             std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count, 
-                            glm::vec3 camera_position, GLuint material_counter,
+                            glm::vec3 camera_position,
                             std::vector<ObjMaterial> materials, std::shared_ptr<Noise> noise, 
                             std::shared_ptr<Clouds> cloud, float delta_time)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     shader_program->use_shader_program();
-    retrieve_lighting_pass_locations(projection_matrix, view_matrix, gbuffer, main_light, 
-                                                                point_lights, point_light_count,
-                                                                camera_position, material_counter,
-                                                              materials, cloud, delta_time);
+    retrieve_lighting_pass_locations(   projection_matrix, view_matrix, gbuffer, main_light, 
+                                        point_lights, point_light_count,
+                                        camera_position,
+                                        materials, cloud, delta_time);
 
     bind_buffers_for_lighting(gbuffer, main_light, noise, point_light_count, cloud);
 
@@ -75,16 +75,16 @@ void LightingPass::generate_random_numbers()
 void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer,
                                                     std::shared_ptr<DirectionalLight> main_light, 
                                                     std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count,
-                                                    glm::vec3 camera_position, GLuint material_counter,
+                                                    glm::vec3 camera_position,
                                                     std::vector<ObjMaterial> materials, 
                                                     std::shared_ptr<Clouds> cloud, float delta_time)
 {
     DirectionalLightUniformLocations d_light_uniform_locations;
 
-    d_light_uniform_locations.uniform_ambient_intensity_location = shader_program->get_directional_light_ambient_intensity_location();
-    d_light_uniform_locations.uniform_color_location = shader_program->get_directional_light_color_location();
-    d_light_uniform_locations.uniform_diffuse_intensity_location = shader_program->get_directional_light_diffuse_intensity_location();
-    d_light_uniform_locations.uniform_direction_location = shader_program->get_directional_light_direction_location();
+    d_light_uniform_locations.uniform_ambient_intensity_location    = shader_program->get_directional_light_ambient_intensity_location();
+    d_light_uniform_locations.uniform_color_location                = shader_program->get_directional_light_color_location();
+    d_light_uniform_locations.uniform_diffuse_intensity_location    = shader_program->get_directional_light_diffuse_intensity_location();
+    d_light_uniform_locations.uniform_direction_location            = shader_program->get_directional_light_direction_location();
 
     glUniform1f(d_light_uniform_locations.uniform_ambient_intensity_location, main_light->get_ambient_intensity());
     glUniform1f(d_light_uniform_locations.uniform_diffuse_intensity_location, main_light->get_diffuse_intensity());
@@ -116,22 +116,22 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     for (size_t i = 0; i < NUM_CASCADES; i++) {
 
-        glUniform1i(g_buffer_lighting_uniform_directional_shadow_map_locations[i], G_BUFFER_SIZE + MAX_TEXTURE_COUNT + i);
+        glUniform1i(g_buffer_lighting_uniform_directional_shadow_map_locations[i], D_LIGHT_SHADOW_TEXTURES_SLOT + i);
 
     }
 
     GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
 
-    shader_program->set_point_lights(point_lights, point_light_count, G_BUFFER_SIZE + NUM_CASCADES + MAX_TEXTURE_COUNT, 0);
+    shader_program->set_point_lights(point_lights, point_light_count, P_LIGHT_SHADOW_TEXTURES_SLOT, 0);
 
-    shader_program->set_noise_textures(G_BUFFER_SIZE + point_light_count + NUM_CASCADES + MAX_TEXTURE_COUNT);
+    shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
 
-    shader_program->set_cloud_texture((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + NUM_NOISE_TEXTURES + MAX_TEXTURE_COUNT);
+    shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
 
     glUniform3f(shader_program->get_eye_position_location(), camera_position.x, camera_position.y, camera_position.z);
 
 
-    for (size_t i = 0; i < material_counter; i++) {
+    for (size_t i = 0; i < materials.size(); i++) {
 
         materials[i].use_material(shader_program->get_uniform_material_locations(i));
 
@@ -189,15 +189,15 @@ void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, s
 
     gbuffer->read(start_texture);
 
-    main_light->get_shadow_map()->read((GLenum)G_BUFFER_SIZE + start_texture);
+    main_light->get_shadow_map()->read(GBUFFER_TEXTURES_SLOT);
 
-    cloud->read((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + NUM_NOISE_TEXTURES + MAX_TEXTURE_COUNT);
+    cloud->read(CLOUD_TEXTURE_SLOT);
 
-    noise->read_worley_noise((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + +MAX_TEXTURE_COUNT);
+    noise->read_worley_noise(WORLEY_NOISE_TEXTURES_SLOT);
 
-    noise->read_grad_noise((GLenum)G_BUFFER_SIZE + NUM_CASCADES + point_light_count + MAX_TEXTURE_COUNT);
+    noise->read_grad_noise(GRAD_NOISE_TEXTURES_SLOT);
 
-    bind_random_numbers(G_BUFFER_SIZE + NUM_CASCADES + point_light_count + NUM_NOISE_TEXTURES + NUM_CLOUDS + MAX_TEXTURE_COUNT);
+    bind_random_numbers(RANDOM_NUMBERS_SLOT);
 
 }
 

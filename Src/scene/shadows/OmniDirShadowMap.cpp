@@ -57,7 +57,7 @@ void OmniDirShadowMap::write()
 
 void OmniDirShadowMap::read(GLenum texture_unit)
 {
-	glActiveTexture(texture_unit);
+	glActiveTexture(GL_TEXTURE0 + texture_unit);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, shadow_map);
 }
 

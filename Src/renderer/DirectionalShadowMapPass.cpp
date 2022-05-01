@@ -10,7 +10,7 @@ DirectionalShadowMapPass::DirectionalShadowMapPass(std::shared_ptr<ShadowMapShad
 }
 
 void DirectionalShadowMapPass::execute(std::shared_ptr<DirectionalLight> d_light, glm::mat4 view_matrix,
-                                                                    bool first_person_mode, Scene* scene)
+                                       bool first_person_mode, Scene* scene)
 {
     
     shader_program->use_shader_program();
@@ -28,9 +28,8 @@ void DirectionalShadowMapPass::execute(std::shared_ptr<DirectionalLight> d_light
         glm::mat4 l_traf = cascade_light_matrices[i] * d_light->get_light_view_matrix();
         shader_program->set_directional_light_transform(l_traf);
 
-        shader_program->validate_program();
-
         scene->render(this, first_person_mode);
+        shader_program->validate_program();
 
     }
 

@@ -13,6 +13,8 @@
 #include "ObjMaterial.h"
 #include "ObjLoader.h"
 
+#include "texture_unit_slots.h"
+
 class Model
 {
 public:
@@ -22,6 +24,10 @@ public:
     void load_model_in_ram(std::string model_path);
 
     void create_render_context();
+
+    void bind_ressources();
+
+    void unbind_resources();
 
     std::shared_ptr<AABB>       get_aabb();
     std::vector<ObjMaterial>    get_materials();

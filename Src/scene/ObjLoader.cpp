@@ -32,6 +32,9 @@ void ObjLoader::load(   std::string                             modelFile,
     auto& tol_materials = reader.GetMaterials();
     texture_list.reserve(tol_materials.size());
 
+    if (static_cast<GLuint>(tol_materials.size() > MAX_MATERIALS))\
+            std::runtime_error("ObjLoader: We try to load more materials then MAX_MATERIALS is defined!");
+
     // texture at position 0 is plain texture to handle non existing materials
     int texture_id = 1;
     texture_list.push_back("../Resources/Textures/plain.png");

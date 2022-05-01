@@ -7,6 +7,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "ComputeShaderProgram.h"
 
+#include "texture_unit_slots.h"
 #include "glErrorChecker.h"
 
 #include <random>

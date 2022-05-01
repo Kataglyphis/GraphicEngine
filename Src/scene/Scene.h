@@ -26,10 +26,14 @@ public:
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
 	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 	void load_models();
+
 	std::vector<ObjMaterial> get_materials();
 	bool is_loaded();
 	GLfloat get_progress();
 	void setup_game_object_context();
+
+	void bind_textures_and_buffer();
+	void unbind_textures_and_buffer();
 
 	void set_context_setup(bool context_setup);
 	bool get_context_setup();

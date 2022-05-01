@@ -52,13 +52,10 @@ public:
 
 private:
 
-	int point_light_counter;
-
-
-	GLuint uniform_g_postion_location,
-		uniform_g_normal_position, uniform_g_tex_color_location,
-		uniform_eye_position_location, uniform_g_frag_depth_location,
-		uniform_material_id_location, uniform_g_clouds_location;;
+	GLuint	uniform_g_postion_location,
+			uniform_g_normal_position, uniform_g_tex_color_location,
+			uniform_eye_position_location, uniform_g_frag_depth_location,
+			uniform_g_clouds_location, uniform_g_material_id_location;
 
 	GLuint uniform_directional_shadow_map_locations[NUM_CASCADES];
 	GLuint uniform_g_directional_light_position_locations[NUM_CASCADES];

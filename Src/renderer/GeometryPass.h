@@ -30,7 +30,7 @@ public:
 
 private:
 
-    void retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix);
+    void retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::vector<ObjMaterial>& materials);
 
     std::shared_ptr<GeometryPassShaderProgram> shader_program;
 

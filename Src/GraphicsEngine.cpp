@@ -284,7 +284,7 @@ void reload_shader_programs()
 void create_noise_textures() {
 
     noise->create_worley_noise();
-    //noise->create_grad_noise();
+    noise->create_grad_noise();
 
 }
 
@@ -470,7 +470,7 @@ int main()
                                                     fov, num_shadow_cascades);
 
             directional_shadow_map_pass.execute(main_light, main_camera->calculate_viewmatrix(),
-                first_person_mode, scene.get());
+                                                first_person_mode, scene.get());
 
             // omni shadow map passes for our point lights
             for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
@@ -487,7 +487,7 @@ int main()
             // after geometry pass we can now do the lighting
             lighting_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), gbuffer, main_light,
                                     point_lights, point_light_count, main_camera->get_camera_position(),
-                                    material_counter, scene->get_materials(), noise, clouds, delta_time);
+                                    scene->get_materials(), noise, clouds, delta_time);
 
         }
         else {

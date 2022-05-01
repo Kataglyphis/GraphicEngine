@@ -63,7 +63,7 @@ void Noise::generate_textures()
 	}
 
 	glGenTextures(1, &texture_1);
-	glActiveTexture(GL_TEXTURE0);
+	glActiveTexture(GL_TEXTURE0 + WORLEY_NOISE_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_3D, texture_1);
 	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_1, texture_dim_1, texture_dim_1, 0, GL_RGBA, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -74,7 +74,7 @@ void Noise::generate_textures()
 	glBindTexture(GL_TEXTURE_3D, 0);
 
 	glGenTextures(1, &texture_2);
-	glActiveTexture(GL_TEXTURE0);
+	glActiveTexture(GL_TEXTURE0 + GRAD_NOISE_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_3D, texture_2);
 	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_2, texture_dim_2, texture_dim_2, 0, GL_RGBA, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -177,7 +177,7 @@ void Noise::create_worley_noise()
 		glUniform1i(texture_1_shader_program.get_cell_location(i), i);
 		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
 
-		glActiveTexture(GL_TEXTURE0 + i);
+		glActiveTexture(GL_TEXTURE0 + WORLEY_NOISE_TEXTURES_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 
 	}
@@ -204,7 +204,7 @@ void Noise::create_grad_noise()
 		glUniform1i(texture_1_shader_program.get_cell_location(i), i);
 		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
 
-		glActiveTexture(GL_TEXTURE0 + i);
+		glActiveTexture(GL_TEXTURE0 + GRAD_NOISE_TEXTURES_SLOT + NUM_CELLS + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 
 	}

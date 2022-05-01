@@ -3,16 +3,16 @@
 
 struct ObjMaterialLocations {
 
-	GLuint ambient_location;
-	GLuint diffuse_location;
-	GLuint specular_location;
-	GLuint transmittance_location;
-	GLuint emission_location;
-	GLuint shininess_location;
-	GLuint ior_location;
-	GLuint dissolve_location;
+	GLint ambient_location;
+	GLint diffuse_location;
+	GLint specular_location;
+	GLint transmittance_location;
+	GLint emission_location;
+	GLint shininess_location;
+	GLint ior_location;
+	GLint dissolve_location;
 
-	GLuint illum_location = 0;
-	GLuint textureID_location = -1;
+	GLint illum_location = 0;
+	GLint textureID_location = -1;
 
 };

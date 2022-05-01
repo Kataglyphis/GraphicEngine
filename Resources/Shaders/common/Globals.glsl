@@ -1,3 +1,6 @@
+
+
+
 struct Material {
 
 	vec3 ambient;

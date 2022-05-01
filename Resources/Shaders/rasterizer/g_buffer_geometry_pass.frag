@@ -17,8 +17,10 @@ in float    frag_depth;
 
 layout(std430, binding = 5) buffer materialIndexPerPrimitive
 {
-    int materialIndex_SSBO[];
+    uint materialIndex_SSBO[];
 };
+
+uniform Material materials[MAX_MATERIALS];
 
 //all textures from the current model
 uniform sampler2D model_textures[MAX_TEXTURE_COUNT];
@@ -28,7 +30,11 @@ void main() {
 	g_position      = frag_pos;
 	g_normal        = normalize(normal);
     g_frag_depth    = frag_depth;
-    g_material_id   = materialIndex_SSBO[gl_PrimitiveID];
-    g_albedo        = texture(model_textures[0], tex_coords).rgb;
+    uint mat_ID     = materialIndex_SSBO[gl_PrimitiveID];
+    g_material_id   = mat_ID;
+
+    uint tex_ID     = materials[mat_ID].textureID;
+
+    g_albedo        = texture(model_textures[tex_ID], tex_coords).rgb;
 
 }

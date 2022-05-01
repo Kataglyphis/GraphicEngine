@@ -1,5 +1,6 @@
 #pragma once
 #include "ShaderProgram.h"
+#include <scene/ObjMaterialLocations.h>
 
 class GeometryPassShaderProgram:
 	public ShaderProgram
@@ -13,6 +14,9 @@ public:
 	GLuint get_view_location();
 	GLuint get_model_location();
 	GLuint get_normal_modal_location();
+	ObjMaterialLocations get_uniform_material_locations(int index);
+
+	GLuint get_uniform_texture_locations(int index);
 
 	GLuint get_program_id() { return program_id; }
 
@@ -25,6 +29,8 @@ protected:
 			uniform_normal_model_location;
 
 	GLuint uniform_texture_locations[MAX_TEXTURE_COUNT];
+
+	ObjMaterialLocations uniform_material_locations[MAX_MATERIALS];
 
 	void retrieve_uniform_locations();
 

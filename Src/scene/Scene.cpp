@@ -91,6 +91,16 @@ void Scene::setup_game_object_context()
     context_setup = true;
 }
 
+void Scene::bind_textures_and_buffer()
+{
+    ambient_objects[0]->get_model()->bind_ressources();
+}
+
+void Scene::unbind_textures_and_buffer()
+{
+    ambient_objects[0]->get_model()->unbind_resources();
+}
+
 void Scene::set_context_setup(bool context_setup)
 {
     this->context_setup = context_setup;

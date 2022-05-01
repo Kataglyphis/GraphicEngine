@@ -20,6 +20,8 @@
 #include <cassert>
 #include <time.h>  
 
+#include "texture_unit_slots.h"
+
 #include "glErrorChecker.h"
 
 class SkyBox
