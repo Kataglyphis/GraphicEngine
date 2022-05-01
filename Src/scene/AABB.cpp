@@ -1,6 +1,6 @@
 #include "AABB.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 AABB::AABB()
 {
@@ -77,8 +77,8 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
         4, 6, 2,
      };
 
-     // check with glErrorChecker_ins.h if they are any glError before executing gl stuffs and print it.
-     if (glErrorChecker_ins.arePreError("From init function in AABB.")) {
+     // check with DebugApp_ins.h if they are any glError before executing gl stuffs and print it.
+     if (DebugApp_ins.arePreError("From init function in AABB.")) {
          // to something?
      }
 
@@ -107,8 +107,8 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
      // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
      glBindVertexArray(0);
 
-     // check with glErrorChecker_ins.h if they are any glError and print it.
-     if (glErrorChecker_ins.areErrorPrintAll("From init function in AABB.cpp file.")) {
+     // check with DebugApp_ins.h if they are any glError and print it.
+     if (DebugApp_ins.areErrorPrintAll("From init function in AABB.cpp file.")) {
          // return false;
      }
 }
@@ -116,8 +116,8 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
 void AABB::render()
 {
 
-    // check with glErrorChecker_ins.h if they are any glError before executing gl stuffs and print it.
-    if (glErrorChecker_ins.arePreError("From render function in AABB.")) {
+    // check with DebugApp_ins.h if they are any glError before executing gl stuffs and print it.
+    if (DebugApp_ins.arePreError("From render function in AABB.")) {
         // to something?
     }
 
@@ -130,8 +130,8 @@ void AABB::render()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    // check with glErrorChecker_ins.h if they are any glError and print it.
-    if (glErrorChecker_ins.areErrorPrintAll("From render function in AABB.cpp file.")) {
+    // check with DebugApp_ins.h if they are any glError and print it.
+    if (DebugApp_ins.areErrorPrintAll("From render function in AABB.cpp file.")) {
         // return false;
     }
 }

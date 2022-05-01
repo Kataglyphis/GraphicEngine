@@ -6,7 +6,7 @@ GeometryPass::GeometryPass()
 
 GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program)
 {
-
+    this->uniform_helper = UniformHelper();
     this->shader_program = shader_program;
     std::string skybox_base_dir = "../Resources/Textures/Skybox/DOOM2016/";
     stringstream texture_loading;
@@ -33,14 +33,14 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 }
 
 void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix,
-                                                    std::vector<ObjMaterial>& materials)
+                                                    std::vector<ObjMaterial>& materials, Scene* scene)
 {
 
-    glUniformMatrix4fv(shader_program->get_projection_location(), 1, GL_FALSE, glm::value_ptr(projection_matrix));
-    glUniformMatrix4fv(shader_program->get_view_location(), 1, GL_FALSE, glm::value_ptr(view_matrix));
+    uniform_helper.setUniformMatrix4fv(projection_matrix, shader_program->get_projection_location());
+    uniform_helper.setUniformMatrix4fv(view_matrix, shader_program->get_view_location());
 
-    for (int i = 0; i < MAX_TEXTURE_COUNT; i++) {
-        glUniform1i(shader_program->get_uniform_texture_locations(i), i);
+    for (int i = 0; i < scene->get_texture_count(0); i++) {
+        uniform_helper.setUniformInt(i, shader_program->get_uniform_texture_locations(i));
     }
 
     for (size_t i = 0; i < materials.size(); i++) {
@@ -50,7 +50,7 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
     shader_program->validate_program();
 
     // Check if there any unchecked gl Errors from the render functions
-    glErrorChecker_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
+    DebugApp_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
 }
 
 void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height,
@@ -66,35 +66,29 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
 
     shader_program->use_shader_program();
 
-    retrieve_geometry_pass_locations(projection_matrix, view_matrix, scene->get_materials());
+    retrieve_geometry_pass_locations(projection_matrix, view_matrix, scene->get_materials(), scene);
 
     scene->bind_textures_and_buffer();
 
     scene->render(this, first_person_mode);
-    
-    scene->unbind_textures_and_buffer();
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
     // Check if there any unchecked gl Errors from the render functions
-    glErrorChecker_ins.areErrorPrintAll("From Execute function in GeometryPass.");
+    DebugApp_ins.areErrorPrintAll("From Execute function in GeometryPass.");
 
 }
 
 void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)
 {
-    glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(model));
-    glUniformMatrix4fv(shader_program->get_normal_modal_location(), 1, GL_FALSE, glm::value_ptr(normal_model));
+
+    uniform_helper.setUniformMatrix4fv(model, shader_program->get_model_location());
+    uniform_helper.setUniformMatrix4fv(normal_model, shader_program->get_normal_modal_location());
 
     // check if there any gl Errors
-    glErrorChecker_ins.areErrorPrintAll("Error, from set_game_object_uniforms function in GeometryPass.");
+    DebugApp_ins.areErrorPrintAll("Error, from set_game_object_uniforms function in GeometryPass.");
 
 
-}
-
-bool GeometryPass::use_terrain_textures()
-{
-    return true;
 }
 
 GeometryPass::~GeometryPass()

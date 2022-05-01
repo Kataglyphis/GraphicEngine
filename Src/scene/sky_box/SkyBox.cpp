@@ -8,7 +8,7 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 {
 
 	// check if there any other gl Error  appears before execue gl functions
-	glErrorChecker_ins.arePreError("From SkyBox constructor in SkyBox.cpp file.");
+	DebugApp_ins.arePreError("From SkyBox constructor in SkyBox.cpp file.");
 
 	srand(time(NULL));
 	shader_playback_time = 1;
@@ -44,8 +44,8 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	// check with glErrorChecker_ins.h if they are any glError and print it.
-	if (glErrorChecker_ins.areErrorPrintAll("From SkyBox constructor in SkyBox.cpp file.")) {
+	// check with DebugApp_ins.h if they are any glError and print it.
+	if (DebugApp_ins.areErrorPrintAll("From SkyBox constructor in SkyBox.cpp file.")) {
 		// return false;
 	}
 
@@ -92,7 +92,7 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height, GLfloat delta_time)
 {
 	// check if there any other gl Error  appears before execue gl functions
-	glErrorChecker_ins.arePreError("From draw_sky_box function in SkyBox.cpp file.");
+	DebugApp_ins.arePreError("From draw_sky_box function in SkyBox.cpp file.");
 
 
 	GLfloat velocity = movement_speed * delta_time;
@@ -107,7 +107,8 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 	sky_shader_program->use_shader_program();
 	glUniformMatrix4fv(uniform_projection, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 	glUniformMatrix4fv(uniform_view, 1, GL_FALSE, glm::value_ptr(new_view_matrix));
-
+	
+	int aux = SKYBOX_TEXTURES_SLOT;
 	glActiveTexture(GL_TEXTURE0 + SKYBOX_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id);
 
@@ -118,8 +119,8 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 	glDepthMask(GL_TRUE);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-	// check with glErrorChecker_ins.h if they are any glError and print it.
-	if (glErrorChecker_ins.areErrorPrintAll("From draw_sky_box function in SkyBox.cpp file.")) {
+	// check with DebugApp_ins.h if they are any glError and print it.
+	if (DebugApp_ins.areErrorPrintAll("From draw_sky_box function in SkyBox.cpp file.")) {
 		// do something?
 	}
 

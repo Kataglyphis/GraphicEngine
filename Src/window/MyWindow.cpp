@@ -39,8 +39,8 @@ int MyWindow::initialize() {
     // setup glfw window properties
     
     //lets work with nothing older than version 3
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
 
     // core profile = no backward compatibility
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -50,6 +50,12 @@ int MyWindow::initialize() {
     
     //allow it to resize
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+
+#ifdef NDEBUG
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, false);
+#else 
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+#endif
 
     //retrieve new window
     main_window = glfwCreateWindow(window_width, window_height, "Planet Exploration", NULL, NULL);

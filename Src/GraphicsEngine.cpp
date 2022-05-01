@@ -18,7 +18,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 //all gui stuff
 #include <imgui.h>
@@ -173,7 +173,7 @@ std::string read_file(const char* file_location)
 void set_shader_includes() {
     
     // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
-    glErrorChecker glErrorChecker_ins;
+    DebugApp DebugApp_ins;
 
     const int num_include_files = 10;
     std::array<const char*, num_include_files> includeNames     = { "host_device_shared.h",
@@ -208,7 +208,7 @@ void set_shader_includes() {
         char tmpstr[200];
         sprintf(tmpstr, "/%s", includeNames[i]);
         glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
-        glErrorChecker_ins.areErrorPrintAll("From glNamedStringARB.");
+        DebugApp_ins.areErrorPrintAll("From glNamedStringARB.");
 
     }
 
@@ -352,24 +352,6 @@ int main()
 
     point_light_count++;
 
-    point_lights[1] = std::make_shared<PointLight>( 1024, 1024,
-                                                    0.01f, 100.f,
-                                                    1.0f, 0.0f, 0.0f,
-                                                    1.f, 1.0f,
-                                                    0.0f, 0.0f, 0.0f,
-                                                    0.1f, 0.1f, 0.1f);
-
-    point_light_count++;
-
-    point_lights[2] = std::make_shared<PointLight>( 1024, 1024,
-                                                    0.01f, 100.f,
-                                                    0.0f, 0.0f, 1.0f,
-                                                    1.f, 1.0f,
-                                                    0.0f, 0.0f, 0.0f,
-                                                    0.1f, 0.1f, 0.1f);
-
-    point_light_count++;
-
     //create shader programs and use the standard shader
     create_shader_programs();
 
@@ -461,8 +443,6 @@ int main()
             if(!scene->get_context_setup()) scene->setup_game_object_context();    
 
             point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
-            point_lights[1]->set_position(glm::vec3(15.0, 0.f, 0.0f));
-            point_lights[2]->set_position(glm::vec3(-15.0, 0.f, 0.0));
 
             //retreive shadow map before our geometry pass
             main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
@@ -473,9 +453,9 @@ int main()
                                                 first_person_mode, scene.get());
 
             // omni shadow map passes for our point lights
-            for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
+            /*for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
                 omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene.get());
-            }
+            }*/
 
             //we will now start the geometry pass
             geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),

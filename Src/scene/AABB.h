@@ -6,7 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 class AABB
 {
@@ -30,7 +30,7 @@ private:
 
 
 	// This to test gl operators if they went correctly.
-	glErrorChecker glErrorChecker_ins;
+	DebugApp DebugApp_ins;
 
 
 	GLfloat minX, maxX, minY, maxY, minZ, maxZ;

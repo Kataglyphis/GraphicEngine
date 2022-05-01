@@ -7,12 +7,15 @@ LightingPass::LightingPass()
 void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_program)
 {
 
+    this->uniform_helper = UniformHelper();
     this->shader_program = shader_program;
     current_offset = glm::vec3(0.0f);
 
     quad.init();
 
-    generate_random_numbers();
+    random_numbers = RandomNumbers();
+
+    random_number_data = random_numbers.generate_random_numbers();
 
     glGenTextures(1, &random_number);
     glBindTexture(GL_TEXTURE_2D, random_number);
@@ -49,29 +52,6 @@ void LightingPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void LightingPass::generate_random_numbers()
-{
-    random_number_data = std::shared_ptr<GLfloat[]>(new GLfloat[MAX_RESOLUTION_X * MAX_RESOLUTION_Y * 4]); // we only store one float in the red channel
-
-    std::mt19937_64 gen64(25121995);
-    std::uniform_real_distribution<float> dis(0, 1);
-
-    for (int i = 0; i < MAX_RESOLUTION_X; i++) {
-
-        for (int k = 0; k < MAX_RESOLUTION_Y; k++) {
-            
-            GLfloat random_offset[4] = { dis(gen64), dis(gen64), dis(gen64), dis(gen64) };
-
-            GLuint index = (MAX_RESOLUTION_Y * i + k) * 4;
-
-            *(random_number_data.get() + index) = random_offset[0];//random_offset[0];//
-            *(random_number_data.get() + index + 1) = random_offset[1];//
-            *(random_number_data.get() + index + 2) = random_offset[2];//
-            *(random_number_data.get() + index + 3) = random_offset[3];//
-        }
-    }
-}
-
 void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer,
                                                     std::shared_ptr<DirectionalLight> main_light, 
                                                     std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count,
@@ -86,96 +66,84 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     d_light_uniform_locations.uniform_diffuse_intensity_location    = shader_program->get_directional_light_diffuse_intensity_location();
     d_light_uniform_locations.uniform_direction_location            = shader_program->get_directional_light_direction_location();
 
-    glUniform1f(d_light_uniform_locations.uniform_ambient_intensity_location, main_light->get_ambient_intensity());
-    glUniform1f(d_light_uniform_locations.uniform_diffuse_intensity_location, main_light->get_diffuse_intensity());
-    glUniform3f(d_light_uniform_locations.uniform_color_location, main_light->get_color().x, main_light->get_color().y, main_light->get_color().z);
-    glUniform3f(d_light_uniform_locations.uniform_direction_location, -main_light->get_direction().x, -main_light->get_direction().y, -main_light->get_direction().z);
+    uniform_helper.setUniformFloat(main_light->get_ambient_intensity(), d_light_uniform_locations.uniform_ambient_intensity_location);
+    uniform_helper.setUniformFloat(main_light->get_diffuse_intensity(), d_light_uniform_locations.uniform_diffuse_intensity_location);
+    uniform_helper.setUniformVec3(main_light->get_color(), d_light_uniform_locations.uniform_color_location);
+    uniform_helper.setUniformVec3(main_light->get_direction(), d_light_uniform_locations.uniform_direction_location);
 
     std::vector<GLfloat> cascade_slots = main_light->get_cascaded_slots();
 
     for (int i = 0; i < NUM_CASCADES; i++) {
 
+
+    }
+
+    // EVERYTHING REGARDING THE SHADOW CASCADE
+    glm::mat4 light_view = main_light->get_light_view_matrix();
+    std::vector<glm::mat4> cascade_light_matrices = main_light->get_cascaded_light_matrices();
+    for (size_t i = 0; i < NUM_CASCADES; i++) {
+
         glm::vec4 clip_end_slot = projection_matrix * glm::vec4(0.0f, 0.0f, -cascade_slots[i+1], 1.0f);
-        glUniform1f(shader_program->get_cascade_endpoint_location(i), clip_end_slot.z);
+        uniform_helper.setUniformFloat(clip_end_slot.z, shader_program->get_cascade_endpoint_location(i));
 
+        uniform_helper.setUniformInt(   D_LIGHT_SHADOW_TEXTURES_SLOT + i, 
+                                        shader_program->get_directional_shadow_map_location(i));
+
+        uniform_helper.setUniformMatrix4fv( cascade_light_matrices[i] * light_view,
+                                            shader_program->get_directional_light_transform_location(i));
     }
 
-    GLuint g_buffer_lighting_uniform_directional_shadow_map_locations[NUM_CASCADES];
-
-    for (size_t i = 0; i < NUM_CASCADES; i++) {
-
-        g_buffer_lighting_uniform_directional_shadow_map_locations[i] = shader_program->get_directional_shadow_map_location(i);
-
-    }
-
-    gbuffer->use_gbuffer(   shader_program->get_g_position_location(),
-                            shader_program->get_g_normal_location(),
-                            shader_program->get_g_albedo_location(),
-                            shader_program->get_g_frag_depth_location(),
-                            shader_program->get_uniform_material_id_location());
-
-    for (size_t i = 0; i < NUM_CASCADES; i++) {
-
-        glUniform1i(g_buffer_lighting_uniform_directional_shadow_map_locations[i], D_LIGHT_SHADOW_TEXTURES_SLOT + i);
-
-    }
-
-    GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
-
-    shader_program->set_point_lights(point_lights, point_light_count, P_LIGHT_SHADOW_TEXTURES_SLOT, 0);
-
-    shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
-
-    shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
-
-    glUniform3f(shader_program->get_eye_position_location(), camera_position.x, camera_position.y, camera_position.z);
+    // GBUFFER
+    gbuffer->read(  shader_program->get_g_position_location(),
+                    shader_program->get_g_normal_location(),
+                    shader_program->get_g_albedo_location(),
+                    shader_program->get_g_frag_depth_location(),
+                    shader_program->get_uniform_material_id_location());
 
 
+    //shader_program->set_point_lights(point_lights, P_LIGHT_SHADOW_TEXTURES_SLOT, 0);
+
+    //shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
+
+    //shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
+
+    // CAMERA
+    uniform_helper.setUniformVec3(camera_position, shader_program->get_eye_position_location());
+
+    // MATERIALS
     for (size_t i = 0; i < materials.size(); i++) {
 
         materials[i].use_material(shader_program->get_uniform_material_locations(i));
 
     }
 
-    glUniform3f(shader_program->get_uniform_cloud_rad_location(), cloud->get_rad().x, cloud->get_rad().y, cloud->get_rad().z);
+    // CLOUDS
+    uniform_helper.setUniformVec3(cloud->get_rad(), shader_program->get_uniform_cloud_rad_location());
 
     GLfloat velocity = cloud->get_movement_speed() * delta_time;
     current_offset = current_offset + cloud->get_movement_direction() * velocity;
+    uniform_helper.setUniformVec3(current_offset, shader_program->get_uniform_cloud_offset());
 
-    glUniform3f(shader_program->get_uniform_cloud_offset(), current_offset.x, current_offset.y, current_offset.z);
+    uniform_helper.setUniformMatrix4fv(cloud->get_model(), shader_program->get_uniform_cloud_model());
 
-    glUniformMatrix4fv(shader_program->get_uniform_cloud_model(), 1, GL_FALSE, glm::value_ptr(cloud->get_model()));
-
-    glUniform1f(shader_program->get_uniform_cloud_scale_location(), cloud->get_scale());
-    //we want to set the threshold, so 1.f - density !
-    glUniform1f(shader_program->get_uniform_cloud_threshold_location(), 1.f - cloud->get_density());
-
-    glUniform1f(shader_program->get_uniform_pillowness_location(), cloud->get_pillowness());
-
-    glUniform1f(shader_program->get_cirrus_effect_location(), cloud->get_cirrus_effect());
+    uniform_helper.setUniformFloat(cloud->get_scale(), shader_program->get_uniform_cloud_scale_location());
+    uniform_helper.setUniformFloat(1.f - cloud->get_density(), shader_program->get_uniform_cloud_threshold_location());
+    uniform_helper.setUniformFloat(cloud->get_pillowness(), shader_program->get_uniform_pillowness_location());
+    uniform_helper.setUniformFloat(cloud->get_cirrus_effect(), shader_program->get_cirrus_effect_location());
 
     if (cloud->get_powder_effect()) {
-        glUniform1i(shader_program->get_cloud_powderness_effect(), true);
+        uniform_helper.setUniformInt(true, shader_program->get_cloud_powderness_effect());
     }
     else {
-        glUniform1i(shader_program->get_cloud_powderness_effect(), false);
+        uniform_helper.setUniformInt(false, shader_program->get_cloud_powderness_effect());
     }
 
-    glm::mat4 light_view = main_light->get_light_view_matrix();
-
-    std::vector<glm::mat4> cascade_light_matrices = main_light->get_cascaded_light_matrices();
-
-    for (int i = 0; i < NUM_CASCADES; i++) {
-
-        glUniformMatrix4fv(shader_program->get_directional_light_transform_location(i), 1, GL_FALSE, glm::value_ptr(cascade_light_matrices[i] * light_view));
-
-    }
-
-    glUniform1i(shader_program->get_uniform_num_active_cascades_location(), num_active_slots);
-
-    glUniform1i(shader_program->get_uniform_pcf_radius_location(), main_light->get_shadow_map()->get_pcf_radius());
-
-    glUniform1f(shader_program->get_directional_light_shadow_intensity_location(), main_light->get_shadow_map()->get_intensity());
+    GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
+    uniform_helper.setUniformInt(num_active_slots, shader_program->get_uniform_num_active_cascades_location());
+    uniform_helper.setUniformInt(   main_light->get_shadow_map()->get_pcf_radius(), 
+                                    shader_program->get_uniform_pcf_radius_location());
+    uniform_helper.setUniformFloat( main_light->get_shadow_map()->get_intensity(), 
+                                    shader_program->get_directional_light_shadow_intensity_location());
 
     shader_program->validate_program();
 }
@@ -183,13 +151,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, std::shared_ptr<Noise> noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud)
 {
 
-    //GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
-
-    GLuint start_texture = 1;
-
-    gbuffer->read(start_texture);
-
-    main_light->get_shadow_map()->read(GBUFFER_TEXTURES_SLOT);
+    main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);
 
     cloud->read(CLOUD_TEXTURE_SLOT);
 
@@ -204,7 +166,7 @@ void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, s
 void LightingPass::bind_random_numbers(GLuint texture_unit)
 {
 
-    glUniform1i(shader_program->get_random_number_location(), texture_unit);
+    uniform_helper.setUniformInt(texture_unit, shader_program->get_random_number_location());
 
     glActiveTexture(GL_TEXTURE0 + (GLenum)texture_unit);
     glBindTexture(GL_TEXTURE_2D, random_number);

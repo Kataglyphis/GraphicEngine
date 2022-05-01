@@ -22,7 +22,7 @@
 
 #include "texture_unit_slots.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 class SkyBox
 {
@@ -48,6 +48,6 @@ private:
 	GLuint texture_id;
 	GLuint uniform_projection, uniform_view;
 
-	glErrorChecker glErrorChecker_ins;
+	DebugApp DebugApp_ins;
 };
 

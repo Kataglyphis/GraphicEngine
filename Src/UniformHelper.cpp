@@ -31,6 +31,15 @@ bool UniformHelper::setUniformInt(GLint uniform, GLuint uniform_location)
 	return validity;
 }
 
+bool UniformHelper::setUniformMatrix4fv(glm::mat4 matrix, GLuint uniform_location)
+{
+	bool validity = validateUniformLocation(uniform_location);
+	if (validity) {
+		glUniformMatrix4fv(uniform_location, 1, GL_FALSE, glm::value_ptr(matrix));
+	}
+	return validity;
+}
+
 UniformHelper::~UniformHelper()
 {
 }

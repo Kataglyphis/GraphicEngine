@@ -12,7 +12,7 @@
 
 #include "GlobalValues.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 
 class Texture
@@ -42,6 +42,6 @@ private:
 
 	std::string file_location;
 
-	glErrorChecker glErrorChecker_ins;
+	DebugApp DebugApp_ins;
 };
 

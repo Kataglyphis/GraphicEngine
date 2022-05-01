@@ -2,7 +2,7 @@
 #define GLOBALS_HOST_DEVICE
 //define all constants here
 const int NUM_CASCADES = 3;
-const int MAX_POINT_LIGHTS = 3;
+const int MAX_POINT_LIGHTS = 1;
 const int MAX_MATERIALS = 35;
 const int MAX_TEXTURE_COUNT = 30;
 

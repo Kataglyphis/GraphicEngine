@@ -117,7 +117,7 @@ void Noise::update()
 	generate_textures();
 
 	// Check if any gl errorers appears.
-	glErrorChecker_ins.areErrorPrintAll("From update function in Noise.cpp");
+	DebugApp_ins.areErrorPrintAll("From update function in Noise.cpp");
 
 }
 
@@ -190,7 +190,7 @@ void Noise::create_worley_noise()
 	glBindTexture(GL_TEXTURE_3D, 0);
 
 	// Check if any gl errorers appears.
-	glErrorChecker_ins.areErrorPrintAll("From create worley noise function in Noise.cpp");
+	DebugApp_ins.areErrorPrintAll("From create worley noise function in Noise.cpp");
 }
 
 void Noise::create_grad_noise()
@@ -217,7 +217,7 @@ void Noise::create_grad_noise()
 	glBindTexture(GL_TEXTURE_3D, 0);
 
 	// Check if any gl errorers appears.
-	glErrorChecker_ins.areErrorPrintAll("From create grad noise function in Noise.cpp");
+	DebugApp_ins.areErrorPrintAll("From create grad noise function in Noise.cpp");
 
 }
 
@@ -228,7 +228,7 @@ void Noise::read_worley_noise(GLenum start_buffer_index)
 	glBindTexture(GL_TEXTURE_3D, texture_1);
 
 	// Check if any gl errorers appears.
-	glErrorChecker_ins.areErrorPrintAll("From read worley noise function in Noise.cpp");
+	DebugApp_ins.areErrorPrintAll("From read worley noise function in Noise.cpp");
 }
 
 void Noise::read_grad_noise(GLenum start_buffer_index)
@@ -238,7 +238,7 @@ void Noise::read_grad_noise(GLenum start_buffer_index)
 	glBindTexture(GL_TEXTURE_3D, texture_2);
 
 	// Check if any gl errorers appears.
-	glErrorChecker_ins.areErrorPrintAll("From read grad noise function in Noise.cpp");
+	DebugApp_ins.areErrorPrintAll("From read grad noise function in Noise.cpp");
 }
 
 Noise::~Noise()

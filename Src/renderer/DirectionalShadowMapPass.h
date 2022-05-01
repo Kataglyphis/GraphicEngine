@@ -5,7 +5,7 @@
 #include "ViewFrustumCulling.h"
 #include "Scene.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 class DirectionalShadowMapPass :
     public RenderPassSceneDependend
@@ -27,6 +27,6 @@ private:
 
     std::shared_ptr<ShadowMapShaderProgram> shader_program;
 
-    glErrorChecker glErrorChecker_ins;
+    DebugApp DebugApp_ins;
 };
 

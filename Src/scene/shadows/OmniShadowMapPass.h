@@ -6,7 +6,7 @@
 #include "Clouds.h"
 #include "Scene.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 class OmniShadowMapPass :
     public RenderPassSceneDependend
@@ -29,6 +29,6 @@ private:
     std::shared_ptr<OmniDirShadowShaderProgram> shader_program;
 
     // this is for GL error checking
-    glErrorChecker glErrorChecker_ins;
+    DebugApp DebugApp_ins;
 };
 

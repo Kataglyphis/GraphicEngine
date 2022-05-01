@@ -41,7 +41,7 @@ void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light, bool first_
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-    glErrorChecker_ins.areErrorPrintAll("From execute function OmniShadowMapPass");
+    DebugApp_ins.areErrorPrintAll("From execute function OmniShadowMapPass");
 
 
 }

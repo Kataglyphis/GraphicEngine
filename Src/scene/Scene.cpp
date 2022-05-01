@@ -43,11 +43,11 @@ void Scene::load_models()
 
     lock_guard<mutex> guard{ mx_space_ship };
 
-    glm::vec3 space_station_offset = glm::vec3(0.f, 0.0f, 0.0f);
-    GLfloat space_station_scale = 80.f;
-    Rotation space_station_rot;
-    space_station_rot.degrees = 0.0f;
-    space_station_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 sponza_offset = glm::vec3(0.f, 0.0f, 0.0f);
+    GLfloat sponza_scale = 1.f;
+    Rotation sponza_rot;
+    sponza_rot.degrees = 0.0f;
+    sponza_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
     glm::vec3 clouds_offset = glm::vec3(30.f, 800.0f, 30.0f);
     glm::vec3 clouds_scale = glm::vec3(64.f, 64.f, 64.f);
@@ -56,8 +56,8 @@ void Scene::load_models()
 
     std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   /*"../Resources/Models/dinosaurs.obj",*/
                                                                     "../Resources/Models/crytek-sponza/sponza_triag.obj",
-                                                                    space_station_offset, space_station_scale, 
-                                                                    space_station_rot);
+                                                                    sponza_offset, sponza_scale,
+                                                                    sponza_rot);
     progress += 1.f;
 
     ambient_objects.push_back(sponza);
@@ -99,6 +99,11 @@ void Scene::bind_textures_and_buffer()
 void Scene::unbind_textures_and_buffer()
 {
     ambient_objects[0]->get_model()->unbind_resources();
+}
+
+int Scene::get_texture_count(int index)
+{
+    return ambient_objects[0]->get_model()->get_texture_count();
 }
 
 void Scene::set_context_setup(bool context_setup)

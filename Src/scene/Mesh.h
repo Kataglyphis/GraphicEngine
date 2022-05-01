@@ -7,7 +7,7 @@
 
 #include "GlobalValues.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 
 using namespace std;
@@ -59,7 +59,7 @@ private:
     std::vector<unsigned int> indices;
 
     // for gl error checks
-    glErrorChecker glErrorChecker_ins;
+    DebugApp DebugApp_ins;
 
 };
 

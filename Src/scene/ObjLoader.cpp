@@ -61,13 +61,14 @@ void ObjLoader::load(   std::string                             modelFile,
 
             texture_list.push_back(texture_filename);
 
-            int offset = 1; // because we have the white texture at position 0
             material.textureID = texture_id;
             texture_id++;
 
         }
         else {
 
+            // this means no texture was assigned; we catch it here and assign our plain texture
+            // at position 0
             material.textureID = 0;
 
         }

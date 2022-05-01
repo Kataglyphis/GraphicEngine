@@ -18,54 +18,6 @@ in vec2 tex_coords;
 
 out vec4 color;
 
-struct Clouds {
-
-    vec3 rad;
-    vec3 offset;
-    mat4 model_to_world;
-
-    float threshold;
-    float scale;
-    float pillowness;
-    float cirrus_effect;
-
-    bool powder_effect;
-
-};
-
-struct Light {
-
-    vec3 color;
-    float ambient_intensity;
-    float diffuse_intensity;
-
-};
-
-struct DirectionalLight {
-
-    Light base;
-    vec3 direction;
-    float shadow_intensity;
-
-};
-
-struct PointLight {
-
-    Light base;
-    vec3 position;
-    float constant;
-    float linear;
-    float exponent;
-
-};
-
-struct OmniShadowMap {
-
-    samplerCube shadow_map;
-    float far_plane;
-
-};
-
 //define light uniforms here 
 uniform DirectionalLight directional_light;
 uniform OmniShadowMap omni_shadow_maps[MAX_POINT_LIGHTS];
@@ -259,7 +211,7 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
 vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int material_id = int(texture(g_material_id, tex_coords).r);
-    vec3 ambient    = vec3(1.f);//texture(g_albedo, tex_coords).rgb;
+    vec3 ambient    = texture(g_albedo, tex_coords).rgb;
     vec3 frag_pos   = texture(g_position, tex_coords).rgb;
     vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
 
@@ -285,7 +237,8 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 		break;
 	}
 
-    return (1.f - shadow_factor) * vec4(color,1.0f);
+    //(1.f - shadow_factor) * 
+    return vec4(color,1.0f);
 
 }
 
@@ -538,21 +491,22 @@ void main () {
     // final_color += calc_point_lights();
 
     //do not shade when skybox is visible!
-    float frag_depth = texture(g_frag_depth, tex_coords).r;
-
-    if(frag_depth > 0.0f) {
-
-        color = final_color;
-
-     } else {
-
-        color = texture(g_albedo, tex_coords);
-
-    }
-    
-    color = vec4(gamma_correction(color.xyz),1.0);
-
-    calc_clouds();
+//    float frag_depth = texture(g_frag_depth, tex_coords).r;
+//
+//    if(frag_depth > 0.0f) {
+//
+//        color = final_color;
+//
+//     } else {
+//
+//        color = texture(g_albedo, tex_coords);
+//
+//    }
+//    
+//    color = vec4(gamma_correction(color.xyz),1.0);
+//
+//    calc_clouds();
+    color = final_color;
     //debug_cascaded_shadow_maps();
 
 }

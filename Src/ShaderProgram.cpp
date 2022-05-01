@@ -65,7 +65,7 @@ void ShaderProgram::create_computer_shader_program_from_file(const char* compute
 void ShaderProgram::validate_program()
 {
     // check if there are any gl error before executing gl function
-    glErrorChecker_ins.arePreError("From validate_program in ShaderProgram.cpp");
+    DebugApp_ins.arePreError("From validate_program in ShaderProgram.cpp");
     GLint result = 0;
     GLchar eLog[1024] = { 0 };
 
@@ -73,7 +73,7 @@ void ShaderProgram::validate_program()
 
     glGetProgramiv(program_id, GL_VALIDATE_STATUS, &result);
 
-    glErrorChecker_ins.areErrorPrintAll("From validate_program in ShaderProgram.cpp");
+    DebugApp_ins.areErrorPrintAll("From validate_program in ShaderProgram.cpp");
 
     if (!result) {
         glGetProgramInfoLog(program_id, sizeof(eLog), NULL, eLog);

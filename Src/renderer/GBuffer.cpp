@@ -4,12 +4,15 @@ GBuffer::GBuffer()
 {
     this->window_width = 1024;
     this->window_height = 768;
+    this->uniform_helper = UniformHelper();
 }
 
 GBuffer::GBuffer(GLint window_width, GLint window_height)
 {
+
     this->window_width = window_width;
     this->window_height = window_height;
+    this->uniform_helper = UniformHelper();
 }
 
 void GBuffer::create()
@@ -69,39 +72,34 @@ void GBuffer::create()
 
 }
 
-void GBuffer::read(GLint start_buffer_index)
+void GBuffer::read( GLuint g_buffer_lighting_uniform_position_location,
+                    GLuint g_buffer_lighting_uniform_normal_location,
+                    GLuint g_buffer_lighting_uniform_albedo_location,
+                    GLuint g_buffer_frag_depth_location,
+                    GLuint g_buffer_material_id_location)
 {
-    GLuint texture_index = GL_TEXTURE0 + start_buffer_index;
-    glActiveTexture(texture_index);
+
+    GLuint texture_index = GBUFFER_TEXTURES_SLOT;
+    uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_position_location);
+    glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_position);
     texture_index++;
-    glActiveTexture(texture_index);
+    uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_normal_location);
+    glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_normal);
     texture_index++;
-    glActiveTexture(texture_index);
+    uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_albedo_location);
+    glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_albedo);
     texture_index++;
-    glActiveTexture(texture_index);
+    uniform_helper.setUniformInt(texture_index, g_buffer_frag_depth_location);
+    glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_fragment_depth);
     texture_index++;
-    glActiveTexture(texture_index);
+    uniform_helper.setUniformInt(texture_index, g_buffer_material_id_location);
+    glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_material_id);
 
-
-}
-
-void GBuffer::use_gbuffer(  GLuint g_buffer_lighting_uniform_position_location, 
-                            GLuint g_buffer_lighting_uniform_normal_location,
-                            GLuint g_buffer_lighting_uniform_albedo_location,
-                            GLuint g_buffer_frag_depth_location,
-                            GLuint g_buffer_material_id_location)
-{
-
-    glUniform1i(g_buffer_lighting_uniform_position_location, GBUFFER_TEXTURES_SLOT);
-    glUniform1i(g_buffer_lighting_uniform_normal_location, GBUFFER_TEXTURES_SLOT + 1);
-    glUniform1i(g_buffer_lighting_uniform_albedo_location, GBUFFER_TEXTURES_SLOT + 2);
-    glUniform1i(g_buffer_frag_depth_location, GBUFFER_TEXTURES_SLOT + 3);
-    glUniform1i(g_buffer_material_id_location, GBUFFER_TEXTURES_SLOT + 4);
 
 }
 

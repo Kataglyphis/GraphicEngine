@@ -4,6 +4,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "GlobalValues.h"
 #include "texture_unit_slots.h"
+#include "UniformHelper.h"
 
 class GBuffer
 {
@@ -14,13 +15,11 @@ public:
 
 	void create();
 
-	void read(GLint start_buffer_index);
-
-	void use_gbuffer(	GLuint g_buffer_lighting_uniform_position_location,
-						GLuint g_buffer_lighting_uniform_normal_location,
-						GLuint g_buffer_lighting_uniform_albedo_location,
-						GLuint g_buffer_frag_depth_location,
-						GLuint g_buffer_material_id_location);
+	void read(	GLuint g_buffer_lighting_uniform_position_location,
+				GLuint g_buffer_lighting_uniform_normal_location,
+				GLuint g_buffer_lighting_uniform_albedo_location,
+				GLuint g_buffer_frag_depth_location,
+				GLuint g_buffer_material_id_location);
 	
 	void update_window_params(GLfloat window_width, GLfloat window_height);
 
@@ -40,6 +39,7 @@ private:
 														GL_COLOR_ATTACHMENT4};
 
 	GLint window_width, window_height;
+	UniformHelper uniform_helper;
 
 };
 

@@ -12,7 +12,7 @@
 //#include "DirectionalLight.h"
 #include "DirectionalLightUniformLocations.h"
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 class ShaderProgram
 {
@@ -55,7 +55,7 @@ protected:
 
 	void clear_shader_program();
 	// for checking gl Errors
-	glErrorChecker glErrorChecker_ins;
+	DebugApp DebugApp_ins;
 
 };
 

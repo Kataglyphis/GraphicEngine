@@ -6,7 +6,7 @@ GeometryPassShaderProgram::GeometryPassShaderProgram()
 void GeometryPassShaderProgram::retrieve_uniform_locations() {
 
     // check before Error executing gl function if they are gl Errors in the Queue
-    glErrorChecker_ins.arePreError("From retrieve_uniform_locations in GeometryPassShaderProgram.");
+    DebugApp_ins.arePreError("From retrieve_uniform_locations in GeometryPassShaderProgram.");
 
     uniform_model_location          = glGetUniformLocation(program_id, "model");
     uniform_normal_model_location   = glGetUniformLocation(program_id, "normal_model");
@@ -58,7 +58,7 @@ void GeometryPassShaderProgram::retrieve_uniform_locations() {
     }
 
     // Check if everythin went well.
-    glErrorChecker_ins.areErrorPrintAll("From retrieve_uniform_locations in GeometryPassShaderProgram.");
+    DebugApp_ins.areErrorPrintAll("From retrieve_uniform_locations in GeometryPassShaderProgram.");
     
 }
 

@@ -7,7 +7,7 @@ LightingPassShaderProgram::LightingPassShaderProgram()
 void LightingPassShaderProgram::retrieve_uniform_locations() {
 
     // check if there any errors appears before executing the function
-    glErrorChecker_ins.arePreError("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
+    DebugApp_ins.arePreError("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
     //setting all uniforms for our directional lights
     d_light_uniform_locations.uniform_color_location                = glGetUniformLocation(program_id, "directional_light.base.color");
@@ -142,7 +142,7 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     uniform_pcf_radius_location = glGetUniformLocation(program_id, "pcf_radius");
     
     // Check if there are any gl Errors appears
-    glErrorChecker_ins.areErrorPrintAll("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
+    DebugApp_ins.areErrorPrintAll("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
 }
 
@@ -273,29 +273,26 @@ GLuint LightingPassShaderProgram::get_uniform_cloud_scale_location()
     return cloud.uniform_scale_location;
 }
 
-void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int light_count, 
+void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<PointLight>>& p_light, 
                                                     unsigned int texture_unit, unsigned int offset)
 {
 
-    if (light_count > MAX_POINT_LIGHTS) {
-        light_count = MAX_POINT_LIGHTS;
-    }
+    glUniform1i(uniform_point_light_count, static_cast<uint32_t>(p_light.size()));
 
-    glUniform1i(uniform_point_light_count, light_count);
+    for (size_t i = 0; i < static_cast<uint32_t>(p_light.size()); i++) {
 
-    for (size_t i = 0; i < light_count; i++) {
-
-        p_light[i]->use_light(uniform_point_light[i].uniform_ambient_intensity, uniform_point_light[i].uniform_color,
-            uniform_point_light[i].uniform_diffuse_intensity, uniform_point_light[i].uniform_position,
-            uniform_point_light[i].uniform_constant, uniform_point_light[i].uniform_linear, uniform_point_light[i].uniform_exponent);
+        p_light[i]->use_light(  uniform_point_light[i].uniform_ambient_intensity, uniform_point_light[i].uniform_color,
+                                uniform_point_light[i].uniform_diffuse_intensity, uniform_point_light[i].uniform_position,
+                                uniform_point_light[i].uniform_constant, uniform_point_light[i].uniform_linear, uniform_point_light[i].uniform_exponent);
 
         p_light[i]->get_omni_shadow_map()->read(texture_unit + i);
+
         glUniform1i(uniform_omni_shadow_map[i + offset].uniform_shadow_map, (GLint)(texture_unit + i));
         glUniform1f(uniform_omni_shadow_map[i + offset].uniform_far_plane, p_light[i]->get_far_plane());
 
     }
 
-    glErrorChecker_ins.areErrorPrintAll("From set_point_textures in LightingPassShaderProgram.cpp");
+    DebugApp_ins.areErrorPrintAll("From set_point_light in LightingPassShaderProgram.cpp");
 
 }
 
@@ -305,7 +302,7 @@ void LightingPassShaderProgram::set_noise_textures(GLuint start)
     glUniform1i(uniform_noise_texture_1_location, start);
     glUniform1i(uniform_noise_texture_2_location, start + 1);
 
-    glErrorChecker_ins.areErrorPrintAll("From set_noise_textures in LightingPassShaderProgram.cpp");
+    DebugApp_ins.areErrorPrintAll("From set_noise_textures in LightingPassShaderProgram.cpp");
 }
 
 void LightingPassShaderProgram::set_cloud_texture(GLuint index)

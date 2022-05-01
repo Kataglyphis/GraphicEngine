@@ -35,6 +35,8 @@ public:
 	void bind_textures_and_buffer();
 	void unbind_textures_and_buffer();
 
+	int get_texture_count(int index);
+
 	void set_context_setup(bool context_setup);
 	bool get_context_setup();
 

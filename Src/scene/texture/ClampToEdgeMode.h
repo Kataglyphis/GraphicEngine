@@ -1,6 +1,6 @@
 #pragma once
 #include "TextureWrappingMode.h"
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 class ClampToEdgeMode :
     public TextureWrappingMode
@@ -14,6 +14,6 @@ public:
     ~ClampToEdgeMode();
 
 private:
-    glErrorChecker glErrorChecker_ins;
+    DebugApp DebugApp_ins;
 };
 

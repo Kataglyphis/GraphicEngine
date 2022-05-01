@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 #include "host_device_shared.h"
 
 class CascadedShadowMap
@@ -40,6 +40,6 @@ protected:
 
 	GLfloat intensity;
 
-	glErrorChecker glErrorChecker_ins;
+	DebugApp DebugApp_ins;
 };
 

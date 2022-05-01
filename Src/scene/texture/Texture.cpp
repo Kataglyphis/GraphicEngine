@@ -26,7 +26,7 @@ bool Texture::load_texture_without_alpha_channel()
 {
 
 	// check if they are errors before the function is executed
-	glErrorChecker_ins.arePreError("From load_texture_without_alpha_channel in Texture.cpp file.");
+	DebugApp_ins.arePreError("From load_texture_without_alpha_channel in Texture.cpp file.");
 
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char* texture_data = stbi_load(file_location.c_str(), &width, &height, &bit_depth, 0);
@@ -54,10 +54,10 @@ bool Texture::load_texture_without_alpha_channel()
 
 	stbi_image_free(texture_data);
 
-	// check with glErrorChecker_ins.h if they are any glError and print it.
+	// check with DebugApp_ins.h if they are any glError and print it.
 	std::string additionalMessage = "From load_texture_without_alpha_channel in Texture.cpp file. \n";
 	additionalMessage += file_location;
-	if (glErrorChecker_ins.areErrorPrintAll(additionalMessage)) {
+	if (DebugApp_ins.areErrorPrintAll(additionalMessage)) {
 		// return false;
 	}
 
@@ -67,7 +67,7 @@ bool Texture::load_texture_without_alpha_channel()
 bool Texture::load_texture_with_alpha_channel()
 {
 	// check if they are errors before the function is executed
-	glErrorChecker_ins.arePreError("From load_texture_with_alpha_channel in Texture.cpp file.");
+	DebugApp_ins.arePreError("From load_texture_with_alpha_channel in Texture.cpp file.");
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char* texture_data = stbi_load(file_location.c_str(), &width, &height, &bit_depth, 0);
 	if (!texture_data) {
@@ -98,10 +98,10 @@ bool Texture::load_texture_with_alpha_channel()
 	stbi_image_free(texture_data);
 
 
-	// check with glErrorChecker_ins.h if they are any glError and print it.
+	// check with DebugApp_ins.h if they are any glError and print it.
 	std::string additionalMessage = "From load_texture_with_alpha_channel in Texture.cpp file. \n";
 	additionalMessage += file_location;
-	if (glErrorChecker_ins.areErrorPrintAll(additionalMessage)) {
+	if (DebugApp_ins.areErrorPrintAll(additionalMessage)) {
 		// return false;
 	}
 
@@ -119,8 +119,8 @@ void Texture::use_texture(unsigned int index)
 	glActiveTexture(GL_TEXTURE0 + index);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 
-	// check with glErrorChecker_ins.h if they are any glError and print it.
-	if (glErrorChecker_ins.areErrorPrintAll("From use_texture in Texture.cpp file.")) {
+	// check with DebugApp_ins.h if they are any glError and print it.
+	if (DebugApp_ins.areErrorPrintAll("From use_texture in Texture.cpp file.")) {
 		// return false;
 	}
 }

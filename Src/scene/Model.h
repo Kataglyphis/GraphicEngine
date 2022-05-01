@@ -31,6 +31,7 @@ public:
 
     std::shared_ptr<AABB>       get_aabb();
     std::vector<ObjMaterial>    get_materials();
+    int                         get_texture_count();
 
     void render();
 

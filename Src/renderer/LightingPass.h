@@ -12,10 +12,12 @@
 
 #include <ctime>
 #include <chrono>
-#include <random>
 #include <cassert>
 #include <time.h>  
 #include <memory>
+
+#include "RandomNumbers.h"
+#include "UniformHelper.h"
 
 class LightingPass 
 {
@@ -37,11 +39,11 @@ private:
 
     glm::vec3 current_offset;
 
+    RandomNumbers random_numbers;
     std::shared_ptr<GLfloat[]> random_number_data;
 
     GLuint random_number;
 
-    void generate_random_numbers();
 
     void retrieve_lighting_pass_locations(  glm::mat4 projection_matrix, glm::mat4 view_matrix, 
                                             std::shared_ptr<GBuffer> gbuffer,
@@ -56,6 +58,8 @@ private:
     void bind_random_numbers(GLuint texture_unit);
 
     std::shared_ptr<LightingPassShaderProgram> shader_program;
+
+    UniformHelper uniform_helper;
 
     Quad quad;
 

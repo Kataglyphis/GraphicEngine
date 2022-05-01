@@ -15,6 +15,11 @@ std::vector<ObjMaterial> Model::get_materials()
     return materials;
 }
 
+int Model::get_texture_count()
+{
+    return static_cast<uint32_t>(texture_list.size());
+}
+
 void Model::load_model_in_ram(std::string model_path) {
 
     loader = ObjLoader();
@@ -55,8 +60,6 @@ void Model::create_render_context()
 
 void Model::bind_ressources()
 {
-    glBindBuffer(GL_SHADER_STORAGE_BUFFER, ssbo);
-
     for (int i = 0; i < static_cast<int>(texture_list.size()); i++) {
         texture_list[i]->use_texture(i + MODEL_TEXTURES_SLOT);
     }
@@ -67,9 +70,6 @@ void Model::unbind_resources()
     for (int i = 0; i < static_cast<int>(texture_list.size()); i++) {
         texture_list[i]->unbind_texture(i + MODEL_TEXTURES_SLOT);
     }
-
-    // unbind material index buffer
-    glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 }
 
 void Model::render()
@@ -79,6 +79,8 @@ void Model::render()
 
 Model::~Model()
 {
+    // unbind material index buffer
+    glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 }
 
 

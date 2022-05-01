@@ -34,7 +34,6 @@ void main() {
     g_material_id   = mat_ID;
 
     uint tex_ID     = materials[mat_ID].textureID;
-
     g_albedo        = texture(model_textures[tex_ID], tex_coords).rgb;
 
 }

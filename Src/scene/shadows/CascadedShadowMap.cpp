@@ -11,7 +11,7 @@ CascadedShadowMap::CascadedShadowMap()
 
 bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 {
-	glErrorChecker_ins.arePreError("From int() function in CascadedShadowMap.");
+	DebugApp_ins.arePreError("From int() function in CascadedShadowMap.");
 
 	shadow_width = width;
 	shadow_height = height;
@@ -55,7 +55,7 @@ bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	if (glErrorChecker_ins.areErrorPrintAll("From int() function in CascadedShadowMap.")) {
+	if (DebugApp_ins.areErrorPrintAll("From int() function in CascadedShadowMap.")) {
 		// DO something?
 	}
 

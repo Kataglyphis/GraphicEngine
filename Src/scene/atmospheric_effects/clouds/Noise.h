@@ -8,7 +8,7 @@
 #include "ComputeShaderProgram.h"
 
 #include "texture_unit_slots.h"
-#include "glErrorChecker.h"
+#include "DebugApp.h"
 
 #include <random>
 #include <memory>
@@ -49,7 +49,7 @@ private:
 
 	std::shared_ptr<GLfloat[]> cell_data [NUM_CELLS];
 
-	glErrorChecker glErrorChecker_ins;
+	DebugApp DebugApp_ins;
 
 };
 
