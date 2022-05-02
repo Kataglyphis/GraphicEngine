@@ -30,7 +30,7 @@ void ObjLoader::load(   std::string                             modelFile,
     }
 
     auto& tol_materials = reader.GetMaterials();
-    texture_list.reserve(tol_materials.size());
+    //texture_list.reserve(tol_materials.size());
 
     if (static_cast<GLuint>(tol_materials.size() > MAX_MATERIALS))\
             std::runtime_error("ObjLoader: We try to load more materials then MAX_MATERIALS is defined!");

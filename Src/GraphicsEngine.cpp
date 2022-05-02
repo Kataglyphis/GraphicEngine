@@ -588,7 +588,7 @@ int main()
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         //ImGui::ShowDemoWindow();
 
-        ImGui::Image((void*)(intptr_t)logo.get_id(), ImVec2(500,100), ImVec2(0, 1), ImVec2(1, 0));
+        ImGui::Image((void*)(intptr_t)logo.get_id(), ImVec2(200,200), ImVec2(0, 1), ImVec2(1, 0));
 
         ImGui::End();
 
