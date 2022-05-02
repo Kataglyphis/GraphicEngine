@@ -9,6 +9,8 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     // check if there any errors appears before executing the function
     DebugApp_ins.arePreError("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
+    skyBoxMaterialID = glGetUniformLocation(program_id, "skyBoxMaterialID");
+
     //setting all uniforms for our directional lights
     d_light_uniform_locations.uniform_color_location                = glGetUniformLocation(program_id, "directional_light.base.color");
     d_light_uniform_locations.uniform_ambient_intensity_location    = glGetUniformLocation(program_id, "directional_light.base.ambient_intensity");
@@ -215,6 +217,11 @@ GLuint LightingPassShaderProgram::get_uniform_pcf_radius_location()
 GLuint LightingPassShaderProgram::get_uniform_vp_location()
 {
     return GLuint();
+}
+
+GLuint LightingPassShaderProgram::get_skyBoxMaterialID()
+{
+    return skyBoxMaterialID;
 }
 
 GLuint LightingPassShaderProgram::get_directional_shadow_map_location(GLuint index)

@@ -18,6 +18,8 @@ in vec2 tex_coords;
 
 out vec4 color;
 
+uniform int skyBoxMaterialID;
+
 //define light uniforms here 
 uniform DirectionalLight directional_light;
 uniform OmniShadowMap omni_shadow_maps[MAX_POINT_LIGHTS];
@@ -207,7 +209,7 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
 vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int material_id = int(texture(g_material_id, tex_coords).r);
-    vec3 ambient    = texture(g_albedo, tex_coords).rgb; // vec3(material_id / 24.f, 0.0f, 0.0f);//
+    vec3 ambient    = texture(g_albedo, tex_coords).rgb;
     vec3 frag_pos   = texture(g_position, tex_coords).rgb;
     vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
 
@@ -482,7 +484,7 @@ void debug_cascaded_shadow_maps() {
 bool belongs_to_scene() {
     
     int material_id = int(texture(g_material_id, tex_coords).r);
-    return !(material_id == 0);
+    return !(material_id == skyBoxMaterialID);
 
 }
 
@@ -497,12 +499,9 @@ void main () {
         color = texture(g_albedo, tex_coords);
     }
 
-    vec4 tex_pos = texture(g_position, tex_coords);
-    vec4 tex_pos2 = tex_pos.xyz / tex_pos.w;
-    float frag_depth = (VP * vec4(.xyz,1.0f)).z;
-    color = vec4(frag_depth*0.001f,0.0f, 0.0f,1.0f);
-    //color = vec4(gamma_correction(color.xyz),1.0);
-
+    
+    color = vec4(gamma_correction(color.xyz),1.0);
+    //color = final_color;
     //calc_clouds();
 
     //debug_cascaded_shadow_maps();

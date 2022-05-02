@@ -62,7 +62,7 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, window_width, window_height);
 
-    skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
+    skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time, scene->get_materials().size());
 
     shader_program->use_shader_program();
 

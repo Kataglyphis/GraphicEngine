@@ -91,13 +91,14 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 
 }
 
-void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height, GLfloat delta_time)
+void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width,
+							GLfloat window_height, GLfloat delta_time, GLuint skyBoxMatreialID)
 {
 	// check if there any other gl Error  appears before execue gl functions
 	DebugApp_ins.arePreError("From draw_sky_box function in SkyBox.cpp file.");
 
 
-	GLfloat velocity = movement_speed * delta_time;
+ 	GLfloat velocity = movement_speed * delta_time;
 	shader_playback_time = fmod(shader_playback_time + velocity, 10000);
 
 	glm::mat4 new_view_matrix = glm::mat4(glm::mat3(view_matrix));
@@ -107,10 +108,12 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 	//std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 
 	sky_shader_program->use_shader_program();
+
+	uniform_helper.setUniformInt(skyBoxMatreialID, sky_shader_program->get_uniform_skyBoxMaterialID_location());
 	uniform_helper.setUniformMatrix4fv(projection_matrix, uniform_projection);
 	uniform_helper.setUniformMatrix4fv(new_view_matrix, uniform_view);
-	
-	int aux = SKYBOX_TEXTURES_SLOT;
+	uniform_helper.setUniformInt(SKYBOX_TEXTURES_SLOT, sky_shader_program->get_uniform_samplerCube_location());
+
 	glActiveTexture(GL_TEXTURE0 + SKYBOX_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id);
 

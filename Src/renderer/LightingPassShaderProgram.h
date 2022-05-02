@@ -43,6 +43,7 @@ public:
 	GLuint get_uniform_num_active_cascades_location();
 	GLuint get_uniform_pcf_radius_location();
 	GLuint get_uniform_vp_location();
+	GLuint get_skyBoxMaterialID();
 	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit, unsigned int offset);
 	void set_noise_textures(GLuint start);
 	void set_cloud_texture(GLuint index);
@@ -50,6 +51,8 @@ public:
 	~LightingPassShaderProgram();
 
 private:
+
+	GLuint skyBoxMaterialID;
 
 	GLuint	uniform_g_postion_location,
 			uniform_g_normal_position, uniform_g_tex_color_location,

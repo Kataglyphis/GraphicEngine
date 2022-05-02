@@ -7,7 +7,7 @@
 layout(location = 0) out vec3   g_position;
 layout(location = 1) out vec3   g_normal;
 layout(location = 2) out vec3   g_albedo;
-layout(location = 3) out float  g_material_id;
+layout(location = 3) out vec3   g_material_id;
 
 in vec2     tex_coords;
 in vec3     frag_pos;
@@ -30,7 +30,7 @@ void main() {
 
 	g_position      = frag_pos;
 	g_normal        = normalize(normal);
-    g_material_id   = mat_ID;
+    g_material_id   = vec3(mat_ID);
     // keep in mind whether to use textures here or not ....
     g_albedo        = materials[mat_ID].diffuse;//texture(model_textures[tex_ID], tex_coords).rgb;
 

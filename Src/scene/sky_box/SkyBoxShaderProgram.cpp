@@ -14,6 +14,16 @@ GLuint SkyBoxShaderProgram::get_view_location()
 	return uniform_view_location;
 }
 
+GLuint SkyBoxShaderProgram::get_uniform_skyBoxMaterialID_location()
+{
+	return uniform_skyBoxMaterialID_location;
+}
+
+GLuint SkyBoxShaderProgram::get_uniform_samplerCube_location()
+{
+	return uniform_samplerCube_location;
+}
+
 SkyBoxShaderProgram::~SkyBoxShaderProgram()
 {
 }
@@ -21,7 +31,8 @@ SkyBoxShaderProgram::~SkyBoxShaderProgram()
 void SkyBoxShaderProgram::retrieve_uniform_locations()
 {
 
-	uniform_projection_location = glGetUniformLocation(program_id, "projection");
-	uniform_view_location = glGetUniformLocation(program_id, "view");
-
+	uniform_projection_location			= glGetUniformLocation(program_id, "projection");
+	uniform_view_location				= glGetUniformLocation(program_id, "view");
+	uniform_skyBoxMaterialID_location	= glGetUniformLocation(program_id, "skyBoxMaterialID");
+	uniform_samplerCube_location		= glGetUniformLocation(program_id, "skybox");;
 }
