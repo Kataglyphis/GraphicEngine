@@ -101,11 +101,11 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                     shader_program->get_uniform_material_id_location());
 
 
-    //shader_program->set_point_lights(point_lights, P_LIGHT_SHADOW_TEXTURES_SLOT, 0);
+    shader_program->set_point_lights(point_lights, P_LIGHT_SHADOW_TEXTURES_SLOT, 0);
 
-    //shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
+    shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
 
-    //shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
+    shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
 
     // CAMERA
     uniform_helper.setUniformVec3(camera_position, shader_program->get_eye_position_location());

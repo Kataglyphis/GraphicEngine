@@ -10,6 +10,8 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 	// check if there any other gl Error  appears before execue gl functions
 	DebugApp_ins.arePreError("From SkyBox constructor in SkyBox.cpp file.");
 
+	uniform_helper = UniformHelper();
+
 	srand(time(NULL));
 	shader_playback_time = 1;
 
@@ -105,8 +107,8 @@ void SkyBox::draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GL
 	//std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 
 	sky_shader_program->use_shader_program();
-	glUniformMatrix4fv(uniform_projection, 1, GL_FALSE, glm::value_ptr(projection_matrix));
-	glUniformMatrix4fv(uniform_view, 1, GL_FALSE, glm::value_ptr(new_view_matrix));
+	uniform_helper.setUniformMatrix4fv(projection_matrix, uniform_projection);
+	uniform_helper.setUniformMatrix4fv(new_view_matrix, uniform_view);
 	
 	int aux = SKYBOX_TEXTURES_SLOT;
 	glActiveTexture(GL_TEXTURE0 + SKYBOX_TEXTURES_SLOT);

@@ -44,7 +44,7 @@ void Scene::load_models()
     lock_guard<mutex> guard{ mx_space_ship };
 
     glm::vec3 sponza_offset = glm::vec3(0.f, 0.0f, 0.0f);
-    GLfloat sponza_scale = 1.f;
+    GLfloat sponza_scale = 100.f;
     Rotation sponza_rot;
     sponza_rot.degrees = 0.0f;
     sponza_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -54,8 +54,8 @@ void Scene::load_models()
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);
 
-    std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   /*"../Resources/Models/dinosaurs.obj",*/
-                                                                    "../Resources/Models/crytek-sponza/sponza_triag.obj",
+    std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   "../Resources/Models/dinosaurs.obj",
+                                                                    /*"../Resources/Models/crytek-sponza/sponza_triag.obj"*/
                                                                     sponza_offset, sponza_scale,
                                                                     sponza_rot);
     progress += 1.f;

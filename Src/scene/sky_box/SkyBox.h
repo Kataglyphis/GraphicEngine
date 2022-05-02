@@ -21,6 +21,7 @@
 #include <time.h>  
 
 #include "texture_unit_slots.h"
+#include "UniformHelper.h"
 
 #include "DebugApp.h"
 
@@ -49,5 +50,6 @@ private:
 	GLuint uniform_projection, uniform_view;
 
 	DebugApp DebugApp_ins;
+	UniformHelper uniform_helper;
 };
 

@@ -236,9 +236,8 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
 		break;
 	}
-
-    //(1.f - shadow_factor) * 
-    return vec4(color,1.0f);
+ 
+    return (1.f - shadow_factor) * vec4(color,1.0f);
 
 }
 
@@ -491,22 +490,22 @@ void main () {
     // final_color += calc_point_lights();
 
     //do not shade when skybox is visible!
-//    float frag_depth = texture(g_frag_depth, tex_coords).r;
-//
-//    if(frag_depth > 0.0f) {
-//
-//        color = final_color;
-//
-//     } else {
-//
-//        color = texture(g_albedo, tex_coords);
-//
-//    }
-//    
-//    color = vec4(gamma_correction(color.xyz),1.0);
-//
-//    calc_clouds();
-    color = final_color;
+    float frag_depth = texture(g_frag_depth, tex_coords).r;
+
+    if(frag_depth > 0.0f) {
+
+        color = final_color;
+
+     } else {
+
+        color = texture(g_albedo, tex_coords);
+
+    }
+    
+    color = vec4(gamma_correction(color.xyz),1.0);
+
+    calc_clouds();
+
     //debug_cascaded_shadow_maps();
 
 }

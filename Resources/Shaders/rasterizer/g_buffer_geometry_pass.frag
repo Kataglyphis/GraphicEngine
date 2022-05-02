@@ -27,13 +27,14 @@ uniform sampler2D model_textures[MAX_TEXTURE_COUNT];
 
 void main() {
     
+    int mat_ID      = int(materialIndex_SSBO[gl_PrimitiveID].r);
+    uint tex_ID     = materials[mat_ID].textureID;
+
 	g_position      = frag_pos;
 	g_normal        = normalize(normal);
-    g_frag_depth    = frag_depth;
-    int mat_ID      = int(materialIndex_SSBO[gl_PrimitiveID].r);
     g_material_id   = mat_ID;
-
-    uint tex_ID     = materials[mat_ID].textureID;
-    g_albedo        = texture(model_textures[tex_ID], tex_coords).rgb;
+    g_frag_depth    = frag_depth;
+    // keep in mind whether to use textures here or not ....
+    g_albedo        = materials[mat_ID].diffuse;//texture(model_textures[tex_ID], tex_coords).rgb;
 
 }
