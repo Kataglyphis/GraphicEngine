@@ -51,6 +51,6 @@ private:
     std::vector<unsigned int>	            indices;
     std::vector<std::shared_ptr<Texture>>   texture_list;
     std::vector<ObjMaterial>	            materials;
-    std::vector<unsigned int>	            materialIndex;
+    std::vector<glm::vec4>	                materialIndex;
     std::vector<std::string>	            textures;
 };

@@ -221,9 +221,9 @@ add_subdirectory(ExternalLib/GLEW/glew-2.2.0/build/cmake)
 target_link_libraries(${PROJECT_NAME} glew)
 
 # add tests 
-include(CTest)
+# include(CTest)
 
-add_test(test1 ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME})
+# add_test(test1 ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME})
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")

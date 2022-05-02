@@ -211,7 +211,7 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
 vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int material_id = int(texture(g_material_id, tex_coords).r);
-    vec3 ambient    = texture(g_albedo, tex_coords).rgb;
+    vec3 ambient    = texture(g_albedo, tex_coords).rgb; // vec3(material_id / 24.f, 0.0f, 0.0f);//
     vec3 frag_pos   = texture(g_position, tex_coords).rgb;
     vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
 

@@ -12,7 +12,7 @@ void ObjLoader::load(   std::string                             modelFile,
                         std::vector<unsigned int>&              indices,
                         std::vector<std::string>&               texture_list,
                         std::vector<ObjMaterial>&	            materials,
-                        std::vector<unsigned int>&	            materialIndex)
+                        std::vector<glm::vec4>&	                materialIndex)
 {
 
     tinyobj::ObjReaderConfig reader_config;
@@ -159,7 +159,7 @@ void ObjLoader::load(   std::string                             modelFile,
 
             // per-face material; face usually is triangle
             // matToTex[shapes[s].mesh.material_ids[f]]
-            materialIndex.push_back(shapes[s].mesh.material_ids[f]);
+            materialIndex.push_back(glm::vec4(shapes[s].mesh.material_ids[f],0.0f,0.0f,0.0f));
         }
     }
 

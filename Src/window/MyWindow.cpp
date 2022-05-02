@@ -58,7 +58,7 @@ int MyWindow::initialize() {
 #endif
 
     //retrieve new window
-    main_window = glfwCreateWindow(window_width, window_height, "Planet Exploration", NULL, NULL);
+    main_window = glfwCreateWindow(window_width, window_height, "\__/ Epic graphics from hell \__/", NULL, NULL);
 
     if (!main_window) {
 

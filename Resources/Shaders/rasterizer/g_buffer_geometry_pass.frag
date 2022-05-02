@@ -15,9 +15,9 @@ in vec3     frag_pos;
 in vec3     normal;
 in float    frag_depth;
 
-layout(std430, binding = 5) buffer materialIndexPerPrimitive
+layout(std430, binding = STORAGE_BUFFER_MATERIAL_ID_BINDING) buffer materialIndexPerPrimitive
 {
-    uint materialIndex_SSBO[];
+    vec4 materialIndex_SSBO[];
 };
 
 uniform Material materials[MAX_MATERIALS];
@@ -30,7 +30,7 @@ void main() {
 	g_position      = frag_pos;
 	g_normal        = normalize(normal);
     g_frag_depth    = frag_depth;
-    uint mat_ID     = materialIndex_SSBO[gl_PrimitiveID];
+    int mat_ID      = int(materialIndex_SSBO[gl_PrimitiveID].r);
     g_material_id   = mat_ID;
 
     uint tex_ID     = materials[mat_ID].textureID;

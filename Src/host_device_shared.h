@@ -10,6 +10,10 @@ const float PI = 3.14159265359f;
 
 //params for clouds
 #define CLOUDS 1
+
+// bindings 
+#define STORAGE_BUFFER_MATERIAL_ID_BINDING 0
+
 #endif // !GLOBALS_HOST_DEVICE
 
 

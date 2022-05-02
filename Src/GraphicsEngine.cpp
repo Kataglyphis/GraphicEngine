@@ -68,7 +68,7 @@ unsigned int point_light_count = 0;
 
 //define near and far plane
 GLfloat near_plane = 0.1f;
-GLfloat far_plane = 2000.f;
+GLfloat far_plane = 4000.f;
 
 //shadow map var
 GLuint shadow_map_resolution = 4096;
@@ -317,7 +317,7 @@ int main()
 
     //play with the speeds ! :) Kansei changed the speed to 75 ;)
     main_camera = std::make_shared<Camera>(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
-                                            0.0f, 75.0f, 0.25f,
+                                            0.0f, 275.0f, 0.25f,
                                             near_plane, far_plane, fov);
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();

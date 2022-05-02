@@ -19,7 +19,7 @@ public:
 				std::vector<unsigned int>&	            indices,
 				std::vector<std::string>&				texture_list,
 				std::vector<ObjMaterial>&				materials,
-				std::vector<unsigned int>&	            materialIndex);
+				std::vector<glm::vec4>&	            materialIndex);
 
 	~ObjLoader();
 
