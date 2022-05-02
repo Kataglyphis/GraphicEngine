@@ -11,7 +11,7 @@ CascadedShadowMap::CascadedShadowMap()
 
 bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 {
-	DebugApp_ins.arePreError("From int() function in CascadedShadowMap.");
+	DebugApp_ins.arePreError("From init() function in CascadedShadowMap.");
 
 	shadow_width = width;
 	shadow_height = height;

@@ -13,7 +13,6 @@ layout(location = 3) in vec2 in_tex_coord;
 out vec2	tex_coords;
 out vec3	frag_pos;
 out vec3	normal;
-out float	frag_depth;
 
 //uniform variables
 uniform mat4 projection;                
@@ -28,7 +27,6 @@ void main() {
 	tex_coords = in_tex_coord;
 
 	gl_Position = projection * view * model * vec4(in_position, 1.0);
-	frag_depth = gl_Position.z;
 	//move matrix calculations to application part 
 	normal = mat3(normal_model) * in_normal;
 

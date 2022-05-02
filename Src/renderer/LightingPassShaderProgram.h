@@ -22,7 +22,6 @@ public:
 	GLuint get_g_normal_location();
 	GLuint get_g_albedo_location();
 	GLuint get_g_directional_light_position_location(GLuint index);
-	GLuint get_g_frag_depth_location();
 	GLuint get_directional_shadow_map_location(GLuint index);
 	GLuint get_eye_position_location();
 	GLuint get_cascade_endpoint_location(GLuint index);
@@ -43,7 +42,7 @@ public:
 	GLuint get_cloud_powderness_effect();
 	GLuint get_uniform_num_active_cascades_location();
 	GLuint get_uniform_pcf_radius_location();
-
+	GLuint get_uniform_vp_location();
 	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit, unsigned int offset);
 	void set_noise_textures(GLuint start);
 	void set_cloud_texture(GLuint index);
@@ -54,8 +53,10 @@ private:
 
 	GLuint	uniform_g_postion_location,
 			uniform_g_normal_position, uniform_g_tex_color_location,
-			uniform_eye_position_location, uniform_g_frag_depth_location,
+			uniform_eye_position_location,
 			uniform_g_clouds_location, uniform_g_material_id_location;
+
+	GLuint uniform_vp_location;
 
 	GLuint uniform_directional_shadow_map_locations[NUM_CASCADES];
 	GLuint uniform_g_directional_light_position_locations[NUM_CASCADES];

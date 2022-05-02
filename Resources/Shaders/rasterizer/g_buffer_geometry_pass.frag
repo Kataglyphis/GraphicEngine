@@ -7,13 +7,11 @@
 layout(location = 0) out vec3   g_position;
 layout(location = 1) out vec3   g_normal;
 layout(location = 2) out vec3   g_albedo;
-layout(location = 3) out float  g_frag_depth;
-layout(location = 4) out float  g_material_id;
+layout(location = 3) out float  g_material_id;
 
 in vec2     tex_coords;
 in vec3     frag_pos;
 in vec3     normal;
-in float    frag_depth;
 
 layout(std430, binding = STORAGE_BUFFER_MATERIAL_ID_BINDING) buffer materialIndexPerPrimitive
 {
@@ -33,7 +31,6 @@ void main() {
 	g_position      = frag_pos;
 	g_normal        = normalize(normal);
     g_material_id   = mat_ID;
-    g_frag_depth    = frag_depth;
     // keep in mind whether to use textures here or not ....
     g_albedo        = materials[mat_ID].diffuse;//texture(model_textures[tex_ID], tex_coords).rgb;
 

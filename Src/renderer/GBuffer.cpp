@@ -42,19 +42,12 @@ void GBuffer::create()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glFramebufferTexture2D(GL_FRAMEBUFFER, g_buffer_attachment[2], GL_TEXTURE_2D, g_albedo, 0);
 
-    glGenTextures(1, &g_fragment_depth);
-    glBindTexture(GL_TEXTURE_2D, g_fragment_depth);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_R32F, window_width, window_height, 0, GL_RGBA, GL_FLOAT, NULL);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, g_buffer_attachment[3], GL_TEXTURE_2D, g_fragment_depth, 0);
-
     glGenTextures(1, &g_material_id);
     glBindTexture(GL_TEXTURE_2D, g_material_id);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_R16F, window_width, window_height, 0, GL_RGBA, GL_FLOAT, NULL);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, g_buffer_attachment[4], GL_TEXTURE_2D, g_material_id, 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, g_buffer_attachment[3], GL_TEXTURE_2D, g_material_id, 0);
 
     glDrawBuffers(G_BUFFER_SIZE , g_buffer_attachment);
 
@@ -75,7 +68,6 @@ void GBuffer::create()
 void GBuffer::read( GLuint g_buffer_lighting_uniform_position_location,
                     GLuint g_buffer_lighting_uniform_normal_location,
                     GLuint g_buffer_lighting_uniform_albedo_location,
-                    GLuint g_buffer_frag_depth_location,
                     GLuint g_buffer_material_id_location)
 {
 
@@ -91,10 +83,6 @@ void GBuffer::read( GLuint g_buffer_lighting_uniform_position_location,
     uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_albedo_location);
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_albedo);
-    texture_index++;
-    uniform_helper.setUniformInt(texture_index, g_buffer_frag_depth_location);
-    glActiveTexture(GL_TEXTURE0 + texture_index);
-    glBindTexture(GL_TEXTURE_2D, g_fragment_depth);
     texture_index++;
     uniform_helper.setUniformInt(texture_index, g_buffer_material_id_location);
     glActiveTexture(GL_TEXTURE0 + texture_index);

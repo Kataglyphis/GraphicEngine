@@ -26,7 +26,6 @@ uniform OmniShadowMap omni_shadow_maps[MAX_POINT_LIGHTS];
 uniform sampler2D g_position;
 uniform sampler2D g_normal;
 uniform sampler2D g_albedo;
-uniform sampler2D g_frag_depth;
 uniform sampler2D g_material_id;
 
 //cloud world position and depth
@@ -155,11 +154,8 @@ bool valid_lower_neighbor(int cascade_index) {
 float calc_directional_shadow_factor(DirectionalLight d_light) {
     
     vec3 proj_coords = vec3(0.f);
-    //float closest_depth = 0.0f;
     int cascade_index = 0;
-    float frag_depth = texture(g_frag_depth, tex_coords).r;
-    //proj_coords = get_proj_position_coords_from_cascade(0);
-    
+    float frag_depth = (VP * vec4(texture(g_position, tex_coords).xyz,1.0f)).z;
 
     for(int i = 0; i < NUM_CASCADES; i++) {
 
@@ -367,11 +363,11 @@ float light_march(vec3 sample_pos) {
 
 void calc_clouds() {
 
-    float frag_depth = texture(g_frag_depth, tex_coords).r;
+    float frag_depth = (VP * texture(g_position, tex_coords)).z;
     vec3 frag_pos = texture(g_position, tex_coords).rgb;
     bool hit_skybox = false;
 
-    if (frag_depth > 0.0f) {
+    if (frag_depth >= 0.0f) {
 
         frag_pos = texture(g_position, tex_coords).rgb;
 
@@ -473,38 +469,41 @@ void debug_cascaded_shadow_maps() {
     if(is_proj_coord_valid(pos_from_cascaded_point_3_proj)) closest_depth_third_cascade = 
                                                 texture(directional_shadow_maps[2], pos_from_cascaded_point_3_proj.xy).r;
     
-    float frag_depth = texture(g_frag_depth, tex_coords).r;
+    float frag_depth = (VP * texture(g_position, tex_coords)).z;
     //color = vec4(1.f - closest_depth_first_cascade, 1.f - closest_depth_second_cascade, 1.f - closest_depth_third_cascade, 1.0f); //
     //color = vec4((cascade_endpoints[0] - frag_depth),0.f,0.f,1.0f);
     color = vec4(closest_depth_first_cascade, 0.0f,0.0f, 1.0f);
-    //color = vec4(0.0f, closest_depth_second_cascade,0.0f, 1.0f);
-    //color = vec4(0.0f, 0.0f, closest_depth_third_cascade, 1.0f);
-    //color = vec4(closest_depth_first_cascade, closest_depth_second_cascade, closest_depth_third_cascade, 1.0f);
+    color = vec4(0.0f, closest_depth_second_cascade,0.0f, 1.0f);
+    color = vec4(0.0f, 0.0f, closest_depth_third_cascade, 1.0f);
+    color = vec4(closest_depth_first_cascade, closest_depth_second_cascade, closest_depth_third_cascade, 1.0f);
 
 }
 
+bool belongs_to_scene() {
+    
+    int material_id = int(texture(g_material_id, tex_coords).r);
+    return !(material_id == 0);
+
+}
 
 void main () {
     
     vec4 final_color = calc_directional_light();
     // final_color += calc_point_lights();
 
-    //do not shade when skybox is visible!
-    float frag_depth = texture(g_frag_depth, tex_coords).r;
-
-    if(frag_depth > 0.0f) {
-
+    if(belongs_to_scene()) {
         color = final_color;
-
-     } else {
-
+    } else {
         color = texture(g_albedo, tex_coords);
-
     }
-    
-    color = vec4(gamma_correction(color.xyz),1.0);
 
-    calc_clouds();
+    vec4 tex_pos = texture(g_position, tex_coords);
+    vec4 tex_pos2 = tex_pos.xyz / tex_pos.w;
+    float frag_depth = (VP * vec4(.xyz,1.0f)).z;
+    color = vec4(frag_depth*0.001f,0.0f, 0.0f,1.0f);
+    //color = vec4(gamma_correction(color.xyz),1.0);
+
+    //calc_clouds();
 
     //debug_cascaded_shadow_maps();
 

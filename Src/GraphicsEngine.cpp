@@ -315,7 +315,6 @@ int main()
     clouds = std::make_shared<Clouds>();
     clouds->init(window_width, window_height, cloud_speed);
 
-    //play with the speeds ! :) Kansei changed the speed to 75 ;)
     main_camera = std::make_shared<Camera>(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
                                             0.0f, 275.0f, 0.25f,
                                             near_plane, far_plane, fov);
@@ -404,11 +403,10 @@ int main()
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        //GLfloat ratio = main_window.get_buffer_width() / main_window.get_buffer_height();
-        GLfloat ratio = (GLfloat)window_width / (GLfloat)window_height;
         //we need the projection matrix, just use glm::perspective function
-        glm::mat4 projection_matrix = glm::perspective(glm::radians(main_camera->get_fov()),
-            ratio, main_camera->get_near_plane(), main_camera->get_far_plane());
+        glm::mat4 projection_matrix = glm::perspectiveFov(  glm::radians(main_camera->get_fov()),
+                                                            (GLfloat)window_width, (GLfloat)window_height,
+                                                            main_camera->get_near_plane(), main_camera->get_far_plane());
 
         //we should make the application independet of processor speed :)
         // take time into account is crucial
@@ -453,9 +451,9 @@ int main()
                                                 first_person_mode, scene.get());
 
             // omni shadow map passes for our point lights
-            /*for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
+            for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
                 omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene.get());
-            }*/
+            }
 
             //we will now start the geometry pass
             geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),

@@ -59,6 +59,9 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                                                     std::vector<ObjMaterial> materials, 
                                                     std::shared_ptr<Clouds> cloud, float delta_time)
 {
+
+    uniform_helper.setUniformMatrix4fv(projection_matrix * view_matrix, shader_program->get_uniform_vp_location());
+
     DirectionalLightUniformLocations d_light_uniform_locations;
 
     d_light_uniform_locations.uniform_ambient_intensity_location    = shader_program->get_directional_light_ambient_intensity_location();
@@ -97,7 +100,6 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     gbuffer->read(  shader_program->get_g_position_location(),
                     shader_program->get_g_normal_location(),
                     shader_program->get_g_albedo_location(),
-                    shader_program->get_g_frag_depth_location(),
                     shader_program->get_uniform_material_id_location());
 
 

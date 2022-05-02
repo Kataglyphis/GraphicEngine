@@ -20,9 +20,10 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     uniform_g_postion_location      = glGetUniformLocation(program_id, "g_position");
     uniform_g_normal_position       = glGetUniformLocation(program_id, "g_normal");
     uniform_g_tex_color_location    = glGetUniformLocation(program_id, "g_albedo");
-    uniform_eye_position_location   = glGetUniformLocation(program_id, "eye_position");
-    uniform_g_frag_depth_location   = glGetUniformLocation(program_id, "g_frag_depth");
     uniform_g_material_id_location  = glGetUniformLocation(program_id, "g_material_id");
+
+    uniform_eye_position_location   = glGetUniformLocation(program_id, "eye_position");
+    uniform_vp_location             = glGetUniformLocation(program_id, "VP");
 
     for (size_t i = 0; i < NUM_CASCADES; i++) {
 
@@ -166,11 +167,6 @@ GLuint LightingPassShaderProgram::get_g_directional_light_position_location(GLui
     return uniform_g_directional_light_position_locations[index];
 }
 
-GLuint LightingPassShaderProgram::get_g_frag_depth_location()
-{
-    return uniform_g_frag_depth_location;
-}
-
 GLuint LightingPassShaderProgram::get_uniform_cloud_threshold_location()
 {
     return cloud.uniform_threshold_location;
@@ -214,6 +210,11 @@ GLuint LightingPassShaderProgram::get_uniform_num_active_cascades_location()
 GLuint LightingPassShaderProgram::get_uniform_pcf_radius_location()
 {
     return uniform_pcf_radius_location;
+}
+
+GLuint LightingPassShaderProgram::get_uniform_vp_location()
+{
+    return GLuint();
 }
 
 GLuint LightingPassShaderProgram::get_directional_shadow_map_location(GLuint index)
