@@ -224,6 +224,6 @@ Physically Based Shading
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jonas-heinle-0b2a301a0/
-[product-screenshot]: images/Screenshot1.png
+[product-screenshot]: images/Screenshot.png
 
 
