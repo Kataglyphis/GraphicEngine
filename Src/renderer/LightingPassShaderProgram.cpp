@@ -25,19 +25,16 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     uniform_g_material_id_location  = glGetUniformLocation(program_id, "g_material_id");
 
     uniform_eye_position_location   = glGetUniformLocation(program_id, "eye_position");
-    uniform_vp_location             = glGetUniformLocation(program_id, "VP");
+    uniform_view_location             = glGetUniformLocation(program_id, "view");
+    uniform_projection_location             = glGetUniformLocation(program_id, "projection");
+
+    uniform_directional_shadow_map_locations = glGetUniformLocation(program_id, "directional_shadow_maps");
 
     for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         char loc_buff[100] = { '\0' };
         snprintf(loc_buff, sizeof(loc_buff), "cascade_endpoints[%zd]", i);
         uniform_cascade_endpoints_locations[i] = glGetUniformLocation(program_id, loc_buff);
-
-        snprintf(loc_buff, sizeof(loc_buff), "g_directional_light_positions[%zd]", i);
-        uniform_g_directional_light_position_locations[i] = glGetUniformLocation(program_id, loc_buff);
-
-        snprintf(loc_buff, sizeof(loc_buff), "directional_shadow_maps[%zd]", i);
-        uniform_directional_shadow_map_locations[i] = glGetUniformLocation(program_id, loc_buff);
 
     }
 
@@ -214,9 +211,14 @@ GLuint LightingPassShaderProgram::get_uniform_pcf_radius_location()
     return uniform_pcf_radius_location;
 }
 
-GLuint LightingPassShaderProgram::get_uniform_vp_location()
+GLuint LightingPassShaderProgram::get_uniform_view_location()
 {
-    return GLuint();
+    return uniform_view_location;
+}
+
+GLuint LightingPassShaderProgram::get_uniform_projection_location()
+{
+    return uniform_projection_location;
 }
 
 GLuint LightingPassShaderProgram::get_skyBoxMaterialID()
@@ -224,9 +226,9 @@ GLuint LightingPassShaderProgram::get_skyBoxMaterialID()
     return skyBoxMaterialID;
 }
 
-GLuint LightingPassShaderProgram::get_directional_shadow_map_location(GLuint index)
+GLuint LightingPassShaderProgram::get_directional_shadow_map_location()
 {
-    return uniform_directional_shadow_map_locations[index];
+    return uniform_directional_shadow_map_locations;
 }
 
 GLuint LightingPassShaderProgram::get_eye_position_location()

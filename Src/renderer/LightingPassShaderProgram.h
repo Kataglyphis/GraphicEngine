@@ -22,7 +22,7 @@ public:
 	GLuint get_g_normal_location();
 	GLuint get_g_albedo_location();
 	GLuint get_g_directional_light_position_location(GLuint index);
-	GLuint get_directional_shadow_map_location(GLuint index);
+	GLuint get_directional_shadow_map_location();
 	GLuint get_eye_position_location();
 	GLuint get_cascade_endpoint_location(GLuint index);
 	GLuint get_uniform_omni_dir_shadow_map_location(GLuint index);
@@ -42,7 +42,8 @@ public:
 	GLuint get_cloud_powderness_effect();
 	GLuint get_uniform_num_active_cascades_location();
 	GLuint get_uniform_pcf_radius_location();
-	GLuint get_uniform_vp_location();
+	GLuint get_uniform_view_location();
+	GLuint get_uniform_projection_location();
 	GLuint get_skyBoxMaterialID();
 	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit, unsigned int offset);
 	void set_noise_textures(GLuint start);
@@ -59,9 +60,9 @@ private:
 			uniform_eye_position_location,
 			uniform_g_clouds_location, uniform_g_material_id_location;
 
-	GLuint uniform_vp_location;
+	GLuint uniform_view_location, uniform_projection_location;
 
-	GLuint uniform_directional_shadow_map_locations[NUM_CASCADES];
+	GLuint uniform_directional_shadow_map_locations;
 	GLuint uniform_g_directional_light_position_locations[NUM_CASCADES];
 
 	GLuint uniform_cascade_endpoints_locations[NUM_CASCADES];

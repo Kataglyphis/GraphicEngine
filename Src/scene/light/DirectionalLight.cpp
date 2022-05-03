@@ -154,7 +154,27 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
             maxZ = std::max(maxZ, v_light_view.z);
         }
 
-        cascade_light_matrices[i] = glm::ortho(minX, maxX, minY, maxY, maxZ, minZ);
+        // Tune this parameter according to the scene
+        // for having objects casting shadows that are actually not in the frustum :) 
+        constexpr float zMult = 10.0f;
+        if (minZ < 0)
+        {
+            minZ *= zMult;
+        }
+        else
+        {
+            minZ /= zMult;
+        }
+        if (maxZ < 0)
+        {
+            maxZ /= zMult;
+        }
+        else
+        {
+            maxZ *= zMult;
+        }
+
+        cascade_light_matrices[i] = glm::ortho(minX, maxX, minY, maxY, maxZ, minZ) * light_view_matrix;
 
     }
 }

@@ -62,7 +62,8 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     uniform_helper.setUniformInt(MAX_MATERIALS, shader_program->get_skyBoxMaterialID());
 
-    uniform_helper.setUniformMatrix4fv(projection_matrix * view_matrix, shader_program->get_uniform_vp_location());
+    uniform_helper.setUniformMatrix4fv(view_matrix, shader_program->get_uniform_view_location());
+    uniform_helper.setUniformMatrix4fv(projection_matrix, shader_program->get_uniform_projection_location());
 
     DirectionalLightUniformLocations d_light_uniform_locations;
 
@@ -86,13 +87,14 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     // EVERYTHING REGARDING THE SHADOW CASCADE
     glm::mat4 light_view = main_light->get_light_view_matrix();
     std::vector<glm::mat4> cascade_light_matrices = main_light->get_cascaded_light_matrices();
+    uniform_helper.setUniformInt(   D_LIGHT_SHADOW_TEXTURES_SLOT, 
+                                    shader_program->get_directional_shadow_map_location());
+
     for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         glm::vec4 clip_end_slot = projection_matrix * glm::vec4(0.0f, 0.0f, -cascade_slots[i+1], 1.0f);
         uniform_helper.setUniformFloat(clip_end_slot.z, shader_program->get_cascade_endpoint_location(i));
 
-        uniform_helper.setUniformInt(   D_LIGHT_SHADOW_TEXTURES_SLOT + i, 
-                                        shader_program->get_directional_shadow_map_location(i));
 
         uniform_helper.setUniformMatrix4fv( cascade_light_matrices[i] * light_view,
                                             shader_program->get_directional_light_transform_location(i));

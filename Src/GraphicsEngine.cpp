@@ -444,7 +444,7 @@ int main()
             point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
 
             //retreive shadow map before our geometry pass
-            main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(),
+            main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(), projection_matrix,
                                                     main_window.get_buffer_width(), main_window.get_buffer_height(), 
                                                     fov, num_shadow_cascades);
 

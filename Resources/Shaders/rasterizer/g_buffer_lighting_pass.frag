@@ -40,7 +40,13 @@ uniform sampler2D random_number;
 
 //our directional shadow maps; 
 uniform sampler2DArray directional_shadow_maps;
-uniform mat4 directional_light_transform[NUM_CASCADES];
+
+layout (std140, binding = STORAGE_BUFFER_LIGHT_MATRICES_BINDING) uniform LightSpaceMatrices
+{
+    mat4 lightSpaceMatrices[NUM_CASCADES];
+};
+
+uniform float cascade_endpoints[NUM_CASCADES];
 
 //sampler for our noise textures
 uniform sampler3D noise_texture_1;
@@ -48,12 +54,12 @@ uniform sampler3D noise_texture_2;
 
 //all other uniforms
 uniform PointLight point_lights[MAX_POINT_LIGHTS];
-uniform float cascade_endpoints[NUM_CASCADES];
 uniform int point_light_count;
 uniform vec3 eye_position;
 uniform Material materials[MAX_MATERIALS];
 uniform Clouds cloud;
-uniform mat4 VP;
+uniform mat4 view;
+uniform mat4 projection;
 
 uniform int num_active_cascades;
 uniform int pcf_radius;
@@ -67,38 +73,21 @@ vec3 sample_offset_directions[20] = vec3[] (
     vec3(0,1,1), vec3(0,-1,1), vec3(0,-1,-1), vec3(0,1,-1)
 );
 
-bool is_proj_coord_valid(vec3 proj_coord) {
-
-    bool result = true;
-
-    if (proj_coord.x < 0.0f || proj_coord.x > 1.f ||
-        proj_coord.y < 0.0f || proj_coord.y > 1.f ||
-        proj_coord.z < 0.0f || proj_coord.z > 1.f) result = false;
-
-    return result;
-
-}
-
 float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
     
      //PCF
     float current_depth = proj_coords.z;
     float shadow = 0.0f;
-    vec2 texel_size = 1.0f / textureSize(directional_shadow_maps[cascade_index], 0);
+    vec2 texel_size = 1.0f / textureSize(directional_shadow_maps, 0).xy;
     float num_neighbors = 0.0f;
 
     for(int x = -pcf_radius; x <= pcf_radius; x++) {
         for(int y = -pcf_radius; y <= pcf_radius; y++) {
             
             vec3 proj_neighbor = vec3(proj_coords.xy + vec2(x,y) * texel_size, 1.0);
-
-            if(is_proj_coord_valid(proj_neighbor)) {
-            
-                float closest_depth_neighbor = texture(directional_shadow_maps[cascade_index], proj_neighbor.xy).r;
-                shadow += current_depth > closest_depth_neighbor + 0.001f  ? 1.0f : 0.0f;
-                num_neighbors++;
-
-            }
+            float closest_depth_neighbor = texture(directional_shadow_maps, vec3(proj_coords.xy + vec2(x, y) * texel_size, cascade_index)).r;
+            shadow += current_depth > closest_depth_neighbor + 0.001f  ? 1.0f : 0.0f;
+            num_neighbors++;
 
         }
     }
@@ -113,96 +102,67 @@ float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
 
 }
 
-vec3 get_proj_position_coords_from_cascade(int cascade_index) {
-    
-    vec3 proj_coords;
-    vec4 pos_from_cascaded_point = directional_light_transform[cascade_index] * vec4(texture(g_position, tex_coords).rgb, 1.0f);
-    proj_coords = pos_from_cascaded_point.rgb / pos_from_cascaded_point.a;
-    proj_coords = (proj_coords * 0.5f) + 0.5f;
-
-    return proj_coords;
-
-}
-
-bool valid_upper_neighbor(int cascade_index) {
-
-    bool result = false;
-
-    if ((cascade_index + 1 < num_active_cascades) &&  (is_proj_coord_valid(get_proj_position_coords_from_cascade(cascade_index + 1)))) {
-    
-        result = true;
-
-    }
-
-    return result;
-
-}
-
-bool valid_lower_neighbor(int cascade_index) {
-
-    bool result = false;
-
-    if (cascade_index - 1 >= 0 && ( is_proj_coord_valid(get_proj_position_coords_from_cascade(cascade_index - 1)))) {
-    
-        result = true;
-
-    }
-
-    return result;
-
-}
-
 //with PCF; cascaded approach
 float calc_directional_shadow_factor(DirectionalLight d_light) {
     
-    vec3 proj_coords = vec3(0.f);
-    int cascade_index = 0;
-    float frag_depth = (VP * vec4(texture(g_position, tex_coords).xyz,1.0f)).z;
+    vec4 fragPosWorldSpace = vec4(texture(g_position, tex_coords).xyz,1.0f);
+    vec4 fragPosViewSpace = view * fragPosWorldSpace;
+    float frag_depth = abs(fragPosViewSpace.z);
+    int cascade_index = -1;
 
     for(int i = 0; i < NUM_CASCADES; i++) {
-
-        if (frag_depth  <= cascade_endpoints[i]) {
-
-            proj_coords = get_proj_position_coords_from_cascade(i);
+        if (frag_depth  < cascade_endpoints[i]) {
             cascade_index = i;
-            if (is_proj_coord_valid(proj_coords)) break;
+            break;
 
         }
 
     }
 
-    float shadow = percentage_closer_shadow_filtering(cascade_index, proj_coords);
+    if(cascade_index == -1) cascade_index = NUM_CASCADES;
 
-//    if(valid_lower_neighbor(cascade_index)) {
-//        
-//        float lower_neighbor_shadow = percentage_closer_shadow_filtering(cascade_index - 1, get_proj_position_coords_from_cascade(cascade_index - 1));
-//        //if we are in the first cascade it is simply 0
-//        
-//        float dist = (cascade_endpoints[cascade_index] - frag_depth) / (cascade_endpoints[cascade_index] - cascade_endpoints[cascade_index - 1]);
-//
-//        shadow = (dist) * lower_neighbor_shadow + (1.f - dist) * shadow;
-//    
-//    }
-//
-   if (valid_upper_neighbor(cascade_index)) {
+    vec4 fragPosLightSpace = lightSpaceMatrices[cascade_index] * fragPosWorldSpace;
 
-        float upper_neighbor_shadow = percentage_closer_shadow_filtering(cascade_index + 1, get_proj_position_coords_from_cascade(cascade_index + 1));
-        //if we are in the first cascade it is simply 0
-        float cascade_start_point = 0.0f;
-    
-        if (cascade_index - 1 >= 0) {
+    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+    // transform to [0,1] range
+    projCoords = projCoords * 0.5 + 0.5;
+
+    // get depth of current fragment from light's perspective
+    float currentDepth = projCoords.z;
+
+    // keep the shadow at 0.0 when outside the far_plane region of the light's frustum.
+    if (currentDepth > 1.0)
+    {
+        return 0.0;
+    }
+    // calculate bias (based on depth map resolution and slope)
+    vec3 normal = normalize(texture(g_normal, tex_coords).rgb);
+    float bias = max(0.05 * (1.0 - dot(normal, d_light.direction)), 0.005);
+    const float biasModifier = 0.5f;
+    if (cascade_index == NUM_CASCADES)
+    {
+        float farPlane = 2000.f;
+        bias *= 1 / (farPlane * biasModifier);
+    }
+    else
+    {
+        bias *= 1 / (cascade_endpoints[cascade_index] * biasModifier);
+    }
+
+    // PCF
+    float shadow = 0.0;
+    vec2 texelSize = 1.0 / vec2(textureSize(directional_shadow_maps, 0));
+    for(int x = -1; x <= 1; ++x)
+    {
+        for(int y = -1; y <= 1; ++y)
+        {
+            float pcfDepth = texture(directional_shadow_maps, vec3(projCoords.xy + vec2(x, y) * texelSize, cascade_index)).r;
+            shadow += (currentDepth - bias) > pcfDepth ? 1.0 : 0.0;        
+        }    
+    }
+
+    shadow /= 9.0;
         
-            cascade_start_point = cascade_endpoints[cascade_index-1];
-        
-        } 
-
-        float dist = (cascade_endpoints[cascade_index] - frag_depth) / (cascade_endpoints[cascade_index] - cascade_start_point);
-
-        shadow = (1.f - dist) * upper_neighbor_shadow + ( dist) * shadow;
-
-   }
-
-
     return shadow;
 }
 
@@ -365,7 +325,7 @@ float light_march(vec3 sample_pos) {
 
 void calc_clouds() {
 
-    float frag_depth = (VP * texture(g_position, tex_coords)).z;
+    float frag_depth = (projection * view * texture(g_position, tex_coords)).z;
     vec3 frag_pos = texture(g_position, tex_coords).rgb;
     bool hit_skybox = false;
 
@@ -448,39 +408,6 @@ void calc_clouds() {
 
 }
 
-void debug_cascaded_shadow_maps() {
-
-     vec4 pos_from_cascaded_point_1 = directional_light_transform[0] * vec4(texture(g_position, tex_coords).rgb, 1.0f);
-    vec3 pos_from_cascaded_point_1_proj = pos_from_cascaded_point_1.rgb / pos_from_cascaded_point_1.a;
-    pos_from_cascaded_point_1_proj = (pos_from_cascaded_point_1_proj * 0.5f) + 0.5f;
-    float closest_depth_first_cascade = 0;
-    if(is_proj_coord_valid(pos_from_cascaded_point_1_proj)) closest_depth_first_cascade = 
-                                                texture(directional_shadow_maps[0], pos_from_cascaded_point_1_proj.xy).r;
-
-    vec4 pos_from_cascaded_point_2 = directional_light_transform[1] * vec4(texture(g_position, tex_coords).rgb, 1.0f);
-    vec3 pos_from_cascaded_point_2_proj = pos_from_cascaded_point_2.rgb / pos_from_cascaded_point_2.a;
-    pos_from_cascaded_point_2_proj = (pos_from_cascaded_point_2_proj * 0.5f) + 0.5f;
-    float closest_depth_second_cascade = 0;
-    if(is_proj_coord_valid(pos_from_cascaded_point_2_proj)) closest_depth_second_cascade = 
-                                                texture(directional_shadow_maps[1], pos_from_cascaded_point_2_proj.xy).r;
-
-    vec4 pos_from_cascaded_point_3 = directional_light_transform[2] * vec4(texture(g_position, tex_coords).rgb, 1.0f);
-    vec3 pos_from_cascaded_point_3_proj = pos_from_cascaded_point_3.rgb / pos_from_cascaded_point_3.a;
-    pos_from_cascaded_point_3_proj = (pos_from_cascaded_point_3_proj * 0.5f) + 0.5f;
-    float closest_depth_third_cascade = 0;
-    if(is_proj_coord_valid(pos_from_cascaded_point_3_proj)) closest_depth_third_cascade = 
-                                                texture(directional_shadow_maps[2], pos_from_cascaded_point_3_proj.xy).r;
-    
-    float frag_depth = (VP * texture(g_position, tex_coords)).z;
-    //color = vec4(1.f - closest_depth_first_cascade, 1.f - closest_depth_second_cascade, 1.f - closest_depth_third_cascade, 1.0f); //
-    //color = vec4((cascade_endpoints[0] - frag_depth),0.f,0.f,1.0f);
-    color = vec4(closest_depth_first_cascade, 0.0f,0.0f, 1.0f);
-    //color = vec4(0.0f, closest_depth_second_cascade,0.0f, 1.0f);
-    //color = vec4(0.0f, 0.0f, closest_depth_third_cascade, 1.0f);
-    //color = vec4(closest_depth_first_cascade, closest_depth_second_cascade, closest_depth_third_cascade, 1.0f);
-
-}
-
 bool belongs_to_scene() {
     
     int material_id = int(texture(g_material_id, tex_coords).r);
@@ -503,8 +430,6 @@ void main () {
     color = vec4(gamma_correction(color.xyz),1.0);
     //color = final_color;
     //calc_clouds();
-
-    debug_cascaded_shadow_maps();
 
 }
 
