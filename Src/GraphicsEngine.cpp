@@ -236,6 +236,7 @@ void create_shadow_map_shader_program() {
 
     shadow_map_shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
     shadow_map_shader_program->create_from_files(   "rasterizer/shadows/directional_shadow_map.vert",
+                                                    "rasterizer/shadows/directional_shadow_map.geom",
                                                     "rasterizer/shadows/directional_shadow_map.frag");
 
 }

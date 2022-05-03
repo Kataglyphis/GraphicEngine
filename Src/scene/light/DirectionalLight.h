@@ -4,6 +4,7 @@
 #include <limits>
 #include "host_device_shared.h"
 #include <vector>
+#include <array>
 
 class DirectionalLight : public Light
 {
@@ -31,8 +32,9 @@ public:
 
 	void update_shadow_map(GLfloat shadow_width, GLfloat shadow_height, GLuint num_cascades);
 
-	void calc_orthogonal_projections(glm::mat4 camera_view_matrix, GLfloat window_width, GLfloat window_height,
-																GLfloat fov, GLuint current_num_cascades);
+	void calc_orthogonal_projections(	glm::mat4 camera_view_matrix, glm::mat4 projection_matrix, 
+										GLfloat window_width, GLfloat window_height,
+										GLfloat fov, GLuint current_num_cascades);
 
 	void set_direction(glm::vec3 direction);
 	void set_ambient_intensity(float ambient_intensity);
@@ -43,6 +45,7 @@ public:
 
 private:
 
+	std::vector<glm::vec4> get_frustum_corners_world_space(const glm::mat4& proj, const glm::mat4& view);
 	void calc_cascaded_slots();
 
 	std::shared_ptr<CascadedShadowMap> shadow_map;

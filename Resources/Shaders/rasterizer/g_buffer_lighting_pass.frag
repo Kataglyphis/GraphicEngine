@@ -39,7 +39,7 @@ uniform sampler2D cloud_position_depth;
 uniform sampler2D random_number;
 
 //our directional shadow maps; 
-uniform sampler2D directional_shadow_maps[NUM_CASCADES];
+uniform sampler2DArray directional_shadow_maps;
 uniform mat4 directional_light_transform[NUM_CASCADES];
 
 //sampler for our noise textures

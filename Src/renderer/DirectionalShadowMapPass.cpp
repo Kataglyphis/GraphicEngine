@@ -17,22 +17,15 @@ void DirectionalShadowMapPass::execute(std::shared_ptr<DirectionalLight> d_light
 
     glViewport(0, 0, d_light->get_shadow_map()->get_shadow_width(), d_light->get_shadow_map()->get_shadow_height());
 
-    //glm::mat4 l_traf[NUM_CASCADES];
+    d_light->get_shadow_map()->write();
+    d_light->get_shadow_map()->write_light_matrices(d_light->get_cascaded_light_matrices());
+    glClear(GL_DEPTH_BUFFER_BIT);
+    glCullFace(GL_FRONT); // peter panning
 
-    for (unsigned int i = 0; i < d_light->get_shadow_map()->get_num_active_cascades(); i++) {
+    scene->render(this, first_person_mode);
+    shader_program->validate_program();
 
-        d_light->get_shadow_map()->write(i);
-        glClear(GL_DEPTH_BUFFER_BIT);
-
-        std::vector<glm::mat4> cascade_light_matrices = d_light->get_cascaded_light_matrices();
-        glm::mat4 l_traf = cascade_light_matrices[i] * d_light->get_light_view_matrix();
-        shader_program->set_directional_light_transform(l_traf);
-
-        scene->render(this, first_person_mode);
-        shader_program->validate_program();
-
-    }
-
+    glCullFace(GL_BACK);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 

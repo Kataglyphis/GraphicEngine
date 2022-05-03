@@ -62,6 +62,32 @@ void DirectionalLight::update_shadow_map(GLfloat shadow_width, GLfloat shadow_he
     shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height, num_cascades);
 }
 
+std::vector<glm::vec4> DirectionalLight::get_frustum_corners_world_space(const glm::mat4& proj, const glm::mat4& view)
+{
+    const auto inv = glm::inverse(proj * view);
+
+    std::vector<glm::vec4> frustumCorners;
+    for (unsigned int x = 0; x < 2; ++x)
+    {
+        for (unsigned int y = 0; y < 2; ++y)
+        {
+            for (unsigned int z = 0; z < 2; ++z)
+            {
+                const glm::vec4 pt =
+                    inv * glm::vec4(
+                        2.0f * x - 1.0f,
+                        2.0f * y - 1.0f,
+                        2.0f * z - 1.0f,
+                        1.0f);
+                frustumCorners.push_back(pt / pt.w);
+            }
+        }
+    }
+
+    return frustumCorners;
+
+}
+
 void DirectionalLight::calc_cascaded_slots()
 {
     GLuint number_of_elements = shadow_map->get_num_active_cascades();// sizeof(cascade_slots) / sizeof(cascade_slots[0]);
@@ -86,41 +112,29 @@ void DirectionalLight::calc_cascaded_slots()
     return;
 }
 
-void DirectionalLight::calc_orthogonal_projections(glm::mat4 camera_view_matrix, GLfloat window_width, GLfloat window_height,
-                                                   GLfloat fov, GLuint current_num_cascades)
+void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix, glm::mat4 projection_matrix, 
+                                                    GLfloat window_width, GLfloat window_height,
+                                                    GLfloat fov, GLuint current_num_cascades)
 {
     //calc the start and end point for our cascaded shadow maps
     calc_cascaded_slots();
-    float aspect_ratio =  window_width / window_height;
-    glm::mat4 inverse_view_matrix = glm::inverse(camera_view_matrix);
-    glm::mat4 light_view_matrix = get_light_view_matrix();
 
-    GLfloat tan_half_v_fov = glm::tan(glm::radians(((fov + 20.f) * aspect_ratio) / 2.0f));
-    GLfloat tan_half_h_fov = glm::tan(glm::radians((fov + 20.f) / 2.0f));
+    std::vector<glm::vec4> frustumCornerWorldSpace = get_frustum_corners_world_space(projection_matrix, camera_view_matrix);
+
+    glm::vec3 center = glm::vec3(0, 0, 0);
+    for (const auto& v : frustumCornerWorldSpace)
+    {
+        center += glm::vec3(v);
+    }
+
+    center /= frustumCornerWorldSpace.size();
+    
+    glm::mat4 inverse_view_matrix = glm::inverse(camera_view_matrix);
+    glm::mat4 light_view_matrix = glm::lookAt(center + get_direction(), center, glm::vec3(0.0f, 1.0f, 0.0f));
 
     for (int i = 0; i < static_cast<int>(current_num_cascades); i++) {
 
-        GLfloat xn = cascade_slots[i] * tan_half_h_fov;
-        GLfloat xf = cascade_slots[i + 1] * tan_half_h_fov;
-        GLfloat yn = cascade_slots[i ] * tan_half_v_fov;
-        GLfloat yf = cascade_slots[i + 1] * tan_half_v_fov;
-
         // the # of frustum corners = 8
-        glm::vec4 frustum_corners_view_space[8] = {
-            //near face 
-            glm::vec4(xn, yn, -cascade_slots[i], 1.0f),
-            glm::vec4(-xn, yn, -cascade_slots[i], 1.0f),
-            glm::vec4(xn, -yn, -cascade_slots[i], 1.0f),
-            glm::vec4(-xn, -yn,-cascade_slots[i], 1.0f),
-            //far face
-            glm::vec4(xf, yf, -cascade_slots[i + 1], 1.0f),
-            glm::vec4(-xf, yf,-cascade_slots[i + 1], 1.0f),
-            glm::vec4(xf, -yf, -cascade_slots[i + 1], 1.0f),
-            glm::vec4(-xf, -yf, -cascade_slots[i + 1], 1.0f)
-        };
-
-        // the # of frustum corners = 8
-        glm::vec4 frustum_corners_light_space[8];
         GLfloat minX = std::numeric_limits<float>::max();
         GLfloat maxX = std::numeric_limits<float>::min();
         GLfloat minY = std::numeric_limits<float>::max();
@@ -130,16 +144,14 @@ void DirectionalLight::calc_orthogonal_projections(glm::mat4 camera_view_matrix,
 
         for (unsigned int m = 0; m < 8; m++) {
             //transform each corner from view to world space
-            glm::vec4 v_world = inverse_view_matrix * frustum_corners_view_space[m];
-            //now go to light space 
-            frustum_corners_light_space[m] = light_view_matrix * v_world;
-
-            minX = std::min(minX, frustum_corners_light_space[m].x);
-            maxX = std::max(maxX, frustum_corners_light_space[m].x);
-            minY = std::min(minY, frustum_corners_light_space[m].y);
-            maxY = std::max(maxY, frustum_corners_light_space[m].y);
-            minZ = std::min(minZ, frustum_corners_light_space[m].z);
-            maxZ = std::max(maxZ, frustum_corners_light_space[m].z);
+            glm::vec4 v_light_view = light_view_matrix * frustumCornerWorldSpace[m];
+            //now go to light space  
+            minX = std::min(minX, v_light_view.x);
+            maxX = std::max(maxX, v_light_view.x);
+            minY = std::min(minY, v_light_view.y);
+            maxY = std::max(maxY, v_light_view.y);
+            minZ = std::min(minZ, v_light_view.z);
+            maxZ = std::max(maxZ, v_light_view.z);
         }
 
         cascade_light_matrices[i] = glm::ortho(minX, maxX, minY, maxY, maxZ, minZ);
