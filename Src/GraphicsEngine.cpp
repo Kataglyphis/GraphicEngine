@@ -68,7 +68,7 @@ unsigned int point_light_count = 0;
 
 //define near and far plane
 GLfloat near_plane = 0.1f;
-GLfloat far_plane = 4000.f;
+GLfloat far_plane = 2000.f;
 
 //shadow map var
 GLuint shadow_map_resolution = 4096;

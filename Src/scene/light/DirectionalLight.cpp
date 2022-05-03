@@ -35,7 +35,7 @@ DirectionalLight::DirectionalLight( GLuint shadow_width, GLuint shadow_height,
 }
 
 glm::mat4 DirectionalLight::get_light_view_matrix() {
-	return glm::lookAt(-direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	return glm::lookAt(direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
 std::vector<GLfloat> DirectionalLight::get_cascaded_slots()
@@ -87,7 +87,7 @@ void DirectionalLight::calc_cascaded_slots()
 }
 
 void DirectionalLight::calc_orthogonal_projections(glm::mat4 camera_view_matrix, GLfloat window_width, GLfloat window_height,
-                                                                                            GLfloat fov, GLuint current_num_cascades)
+                                                   GLfloat fov, GLuint current_num_cascades)
 {
     //calc the start and end point for our cascaded shadow maps
     calc_cascaded_slots();
@@ -142,14 +142,14 @@ void DirectionalLight::calc_orthogonal_projections(glm::mat4 camera_view_matrix,
             maxZ = std::max(maxZ, frustum_corners_light_space[m].z);
         }
 
-        cascade_light_matrices[i] = glm::ortho(minX, maxX, minY, maxY, - maxZ, -minZ);
+        cascade_light_matrices[i] = glm::ortho(minX, maxX, minY, maxY, maxZ, minZ);
 
     }
 }
 
 glm::mat4 DirectionalLight::calculate_light_transform()
 {
-	return light_proj * glm::lookAt(-direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	return light_proj * get_light_view_matrix();
 }
 
 glm::vec3 DirectionalLight::get_direction()

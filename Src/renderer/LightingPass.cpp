@@ -60,7 +60,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                                                     std::shared_ptr<Clouds> cloud, float delta_time)
 {
 
-    uniform_helper.setUniformInt(materials.size(), shader_program->get_skyBoxMaterialID());
+    uniform_helper.setUniformInt(MAX_MATERIALS, shader_program->get_skyBoxMaterialID());
 
     uniform_helper.setUniformMatrix4fv(projection_matrix * view_matrix, shader_program->get_uniform_vp_location());
 

@@ -33,7 +33,7 @@ public:
 	SkyBox(std::vector<std::string> face_locations);
 
 	void draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, 
-						GLfloat window_height, GLfloat delta_time, GLuint skyBoxMatreialID);
+						GLfloat window_height, GLfloat delta_time);
 	void reload();
 
 	~SkyBox();

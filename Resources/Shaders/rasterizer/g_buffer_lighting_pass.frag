@@ -340,7 +340,7 @@ float light_march(vec3 sample_pos) {
     float light_absorption = 1.0f;
     float henyey_greenstein_phase_function = 2.f;
 
-    vec3 direction_to_light = normalize(directional_light.direction);
+    vec3 direction_to_light = normalize(-directional_light.direction);
     vec2 oT, oU;
     vec3 oN;
     int oF;
@@ -420,7 +420,7 @@ void calc_clouds() {
             float light_transmittance = light_march(sample_pos);
 
             light_energy += density_of_sample * step_size * transmittance * light_transmittance *
-                                                                                                phase_HG(dot(normalize(ray_direction), normalize(-directional_light.direction)), 0.5f);
+                            phase_HG(dot(normalize(ray_direction), normalize(directional_light.direction)), 0.5f);
 
             transmittance *= exp(-density_of_sample * step_size);
 
@@ -475,9 +475,9 @@ void debug_cascaded_shadow_maps() {
     //color = vec4(1.f - closest_depth_first_cascade, 1.f - closest_depth_second_cascade, 1.f - closest_depth_third_cascade, 1.0f); //
     //color = vec4((cascade_endpoints[0] - frag_depth),0.f,0.f,1.0f);
     color = vec4(closest_depth_first_cascade, 0.0f,0.0f, 1.0f);
-    color = vec4(0.0f, closest_depth_second_cascade,0.0f, 1.0f);
-    color = vec4(0.0f, 0.0f, closest_depth_third_cascade, 1.0f);
-    color = vec4(closest_depth_first_cascade, closest_depth_second_cascade, closest_depth_third_cascade, 1.0f);
+    //color = vec4(0.0f, closest_depth_second_cascade,0.0f, 1.0f);
+    //color = vec4(0.0f, 0.0f, closest_depth_third_cascade, 1.0f);
+    //color = vec4(closest_depth_first_cascade, closest_depth_second_cascade, closest_depth_third_cascade, 1.0f);
 
 }
 
@@ -504,7 +504,7 @@ void main () {
     //color = final_color;
     //calc_clouds();
 
-    //debug_cascaded_shadow_maps();
+    debug_cascaded_shadow_maps();
 
 }
 
