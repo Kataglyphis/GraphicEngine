@@ -8,14 +8,16 @@ public:
     ShadowMapShaderProgram();
 
     GLuint get_model_location();
-    GLuint get_directional_light_transform_location();
-    void set_directional_light_transform(glm::mat4& l_traf);
+    GLuint get_light_matrics_id_location();
+    GLuint get_VP_location();
 
     ~ShadowMapShaderProgram();
 
 private:
 
-    GLuint uniform_model_location, uniform_directional_light_transform_location;
+    GLuint uniform_model_location, uniform_light_matrics_id;
+
+    GLuint uniform_VP;
 
     void retrieve_uniform_locations();
 };

@@ -32,9 +32,11 @@ public:
 
 	void update_shadow_map(GLfloat shadow_width, GLfloat shadow_height, GLuint num_cascades);
 
-	void calc_orthogonal_projections(	glm::mat4 camera_view_matrix, glm::mat4 projection_matrix, 
-										GLfloat window_width, GLfloat window_height,
-										GLfloat fov, GLuint current_num_cascades);
+	void calc_orthogonal_projections(	glm::mat4 camera_view_matrix, 
+										GLfloat fov,
+										GLuint window_width,
+										GLuint window_height,
+										GLuint current_num_cascades);
 
 	void set_direction(glm::vec3 direction);
 	void set_ambient_intensity(float ambient_intensity);
@@ -53,7 +55,7 @@ private:
 	glm::vec3 direction;
 	GLfloat shadow_near_plane, shadow_far_plane;
 
-	GLfloat cascade_slots[NUM_CASCADES + 1];
-	std::vector<glm::mat4> cascade_light_matrices;
+	std::array<GLfloat, NUM_CASCADES + 1>	cascade_slots;
+	std::vector<glm::mat4>					cascade_light_matrices;
 };
 

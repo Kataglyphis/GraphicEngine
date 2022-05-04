@@ -40,6 +40,15 @@ bool UniformHelper::setUniformMatrix4fv(glm::mat4 matrix, GLuint uniform_locatio
 	return validity;
 }
 
+bool UniformHelper::setUniformBlockBinding(GLuint block_binding, GLuint uniform_location, GLuint shaderID)
+{
+	bool validity = validateUniformLocation(uniform_location);
+	if (validity) {
+		glUniformBlockBinding(shaderID, uniform_location, block_binding);
+	}
+	return validity;
+}
+
 UniformHelper::~UniformHelper()
 {
 }

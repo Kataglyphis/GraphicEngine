@@ -77,19 +77,13 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     uniform_helper.setUniformVec3(main_light->get_color(), d_light_uniform_locations.uniform_color_location);
     uniform_helper.setUniformVec3(main_light->get_direction(), d_light_uniform_locations.uniform_direction_location);
 
-    std::vector<GLfloat> cascade_slots = main_light->get_cascaded_slots();
-
-    for (int i = 0; i < NUM_CASCADES; i++) {
-
-
-    }
-
     // EVERYTHING REGARDING THE SHADOW CASCADE
     glm::mat4 light_view = main_light->get_light_view_matrix();
     std::vector<glm::mat4> cascade_light_matrices = main_light->get_cascaded_light_matrices();
     uniform_helper.setUniformInt(   D_LIGHT_SHADOW_TEXTURES_SLOT, 
                                     shader_program->get_directional_shadow_map_location());
 
+    std::vector<GLfloat> cascade_slots = main_light->get_cascaded_slots();
     for (size_t i = 0; i < NUM_CASCADES; i++) {
 
         glm::vec4 clip_end_slot = projection_matrix * glm::vec4(0.0f, 0.0f, -cascade_slots[i+1], 1.0f);
@@ -107,7 +101,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                     shader_program->get_uniform_material_id_location());
 
 
-    shader_program->set_point_lights(point_lights, P_LIGHT_SHADOW_TEXTURES_SLOT, 0);
+    shader_program->set_point_lights(point_lights, P_LIGHT_SHADOW_TEXTURES_SLOT);
 
     shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
 
@@ -150,6 +144,10 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                                     shader_program->get_uniform_pcf_radius_location());
     uniform_helper.setUniformFloat( main_light->get_shadow_map()->get_intensity(), 
                                     shader_program->get_directional_light_shadow_intensity_location());
+
+    uniform_helper.setUniformBlockBinding(  UNIFORM_LIGHT_MATRICES_BINDING,
+                                            shader_program->get_light_matrics_id_location(),
+                                            shader_program->get_id());
 
     shader_program->validate_program();
 }

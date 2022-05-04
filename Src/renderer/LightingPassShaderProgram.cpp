@@ -25,8 +25,8 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     uniform_g_material_id_location  = glGetUniformLocation(program_id, "g_material_id");
 
     uniform_eye_position_location   = glGetUniformLocation(program_id, "eye_position");
-    uniform_view_location             = glGetUniformLocation(program_id, "view");
-    uniform_projection_location             = glGetUniformLocation(program_id, "projection");
+    uniform_view_location           = glGetUniformLocation(program_id, "view");
+    uniform_projection_location     = glGetUniformLocation(program_id, "projection");
 
     uniform_directional_shadow_map_locations = glGetUniformLocation(program_id, "directional_shadow_maps");
 
@@ -135,12 +135,14 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
 
     }
 
-    uniform_random_number_location = glGetUniformLocation(program_id, "random_number");
+    uniform_random_number_location  = glGetUniformLocation(program_id, "random_number");
 
-    uniform_num_active_cascades = glGetUniformLocation(program_id, "num_active_cascades");
+    uniform_num_active_cascades     = glGetUniformLocation(program_id, "num_active_cascades");
 
-    uniform_pcf_radius_location = glGetUniformLocation(program_id, "pcf_radius");
+    uniform_pcf_radius_location     = glGetUniformLocation(program_id, "pcf_radius");
     
+    uniform_light_matrics_id        = glGetUniformBlockIndex(program_id, "LightSpaceMatrices");
+
     // Check if there are any gl Errors appears
     DebugApp_ins.areErrorPrintAll("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
@@ -226,6 +228,11 @@ GLuint LightingPassShaderProgram::get_skyBoxMaterialID()
     return skyBoxMaterialID;
 }
 
+GLuint LightingPassShaderProgram::get_light_matrics_id_location()
+{
+    return uniform_light_matrics_id;
+}
+
 GLuint LightingPassShaderProgram::get_directional_shadow_map_location()
 {
     return uniform_directional_shadow_map_locations;
@@ -284,7 +291,7 @@ GLuint LightingPassShaderProgram::get_uniform_cloud_scale_location()
 }
 
 void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<PointLight>>& p_light, 
-                                                    unsigned int texture_unit, unsigned int offset)
+                                                    unsigned int texture_unit)
 {
 
     glUniform1i(uniform_point_light_count, static_cast<uint32_t>(p_light.size()));
@@ -297,8 +304,8 @@ void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<
 
         p_light[i]->get_omni_shadow_map()->read(texture_unit + i);
 
-        glUniform1i(uniform_omni_shadow_map[i + offset].uniform_shadow_map, (GLint)(texture_unit + i));
-        glUniform1f(uniform_omni_shadow_map[i + offset].uniform_far_plane, p_light[i]->get_far_plane());
+        glUniform1i(uniform_omni_shadow_map[i].uniform_shadow_map, (GLint)(texture_unit + i));
+        glUniform1f(uniform_omni_shadow_map[i].uniform_far_plane, p_light[i]->get_far_plane());
 
     }
 

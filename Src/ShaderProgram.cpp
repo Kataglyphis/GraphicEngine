@@ -62,6 +62,11 @@ void ShaderProgram::create_computer_shader_program_from_file(const char* compute
     compile_compute_shader_program(compute_code);
 }
 
+GLuint ShaderProgram::get_id()
+{
+    return program_id;
+}
+
 void ShaderProgram::validate_program()
 {
     // check if there are any gl error before executing gl function

@@ -3,6 +3,8 @@
 #include "PointLight.h"
 #include "host_device_shared.h"
 
+#include "UniformHelper.h"
+
 #include "ObjMaterialLocations.h"
 
 class LightingPassShaderProgram :
@@ -45,13 +47,17 @@ public:
 	GLuint get_uniform_view_location();
 	GLuint get_uniform_projection_location();
 	GLuint get_skyBoxMaterialID();
-	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit, unsigned int offset);
+	GLuint get_light_matrics_id_location();
+
+	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit);
 	void set_noise_textures(GLuint start);
 	void set_cloud_texture(GLuint index);
 
 	~LightingPassShaderProgram();
 
 private:
+
+	GLuint uniform_light_matrics_id;
 
 	GLuint skyBoxMaterialID;
 

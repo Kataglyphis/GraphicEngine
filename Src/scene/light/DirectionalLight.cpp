@@ -90,7 +90,7 @@ std::vector<glm::vec4> DirectionalLight::get_frustum_corners_world_space(const g
 
 void DirectionalLight::calc_cascaded_slots()
 {
-    GLuint number_of_elements = shadow_map->get_num_active_cascades();// sizeof(cascade_slots) / sizeof(cascade_slots[0]);
+    GLuint number_of_elements = shadow_map->get_num_active_cascades();
 
     for (int i = 0; i < NUM_CASCADES + 1; i++) {
 
@@ -109,30 +109,40 @@ void DirectionalLight::calc_cascaded_slots()
 
         }
     }
+
+    //cascade_slots = { shadow_near_plane, shadow_far_plane / 50.f, shadow_far_plane / 25.f, shadow_far_plane };
+
     return;
 }
 
-void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix, glm::mat4 projection_matrix, 
-                                                    GLfloat window_width, GLfloat window_height,
-                                                    GLfloat fov, GLuint current_num_cascades)
+void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix,
+                                                    GLfloat fov,
+                                                    GLuint window_width,
+                                                    GLuint window_height,
+                                                    GLuint current_num_cascades)
 {
     //calc the start and end point for our cascaded shadow maps
     calc_cascaded_slots();
 
-    std::vector<glm::vec4> frustumCornerWorldSpace = get_frustum_corners_world_space(projection_matrix, camera_view_matrix);
-
-    glm::vec3 center = glm::vec3(0, 0, 0);
-    for (const auto& v : frustumCornerWorldSpace)
-    {
-        center += glm::vec3(v);
-    }
-
-    center /= frustumCornerWorldSpace.size();
-    
-    glm::mat4 inverse_view_matrix = glm::inverse(camera_view_matrix);
-    glm::mat4 light_view_matrix = glm::lookAt(center + get_direction(), center, glm::vec3(0.0f, 1.0f, 0.0f));
 
     for (int i = 0; i < static_cast<int>(current_num_cascades); i++) {
+
+        glm::mat4 curr_cascade_proj = glm::perspective( glm::radians(fov), 
+                                                        (float)window_width / (float)window_height, 
+                                                        cascade_slots[i],
+                                                        cascade_slots[i+1]);
+
+        std::vector<glm::vec4> frustumCornerWorldSpace = get_frustum_corners_world_space(curr_cascade_proj, camera_view_matrix);
+
+        glm::vec3 center = glm::vec3(0, 0, 0);
+        for (const auto& v : frustumCornerWorldSpace)
+        {
+            center += glm::vec3(v);
+        }
+
+        center /= frustumCornerWorldSpace.size();
+    
+        glm::mat4 light_view_matrix = glm::lookAt(center - get_direction(), center, glm::vec3(0.0f, 1.0f, 0.0f));
 
         // the # of frustum corners = 8
         GLfloat minX = std::numeric_limits<float>::max();
@@ -142,21 +152,23 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
         GLfloat minZ = std::numeric_limits<float>::max();
         GLfloat maxZ = std::numeric_limits<float>::min();
 
-        for (unsigned int m = 0; m < 8; m++) {
+        for (unsigned int m = 0; m < frustumCornerWorldSpace.size(); m++) {
             //transform each corner from view to world space
             glm::vec4 v_light_view = light_view_matrix * frustumCornerWorldSpace[m];
             //now go to light space  
             minX = std::min(minX, v_light_view.x);
             maxX = std::max(maxX, v_light_view.x);
+            // we always have negativ y values 
             minY = std::min(minY, v_light_view.y);
             maxY = std::max(maxY, v_light_view.y);
+
             minZ = std::min(minZ, v_light_view.z);
             maxZ = std::max(maxZ, v_light_view.z);
         }
 
         // Tune this parameter according to the scene
         // for having objects casting shadows that are actually not in the frustum :) 
-        constexpr float zMult = 10.0f;
+        /*constexpr float zMult = 10.0f;
         if (minZ < 0)
         {
             minZ *= zMult;
@@ -172,9 +184,11 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
         else
         {
             maxZ *= zMult;
-        }
+        }*/
 
-        cascade_light_matrices[i] = glm::ortho(minX, maxX, minY, maxY, maxZ, minZ) * light_view_matrix;
+        glm::mat4 light_projection = glm::ortho(minX, maxX, minY, maxY, minZ, maxZ);
+
+        cascade_light_matrices[i] = light_projection * light_view_matrix;
 
     }
 }

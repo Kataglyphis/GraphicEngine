@@ -14,6 +14,7 @@ public:
 	bool setUniformFloat(GLfloat uniform, GLuint uniform_location);
 	bool setUniformInt(GLint uniform, GLuint uniform_location);
 	bool setUniformMatrix4fv(glm::mat4 matrix, GLuint uniform_location);
+	bool setUniformBlockBinding(GLuint block_binding, GLuint uniform_location, GLuint shaderID);
 
 	~UniformHelper();
 

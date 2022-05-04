@@ -41,7 +41,7 @@ uniform sampler2D random_number;
 //our directional shadow maps; 
 uniform sampler2DArray directional_shadow_maps;
 
-layout (std140, binding = STORAGE_BUFFER_LIGHT_MATRICES_BINDING) uniform LightSpaceMatrices
+layout (std140, binding = UNIFORM_LIGHT_MATRICES_BINDING) uniform LightSpaceMatrices
 {
     mat4 lightSpaceMatrices[NUM_CASCADES];
 };

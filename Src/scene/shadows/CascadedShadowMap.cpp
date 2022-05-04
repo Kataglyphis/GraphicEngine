@@ -2,9 +2,9 @@
 
 CascadedShadowMap::CascadedShadowMap()
 {
-	FBO = 0;
+	/*FBO = 0;
 	shadow_maps = 0;
-	pcf_radius = 1;
+	pcf_radius = 1;*/
 }
 
 bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
@@ -17,7 +17,6 @@ bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 	num_active_cascades = num_cascades;
 
 	glGenFramebuffers(1, &FBO);
-
 	glGenTextures(1, &shadow_maps);
 	glBindTexture(GL_TEXTURE_2D_ARRAY, shadow_maps);
 	glTexImage3D(
@@ -26,7 +25,7 @@ bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 					GL_DEPTH_COMPONENT32F,
 					shadow_width,
 					shadow_height,
-					num_active_cascades,
+					NUM_CASCADES,
 					0,
 					GL_DEPTH_COMPONENT,
 					GL_FLOAT,
@@ -58,8 +57,8 @@ bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 	// for every cascade we will have 1 matrix in the geometry shader
 	glGenBuffers(1, &matrices_UBO);
 	glBindBuffer(GL_UNIFORM_BUFFER, matrices_UBO);
-	glBufferData(GL_UNIFORM_BUFFER, sizeof(glm::mat4x4) * NUM_CASCADES, nullptr, GL_STATIC_DRAW);
-	glBindBufferBase(GL_UNIFORM_BUFFER, 0, matrices_UBO);
+	glBufferData(GL_UNIFORM_BUFFER, sizeof(glm::mat4) * NUM_CASCADES, nullptr, GL_DYNAMIC_DRAW);
+	glBindBufferBase(GL_UNIFORM_BUFFER, UNIFORM_LIGHT_MATRICES_BINDING, matrices_UBO);
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
 
 	if (DebugApp_ins.areErrorPrintAll("From int() function in CascadedShadowMap.")) {
@@ -69,7 +68,7 @@ bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 	return true;
 }
 
-void CascadedShadowMap::write_light_matrices(std::vector<glm::mat4> lightMatrices) {
+void CascadedShadowMap::write_light_matrices(std::vector<glm::mat4x4>& lightMatrices) {
 
 	glBindBuffer(GL_UNIFORM_BUFFER, matrices_UBO);
 	for (size_t i = 0; i < lightMatrices.size(); ++i)
@@ -82,9 +81,7 @@ void CascadedShadowMap::write_light_matrices(std::vector<glm::mat4> lightMatrice
 
 void CascadedShadowMap::write()
 {
-	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
-	glFramebufferTexture(GL_FRAMEBUFFER, GL_TEXTURE_2D_ARRAY, shadow_maps, 0);
-
+	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 }
 
 void CascadedShadowMap::read(GLenum texture_unit)

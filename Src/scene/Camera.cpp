@@ -4,9 +4,9 @@ Camera::Camera()
 {
 }
 
-Camera::Camera(glm::vec3 start_position, glm::vec3 start_up, GLfloat start_yaw, GLfloat start_pitch, 
-							GLfloat start_move_speed, GLfloat start_turn_speed, 
-							GLfloat near_plane, GLfloat far_plane, GLfloat fov)
+Camera::Camera(	glm::vec3 start_position, glm::vec3 start_up, GLfloat start_yaw, GLfloat start_pitch, 
+				GLfloat start_move_speed, GLfloat start_turn_speed, 
+				GLfloat near_plane, GLfloat far_plane, GLfloat fov)
 {
 
 	position = start_position;

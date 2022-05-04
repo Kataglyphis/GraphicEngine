@@ -24,6 +24,8 @@ public:
 	void create_from_files(const char* vertex_location, const char* geometry_location, const char* fragment_location);
 	void create_computer_shader_program_from_file(const char* compute_location);
 
+	GLuint get_id();
+
 	void use_shader_program();
 
 	void reload();

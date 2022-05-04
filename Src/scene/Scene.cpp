@@ -44,7 +44,7 @@ void Scene::load_models()
     lock_guard<mutex> guard{ mx_space_ship };
 
     glm::vec3 sponza_offset = glm::vec3(0.f, 0.0f, 0.0f);
-    GLfloat sponza_scale = 100.f;
+    GLfloat sponza_scale = 10.f;
     Rotation sponza_rot;
     sponza_rot.degrees = 0.0f;
     sponza_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);

@@ -68,13 +68,13 @@ unsigned int point_light_count = 0;
 
 //define near and far plane
 GLfloat near_plane = 0.1f;
-GLfloat far_plane = 2000.f;
+GLfloat far_plane = 500.f;
 
 //shadow map var
 GLuint shadow_map_resolution = 4096;
 
-//in degrees; , shadow and view
-GLfloat fov= 60.0f;
+//in degrees
+GLfloat fov= 45.0f;
 
 //global objects
 std::shared_ptr<Camera> main_camera;
@@ -104,7 +104,7 @@ Texture loading_screen_tex;
 Texture logo;
 
 // all variables for gui
-glm::vec3 directional_light_starting_position = glm::vec3(0.0f, -1.0f, 0.1f);
+glm::vec3 directional_light_starting_position = glm::vec3(-0.1f, -0.8f, -0.1f);
 glm::vec3 directional_light_starting_color = glm::vec3(1.0f);
 
 static float direcional_light_ambient_intensity = 4.0f;
@@ -134,17 +134,12 @@ float cloud_movement_direction [3] = { 1.f, 1.f, 1.f };
 
 float sound_volume = 0.0f;
 
-int choosen_space_ship = 1;
-
 bool loading_screen_finished = false;
-
-//terrain variables
-int terrain_height = 32;
 
 // shadow vars
 int shadow_map_res_index = 3;
 bool shadow_resolution_changed = false;
-int num_shadow_cascades = NUM_MIN_CASCADES;
+int num_shadow_cascades = NUM_CASCADES;
 int pcf_radius = 2;
 float cascaded_shadow_intensity = 0.65f;
 const char* available_shadow_map_resolutions[] = { "512","1024","2048", "4096"};
@@ -263,6 +258,8 @@ void create_loading_screen_shader_program() {
 // here we will initialize all our programs
 void create_shader_programs() {
 
+    // set include file for shaders
+    set_shader_includes();
     create_geometry_pass_shader_program();
     create_lighting_pass_shader_program();
     create_shadow_map_shader_program();
@@ -301,14 +298,11 @@ int main()
 
     MyWindow main_window;
     
-    GLint window_width = 1900;
-    GLint window_height = 1020;
+    GLint window_width = 1200;
+    GLint window_height = 800;
 
     main_window = MyWindow(window_width, window_height);
     main_window.initialize();
-
-    // set include file for shaders
-    set_shader_includes();
 
     noise = std::make_shared<Noise>();
     noise->init();
@@ -317,7 +311,7 @@ int main()
     clouds->init(window_width, window_height, cloud_speed);
 
     main_camera = std::make_shared<Camera>(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
-                                            0.0f, 275.0f, 0.25f,
+                                            0.0f, 35.0f, 0.25f,
                                             near_plane, far_plane, fov);
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
@@ -444,12 +438,14 @@ int main()
             point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
 
             //retreive shadow map before our geometry pass
-            main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(), projection_matrix,
-                                                    main_window.get_buffer_width(), main_window.get_buffer_height(), 
-                                                    fov, num_shadow_cascades);
+            main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(), 
+                                                    fov, window_width, window_height,
+                                                    num_shadow_cascades);
 
-            directional_shadow_map_pass.execute(main_light, main_camera->calculate_viewmatrix(),
-                                                first_person_mode, scene.get());
+            directional_shadow_map_pass.execute(main_light, projection_matrix, 
+                                                main_camera->calculate_viewmatrix(), 
+                                                first_person_mode, 
+                                                scene.get());
 
             // omni shadow map passes for our point lights
             for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {

@@ -17,7 +17,7 @@ public:
 
 	virtual bool init(GLuint width, GLuint height, GLuint num_cascades);
 	virtual void write();
-	void write_light_matrices(std::vector<glm::mat4> lightMatrices);
+	void write_light_matrices(std::vector<glm::mat4x4>& lightMatrices);
 	virtual void read(GLenum texture_unit);
 	void set_pcf_radius(GLuint radius);
 	void set_intensity(GLfloat intensity);
@@ -34,6 +34,7 @@ public:
 protected:
 
 	GLuint FBO, shadow_maps;
+
 	GLuint shadow_width, shadow_height;
 
 	GLuint matrices_UBO;
