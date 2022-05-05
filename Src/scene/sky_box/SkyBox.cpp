@@ -97,14 +97,14 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 	// check if there any other gl Error  appears before execue gl functions
 	DebugApp_ins.arePreError("From draw_sky_box function in SkyBox.cpp file.");
 
-
+	// https://learnopengl.com/Advanced-OpenGL/Cubemaps
  	GLfloat velocity = movement_speed * delta_time;
 	shader_playback_time = fmod(shader_playback_time + velocity, 10000);
 
 	glm::mat4 new_view_matrix = glm::mat4(glm::mat3(view_matrix));
 
 	glDepthMask(GL_FALSE);
-
+	glDepthFunc(GL_LEQUAL);
 	//std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 
 	sky_shader_program->use_shader_program();
@@ -122,6 +122,7 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 	sky_mesh->render();
 
 	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LESS);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	// check with DebugApp_ins.h if they are any glError and print it.

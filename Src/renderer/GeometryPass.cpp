@@ -62,7 +62,6 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, window_width, window_height);
 
-    skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
 
     shader_program->use_shader_program();
 
@@ -71,6 +70,8 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
     scene->bind_textures_and_buffer();
 
     scene->render(this, first_person_mode);
+
+    skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 

@@ -24,6 +24,10 @@ public:
 
 	bool load_texture_without_alpha_channel();
 	bool load_texture_with_alpha_channel();
+
+	bool load_SRGB_texture_without_alpha_channel();
+	bool load_SRGB_texture_with_alpha_channel();
+
 	std::string get_filename();
 
 	void use_texture(unsigned int index);

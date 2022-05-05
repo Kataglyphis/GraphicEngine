@@ -194,8 +194,8 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
 		break;
 	}
- 
-    return (1.f - shadow_factor) * vec4(color,1.0f);
+    //(1.f - shadow_factor) * 
+    return vec4(color,1.0f);
 
 }
 

@@ -42,9 +42,9 @@ void Model::create_render_context()
 
         texture_list[i] = std::make_shared<Texture>(textures[i].c_str(), std::make_shared<RepeatMode>());
 
-        if (!texture_list[i]->load_texture_without_alpha_channel()) {
+        if (!texture_list[i]->load_SRGB_texture_without_alpha_channel()) {
             printf("Failed to load texture at: %s\n", textures[i].c_str());
-            texture_list[i].reset();
+            texture_list[i].reset(); 
         }
     }
 
