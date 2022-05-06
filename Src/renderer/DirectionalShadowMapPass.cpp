@@ -20,11 +20,7 @@ void DirectionalShadowMapPass::execute( std::shared_ptr<DirectionalLight> d_ligh
     d_light->get_shadow_map()->write();
     glViewport(0, 0, d_light->get_shadow_map()->get_shadow_width(), d_light->get_shadow_map()->get_shadow_height());
     glClear(GL_DEPTH_BUFFER_BIT);
-    /*glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_TRUE);
-    glDepthFunc(GL_LESS);*/
-    //glCullFace(GL_FRONT); // peter panning
-    //glDepthFunc(GL_GREATER);
+    //glCullFace(GL_FRONT); // avoid peter panning
     d_light->get_shadow_map()->write_light_matrices(d_light->get_cascaded_light_matrices());
 
     uniform_helper.setUniformBlockBinding(  UNIFORM_LIGHT_MATRICES_BINDING,

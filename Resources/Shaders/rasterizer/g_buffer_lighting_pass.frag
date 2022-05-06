@@ -73,6 +73,12 @@ vec3 sample_offset_directions[20] = vec3[] (
     vec3(0,1,1), vec3(0,-1,1), vec3(0,-1,-1), vec3(0,1,-1)
 );
 
+float LinearizeDepth(float depth, float near_plane, float far_plane)
+{
+    float z = depth * 2.0 - 1.0; // Back to NDC 
+    return (2.0 * near_plane * far_plane) / (far_plane + near_plane - z * (far_plane - near_plane));
+}
+
 float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
     
      //PCF
@@ -181,7 +187,7 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     vec3 color = vec3(0.f);
 
-    int mode = 2;
+    int mode = 4;
 	switch (mode) {
 	case 0: color += evaluteUnreal4PBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
 		break;
@@ -194,8 +200,8 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
 		break;
 	}
-    //(1.f - shadow_factor) * 
-    return vec4(color,1.0f);
+
+    return (1.f - shadow_factor) * vec4(color,1.0f);
 
 }
 
@@ -415,6 +421,12 @@ bool belongs_to_scene() {
 
 }
 
+vec3 Reinhards_tonemapping(vec3 color) {
+    
+    return color / (color + vec3(1.f));
+
+}
+
 void main () {
     
     vec4 final_color = calc_directional_light();
@@ -426,7 +438,8 @@ void main () {
         color = texture(g_albedo, tex_coords);
     }
 
-    
+
+    color.xyz = Reinhards_tonemapping(color.xyz);
     color = vec4(gamma_correction(color.xyz),1.0);
     //color = final_color;
     //calc_clouds();

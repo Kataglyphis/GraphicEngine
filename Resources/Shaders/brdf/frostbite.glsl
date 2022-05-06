@@ -55,7 +55,7 @@ vec3 evaluateFrostbitePBR(vec3 ambient, vec3 N, vec3 L, vec3 V, float roughness,
     float NdotL = clamp(dot(N, L),0.0f, 1.0f);
 
     // add lambertian diffuse term vec3(0.f);// 
-    vec3 color = FrostbiteDiffuse(NdotV, NdotL, LdotH, roughness)* (ambient / PI);
+    vec3 color = FrostbiteDiffuse(NdotV, NdotL, LdotH, roughness) * (ambient / PI) * NdotL;
     //
     if (LdotH > 0 && NdotH > 0 && NdotL > 0) {
 

@@ -33,8 +33,11 @@ vec3 F_EPIC_GAMES(vec3 wi, vec3 wh, vec3 ambient_color, float metallic) {
 
 vec3 evaluteUnreal4PBR(vec3 ambient, vec3 N, vec3 L, vec3 V, float roughness, vec3 light_color, float light_intensity) {
 
+    float cosTheta_l = CosTheta(L, N);
+    float cosTheta_v = CosTheta(V, N);
+
     // add lambertian diffuse term
-    vec3 color = LambertDiffuse(ambient);
+    vec3 color = LambertDiffuse(ambient) * CosTheta(L, N);
 
     vec3 wo = normalize(L);
     vec3 wi = normalize(V);
@@ -51,8 +54,6 @@ vec3 evaluteUnreal4PBR(vec3 ambient, vec3 N, vec3 L, vec3 V, float roughness, ve
     vec3 F = F_EPIC_GAMES(wi, wh, ambient, .3f);
 
     // add specular term  
-    float cosTheta_l = CosTheta(L, N);
-    float cosTheta_v = CosTheta(V, N);
     if (cosTheta_l > 0 && cosTheta_v > 0) {
         color += light_color * light_intensity * evaluateCookTorrenceSpecularBRDF(D, G, F, cosTheta_l, cosTheta_v) * cosTheta_l;
     }

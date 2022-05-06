@@ -32,6 +32,6 @@ void main() {
 	g_normal        = normalize(normal);
     g_material_id   = vec3(mat_ID);
     // keep in mind whether to use textures here or not ....
-    g_albedo        = texture(model_textures[tex_ID], tex_coords).rgb;//materials[mat_ID].diffuse;//
+    g_albedo        = materials[mat_ID].diffuse;//texture(model_textures[tex_ID], tex_coords).rgb;//
 
 }
