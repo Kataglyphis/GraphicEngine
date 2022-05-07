@@ -1,6 +1,3 @@
-[submodule "ExternalLib/TOL"]
-	path = ExternalLib/TOL
-	url = git@github.com:tinyobjloader/tinyobjloader.git
 [submodule "ExternalLib/STB"]
 	path = ExternalLib/STB
 	url = git@github.com:nothings/stb.git
@@ -10,3 +7,6 @@
 [submodule "ExternalLib/GLM"]
 	path = ExternalLib/GLM
 	url = git@github.com:g-truc/glm.git
+[submodule "ExternalLib/TOL"]
+	path = ExternalLib/TOL
+	url = https://github.com/tinyobjloader/tinyobjloader
