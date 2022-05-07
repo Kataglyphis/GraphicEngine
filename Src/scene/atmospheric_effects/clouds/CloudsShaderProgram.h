@@ -6,6 +6,7 @@ class CloudsShaderProgram :
 public:
 
     CloudsShaderProgram();
+    CloudsShaderProgram(const CloudsShaderProgram&) = default;
 
     GLuint get_projection_location();
     GLuint get_view_location();

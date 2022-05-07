@@ -37,7 +37,10 @@ void ObjLoader::load(   std::string                             modelFile,
 
     // texture at position 0 is plain texture to handle non existing materials
     int texture_id = 1;
-    texture_list.push_back("../Resources/Textures/plain.png");
+
+    std::stringstream texture_base_dir;
+    texture_base_dir << CMAKELISTS_DIR << "/Resources/Textures/plain.png";
+    texture_list.push_back(texture_base_dir.str());
 
     // we now iterate over all materials to get diffuse textures
     for (size_t i = 0; i < tol_materials.size(); i++) {

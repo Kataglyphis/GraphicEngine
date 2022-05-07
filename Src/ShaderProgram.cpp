@@ -3,6 +3,12 @@
 ShaderProgram::ShaderProgram()
 {
     program_id = 0;
+    std::stringstream aux;
+    aux << CMAKELISTS_DIR;
+    aux << "/Resources/Shaders/";
+
+    shader_base_dir = aux.str();
+
 }
 
 void ShaderProgram::create_from_files(const char* vertex_location, const char* fragment_location)
@@ -54,7 +60,9 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* g
 
 void ShaderProgram::create_computer_shader_program_from_file(const char* compute_location)
 {
-    std::string file = read_file(compute_location);
+    std::stringstream comp_shader;
+    comp_shader << shader_base_dir << compute_location;
+    std::string file = read_file(comp_shader.str().c_str());
     const char* compute_code = file.c_str();
 
     this->compute_location = compute_location;

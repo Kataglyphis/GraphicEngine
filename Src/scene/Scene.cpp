@@ -54,9 +54,12 @@ void Scene::load_models()
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);
 
-    std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   /*"../Resources/Models/Pillum/PilumPainting_Export.obj",*/
-                                                                    "../Resources/Models/dinosaurs.obj",
-                                                                    /*"../Resources/Models/crytek-sponza/sponza_triag.obj",*/
+    std::stringstream modelFile;
+    modelFile << CMAKELISTS_DIR << "/Resources/Models/dinosaurs.obj";
+    /*"../Resources/Models/Pillum/PilumPainting_Export.obj",*/
+    /*"../Resources/Models/crytek-sponza/sponza_triag.obj",*/
+
+    std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   modelFile.str(),
                                                                     sponza_offset, sponza_scale,
                                                                     sponza_rot);
     progress += 1.f;

@@ -20,6 +20,8 @@ public:
 
 	ShaderProgram();
 
+	ShaderProgram(const ShaderProgram&) = default;
+
 	void create_from_files(const char* vertex_location, const char* fragment_location);
 	void create_from_files(const char* vertex_location, const char* geometry_location, const char* fragment_location);
 	void create_computer_shader_program_from_file(const char* compute_location);
@@ -36,7 +38,7 @@ public:
 
 protected:
 
-	std::string shader_base_dir = "../Resources/Shaders/";
+	std::string shader_base_dir;
 
 	GLuint program_id;
 

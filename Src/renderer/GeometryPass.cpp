@@ -8,7 +8,10 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 {
     this->uniform_helper = UniformHelper();
     this->shader_program = shader_program;
-    std::string skybox_base_dir = "../Resources/Textures/Skybox/DOOM2016/";
+    std::stringstream skybox_base_dir;
+    skybox_base_dir << CMAKELISTS_DIR;
+    skybox_base_dir << "/Resources/Textures/Skybox/DOOM2016/";
+
     stringstream texture_loading;
     std::array<std::string, 6> skybox_textures = {  "DOOM16RT.png",
                                                     "DOOM16LF.png",
@@ -22,7 +25,7 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 
     for (int i = 0; i < skybox_textures.size(); i++) {
 
-        texture_loading << skybox_base_dir << skybox_textures[i];
+        texture_loading << skybox_base_dir.str() << skybox_textures[i];
         skybox_faces.push_back(texture_loading.str());
         texture_loading.str(std::string());
 

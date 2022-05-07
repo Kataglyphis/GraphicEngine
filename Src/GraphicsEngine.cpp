@@ -183,23 +183,32 @@ void set_shader_includes() {
                                                                     "unreal4.glsl"
                                                                     };
 
-    std::array<const char*, num_include_files> file_locations   = { "../Src/host_device_shared.h",
-                                                                    "../Resources/Shaders/common/Globals.glsl",
-                                                                    "../Resources/Shaders/common/Matlib.glsl",
-                                                                    "../Resources/Shaders/common/microfacet.glsl",
-                                                                    "../Resources/Shaders/common/ShadingLibrary.glsl" ,
-                                                                    "../Resources/Shaders/brdf/disney.glsl",
-                                                                    "../Resources/Shaders/brdf/frostbite.glsl",
-                                                                    "../Resources/Shaders/brdf/pbrBook.glsl",
-                                                                    "../Resources/Shaders/brdf/phong.glsl",
-                                                                    "../Resources/Shaders/brdf/unreal4.glsl"
-                                                                    };
+    std::array<const char*, num_include_files> file_locations_relative   = {    "/Src/host_device_shared.h",
+                                                                                "/Resources/Shaders/common/Globals.glsl",
+                                                                                "/Resources/Shaders/common/Matlib.glsl",
+                                                                                "/Resources/Shaders/common/microfacet.glsl",
+                                                                                "/Resources/Shaders/common/ShadingLibrary.glsl" ,
+                                                                                "/Resources/Shaders/brdf/disney.glsl",
+                                                                                "/Resources/Shaders/brdf/frostbite.glsl",
+                                                                                "/Resources/Shaders/brdf/pbrBook.glsl",
+                                                                                "/Resources/Shaders/brdf/phong.glsl",
+                                                                                "/Resources/Shaders/brdf/unreal4.glsl"
+                                                                                };
+    std::vector<std::string> file_locations_abs;
+    for (int i = 0; i < includeNames.size(); i++) {
+
+        std::stringstream aux;
+        aux << CMAKELISTS_DIR;
+        aux << file_locations_relative[i]; 
+        file_locations_abs.push_back(aux.str());
+    }
+
 
 
 
     for (int i = 0; i < num_include_files; i++) {
 
-        std::string file_content = read_file(file_locations[i]);
+        std::string file_content = read_file(file_locations_abs[i].c_str());
         char tmpstr[200];
         sprintf(tmpstr, "/%s", includeNames[i]);
         glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
@@ -378,13 +387,16 @@ int main()
 
     //init texture for loading screen
     loading_screen.init();
-    std::string texture_base_dir = "../Resources/Textures/";
+    std::stringstream texture_base_dir;
+    texture_base_dir << CMAKELISTS_DIR;
+    texture_base_dir << "/Resources/Textures/";
+  
     stringstream texture_loading_screen;
-    texture_loading_screen << texture_base_dir << "Loading_Screen/Engine_logo.png";
+    texture_loading_screen << texture_base_dir.str() << "Loading_Screen/Engine_logo.png";
     loading_screen_tex = Texture(texture_loading_screen.str().c_str(), std::make_shared<RepeatMode>());
     loading_screen_tex.load_texture_with_alpha_channel();
     stringstream texture_logo;
-    texture_logo << texture_base_dir << "Loading_Screen/Engine_logo.png";
+    texture_logo << texture_base_dir.str() << "Loading_Screen/Engine_logo.png";
     logo = Texture(texture_logo.str().c_str(), std::make_shared<RepeatMode>());
     logo.load_texture_with_alpha_channel();
 

@@ -31,6 +31,9 @@ if(NOT glew_POPULATED)
   add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 
+# remove dirty file directories ... 
+add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
+
 # control where the static and shared libraries are built so that on windows
 # we don't need to tinker with the path to run the executable
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
