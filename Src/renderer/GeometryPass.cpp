@@ -65,7 +65,9 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
 
     shader_program->use_shader_program();
 
-    retrieve_geometry_pass_locations(projection_matrix, view_matrix, scene->get_materials(), scene);
+    std::vector<ObjMaterial> materials = scene->get_materials();
+
+    retrieve_geometry_pass_locations(projection_matrix, view_matrix, materials, scene);
 
     scene->bind_textures_and_buffer();
 

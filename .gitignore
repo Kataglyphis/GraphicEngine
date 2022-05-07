@@ -1,3 +1,5 @@
+# ignore vs files
+.vs/*
 # Prerequisites
 *.d
 
@@ -32,6 +34,7 @@
 *.app
 
 # ignore build file 
+out/*
 build/*
 Release/*
 Debug/*

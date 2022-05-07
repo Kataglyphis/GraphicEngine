@@ -19,6 +19,18 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
+# now make glew available
+FetchContent_Declare(
+  glew
+  GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
+  GIT_TAG        origin/master
+)
+FetchContent_GetProperties(glew)
+if(NOT glew_POPULATED)
+  FetchContent_Populate(glew)
+  add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+
 # control where the static and shared libraries are built so that on windows
 # we don't need to tinker with the path to run the executable
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
@@ -26,6 +38,23 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+
+# add all external libs as interface
+add_subdirectory(ExternalLib)
+# set all glfw dependencies
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+add_subdirectory(ExternalLib/GLFW)
+
+# we depend on OpenGL
+find_package( OpenGL REQUIRED COMPONENTS OpenGL)
+#surpress warnings
+set(OpenGL_GL_PREFERENCE GLVND)
+
+# for faster building
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
 
 FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h" 
                                 "ExternalLib/IMGUI/backends/imgui_impl_glfw.h"
@@ -180,50 +209,28 @@ else()
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 endif()
 
-target_include_directories(${PROJECT_NAME}  PUBLIC "${PROJECT_BINARY_DIR}/../Src"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/compute"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/renderer"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/debug"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/window"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/atmospheric_effects/clouds"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/light"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/shadows"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/sky_box"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene/texture"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../Src/scene"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLM"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/STB"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/TOL"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include/GL"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLEW/glew-2.2.0/include"
-                                            PUBLIC "${PROJECT_BINARY_DIR}/../ExternalLib/GLFW/glfw-3.3.4/include/GLFW"
+target_include_directories(${PROJECT_NAME}  PUBLIC "./Src"
+                                            PUBLIC "./Src/compute"
+                                            PUBLIC "./Src/renderer"
+                                            PUBLIC "./Src/debug"
+                                            PUBLIC "./Src/window"
+                                            PUBLIC "./Src/scene"
+                                            PUBLIC "./Src/scene/atmospheric_effects/clouds"
+                                            PUBLIC "./Src/scene/light"
+                                            PUBLIC "./Src/scene/shadows"
+                                            PUBLIC "./Src/scene/sky_box"
+                                            PUBLIC "./Src/scene/texture"
                                             ${OPENGL_INCLUDE_DIRS})
-
-                                            # we depend on OpenGL
-find_package( OpenGL REQUIRED COMPONENTS OpenGL)
-target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
-
-#surpress warnings
-set(OpenGL_GL_PREFERENCE GLVND)
-
-# set all glfw dependencies
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(ExternalLib/GLFW/glfw-3.3.4)
-
-target_link_libraries(${PROJECT_NAME} glfw)
-
-# set all glew dependencies
-add_subdirectory(ExternalLib/GLEW/glew-2.2.0/build/cmake)
-target_link_libraries(${PROJECT_NAME} glew)
-
-# add tests 
-# include(CTest)
-
-# add_test(test1 ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME})
+                                            
+target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
+                                        Threads::Threads
+                                        libglew_static
+                                        ${OPENGL_LIBRARIES} 
+                                        imgui
+                                        stb 
+                                        glm 
+                                        tinyobjloader
+                                        glfw)
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
@@ -235,41 +242,13 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR})
 
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads REQUIRED)
-target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS}
-                                      Threads::Threads)
-
-
+# let us print all errors when on UNIX
 if(UNIX)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g")
 else()
 endif()
 
-# first we can indicate the documentation build as an option and set it to ON by default
-option(BUILD_DOC "Build documentation" ON)
-
-# check if Doxygen is installed
-find_package(Doxygen)
-if (DOXYGEN_FOUND)
-    # set input and output files
-    set(DOXYGEN_IN ${CMAKE_CURRENT_BINARY_DIR}/../Documents/Doxyfile.in)
-    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-
-    # request to configure the file
-    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-    message("Doxygen build started")
-
-    # note the option ALL which allows to build the docs together with the application
-    add_custom_target( doc_doxygen ALL
-        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        COMMENT "Generating API documentation with Doxygen"
-        VERBATIM )
-else (DOXYGEN_FOUND)
-  message("Doxygen need to be installed to generate the doxygen documentation")
-endif (DOXYGEN_FOUND)
-
+# all testing related stuff
 enable_testing()
 
 add_executable(
@@ -284,4 +263,26 @@ target_link_libraries(
 include(GoogleTest)
 gtest_discover_tests(hello_test)
 
-# include(CPack)
+# first we can indicate the documentation build as an option and set it to ON by default
+# option(BUILD_DOC "Build documentation" ON)
+
+# check if Doxygen is installed
+#find_package(Doxygen)
+#if (DOXYGEN_FOUND)
+    # set input and output files
+ #   set(DOXYGEN_IN ${CMAKE_CURRENT_BINARY_DIR}/../Documents/Doxyfile.in)
+  #  set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+
+    # request to configure the file
+   # configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+   # message("Doxygen build started")
+
+    # note the option ALL which allows to build the docs together with the application
+   # add_custom_target( doc_doxygen ALL
+    #    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+     #   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+      #  COMMENT "Generating API documentation with Doxygen"
+       # VERBATIM )
+#else (DOXYGEN_FOUND)
+ # message("Doxygen need to be installed to generate the doxygen documentation")
+#endif (DOXYGEN_FOUND)
