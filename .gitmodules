@@ -10,3 +10,6 @@
 [submodule "ExternalLib/TOL"]
 	path = ExternalLib/TOL
 	url = https://github.com/tinyobjloader/tinyobjloader
+[submodule "ExternalLib/GLFW"]
+	path = ExternalLib/GLFW
+	url = https://github.com/glfw/glfw
