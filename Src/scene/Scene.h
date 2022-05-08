@@ -8,6 +8,7 @@
 #include "Clouds.h"
 #include <thread>
 #include <ObjMaterial.h>
+#include "PointLight.h"
 
 class Scene
 {
@@ -23,7 +24,12 @@ public:
 	}
 
 	void init(std::shared_ptr<Camera> main_camera, Window* main_window, std::shared_ptr<Clouds> clouds);
-	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
+
+	GLuint get_point_light_count();
+	std::shared_ptr<DirectionalLight> get_sun();
+	std::vector<std::shared_ptr<PointLight>> get_point_lights();
+
+	void render(RenderPassSceneDependend* render_pass);
 	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 	void load_models();
 
@@ -49,6 +55,12 @@ private:
 	bool object_is_visible(std::shared_ptr<GameObject> game_object);
 
 	std::shared_ptr<Camera> main_camera;
+
+	//lights
+	std::shared_ptr<DirectionalLight> sun;
+	std::vector<std::shared_ptr<PointLight>> point_lights;
+
+
 	Window* main_window;
 	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 	std::shared_ptr<Clouds> clouds;

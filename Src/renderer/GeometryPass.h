@@ -22,8 +22,10 @@ public:
     GeometryPass();
     GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program);
 
-    void execute(glm::mat4 projection_matrix, glm::mat4 view_matrix,  GLfloat window_width, GLfloat window_height, 
-                            GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene);
+    void execute(   glm::mat4 projection_matrix, glm::mat4 view_matrix,  
+                    GLfloat window_width, GLfloat window_height, 
+                    GLuint gbuffer_id, GLfloat delta_time, 
+                    std::shared_ptr<Scene>);
 
     void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
 
@@ -33,7 +35,7 @@ private:
 
     void retrieve_geometry_pass_locations(  glm::mat4 projection_matrix, glm::mat4 view_matrix, 
                                             std::vector<ObjMaterial>& materials,
-                                            Scene* scene);
+                                            std::shared_ptr<Scene> scene);
 
     std::shared_ptr<GeometryPassShaderProgram> shader_program;
 

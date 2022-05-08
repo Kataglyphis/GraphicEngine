@@ -9,7 +9,6 @@ GUI::GUI()
 {
 
     // give some arbitrary values; we will update these values after 1 frame :)
-
     this->direcional_light_ambient_intensity = 4.0f;
     this->direcional_light_diffuse_intensity = 0.5f;
 
@@ -82,6 +81,11 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
                     bool& noise_hot_reload_triggered)
 {
 
+    // feed inputs to dear imgui, start new frame
+    //UI.start_new_frame();
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
     // render your GUI
     ImGui::Begin("GUI v1.3.3");
 
@@ -195,10 +199,10 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
 
 }
 
-void GUI::update_user_input(std::shared_ptr<DirectionalLight> main_light,
+void GUI::update_user_input(std::shared_ptr<Scene> scene,
                             std::shared_ptr<Clouds> clouds)
 {
-
+    std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
     main_light->set_ambient_intensity(direcional_light_ambient_intensity);
     main_light->set_diffuse_intensity(direcional_light_diffuse_intensity);
     main_light->get_shadow_map()->set_intensity(cascaded_shadow_intensity);

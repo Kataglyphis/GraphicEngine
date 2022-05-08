@@ -35,8 +35,10 @@ GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_pro
 
 }
 
-void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix,
-                                                    std::vector<ObjMaterial>& materials, Scene* scene)
+void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, 
+                                                    glm::mat4 view_matrix,
+                                                    std::vector<ObjMaterial>& materials, 
+                                                    std::shared_ptr<Scene> scene)
 {
 
     uniform_helper.setUniformMatrix4fv(projection_matrix, shader_program->get_projection_location());
@@ -56,8 +58,9 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
     DebugApp_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
 }
 
-void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height,
-                            GLuint gbuffer_id, bool first_person_mode, GLfloat delta_time, Scene* scene)
+void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
+                            GLfloat window_width, GLfloat window_height,
+                            GLuint gbuffer_id, GLfloat delta_time, std::shared_ptr<Scene> scene)
 {
 
     glBindFramebuffer(GL_FRAMEBUFFER, gbuffer_id);
@@ -74,7 +77,7 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
 
     scene->bind_textures_and_buffer();
 
-    scene->render(this, first_person_mode);
+    scene->render(this);
 
     skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
 

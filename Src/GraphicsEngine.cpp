@@ -21,11 +21,6 @@
 #include "GUI.h"
 #include "LoadingScreen.h"
 
-//all gui stuff
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
-
 // all shader programs
 #include "ShaderProgram.h"
 #include "GeometryPassShaderProgram.h"
@@ -64,25 +59,7 @@
 GLfloat delta_time = 0.0f;
 GLfloat last_time = 0.0f;
 
-unsigned int point_light_count = 0;
-
-//define near and far plane
-GLfloat near_plane = 0.1f;
-GLfloat far_plane = 500.f;
-
-//shadow map var
-GLuint shadow_map_resolution = 4096;
-
-//in degrees
-GLfloat fov= 45.0f;
-
-//global objects
-std::shared_ptr<Camera> main_camera;
-std::shared_ptr<DirectionalLight> main_light;
-std::vector<std::shared_ptr<PointLight>> point_lights(MAX_POINT_LIGHTS, NULL);
-
 std::shared_ptr<GBuffer> gbuffer;
-
 std::shared_ptr<Noise> noise;
 std::shared_ptr<Clouds> clouds;
 
@@ -97,18 +74,7 @@ DirectionalShadowMapPass directional_shadow_map_pass;
 GeometryPass geometry_pass;
 LightingPass lighting_pass;
 
-// all variables for gui
-glm::vec3 directional_light_starting_position = glm::vec3(-0.1f, -0.8f, -0.1f);
-glm::vec3 directional_light_starting_color = glm::vec3(1.0f);
-
-
-
 unsigned int material_counter = 0;
-static bool first_person_mode = false;
-bool ssao_enabled = false;
-bool ssr_enabled = false;
-
-float sound_volume = 0.0f;
 
 bool loading_screen_finished = false;
 
@@ -262,9 +228,11 @@ int main()
     clouds = std::make_shared<Clouds>();
     clouds->init(window_width, window_height);
 
-    main_camera = std::make_shared<Camera>(glm::vec3(0.0f,50.0f,0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f,
-                                            0.0f, 35.0f, 0.25f,
-                                            near_plane, far_plane, fov);
+    std::shared_ptr<Camera> main_camera = std::make_shared<Camera>( glm::vec3(0.0f,50.0f,0.0f), 
+                                                                    glm::vec3(0.0f, 1.0f, 0.0f), 
+                                                                    -60.0f,
+                                                                    0.0f, 35.0f, 0.25f,
+                                                                    0.1f, 500.f, 45.f);
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
@@ -272,31 +240,7 @@ int main()
 
     gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
-
-
-
-    //initialize main dir light
-    main_light = std::make_shared<DirectionalLight>(    shadow_map_resolution,
-                                                        shadow_map_resolution,
-                                                        directional_light_starting_color.x,
-                                                        directional_light_starting_color.y,
-                                                        directional_light_starting_color.z,
-                                                        1.f,
-                                                        1.f,
-                                                        directional_light_starting_position.x,
-                                                        directional_light_starting_position.y,
-                                                        directional_light_starting_position.z,
-                                                        main_camera->get_near_plane(), main_camera->get_far_plane(), 
-                                                        NUM_CASCADES);
-
-    point_lights[0] = std::make_shared<PointLight>( 1024, 1024,
-                                                    0.01f, 100.f,
-                                                    0.0f, 1.0f, 0.0f,
-                                                    1.f, 1.0f,
-                                                    0.0f, 0.0f, 0.0f,
-                                                    0.1f, 0.1f, 0.1f);
-
-    point_light_count++;
+    
 
     //create shader programs and use the standard shader
     create_shader_programs();
@@ -347,14 +291,6 @@ int main()
         main_camera->key_control(main_window.get_keys(), delta_time);
         main_camera->mouse_control(main_window.get_x_change(), main_window.get_y_change());
 
-        //update light positions
-
-        // feed inputs to dear imgui, start new frame
-        //UI.start_new_frame();
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
         if (scene->is_loaded()) {
 
             if (!loading_screen_finished) {
@@ -363,36 +299,36 @@ int main()
 
             }
 
-            if(!scene->get_context_setup()) scene->setup_game_object_context();    
+            if(!scene->get_context_setup()) scene->setup_game_object_context();
 
-            point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
-
-            //retreive shadow map before our geometry pass
-            main_light->calc_orthogonal_projections(main_camera->calculate_viewmatrix(), 
-                                                    fov, window_width, window_height,
-                                                    NUM_CASCADES);
-
-            directional_shadow_map_pass.execute(main_light, projection_matrix, 
-                                                main_camera->calculate_viewmatrix(), 
-                                                first_person_mode, 
-                                                scene.get());
+            directional_shadow_map_pass.execute(projection_matrix, 
+                                                main_camera,
+                                                window_width, window_height,
+                                                scene);
 
             // omni shadow map passes for our point lights
-            for (size_t p_light_count = 0; p_light_count < point_light_count; p_light_count++) {
-                omni_shadow_map_pass.execute(point_lights[p_light_count], first_person_mode, scene.get());
+            std::vector<std::shared_ptr<PointLight>> p_lights = scene->get_point_lights();
+            for (size_t p_light_count = 0; p_light_count < scene->get_point_light_count(); p_light_count++) {
+                omni_shadow_map_pass.execute(p_lights[p_light_count], scene);
             }
 
             //we will now start the geometry pass
-            geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height, gbuffer->get_id(),
-                                    first_person_mode, delta_time, scene.get());
+            geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), 
+                                    window_width, window_height, gbuffer->get_id(),
+                                    delta_time, scene);
 
             // render the AABB for the clouds
-            clouds->render(projection_matrix, main_camera->calculate_viewmatrix(), window_width, window_height);
+            clouds->render( projection_matrix, main_camera->calculate_viewmatrix(), 
+                            window_width, window_height);
 
             // after geometry pass we can now do the lighting
-            lighting_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), gbuffer, main_light,
-                                    point_lights, point_light_count, main_camera->get_camera_position(),
-                                    scene->get_materials(), noise, clouds, delta_time);
+            lighting_pass.execute(  projection_matrix, 
+                                    main_camera,
+                                    scene,
+                                    gbuffer,
+                                    noise, 
+                                    clouds, 
+                                    delta_time);
 
         }
         else {
@@ -410,7 +346,7 @@ int main()
         if(shader_hot_reload_triggered) reload_shader_programs();
         if(noise_hot_reload_triggered) reload_noise_programs();
 
-        gui.update_user_input(main_light, clouds);
+        gui.update_user_input(scene, clouds);
 
         main_window.update_viewport();
         GLfloat new_window_width = main_window.get_buffer_width();

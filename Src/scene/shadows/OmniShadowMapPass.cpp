@@ -20,24 +20,29 @@ bool OmniShadowMapPass::use_terrain_textures()
     return false;
 }
 
-void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light, bool first_person_mode, Scene* scene)
+void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light,
+                                std::shared_ptr<Scene> scene)
 {
+
     shader_program->use_shader_program();
 
-    glViewport(0, 0, p_light->get_omni_shadow_map()->get_shadow_width(), p_light->get_omni_shadow_map()->get_shadow_height());
+    glViewport( 0, 0,   p_light->get_omni_shadow_map()->get_shadow_width(), 
+                        p_light->get_omni_shadow_map()->get_shadow_height());
 
     p_light->get_omni_shadow_map()->write();
     glClear(GL_DEPTH_BUFFER_BIT);
 
-    //uniform_omni_shadow_model_location = omni_dir_shadow_shader_program.get_model_location();
+    glUniform3f(shader_program->get_omni_light_pos_location(), 
+                p_light->get_position().x, 
+                p_light->get_position().y, 
+                p_light->get_position().z);
 
-    glUniform3f(shader_program->get_omni_light_pos_location(), p_light->get_position().x, p_light->get_position().y, p_light->get_position().z);
     glUniform1f(shader_program->get_far_plane_location(), p_light->get_far_plane());
     shader_program->set_light_matrices(p_light->calculate_light_transform());
 
     shader_program->validate_program();
 
-    scene->render(this, first_person_mode);
+    scene->render(this);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 

@@ -14,10 +14,10 @@ public:
     DirectionalShadowMapPass();
     DirectionalShadowMapPass(std::shared_ptr<ShadowMapShaderProgram> shader_program);
 
-    void execute(   std::shared_ptr<DirectionalLight> d_light, 
-                    glm::mat4 viewmatrix,
-                    glm::mat4 projection,
-                    bool first_person_mode, Scene* scene);
+    void execute(   glm::mat4 projection,
+                    std::shared_ptr<Camera> main_camera,
+                    GLuint window_width, GLuint window_height,
+                    std::shared_ptr<Scene> scene);
 
     void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
 

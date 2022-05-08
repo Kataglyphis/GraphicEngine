@@ -28,6 +28,31 @@ void Scene::init(std::shared_ptr<Camera> main_camera, Window* main_window, std::
 
     this->main_camera = main_camera;
     this->main_window = main_window;
+
+    //global objects
+    sun = std::make_shared<DirectionalLight>(   4096,
+                                                4096,
+                                                1.f,
+                                                1.f,
+                                                1.f,
+                                                1.f,
+                                                1.f,
+                                                -0.1f,
+                                                -0.8,
+                                                -0.1f,
+                                                main_camera->get_near_plane(), main_camera->get_far_plane(),
+                                                NUM_CASCADES);
+
+    point_lights.reserve(MAX_POINT_LIGHTS);
+    point_lights.push_back(std::make_shared<PointLight>( 1024, 1024,
+                                                    0.01f, 100.f,
+                                                    0.0f, 1.0f, 0.0f,
+                                                    1.f, 1.0f,
+                                                    0.0f, 0.0f, 0.0f,
+                                                    0.1f, 0.1f, 0.1f));
+
+    point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
+
     this->clouds = clouds;
 
     loaded_scene = false;
@@ -38,6 +63,21 @@ void Scene::init(std::shared_ptr<Camera> main_camera, Window* main_window, std::
 
     context_setup = false;
 
+}
+
+GLuint Scene::get_point_light_count()
+{
+    return static_cast<uint32_t>(point_lights.size());
+}
+
+std::shared_ptr<DirectionalLight> Scene::get_sun()
+{
+    return sun;
+}
+
+std::vector<std::shared_ptr<PointLight>> Scene::get_point_lights()
+{
+    return point_lights;
 }
 
 void Scene::load_models()
@@ -122,29 +162,14 @@ bool Scene::get_context_setup()
     return context_setup;
 }
 
-void Scene::render(RenderPassSceneDependend* render_pass, bool first_person_mode)
+void Scene::render(RenderPassSceneDependend* render_pass)
 {
     lock_guard<mutex> guard{ mx_space_ship };
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-     //aabb->render();
-     //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-     // 
-    // update model matrix accordingly to our camera position
-
-    /*for (GameObject* space_ship : space_ships) {
-        
-        if (object_is_visible(space_ship)) {
-
-            render_pass->set_game_object_uniforms(space_ship->get_world_trafo(), 
-                                                                                space_ship->get_normal_world_trafo(), 
-                                                                                space_ship->get_material_id());
-            space_ship->render();
-        }
-
-    }*/
-
-    //GameObject* current_space_ship = space_ships[current_space_ship_selected];
-
+    //aabb->render();
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    // 
+    
     for (std::shared_ptr<GameObject> object : ambient_objects) {
 
        /* if (object_is_visible(object)) {*/
@@ -172,8 +197,8 @@ std::shared_ptr<Clouds> Scene::get_clouds()
 
 bool Scene::object_is_visible(std::shared_ptr<GameObject> game_object)
 {
-    return view_frustum_culling->is_inside(main_window->get_buffer_width()/main_window->get_buffer_height(),
-                                                            main_camera, game_object->get_aabb(), game_object->get_world_trafo());
+    return view_frustum_culling->is_inside( main_window->get_buffer_width()/main_window->get_buffer_height(),
+                                            main_camera, game_object->get_aabb(), game_object->get_world_trafo());
 }
 
 Scene::~Scene()

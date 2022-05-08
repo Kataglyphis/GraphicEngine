@@ -30,38 +30,44 @@ void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_progra
 
 }
 
-void LightingPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer, 
-                            std::shared_ptr<DirectionalLight> main_light, 
-                            std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count, 
-                            glm::vec3 camera_position,
-                            std::vector<ObjMaterial> materials, std::shared_ptr<Noise> noise, 
-                            std::shared_ptr<Clouds> cloud, float delta_time)
+void LightingPass::execute( glm::mat4 projection_matrix, 
+                            std::shared_ptr<Camera> main_camera,
+                            std::shared_ptr<Scene> scene,
+                            std::shared_ptr<GBuffer> gbuffer, 
+                            std::shared_ptr<Noise> noise, 
+                            std::shared_ptr<Clouds> cloud, 
+                            float delta_time)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    shader_program->use_shader_program();
-    retrieve_lighting_pass_locations(   projection_matrix, view_matrix, gbuffer, main_light, 
-                                        point_lights, point_light_count,
-                                        camera_position,
-                                        materials, cloud, delta_time);
+    std::shared_ptr<DirectionalLight> main_light;
+    std::vector<std::shared_ptr<PointLight>> point_lights; 
+    GLuint point_light_count;
+    glm::vec3 camera_position;
 
-    bind_buffers_for_lighting(gbuffer, main_light, noise, point_light_count, cloud);
+    shader_program->use_shader_program();
+    retrieve_lighting_pass_locations(   projection_matrix, main_camera, 
+                                        scene, gbuffer,
+                                        cloud, delta_time);
+
+    bind_buffers_for_lighting(gbuffer, scene, noise, cloud);
 
     quad.render();
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix, std::shared_ptr<GBuffer> gbuffer,
-                                                    std::shared_ptr<DirectionalLight> main_light, 
-                                                    std::vector<std::shared_ptr<PointLight>>& point_lights, GLuint point_light_count,
-                                                    glm::vec3 camera_position,
-                                                    std::vector<ObjMaterial> materials, 
-                                                    std::shared_ptr<Clouds> cloud, float delta_time)
+void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, 
+                                                    std::shared_ptr<Camera> main_camera,
+                                                    std::shared_ptr<Scene> scene,
+                                                    std::shared_ptr<GBuffer> gbuffer,
+                                                    std::shared_ptr<Clouds> cloud, 
+                                                    float delta_time)
 {
 
     uniform_helper.setUniformInt(MAX_MATERIALS, shader_program->get_skyBoxMaterialID());
 
+    glm::mat4 view_matrix = main_camera->calculate_viewmatrix();
     uniform_helper.setUniformMatrix4fv(view_matrix, shader_program->get_uniform_view_location());
     uniform_helper.setUniformMatrix4fv(projection_matrix, shader_program->get_uniform_projection_location());
 
@@ -72,6 +78,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     d_light_uniform_locations.uniform_diffuse_intensity_location    = shader_program->get_directional_light_diffuse_intensity_location();
     d_light_uniform_locations.uniform_direction_location            = shader_program->get_directional_light_direction_location();
 
+    std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
     uniform_helper.setUniformFloat(main_light->get_ambient_intensity(), d_light_uniform_locations.uniform_ambient_intensity_location);
     uniform_helper.setUniformFloat(main_light->get_diffuse_intensity(), d_light_uniform_locations.uniform_diffuse_intensity_location);
     uniform_helper.setUniformVec3(main_light->get_color(), d_light_uniform_locations.uniform_color_location);
@@ -100,17 +107,19 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                     shader_program->get_g_albedo_location(),
                     shader_program->get_uniform_material_id_location());
 
-
-    shader_program->set_point_lights(point_lights, P_LIGHT_SHADOW_TEXTURES_SLOT);
+    std::vector<std::shared_ptr<PointLight>>& p_lights = scene->get_point_lights();
+    shader_program->set_point_lights(p_lights, P_LIGHT_SHADOW_TEXTURES_SLOT);
 
     shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
 
     shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
 
     // CAMERA
+    glm::vec3 camera_position = main_camera->get_camera_position();
     uniform_helper.setUniformVec3(camera_position, shader_program->get_eye_position_location());
 
     // MATERIALS
+    std::vector<ObjMaterial> materials = scene->get_materials();
     for (size_t i = 0; i < materials.size(); i++) {
 
         materials[i].use_material(shader_program->get_uniform_material_locations(i));
@@ -152,8 +161,13 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     shader_program->validate_program();
 }
 
-void LightingPass::bind_buffers_for_lighting(std::shared_ptr<GBuffer> gbuffer, std::shared_ptr<DirectionalLight> main_light, std::shared_ptr<Noise> noise, GLuint point_light_count, std::shared_ptr<Clouds> cloud)
+void LightingPass::bind_buffers_for_lighting(   std::shared_ptr<GBuffer> gbuffer, 
+                                                std::shared_ptr<Scene> scene,  
+                                                std::shared_ptr<Noise> noise,
+                                                std::shared_ptr<Clouds> cloud)
 {
+    GLuint point_light_count = scene->get_point_light_count();
+    std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
 
     main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);
 

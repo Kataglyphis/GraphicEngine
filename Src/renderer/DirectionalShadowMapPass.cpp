@@ -11,26 +11,36 @@ DirectionalShadowMapPass::DirectionalShadowMapPass(std::shared_ptr<ShadowMapShad
     this->uniform_helper = UniformHelper();
 }
 
-void DirectionalShadowMapPass::execute( std::shared_ptr<DirectionalLight> d_light, 
-                                        glm::mat4 projection, glm::mat4 view_matrix,
-                                        bool first_person_mode, Scene* scene)
+void DirectionalShadowMapPass::execute( glm::mat4 projection, 
+                                        std::shared_ptr<Camera> main_camera,
+                                        GLuint window_width, GLuint window_height,
+                                        std::shared_ptr<Scene> scene)
 {
-    
+
+    std::shared_ptr<DirectionalLight> sun = scene->get_sun();
+    //retreive shadow map before our geometry pass
+    sun->calc_orthogonal_projections(  main_camera->calculate_viewmatrix(),
+                                                    main_camera->get_fov(), window_width, window_height,
+                                                    NUM_CASCADES);
+
     shader_program->use_shader_program();
 
-    d_light->get_shadow_map()->write();
-    glViewport(0, 0, d_light->get_shadow_map()->get_shadow_width(), d_light->get_shadow_map()->get_shadow_height());
+    sun->get_shadow_map()->write();
+    glViewport(0, 0,    sun->get_shadow_map()->get_shadow_width(),
+                        sun->get_shadow_map()->get_shadow_height());
     glClear(GL_DEPTH_BUFFER_BIT);
     //glCullFace(GL_FRONT); // avoid peter panning
-    d_light->get_shadow_map()->write_light_matrices(d_light->get_cascaded_light_matrices());
+    sun->get_shadow_map()->write_light_matrices(sun->get_cascaded_light_matrices());
 
     uniform_helper.setUniformBlockBinding(  UNIFORM_LIGHT_MATRICES_BINDING,
                                             shader_program->get_light_matrics_id_location(),
                                             shader_program->get_id());
 
+    glm::mat4 view_matrix = main_camera->calculate_viewmatrix();
+
     uniform_helper.setUniformMatrix4fv(projection * view_matrix, shader_program->get_VP_location());
 
-    scene->render(this, first_person_mode);
+    scene->render(this);
 
     //glCullFace(GL_BACK);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
