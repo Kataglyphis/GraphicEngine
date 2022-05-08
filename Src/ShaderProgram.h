@@ -6,10 +6,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <string>
-#include <sstream>
+
 #include <vector>
 
-//#include "DirectionalLight.h"
 #include "DirectionalLightUniformLocations.h"
 
 #include "DebugApp.h"
@@ -39,7 +38,6 @@ public:
 protected:
 
 	std::string shader_base_dir;
-
 	GLuint program_id;
 
 	// the file locations from our shaders
@@ -48,8 +46,8 @@ protected:
 	const char* geometry_location;
 	const char* compute_location;
 
-	std::string read_file(const char* file_location);
 	void add_shader(GLuint program, const char* shader_code, GLenum shader_type);
+
 	void compile_shader_program(const char* vertex_code, const char* fragment_code);
 	void compile_shader_program(const char* vertex_code, const char* geometry_code, const char* fragment_code);
 	void compile_compute_shader_program(const char * compute_code);

@@ -65,7 +65,7 @@ FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h"
                                 "ExternalLib/IMGUI/*.cpp"
                                 "ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp"
                                 "ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp"
-                                )
+                                "Src/gui/*.h"                               "Src/gui/*.cpp")
 
 FILE(GLOB COMPUTE_FILTER                "Src/compute/*.h"                               "Src/compute/*.cpp")
 FILE(GLOB RENDERER_FILTER               "Src/renderer/*.h"                              "Src/renderer/*.cpp")
@@ -223,6 +223,7 @@ target_include_directories(${PROJECT_NAME}  PUBLIC "./Src"
                                             PUBLIC "./Src/scene/shadows"
                                             PUBLIC "./Src/scene/sky_box"
                                             PUBLIC "./Src/scene/texture"
+                                            PUBLIC "./Src/gui"
                                             ${OPENGL_INCLUDE_DIRS})
                                             
 target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 

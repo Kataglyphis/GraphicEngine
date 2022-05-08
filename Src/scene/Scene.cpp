@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+#include <sstream>
+
 Scene::Scene()
 {
 
@@ -21,7 +23,7 @@ Scene::Scene(const Scene& other)
     context_setup = other.context_setup;
 }
 
-void Scene::init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Clouds> clouds)
+void Scene::init(std::shared_ptr<Camera> main_camera, Window* main_window, std::shared_ptr<Clouds> clouds)
 {
 
     this->main_camera = main_camera;

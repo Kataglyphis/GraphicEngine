@@ -4,13 +4,13 @@ Clouds::Clouds() : shader_program(std::make_shared<CloudsShaderProgram>(CloudsSh
 {
 }
 
-void Clouds::init(GLfloat window_width, GLfloat window_height, GLuint movement_speed)
+void Clouds::init(GLfloat window_width, GLfloat window_height)
 {
 
 	model = glm::mat4(1.f);
 	aabb = AABB();
 
-	this->movement_speed = movement_speed;
+	this->movement_speed = 0.65f;
 	pillowness = 1.0;
 	density = 0.7;
 	cirrus_effect = 0.0f;

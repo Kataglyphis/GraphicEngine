@@ -5,6 +5,7 @@
 #include <GL/glew.h>
 
 #include "GlobalValues.h"
+
 class Quad
 {
 public:

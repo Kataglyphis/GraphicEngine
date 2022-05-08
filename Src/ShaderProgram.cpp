@@ -1,4 +1,7 @@
 #include "ShaderProgram.h"
+#include "File.h"
+
+#include <sstream>
 
 ShaderProgram::ShaderProgram()
 {
@@ -19,8 +22,11 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* f
     vertex_shader << shader_base_dir << vertex_location;
     fragment_shader << shader_base_dir << fragment_location;
 
-    std::string vertex_string = read_file(vertex_shader.str().c_str());
-    std::string fragment_string = read_file(fragment_shader.str().c_str());
+    File vertex_shader_file(vertex_shader.str());
+    File fragment_shader_file(fragment_shader.str());
+
+    std::string vertex_string = vertex_shader_file.read();
+    std::string fragment_string = fragment_shader_file.read();
 
     //we need c-like strings ....
     const char* vertex_code = vertex_string.c_str();
@@ -42,10 +48,13 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* g
     geometry_shader << shader_base_dir << geometry_location;
     fragment_shader << shader_base_dir << fragment_location;
 
-    std::string vertex_string   = read_file(vertex_shader.str().c_str());
-    std::string geometry_string = read_file(geometry_shader.str().c_str());
-    std::string fragment_string = read_file(fragment_shader.str().c_str());
+    File vertex_shader_file(vertex_shader.str());
+    File geometry_shader_file(geometry_shader.str());
+    File fragment_shader_file(fragment_shader.str());
 
+    std::string vertex_string = vertex_shader_file.read();
+    std::string geometry_string = geometry_shader_file.read();
+    std::string fragment_string = fragment_shader_file.read();
 
     const char* vertex_code = vertex_string.c_str();
     const char* geometry_code = geometry_string.c_str();
@@ -62,7 +71,9 @@ void ShaderProgram::create_computer_shader_program_from_file(const char* compute
 {
     std::stringstream comp_shader;
     comp_shader << shader_base_dir << compute_location;
-    std::string file = read_file(comp_shader.str().c_str());
+    File compute_shader_file(comp_shader.str());
+    std::string file = compute_shader_file.read();
+
     const char* compute_code = file.c_str();
 
     this->compute_location = compute_location;
@@ -104,27 +115,6 @@ void ShaderProgram::reload()
 void ShaderProgram::use_shader_program()
 {
     glUseProgram(program_id);
-}
-
-
-std::string ShaderProgram::read_file(const char* file_location)
-{
-    std::string content;
-    std::ifstream file_stream(file_location, std::ios::in);
-
-    if (!file_stream.is_open()) {
-        printf("Failed to read %s. File does not exist.", file_location);
-        return "";
-    }
-
-    std::string line = "";
-    while (!file_stream.eof()) {
-        std::getline(file_stream, line);
-        content.append(line + "\n");
-    }
-
-    file_stream.close();
-    return content;
 }
 
 void ShaderProgram::add_shader(GLuint program, const char* shader_code, GLenum shader_type)

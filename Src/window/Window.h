@@ -4,15 +4,15 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-class MyWindow
+class Window
 {
 public:
-	MyWindow();
-	MyWindow(GLint window_width, GLint window_height);
+
+	Window();
+	Window(GLint window_width, GLint window_height);
 
 	bool get_should_close() { return glfwWindowShouldClose(main_window); }
 	void swap_buffers() { glfwSwapBuffers(main_window); }
-
 
 	// init glfw and its context ...
 	int initialize();
@@ -31,7 +31,7 @@ public:
 
 	bool* get_keys() { return keys; }
 	
-	~MyWindow();
+	~Window();
 
 private:
 

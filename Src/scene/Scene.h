@@ -3,7 +3,7 @@
 #include "GameObject.h"
 #include "ViewFrustumCulling.h"
 #include "RenderPassSceneDependend.h"
-#include "MyWindow.h"
+#include "Window.h"
 #include <mutex>
 #include "Clouds.h"
 #include <thread>
@@ -22,7 +22,7 @@ public:
 		return std::thread([=] {load_models();});
 	}
 
-	void init(std::shared_ptr<Camera> main_camera, MyWindow* main_window, std::shared_ptr<Clouds> clouds);
+	void init(std::shared_ptr<Camera> main_camera, Window* main_window, std::shared_ptr<Clouds> clouds);
 	void render(RenderPassSceneDependend* render_pass, bool first_person_mode);
 	void add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 	void load_models();
@@ -49,7 +49,7 @@ private:
 	bool object_is_visible(std::shared_ptr<GameObject> game_object);
 
 	std::shared_ptr<Camera> main_camera;
-	MyWindow* main_window;
+	Window* main_window;
 	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 	std::shared_ptr<Clouds> clouds;
 
