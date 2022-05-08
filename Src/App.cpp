@@ -1,15 +1,8 @@
-//necessary for the stb header file ....
-#define STB_IMAGE_IMPLEMENTATION
-
 // include ability to execute threads
 #include <thread>
 #include <mutex>
-#include <array>
 #include <memory>
-#include <sstream>
 
-//all vector math helper includes :)
-#include <limits>
 #include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -35,7 +28,6 @@
 #include "LightingPass.h"
 #include "GeometryPass.h"
 #include "GBuffer.h"
-#include "Quad.h"
 
 //all for environment effects
 #include "Noise.h"
@@ -43,23 +35,13 @@
 
 //all scene/game logic/ game object related stuff
 #include "Scene.h"
-#include "GameObject.h"
-#include "Texture.h"
-#include "ObjMaterial.h"
-#include "Mesh.h"
-#include "Model.h"
-#include "ViewFrustumCulling.h"
 #include "Window.h"
 #include "Camera.h"
 
 #include "GlobalValues.h"
 #include "host_device_shared.h"
+#include "ShaderIncludes.h"
 
-//our global variables
-GLfloat delta_time = 0.0f;
-GLfloat last_time = 0.0f;
-
-std::shared_ptr<GBuffer> gbuffer;
 std::shared_ptr<Noise> noise;
 std::shared_ptr<Clouds> clouds;
 
@@ -74,66 +56,7 @@ DirectionalShadowMapPass directional_shadow_map_pass;
 GeometryPass geometry_pass;
 LightingPass lighting_pass;
 
-unsigned int material_counter = 0;
-
 bool loading_screen_finished = false;
-
-// https://cpp.hotexamples.com/examples/-/-/glNamedStringARB/cpp-glnamedstringarb-function-examples.html
-void set_shader_includes() {
-    
-    // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
-    DebugApp DebugApp_ins;
-
-    const int num_include_files = 10;
-    std::array<const char*, num_include_files> includeNames     = { "host_device_shared.h",
-                                                                    "Globals.glsl",
-                                                                    "Matlib.glsl",
-                                                                    "microfacet.glsl",
-                                                                    "ShadingLibrary.glsl",
-                                                                    "disney.glsl",
-                                                                    "frostbite.glsl",
-                                                                    "pbrBook.glsl",
-                                                                    "phong.glsl",
-                                                                    "unreal4.glsl"
-                                                                    };
-
-    std::array<const char*, num_include_files> file_locations_relative   = {    "/Src/host_device_shared.h",
-                                                                                "/Resources/Shaders/common/Globals.glsl",
-                                                                                "/Resources/Shaders/common/Matlib.glsl",
-                                                                                "/Resources/Shaders/common/microfacet.glsl",
-                                                                                "/Resources/Shaders/common/ShadingLibrary.glsl" ,
-                                                                                "/Resources/Shaders/brdf/disney.glsl",
-                                                                                "/Resources/Shaders/brdf/frostbite.glsl",
-                                                                                "/Resources/Shaders/brdf/pbrBook.glsl",
-                                                                                "/Resources/Shaders/brdf/phong.glsl",
-                                                                                "/Resources/Shaders/brdf/unreal4.glsl"
-                                                                                };
-    std::vector<std::string> file_locations_abs;
-    for (int i = 0; i < includeNames.size(); i++) {
-
-        std::stringstream aux;
-        aux << CMAKELISTS_DIR;
-        aux << file_locations_relative[i]; 
-        file_locations_abs.push_back(aux.str());
-    }
-
-
-
-
-    for (int i = 0; i < num_include_files; i++) {
-
-        File file(file_locations_abs[i]);
-        std::string file_content = file.read();
-        char tmpstr[200];
-        sprintf(tmpstr, "/%s", includeNames[i]);
-        glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
-        DebugApp_ins.areErrorPrintAll("From glNamedStringARB.");
-
-    }
-
-}
-
-
 
 void create_geometry_pass_shader_program() {
 
@@ -175,7 +98,7 @@ void create_omni_shadow_map_shader_program() {
 void create_shader_programs() {
 
     // set include file for shaders
-    set_shader_includes();
+    //set_shader_includes();
     create_geometry_pass_shader_program();
     create_lighting_pass_shader_program();
     create_shadow_map_shader_program();
@@ -185,7 +108,7 @@ void create_shader_programs() {
 
 void reload_shader_programs()
 {
-    set_shader_includes();
+    //set_shader_includes();
     shadow_map_shader_program->reload();
     g_buffer_geometry_pass_shader_program->reload();
     g_buffer_lighting_pass_shader_program->reload();
@@ -219,6 +142,38 @@ int main()
     main_window = Window(window_width, window_height);
     main_window.initialize();
 
+    std::vector<const char*> includeNames = {   
+            "host_device_shared.h",
+            "Globals.glsl",
+            "Matlib.glsl",
+            "microfacet.glsl",
+            "ShadingLibrary.glsl",
+            "disney.glsl",
+            "frostbite.glsl",
+            "pbrBook.glsl",
+            "phong.glsl",
+            "unreal4.glsl"
+    };
+
+    std::vector<const char*> file_locations_relative = {    
+            "/Src/host_device_shared.h",
+            "/Resources/Shaders/common/Globals.glsl",
+            "/Resources/Shaders/common/Matlib.glsl",
+            "/Resources/Shaders/common/microfacet.glsl",
+            "/Resources/Shaders/common/ShadingLibrary.glsl" ,
+            "/Resources/Shaders/brdf/disney.glsl",
+            "/Resources/Shaders/brdf/frostbite.glsl",
+            "/Resources/Shaders/brdf/pbrBook.glsl",
+            "/Resources/Shaders/brdf/phong.glsl",
+            "/Resources/Shaders/brdf/unreal4.glsl"
+    };
+
+    ShaderIncludes shader_includes;
+    // this method is setting all files we want to use in a shader per #include
+    // you have to specify the name(how file appears in shader)
+    // and its actual file location relatively
+    shader_includes.set(includeNames, file_locations_relative);
+
     GUI gui;
     LoadingScreen loading_screen; 
 
@@ -235,13 +190,11 @@ int main()
                                                                     0.1f, 500.f, 45.f);
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
-
     scene->init(main_camera, &main_window, clouds);
 
-    gbuffer = std::make_shared<GBuffer>(window_width, window_height);
+    std::shared_ptr<GBuffer> gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
     
-
     //create shader programs and use the standard shader
     create_shader_programs();
 
@@ -264,6 +217,9 @@ int main()
 
     std::thread t1 = scene->spwan();
     t1.detach();
+
+    GLfloat delta_time = 0.0f;
+    GLfloat last_time = 0.0f;
 
     while (!main_window.get_should_close()) {
 
