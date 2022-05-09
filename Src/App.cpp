@@ -10,16 +10,7 @@
 #include "File.h"
 #include "GUI.h"
 #include "LoadingScreen.h"
-
-//all render passes
-#include "DirectionalShadowMapPass.h"
-#include "OmniShadowMapPass.h"
-#include "LightingPass.h"
-#include "GeometryPass.h"
-#include "GBuffer.h"
-
-//all for environment effects
-#include "Clouds.h"
+#include "Renderer.h"
 
 //all scene/game logic/ game object related stuff
 #include "Scene.h"
@@ -29,8 +20,6 @@
 #include "GlobalValues.h"
 #include "host_device_shared.h"
 #include "ShaderIncludes.h"
-
-std::shared_ptr<Clouds> clouds;
 
 bool loading_screen_finished = false;
 
@@ -70,9 +59,11 @@ int main()
     
     // make sure ti initialize window first
     // this will create opengl context!
-    Window main_window;
-    main_window = Window(window_width, window_height);
-    main_window.initialize();
+    std::shared_ptr<Window> main_window;
+    main_window = std::make_shared<Window>(window_width, window_height);
+    main_window->initialize();
+
+    Renderer renderer(window_width, window_height);
 
     std::vector<const char*> includeNames = {   
             "host_device_shared.h",
@@ -111,9 +102,6 @@ int main()
     LoadingScreen loading_screen; 
     gui.init(main_window);
 
-    clouds = std::make_shared<Clouds>();
-    clouds->init(window_width, window_height);
-
     std::shared_ptr<Camera> main_camera = std::make_shared<Camera>( glm::vec3(0.0f,50.0f,0.0f), 
                                                                     glm::vec3(0.0f, 1.0f, 0.0f), 
                                                                     -60.0f,
@@ -121,18 +109,7 @@ int main()
                                                                     0.1f, 500.f, 45.f);
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
-    scene->init(main_camera, &main_window, clouds);
-
-    std::shared_ptr<GBuffer> gbuffer = std::make_shared<GBuffer>(window_width, window_height);
-    gbuffer->create();
-
-    //after creating programs one can init render passes
-    OmniShadowMapPass omni_shadow_map_pass                  = OmniShadowMapPass();
-    DirectionalShadowMapPass directional_shadow_map_pass    = DirectionalShadowMapPass();
-    GeometryPass geometry_pass                              = GeometryPass();
-    LightingPass lighting_pass                              = LightingPass();
-    lighting_pass.init();
-
+    scene->init(main_camera, main_window);
 
     //init texture for loading screen
     loading_screen.init();
@@ -147,7 +124,7 @@ int main()
     //enable depth testing
     glEnable(GL_DEPTH_TEST);
 
-    while (!main_window.get_should_close()) {
+    while (!main_window->get_should_close()) {
 
         glViewport(0, 0, window_width, window_height);
 
@@ -170,8 +147,8 @@ int main()
         glfwPollEvents();
 
         // handle events for the camera
-        main_camera->key_control(main_window.get_keys(), delta_time);
-        main_camera->mouse_control(main_window.get_x_change(), main_window.get_y_change());
+        main_camera->key_control(main_window->get_keys(), delta_time);
+        main_camera->mouse_control(main_window->get_x_change(), main_window->get_y_change());
 
         if (scene->is_loaded()) {
 
@@ -183,33 +160,10 @@ int main()
 
             if(!scene->get_context_setup()) scene->setup_game_object_context();
 
-            directional_shadow_map_pass.execute(projection_matrix, 
-                                                main_camera,
-                                                window_width, window_height,
-                                                scene);
-
-            // omni shadow map passes for our point lights
-            std::vector<std::shared_ptr<PointLight>> p_lights = scene->get_point_lights();
-            for (size_t p_light_count = 0; p_light_count < scene->get_point_light_count(); p_light_count++) {
-                omni_shadow_map_pass.execute(p_lights[p_light_count], scene);
-            }
-
-            //we will now start the geometry pass
-            geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(), 
-                                    window_width, window_height, gbuffer->get_id(),
-                                    delta_time, scene);
-
-            // render the AABB for the clouds
-            clouds->render( projection_matrix, main_camera->calculate_viewmatrix(), 
-                            window_width, window_height);
-
-            // after geometry pass we can now do the lighting
-            lighting_pass.execute(  projection_matrix, 
-                                    main_camera,
-                                    scene,
-                                    gbuffer, 
-                                    clouds, 
-                                    delta_time);
+            renderer.drawFrame( main_camera,
+                                scene, 
+                                projection_matrix,
+                                delta_time);
 
         }
         else {
@@ -227,23 +181,24 @@ int main()
         if(shader_hot_reload_triggered) reload_shader_programs();
         if(noise_hot_reload_triggered) reload_noise_programs();
 
-        gui.update_user_input(scene, clouds);
+        gui.update_user_input(scene);
 
-        main_window.update_viewport();
-        GLfloat new_window_width = main_window.get_buffer_width();
-        GLfloat new_window_height = main_window.get_buffer_height();
+        main_window->update_viewport();
+        GLfloat new_window_width = main_window->get_buffer_width();
+        GLfloat new_window_height = main_window->get_buffer_height();
 
         if ((new_window_width == window_width && window_height == new_window_height) == false) {
 
             window_height = new_window_height;
             window_width = new_window_width;
-            gbuffer->update_window_params(window_width, window_height);
-            gbuffer->create();
+            renderer.update_window_params(window_width, window_height);
+
+            std::shared_ptr<Clouds> clouds = scene->get_clouds();
             clouds->update_window_params(window_width, window_height);
 
         }
 
-        main_window.swap_buffers();
+        main_window->swap_buffers();
     }
 
 }

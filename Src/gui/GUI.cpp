@@ -59,7 +59,7 @@ GUI::GUI()
 
 }
 
-void GUI::init(Window& main_window)
+void GUI::init(std::shared_ptr<Window> main_window)
 {
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -67,7 +67,7 @@ void GUI::init(Window& main_window)
     //ImGuiIO& io = ImGui::GetIO();
     ImGuiStyle& style = ImGui::GetStyle();
     // Setup Platform/Renderer bindings
-    ImGui_ImplGlfw_InitForOpenGL(main_window.get_window(), true);
+    ImGui_ImplGlfw_InitForOpenGL(main_window->get_window(), true);
     const char* glsl_version = "#version 460";
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
@@ -199,8 +199,7 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
 
 }
 
-void GUI::update_user_input(std::shared_ptr<Scene> scene,
-                            std::shared_ptr<Clouds> clouds)
+void GUI::update_user_input(std::shared_ptr<Scene> scene)
 {
     std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
     main_light->set_ambient_intensity(direcional_light_ambient_intensity);
@@ -223,6 +222,7 @@ void GUI::update_user_input(std::shared_ptr<Scene> scene,
                             cloud_movement_direction[1],
                             cloud_movement_direction[2]);
 
+    std::shared_ptr<Clouds> clouds = scene->get_clouds();
     clouds->set_movement_direction(cloud_move);
     clouds->set_movement_speed(cloud_speed);
     clouds->set_density(cloud_density);

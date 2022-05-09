@@ -32,8 +32,7 @@ public:
     void execute(   glm::mat4 projection_matrix, 
                     std::shared_ptr<Camera>,
                     std::shared_ptr<Scene> scene,
-                    std::shared_ptr<GBuffer> gbuffer,
-                    std::shared_ptr<Clouds> cloud, 
+                    std::shared_ptr<GBuffer> gbuffer, 
                     float delta_time);
 
     void create_shader_program();
@@ -53,7 +52,6 @@ private:
                                             std::shared_ptr<Camera> main_camera,
                                             std::shared_ptr<Scene> scene,
                                             std::shared_ptr<GBuffer> gbuffer,
-                                            std::shared_ptr<Clouds> cloud,
                                             float delta_time);
 
     void bind_buffers_for_lighting( std::shared_ptr<GBuffer> gbuffer, 

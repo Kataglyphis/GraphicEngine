@@ -1,13 +1,14 @@
 #pragma once
 #include <vector>
+#include <mutex>
+#include <thread>
+
 #include "GameObject.h"
 #include "ViewFrustumCulling.h"
 #include "RenderPassSceneDependend.h"
 #include "Window.h"
-#include <mutex>
 #include "Clouds.h"
-#include <thread>
-#include <ObjMaterial.h>
+#include "ObjMaterial.h"
 #include "PointLight.h"
 
 class Scene
@@ -23,7 +24,7 @@ public:
 		return std::thread([=] {load_models();});
 	}
 
-	void init(std::shared_ptr<Camera> main_camera, Window* main_window, std::shared_ptr<Clouds> clouds);
+	void init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_window);
 
 	GLuint get_point_light_count();
 	std::shared_ptr<DirectionalLight> get_sun();
@@ -59,11 +60,10 @@ private:
 	//lights
 	std::shared_ptr<DirectionalLight> sun;
 	std::vector<std::shared_ptr<PointLight>> point_lights;
-
-
-	Window* main_window;
-	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 	std::shared_ptr<Clouds> clouds;
+
+	std::shared_ptr<Window> main_window;
+	std::shared_ptr<ViewFrustumCulling> view_frustum_culling;
 
 	std::vector<std::shared_ptr<GameObject>> ambient_objects;
 

@@ -34,20 +34,21 @@ void LightingPass::execute( glm::mat4 projection_matrix,
                             std::shared_ptr<Camera> main_camera,
                             std::shared_ptr<Scene> scene,
                             std::shared_ptr<GBuffer> gbuffer,
-                            std::shared_ptr<Clouds> cloud, 
                             float delta_time)
 {
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    std::shared_ptr<DirectionalLight> main_light;
-    std::vector<std::shared_ptr<PointLight>> point_lights; 
-    GLuint point_light_count;
-    glm::vec3 camera_position;
+    std::shared_ptr<DirectionalLight>           main_light          = scene->get_sun();
+    std::vector<std::shared_ptr<PointLight>>    point_lights        = scene->get_point_lights();
+    std::shared_ptr<Clouds>                     cloud               = scene->get_clouds();
+    GLuint                                      point_light_count   = scene->get_point_light_count();
+    glm::vec3                                   camera_position     = main_camera->get_camera_position();
 
     shader_program->use_shader_program();
     retrieve_lighting_pass_locations(   projection_matrix, main_camera, 
                                         scene, gbuffer,
-                                        cloud, delta_time);
+                                        delta_time);
 
     bind_buffers_for_lighting(gbuffer, scene, cloud);
 
@@ -67,7 +68,6 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                                                     std::shared_ptr<Camera> main_camera,
                                                     std::shared_ptr<Scene> scene,
                                                     std::shared_ptr<GBuffer> gbuffer,
-                                                    std::shared_ptr<Clouds> cloud, 
                                                     float delta_time)
 {
 
@@ -133,6 +133,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     }
 
     // CLOUDS
+    std::shared_ptr<Clouds> cloud = scene->get_clouds();
     uniform_helper.setUniformVec3(cloud->get_rad(), shader_program->get_uniform_cloud_rad_location());
 
     GLfloat velocity = cloud->get_movement_speed() * delta_time;
