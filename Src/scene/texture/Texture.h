@@ -29,11 +29,13 @@ public:
 	bool load_SRGB_texture_with_alpha_channel();
 
 	std::string get_filename();
+	GLuint		get_id();
 
 	void use_texture(unsigned int index);
 	void unbind_texture(unsigned int index);
+
 	void clear_texture_context();
-	GLuint get_id();
+
 
 	~Texture();
 

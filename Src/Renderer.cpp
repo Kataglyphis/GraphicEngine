@@ -1,20 +1,22 @@
 #include "Renderer.h"
 
-Renderer::Renderer(GLuint window_width, GLuint window_height)
+Renderer::Renderer(GLuint window_width, GLuint window_height) : 
+                                shader_includes(),
+                                omni_shadow_map_pass(std::make_shared<OmniShadowMapPass>()),
+                                directional_shadow_map_pass(std::make_shared<DirectionalShadowMapPass>()),
+                                geometry_pass(std::make_shared<GeometryPass>()),
+                                lighting_pass(std::make_shared<LightingPass>())
 {
+    render_passes.push_back(omni_shadow_map_pass);
 
     this->window_width  = window_width;
     this->window_height = window_height;
 
     gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
+    
+    lighting_pass->init();
 
-    //after creating programs one can init render passes
-    omni_shadow_map_pass        = OmniShadowMapPass();
-    directional_shadow_map_pass = DirectionalShadowMapPass();
-    geometry_pass               = GeometryPass();
-    lighting_pass               = LightingPass();
-    lighting_pass.init();
 }
 
 void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
@@ -23,7 +25,7 @@ void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
                             GLfloat delta_time)
 {
 
-    directional_shadow_map_pass.execute(projection_matrix,
+    directional_shadow_map_pass->execute(projection_matrix,
                                         main_camera,
                                         window_width, window_height,
                                         scene);
@@ -31,11 +33,11 @@ void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
     // omni shadow map passes for our point lights
     std::vector<std::shared_ptr<PointLight>> p_lights = scene->get_point_lights();
     for (size_t p_light_count = 0; p_light_count < scene->get_point_light_count(); p_light_count++) {
-        omni_shadow_map_pass.execute(p_lights[p_light_count], scene);
+        omni_shadow_map_pass->execute(p_lights[p_light_count], scene);
     }
 
     //we will now start the geometry pass
-    geometry_pass.execute(  projection_matrix, main_camera->calculate_viewmatrix(),
+    geometry_pass->execute(  projection_matrix, main_camera->calculate_viewmatrix(),
                             window_width, window_height, gbuffer->get_id(),
                             delta_time, scene);
 
@@ -45,7 +47,7 @@ void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
                     window_width, window_height);
 
     // after geometry pass we can now do the lighting
-    lighting_pass.execute(  projection_matrix,
+    lighting_pass->execute(  projection_matrix,
                             main_camera,
                             scene,
                             gbuffer,
@@ -63,12 +65,12 @@ void Renderer::update_window_params(GLuint window_width, GLuint window_height)
 
 void Renderer::reload_shader_programs()
 {
-    //set_shader_includes();
-    /*shadow_map_shader_program->reload();
-    g_buffer_geometry_pass_shader_program->reload();
-    g_buffer_lighting_pass_shader_program->reload();
-    omni_dir_shadow_shader_program->reload();
-    clouds->get_shader_program()->reload();*/
+    // also reload all shader include files
+    shader_includes = ShaderIncludes();
+
+    for (std::shared_ptr<RenderPassSceneDependend> render_pass : render_passes) {
+        render_pass->create_shader_program();
+    }
 
     /*noise->update();
     create_noise_textures();*/

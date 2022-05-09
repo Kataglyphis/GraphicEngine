@@ -107,11 +107,6 @@ void ShaderProgram::validate_program()
 
 }
 
-void ShaderProgram::reload()
-{
-    create_from_files(this->vertex_location, this->fragment_location);
-}
-
 void ShaderProgram::use_shader_program()
 {
     glUseProgram(program_id);

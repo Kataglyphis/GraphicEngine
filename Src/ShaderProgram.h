@@ -29,8 +29,6 @@ public:
 
 	void use_shader_program();
 
-	void reload();
-
 	void validate_program();
 
 	~ShaderProgram();

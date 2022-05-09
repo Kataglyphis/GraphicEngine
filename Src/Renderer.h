@@ -5,6 +5,7 @@
 #include "LightingPass.h"
 #include "GeometryPass.h"
 #include "GBuffer.h"
+#include "ShaderIncludes.h"
 
 class Renderer
 {
@@ -24,15 +25,19 @@ public:
 
 private:
 
-    GLuint window_width, window_height;
+    GLuint                      window_width, window_height;
 
-    std::shared_ptr<GBuffer> gbuffer;
+    std::shared_ptr<GBuffer>    gbuffer;
+
+    ShaderIncludes              shader_includes;
 
     // all render passes
-    OmniShadowMapPass           omni_shadow_map_pass;
-    DirectionalShadowMapPass    directional_shadow_map_pass;
-    GeometryPass                geometry_pass;
-    LightingPass                lighting_pass;
+    std::vector<std::shared_ptr<RenderPassSceneDependend>>  render_passes;
+
+    std::shared_ptr<OmniShadowMapPass>                      omni_shadow_map_pass;
+    std::shared_ptr<DirectionalShadowMapPass>               directional_shadow_map_pass;
+    std::shared_ptr<GeometryPass>                           geometry_pass;
+    std::shared_ptr<LightingPass>                           lighting_pass;
 
 };
 

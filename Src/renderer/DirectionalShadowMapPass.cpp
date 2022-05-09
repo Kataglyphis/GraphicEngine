@@ -3,7 +3,7 @@
 
 DirectionalShadowMapPass::DirectionalShadowMapPass()
 {
-    create_shader_programs();
+    create_shader_program();
     this->uniform_helper = UniformHelper();
 }
 
@@ -43,7 +43,7 @@ void DirectionalShadowMapPass::execute( glm::mat4 projection,
     shader_program->validate_program();
 }
 
-void DirectionalShadowMapPass::create_shader_programs()
+void DirectionalShadowMapPass::create_shader_program()
 {
     shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
     shader_program->create_from_files(  "rasterizer/shadows/directional_shadow_map.vert",

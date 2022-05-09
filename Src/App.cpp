@@ -19,57 +19,25 @@
 
 #include "GlobalValues.h"
 #include "host_device_shared.h"
-#include "ShaderIncludes.h"
-
-bool loading_screen_finished = false;
 
 int main()
 {
+
+    bool loading_screen_finished = false;
+
     GLint window_width = 1200;
     GLint window_height = 800;
     
     // make sure ti initialize window first
     // this will create opengl context!
-    std::shared_ptr<Window> main_window;
-    main_window = std::make_shared<Window>(window_width, window_height);
+    std::shared_ptr<Window> main_window = std::make_shared<Window>(window_width, window_height);
     main_window->initialize();
 
-    std::vector<const char*> includeNames = {   
-            "host_device_shared.h",
-            "Globals.glsl",
-            "Matlib.glsl",
-            "microfacet.glsl",
-            "ShadingLibrary.glsl",
-            "disney.glsl",
-            "frostbite.glsl",
-            "pbrBook.glsl",
-            "phong.glsl",
-            "unreal4.glsl"
-    };
-
-    std::vector<const char*> file_locations_relative = {    
-            "/Src/host_device_shared.h",
-            "/Resources/Shaders/common/Globals.glsl",
-            "/Resources/Shaders/common/Matlib.glsl",
-            "/Resources/Shaders/common/microfacet.glsl",
-            "/Resources/Shaders/common/ShadingLibrary.glsl" ,
-            "/Resources/Shaders/brdf/disney.glsl",
-            "/Resources/Shaders/brdf/frostbite.glsl",
-            "/Resources/Shaders/brdf/pbrBook.glsl",
-            "/Resources/Shaders/brdf/phong.glsl",
-            "/Resources/Shaders/brdf/unreal4.glsl"
-    };
-
-    ShaderIncludes shader_includes;
-
-    // this method is setting all files we want to use in a shader per #include
-    // you have to specify the name(how file appears in shader)
-    // and its actual file location relatively
-    shader_includes.set(includeNames, file_locations_relative);
-
     Renderer renderer(window_width, window_height);
+
     GUI gui;
     gui.init(main_window);
+
     LoadingScreen loading_screen; 
     loading_screen.init();
 

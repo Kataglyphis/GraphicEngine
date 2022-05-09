@@ -6,13 +6,10 @@
 #include <sstream>
 #include <cassert>
 
+// this method is setting all files we want to use in a shader per #include
+// you have to specify the name(how file appears in shader)
+// and its actual file location relatively
 ShaderIncludes::ShaderIncludes()
-{
-}
-
-// https://cpp.hotexamples.com/examples/-/-/glNamedStringARB/cpp-glnamedstringarb-function-examples.html
-void ShaderIncludes::set(   std::vector<const char*> includeNames,
-                            std::vector<const char*> file_locations_relative)
 {
 
     assert(includeNames.size() == file_locations_relative.size());
@@ -39,7 +36,6 @@ void ShaderIncludes::set(   std::vector<const char*> includeNames,
         DebugApp_ins.areErrorPrintAll("From glNamedStringARB.");
 
     }
-
 }
 
 ShaderIncludes::~ShaderIncludes()
