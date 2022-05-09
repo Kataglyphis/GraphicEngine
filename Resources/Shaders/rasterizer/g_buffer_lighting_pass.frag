@@ -5,6 +5,9 @@
 #include "/Globals.glsl"
 #include "/host_device_shared.h"
 
+#include "/Matlib.glsl"
+
+#include "/microfacet.glsl"
 #include "/disney.glsl"
 #include "/frostbite.glsl"
 #include "/pbrBook.glsl"
@@ -35,7 +38,7 @@ uniform sampler2D cloud_position_depth;
 
 //a set of random numbers for getting an good offset for raymarching
 // with that we accomplish a round "random" shape for our cloud 
-//in [0,1 ]
+//in [0,1]
 uniform sampler2D random_number;
 
 //our directional shadow maps; 
@@ -54,10 +57,10 @@ uniform sampler3D noise_texture_2;
 
 //all other uniforms
 uniform PointLight point_lights[MAX_POINT_LIGHTS];
-uniform int point_light_count;
-uniform vec3 eye_position;
 uniform Material materials[MAX_MATERIALS];
 uniform Clouds cloud;
+uniform int point_light_count;
+uniform vec3 eye_position;
 uniform mat4 view;
 uniform mat4 projection;
 
@@ -73,12 +76,6 @@ vec3 sample_offset_directions[20] = vec3[] (
     vec3(0,1,1), vec3(0,-1,1), vec3(0,-1,-1), vec3(0,1,-1)
 );
 
-float LinearizeDepth(float depth, float near_plane, float far_plane)
-{
-    float z = depth * 2.0 - 1.0; // Back to NDC 
-    return (2.0 * near_plane * far_plane) / (far_plane + near_plane - z * (far_plane - near_plane));
-}
-
 float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
     
      //PCF
@@ -91,7 +88,8 @@ float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
         for(int y = -pcf_radius; y <= pcf_radius; y++) {
             
             vec3 proj_neighbor = vec3(proj_coords.xy + vec2(x,y) * texel_size, 1.0);
-            float closest_depth_neighbor = texture(directional_shadow_maps, vec3(proj_coords.xy + vec2(x, y) * texel_size, cascade_index)).r;
+            float closest_depth_neighbor = texture(directional_shadow_maps, vec3(proj_coords.xy + 
+                                                    vec2(x, y) * texel_size, cascade_index)).r;
             shadow += current_depth > closest_depth_neighbor + 0.001f  ? 1.0f : 0.0f;
             num_neighbors++;
 
@@ -111,7 +109,7 @@ float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
 //with PCF; cascaded approach
 float calc_directional_shadow_factor(DirectionalLight d_light) {
     
-    vec4 fragPosWorldSpace = vec4(texture(g_position, tex_coords).xyz,1.0f);
+    vec4 fragPosWorldSpace = vec4(texture(g_position, tex_coords).xyz, 1.0f);
     vec4 fragPosViewSpace = view * fragPosWorldSpace;
     float frag_depth = abs(fragPosViewSpace.z);
     int cascade_index = -1;
@@ -147,7 +145,7 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
     const float biasModifier = 0.5f;
     if (cascade_index == NUM_CASCADES)
     {
-        float farPlane = 2000.f;
+        float farPlane = cascade_endpoints[NUM_CASCADES - 1];
         bias *= 1 / (farPlane * biasModifier);
     }
     else
@@ -205,7 +203,6 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
 }
 
-
 vec4 calc_directional_light() {
     
     float shadow_factor = calc_directional_shadow_factor(directional_light);
@@ -250,8 +247,7 @@ vec4 calc_point_light(vec3 frag_pos, PointLight p_light, int shadow_index) {
 
     vec4 color = vec4(p_light.base.color, 1.0f);//calc_light_by_direction(p_light.base, direction, shadow_factor); // 
     //float attentuation =1.0f * dist ;//pow(distance,2) ;
-    float attentuation =  (p_light.exponent * dist * dist) 
-                                     +  (p_light.linear * dist);
+    float attentuation =  (p_light.exponent * dist * dist) +  (p_light.linear * dist);
 
     return (color / attentuation);
 
@@ -285,7 +281,7 @@ float sample_density(vec3 position) {
     vec3 uvw_32 = (mod(position+ cloud.offset, 32)) /32.f; // + cloud.offset
     vec4 noise_32= texture(noise_texture_2, uvw_32);
 
-    float fine_density = 0.6f * max(0.0f, noise_32.r - cloud.threshold) * cloud.scale
+    float fine_density =    0.6f * max(0.0f, noise_32.r - cloud.threshold) * cloud.scale
                             + 0.15f * max(0.0f, noise_32.g - cloud.threshold) * cloud.scale
                             + 0.15f * max(0.0f, noise_32.b - cloud.threshold) * cloud.scale;
 
@@ -421,12 +417,6 @@ bool belongs_to_scene() {
 
 }
 
-vec3 Reinhards_tonemapping(vec3 color) {
-    
-    return color / (color + vec3(1.f));
-
-}
-
 void main () {
     
     vec4 final_color = calc_directional_light();
@@ -439,10 +429,10 @@ void main () {
     }
 
 
+    calc_clouds();
     color.xyz = Reinhards_tonemapping(color.xyz);
     color = vec4(gamma_correction(color.xyz),1.0);
     //color = final_color;
-    //calc_clouds();
 
 }
 

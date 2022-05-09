@@ -20,7 +20,7 @@ std::shared_ptr<GLfloat[]> RandomNumbers::generate_random_numbers()
 
             GLuint index = (MAX_RESOLUTION_Y * i + k) * 4;
 
-            *(random_number_data.get() + index) = random_offset[0];//random_offset[0];//
+            *(random_number_data.get() + index) = random_offset[0];//
             *(random_number_data.get() + index + 1) = random_offset[1];//
             *(random_number_data.get() + index + 2) = random_offset[2];//
             *(random_number_data.get() + index + 3) = random_offset[3];//

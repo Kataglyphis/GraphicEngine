@@ -34,7 +34,7 @@ void Clouds::init(GLfloat window_width, GLfloat window_height)
 	translation = glm::vec3(0.0f);
 	scale_factor = glm::vec3(1.f);
 
-	shader_program->create_from_files("clouds/Clouds.vert","clouds/Clouds.frag");
+	shader_program->create_from_files("clouds/CloudsRectangle.vert","clouds/CloudsRectangle.frag");
 
 	glGenFramebuffers(1, &FBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, FBO);

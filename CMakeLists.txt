@@ -68,15 +68,27 @@ FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h"
                                 "Src/gui/*.h"                               "Src/gui/*.cpp")
 
 FILE(GLOB COMPUTE_FILTER                "Src/compute/*.h"                               "Src/compute/*.cpp")
+
+FILE(GLOB CAMERA_FILTER                 "Src/camera/*.h"                                "Src/camera/*.cpp")
+
 FILE(GLOB RENDERER_FILTER               "Src/renderer/*.h"                              "Src/renderer/*.cpp")
+FILE(GLOB DEFERRED_FILTER               "Src/renderer/deferred/*.h"                     "Src/renderer/deferred/*.cpp")
+FILE(GLOB LOAD_SCREEN_FILTER            "Src/renderer/loading_screen/*.h"               "Src/renderer/loading_screen/*.cpp")
+
 FILE(GLOB CLOUD_FILTER                  "Src/scene/atmospheric_effects/clouds/*.h"      "Src/scene/atmospheric_effects/clouds/*.cpp")
+
 FILE(GLOB LIGHT_FILTER                  "Src/scene/light/*.h"                           "Src/scene/light/*.cpp")
+FILE(GLOB D_LIGHT_FILTER                "Src/scene/light/directional_light/*.h"         "Src/scene/light/directional_light/*.cpp")
+FILE(GLOB P_LIGHT_FILTER                "Src/scene/light/point_light/*.h"               "Src/scene/light/point_light/*.cpp")
+
 FILE(GLOB SHADOWS_FILTER                "Src/scene/shadows/*.h"                         "Src/scene/shadows/*.cpp")
 FILE(GLOB SKY_BOX_FILTER                "Src/scene/sky_box/*.h"                         "Src/scene/sky_box/*.cpp")
 FILE(GLOB TEXTURE_FILTER                "Src/scene/texture/*.h"                         "Src/scene/texture/*.cpp")
 FILE(GLOB SCENE_FILTER                  "Src/scene/*.h"                                 "Src/scene/*.cpp")
+
 FILE(GLOB WINDOW_FILTER                 "Src/window/*.h"                                "Src/window/*.cpp")
 FILE(GLOB DEBUG_FILTER                  "Src/debug/*.h"                                 "Src/debug/*.cpp")
+FILE(GLOB UTIL_FILTER                   "Src/util/*.h"                                  "Src/util/*.cpp")
 FILE(GLOB MAIN_FILTER                   "Src/*.h"                                       "Src/*.cpp")
 
 # add filters to the solution explorer for the shaders :))
@@ -88,12 +100,20 @@ file(GLOB SHADER_FILTER
 	${PROJECT_BINARY_DIR}/../Resources/Shaders/*.geom
 )
 
+file(GLOB PBR_SHADER_FILTER   
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.comp
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.geom
+)
+
 file(GLOB BRDF_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/brdf/*.geom
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.vert
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.frag
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.glsl
+        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.comp
+	${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.geom
 )
 
 file(GLOB COMMON_SHADER_FILTER   
@@ -147,7 +167,8 @@ file(GLOB SKYBOX_SHADER_FILTER
 source_group("gui"                                      FILES ${GUI_FILTER})
 
 source_group("shaders"                                  FILES ${SHADER_FILTER})
-source_group("shaders/brdf"                             FILES ${BRDF_SHADER_FILTER})
+source_group("shaders/pbr"                              FILES ${PBR_SHADER_FILTER})
+source_group("shaders/pbr/brdf"                         FILES ${BRDF_SHADER_FILTER})
 source_group("shaders/common"                           FILES ${COMMON_SHADER_FILTER})
 source_group("shaders/clouds"                           FILES ${CLOUDS_SHADER_FILTER})
 source_group("shaders/loading_screen"                   FILES ${LOADING_SHADER_FILTER})
@@ -156,18 +177,29 @@ source_group("shaders/rasterizer/shadows"               FILES ${RASTERIZER_SHADO
 source_group("shaders/skybox"                           FILES ${SKYBOX_SHADER_FILTER})
 
 source_group("compute"                                  FILES ${COMPUTE_FILTER})
+
+source_group("camera"                                   FILES ${CAMERA_FILTER})
+
 source_group("renderer"                                 FILES ${RENDERER_FILTER})
+source_group("renderer/deferred"                        FILES ${DEFERRED_FILTER})
+source_group("renderer/loading_screen"                  FILES ${LOAD_SCREEN_FILTER})
+
 source_group("window"                                   FILES ${WINDOW_FILTER})
 source_group("debug"                                    FILES ${DEBUG_FILTER})
+source_group("util"                                     FILES ${UTIL_FILTER})
 
 source_group("scene/atmospheric_effects/clouds"         FILES ${CLOUD_FILTER})
+
 source_group("scene/lights"                             FILES ${LIGHT_FILTER})
+source_group("scene/lights/directional"                 FILES ${D_LIGHT_FILTER})
+source_group("scene/lights/point"                       FILES ${P_LIGHT_FILTER})
+
 source_group("scene/shadows"                            FILES ${SHADOWS_FILTER})
 source_group("scene/sky_box"                            FILES ${SKY_BOX_FILTER})
 source_group("scene/texture"                            FILES ${TEXTURE_FILTER})
 source_group("scene"                                    FILES ${SCENE_FILTER})
 
-source_group("main"                                     FILES ${MAIN_FILTER})
+source_group("app"                                      FILES ${MAIN_FILTER})
 
 #set all your sources accordingly
 file(GLOB_RECURSE SOURCES "Src/*.cpp"
@@ -183,9 +215,11 @@ file(GLOB_RECURSE HEADERS "Src/*.h"
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
 
 # add the executable
-add_executable(${PROJECT_NAME} 
+add_executable( ${PROJECT_NAME} 
                 ${SHADER_FILTER}
+                ${PBR_SHADER_FILTER}
                 ${BRDF_SHADER_FILTER} 
+                ${CAMERA_FILTER} 
                 ${COMMON_SHADER_FILTER}  
                 ${CLOUDS_SHADER_FILTER}
                 ${LOADING_SHADER_FILTER}
@@ -195,10 +229,15 @@ add_executable(${PROJECT_NAME}
                 ${GUI_FILTER}
                 ${WINDOW_FILTER}
                 ${DEBUG_FILTER}
+                ${UTIL_FILTER}
                 ${COMPUTE_FILTER}
                 ${RENDERER_FILTER}
+                ${DEFERRED_FILTER}
+                ${LOAD_SCREEN_FILTER}
                 ${ATMOSPHERE_EFFECTS_FILTER}
                 ${LIGHT_FILTER}
+                ${D_LIGHT_FILTER}
+                ${P_LIGHT_FILTER}
                 ${CLOUD_FILTER}
                 ${SHADOWS_FILTER}
                 ${SKY_BOX_FILTER}
@@ -212,19 +251,25 @@ else()
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 endif()
 
-target_include_directories(${PROJECT_NAME}  PUBLIC "./Src"
-                                            PUBLIC "./Src/compute"
-                                            PUBLIC "./Src/renderer"
-                                            PUBLIC "./Src/debug"
-                                            PUBLIC "./Src/window"
-                                            PUBLIC "./Src/scene"
-                                            PUBLIC "./Src/scene/atmospheric_effects/clouds"
-                                            PUBLIC "./Src/scene/light"
-                                            PUBLIC "./Src/scene/shadows"
-                                            PUBLIC "./Src/scene/sky_box"
-                                            PUBLIC "./Src/scene/texture"
-                                            PUBLIC "./Src/gui"
-                                            ${OPENGL_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
+                                                PUBLIC "./Src/camera"
+                                                PUBLIC "./Src/compute"
+                                                PUBLIC "./Src/renderer"
+                                                PUBLIC "./Src/renderer/loading_screen"
+                                                PUBLIC "./Src/renderer/deferred"
+                                                PUBLIC "./Src/debug"
+                                                PUBLIC "./Src/window"
+                                                PUBLIC "./Src/scene"
+                                                PUBLIC "./Src/scene/atmospheric_effects/clouds"
+                                                PUBLIC "./Src/scene/light"
+                                                PUBLIC "./Src/scene/light/directional_light"
+                                                PUBLIC "./Src/scene/light/point_light"
+                                                PUBLIC "./Src/scene/shadows"
+                                                PUBLIC "./Src/scene/sky_box"
+                                                PUBLIC "./Src/scene/texture"
+                                                PUBLIC "./Src/gui"
+                                                PUBLIC "./Src/util"
+                                                ${OPENGL_INCLUDE_DIRS})
                                             
 target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
                                         Threads::Threads

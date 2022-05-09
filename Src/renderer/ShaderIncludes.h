@@ -29,13 +29,13 @@ private:
             "/Src/host_device_shared.h",
             "/Resources/Shaders/common/Globals.glsl",
             "/Resources/Shaders/common/Matlib.glsl",
-            "/Resources/Shaders/common/microfacet.glsl",
+            "/Resources/Shaders/pbr/microfacet.glsl",
             "/Resources/Shaders/common/ShadingLibrary.glsl" ,
-            "/Resources/Shaders/brdf/disney.glsl",
-            "/Resources/Shaders/brdf/frostbite.glsl",
-            "/Resources/Shaders/brdf/pbrBook.glsl",
-            "/Resources/Shaders/brdf/phong.glsl",
-            "/Resources/Shaders/brdf/unreal4.glsl"
+            "/Resources/Shaders/pbr/brdf/disney.glsl",
+            "/Resources/Shaders/pbr/brdf/frostbite.glsl",
+            "/Resources/Shaders/pbr/brdf/pbrBook.glsl",
+            "/Resources/Shaders/pbr/brdf/phong.glsl",
+            "/Resources/Shaders/pbr/brdf/unreal4.glsl"
     };
 
 };
