@@ -3,6 +3,9 @@
 Renderer::Renderer(GLuint window_width, GLuint window_height)
 {
 
+    this->window_width  = window_width;
+    this->window_height = window_height;
+
     gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
 
@@ -56,6 +59,19 @@ void Renderer::update_window_params(GLuint window_width, GLuint window_height)
     this->window_height = window_height;
     gbuffer->update_window_params(window_width, window_height);
     gbuffer->create();
+}
+
+void Renderer::reload_shader_programs()
+{
+    //set_shader_includes();
+    /*shadow_map_shader_program->reload();
+    g_buffer_geometry_pass_shader_program->reload();
+    g_buffer_lighting_pass_shader_program->reload();
+    omni_dir_shadow_shader_program->reload();
+    clouds->get_shader_program()->reload();*/
+
+    /*noise->update();
+    create_noise_textures();*/
 }
 
 Renderer::~Renderer()

@@ -16,8 +16,8 @@ public:
 
 	void init(std::shared_ptr<Window> main_window);
 
-	void render(bool loading_in_progress, float progress, bool& shader_hot_reload_triggered,
-				bool& noise_hot_reload_triggered);
+	void render(bool loading_in_progress, float progress, 
+				bool& shader_hot_reload_triggered);
 
 	void update_user_input(	std::shared_ptr<Scene> scene);
 

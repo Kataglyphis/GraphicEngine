@@ -18,6 +18,7 @@ public:
                     GLfloat delta_time);
 
     void update_window_params(GLuint window_width, GLuint window_height);
+    void reload_shader_programs();
 
 	~Renderer();
 

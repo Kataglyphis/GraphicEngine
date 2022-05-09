@@ -77,8 +77,7 @@ void GUI::init(std::shared_ptr<Window> main_window)
     ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 1);
 }
 
-void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_reload_triggered,
-                    bool& noise_hot_reload_triggered)
+void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_reload_triggered)
 {
 
     // feed inputs to dear imgui, start new frame
@@ -149,9 +148,6 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
             ImGui::Checkbox("Powder effect", &cloud_powder_effect);
             ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 1000.0f);
 
-            if (ImGui::Button("Update Cloud params")) {
-                noise_hot_reload_triggered = true;
-            }
             ImGui::TreePop();
         }
 

@@ -23,35 +23,6 @@
 
 bool loading_screen_finished = false;
 
-// here we will initialize all our programs
-void create_shader_programs() {
-
-    // set include file for shaders
-    //set_shader_includes();
-    /*create_geometry_pass_shader_program();
-    create_lighting_pass_shader_program();
-    create_shadow_map_shader_program();
-    create_omni_shadow_map_shader_program();*/
-
-}
-
-void reload_shader_programs()
-{
-    //set_shader_includes();
-    /*shadow_map_shader_program->reload();
-    g_buffer_geometry_pass_shader_program->reload();
-    g_buffer_lighting_pass_shader_program->reload();
-    omni_dir_shadow_shader_program->reload();
-    clouds->get_shader_program()->reload();*/
-
-}
-
-void reload_noise_programs() {
-
-    /*noise->update();
-    create_noise_textures();*/
-}
-
 int main()
 {
     GLint window_width = 1200;
@@ -62,8 +33,6 @@ int main()
     std::shared_ptr<Window> main_window;
     main_window = std::make_shared<Window>(window_width, window_height);
     main_window->initialize();
-
-    Renderer renderer(window_width, window_height);
 
     std::vector<const char*> includeNames = {   
             "host_device_shared.h",
@@ -98,9 +67,11 @@ int main()
     // and its actual file location relatively
     shader_includes.set(includeNames, file_locations_relative);
 
+    Renderer renderer(window_width, window_height);
     GUI gui;
-    LoadingScreen loading_screen; 
     gui.init(main_window);
+    LoadingScreen loading_screen; 
+    loading_screen.init();
 
     std::shared_ptr<Camera> main_camera = std::make_shared<Camera>( glm::vec3(0.0f,50.0f,0.0f), 
                                                                     glm::vec3(0.0f, 1.0f, 0.0f), 
@@ -110,9 +81,6 @@ int main()
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     scene->init(main_camera, main_window);
-
-    //init texture for loading screen
-    loading_screen.init();
 
     // load scene in an other thread than the rendering thread; would block otherwise
     std::thread t1 = scene->spwan();
@@ -152,11 +120,7 @@ int main()
 
         if (scene->is_loaded()) {
 
-            if (!loading_screen_finished) {
-
-                loading_screen_finished = true;
-
-            }
+            if (!loading_screen_finished) loading_screen_finished = true;
 
             if(!scene->get_context_setup()) scene->setup_game_object_context();
 
@@ -165,9 +129,7 @@ int main()
                                 projection_matrix,
                                 delta_time);
 
-        }
-        else {
-
+        } else {
             // play the audio
             //SoundEngine->play2D("Audio/Red_Dead_Redemption_2 _Loading_Screen.mp3", true); //
             loading_screen.render();
@@ -175,11 +137,9 @@ int main()
         }
 
         bool shader_hot_reload_triggered = false;
-        bool noise_hot_reload_triggered = false;
-        gui.render(!scene->is_loaded(), scene->get_progress(), shader_hot_reload_triggered, noise_hot_reload_triggered);
+        gui.render(!scene->is_loaded(), scene->get_progress(), shader_hot_reload_triggered);
 
-        if(shader_hot_reload_triggered) reload_shader_programs();
-        if(noise_hot_reload_triggered) reload_noise_programs();
+        if(shader_hot_reload_triggered) renderer.reload_shader_programs();
 
         gui.update_user_input(scene);
 
