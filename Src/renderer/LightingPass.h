@@ -27,15 +27,16 @@ public:
 
     LightingPass();
 
-    void init(std::shared_ptr<LightingPassShaderProgram> shader_program);
+    void init();
 
     void execute(   glm::mat4 projection_matrix, 
                     std::shared_ptr<Camera>,
                     std::shared_ptr<Scene> scene,
                     std::shared_ptr<GBuffer> gbuffer,
-                    std::shared_ptr<Noise> noise,
                     std::shared_ptr<Clouds> cloud, 
                     float delta_time);
+
+    void create_shader_program();
 
     ~LightingPass();
 
@@ -56,8 +57,7 @@ private:
                                             float delta_time);
 
     void bind_buffers_for_lighting( std::shared_ptr<GBuffer> gbuffer, 
-                                    std::shared_ptr<Scene> scene,
-                                    std::shared_ptr<Noise> noise,  
+                                    std::shared_ptr<Scene> scene, 
                                     std::shared_ptr<Clouds> cloud);
 
     void bind_random_numbers(GLuint texture_unit);

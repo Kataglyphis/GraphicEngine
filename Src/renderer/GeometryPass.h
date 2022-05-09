@@ -20,12 +20,13 @@ class GeometryPass :
 public:
 
     GeometryPass();
-    GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program);
 
     void execute(   glm::mat4 projection_matrix, glm::mat4 view_matrix,  
                     GLfloat window_width, GLfloat window_height, 
                     GLuint gbuffer_id, GLfloat delta_time, 
                     std::shared_ptr<Scene>);
+
+    void create_shader_program();
 
     void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
 

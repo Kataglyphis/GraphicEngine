@@ -11,13 +11,15 @@ class DirectionalShadowMapPass :
     public RenderPassSceneDependend
 {
 public:
+
     DirectionalShadowMapPass();
-    DirectionalShadowMapPass(std::shared_ptr<ShadowMapShaderProgram> shader_program);
 
     void execute(   glm::mat4 projection,
                     std::shared_ptr<Camera> main_camera,
                     GLuint window_width, GLuint window_height,
                     std::shared_ptr<Scene> scene);
+
+    void create_shader_programs();
 
     void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
 

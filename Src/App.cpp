@@ -1,26 +1,15 @@
 // include ability to execute threads
 #include <thread>
 #include <mutex>
-#include <memory>
 
+#include <memory>
 #include <vector>
+
 #include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include "DebugApp.h"
+
 #include "File.h"
 #include "GUI.h"
 #include "LoadingScreen.h"
-
-// all shader programs
-#include "ShaderProgram.h"
-#include "GeometryPassShaderProgram.h"
-#include "LightingPassShaderProgram.h"
-#include "ShadowMapShaderProgram.h"
-#include "OmniDirShadowShaderProgram.h"
-#include "DirectionalLightUniformLocations.h"
 
 //all render passes
 #include "DirectionalShadowMapPass.h"
@@ -30,7 +19,6 @@
 #include "GBuffer.h"
 
 //all for environment effects
-#include "Noise.h"
 #include "Clouds.h"
 
 //all scene/game logic/ game object related stuff
@@ -42,94 +30,38 @@
 #include "host_device_shared.h"
 #include "ShaderIncludes.h"
 
-std::shared_ptr<Noise> noise;
 std::shared_ptr<Clouds> clouds;
 
-// we will need a bunch of shader programs
-std::shared_ptr<GeometryPassShaderProgram> g_buffer_geometry_pass_shader_program;
-std::shared_ptr<LightingPassShaderProgram> g_buffer_lighting_pass_shader_program;
-std::shared_ptr<ShadowMapShaderProgram> shadow_map_shader_program;
-std::shared_ptr<OmniDirShadowShaderProgram> omni_dir_shadow_shader_program;
-
-OmniShadowMapPass omni_shadow_map_pass;
-DirectionalShadowMapPass directional_shadow_map_pass;
-GeometryPass geometry_pass;
-LightingPass lighting_pass;
-
 bool loading_screen_finished = false;
-
-void create_geometry_pass_shader_program() {
-
-    g_buffer_geometry_pass_shader_program = std::make_shared<GeometryPassShaderProgram>(GeometryPassShaderProgram{});
-    g_buffer_geometry_pass_shader_program->create_from_files(   "rasterizer/g_buffer_geometry_pass.vert", 
-                                                                "rasterizer/g_buffer_geometry_pass.frag");
-
-}
-
-void create_lighting_pass_shader_program() {
-
-    g_buffer_lighting_pass_shader_program = std::make_shared<LightingPassShaderProgram>(LightingPassShaderProgram{});
-    g_buffer_lighting_pass_shader_program->create_from_files(   "rasterizer/g_buffer_lighting_pass.vert",
-                                                                "rasterizer/g_buffer_lighting_pass.frag");
-
-}
-
-void create_shadow_map_shader_program() {
-
-    shadow_map_shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
-    shadow_map_shader_program->create_from_files(   "rasterizer/shadows/directional_shadow_map.vert",
-                                                    "rasterizer/shadows/directional_shadow_map.geom",
-                                                    "rasterizer/shadows/directional_shadow_map.frag");
-
-}
-
-void create_omni_shadow_map_shader_program() {
-
-    
-
-    omni_dir_shadow_shader_program = std::make_shared<OmniDirShadowShaderProgram>(OmniDirShadowShaderProgram{});
-    omni_dir_shadow_shader_program->create_from_files(  "rasterizer/shadows/omni_shadow_map.vert",
-                                                        "rasterizer/shadows/omni_shadow_map.geom", 
-                                                        "rasterizer/shadows/omni_shadow_map.frag");
-
-}
 
 // here we will initialize all our programs
 void create_shader_programs() {
 
     // set include file for shaders
     //set_shader_includes();
-    create_geometry_pass_shader_program();
+    /*create_geometry_pass_shader_program();
     create_lighting_pass_shader_program();
     create_shadow_map_shader_program();
-    create_omni_shadow_map_shader_program();
+    create_omni_shadow_map_shader_program();*/
 
 }
 
 void reload_shader_programs()
 {
     //set_shader_includes();
-    shadow_map_shader_program->reload();
+    /*shadow_map_shader_program->reload();
     g_buffer_geometry_pass_shader_program->reload();
     g_buffer_lighting_pass_shader_program->reload();
     omni_dir_shadow_shader_program->reload();
-    clouds->get_shader_program()->reload();
-
-}
-
-void create_noise_textures() {
-
-    noise->create_worley_noise();
-    noise->create_grad_noise();
+    clouds->get_shader_program()->reload();*/
 
 }
 
 void reload_noise_programs() {
 
-    noise->update();
-    create_noise_textures();
+    /*noise->update();
+    create_noise_textures();*/
 }
-
 
 int main()
 {
@@ -169,6 +101,7 @@ int main()
     };
 
     ShaderIncludes shader_includes;
+
     // this method is setting all files we want to use in a shader per #include
     // you have to specify the name(how file appears in shader)
     // and its actual file location relatively
@@ -176,9 +109,7 @@ int main()
 
     GUI gui;
     LoadingScreen loading_screen; 
-
-    noise = std::make_shared<Noise>();
-    noise->init();
+    gui.init(main_window);
 
     clouds = std::make_shared<Clouds>();
     clouds->init(window_width, window_height);
@@ -194,32 +125,27 @@ int main()
 
     std::shared_ptr<GBuffer> gbuffer = std::make_shared<GBuffer>(window_width, window_height);
     gbuffer->create();
-    
-    //create shader programs and use the standard shader
-    create_shader_programs();
 
-    //after creati gprograms one can init render passes
-    omni_shadow_map_pass        = OmniShadowMapPass(omni_dir_shadow_shader_program);
-    directional_shadow_map_pass = DirectionalShadowMapPass(shadow_map_shader_program);
-    geometry_pass               = GeometryPass(g_buffer_geometry_pass_shader_program);
-    //lighting_pass = LightingPass();
-    lighting_pass.init(g_buffer_lighting_pass_shader_program);
-    //precompute our noise textures ones
-    create_noise_textures();
+    //after creating programs one can init render passes
+    OmniShadowMapPass omni_shadow_map_pass                  = OmniShadowMapPass();
+    DirectionalShadowMapPass directional_shadow_map_pass    = DirectionalShadowMapPass();
+    GeometryPass geometry_pass                              = GeometryPass();
+    LightingPass lighting_pass                              = LightingPass();
+    lighting_pass.init();
 
-    gui.init(main_window);
-
-    //enable depth testing
-    glEnable(GL_DEPTH_TEST);
 
     //init texture for loading screen
     loading_screen.init();
 
+    // load scene in an other thread than the rendering thread; would block otherwise
     std::thread t1 = scene->spwan();
     t1.detach();
 
     GLfloat delta_time = 0.0f;
     GLfloat last_time = 0.0f;
+
+    //enable depth testing
+    glEnable(GL_DEPTH_TEST);
 
     while (!main_window.get_should_close()) {
 
@@ -281,8 +207,7 @@ int main()
             lighting_pass.execute(  projection_matrix, 
                                     main_camera,
                                     scene,
-                                    gbuffer,
-                                    noise, 
+                                    gbuffer, 
                                     clouds, 
                                     delta_time);
 

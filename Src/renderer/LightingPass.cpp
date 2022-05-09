@@ -4,11 +4,11 @@ LightingPass::LightingPass()
 {
 }
 
-void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_program)
+void LightingPass::init()
 {
 
     this->uniform_helper = UniformHelper();
-    this->shader_program = shader_program;
+    create_shader_program();
     current_offset = glm::vec3(0.0f);
 
     quad.init();
@@ -33,8 +33,7 @@ void LightingPass::init(std::shared_ptr<LightingPassShaderProgram> shader_progra
 void LightingPass::execute( glm::mat4 projection_matrix, 
                             std::shared_ptr<Camera> main_camera,
                             std::shared_ptr<Scene> scene,
-                            std::shared_ptr<GBuffer> gbuffer, 
-                            std::shared_ptr<Noise> noise, 
+                            std::shared_ptr<GBuffer> gbuffer,
                             std::shared_ptr<Clouds> cloud, 
                             float delta_time)
 {
@@ -50,11 +49,18 @@ void LightingPass::execute( glm::mat4 projection_matrix,
                                         scene, gbuffer,
                                         cloud, delta_time);
 
-    bind_buffers_for_lighting(gbuffer, scene, noise, cloud);
+    bind_buffers_for_lighting(gbuffer, scene, cloud);
 
     quad.render();
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void LightingPass::create_shader_program()
+{
+    shader_program = std::make_shared<LightingPassShaderProgram>(LightingPassShaderProgram{});
+    shader_program->create_from_files(  "rasterizer/g_buffer_lighting_pass.vert",
+                                        "rasterizer/g_buffer_lighting_pass.frag");
 }
 
 void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix, 
@@ -162,8 +168,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 }
 
 void LightingPass::bind_buffers_for_lighting(   std::shared_ptr<GBuffer> gbuffer, 
-                                                std::shared_ptr<Scene> scene,  
-                                                std::shared_ptr<Noise> noise,
+                                                std::shared_ptr<Scene> scene,
                                                 std::shared_ptr<Clouds> cloud)
 {
     GLuint point_light_count = scene->get_point_light_count();
@@ -172,10 +177,6 @@ void LightingPass::bind_buffers_for_lighting(   std::shared_ptr<GBuffer> gbuffer
     main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);
 
     cloud->read(CLOUD_TEXTURE_SLOT);
-
-    noise->read_worley_noise(WORLEY_NOISE_TEXTURES_SLOT);
-
-    noise->read_grad_noise(GRAD_NOISE_TEXTURES_SLOT);
 
     bind_random_numbers(RANDOM_NUMBERS_SLOT);
 

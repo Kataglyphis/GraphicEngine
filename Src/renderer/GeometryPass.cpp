@@ -2,12 +2,10 @@
 
 GeometryPass::GeometryPass()
 {
-}
 
-GeometryPass::GeometryPass(std::shared_ptr<GeometryPassShaderProgram> shader_program)
-{
     this->uniform_helper = UniformHelper();
-    this->shader_program = shader_program;
+    create_shader_program();
+
     std::stringstream skybox_base_dir;
     skybox_base_dir << CMAKELISTS_DIR;
     skybox_base_dir << "/Resources/Textures/Skybox/DOOM2016/";
@@ -86,6 +84,13 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix,
     // Check if there any unchecked gl Errors from the render functions
     DebugApp_ins.areErrorPrintAll("From Execute function in GeometryPass.");
 
+}
+
+void GeometryPass::create_shader_program()
+{
+    this->shader_program = std::make_shared<GeometryPassShaderProgram>(GeometryPassShaderProgram{});
+    this->shader_program->create_from_files("rasterizer/g_buffer_geometry_pass.vert",
+                                            "rasterizer/g_buffer_geometry_pass.frag");
 }
 
 void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)

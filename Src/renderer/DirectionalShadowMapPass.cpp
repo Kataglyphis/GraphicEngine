@@ -3,11 +3,7 @@
 
 DirectionalShadowMapPass::DirectionalShadowMapPass()
 {
-}
-
-DirectionalShadowMapPass::DirectionalShadowMapPass(std::shared_ptr<ShadowMapShaderProgram> shader_program)
-{
-    this->shader_program = shader_program;
+    create_shader_programs();
     this->uniform_helper = UniformHelper();
 }
 
@@ -45,6 +41,14 @@ void DirectionalShadowMapPass::execute( glm::mat4 projection,
     //glCullFace(GL_BACK);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     shader_program->validate_program();
+}
+
+void DirectionalShadowMapPass::create_shader_programs()
+{
+    shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
+    shader_program->create_from_files(  "rasterizer/shadows/directional_shadow_map.vert",
+                                        "rasterizer/shadows/directional_shadow_map.geom",
+                                        "rasterizer/shadows/directional_shadow_map.frag");
 }
 
 void DirectionalShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)

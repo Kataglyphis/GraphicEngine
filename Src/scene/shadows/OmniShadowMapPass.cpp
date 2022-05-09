@@ -2,22 +2,13 @@
 
 OmniShadowMapPass::OmniShadowMapPass()
 {
-}
-
-OmniShadowMapPass::OmniShadowMapPass(std::shared_ptr<OmniDirShadowShaderProgram> shader_program)
-{
-    this->shader_program = shader_program;
+    create_shader_program();
 }
 
 void OmniShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)
 {
     // DO NOT set neither normal model nor material_id hence we didn't need it
     glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(model));
-}
-
-bool OmniShadowMapPass::use_terrain_textures()
-{
-    return false;
 }
 
 void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light,
@@ -49,6 +40,14 @@ void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light,
     DebugApp_ins.areErrorPrintAll("From execute function OmniShadowMapPass");
 
 
+}
+
+void OmniShadowMapPass::create_shader_program()
+{
+    shader_program = std::make_shared<OmniDirShadowShaderProgram>(OmniDirShadowShaderProgram{});
+    shader_program->create_from_files(  "rasterizer/shadows/omni_shadow_map.vert",
+                                        "rasterizer/shadows/omni_shadow_map.geom",
+                                        "rasterizer/shadows/omni_shadow_map.frag");
 }
 
 OmniShadowMapPass::~OmniShadowMapPass()

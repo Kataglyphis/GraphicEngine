@@ -6,6 +6,10 @@ Clouds::Clouds() : shader_program(std::make_shared<CloudsShaderProgram>(CloudsSh
 
 void Clouds::init(GLfloat window_width, GLfloat window_height)
 {
+	noise = std::make_shared<Noise>();
+	noise->init();
+
+	create_noise_textures();
 
 	model = glm::mat4(1.f);
 	aabb = AABB();
@@ -29,8 +33,6 @@ void Clouds::init(GLfloat window_width, GLfloat window_height)
 
 	translation = glm::vec3(0.0f);
 	scale_factor = glm::vec3(1.f);
-
-	//shader_program = std::unique_ptr<CloudsShaderProgram>{ new CloudsShaderProgram{} };
 
 	shader_program->create_from_files("clouds/Clouds.vert","clouds/Clouds.frag");
 
@@ -75,6 +77,10 @@ void Clouds::read(GLuint index)
 	GLuint texture_index = GL_TEXTURE0 + index;
 	glActiveTexture(texture_index);
 	glBindTexture(GL_TEXTURE_2D, cloud_id);
+
+	noise->read_worley_noise(WORLEY_NOISE_TEXTURES_SLOT);
+
+	noise->read_grad_noise(GRAD_NOISE_TEXTURES_SLOT);
 }
 
 void Clouds::update_window_params(GLfloat window_width, GLfloat window_height)
@@ -92,6 +98,12 @@ void Clouds::update_window_params(GLfloat window_width, GLfloat window_height)
 	glDrawBuffers(1, attatchments);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void Clouds::create_noise_textures()
+{
+	noise->create_worley_noise();
+	noise->create_grad_noise();
 }
 
 void Clouds::set_powder_effect(bool cloud_powder_effect)

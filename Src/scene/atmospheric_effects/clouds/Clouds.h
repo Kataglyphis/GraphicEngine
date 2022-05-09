@@ -1,6 +1,8 @@
 #pragma once
 #include "AABB.h"
 #include "CloudsShaderProgram.h"
+#include "Noise.h"
+
 #include <memory>
 
 class Clouds
@@ -14,6 +16,8 @@ public:
 				GLfloat window_width, GLfloat window_height);
 	void read(GLuint index);
 	void update_window_params(GLfloat window_width, GLfloat window_height);
+
+	void create_noise_textures();
 
 	glm::mat4 get_model();
 	glm::vec3 get_movement_direction();
@@ -58,7 +62,8 @@ private:
 
 	bool powder_effect;
 
-	std::shared_ptr<CloudsShaderProgram> shader_program;
+	std::shared_ptr<CloudsShaderProgram>	shader_program;
+	std::shared_ptr<Noise>					noise;
 
 	GLuint attatchments[1] = {GL_COLOR_ATTACHMENT0};
 };
