@@ -1,28 +1,25 @@
 #version 460
 #extension GL_ARB_shading_language_include : require
 
-#include "/noise_lib.glsl"
+#include "/grad_noise.glsl"
+#include "/worley_noise.glsl"
 
 layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
 
 layout(rgba32f, location=0) uniform image3D noise;
 
-const int   NUM_FBM = 3;
-const int   NUM_ADJACENT_CELLS = 26;
-const float RESOLUTION = float(128.f);
-const int   NUM_CELL_POSITIONS = 5;
-const int   NUM_WORLEY_FREQUENCIES = 3;
+const float resolution = float(128.f);
 
 uniform sampler3D   cell_positions[NUM_CELL_POSITIONS];
 uniform int         num_cells[NUM_CELL_POSITIONS];
 
 void main() {
 
-    float worley_1 = worley(gl_GlobalInvocationID.xyz, 0);
-    float worley_2 = worley(gl_GlobalInvocationID.xyz, 1);
-    float worley_3 = worley(gl_GlobalInvocationID.xyz, 2);
-    float worley_4 = worley(gl_GlobalInvocationID.xyz, 3);
-    float worley_5 = worley(gl_GlobalInvocationID.xyz, 4);
+    float worley_1 = worley(gl_GlobalInvocationID.xyz, 0, num_cells, cell_positions, resolution);
+    float worley_2 = worley(gl_GlobalInvocationID.xyz, 1, num_cells, cell_positions, resolution);
+    float worley_3 = worley(gl_GlobalInvocationID.xyz, 2, num_cells, cell_positions, resolution);
+    float worley_4 = worley(gl_GlobalInvocationID.xyz, 3, num_cells, cell_positions, resolution);
+    float worley_5 = worley(gl_GlobalInvocationID.xyz, 4, num_cells, cell_positions, resolution);
 
     float worley_sub_data_1[3] = {worley_1, worley_2, worley_3};
     float worley_sub_data_2[3] = {worley_2, worley_3, worley_4};

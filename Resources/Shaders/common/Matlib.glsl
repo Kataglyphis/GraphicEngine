@@ -96,4 +96,4 @@ bool box_intersect_with_ray(in vec3 row, in vec3 rdw, in mat4 txx, in mat4 txi, 
     return true;
 }
 
-#endif 
+#endif

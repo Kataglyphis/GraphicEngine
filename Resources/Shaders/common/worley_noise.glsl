@@ -1,6 +1,12 @@
 // worley noise implementation;
 // inspired by Sebastian Lague: https://www.youtube.com/watch?v=4QOcCGI6xOU&t=104s
 
+const int   NUM_FBM                 = 3;
+const int   NUM_ADJACENT_CELLS      = 26;
+const int   NUM_WORLEY_FREQUENCIES  = 3;
+
+const int   NUM_CELL_POSITIONS      = 5;
+
 const vec3 offsets[NUM_ADJACENT_CELLS + 1] =
 {
     // centre
@@ -42,9 +48,13 @@ float remap(float value, float start1, float stop1, float start2, float stop2) {
 
 }
 
-float worley(vec3 sample_id, int cell_index) {
+float worley(   vec3        sample_id, 
+                int         cell_index, 
+                int         num_cells[NUM_CELL_POSITIONS],
+                sampler3D   cell_positions[NUM_CELL_POSITIONS],
+                float       resolution) {
 
-    vec3 sample_pos = (sample_id / float(RESOLUTION)) * float(num_cells[cell_index]);
+    vec3 sample_pos = (sample_id / float(resolution)) * float(num_cells[cell_index]);
 
     vec3 cell_id = floor(sample_pos);
 
@@ -87,22 +97,6 @@ float worley(vec3 sample_id, int cell_index) {
 }
 
 // really cool article: https://iquilezles.org/articles/fbm/
-float perlinfbm(vec3 p, float freq, int octaves)
-{
-
-    float G = exp2(-0.5f);
-    float amp = 1.f;
-    float noise = 0.f;
-    for (int i = 0; i < octaves; ++i)
-    {
-        noise += amp * snoise(p * freq);
-        freq *= 2.;
-        amp *= G;
-    }
-
-    return noise;
-}
-
 float fbm_worley(float worley_noise[NUM_WORLEY_FREQUENCIES], float H)
 {
 

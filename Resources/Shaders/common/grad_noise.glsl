@@ -100,3 +100,21 @@ float snoise(vec3 v)
     return 105.0 * dot(m * m, vec4(dot(p0, x0), dot(p1, x1),
         dot(p2, x2), dot(p3, x3)));
 }
+
+
+// really cool article: https://iquilezles.org/articles/fbm/
+float fbm_grad(vec3 p, float freq, int octaves)
+{
+
+    float G = exp2(-0.5f);
+    float amp = 1.f;
+    float noise = 0.f;
+    for (int i = 0; i < octaves; ++i)
+    {
+        noise += amp * snoise(p * freq);
+        freq *= 2.;
+        amp *= G;
+    }
+
+    return noise;
+}
