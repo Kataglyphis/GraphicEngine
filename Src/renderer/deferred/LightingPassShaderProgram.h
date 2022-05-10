@@ -48,7 +48,7 @@ public:
 	GLuint get_light_matrics_id_location();
 
 	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit);
-	void set_noise_textures(GLuint start);
+	void set_noise_textures();
 	void set_cloud_texture(GLuint index);
 
 	~LightingPassShaderProgram();

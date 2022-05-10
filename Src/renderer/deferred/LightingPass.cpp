@@ -96,7 +96,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     std::vector<std::shared_ptr<PointLight>>& p_lights = scene->get_point_lights();
     shader_program->set_point_lights(p_lights, P_LIGHT_SHADOW_TEXTURES_SLOT);
 
-    shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
+    shader_program->set_noise_textures();
 
     // CAMERA
     glm::vec3 camera_position = main_camera->get_camera_position();

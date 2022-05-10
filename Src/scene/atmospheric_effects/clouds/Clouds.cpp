@@ -50,15 +50,17 @@ void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat 
 
 void Clouds::read()
 {
+
 	random_numbers->read();
-	noise->read_worley_noise(WORLEY_NOISE_TEXTURES_SLOT);
-	noise->read_grad_noise(GRAD_NOISE_TEXTURES_SLOT);
+	noise->read_res128_noise();
+	noise->read_res32_noise();
+
 }
 
 void Clouds::create_noise_textures()
 {
-	noise->create_worley_noise();
-	noise->create_grad_noise();
+	noise->create_res128_noise();
+	noise->create_res32_noise();
 }
 
 void Clouds::set_powder_effect(bool cloud_powder_effect)

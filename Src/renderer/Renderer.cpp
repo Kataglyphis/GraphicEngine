@@ -71,8 +71,8 @@ void Renderer::reload_shader_programs()
         render_pass->create_shader_program();
     }
 
-    /*noise->update();
-    create_noise_textures();*/
+    //noise->update();
+
 }
 
 Renderer::~Renderer()

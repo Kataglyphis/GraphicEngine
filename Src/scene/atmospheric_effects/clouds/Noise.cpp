@@ -46,6 +46,7 @@ void Noise::create_shader_programs()
 
 void Noise::generate_textures()
 {
+
 	glGenTextures(NUM_CELLS, cell_ids);
 	
 	for (int i = 0; i < NUM_CELLS; i++) {
@@ -67,13 +68,22 @@ void Noise::generate_textures()
 
 	}
 
+	generate_res128_noise_texture();
+	generate_res32_noise_texture();
+
+	
+
+}
+
+void Noise::generate_res128_noise_texture()
+{
 	glGenTextures(1, &texture_1_id);
-	glActiveTexture(GL_TEXTURE0 + WORLEY_NOISE_TEXTURES_SLOT);
+	glActiveTexture(GL_TEXTURE0 + NOISE_128D_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_3D, texture_1_id);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	texture_dim_1,
-												texture_dim_1, 
-												texture_dim_1, 
-												0, GL_RGBA, GL_FLOAT, NULL);
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_1,
+		texture_dim_1,
+		texture_dim_1,
+		0, GL_RGBA, GL_FLOAT, NULL);
 
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -81,14 +91,18 @@ void Noise::generate_textures()
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glBindTexture(GL_TEXTURE_3D, 0);
+}
+
+void Noise::generate_res32_noise_texture()
+{
 
 	glGenTextures(1, &texture_2_id);
-	glActiveTexture(GL_TEXTURE0 + GRAD_NOISE_TEXTURES_SLOT);
+	glActiveTexture(GL_TEXTURE0 + NOISE_32D_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_3D, texture_2_id);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	texture_dim_2, 
-												texture_dim_2, 
-												texture_dim_2, 
-												0, GL_RGBA, GL_FLOAT, NULL);
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_2,
+		texture_dim_2,
+		texture_dim_2,
+		0, GL_RGBA, GL_FLOAT, NULL);
 
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -129,8 +143,8 @@ void Noise::update()
 
 	generate_textures();
 
-	create_worley_noise();
-	create_grad_noise();
+	create_res128_noise();
+	create_res32_noise();
 
 	// Check if any gl errorers appears.
 	DebugApp_ins.areErrorPrintAll("From update function in Noise.cpp");
@@ -182,7 +196,7 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 	//}
 }
 
-void Noise::create_worley_noise()
+void Noise::create_res128_noise()
 {
 	
 	texture_1_shader_program.use_shader_program();
@@ -193,7 +207,7 @@ void Noise::create_worley_noise()
 		glUniform1i(texture_1_shader_program.get_cell_location(i), i);
 		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
 
-		glActiveTexture(GL_TEXTURE0 + WORLEY_NOISE_TEXTURES_SLOT + i);
+		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 
 	}
@@ -209,7 +223,7 @@ void Noise::create_worley_noise()
 	DebugApp_ins.areErrorPrintAll("From create worley noise function in Noise.cpp");
 }
 
-void Noise::create_grad_noise()
+void Noise::create_res32_noise()
 {
 
 	texture_2_shader_program.use_shader_program();
@@ -217,10 +231,10 @@ void Noise::create_grad_noise()
 
 	for (int i = 0; i < NUM_CELLS; i++) {
 
-		glUniform1i(texture_1_shader_program.get_cell_location(i), i);
-		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
+		glUniform1i(texture_2_shader_program.get_cell_location(i), i);
+		glUniform1i(texture_2_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
 
-		glActiveTexture(GL_TEXTURE0 + GRAD_NOISE_TEXTURES_SLOT + NUM_CELLS + i);
+		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 
 	}
@@ -237,9 +251,9 @@ void Noise::create_grad_noise()
 
 }
 
-void Noise::read_worley_noise(GLenum start_buffer_index)
+void Noise::read_res128_noise()
 {
-	GLuint texture_index = GL_TEXTURE0 + start_buffer_index;
+	GLuint texture_index = GL_TEXTURE0 + NOISE_128D_TEXTURES_SLOT;
 	glActiveTexture((GLenum)texture_index);
 	glBindTexture(GL_TEXTURE_3D, texture_1_id);
 
@@ -247,9 +261,9 @@ void Noise::read_worley_noise(GLenum start_buffer_index)
 	DebugApp_ins.areErrorPrintAll("From read worley noise function in Noise.cpp");
 }
 
-void Noise::read_grad_noise(GLenum start_buffer_index)
+void Noise::read_res32_noise()
 {
-	GLuint texture_index = GL_TEXTURE0 + start_buffer_index;
+	GLuint texture_index = GL_TEXTURE0 + NOISE_32D_TEXTURES_SLOT;
 	glActiveTexture((GLenum)texture_index);
 	glBindTexture(GL_TEXTURE_3D, texture_2_id);
 

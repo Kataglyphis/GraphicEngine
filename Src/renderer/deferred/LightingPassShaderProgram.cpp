@@ -1,4 +1,5 @@
 #include "LightingPassShaderProgram.h"
+#include "texture_unit_slots.h"
 
 LightingPassShaderProgram::LightingPassShaderProgram()
 {
@@ -305,11 +306,11 @@ void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<
 
 }
 
-void LightingPassShaderProgram::set_noise_textures(GLuint start)
+void LightingPassShaderProgram::set_noise_textures()
 {
 
-    glUniform1i(uniform_noise_texture_1_location, start);
-    glUniform1i(uniform_noise_texture_2_location, start + 1);
+    glUniform1i(uniform_noise_texture_1_location, NOISE_128D_TEXTURES_SLOT);
+    glUniform1i(uniform_noise_texture_2_location, NOISE_32D_TEXTURES_SLOT);
 
     DebugApp_ins.areErrorPrintAll("From set_noise_textures in LightingPassShaderProgram.cpp");
 }
