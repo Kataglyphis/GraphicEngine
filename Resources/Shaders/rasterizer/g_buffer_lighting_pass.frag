@@ -293,7 +293,7 @@ void main () {
     if(belongs_to_clouds(material_id)) {
         
         float far_plane = cascade_endpoints[NUM_CASCADES - 1];
-
+        //color = vec4(1.f, 0.f,0.f, 1.0f);
         calc_clouds(projection, view, 
                     frag_pos, eye_position, 
                     cloud,

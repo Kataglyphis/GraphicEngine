@@ -2,8 +2,9 @@
 #include <vector>
 //#include <GL\glew.h>
 #include "Model.h"
+#include "RenderPass.h"
 
-class RenderPassSceneDependend
+class RenderPassSceneDependend : public RenderPass
 {
 public:
 

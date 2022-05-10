@@ -25,14 +25,14 @@ public:
 
 private:
 
-    GLuint                      window_width, window_height;
+    GLuint                                                  window_width, window_height;
 
-    std::shared_ptr<GBuffer>    gbuffer;
+    std::shared_ptr<GBuffer>                                gbuffer;
 
-    ShaderIncludes              shader_includes;
+    ShaderIncludes                                          shader_includes;
 
     // all render passes
-    std::vector<std::shared_ptr<RenderPassSceneDependend>>  render_passes;
+    std::vector<std::shared_ptr<RenderPass>>                render_passes;
 
     std::shared_ptr<OmniShadowMapPass>                      omni_shadow_map_pass;
     std::shared_ptr<DirectionalShadowMapPass>               directional_shadow_map_pass;

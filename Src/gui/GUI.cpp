@@ -25,9 +25,9 @@ GUI::GUI()
     this->cloud_pillowness      = 0.966f;
     this->cloud_cirrus_effect   = 0.0f;
 
-    this->cloud_mesh_scale[0] = 1000.f;
-    this->cloud_mesh_scale[1] = 20.f;
-    this->cloud_mesh_scale[2] = 1000.f;
+    this->cloud_mesh_scale[0] = 10.f;
+    this->cloud_mesh_scale[1] = 10.f;
+    this->cloud_mesh_scale[2] = 10.f;
 
     this->cloud_powder_effect = false;
 
@@ -145,7 +145,7 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
             ImGui::SliderFloat("Pillowness", &cloud_pillowness, 0.f, 1.0f);
             ImGui::SliderFloat("Cirrus effect", &cloud_cirrus_effect, 0.f, 1.0f);
             ImGui::Checkbox("Powder effect", &cloud_powder_effect);
-            ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 1000.0f);
+            ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 100.0f);
 
             ImGui::TreePop();
         }

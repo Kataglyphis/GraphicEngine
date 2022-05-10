@@ -7,7 +7,11 @@ Renderer::Renderer(GLuint window_width, GLuint window_height) :
                                 geometry_pass(std::make_shared<GeometryPass>()),
                                 lighting_pass(std::make_shared<LightingPass>())
 {
+
     render_passes.push_back(omni_shadow_map_pass);
+    render_passes.push_back(directional_shadow_map_pass);
+    render_passes.push_back(geometry_pass);
+    render_passes.push_back(lighting_pass);
 
     this->window_width  = window_width;
     this->window_height = window_height;
@@ -63,7 +67,7 @@ void Renderer::reload_shader_programs()
     // also reload all shader include files
     shader_includes = ShaderIncludes();
 
-    for (std::shared_ptr<RenderPassSceneDependend> render_pass : render_passes) {
+    for (std::shared_ptr<RenderPass> render_pass : render_passes) {
         render_pass->create_shader_program();
     }
 

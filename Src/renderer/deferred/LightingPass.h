@@ -21,7 +21,7 @@
 #include "RandomNumbers.h"
 #include "UniformHelper.h"
 
-class LightingPass 
+class LightingPass : public RenderPass
 {
 public:
 
