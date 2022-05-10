@@ -9,12 +9,12 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     // check if there any errors appears before executing the function
     DebugApp_ins.arePreError("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
-    skyBoxMaterialID = glGetUniformLocation(program_id, "skyBoxMaterialID");
+    uniform_clouds_material_id_location = glGetUniformLocation(program_id, "cloudsMaterialID");
+    skyBoxMaterialID                    = glGetUniformLocation(program_id, "skyBoxMaterialID");
 
     //setting all uniforms for our directional lights
     d_light_uniform_locations.uniform_color_location                = glGetUniformLocation(program_id, "directional_light.base.color");
-    d_light_uniform_locations.uniform_ambient_intensity_location    = glGetUniformLocation(program_id, "directional_light.base.ambient_intensity");
-    d_light_uniform_locations.uniform_diffuse_intensity_location    = glGetUniformLocation(program_id, "directional_light.base.diffuse_intensity");
+    d_light_uniform_locations.uniform_radiance_location             = glGetUniformLocation(program_id, "directional_light.base.radiance");
     d_light_uniform_locations.uniform_direction_location            = glGetUniformLocation(program_id, "directional_light.direction");
     d_light_uniform_locations.uniform_shadow_intensity_location     = glGetUniformLocation(program_id, "directional_light.shadow_intensity");
 
@@ -47,11 +47,8 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
         snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].base.color", i);
         uniform_point_light[i].uniform_color = glGetUniformLocation(program_id, loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].base.ambient_intensity", i);
-        uniform_point_light[i].uniform_ambient_intensity = glGetUniformLocation(program_id, loc_buff);
-
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].base.diffuse_intensity", i);
-        uniform_point_light[i].uniform_diffuse_intensity = glGetUniformLocation(program_id, loc_buff);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].base.radiance", i);
+        uniform_point_light[i].uniform_radiance = glGetUniformLocation(program_id, loc_buff);
 
         snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].position", i);
         uniform_point_light[i].uniform_position = glGetUniformLocation(program_id, loc_buff);
@@ -298,9 +295,12 @@ void LightingPassShaderProgram::set_point_lights(   std::vector<std::shared_ptr<
 
     for (size_t i = 0; i < static_cast<uint32_t>(p_light.size()); i++) {
 
-        p_light[i]->use_light(  uniform_point_light[i].uniform_ambient_intensity, uniform_point_light[i].uniform_color,
-                                uniform_point_light[i].uniform_diffuse_intensity, uniform_point_light[i].uniform_position,
-                                uniform_point_light[i].uniform_constant, uniform_point_light[i].uniform_linear, uniform_point_light[i].uniform_exponent);
+        p_light[i]->use_light(  uniform_point_light[i].uniform_radiance, 
+                                uniform_point_light[i].uniform_color,
+                                uniform_point_light[i].uniform_position,
+                                uniform_point_light[i].uniform_constant, 
+                                uniform_point_light[i].uniform_linear, 
+                                uniform_point_light[i].uniform_exponent);
 
         p_light[i]->get_omni_shadow_map()->read(texture_unit + i);
 
@@ -327,19 +327,19 @@ void LightingPassShaderProgram::set_cloud_texture(GLuint index)
     glUniform1i(uniform_cloud_texture_location, index);
 }
 
-GLuint LightingPassShaderProgram::get_directional_light_ambient_intensity_location()
+GLuint LightingPassShaderProgram::get_uniform_clouds_material_id_location()
 {
-    return d_light_uniform_locations.uniform_ambient_intensity_location;
+    return uniform_clouds_material_id_location;
+}
+
+GLuint LightingPassShaderProgram::get_directional_light_radiance_location()
+{
+    return d_light_uniform_locations.uniform_radiance_location;
 }
 
 GLuint LightingPassShaderProgram::get_directional_light_color_location()
 {
     return d_light_uniform_locations.uniform_color_location;
-}
-
-GLuint LightingPassShaderProgram::get_directional_light_diffuse_intensity_location()
-{
-    return d_light_uniform_locations.uniform_diffuse_intensity_location;
 }
 
 GLuint LightingPassShaderProgram::get_directional_light_direction_location()

@@ -21,7 +21,7 @@ public:
 
     GeometryPass();
 
-    void execute(   glm::mat4 projection_matrix, glm::mat4 view_matrix,  
+    void execute(   glm::mat4 projection_matrix, std::shared_ptr<Camera> main_camera,
                     GLfloat window_width, GLfloat window_height, 
                     GLuint gbuffer_id, GLfloat delta_time, 
                     std::shared_ptr<Scene>);

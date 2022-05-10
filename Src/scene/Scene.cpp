@@ -36,7 +36,6 @@ void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> ma
                                                 1.f,
                                                 1.f,
                                                 1.f,
-                                                1.f,
                                                 -0.1f,
                                                 -0.8,
                                                 -0.1f,
@@ -45,11 +44,11 @@ void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> ma
 
     point_lights.reserve(MAX_POINT_LIGHTS);
     point_lights.push_back(std::make_shared<PointLight>( 1024, 1024,
-                                                    0.01f, 100.f,
-                                                    0.0f, 1.0f, 0.0f,
-                                                    1.f, 1.0f,
-                                                    0.0f, 0.0f, 0.0f,
-                                                    0.1f, 0.1f, 0.1f));
+                                                        0.01f, 100.f,
+                                                        0.0f, 1.0f, 0.0f,
+                                                        1.0f,
+                                                        0.0f, 0.0f, 0.0f,
+                                                        0.1f, 0.1f, 0.1f));
 
     point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
 
@@ -92,8 +91,8 @@ void Scene::load_models()
     sponza_rot.degrees = 0.0f;
     sponza_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    glm::vec3 clouds_offset = glm::vec3(30.f, 800.0f, 30.0f);
-    glm::vec3 clouds_scale = glm::vec3(64.f, 64.f, 64.f);
+    glm::vec3 clouds_offset = glm::vec3(1.f, 100.0f, 1.0f);
+    glm::vec3 clouds_scale = glm::vec3(0.1f, 0.1f, 0.1f);
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);
 

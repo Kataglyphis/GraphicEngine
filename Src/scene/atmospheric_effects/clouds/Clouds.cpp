@@ -36,35 +36,14 @@ void Clouds::init(GLfloat window_width, GLfloat window_height)
 
 	shader_program->create_from_files("clouds/CloudsRectangle.vert","clouds/CloudsRectangle.frag");
 
-	glGenFramebuffers(1, &FBO);
-	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-
-	glGenTextures(1, &cloud_id);
-	glBindTexture(GL_TEXTURE_2D, cloud_id);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, window_width, window_height, 0, GL_RGBA, GL_FLOAT, NULL);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, cloud_id, 0);
-
-	glDrawBuffers(1, attatchments);
-
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 }
 
 void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height)
 {
-	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glViewport(0, 0, window_width, window_height);
 
 	shader_program->use_shader_program();
 	retrieve_and_set_uniform_locations(projection_matrix, view_matrix);
-
 	aabb.render();
-
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	
@@ -74,30 +53,10 @@ void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat 
 
 void Clouds::read(GLuint index)
 {
-	GLuint texture_index = GL_TEXTURE0 + index;
-	glActiveTexture(texture_index);
-	glBindTexture(GL_TEXTURE_2D, cloud_id);
 
 	noise->read_worley_noise(WORLEY_NOISE_TEXTURES_SLOT);
 
 	noise->read_grad_noise(GRAD_NOISE_TEXTURES_SLOT);
-}
-
-void Clouds::update_window_params(GLfloat window_width, GLfloat window_height)
-{
-	glGenFramebuffers(1, &FBO);
-	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-
-	glGenTextures(1, &cloud_id);
-	glBindTexture(GL_TEXTURE_2D, cloud_id);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, window_width, window_height, 0, GL_RGBA, GL_FLOAT, NULL);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, cloud_id, 0);
-
-	glDrawBuffers(1, attatchments);
-
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void Clouds::create_noise_textures()
@@ -161,6 +120,8 @@ void Clouds::retrieve_and_set_uniform_locations(glm::mat4 projection_matrix, glm
 	glUniformMatrix4fv(shader_program->get_view_location(), 1, GL_FALSE, glm::value_ptr(view_matrix));
 
 	glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(get_model()));
+
+	glUniform1i(shader_program->get_clouds_material_id_location(), MAX_MATERIALS + 1);
 
 	shader_program->validate_program();
 }

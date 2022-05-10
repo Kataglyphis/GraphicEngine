@@ -14,18 +14,11 @@
 #include "/phong.glsl"
 #include "/unreal4.glsl"
 
+#include "/clouds.glsl"
+
 in vec2 tex_coords;
 
-#define NUM_MARCH_STEPS 32
-#define NUM_MARCH_STEPS_TO_LIGHT 6
-
 out vec4 color;
-
-uniform int skyBoxMaterialID;
-
-//define light uniforms here 
-uniform DirectionalLight directional_light;
-uniform OmniShadowMap omni_shadow_maps[MAX_POINT_LIGHTS];
 
 //g_buffer data 
 uniform sampler2D g_position;
@@ -33,39 +26,40 @@ uniform sampler2D g_normal;
 uniform sampler2D g_albedo;
 uniform sampler2D g_material_id;
 
-//cloud world position and depth
-uniform sampler2D cloud_position_depth;
-
-//a set of random numbers for getting an good offset for raymarching
-// with that we accomplish a round "random" shape for our cloud 
-//in [0,1]
-uniform sampler2D random_number;
-
-//our directional shadow maps; 
-uniform sampler2DArray directional_shadow_maps;
-
+//all regarding the sun and its shadows
+uniform DirectionalLight    directional_light;
+uniform sampler2DArray      directional_shadow_maps;
+uniform float               cascade_endpoints[NUM_CASCADES];
+uniform int                 num_active_cascades;
+uniform int                 pcf_radius;
 layout (std140, binding = UNIFORM_LIGHT_MATRICES_BINDING) uniform LightSpaceMatrices
 {
     mat4 lightSpaceMatrices[NUM_CASCADES];
 };
 
-uniform float cascade_endpoints[NUM_CASCADES];
 
 //sampler for our noise textures
-uniform sampler3D noise_texture_1;
-uniform sampler3D noise_texture_2;
+uniform Clouds      cloud;
+uniform sampler3D   noise_texture_1;
+uniform sampler3D   noise_texture_2;
+uniform int         cloudsMaterialID;
+// a set of random numbers for getting an good offset for raymarching
+// with that we accomplish a round "random" shape for our cloud 
+// in [0,1]
+uniform sampler2D   random_number;
 
 //all other uniforms
-uniform PointLight point_lights[MAX_POINT_LIGHTS];
-uniform Material materials[MAX_MATERIALS];
-uniform Clouds cloud;
-uniform int point_light_count;
+uniform PointLight      point_lights[MAX_POINT_LIGHTS];
+uniform int             point_light_count;
+uniform OmniShadowMap   omni_shadow_maps[MAX_POINT_LIGHTS];
+
+uniform Material    materials[MAX_MATERIALS];
+uniform int         skyBoxMaterialID;
+
 uniform vec3 eye_position;
 uniform mat4 view;
 uniform mat4 projection;
 
-uniform int num_active_cascades;
-uniform int pcf_radius;
 
 //all sample directions for our omni directional shader
 vec3 sample_offset_directions[20] = vec3[] (
@@ -187,15 +181,15 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int mode = 4;
 	switch (mode) {
-	case 0: color += evaluteUnreal4PBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+	case 0: color += evaluteUnreal4PBR(ambient, N, L, V, roughness, light.color, light.radiance);
 		break;
-	case 1: color += evaluatePBRBooksPBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+	case 1: color += evaluatePBRBooksPBR(ambient, N, L, V, roughness, light.color, light.radiance);
 		break;
-	case 2: color += evaluateDisneysPBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+	case 2: color += evaluateDisneysPBR(ambient, N, L, V, roughness, light.color, light.radiance);
 		break;
-	case 3: color += evaluatePhong(ambient, N, L, V, light.color, light.ambient_intensity);
+	case 3: color += evaluatePhong(ambient, N, L, V, light.color, light.radiance);
 		break;		
-	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.ambient_intensity);
+	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.radiance);
 		break;
 	}
 
@@ -267,172 +261,52 @@ vec4 calc_point_lights() {
     return total_color;
 }
 
-float sample_density(vec3 position) {
+bool belongs_to_skybox(int material_id) {
     
-    vec3 uvw = (mod(position + cloud.offset , 128)) / 128.f; 
-    vec4 noise_128= texture(noise_texture_1, uvw);
-   
-    float base_density = (0.75f + (cloud.pillowness * 0.25f)) * max(0.0f, noise_128.r - cloud.threshold) * cloud.scale
-                            + ((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.g - cloud.threshold) * cloud.scale
-                            + ((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.b - cloud.threshold) * cloud.scale;
-    
-    base_density = base_density * (1.f - cloud.cirrus_effect) + max(0.0f, noise_128.a - cloud.threshold) * cloud.scale * (cloud.cirrus_effect);
-
-    vec3 uvw_32 = (mod(position+ cloud.offset, 32)) /32.f; // + cloud.offset
-    vec4 noise_32= texture(noise_texture_2, uvw_32);
-
-    float fine_density =    0.6f * max(0.0f, noise_32.r - cloud.threshold) * cloud.scale
-                            + 0.15f * max(0.0f, noise_32.g - cloud.threshold) * cloud.scale
-                            + 0.15f * max(0.0f, noise_32.b - cloud.threshold) * cloud.scale;
-
-    return  base_density;// + fine_density * 0.3f;
+    return material_id == skyBoxMaterialID;
 
 }
 
-float phase_HG (float cosTheta, float g) {
+bool belongs_to_clouds(int material_id) {
 
-    float denom = 1 + g * g + 2 * g * cosTheta;
-    return (1.f/(4.f * PI)) * ((1 - g * g) / (denom * sqrt(denom)));
-
-}
-
-float light_march(vec3 sample_pos) {
-    
-    float total_density = 0.0f;
-    float light_absorption = 1.0f;
-    float henyey_greenstein_phase_function = 2.f;
-
-    vec3 direction_to_light = normalize(-directional_light.direction);
-    vec2 oT, oU;
-    vec3 oN;
-    int oF;
-    bool intersection = box_intersect_with_ray(eye_position, direction_to_light, inverse(cloud.model_to_world), 
-                                                    cloud.model_to_world, cloud.rad, oT, oN, oU, oF); 
-
-    for(int i  = 0; i < NUM_MARCH_STEPS_TO_LIGHT; i++) {
-
-        float step_size = (float(i)/float(NUM_MARCH_STEPS_TO_LIGHT)) * (oT.y - oT.x);
-        sample_pos += direction_to_light * (step_size);
-        total_density = sample_density(sample_pos); 
-
-    }
-
-    total_density /= NUM_MARCH_STEPS_TO_LIGHT;
-
-    float transmittance = exp(-total_density * light_absorption);
-
-    return transmittance;
-
-}
-
-void calc_clouds() {
-
-    float frag_depth = (projection * view * texture(g_position, tex_coords)).z;
-    vec3 frag_pos = texture(g_position, tex_coords).rgb;
-    bool hit_skybox = false;
-
-    if (frag_depth >= 0.0f) {
-
-        frag_pos = texture(g_position, tex_coords).rgb;
-
-    } else {
-
-        hit_skybox = true;
-        // if the fragment depth is zero then it is part of our sky box 
-        // get world position by using VP^-1 and calculate further with it 
-        vec4 cloud_pos_and_depth = texture(cloud_position_depth, tex_coords);
-        frag_pos = cloud_pos_and_depth.xyz;
-        //also adjust the frag_depth 
-        frag_depth = cloud_pos_and_depth.w;
-
-    }
-
-    vec3 ray_direction = normalize(frag_pos - eye_position); //
-    vec2 oT, oU;
-    vec3 oN;
-    int oF;
-    bool intersection = box_intersect_with_ray(eye_position, ray_direction, inverse(cloud.model_to_world), 
-                                                    cloud.model_to_world, cloud.rad, oT, oN, oU, oF); 
-
-    float light_energy = 0.0f;
-    float transmittance = 1.f;
-    //color = vec4(oT.y - oT.x, 0.0f,0.0f,1.0f);
-
-    float far_plane = 0.0;
-    
-    for (int i = 0; i < NUM_CASCADES; i++) {
-    
-        far_plane = max(far_plane, cascade_endpoints[i]);
-    
-    }
-
-    if (intersection && ((frag_depth > oT.x && hit_skybox == false) || 
-       (frag_depth > oT.x - far_plane && hit_skybox == true))) {
-        
-        //the cloud model is in [-1,1]^3
-        //therefore going into model space gives us something like a scale 
-
-        float rnd_numb = texture(random_number, tex_coords).r;
-
-        for(int i  = 0; i < NUM_MARCH_STEPS; i++) {
-            
-            float step_size = (float(i)/float(NUM_MARCH_STEPS)) * (oT.y - oT.x);
-            vec3 sample_pos = eye_position + ray_direction * (oT.x + step_size);
-            float density_of_sample = sample_density(sample_pos); 
-            float light_transmittance = light_march(sample_pos);
-
-            light_energy += density_of_sample * step_size * transmittance * light_transmittance *
-                            phase_HG(dot(normalize(ray_direction), normalize(directional_light.direction)), 0.5f);
-
-            transmittance *= exp(-density_of_sample * step_size);
-
-            if( transmittance < 0.01f) {
-                break;
-            }
-
-            if(cloud.powder_effect){
-
-                float powderness = 1.0f - exp(-(density_of_sample * step_size)/2.f);
-                transmittance += powderness;
-
-            }
-
-        }
-        
-        //vec3 point_in_cloud_space = (inverse(cloud.model_to_world) * vec4(frag_pos,1.0f)).xyz;
-        //float euclidian_dist = length(point_in_cloud_space * 0.5f);
-        vec3 cloud_color = light_energy * directional_light.base.color * directional_light.base.ambient_intensity;
-        color = color * (transmittance) + vec4(cloud_color, 1.0f);
-        //color = vec4(abs(oT.x), abs(oT.y),0.0f,1.0f);
-        //color = vec4(frag_pos,1.0f);
-        //color = vec4(point_in_cloud_space, 1.0f);
-    }
-
-}
-
-bool belongs_to_scene() {
-    
-    int material_id = int(texture(g_material_id, tex_coords).r);
-    return !(material_id == skyBoxMaterialID);
+    return (material_id == cloudsMaterialID);
 
 }
 
 void main () {
     
+    vec4 albedo     = texture(g_albedo, tex_coords);
+    vec4 frag_pos   = texture(g_position, tex_coords);
+    int material_id = int(texture(g_material_id, tex_coords).r);
+    float rnd_numb  = texture(random_number, tex_coords).r;
+
     vec4 final_color = calc_directional_light();
     // final_color += calc_point_lights();
 
-    if(belongs_to_scene()) {
-        color = final_color;
+    if(belongs_to_skybox(material_id) || belongs_to_clouds(material_id)) {
+        // here we only hit the skybox/ or clouds; avoid shading!
+        color = albedo;
     } else {
-        color = texture(g_albedo, tex_coords);
+        color = final_color;
     }
 
+    if(belongs_to_clouds(material_id)) {
+        
+        float far_plane = cascade_endpoints[NUM_CASCADES - 1];
 
-    calc_clouds();
+        calc_clouds(projection, view, 
+                    frag_pos, eye_position, 
+                    cloud,
+                    rnd_numb,
+                    noise_texture_1, 
+                    noise_texture_2, 
+                    directional_light,
+                    far_plane,
+                    color);
+    }
+
     color.xyz = Reinhards_tonemapping(color.xyz);
     color = vec4(gamma_correction(color.xyz),1.0);
-    //color = final_color;
 
 }
 

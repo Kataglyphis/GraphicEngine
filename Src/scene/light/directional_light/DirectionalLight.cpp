@@ -14,15 +14,16 @@ DirectionalLight::DirectionalLight() :  Light(),
 
 DirectionalLight::DirectionalLight( GLuint shadow_width, GLuint shadow_height,
                                     GLfloat red, GLfloat green, GLfloat blue,
-                                    GLfloat a_intensity, GLfloat d_intensity,
+                                    GLfloat radiance,
                                     GLfloat x_dir, GLfloat y_dir, GLfloat z_dir,
                                     GLfloat near_plane, GLfloat far_plane,
                                     int num_cascades) : 
-                                                        Light(shadow_width, shadow_height,
-                                                        red, green, blue,
-                                                        a_intensity, d_intensity),
-                                                        shadow_map(std::make_shared<CascadedShadowMap>()),
-                                                        cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
+
+                                    Light(shadow_width, shadow_height,
+                                    red, green, blue,
+                                    radiance),
+                                    shadow_map(std::make_shared<CascadedShadowMap>()),
+                                    cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
     {
 
     direction = glm::vec3{ x_dir, y_dir, z_dir };
@@ -208,14 +209,9 @@ glm::vec3 DirectionalLight::get_color()
 	return color;
 }
 
-float DirectionalLight::get_diffuse_intensity()
+float DirectionalLight::get_radiance()
 {
-	return diffuse_intensity;
-}
-
-float DirectionalLight::get_ambient_intensity()
-{
-	return ambient_intensity;
+	return radiance;
 }
 
 void DirectionalLight::set_direction(glm::vec3 direction)
@@ -223,14 +219,9 @@ void DirectionalLight::set_direction(glm::vec3 direction)
 	this->direction = direction;
 }
 
-void DirectionalLight::set_ambient_intensity(float ambient_intensity)
+void DirectionalLight::set_radiance(float radiance)
 {
-	this->ambient_intensity = ambient_intensity;
-}
-
-void DirectionalLight::set_diffuse_intensity(float diffuse_intensity)
-{
-	this->diffuse_intensity = diffuse_intensity;
+	this->radiance = radiance;
 }
 
 void DirectionalLight::set_color(glm::vec3 color)

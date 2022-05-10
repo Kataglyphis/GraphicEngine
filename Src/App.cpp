@@ -121,9 +121,6 @@ int main()
             window_width = new_window_width;
             renderer.update_window_params(window_width, window_height);
 
-            std::shared_ptr<Clouds> clouds = scene->get_clouds();
-            clouds->update_window_params(window_width, window_height);
-
         }
 
         main_window->swap_buffers();

@@ -37,14 +37,9 @@ void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
     }
 
     //we will now start the geometry pass
-    geometry_pass->execute(  projection_matrix, main_camera->calculate_viewmatrix(),
+    geometry_pass->execute(  projection_matrix, main_camera,
                             window_width, window_height, gbuffer->get_id(),
                             delta_time, scene);
-
-    // render the AABB for the clouds
-    std::shared_ptr<Clouds> clouds = scene->get_clouds();
-    clouds->render( projection_matrix, main_camera->calculate_viewmatrix(),
-                    window_width, window_height);
 
     // after geometry pass we can now do the lighting
     lighting_pass->execute(  projection_matrix,

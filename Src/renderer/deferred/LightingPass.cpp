@@ -79,14 +79,12 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     DirectionalLightUniformLocations d_light_uniform_locations;
 
-    d_light_uniform_locations.uniform_ambient_intensity_location    = shader_program->get_directional_light_ambient_intensity_location();
+    d_light_uniform_locations.uniform_radiance_location             = shader_program->get_directional_light_radiance_location();
     d_light_uniform_locations.uniform_color_location                = shader_program->get_directional_light_color_location();
-    d_light_uniform_locations.uniform_diffuse_intensity_location    = shader_program->get_directional_light_diffuse_intensity_location();
     d_light_uniform_locations.uniform_direction_location            = shader_program->get_directional_light_direction_location();
 
     std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
-    uniform_helper.setUniformFloat(main_light->get_ambient_intensity(), d_light_uniform_locations.uniform_ambient_intensity_location);
-    uniform_helper.setUniformFloat(main_light->get_diffuse_intensity(), d_light_uniform_locations.uniform_diffuse_intensity_location);
+    uniform_helper.setUniformFloat(main_light->get_radiance(), d_light_uniform_locations.uniform_radiance_location);
     uniform_helper.setUniformVec3(main_light->get_color(), d_light_uniform_locations.uniform_color_location);
     uniform_helper.setUniformVec3(main_light->get_direction(), d_light_uniform_locations.uniform_direction_location);
 
@@ -133,6 +131,8 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     }
 
     // CLOUDS
+    uniform_helper.setUniformInt(MAX_MATERIALS + 1, shader_program->get_uniform_clouds_material_id_location());
+
     std::shared_ptr<Clouds> cloud = scene->get_clouds();
     uniform_helper.setUniformVec3(cloud->get_rad(), shader_program->get_uniform_cloud_rad_location());
 

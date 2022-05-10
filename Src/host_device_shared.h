@@ -8,9 +8,6 @@ const int MAX_TEXTURE_COUNT = 30;
 
 const float PI = 3.14159265359f;
 
-//params for clouds
-#define CLOUDS 1
-
 // bindings 
 #define STORAGE_BUFFER_MATERIAL_ID_BINDING 0
 #define UNIFORM_LIGHT_MATRICES_BINDING 1

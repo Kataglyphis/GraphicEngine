@@ -10,9 +10,9 @@ class Light
 public:
 
 	Light();
-	Light(GLfloat shadow_width, GLfloat shadow_height, 
-		GLfloat red, GLfloat green, GLfloat blue,
-		GLfloat a_intensity, GLfloat d_intensity);
+	Light(	GLfloat shadow_width, GLfloat shadow_height, 
+			GLfloat red, GLfloat green, GLfloat blue,
+			GLfloat radiance);
 
 
 	~Light();
@@ -20,8 +20,7 @@ public:
 protected:
 
 	glm::vec3 color;
-	float ambient_intensity;
-	float diffuse_intensity;
+	float radiance;
 
 	glm::mat4 light_proj;
 };

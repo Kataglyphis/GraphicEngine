@@ -15,7 +15,6 @@ public:
 	void render(glm::mat4 projection_matrix, glm::mat4 view_matrix, 
 				GLfloat window_width, GLfloat window_height);
 	void read(GLuint index);
-	void update_window_params(GLfloat window_width, GLfloat window_height);
 
 	void create_noise_textures();
 

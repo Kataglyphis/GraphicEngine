@@ -9,8 +9,7 @@ GUI::GUI()
 {
 
     // give some arbitrary values; we will update these values after 1 frame :)
-    this->direcional_light_ambient_intensity = 4.0f;
-    this->direcional_light_diffuse_intensity = 0.5f;
+    this->direcional_light_radiance = 4.0f;
 
     this->directional_light_color[0] = 1;
     this->directional_light_color[1] = 1;
@@ -112,7 +111,7 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
 
         if (ImGui::TreeNode("Directional Light")) {
             ImGui::Separator();
-            ImGui::SliderFloat("Ambient intensity", &direcional_light_ambient_intensity, 0.0f, 50.0f);
+            ImGui::SliderFloat("Radiance", &direcional_light_radiance, 0.0f, 50.0f);
             ImGui::Separator();
             // Edit a color (stored as ~4 floats)
             ImGui::ColorEdit3("Directional Light Color", directional_light_color);
@@ -198,8 +197,7 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
 void GUI::update_user_input(std::shared_ptr<Scene> scene)
 {
     std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
-    main_light->set_ambient_intensity(direcional_light_ambient_intensity);
-    main_light->set_diffuse_intensity(direcional_light_diffuse_intensity);
+    main_light->set_radiance(direcional_light_radiance);
     main_light->get_shadow_map()->set_intensity(cascaded_shadow_intensity);
     main_light->get_shadow_map()->set_pcf_radius(pcf_radius);
 

@@ -17,9 +17,9 @@ void LoadingScreen::init()
     texture_base_dir << "/Resources/Textures/";
 
     std::stringstream texture_loading_screen;
-    texture_loading_screen << texture_base_dir.str() << "Loading_Screen/Engine_logo.png";
+    texture_loading_screen << texture_base_dir.str() << "Loading_Screen/ukraine.jpg";
     loading_screen_tex = Texture(texture_loading_screen.str().c_str(), std::make_shared<RepeatMode>());
-    loading_screen_tex.load_texture_with_alpha_channel();
+    loading_screen_tex.load_texture_without_alpha_channel();
     std::stringstream texture_logo;
     texture_logo << texture_base_dir.str() << "Loading_Screen/Engine_logo.png";
     logo_tex = Texture(texture_logo.str().c_str(), std::make_shared<RepeatMode>());

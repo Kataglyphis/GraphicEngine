@@ -27,8 +27,7 @@ private:
 
 	Texture logo_tex;
 
-	float direcional_light_ambient_intensity;
-	float direcional_light_diffuse_intensity;
+	float direcional_light_radiance;
 	float directional_light_color[3];
 	float directional_light_direction[3];
 

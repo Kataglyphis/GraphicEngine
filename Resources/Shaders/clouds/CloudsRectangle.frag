@@ -1,12 +1,15 @@
 #version 460
 
-layout(location = 0) out vec4 cloud;
+layout(location = 0) out vec3 g_position;
+layout(location = 3) out vec3 g_material_id;
 
-in float frag_depth;
-in vec3 cloud_pos;
+in vec4 cloud_world_pos;
+
+uniform int cloudsMaterialID;
 
 void main() {
 	
-	cloud = vec4(cloud_pos, frag_depth);
+	g_position		= cloud_world_pos.xyz;
+	g_material_id	= vec3(cloudsMaterialID);
 
 }

@@ -10,12 +10,14 @@ PointLight::PointLight()
 PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
                                         GLfloat near, GLfloat far,
                                         GLfloat red, GLfloat green, GLfloat blue,
-                                        GLfloat a_intensity, GLfloat d_intensity,
+                                        GLfloat radiance,
                                         GLfloat x_pos, GLfloat y_pos, GLfloat z_pos,
-                                        GLfloat con, GLfloat lin, GLfloat exp) : Light(shadow_width, shadow_height,
+                                        GLfloat con, GLfloat lin, GLfloat exp) :
+
+                                            Light(shadow_width, shadow_height,
                                             red, green, blue,
-                                            a_intensity, d_intensity), 
-                                        omni_dir_shadow_map(std::make_shared<OmniDirShadowMap>())
+                                            radiance), 
+                                            omni_dir_shadow_map(std::make_shared<OmniDirShadowMap>())
 {
     position = glm::vec3(x_pos, y_pos, z_pos);
     constant = con;
@@ -30,15 +32,14 @@ PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
     omni_dir_shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height);
 }
 
-void PointLight::use_light(GLuint ambient_intensity_location, GLuint ambient_color_location,
-    GLuint diffuse_intensity_location,
-    GLuint position_location, GLuint constant_location, GLuint linear_location,
-    GLuint exponent_location)
+void PointLight::use_light( GLuint radiance_location, GLuint ambient_color_location,
+                            GLuint position_location, GLuint constant_location, 
+                            GLuint linear_location,
+                            GLuint exponent_location)
 {
 
     glUniform3f(ambient_color_location, color.x, color.y, color.z);
-    glUniform1f(ambient_intensity_location, ambient_intensity);
-    glUniform1f(diffuse_intensity_location, diffuse_intensity);
+    glUniform1f(radiance_location, radiance);
 
     glUniform3f(position_location, position.x, position.y, position.z);
     glUniform1f(constant_location, constant);

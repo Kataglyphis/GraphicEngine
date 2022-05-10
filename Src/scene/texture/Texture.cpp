@@ -82,7 +82,6 @@ bool Texture::load_texture_with_alpha_channel()
 
 	wrapping_mode->activate();
 
-
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data);
 	glGenerateMipmap(GL_TEXTURE_2D);
 

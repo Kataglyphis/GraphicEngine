@@ -22,7 +22,8 @@ private:
             "frostbite.glsl",
             "pbrBook.glsl",
             "phong.glsl",
-            "unreal4.glsl"
+            "unreal4.glsl",
+            "clouds.glsl"
     };
 
     std::vector<const char*> file_locations_relative = {
@@ -35,7 +36,8 @@ private:
             "/Resources/Shaders/pbr/brdf/frostbite.glsl",
             "/Resources/Shaders/pbr/brdf/pbrBook.glsl",
             "/Resources/Shaders/pbr/brdf/phong.glsl",
-            "/Resources/Shaders/pbr/brdf/unreal4.glsl"
+            "/Resources/Shaders/pbr/brdf/unreal4.glsl",
+            "/Resources/Shaders/clouds/clouds.glsl"
     };
 
 };

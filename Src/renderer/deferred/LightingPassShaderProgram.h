@@ -15,9 +15,9 @@ public:
 	LightingPassShaderProgram();
 
 	//all the getter for the light locations
-	GLuint get_directional_light_ambient_intensity_location();
+	GLuint get_uniform_clouds_material_id_location();
+	GLuint get_directional_light_radiance_location();
 	GLuint get_directional_light_color_location();
-	GLuint get_directional_light_diffuse_intensity_location();
 	GLuint get_directional_light_direction_location();
 	GLuint get_directional_light_shadow_intensity_location();
 	GLuint get_g_position_location();
@@ -57,6 +57,10 @@ public:
 
 private:
 
+	void retrieve_uniform_locations();
+
+	GLuint uniform_clouds_material_id_location;
+
 	GLuint uniform_light_matrics_id;
 
 	GLuint skyBoxMaterialID;
@@ -80,8 +84,7 @@ private:
 	struct {
 
 		GLuint uniform_color;
-		GLuint uniform_ambient_intensity;
-		GLuint uniform_diffuse_intensity;
+		GLuint uniform_radiance;
 
 		GLuint uniform_position;
 		GLuint uniform_constant;
@@ -121,6 +124,5 @@ private:
 
 	GLuint uniform_num_active_cascades, uniform_pcf_radius_location;
 
-	void retrieve_uniform_locations();
 };
 

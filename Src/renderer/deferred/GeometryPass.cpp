@@ -56,7 +56,7 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
     DebugApp_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
 }
 
-void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix, 
+void GeometryPass::execute( glm::mat4 projection_matrix, std::shared_ptr<Camera> main_camera, 
                             GLfloat window_width, GLfloat window_height,
                             GLuint gbuffer_id, GLfloat delta_time, std::shared_ptr<Scene> scene)
 {
@@ -66,6 +66,7 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix,
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, window_width, window_height);
 
+    glm::mat4 view_matrix = main_camera->calculate_viewmatrix();
 
     shader_program->use_shader_program();
 
@@ -78,6 +79,13 @@ void GeometryPass::execute( glm::mat4 projection_matrix, glm::mat4 view_matrix,
     scene->render(this);
 
     skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
+
+    // render the AABB for the clouds
+    std::shared_ptr<Clouds> clouds = scene->get_clouds();
+    clouds->render( projection_matrix,
+                    view_matrix,
+                    window_width, window_height);
+
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
