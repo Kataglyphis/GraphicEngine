@@ -3,7 +3,11 @@
 //define all constants here
 const int NUM_CASCADES = 3;
 const int MAX_POINT_LIGHTS = 1;
+
 const int MAX_MATERIALS = 35;
+const int SKYBOX_MATERIAL_ID = MAX_MATERIALS;
+const int CLOUDS_MATERIAL_ID = MAX_MATERIALS + 1;
+
 const int MAX_TEXTURE_COUNT = 30;
 
 const float PI = 3.14159265359f;

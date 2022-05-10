@@ -2,12 +2,6 @@
 
 Noise::Noise() 
 {
-
-}
-
-void Noise::init()
-{
-
 	this->texture_dim_1 = 128;
 	this->texture_dim_2 = 32;
 	texture_1_shader_program = ComputeShaderProgram();
@@ -17,7 +11,7 @@ void Noise::init()
 
 	for (int i = 0; i < NUM_CELLS; i++) {
 
-		num_cells_per_axis[i] = pow(2, i+1);
+		num_cells_per_axis[i] = pow(2, i + 1);
 		generate_cells(num_cells_per_axis[i], i);
 
 	}
@@ -41,7 +35,6 @@ void Noise::init()
 
 	printf("max local (in one shader) work group sizes x:%i y:%i z:%i\n",
 		work_grp_size[0], work_grp_size[1], work_grp_size[2]);*/
-
 }
 
 void Noise::generate_textures()
@@ -52,7 +45,12 @@ void Noise::generate_textures()
 
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 		// i think we won't need nearest option; so stick to linear
-		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, num_cells_per_axis[i], num_cells_per_axis[i], num_cells_per_axis[i], 0, GL_RGBA, GL_FLOAT, cell_data[i].get());
+		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	num_cells_per_axis[i], 
+													num_cells_per_axis[i], 
+													num_cells_per_axis[i], 
+													0, GL_RGBA, GL_FLOAT, 
+													cell_data[i].get());
+
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
@@ -62,10 +60,14 @@ void Noise::generate_textures()
 
 	}
 
-	glGenTextures(1, &texture_1);
+	glGenTextures(1, &texture_1_id);
 	glActiveTexture(GL_TEXTURE0 + WORLEY_NOISE_TEXTURES_SLOT);
-	glBindTexture(GL_TEXTURE_3D, texture_1);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_1, texture_dim_1, texture_dim_1, 0, GL_RGBA, GL_FLOAT, NULL);
+	glBindTexture(GL_TEXTURE_3D, texture_1_id);
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	texture_dim_1,
+												texture_dim_1, 
+												texture_dim_1, 
+												0, GL_RGBA, GL_FLOAT, NULL);
+
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
@@ -73,10 +75,14 @@ void Noise::generate_textures()
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
-	glGenTextures(1, &texture_2);
+	glGenTextures(1, &texture_2_id);
 	glActiveTexture(GL_TEXTURE0 + GRAD_NOISE_TEXTURES_SLOT);
-	glBindTexture(GL_TEXTURE_3D, texture_2);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_2, texture_dim_2, texture_dim_2, 0, GL_RGBA, GL_FLOAT, NULL);
+	glBindTexture(GL_TEXTURE_3D, texture_2_id);
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	texture_dim_2, 
+												texture_dim_2, 
+												texture_dim_2, 
+												0, GL_RGBA, GL_FLOAT, NULL);
+
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
@@ -89,8 +95,8 @@ void Noise::generate_textures()
 void Noise::delete_textures()
 {
 
-	glDeleteTextures(1, &texture_1);
-	glDeleteTextures(1, &texture_2);
+	glDeleteTextures(1, &texture_1_id);
+	glDeleteTextures(1, &texture_2_id);
 	
 	for (int i = 0; i < NUM_CELLS; i++) {
 	
@@ -144,10 +150,10 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 
 				GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;
 
-				*(cell_data[cell_index].get() + index) = position[0];//
-				*(cell_data[cell_index].get() + index + 1) = position[1];//
-				*(cell_data[cell_index].get() + index + 2) = position[2];//
-				*(cell_data[cell_index].get() + index + 3) = 1.0f;
+				*(cell_data[cell_index].get() + index)		= position[0];
+				*(cell_data[cell_index].get() + index + 1)	= position[1];
+				*(cell_data[cell_index].get() + index + 2)	= position[2];
+				*(cell_data[cell_index].get() + index + 3)	= 1.0f;
 			}
 		}
 	}
@@ -170,7 +176,7 @@ void Noise::create_worley_noise()
 {
 	
 	texture_1_shader_program.use_shader_program();
-	glBindImageTexture(0, texture_1, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+	glBindImageTexture(0, texture_1_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 
 	for (int i = 0; i < NUM_CELLS; i++) {
 
@@ -197,7 +203,7 @@ void Noise::create_grad_noise()
 {
 
 	texture_2_shader_program.use_shader_program();
-	glBindImageTexture(0, texture_2, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+	glBindImageTexture(0, texture_2_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 
 	for (int i = 0; i < NUM_CELLS; i++) {
 
@@ -225,7 +231,7 @@ void Noise::read_worley_noise(GLenum start_buffer_index)
 {
 	GLuint texture_index = GL_TEXTURE0 + start_buffer_index;
 	glActiveTexture((GLenum)texture_index);
-	glBindTexture(GL_TEXTURE_3D, texture_1);
+	glBindTexture(GL_TEXTURE_3D, texture_1_id);
 
 	// Check if any gl errorers appears.
 	DebugApp_ins.areErrorPrintAll("From read worley noise function in Noise.cpp");
@@ -235,7 +241,7 @@ void Noise::read_grad_noise(GLenum start_buffer_index)
 {
 	GLuint texture_index = GL_TEXTURE0 + start_buffer_index;
 	glActiveTexture((GLenum)texture_index);
-	glBindTexture(GL_TEXTURE_3D, texture_2);
+	glBindTexture(GL_TEXTURE_3D, texture_2_id);
 
 	// Check if any gl errorers appears.
 	DebugApp_ins.areErrorPrintAll("From read grad noise function in Noise.cpp");

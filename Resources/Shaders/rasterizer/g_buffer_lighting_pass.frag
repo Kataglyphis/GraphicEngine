@@ -42,7 +42,6 @@ layout (std140, binding = UNIFORM_LIGHT_MATRICES_BINDING) uniform LightSpaceMatr
 uniform Clouds      cloud;
 uniform sampler3D   noise_texture_1;
 uniform sampler3D   noise_texture_2;
-uniform int         cloudsMaterialID;
 // a set of random numbers for getting an good offset for raymarching
 // with that we accomplish a round "random" shape for our cloud 
 // in [0,1]
@@ -54,7 +53,6 @@ uniform int             point_light_count;
 uniform OmniShadowMap   omni_shadow_maps[MAX_POINT_LIGHTS];
 
 uniform Material    materials[MAX_MATERIALS];
-uniform int         skyBoxMaterialID;
 
 uniform vec3 eye_position;
 uniform mat4 view;
@@ -263,13 +261,13 @@ vec4 calc_point_lights() {
 
 bool belongs_to_skybox(int material_id) {
     
-    return material_id == skyBoxMaterialID;
+    return material_id == SKYBOX_MATERIAL_ID;
 
 }
 
 bool belongs_to_clouds(int material_id) {
 
-    return (material_id == cloudsMaterialID);
+    return (material_id == CLOUDS_MATERIAL_ID);
 
 }
 

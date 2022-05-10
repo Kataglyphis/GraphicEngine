@@ -25,7 +25,6 @@ public:
 	void read_worley_noise(GLenum start_buffer_index);
 	void read_grad_noise(GLenum start_buffer_index);
 
-	void init();
 	void update();
 
 	void set_num_cells(GLuint num_cells_per_axis, GLuint index);
@@ -38,13 +37,15 @@ private:
 	void generate_textures();
 	void delete_textures();
 
-	GLuint texture_1, texture_2;
-	GLuint cell_ids[NUM_CELLS];
+	GLuint texture_1_id;
+	GLuint texture_dim_1;
+	ComputeShaderProgram texture_1_shader_program;
 
-	GLuint texture_dim_1, texture_dim_2;
+	GLuint cell_ids[NUM_CELLS];
 	GLuint num_cells_per_axis[NUM_CELLS];
 
-	ComputeShaderProgram texture_1_shader_program;
+	GLuint texture_2_id;
+	GLuint texture_dim_2;
 	ComputeShaderProgram texture_2_shader_program;
 
 	std::shared_ptr<GLfloat[]> cell_data [NUM_CELLS];

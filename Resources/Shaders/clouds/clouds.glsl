@@ -161,7 +161,7 @@ void calc_clouds(   mat4 projection, mat4 view,
         //vec3 point_in_cloud_space = (inverse(cloud.model_to_world) * frag_pos).xyz;
         //float euclidian_dist = length(point_in_cloud_space * 0.5f);
         vec3 cloud_color = light_energy * directional_light.base.color * directional_light.base.radiance;
-        color = color * (transmittance)+ vec4(cloud_color, 1.0f);//
+        color = color * (transmittance) + vec4(cloud_color, 1.0f);//
         //color = vec4(abs(oT.x), abs(oT.y),0.0f,1.0f);
         //color = frag_pos;
         //color = vec4(point_in_cloud_space, 1.0f);

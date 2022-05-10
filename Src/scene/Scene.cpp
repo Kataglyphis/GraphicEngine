@@ -52,8 +52,8 @@ void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> ma
 
     point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
 
-    clouds = std::make_shared<Clouds>();
-    clouds->init(main_window->get_buffer_width(), main_window->get_buffer_height());
+    clouds = std::make_shared<Clouds>(  main_window->get_buffer_width(), 
+                                        main_window->get_buffer_height());
 
     loaded_scene = false;
 

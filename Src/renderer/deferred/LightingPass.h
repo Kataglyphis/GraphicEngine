@@ -43,11 +43,6 @@ private:
 
     glm::vec3 current_offset;
 
-    RandomNumbers random_numbers;
-    std::shared_ptr<GLfloat[]> random_number_data;
-
-    GLuint random_number;
-
     void retrieve_lighting_pass_locations(  glm::mat4 projection_matrix,
                                             std::shared_ptr<Camera> main_camera,
                                             std::shared_ptr<Scene> scene,

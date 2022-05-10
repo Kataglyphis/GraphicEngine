@@ -2,19 +2,19 @@
 #include "AABB.h"
 #include "CloudsShaderProgram.h"
 #include "Noise.h"
-
+#include "RandomNumbers.h"
 #include <memory>
 
 class Clouds
 {
 public:
 
-	Clouds();
+	Clouds(GLfloat window_width, GLfloat window_height);
 
-	void init(GLfloat window_width, GLfloat window_height);
 	void render(glm::mat4 projection_matrix, glm::mat4 view_matrix, 
 				GLfloat window_width, GLfloat window_height);
-	void read(GLuint index);
+
+	void read();
 
 	void create_noise_textures();
 
@@ -48,8 +48,6 @@ private:
 
 	void retrieve_and_set_uniform_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix);
 
-	GLuint FBO, cloud_id;
-
 	glm::mat4 model;
 	AABB aabb;
 	GLfloat minX, maxX, minY, maxY, minZ, maxZ;
@@ -63,7 +61,7 @@ private:
 
 	std::shared_ptr<CloudsShaderProgram>	shader_program;
 	std::shared_ptr<Noise>					noise;
+	std::shared_ptr<RandomNumbers>			random_numbers;
 
-	GLuint attatchments[1] = {GL_COLOR_ATTACHMENT0};
 };
 

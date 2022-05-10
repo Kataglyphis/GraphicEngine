@@ -9,9 +9,6 @@ void LightingPassShaderProgram::retrieve_uniform_locations() {
     // check if there any errors appears before executing the function
     DebugApp_ins.arePreError("From retrieve_uniform_locations in LightingPassShaderProgram.cpp");
 
-    uniform_clouds_material_id_location = glGetUniformLocation(program_id, "cloudsMaterialID");
-    skyBoxMaterialID                    = glGetUniformLocation(program_id, "skyBoxMaterialID");
-
     //setting all uniforms for our directional lights
     d_light_uniform_locations.uniform_color_location                = glGetUniformLocation(program_id, "directional_light.base.color");
     d_light_uniform_locations.uniform_radiance_location             = glGetUniformLocation(program_id, "directional_light.base.radiance");
@@ -220,11 +217,6 @@ GLuint LightingPassShaderProgram::get_uniform_projection_location()
     return uniform_projection_location;
 }
 
-GLuint LightingPassShaderProgram::get_skyBoxMaterialID()
-{
-    return skyBoxMaterialID;
-}
-
 GLuint LightingPassShaderProgram::get_light_matrics_id_location()
 {
     return uniform_light_matrics_id;
@@ -325,11 +317,6 @@ void LightingPassShaderProgram::set_noise_textures(GLuint start)
 void LightingPassShaderProgram::set_cloud_texture(GLuint index)
 {
     glUniform1i(uniform_cloud_texture_location, index);
-}
-
-GLuint LightingPassShaderProgram::get_uniform_clouds_material_id_location()
-{
-    return uniform_clouds_material_id_location;
 }
 
 GLuint LightingPassShaderProgram::get_directional_light_radiance_location()

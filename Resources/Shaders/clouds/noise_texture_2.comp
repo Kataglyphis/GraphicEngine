@@ -13,7 +13,7 @@ const int NUM_WORLEY_FREQUENCIES = 3;
 uniform sampler3D cell_positions[NUM_CELL_POSITIONS];
 uniform int num_cells[NUM_CELL_POSITIONS];
 
-//
+
 // Description : Array and textureless GLSL 2D/3D/4D simplex 
 //               noise functions.
 //      Author : Ian McEwan, Ashima Arts.

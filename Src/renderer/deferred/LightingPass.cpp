@@ -13,21 +13,6 @@ void LightingPass::init()
 
     quad.init();
 
-    random_numbers = RandomNumbers();
-
-    random_number_data = random_numbers.generate_random_numbers();
-
-    glGenTextures(1, &random_number);
-    glBindTexture(GL_TEXTURE_2D, random_number);
-    // i think we won't need nearest option; so stick to linear
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    //assuming full HD will be maximum resolution 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, MAX_RESOLUTION_X, MAX_RESOLUTION_Y, 0, GL_RGBA, GL_FLOAT, random_number_data.get());
-    glBindTexture(GL_TEXTURE_2D, 0);
-
 }
 
 void LightingPass::execute( glm::mat4 projection_matrix, 
@@ -70,8 +55,6 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                                                     std::shared_ptr<GBuffer> gbuffer,
                                                     float delta_time)
 {
-
-    uniform_helper.setUniformInt(MAX_MATERIALS, shader_program->get_skyBoxMaterialID());
 
     glm::mat4 view_matrix = main_camera->calculate_viewmatrix();
     uniform_helper.setUniformMatrix4fv(view_matrix, shader_program->get_uniform_view_location());
@@ -116,8 +99,6 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
 
     shader_program->set_noise_textures(WORLEY_NOISE_TEXTURES_SLOT);
 
-    shader_program->set_cloud_texture(CLOUD_TEXTURE_SLOT);
-
     // CAMERA
     glm::vec3 camera_position = main_camera->get_camera_position();
     uniform_helper.setUniformVec3(camera_position, shader_program->get_eye_position_location());
@@ -131,8 +112,6 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
     }
 
     // CLOUDS
-    uniform_helper.setUniformInt(MAX_MATERIALS + 1, shader_program->get_uniform_clouds_material_id_location());
-
     std::shared_ptr<Clouds> cloud = scene->get_clouds();
     uniform_helper.setUniformVec3(cloud->get_rad(), shader_program->get_uniform_cloud_rad_location());
 
@@ -165,6 +144,8 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                                             shader_program->get_light_matrics_id_location(),
                                             shader_program->get_id());
 
+    uniform_helper.setUniformInt(RANDOM_NUMBERS_SLOT, shader_program->get_random_number_location());
+
     shader_program->validate_program();
 }
 
@@ -177,26 +158,11 @@ void LightingPass::bind_buffers_for_lighting(   std::shared_ptr<GBuffer> gbuffer
 
     main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);
 
-    cloud->read(CLOUD_TEXTURE_SLOT);
-
-    bind_random_numbers(RANDOM_NUMBERS_SLOT);
+    cloud->read();
 
 }
-
-void LightingPass::bind_random_numbers(GLuint texture_unit)
-{
-
-    uniform_helper.setUniformInt(texture_unit, shader_program->get_random_number_location());
-
-    glActiveTexture(GL_TEXTURE0 + (GLenum)texture_unit);
-    glBindTexture(GL_TEXTURE_2D, random_number);
-
-}
-
 
 LightingPass::~LightingPass()
 {
-
-    glDeleteTextures(1, &random_number);
 
 }

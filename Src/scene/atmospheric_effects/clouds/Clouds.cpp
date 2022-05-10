@@ -1,13 +1,12 @@
 #include "Clouds.h"
 
-Clouds::Clouds() : shader_program(std::make_shared<CloudsShaderProgram>(CloudsShaderProgram{}))
+Clouds::Clouds(GLfloat window_width, GLfloat window_height) : 
+						shader_program(std::make_shared<CloudsShaderProgram>(CloudsShaderProgram{}))
 {
-}
+	noise			= std::make_shared<Noise>();
+	random_numbers	= std::make_shared<RandomNumbers>();
 
-void Clouds::init(GLfloat window_width, GLfloat window_height)
-{
-	noise = std::make_shared<Noise>();
-	noise->init();
+	shader_program->create_from_files("clouds/CloudsRectangle.vert","clouds/CloudsRectangle.frag");
 
 	create_noise_textures();
 
@@ -34,8 +33,6 @@ void Clouds::init(GLfloat window_width, GLfloat window_height)
 	translation = glm::vec3(0.0f);
 	scale_factor = glm::vec3(1.f);
 
-	shader_program->create_from_files("clouds/CloudsRectangle.vert","clouds/CloudsRectangle.frag");
-
 }
 
 void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height)
@@ -51,11 +48,10 @@ void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat 
 	
 }
 
-void Clouds::read(GLuint index)
+void Clouds::read()
 {
-
+	random_numbers->read();
 	noise->read_worley_noise(WORLEY_NOISE_TEXTURES_SLOT);
-
 	noise->read_grad_noise(GRAD_NOISE_TEXTURES_SLOT);
 }
 
@@ -120,8 +116,6 @@ void Clouds::retrieve_and_set_uniform_locations(glm::mat4 projection_matrix, glm
 	glUniformMatrix4fv(shader_program->get_view_location(), 1, GL_FALSE, glm::value_ptr(view_matrix));
 
 	glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(get_model()));
-
-	glUniform1i(shader_program->get_clouds_material_id_location(), MAX_MATERIALS + 1);
 
 	shader_program->validate_program();
 }
@@ -188,5 +182,5 @@ std::shared_ptr<CloudsShaderProgram> Clouds::get_shader_program()
 
 Clouds::~Clouds()
 {
-
+	
 }

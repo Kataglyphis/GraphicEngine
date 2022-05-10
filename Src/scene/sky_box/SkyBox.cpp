@@ -109,7 +109,6 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 
 	sky_shader_program->use_shader_program();
 
-	uniform_helper.setUniformInt(MAX_MATERIALS, sky_shader_program->get_uniform_skyBoxMaterialID_location());
 	uniform_helper.setUniformMatrix4fv(projection_matrix, uniform_projection);
 	uniform_helper.setUniformMatrix4fv(new_view_matrix, uniform_view);
 	uniform_helper.setUniformInt(SKYBOX_TEXTURES_SLOT, sky_shader_program->get_uniform_samplerCube_location());

@@ -15,7 +15,6 @@ public:
 	LightingPassShaderProgram();
 
 	//all the getter for the light locations
-	GLuint get_uniform_clouds_material_id_location();
 	GLuint get_directional_light_radiance_location();
 	GLuint get_directional_light_color_location();
 	GLuint get_directional_light_direction_location();
@@ -46,7 +45,6 @@ public:
 	GLuint get_uniform_pcf_radius_location();
 	GLuint get_uniform_view_location();
 	GLuint get_uniform_projection_location();
-	GLuint get_skyBoxMaterialID();
 	GLuint get_light_matrics_id_location();
 
 	void set_point_lights(std::vector<std::shared_ptr<PointLight>>& p_light, unsigned int texture_unit);
@@ -59,11 +57,7 @@ private:
 
 	void retrieve_uniform_locations();
 
-	GLuint uniform_clouds_material_id_location;
-
 	GLuint uniform_light_matrics_id;
-
-	GLuint skyBoxMaterialID;
 
 	GLuint	uniform_g_postion_location,
 			uniform_g_normal_position, uniform_g_tex_color_location,

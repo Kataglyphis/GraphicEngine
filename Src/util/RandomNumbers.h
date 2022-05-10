@@ -13,11 +13,14 @@ public:
 
 	RandomNumbers();
 
-	std::shared_ptr<GLfloat[]> generate_random_numbers();
+	void read();
 
 	~RandomNumbers();
 
 private:
 
+	GLuint						random_number_id;
+	std::shared_ptr<GLfloat[]>	random_number_data;
+	std::shared_ptr<GLfloat[]>	generate_random_numbers();
 };
 
