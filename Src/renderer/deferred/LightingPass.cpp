@@ -7,11 +7,10 @@ LightingPass::LightingPass()
 void LightingPass::init()
 {
 
-    this->uniform_helper = UniformHelper();
-    create_shader_program();
-    current_offset = glm::vec3(0.0f);
+    this->uniform_helper    = UniformHelper();
+    current_offset          = glm::vec3(0.0f);
 
-    quad.init();
+    create_shader_program();
 
 }
 
@@ -153,7 +152,7 @@ void LightingPass::bind_buffers_for_lighting(   std::shared_ptr<GBuffer> gbuffer
                                                 std::shared_ptr<Scene> scene,
                                                 std::shared_ptr<Clouds> cloud)
 {
-    GLuint point_light_count = scene->get_point_light_count();
+
     std::shared_ptr<DirectionalLight> main_light = scene->get_sun();
 
     main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);

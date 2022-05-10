@@ -12,7 +12,6 @@ public:
 
 	Quad();
 
-	void init();
 	void render();
 
 	~Quad();

@@ -33,6 +33,7 @@ public:
 
 private:
 
+	void create_shader_programs();
 	void generate_cells(GLuint num_cells_per_axis, GLuint cell_index);
 	void generate_textures();
 	void delete_textures();

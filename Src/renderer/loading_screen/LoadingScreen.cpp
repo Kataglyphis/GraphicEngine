@@ -11,7 +11,6 @@ LoadingScreen::LoadingScreen() {
 void LoadingScreen::init()
 {
 
-    loading_screen_quad.init();
     std::stringstream texture_base_dir;
     texture_base_dir << CMAKELISTS_DIR;
     texture_base_dir << "/Resources/Textures/";

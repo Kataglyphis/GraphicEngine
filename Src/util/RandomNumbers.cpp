@@ -26,10 +26,9 @@ void RandomNumbers::read()
     glBindTexture(GL_TEXTURE_2D, random_number_id);
 }
 
-std::shared_ptr<GLfloat[]> RandomNumbers::generate_random_numbers()
+void RandomNumbers::generate_random_numbers()
 {
 
-    std::shared_ptr<GLfloat[]> random_number_data;
     random_number_data = std::shared_ptr<GLfloat[]>(new GLfloat[MAX_RESOLUTION_X * MAX_RESOLUTION_Y * 4]); 
     std::mt19937_64 gen64(25121995);
     std::uniform_real_distribution<float> dis(0, 1);
@@ -48,8 +47,6 @@ std::shared_ptr<GLfloat[]> RandomNumbers::generate_random_numbers()
             *(random_number_data.get() + index + 3) = random_offset[3];
         }
     }
-
-    return random_number_data;
 }
 
 RandomNumbers::~RandomNumbers()

@@ -53,8 +53,6 @@ private:
                                     std::shared_ptr<Scene> scene, 
                                     std::shared_ptr<Clouds> cloud);
 
-    void bind_random_numbers(GLuint texture_unit);
-
     std::shared_ptr<LightingPassShaderProgram> shader_program;
 
     UniformHelper uniform_helper;

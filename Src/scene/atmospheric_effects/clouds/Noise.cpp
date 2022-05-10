@@ -4,10 +4,8 @@ Noise::Noise()
 {
 	this->texture_dim_1 = 128;
 	this->texture_dim_2 = 32;
-	texture_1_shader_program = ComputeShaderProgram();
-	texture_2_shader_program = ComputeShaderProgram();
-	texture_1_shader_program.create_computer_shader_program_from_file("clouds/noise_texture_1.comp");
-	texture_2_shader_program.create_computer_shader_program_from_file("clouds/noise_texture_2.comp");
+
+	create_shader_programs();
 
 	for (int i = 0; i < NUM_CELLS; i++) {
 
@@ -35,6 +33,15 @@ Noise::Noise()
 
 	printf("max local (in one shader) work group sizes x:%i y:%i z:%i\n",
 		work_grp_size[0], work_grp_size[1], work_grp_size[2]);*/
+}
+
+void Noise::create_shader_programs()
+{
+	texture_1_shader_program = ComputeShaderProgram();
+	texture_2_shader_program = ComputeShaderProgram();
+
+	texture_1_shader_program.create_computer_shader_program_from_file("clouds/noise_texture_128_res.comp");
+	texture_2_shader_program.create_computer_shader_program_from_file("clouds/noise_texture_32_res.comp");
 }
 
 void Noise::generate_textures()
@@ -121,6 +128,9 @@ void Noise::update()
 	}
 
 	generate_textures();
+
+	create_worley_noise();
+	create_grad_noise();
 
 	// Check if any gl errorers appears.
 	DebugApp_ins.areErrorPrintAll("From update function in Noise.cpp");
