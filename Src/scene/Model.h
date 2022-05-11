@@ -13,7 +13,7 @@
 #include "ObjMaterial.h"
 #include "ObjLoader.h"
 
-#include "texture_unit_slots.h"
+#include "bindings.h"
 
 class Model
 {

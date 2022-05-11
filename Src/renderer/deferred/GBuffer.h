@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "GlobalValues.h"
-#include "texture_unit_slots.h"
+#include "bindings.h"
 #include "UniformHelper.h"
 
 class GBuffer

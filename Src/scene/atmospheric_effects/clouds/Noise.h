@@ -7,7 +7,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "ComputeShaderProgram.h"
 
-#include "texture_unit_slots.h"
+#include "bindings.h"
 #include "DebugApp.h"
 
 #include <random>
@@ -39,10 +39,13 @@ private:
 	void generate_cells(GLuint num_cells_per_axis, GLuint cell_index);
 
 	void generate_textures();
+	void generate_num_cells_textures();
 	void generate_res128_noise_texture();
 	void generate_res32_noise_texture();
 
 	void delete_textures();
+
+	void print_comp_shader_capabilities();
 
 	// first texture dim = 128^3
 	GLuint texture_1_id;
@@ -54,9 +57,9 @@ private:
 	GLuint texture_dim_2;
 	ComputeShaderProgram texture_2_shader_program;
 
-	GLuint						cell_ids[NUM_CELLS];
-	GLuint						num_cells_per_axis[NUM_CELLS];
-	std::shared_ptr<GLfloat[]>	cell_data [NUM_CELLS];
+	GLuint						cell_ids[NUM_CELL_POSITIONS];
+	GLuint						num_cells_per_axis[NUM_CELL_POSITIONS];
+	std::shared_ptr<GLfloat[]>	cell_data [NUM_CELL_POSITIONS];
 
 	DebugApp DebugApp_ins;
 

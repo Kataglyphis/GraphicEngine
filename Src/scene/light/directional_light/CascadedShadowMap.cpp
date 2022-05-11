@@ -1,4 +1,5 @@
 #include "CascadedShadowMap.h"
+#include "bindings.h"
 
 CascadedShadowMap::CascadedShadowMap()
 {

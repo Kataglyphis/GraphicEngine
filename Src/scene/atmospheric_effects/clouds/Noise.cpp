@@ -7,7 +7,7 @@ Noise::Noise()
 
 	create_shader_programs();
 
-	for (int i = 0; i < NUM_CELLS; i++) {
+	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		num_cells_per_axis[i] = pow(2, i + 1);
 		generate_cells(num_cells_per_axis[i], i);
@@ -16,23 +16,6 @@ Noise::Noise()
 
 	generate_textures();
 
-	/*int work_grp_cnt[3];
-
-	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 0, &work_grp_cnt[0]);
-	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 1, &work_grp_cnt[1]);
-	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 2, &work_grp_cnt[2]);
-
-	printf("max global (total) work group counts x:%i y:%i z:%i\n",
-		work_grp_cnt[0], work_grp_cnt[1], work_grp_cnt[2]);
-
-	int work_grp_size[3];
-
-	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 0, &work_grp_size[0]);
-	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 1, &work_grp_size[1]);
-	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 2, &work_grp_size[2]);
-
-	printf("max local (in one shader) work group sizes x:%i y:%i z:%i\n",
-		work_grp_size[0], work_grp_size[1], work_grp_size[2]);*/
 }
 
 void Noise::create_shader_programs()
@@ -47,17 +30,25 @@ void Noise::create_shader_programs()
 void Noise::generate_textures()
 {
 
-	glGenTextures(NUM_CELLS, cell_ids);
-	
-	for (int i = 0; i < NUM_CELLS; i++) {
+	generate_num_cells_textures();
+	generate_res128_noise_texture();
+	generate_res32_noise_texture();
+
+}
+
+void Noise::generate_num_cells_textures()
+{
+	glGenTextures(NUM_CELL_POSITIONS, cell_ids);
+
+	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
-		// i think we won't need nearest option; so stick to linear
-		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	num_cells_per_axis[i], 
-													num_cells_per_axis[i], 
-													num_cells_per_axis[i], 
-													0, GL_RGBA, GL_FLOAT, 
-													cell_data[i].get());
+
+		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, num_cells_per_axis[i],
+			num_cells_per_axis[i],
+			num_cells_per_axis[i],
+			0, GL_RGBA, GL_FLOAT,
+			cell_data[i].get());
 
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -67,12 +58,6 @@ void Noise::generate_textures()
 		glBindTexture(GL_TEXTURE_3D, 0);
 
 	}
-
-	generate_res128_noise_texture();
-	generate_res32_noise_texture();
-
-	
-
 }
 
 void Noise::generate_res128_noise_texture()
@@ -113,17 +98,26 @@ void Noise::generate_res32_noise_texture()
 
 }
 
-void Noise::delete_textures()
+void Noise::print_comp_shader_capabilities()
 {
 
-	glDeleteTextures(1, &texture_1_id);
-	glDeleteTextures(1, &texture_2_id);
-	
-	for (int i = 0; i < NUM_CELLS; i++) {
-	
-		glDeleteTextures(NUM_CELLS, cell_ids);
+	int work_grp_cnt[3];
 
-	}
+	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 0, &work_grp_cnt[0]);
+	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 1, &work_grp_cnt[1]);
+	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 2, &work_grp_cnt[2]);
+
+	printf("max global (total) work group counts x:%i y:%i z:%i\n",
+		work_grp_cnt[0], work_grp_cnt[1], work_grp_cnt[2]);
+
+	int work_grp_size[3];
+
+	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 0, &work_grp_size[0]);
+	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 1, &work_grp_size[1]);
+	glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 2, &work_grp_size[2]);
+
+	printf("max local (in one shader) work group sizes x:%i y:%i z:%i\n",
+		work_grp_size[0], work_grp_size[1], work_grp_size[2]);
 
 }
 
@@ -135,7 +129,7 @@ void Noise::update()
 	texture_1_shader_program.reload();
 	texture_2_shader_program.reload();
 
-	for (int i = 0; i < NUM_CELLS; i++) {
+	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		generate_cells(num_cells_per_axis[i], i);
 
@@ -159,7 +153,8 @@ void Noise::set_num_cells(GLuint num_cells_per_axis, GLuint index)
 void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 {
 
-	cell_data[cell_index] = std::shared_ptr<GLfloat[]>(new GLfloat[num_cells_per_axis* num_cells_per_axis* num_cells_per_axis * 4]);
+	cell_data[cell_index] = std::shared_ptr<GLfloat[]>(
+									new GLfloat[num_cells_per_axis * num_cells_per_axis * num_cells_per_axis * 4]);
 	//GLfloat cell_size = 1.f / (GLfloat)num_cells_per_axis;
 
 	std::mt19937_64 gen64 (25121995);
@@ -200,9 +195,10 @@ void Noise::create_res128_noise()
 {
 	
 	texture_1_shader_program.use_shader_program();
-	glBindImageTexture(0, texture_1_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 
-	for (int i = 0; i < NUM_CELLS; i++) {
+	glBindImageTexture(NOISE_128D_IMAGE_SLOT, texture_1_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+
+	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		glUniform1i(texture_1_shader_program.get_cell_location(i), i);
 		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
@@ -227,9 +223,10 @@ void Noise::create_res32_noise()
 {
 
 	texture_2_shader_program.use_shader_program();
-	glBindImageTexture(0, texture_2_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 
-	for (int i = 0; i < NUM_CELLS; i++) {
+	glBindImageTexture(NOISE_32D_IMAGE_SLOT, texture_2_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+
+	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		glUniform1i(texture_2_shader_program.get_cell_location(i), i);
 		glUniform1i(texture_2_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
@@ -269,6 +266,16 @@ void Noise::read_res32_noise()
 
 	// Check if any gl errorers appears.
 	DebugApp_ins.areErrorPrintAll("From read grad noise function in Noise.cpp");
+}
+
+void Noise::delete_textures()
+{
+
+	glDeleteTextures(1, &texture_1_id);
+	glDeleteTextures(1, &texture_2_id);
+
+	glDeleteTextures(NUM_CELL_POSITIONS, cell_ids);
+
 }
 
 Noise::~Noise()

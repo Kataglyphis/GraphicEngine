@@ -1,20 +1,23 @@
 #ifndef GLOBALS_HOST_DEVICE
 #define GLOBALS_HOST_DEVICE
-//define all constants here
-const int NUM_CASCADES = 3;
-const int MAX_POINT_LIGHTS = 1;
 
-const int MAX_MATERIALS = 35;
-const int SKYBOX_MATERIAL_ID = MAX_MATERIALS;
-const int CLOUDS_MATERIAL_ID = MAX_MATERIALS + 1;
+// lights
+const int NUM_CASCADES			= 3;
+const int MAX_POINT_LIGHTS		= 1;
 
-const int MAX_TEXTURE_COUNT = 30;
+// materials
+const int MAX_MATERIALS			= 35;
+const int SKYBOX_MATERIAL_ID	= MAX_MATERIALS;
+const int CLOUDS_MATERIAL_ID	= MAX_MATERIALS + 1;
 
-const float PI = 3.14159265359f;
+//texture
+const int MAX_TEXTURE_COUNT		= 30;
 
-// bindings 
-#define STORAGE_BUFFER_MATERIAL_ID_BINDING 0
-#define UNIFORM_LIGHT_MATRICES_BINDING 1
+//math 
+const float PI					= 3.14159265359f;
+
+// noise
+const int   NUM_CELL_POSITIONS	= 5;
 
 #endif // !GLOBALS_HOST_DEVICE
 

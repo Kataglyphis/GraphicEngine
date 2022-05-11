@@ -1,6 +1,6 @@
 #include "RandomNumbers.h"
 #include "host_device_shared.h"
-#include "texture_unit_slots.h"
+#include "bindings.h"
 
 RandomNumbers::RandomNumbers()
 {

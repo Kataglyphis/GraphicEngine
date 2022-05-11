@@ -1,11 +1,10 @@
+#include "/host_device_shared.h"
+
 // worley noise implementation;
 // inspired by Sebastian Lague: https://www.youtube.com/watch?v=4QOcCGI6xOU&t=104s
 
-const int   NUM_FBM                 = 3;
+// in 3D-space there are 26 cells surrounding each cell
 const int   NUM_ADJACENT_CELLS      = 26;
-const int   NUM_WORLEY_FREQUENCIES  = 3;
-
-const int   NUM_CELL_POSITIONS      = 5;
 
 const vec3 offsets[NUM_ADJACENT_CELLS + 1] =
 {
@@ -95,6 +94,9 @@ float worley(   vec3        sample_id,
     return sqrt(min_dist);
 
 }
+
+// here we want to layer fixed 3 frequencies according to fbm
+const int   NUM_WORLEY_FREQUENCIES = 3;
 
 // really cool article: https://iquilezles.org/articles/fbm/
 float fbm_worley(float worley_noise[NUM_WORLEY_FREQUENCIES], float H)

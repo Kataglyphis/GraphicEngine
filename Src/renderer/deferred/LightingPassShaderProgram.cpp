@@ -1,5 +1,5 @@
 #include "LightingPassShaderProgram.h"
-#include "texture_unit_slots.h"
+#include "bindings.h"
 
 LightingPassShaderProgram::LightingPassShaderProgram()
 {

@@ -20,7 +20,7 @@
 #include <cassert>
 #include <time.h>  
 
-#include "texture_unit_slots.h"
+#include "bindings.h"
 #include "UniformHelper.h"
 
 #include "DebugApp.h"

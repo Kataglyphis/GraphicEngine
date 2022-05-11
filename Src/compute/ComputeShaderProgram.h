@@ -22,8 +22,8 @@ public:
 private:
 
     GLuint uniform_noise_image_location;
-    GLuint uniform_cell_locations[NUM_CELLS];
-    GLuint uniform_num_cell_locations[NUM_CELLS];
+    GLuint uniform_cell_locations[NUM_CELL_POSITIONS];
+    GLuint uniform_num_cell_locations[NUM_CELL_POSITIONS];
 
 };
 

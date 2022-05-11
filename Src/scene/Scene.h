@@ -10,6 +10,7 @@
 #include "Clouds.h"
 #include "ObjMaterial.h"
 #include "PointLight.h"
+#include "Rotation.h"
 
 class Scene
 {

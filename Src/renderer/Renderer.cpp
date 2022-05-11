@@ -29,10 +29,10 @@ void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
                             GLfloat delta_time)
 {
 
-    directional_shadow_map_pass->execute(projection_matrix,
-                                        main_camera,
-                                        window_width, window_height,
-                                        scene);
+    directional_shadow_map_pass->execute(   projection_matrix,
+                                            main_camera,
+                                            window_width, window_height,
+                                            scene);
 
     // omni shadow map passes for our point lights
     std::vector<std::shared_ptr<PointLight>> p_lights = scene->get_point_lights();
@@ -41,12 +41,12 @@ void Renderer::drawFrame(   std::shared_ptr<Camera> main_camera,
     }
 
     //we will now start the geometry pass
-    geometry_pass->execute(  projection_matrix, main_camera,
+    geometry_pass->execute( projection_matrix, main_camera,
                             window_width, window_height, gbuffer->get_id(),
                             delta_time, scene);
 
     // after geometry pass we can now do the lighting
-    lighting_pass->execute(  projection_matrix,
+    lighting_pass->execute( projection_matrix,
                             main_camera,
                             scene,
                             gbuffer,

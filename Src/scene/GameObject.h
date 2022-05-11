@@ -1,5 +1,6 @@
 #pragma once
 #include "Model.h"
+#include "Rotation.h"
 
 class GameObject
 {

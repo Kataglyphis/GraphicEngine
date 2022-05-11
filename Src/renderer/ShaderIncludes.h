@@ -25,7 +25,9 @@ private:
             "unreal4.glsl",
             "clouds.glsl",
             "grad_noise.glsl",
-            "worley_noise.glsl"
+            "worley_noise.glsl",
+            "bindings.h",
+            "GlobalValues.h"
     };
 
     std::vector<const char*> file_locations_relative = {
@@ -41,7 +43,9 @@ private:
             "/Resources/Shaders/pbr/brdf/unreal4.glsl",
             "/Resources/Shaders/clouds/clouds.glsl",
             "/Resources/Shaders/common/grad_noise.glsl",
-            "/Resources/Shaders/common/worley_noise.glsl"
+            "/Resources/Shaders/common/worley_noise.glsl",
+            "/Src/bindings.h",
+            "/Src/GlobalValues.h",
     };
 
 };

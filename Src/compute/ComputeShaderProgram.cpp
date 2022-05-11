@@ -23,7 +23,7 @@ void ComputeShaderProgram::retrieve_uniform_locations()
 {
 	uniform_noise_image_location = glGetUniformLocation(program_id, "noise");
 
-	for (size_t i = 0; i < NUM_CELLS; i++) {
+	for (size_t i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		char loc_buff[100] = { '\0' };
 		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%zd]", i);

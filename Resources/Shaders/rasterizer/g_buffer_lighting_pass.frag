@@ -4,6 +4,7 @@
 
 #include "/Globals.glsl"
 #include "/host_device_shared.h"
+#include "/bindings.h"
 
 #include "/Matlib.glsl"
 

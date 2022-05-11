@@ -22,8 +22,10 @@ void DirectionalShadowMapPass::execute( glm::mat4 projection,
     shader_program->use_shader_program();
 
     sun->get_shadow_map()->write();
+
     glViewport(0, 0,    sun->get_shadow_map()->get_shadow_width(),
                         sun->get_shadow_map()->get_shadow_height());
+
     glClear(GL_DEPTH_BUFFER_BIT);
     //glCullFace(GL_FRONT); // avoid peter panning
     sun->get_shadow_map()->write_light_matrices(sun->get_cascaded_light_matrices());
