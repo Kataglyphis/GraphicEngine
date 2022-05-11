@@ -12,6 +12,8 @@
 
 #include <random>
 #include <memory>
+#include <array>
+#include <vector>
 
 
 // inspired by: http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf
@@ -57,9 +59,9 @@ private:
 	GLuint texture_dim_2;
 	ComputeShaderProgram texture_2_shader_program;
 
-	GLuint						cell_ids[NUM_CELL_POSITIONS];
-	GLuint						num_cells_per_axis[NUM_CELL_POSITIONS];
-	std::shared_ptr<GLfloat[]>	cell_data [NUM_CELL_POSITIONS];
+	GLuint													cell_ids[NUM_CELL_POSITIONS];
+	GLuint													num_cells_per_axis[NUM_CELL_POSITIONS];
+	std::array<std::vector<GLfloat>, NUM_CELL_POSITIONS>	cell_data;
 
 	DebugApp DebugApp_ins;
 

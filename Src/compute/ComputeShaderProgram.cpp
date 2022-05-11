@@ -4,11 +4,6 @@ ComputeShaderProgram::ComputeShaderProgram()
 {
 }
 
-void ComputeShaderProgram::set_noise(GLuint loc)
-{
-	glUniform1i(uniform_noise_image_location, loc);
-}
-
 GLuint ComputeShaderProgram::get_cell_location(GLuint index)
 {
 	return uniform_cell_locations[index];
@@ -17,6 +12,11 @@ GLuint ComputeShaderProgram::get_cell_location(GLuint index)
 GLuint ComputeShaderProgram::get_num_cell_location(GLuint index)
 {
 	return uniform_num_cell_locations[index];
+}
+
+GLuint ComputeShaderProgram::get_noise_image_location()
+{
+	return uniform_noise_image_location;
 }
 
 void ComputeShaderProgram::retrieve_uniform_locations()

@@ -46,45 +46,52 @@ float remap(float value, float start1, float stop1, float start2, float stop2) {
     return  start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
 
 }
+/**
 
-float worley(   vec3        sample_id, 
-                int         cell_index, 
-                int         num_cells[NUM_CELL_POSITIONS],
-                sampler3D   cell_positions[NUM_CELL_POSITIONS],
+    sample_id       : vec3      ==> current shader invocation id
+    num_cells       : int       ==> number of cells per dimension
+    cell_positions  : sampler3D ==> stores random position per cell
+    resolution      : float     ==> resolution of texture to store
+ 
+*/
+float worley(   vec3        sample_id,
+                int         num_cells,
+                sampler3D   cell_positions,
                 float       resolution) {
 
-    vec3 sample_pos = (sample_id / float(resolution)) * float(num_cells[cell_index]);
-
+    // 1.step: scale current sample id according to frequency level
+    vec3 sample_pos = (sample_id / float(resolution)) * float(num_cells);
     vec3 cell_id = floor(sample_pos);
 
     float min_dist = 1.f;
 
     for (int i = 0; i < NUM_ADJACENT_CELLS + 1; i++) {
 
-        vec3 adjacent_id = cell_id + offsets[i];
+        vec3 adjacent_id = floor(cell_id + offsets[i]);
 
-        bool out_of_scope = adjacent_id.x == -1 || adjacent_id.y == -1 || adjacent_id.z == -1 ||
-            adjacent_id.x == num_cells[cell_index] || adjacent_id.y == num_cells[cell_index] ||
-            adjacent_id.z == num_cells[cell_index];
+        bool out_of_scope = adjacent_id.x == -1 || int(adjacent_id.x) == num_cells ||
+                            adjacent_id.y == -1 || int(adjacent_id.y) == num_cells ||
+                            adjacent_id.z == -1 || int(adjacent_id.z) == num_cells;
 
+
+        // at this point we are tilling the image
         if (out_of_scope) {
-
-            vec3 wrapped_id = mod(adjacent_id + vec3(num_cells[cell_index]), vec3(num_cells[cell_index]));
-            vec3 wrapped_position = texture(cell_positions[cell_index], (wrapped_id) / float(num_cells[cell_index])).xyz;
-
+            
+            // excatly this is tilling: make sure your current position comes out at the opposite direction
+            vec3 wrapped_id = mod(adjacent_id + vec3(num_cells), vec3(num_cells));
+            vec3 wrapped_position = texture(cell_positions, (wrapped_id) / float(num_cells)).xyz;
             for (int m = 0; m < NUM_ADJACENT_CELLS; m++) {
 
                 //after wrapping one has to check once again for lowest difference     
-                vec3 difference = sample_pos - (wrapped_position + (offsets[m] * num_cells[cell_index]));
+                vec3 difference = sample_pos - (wrapped_position + (offsets[m] * num_cells));
+                // our metric here is L2
                 min_dist = min(min_dist, dot(difference, difference));
 
             }
 
+        } else {
 
-        }
-        else {
-
-            vec3 difference = sample_pos - texture(cell_positions[cell_index], adjacent_id / float(num_cells[cell_index])).xyz;
+            vec3 difference = sample_pos - texture(cell_positions, adjacent_id / float(num_cells)).xyz;
             min_dist = min(min_dist, dot(difference, difference));
 
         }

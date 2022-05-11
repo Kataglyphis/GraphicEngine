@@ -9,10 +9,9 @@ public:
 
     ComputeShaderProgram();
 
-    void set_noise(GLuint loc);
-
     GLuint get_cell_location(GLuint index);
     GLuint get_num_cell_location(GLuint index);
+    GLuint get_noise_image_location();
 
     void retrieve_uniform_locations();
     void reload();

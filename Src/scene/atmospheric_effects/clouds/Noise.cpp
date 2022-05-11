@@ -7,6 +7,8 @@ Noise::Noise()
 
 	create_shader_programs();
 
+	// we need 3d-voxel grids with different sizes for
+	// creating different worley frequencies 
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		num_cells_per_axis[i] = pow(2, i + 1);
@@ -44,17 +46,18 @@ void Noise::generate_num_cells_textures()
 
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
 
-		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, num_cells_per_axis[i],
-			num_cells_per_axis[i],
-			num_cells_per_axis[i],
-			0, GL_RGBA, GL_FLOAT,
-			cell_data[i].get());
+		glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	num_cells_per_axis[i],
+													num_cells_per_axis[i],
+													num_cells_per_axis[i],
+													0, GL_RGBA, GL_FLOAT,
+													cell_data[i].data());
 
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
 		glBindTexture(GL_TEXTURE_3D, 0);
 
 	}
@@ -63,18 +66,23 @@ void Noise::generate_num_cells_textures()
 void Noise::generate_res128_noise_texture()
 {
 	glGenTextures(1, &texture_1_id);
+
 	glActiveTexture(GL_TEXTURE0 + NOISE_128D_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_3D, texture_1_id);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_1,
-		texture_dim_1,
-		texture_dim_1,
-		0, GL_RGBA, GL_FLOAT, NULL);
+
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	texture_dim_1,
+												texture_dim_1,
+												texture_dim_1,
+												0, GL_RGBA, GL_FLOAT, NULL);
+
+	glBindImageTexture(NOISE_128D_IMAGE_SLOT, texture_1_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
 	glBindTexture(GL_TEXTURE_3D, 0);
 }
 
@@ -82,18 +90,23 @@ void Noise::generate_res32_noise_texture()
 {
 
 	glGenTextures(1, &texture_2_id);
+
 	glActiveTexture(GL_TEXTURE0 + NOISE_32D_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_3D, texture_2_id);
-	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, texture_dim_2,
-		texture_dim_2,
-		texture_dim_2,
-		0, GL_RGBA, GL_FLOAT, NULL);
+
+	glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F,	texture_dim_2,
+												texture_dim_2,
+												texture_dim_2,
+												0, GL_RGBA, GL_FLOAT, NULL);
+
+	glBindImageTexture(NOISE_32D_IMAGE_SLOT, texture_2_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
 	glBindTexture(GL_TEXTURE_3D, 0);
 
 }
@@ -149,46 +162,61 @@ void Noise::set_num_cells(GLuint num_cells_per_axis, GLuint index)
 {
 	this->num_cells_per_axis[index] = num_cells_per_axis;
 }
+/**
+	
+	@ num_cells_per_axis:	current voxel grid dimension
+	@ cell_index:			index into global array for all voxel grids
+	
+	needed for generating different worley frequencies later on
 
+*/
 void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 {
 
-	cell_data[cell_index] = std::shared_ptr<GLfloat[]>(
-									new GLfloat[num_cells_per_axis * num_cells_per_axis * num_cells_per_axis * 4]);
-	//GLfloat cell_size = 1.f / (GLfloat)num_cells_per_axis;
+	cell_data[cell_index].reserve(num_cells_per_axis * num_cells_per_axis * num_cells_per_axis * 4);
 
+	// guess which birthday this is ;)
 	std::mt19937_64 gen64 (25121995);
 	std::uniform_real_distribution<float> dis(0, 1);
 	
+	//depth
 	for (int i = 0; i < static_cast<int>(num_cells_per_axis); i++) {
+		//height
 		for (int k = 0; k < static_cast<int>(num_cells_per_axis); k++) {
+			//width
 			for (int m = 0; m < static_cast<int>(num_cells_per_axis); m++) {
 
+				// from: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage3D.xhtml
+				// "The first element corresponds to the lower left corner of the texture image. 
+				// Subsequent elements progress left-to-right through the remaining texels in the lowest row
+				// of the texture image, and then in successively higher rows of the texture image. 
+				// The final element corresponds to the upper right corner of the texture image."
+
 				GLfloat random_offset[3] = { dis(gen64), dis(gen64),dis(gen64)};
-				GLfloat position[3] = {(i + random_offset[0]), (k + random_offset[1]), (m + random_offset[2])};
 
-				GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;
+				GLfloat position[3] = { (m + random_offset[0]),
+										(k + random_offset[1]),
+										(i + random_offset[2]) };
 
-				*(cell_data[cell_index].get() + index)		= position[0];
-				*(cell_data[cell_index].get() + index + 1)	= position[1];
-				*(cell_data[cell_index].get() + index + 2)	= position[2];
-				*(cell_data[cell_index].get() + index + 3)	= 1.0f;
+				cell_data[cell_index].push_back(position[0]);
+				cell_data[cell_index].push_back(position[1]);
+				cell_data[cell_index].push_back(position[2]);
+				cell_data[cell_index].push_back(1.0f);
+
+				// this index is very important!!!
+				//GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;
+				/*GLfloat position[3] = {	(i + random_offset[0]), 
+										(k + random_offset[1]), 
+										(m + random_offset[2])};*/
+
+				/*cell_data[cell_index][index]		= position[0];
+				cell_data[cell_index][index + 1]	= position[1];
+				cell_data[cell_index][index + 2]	= position[2];
+				cell_data[cell_index][index + 3]	= 1.0f;*/
 			}
 		}
 	}
 
-	//for (int i = 0; i < num_cells_per_axis; i++) {
-	//	for (int k = 0; k < num_cells_per_axis; k++) {
-	//		for (int m = 0; m < num_cells_per_axis; m++) {
-
-	//			GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;
-	//			printf("%f " , *(cell_data + index));//position[0];
-	//			printf("%f ", *(cell_data + index + 1));; //position[1];
-	//			printf("%f ",  *(cell_data + index + 2)); 
-	//			printf("%f\n", *(cell_data + index + 3));
-	//		}
-	//	}
-	//}
 }
 
 void Noise::create_res128_noise()
@@ -196,12 +224,11 @@ void Noise::create_res128_noise()
 	
 	texture_1_shader_program.use_shader_program();
 
-	glBindImageTexture(NOISE_128D_IMAGE_SLOT, texture_1_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
-
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		glUniform1i(texture_1_shader_program.get_cell_location(i), i);
+		glUniform1i(texture_1_shader_program.get_cell_location(i), NOISE_CELL_POSITIONS_SLOT + i);
 		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
+		glUniform1i(texture_1_shader_program.get_noise_image_location(), NOISE_128D_IMAGE_SLOT);
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
@@ -212,6 +239,7 @@ void Noise::create_res128_noise()
 	
 	// make sure writing to image has finished before read
 	glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+	//glMemoryBarrier(GL_ALL_BARRIER_BITS);
 
 	glBindTexture(GL_TEXTURE_3D, 0);
 
@@ -224,12 +252,11 @@ void Noise::create_res32_noise()
 
 	texture_2_shader_program.use_shader_program();
 
-	glBindImageTexture(NOISE_32D_IMAGE_SLOT, texture_2_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
-
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		glUniform1i(texture_2_shader_program.get_cell_location(i), i);
+		glUniform1i(texture_2_shader_program.get_cell_location(i), NOISE_CELL_POSITIONS_SLOT + i);
 		glUniform1i(texture_2_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
+		glUniform1i(texture_2_shader_program.get_noise_image_location(), NOISE_32D_IMAGE_SLOT);
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
@@ -240,7 +267,7 @@ void Noise::create_res32_noise()
 
 	// make sure writing to image has finished before read
 	glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
-
+	//glMemoryBarrier(GL_ALL_BARRIER_BITS);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
 	// Check if any gl errorers appears.
