@@ -30,7 +30,7 @@ private:
 
 	GLuint g_buffer;
 
-	GLuint g_position, g_normal, g_albedo, g_material_id;
+	GLuint g_position, g_normal, g_albedo, g_material_id, g_depth;
 
 	GLuint g_buffer_attachment[G_BUFFER_SIZE] = 
 					{	GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1,
