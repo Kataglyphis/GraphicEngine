@@ -1,11 +1,13 @@
 #include "Renderer.h"
 
-Renderer::Renderer(GLuint window_width, GLuint window_height) : 
-                                shader_includes(),
-                                omni_shadow_map_pass(std::make_shared<OmniShadowMapPass>()),
-                                directional_shadow_map_pass(std::make_shared<DirectionalShadowMapPass>()),
-                                geometry_pass(std::make_shared<GeometryPass>()),
-                                lighting_pass(std::make_shared<LightingPass>())
+Renderer::Renderer(GLuint window_width, GLuint window_height) :
+
+                        shader_includes(),
+                        omni_shadow_map_pass(std::make_shared<OmniShadowMapPass>()),
+                        directional_shadow_map_pass(std::make_shared<DirectionalShadowMapPass>()),
+                        geometry_pass(std::make_shared<GeometryPass>()),
+                        lighting_pass(std::make_shared<LightingPass>())
+
 {
 
     render_passes.push_back(omni_shadow_map_pass);
@@ -70,8 +72,6 @@ void Renderer::reload_shader_programs()
     for (std::shared_ptr<RenderPass> render_pass : render_passes) {
         render_pass->create_shader_program();
     }
-
-    //noise->update();
 
 }
 

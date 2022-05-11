@@ -18,8 +18,8 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 	sky_shader_program = std::make_shared<SkyBoxShaderProgram>();
 	sky_shader_program->create_from_files("skybox/SkyBox.vert", "skybox/SkyBox.frag");
 
-	uniform_projection = sky_shader_program->get_projection_location();
-	uniform_view = sky_shader_program->get_view_location();
+	uniform_projection	= sky_shader_program->get_projection_location();
+	uniform_view		= sky_shader_program->get_view_location();
 
 	//texture setup
 	glGenTextures(1, &texture_id);
@@ -35,7 +35,8 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 			return;
 		}
 
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data);
+		glTexImage2D(	GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0, GL_RGBA, 
+						GL_UNSIGNED_BYTE, texture_data);
 
 		stbi_image_free(texture_data);
 	}
@@ -75,15 +76,30 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 
 	std::vector<Vertex> sky_box_vertices = {
 
-		Vertex(glm::vec3(-1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(-1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, 1.0f, -1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(	glm::vec3(-1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
+
+		Vertex(	glm::vec3(-1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
+
+		Vertex(	glm::vec3(1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
+				glm::vec2(0.0f, 0.0f)),
+
+		Vertex(	glm::vec3(1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
+
 																		   
-		Vertex(glm::vec3(-1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(-1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
-		Vertex(glm::vec3(1.0f, -1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec2(0.0f, 0.0f)),
+		Vertex(	glm::vec3(-1.0f, 1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
+
+		Vertex(	glm::vec3(1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
+
+		Vertex(	glm::vec3(-1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
+
+		Vertex(	glm::vec3(1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+				glm::vec2(0.0f, 0.0f)),
 				
 	};
 

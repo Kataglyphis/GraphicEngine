@@ -58,7 +58,7 @@ int Window::initialize() {
 #endif
 
     //retrieve new window
-    main_window = glfwCreateWindow(window_width, window_height, "\__/ Epic graphics from hell \__/", NULL, NULL);
+    main_window = glfwCreateWindow(window_width, window_height, "\\__/ Epic graphics from hell \\__/", NULL, NULL);
 
     if (!main_window) {
 

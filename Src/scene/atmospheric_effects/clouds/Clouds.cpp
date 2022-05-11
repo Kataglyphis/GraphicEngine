@@ -1,12 +1,15 @@
 #include "Clouds.h"
 
-Clouds::Clouds(GLfloat window_width, GLfloat window_height) : 
-						shader_program(std::make_shared<CloudsShaderProgram>(CloudsShaderProgram{}))
+Clouds::Clouds(GLfloat window_width, GLfloat window_height) :
+
+					shader_program(std::make_shared<CloudsShaderProgram>(CloudsShaderProgram{}))
+
 {
 	noise			= std::make_shared<Noise>();
 	random_numbers	= std::make_shared<RandomNumbers>();
 
-	shader_program->create_from_files("clouds/CloudsRectangle.vert","clouds/CloudsRectangle.frag");
+	shader_program->create_from_files(	"clouds/CloudsRectangle.vert",
+										"clouds/CloudsRectangle.frag");
 
 	create_noise_textures();
 
@@ -35,7 +38,8 @@ Clouds::Clouds(GLfloat window_width, GLfloat window_height) :
 
 }
 
-void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width, GLfloat window_height)
+void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, 
+					GLfloat window_width, GLfloat window_height)
 {
 
 	shader_program->use_shader_program();
@@ -114,10 +118,14 @@ glm::mat4 Clouds::get_model()
 void Clouds::retrieve_and_set_uniform_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix)
 {
 
-	glUniformMatrix4fv(shader_program->get_projection_location(), 1, GL_FALSE, glm::value_ptr(projection_matrix));
-	glUniformMatrix4fv(shader_program->get_view_location(), 1, GL_FALSE, glm::value_ptr(view_matrix));
+	glUniformMatrix4fv(	shader_program->get_projection_location(), 1, GL_FALSE, 
+						glm::value_ptr(projection_matrix));
 
-	glUniformMatrix4fv(shader_program->get_model_location(), 1, GL_FALSE, glm::value_ptr(get_model()));
+	glUniformMatrix4fv(	shader_program->get_view_location(), 1, GL_FALSE, 
+						glm::value_ptr(view_matrix));
+
+	glUniformMatrix4fv(	shader_program->get_model_location(), 1, GL_FALSE, 
+						glm::value_ptr(get_model()));
 
 	shader_program->validate_program();
 }

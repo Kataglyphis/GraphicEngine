@@ -11,7 +11,7 @@ ShaderProgram::ShaderProgram()
     aux << "/Resources/Shaders/";
 
     shader_base_dir = aux.str();
-
+    uniform_helper = UniformHelper();
 }
 
 void ShaderProgram::create_from_files(const char* vertex_location, const char* fragment_location)
@@ -38,7 +38,8 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* f
     compile_shader_program(vertex_code, fragment_code);
 }
 
-void ShaderProgram::create_from_files(const char* vertex_location, const char* geometry_location, const char* fragment_location)
+void ShaderProgram::create_from_files(  const char* vertex_location, const char* geometry_location, 
+                                        const char* fragment_location)
 {
 
     std::stringstream vertex_shader;
@@ -65,10 +66,12 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* g
     this->geometry_location = geometry_location;
 
     compile_shader_program(vertex_code, geometry_code, fragment_code);
+
 }
 
 void ShaderProgram::create_computer_shader_program_from_file(const char* compute_location)
 {
+
     std::stringstream comp_shader;
     comp_shader << shader_base_dir << compute_location;
     File compute_shader_file(comp_shader.str());
@@ -79,6 +82,7 @@ void ShaderProgram::create_computer_shader_program_from_file(const char* compute
     this->compute_location = compute_location;
 
     compile_compute_shader_program(compute_code);
+
 }
 
 GLuint ShaderProgram::get_id()
@@ -162,7 +166,8 @@ void ShaderProgram::compile_shader_program(const char* vertex_code, const char* 
     compile_program();
 }
 
-void ShaderProgram::compile_shader_program(const char* vertex_code, const char* geometry_code, const char* fragment_code)
+void ShaderProgram::compile_shader_program( const char* vertex_code, const char* geometry_code, 
+                                            const char* fragment_code)
 {
     program_id = glCreateProgram();
 

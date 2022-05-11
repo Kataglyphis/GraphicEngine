@@ -6,7 +6,9 @@ class MirroredRepeatMode :
 public:
 
     MirroredRepeatMode();
+
     void activate();
+
     ~MirroredRepeatMode();
 
 private:

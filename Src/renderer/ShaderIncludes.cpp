@@ -32,7 +32,8 @@ ShaderIncludes::ShaderIncludes()
         std::string file_content = file.read();
         char tmpstr[200];
         sprintf(tmpstr, "/%s", includeNames[i]);
-        glNamedStringARB(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, strlen(file_content.c_str()), file_content.c_str());
+        glNamedStringARB(   GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, 
+                            strlen(file_content.c_str()), file_content.c_str());
         DebugApp_ins.areErrorPrintAll("From glNamedStringARB.");
 
     }

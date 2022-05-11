@@ -75,7 +75,8 @@ void Noise::generate_res128_noise_texture()
 												texture_dim_1,
 												0, GL_RGBA, GL_FLOAT, NULL);
 
-	glBindImageTexture(NOISE_128D_IMAGE_SLOT, texture_1_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+	glBindImageTexture(	NOISE_128D_IMAGE_SLOT, texture_1_id, 0, GL_FALSE, 
+						0, GL_READ_WRITE, GL_RGBA32F);
 
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -99,7 +100,8 @@ void Noise::generate_res32_noise_texture()
 												texture_dim_2,
 												0, GL_RGBA, GL_FLOAT, NULL);
 
-	glBindImageTexture(NOISE_32D_IMAGE_SLOT, texture_2_id, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
+	glBindImageTexture(	NOISE_32D_IMAGE_SLOT, texture_2_id, 0, GL_FALSE,
+						0, GL_READ_WRITE, GL_RGBA32F);
 
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -203,7 +205,8 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 				cell_data[cell_index].push_back(position[2]);
 				cell_data[cell_index].push_back(1.0f);
 
-				// this index is very important!!!
+				// i leave this more c-style approach for my further me
+				// to clearify things :)
 				//GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;
 				/*GLfloat position[3] = {	(i + random_offset[0]), 
 										(k + random_offset[1]), 

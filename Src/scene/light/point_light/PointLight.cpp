@@ -54,16 +54,22 @@ std::vector<glm::mat4> PointLight::calculate_light_transform()
     //make sure all light matrices align with the order we were defining in OmniShadowMap
     //GL_TEXTURE_CUBE_MAP_POSITIVE_X+i; therefoe start off with glm::vec3(1.0, 0.0,0.0)
     //+x,-x
-    light_matrices.push_back(light_proj * glm::lookAt(position, position + glm::vec3(1.0, 0.0, 0.0), glm::vec3(0.0, -1.0, 0.0)));
-    light_matrices.push_back(light_proj * glm::lookAt(position, position + glm::vec3(-1.0, 0.0, 0.0), glm::vec3(0.0, -1.0, 0.0)));
+    light_matrices.push_back(   light_proj * glm::lookAt(position, position + glm::vec3(1.0, 0.0, 0.0), 
+                                glm::vec3(0.0, -1.0, 0.0)));
+    light_matrices.push_back(   light_proj * glm::lookAt(position, position + glm::vec3(-1.0, 0.0, 0.0),
+                                glm::vec3(0.0, -1.0, 0.0)));
 
     //+y,-y
-    light_matrices.push_back(light_proj * glm::lookAt(position, position + glm::vec3(0.0, 1.0, 0.0), glm::vec3(0.0, 0.0, 1.0)));
-    light_matrices.push_back(light_proj * glm::lookAt(position, position + glm::vec3(0.0, -1.0, 0.0), glm::vec3(0.0, 0.0, -1.0)));
+    light_matrices.push_back(   light_proj * glm::lookAt(position, position + glm::vec3(0.0, 1.0, 0.0), 
+                                glm::vec3(0.0, 0.0, 1.0)));
+    light_matrices.push_back(   light_proj * glm::lookAt(position, position + glm::vec3(0.0, -1.0, 0.0), 
+                                glm::vec3(0.0, 0.0, -1.0)));
 
     //+z,-z
-    light_matrices.push_back(light_proj * glm::lookAt(position, position + glm::vec3(0.0, 0.0, 1.0), glm::vec3(0.0, -1.0, 0.0)));
-    light_matrices.push_back(light_proj * glm::lookAt(position, position + glm::vec3(0.0, 0.0, -1.0), glm::vec3(0.0, -1.0, 0.0)));
+    light_matrices.push_back(   light_proj * glm::lookAt(position, position + glm::vec3(0.0, 0.0, 1.0), 
+                                glm::vec3(0.0, -1.0, 0.0)));
+    light_matrices.push_back(   light_proj * glm::lookAt(position, position + glm::vec3(0.0, 0.0, -1.0), 
+                                glm::vec3(0.0, -1.0, 0.0)));
 
     return light_matrices;
 }

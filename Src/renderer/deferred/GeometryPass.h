@@ -21,7 +21,8 @@ public:
 
     GeometryPass();
 
-    void execute(   glm::mat4 projection_matrix, std::shared_ptr<Camera> main_camera,
+    void execute(   glm::mat4 projection_matrix, 
+                    std::shared_ptr<Camera> main_camera,
                     GLfloat window_width, GLfloat window_height, 
                     GLuint gbuffer_id, GLfloat delta_time, 
                     std::shared_ptr<Scene>);
@@ -34,17 +35,17 @@ public:
 
 private:
 
-    void retrieve_geometry_pass_locations(  glm::mat4 projection_matrix, glm::mat4 view_matrix, 
+    void retrieve_geometry_pass_locations(  glm::mat4 projection_matrix, 
+                                            glm::mat4 view_matrix, 
                                             std::vector<ObjMaterial>& materials,
                                             std::shared_ptr<Scene> scene);
 
     std::shared_ptr<GeometryPassShaderProgram> shader_program;
 
-    SkyBox skybox;
-
+    SkyBox          skybox;
     // TO check if there are any gl error
-    DebugApp DebugApp_ins;
-    UniformHelper uniform_helper;
+    DebugApp        DebugApp_ins;
+    UniformHelper   uniform_helper;
 
 };
 

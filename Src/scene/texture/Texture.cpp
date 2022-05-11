@@ -5,22 +5,22 @@
 
 Texture::Texture()
 {
-	textureID = 0;
-	width = 0;
-	height = 0;
-	bit_depth = 0;
-	file_location = strdup("");
+	textureID			= 0;
+	width				= 0;
+	height				= 0;
+	bit_depth			= 0;
+	file_location		= strdup("");
 	//go with reapeat as standard ...
 	this->wrapping_mode = std::make_shared<RepeatMode>();
 }
 
 Texture::Texture(const char* file_loc, std::shared_ptr<TextureWrappingMode> wrapping_mode)
 {
-	textureID = 0;
-	width = 0;
-	height = 0;
-	bit_depth = 0;
-	file_location = std::string(file_loc);
+	textureID			= 0;
+	width				= 0;
+	height				= 0;
+	bit_depth			= 0;
+	file_location		= std::string(file_loc);
 	this->wrapping_mode = wrapping_mode;
 }
 
@@ -219,11 +219,11 @@ void Texture::unbind_texture(unsigned int index) {
 void Texture::clear_texture_context()
 {
 	glDeleteTextures(1, &textureID);
-	textureID = 0;
-	width = 0;
-	height = 0;
-	bit_depth = 0;
-	file_location = strdup("");
+	textureID		= 0;
+	width			= 0;
+	height			= 0;
+	bit_depth		= 0;
+	file_location	= strdup("");
 }
 
 GLuint Texture::get_id()

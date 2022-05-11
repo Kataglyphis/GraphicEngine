@@ -4,6 +4,7 @@
 #include "host_device_shared.h"
 
 #include "UniformHelper.h"
+#include "DirectionalLightUniformLocations.h"
 
 #include "ObjMaterialLocations.h"
 

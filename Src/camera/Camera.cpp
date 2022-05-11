@@ -4,25 +4,27 @@ Camera::Camera()
 {
 }
 
-Camera::Camera(	glm::vec3 start_position, glm::vec3 start_up, GLfloat start_yaw, GLfloat start_pitch, 
+Camera::Camera(	glm::vec3 start_position, glm::vec3 start_up, 
+				GLfloat start_yaw, GLfloat start_pitch, 
 				GLfloat start_move_speed, GLfloat start_turn_speed, 
 				GLfloat near_plane, GLfloat far_plane, GLfloat fov)
 {
 
-	position = start_position;
-	world_up = start_up;
-	yaw = start_yaw;
-	pitch = start_pitch;
+	position			= start_position;
+	world_up			= start_up;
+	yaw					= start_yaw;
+	pitch				= start_pitch;
+
 	//here we want the normal coord. axis z is showing to us !!
-	front = glm::vec3(0.0f, 0.0f, -1.0f);
+	front				= glm::vec3(0.0f, 0.0f, -1.0f);
 
 	//choose it clever; is ordnial scale; so some trial and error in finding some good starting value
-	movement_speed = start_move_speed;
-	turn_speed = start_turn_speed;
+	movement_speed		= start_move_speed;
+	turn_speed			= start_turn_speed;
 
-	this->near_plane = near_plane;
-	this->far_plane = far_plane;
-	this->fov = fov;
+	this->near_plane	= near_plane;
+	this->far_plane		= far_plane;
+	this->fov			= fov;
 }
 
 void Camera::key_control(bool* keys, GLfloat delta_time)

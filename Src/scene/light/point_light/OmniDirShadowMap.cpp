@@ -19,7 +19,8 @@ bool OmniDirShadowMap::init(GLuint width, GLuint height)
 	for (size_t i = 0; i < 6; i++) {
 		// keep in mind that all following f.e. negative_x, positive_y,...etc. are reachable
 		// by simply increment positive_x stepwise 
-		glTexImage2D((GLenum)(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i), 0, GL_DEPTH_COMPONENT, shadow_width, shadow_height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+		glTexImage2D(	(GLenum)(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i), 0, GL_DEPTH_COMPONENT, 
+						shadow_width, shadow_height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
 
 	}
 

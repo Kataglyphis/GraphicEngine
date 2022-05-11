@@ -23,14 +23,13 @@ public:
                     GLuint constant_location, GLuint linear_location, 
                     GLuint exponent_location);
 
-    std::vector<glm::mat4> calculate_light_transform();
+    std::vector<glm::mat4>              calculate_light_transform();
 
-    void set_position(glm::vec3 position);
+    void                                set_position(glm::vec3 position);
 
-    std::shared_ptr<OmniDirShadowMap> get_omni_shadow_map()  { return omni_dir_shadow_map; };
-
-    GLfloat get_far_plane();
-    glm::vec3 get_position();
+    std::shared_ptr<OmniDirShadowMap>   get_omni_shadow_map()  { return omni_dir_shadow_map; };
+    GLfloat                             get_far_plane();
+    glm::vec3                           get_position();
 
     ~PointLight();
 
@@ -38,11 +37,11 @@ protected:
 
     std::shared_ptr<OmniDirShadowMap> omni_dir_shadow_map;
 
-    glm::vec3 position;
+    glm::vec3   position;
 
-    GLfloat constant, linear, exponent;
+    GLfloat     constant, linear, exponent;
 
-    GLfloat far_plane;
+    GLfloat     far_plane;
 
 };
 

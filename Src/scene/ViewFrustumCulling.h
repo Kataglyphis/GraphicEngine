@@ -57,11 +57,14 @@ private:
 
 	frustum_plane frustum_planes[NUM_FRUSTUM_PLANES];
 	
-	bool corners_outside_plane(std::vector<glm::vec3> aabb_corners, frustum_plane plane, GLuint outcode_pattern);
+	bool corners_outside_plane(	std::vector<glm::vec3> aabb_corners,
+								frustum_plane plane, GLuint outcode_pattern);
 
 	GLfloat plane_point_distance(frustum_plane plane, glm::vec3 corner);
 
-	void update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, std::shared_ptr<Camera> main_camera);
+	void update_frustum_param(	GLfloat near_plane, GLfloat far_plane, 
+								GLfloat fov, GLfloat ratio, 
+								std::shared_ptr<Camera> main_camera);
 
 	void init(std::vector<glm::vec3> frustum_corner);
 };

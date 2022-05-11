@@ -63,7 +63,8 @@ void DirectionalLight::update_shadow_map(GLfloat shadow_width, GLfloat shadow_he
     shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height, num_cascades);
 }
 
-std::vector<glm::vec4> DirectionalLight::get_frustum_corners_world_space(const glm::mat4& proj, const glm::mat4& view)
+std::vector<glm::vec4> DirectionalLight::get_frustum_corners_world_space(   const glm::mat4& proj, 
+                                                                            const glm::mat4& view)
 {
     const auto inv = glm::inverse(proj * view);
 
@@ -133,7 +134,8 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
                                                         cascade_slots[i],
                                                         cascade_slots[i+1]);
 
-        std::vector<glm::vec4> frustumCornerWorldSpace = get_frustum_corners_world_space(curr_cascade_proj, camera_view_matrix);
+        std::vector<glm::vec4> frustumCornerWorldSpace = get_frustum_corners_world_space(   curr_cascade_proj,
+                                                                                            camera_view_matrix);
 
         glm::vec3 center = glm::vec3(0, 0, 0);
         for (const auto& v : frustumCornerWorldSpace)
@@ -143,7 +145,8 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
 
         center /= frustumCornerWorldSpace.size();
     
-        glm::mat4 light_view_matrix = glm::lookAt(center - get_direction(), center, glm::vec3(0.0f, 1.0f, 0.0f));
+        glm::mat4 light_view_matrix = glm::lookAt(  center - get_direction(), center, 
+                                                    glm::vec3(0.0f, 1.0f, 0.0f));
 
         // the # of frustum corners = 8
         GLfloat minX = std::numeric_limits<float>::max();

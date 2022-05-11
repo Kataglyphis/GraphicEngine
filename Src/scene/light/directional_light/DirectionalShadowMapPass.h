@@ -29,8 +29,8 @@ private:
 
     std::shared_ptr<ShadowMapShaderProgram> shader_program;
 
-    DebugApp DebugApp_ins;
-    UniformHelper uniform_helper;
+    DebugApp        DebugApp_ins;
+    UniformHelper   uniform_helper;
 
 };
 

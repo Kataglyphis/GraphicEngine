@@ -53,6 +53,7 @@ void GBuffer::create()
     glDrawBuffers(G_BUFFER_SIZE , g_buffer_attachment);
 
     // create and attach depth buffer (renderbuffer)
+    // renderbuffers are a bit more performant
     glGenRenderbuffers(1, &g_depth);
     glBindRenderbuffer(GL_RENDERBUFFER, g_depth);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT32F, window_width, window_height);
@@ -76,14 +77,17 @@ void GBuffer::read( GLuint g_buffer_lighting_uniform_position_location,
     uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_position_location);
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_position);
+
     texture_index++;
     uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_normal_location);
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_normal);
+
     texture_index++;
     uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_albedo_location);
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_albedo);
+
     texture_index++;
     uniform_helper.setUniformInt(texture_index, g_buffer_material_id_location);
     glActiveTexture(GL_TEXTURE0 + texture_index);
@@ -105,4 +109,11 @@ GLint GBuffer::get_id()
 
 GBuffer::~GBuffer()
 {
+
+    glDeleteFramebuffers(1, &g_buffer);
+    glDeleteTextures(1, &g_position);
+    glDeleteTextures(1, &g_normal);
+    glDeleteTextures(1, &g_albedo);
+    glDeleteTextures(1, &g_material_id);
+
 }

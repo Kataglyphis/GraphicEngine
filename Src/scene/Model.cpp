@@ -53,7 +53,8 @@ void Model::create_render_context()
     // https://www.khronos.org/opengl/wiki/Shader_Storage_Buffer_Object
     glGenBuffers(1, &ssbo);
     glBindBuffer(GL_SHADER_STORAGE_BUFFER, ssbo);
-    glBufferData(GL_SHADER_STORAGE_BUFFER, materialIndex.size() * sizeof(glm::vec4), materialIndex.data(), GL_STREAM_READ); //sizeof(data) only works for statically sized C/C++ arrays.
+    glBufferData(   GL_SHADER_STORAGE_BUFFER, materialIndex.size() * sizeof(glm::vec4), 
+                    materialIndex.data(), GL_STREAM_READ); //sizeof(data) only works for statically sized C/C++ arrays.
 
 }
 

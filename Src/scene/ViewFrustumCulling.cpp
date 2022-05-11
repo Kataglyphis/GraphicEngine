@@ -6,11 +6,12 @@ ViewFrustumCulling::ViewFrustumCulling() {
 
 
 
-bool ViewFrustumCulling::is_inside(GLfloat ratio, std::shared_ptr<Camera> main_camera, std::shared_ptr<AABB> bounding_box, glm::mat4 model)
+bool ViewFrustumCulling::is_inside(	GLfloat ratio, std::shared_ptr<Camera> main_camera, 
+									std::shared_ptr<AABB> bounding_box, glm::mat4 model)
 {
-	GLfloat near_plane = main_camera->get_near_plane();
-	GLfloat far_plane = main_camera->get_far_plane();
-	GLfloat fov = main_camera->get_fov();
+	GLfloat near_plane	= main_camera->get_near_plane();
+	GLfloat far_plane	= main_camera->get_far_plane();
+	GLfloat fov			= main_camera->get_fov();
 
 	update_frustum_param(near_plane, far_plane, fov, ratio, main_camera);
 
@@ -21,21 +22,21 @@ bool ViewFrustumCulling::is_inside(GLfloat ratio, std::shared_ptr<Camera> main_c
 	//outcodes (dezi)     :  32                     , 16                 , 4             , 8                , 2           , 1
 	bool result = true;
 
-	GLint outcode_near_plane = 32;
-	GLint outcode_far_plane = 16;
-	GLint outcode_up = 4;
-	GLint outcode_bottom = 8;
-	GLint outcode_left = 2;
-	GLint outcode_right = 1;
+	GLint outcode_near_plane	= 32;
+	GLint outcode_far_plane		= 16;
+	GLint outcode_up			= 4;
+	GLint outcode_bottom		= 8;
+	GLint outcode_left			= 2;
+	GLint outcode_right			= 1;
 	//GLint outcode;
 
 
-	GLint outcodes_pattern[NUM_FRUSTUM_PLANES] = { outcode_near_plane,
-																					outcode_far_plane,
-																					outcode_up,
-																					outcode_bottom,
-																					outcode_left,
-																					outcode_right };
+	GLint outcodes_pattern[NUM_FRUSTUM_PLANES] = {	outcode_near_plane,
+													outcode_far_plane,
+													outcode_up,
+													outcode_bottom,
+													outcode_left,
+													outcode_right };
 
 	for (int i = 0; i < NUM_FRUSTUM_PLANES; i++) {
 
@@ -54,8 +55,9 @@ bool ViewFrustumCulling::is_inside(GLfloat ratio, std::shared_ptr<Camera> main_c
 
 void ViewFrustumCulling::render_view_frustum()
 {
-
-	glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+	// seeing as we only have a single VAO there's no need to bind it every time, 
+	// but we'll do so to keep things a bit more organized
+	glBindVertexArray(VAO); 
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
 	glDrawElements(GL_TRIANGLES, m_drawCount, GL_UNSIGNED_INT, 0);
 
@@ -64,7 +66,9 @@ void ViewFrustumCulling::render_view_frustum()
 
 }
 
-bool ViewFrustumCulling::corners_outside_plane(std::vector<glm::vec3> aabb_corners, frustum_plane plane, GLuint outcode_pattern)
+bool ViewFrustumCulling::corners_outside_plane(	std::vector<glm::vec3> aabb_corners, 
+												frustum_plane plane, 
+												GLuint outcode_pattern)
 {
 	
 	GLint outcode = outcode_pattern;
@@ -108,80 +112,97 @@ GLfloat ViewFrustumCulling::plane_point_distance(frustum_plane plane, glm::vec3 
 	return result;
 }
 
-void ViewFrustumCulling::update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, std::shared_ptr<Camera> main_camera)
+void ViewFrustumCulling::update_frustum_param(	GLfloat near_plane, GLfloat far_plane, 
+												GLfloat fov, GLfloat ratio, 
+												std::shared_ptr<Camera> main_camera)
 {
-	this->near_plane = near_plane;
-	this->far_plane = far_plane;
-	this->fov = fov;
-	this->ratio = ratio;
+	this->near_plane	= near_plane;
+	this->far_plane		= far_plane;
+	this->fov			= fov;
+	this->ratio			= ratio;
 
-	tan = glm::tan(glm::radians(fov) * 0.5f);
-	near_height = near_plane* tan;
-	near_width = near_height * ratio;
-	far_height = far_plane * tan;
-	far_width = far_height * ratio;
+	tan					= glm::tan(glm::radians(fov) * 0.5f);
+	near_height			= near_plane* tan;
+	near_width			= near_height * ratio;
+	far_height			= far_plane * tan;
+	far_width			= far_height * ratio;
 
-	this->main_camera = main_camera;
+	this->main_camera	= main_camera;
 
-	near_center = main_camera->get_camera_position() + main_camera->get_camera_direction() * near_plane;
-	far_center = main_camera->get_camera_position() + main_camera->get_camera_direction() * far_plane;
+	near_center			= main_camera->get_camera_position() + main_camera->get_camera_direction() * near_plane;
+	far_center			= main_camera->get_camera_position() + main_camera->get_camera_direction() * far_plane;
 
 	glm::vec3 aux_position, aux, aux_normal;
 
 	//layout:  [0]: near plane
-	frustum_planes[0].normal = main_camera->get_camera_direction();
-	frustum_planes[0].position = near_center;
+	frustum_planes[0].normal	= main_camera->get_camera_direction();
+	frustum_planes[0].position	= near_center;
 
 	// [1] far plane
-	frustum_planes[1].normal = -main_camera->get_camera_direction();
-	frustum_planes[1].position = far_center;
+	frustum_planes[1].normal	= -main_camera->get_camera_direction();
+	frustum_planes[1].position	= far_center;
 
-	aux_position = near_center + main_camera->get_up_axis() * near_height;
-	aux = aux_position - main_camera->get_camera_position();
-	aux = glm::normalize(aux);
-	aux_normal = glm::cross(aux, main_camera->get_right_axis());
+	aux_position				= near_center + main_camera->get_up_axis() * near_height;
+	aux							= aux_position - main_camera->get_camera_position();
+	aux							= glm::normalize(aux);
+	aux_normal					= glm::cross(aux, main_camera->get_right_axis());
 	
 	// [2] top
-	frustum_planes[2].normal = normalize(aux_normal);
-	frustum_planes[2].position = aux_position;
+	frustum_planes[2].normal	= normalize(aux_normal);
+	frustum_planes[2].position	= aux_position;
 
-	aux_position = near_center - main_camera->get_up_axis() * near_height;
-	aux = aux_position - main_camera->get_camera_position();
-	aux = glm::normalize(aux);
-	aux_normal = glm::cross(main_camera->get_right_axis(), aux);
+	aux_position				= near_center - main_camera->get_up_axis() * near_height;
+	aux							= aux_position - main_camera->get_camera_position();
+	aux							= glm::normalize(aux);
+	aux_normal					= glm::cross(main_camera->get_right_axis(), aux);
 
 	// [3] bottom 
-	frustum_planes[3].normal = normalize(aux_normal);
-	frustum_planes[3].position = aux_position;
+	frustum_planes[3].normal	= normalize(aux_normal);
+	frustum_planes[3].position	= aux_position;
 
-	aux_position = near_center - main_camera->get_right_axis() * near_width;
-	aux = aux_position - main_camera->get_camera_position();
-	aux = glm::normalize(aux);
-	aux_normal = glm::cross(aux, main_camera->get_up_axis());
+	aux_position				= near_center - main_camera->get_right_axis() * near_width;
+	aux							= aux_position - main_camera->get_camera_position();
+	aux							= glm::normalize(aux);
+	aux_normal					= glm::cross(aux, main_camera->get_up_axis());
 
 	// [4]: left
-	frustum_planes[4].normal = normalize(aux_normal);
-	frustum_planes[4].position = aux_position;
+	frustum_planes[4].normal	= normalize(aux_normal);
+	frustum_planes[4].position	= aux_position;
 
-	aux_position = near_center + main_camera->get_right_axis() * near_width;
-	aux = aux_position - main_camera->get_camera_position();
-	aux = glm::normalize(aux);
-	aux_normal = glm::cross(main_camera->get_up_axis(), aux);
+	aux_position				= near_center + main_camera->get_right_axis() * near_width;
+	aux							= aux_position - main_camera->get_camera_position();
+	aux							= glm::normalize(aux);
+	aux_normal					= glm::cross(main_camera->get_up_axis(), aux);
 	
 	// [5]: right
-	frustum_planes[5].normal = normalize(aux_normal);
-	frustum_planes[5].position = aux_position;
+	frustum_planes[5].normal	= normalize(aux_normal);
+	frustum_planes[5].position	= aux_position;
 
 	std::vector<glm::vec3> frustum_corners;
 
-	//frustum_corners.push_back(near_center - main_camera->get_right_axis() * near_width - main_camera->get_up_axis() * near_height);// left bottom front
-	//frustum_corners.push_back(far_center - main_camera->get_right_axis() * far_width - main_camera->get_up_axis() * far_height);// left bottom back
-	//frustum_corners.push_back(near_center - main_camera->get_right_axis() * near_width + main_camera->get_up_axis() * near_height); // left top front
-	//frustum_corners.push_back(far_center - main_camera->get_right_axis() * far_width + main_camera->get_up_axis() * far_height);// left top back
-	//frustum_corners.push_back(near_center + main_camera->get_right_axis() * near_width - main_camera->get_up_axis() * near_height); // right bottom front
-	//frustum_corners.push_back(far_center + main_camera->get_right_axis() * far_width - main_camera->get_up_axis() * far_height);//right bottom back
-	//frustum_corners.push_back(near_center + main_camera->get_right_axis() * near_width + main_camera->get_up_axis() * near_height);//right top front
-	//frustum_corners.push_back(far_center + main_camera->get_right_axis() * far_width + main_camera->get_up_axis() * far_height);//right top back
+	//frustum_corners.push_back(near_center - main_camera->get_right_axis() * near_width - 
+	// main_camera->get_up_axis() * near_height);// left bottom front
+	// 
+	//frustum_corners.push_back(far_center - main_camera->get_right_axis() * far_width - 
+	// main_camera->get_up_axis() * far_height);// left bottom back
+	// 
+	//frustum_corners.push_back(near_center - main_camera->get_right_axis() * near_width +
+	//  main_camera->get_up_axis() * near_height); // left top front
+	// 
+	//frustum_corners.push_back(far_center - main_camera->get_right_axis() * far_width +
+	//  main_camera->get_up_axis() * far_height);// left top back
+	// 
+	//frustum_corners.push_back(near_center + main_camera->get_right_axis() * near_width - 
+	// main_camera->get_up_axis() * near_height); // right bottom front
+	// 
+	//frustum_corners.push_back(far_center + main_camera->get_right_axis() * far_width - 
+	// main_camera->get_up_axis() * far_height);//right bottom back
+	// 
+	//frustum_corners.push_back(near_center + main_camera->get_right_axis() * near_width +
+	// main_camera->get_up_axis() * near_height);//right top front
+	// 
+	//frustum_corners.push_back(far_center + main_camera->get_right_axis() * far_width + 
+	//main_camera->get_up_axis() * far_height);//right top back
 
 	//init(frustum_corners);
 }
@@ -194,36 +215,36 @@ void ViewFrustumCulling::init(std::vector<glm::vec3> frustum_corner)
 
 	float vertices[] = {
 
-	   frustum_corner[0].x,frustum_corner[0].y, frustum_corner[0].z, // left bottom front
-	   frustum_corner[1].x,frustum_corner[1].y, frustum_corner[1].z, // left bottom back
-		frustum_corner[2].x,frustum_corner[2].y, frustum_corner[2].z, // left top front
-		frustum_corner[3].x,frustum_corner[3].y, frustum_corner[3].z, // left top back
-		frustum_corner[4].x,frustum_corner[4].y, frustum_corner[4].z, // right bottom front
-		frustum_corner[5].x,frustum_corner[5].y, frustum_corner[5].z, //right bottom back
-		frustum_corner[6].x,frustum_corner[6].y, frustum_corner[6].z, //right top front
-		frustum_corner[7].x,frustum_corner[7].y, frustum_corner[7].z //right top back
+			frustum_corner[0].x,frustum_corner[0].y, frustum_corner[0].z, // left bottom front
+			frustum_corner[1].x,frustum_corner[1].y, frustum_corner[1].z, // left bottom back
+			frustum_corner[2].x,frustum_corner[2].y, frustum_corner[2].z, // left top front
+			frustum_corner[3].x,frustum_corner[3].y, frustum_corner[3].z, // left top back
+			frustum_corner[4].x,frustum_corner[4].y, frustum_corner[4].z, // right bottom front
+			frustum_corner[5].x,frustum_corner[5].y, frustum_corner[5].z, //right bottom back
+			frustum_corner[6].x,frustum_corner[6].y, frustum_corner[6].z, //right top front
+			frustum_corner[7].x,frustum_corner[7].y, frustum_corner[7].z //right top back
 
 	};
 
 	unsigned int indices[] = {  // note that we start from 0!
-	   //left 
-		0, 1, 3,
-	   0, 2, 3,
-	   //right 
-	   4, 5, 7,
-	   4, 6, 7,
-	   //top
-	   3, 2, 7,
-	   3, 2, 8,
-	   //bottom
-	   0, 1, 4,
-	   0, 1, 5,
-	   //back
-	   1, 3, 5,
-	   1, 3, 7,
-	   //front
-	   0, 2, 4,
-	   0, 2, 6,
+			//left 
+			0, 1, 3,
+			0, 2, 3,
+			//right 
+			4, 5, 7,
+			4, 6, 7,
+			//top
+			3, 2, 7,
+			3, 2, 8,
+			//bottom
+			0, 1, 4,
+			0, 1, 5,
+			//back
+			1, 3, 5,
+			1, 3, 7,
+			//front
+			0, 2, 4,
+			0, 2, 6,
 	};
 
 	glGenVertexArrays(1, &VAO);

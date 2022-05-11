@@ -20,8 +20,9 @@ public:
 
 private: 
 
-    GLuint uniform_model_location, uniform_omni_light_pos_location,
-        uniform_far_plane_location;
+    GLuint  uniform_model_location, 
+            uniform_omni_light_pos_location,
+            uniform_far_plane_location;
 
     GLuint uniform_light_matrices_locations[6];
 

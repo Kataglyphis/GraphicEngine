@@ -56,9 +56,11 @@ void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix,
     DebugApp_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
 }
 
-void GeometryPass::execute( glm::mat4 projection_matrix, std::shared_ptr<Camera> main_camera, 
+void GeometryPass::execute( glm::mat4 projection_matrix, 
+                            std::shared_ptr<Camera> main_camera, 
                             GLfloat window_width, GLfloat window_height,
-                            GLuint gbuffer_id, GLfloat delta_time, std::shared_ptr<Scene> scene)
+                            GLuint gbuffer_id, GLfloat delta_time, 
+                            std::shared_ptr<Scene> scene)
 {
 
     glBindFramebuffer(GL_FRAMEBUFFER, gbuffer_id);

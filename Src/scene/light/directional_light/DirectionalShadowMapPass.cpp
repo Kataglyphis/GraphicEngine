@@ -15,9 +15,9 @@ void DirectionalShadowMapPass::execute( glm::mat4 projection,
 
     std::shared_ptr<DirectionalLight> sun = scene->get_sun();
     //retreive shadow map before our geometry pass
-    sun->calc_orthogonal_projections(  main_camera->calculate_viewmatrix(),
-                                                    main_camera->get_fov(), window_width, window_height,
-                                                    NUM_CASCADES);
+    sun->calc_orthogonal_projections(   main_camera->calculate_viewmatrix(),
+                                        main_camera->get_fov(), window_width, window_height,
+                                        NUM_CASCADES);
 
     shader_program->use_shader_program();
 

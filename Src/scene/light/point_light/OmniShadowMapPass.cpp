@@ -39,7 +39,6 @@ void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light,
 
     DebugApp_ins.areErrorPrintAll("From execute function OmniShadowMapPass");
 
-
 }
 
 void OmniShadowMapPass::create_shader_program()

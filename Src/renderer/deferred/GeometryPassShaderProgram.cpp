@@ -3,6 +3,7 @@
 GeometryPassShaderProgram::GeometryPassShaderProgram()
 {
 }
+
 void GeometryPassShaderProgram::retrieve_uniform_locations() {
 
     // check before Error executing gl function if they are gl Errors in the Queue

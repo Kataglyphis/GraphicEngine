@@ -8,27 +8,27 @@ GameObject::GameObject(std::string model_path, glm::vec3 translation, GLfloat sc
 									model(std::make_shared<Model>())
 {
 	model->load_model_in_ram(model_path);
-	this->translation = translation;
-	this->scale_factor = scale;
-	this->rot = rot;
+	this->translation	= translation;
+	this->scale_factor	= scale;
+	this->rot			= rot;
 }
 
 void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
 {
-	model = std::make_shared<Model>(Model());
+	model				= std::make_shared<Model>(Model());
 	model->load_model_in_ram(model_path);
-	this->translation = translation;
-	this->scale_factor = scale;
-	this->rot = rot;
+	this->translation	= translation;
+	this->scale_factor	= scale;
+	this->rot			= rot;
 
 }
 
 glm::mat4 GameObject::get_world_trafo()
 {
-	glm::mat4 model_to_world = glm::mat4(1.0);
-	model_to_world = glm::translate(model_to_world, translation);
-	model_to_world = glm::scale(model_to_world, glm::vec3(scale_factor));
-	model_to_world = glm::rotate(model_to_world, glm::radians(rot.degrees), rot.axis);
+	glm::mat4 model_to_world	= glm::mat4(1.0);
+	model_to_world				= glm::translate(model_to_world, translation);
+	model_to_world				= glm::scale(model_to_world, glm::vec3(scale_factor));
+	model_to_world				= glm::rotate(model_to_world, glm::radians(rot.degrees), rot.axis);
 
 	return model_to_world;
 }

@@ -16,7 +16,8 @@ bool ShadowMap::init(GLuint width, GLuint height)
 
 	glGenTextures(1, &shadow_map);
 	glBindTexture(GL_TEXTURE_2D, shadow_map);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, shadow_width, shadow_height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+	glTexImage2D(	GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, shadow_width, shadow_height, 0, GL_DEPTH_COMPONENT,
+					GL_FLOAT, nullptr);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -49,9 +50,7 @@ bool ShadowMap::init(GLuint width, GLuint height)
 
 void ShadowMap::write()
 {
-
 	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-
 
 }
 
