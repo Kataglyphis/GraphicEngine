@@ -9,11 +9,6 @@ project(GraphicsEngine VERSION 1.9
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-#find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
-#if(CMAKE_CXX_CPPCHECK) 
-
-    #set(CMAKE_CXX_CPPCHECK "cppcheck")
-
 # include google test to project
 include(FetchContent)
 FetchContent_Declare(
@@ -24,34 +19,20 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-# now make glew available
-#FetchContent_Declare(
-#  glew
-#  GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
-#  GIT_TAG        origin/master
-#)
-#FetchContent_GetProperties(glew)
-#if(NOT glew_POPULATED)
-#  FetchContent_Populate(glew)
-#  add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
-#endif()
-
 
 # remove dirty file directories ... 
 add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
 
 # control where the static and shared libraries are built so that on windows
 # we don't need to tinker with the path to run the executable
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
 # add all external libs as interface
 add_subdirectory(ExternalLib)
-
-add_subdirectory(ExternalLib/GLEW/buildD/cmake)
 
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -68,6 +49,10 @@ set(OpenGL_GL_PREFERENCE GLVND)
 # for faster building
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
+
+if(UNIX)
+        find_package(GLEW REQUIRED)
+endif()
 
 FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h" 
                                 "ExternalLib/IMGUI/backends/imgui_impl_glfw.h"
@@ -255,12 +240,6 @@ add_executable( ${PROJECT_NAME}
                 ${SCENE_FILTER}
                 ${MAIN_FILTER})
 
-#if(UNIX)
-#install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-#else()
-#install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-#endif()
-
 target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/camera"
                                                 PUBLIC "./Src/compute"
@@ -278,19 +257,37 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/scene/sky_box"
                                                 PUBLIC "./Src/scene/texture"
                                                 PUBLIC "./Src/gui"
-                                                PUBLIC "./Src/util"
-                                                PUBLIC "./ExternalLib/GLEW/include"
+                                                PUBLIC "./Src/util"  
                                                 ${OPENGL_INCLUDE_DIRS})
-                                            
-target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
-                                        Threads::Threads
-                                        glew_s
-                                        ${OPENGL_LIBRARIES}
-                                        glfw
-                                        imgui
-                                        stb 
-                                        glm 
-                                        tinyobjloader)
+
+if(WIN32)
+        target_include_directories(${PROJECT_NAME}      
+                                                PUBLIC "./ExternalLib/GLEW/include/")
+endif()
+
+if(UNIX)
+        target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
+                                                        GLEW::GLEW#glew_s
+                                                        Threads::Threads
+                                                        ${OPENGL_LIBRARIES}
+                                                        glfw
+                                                        imgui
+                                                        stb 
+                                                        glm 
+                                                        tinyobjloader)
+endif()
+
+if(WIN32)
+        target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
+                                                        glew32
+                                                        Threads::Threads
+                                                        ${OPENGL_LIBRARIES}
+                                                        glfw
+                                                        imgui
+                                                        stb 
+                                                        glm 
+                                                        tinyobjloader)
+endif()
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
@@ -299,10 +296,22 @@ set(CPACK_PACKAGE_VERSION_MINOR "${GraphicsEngine_VERSION_MINOR}")
 # we really need this; glew already build its libraries in bin/ folder
 # otherwise program will not find our library!
 set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-                                                    ${PROJECT_BINARY_DIR}/bin)
+                                                    ${PROJECT_BINARY_DIR})
 
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR})
+
+if(WIN32)
+        set(GLEW_DLL ExternalLib/GLEW/bin/Release/x64/glew32.dll)
+        set(GLEW_LIB ExternalLib/GLEW/lib/Release/x64/glew32.lib)
+        set(GLEW_LIBS ExternalLib/GLEW/lib/Release/x64/glew32s.lib)
+        file(COPY ${GLEW_DLL}
+        DESTINATION ${PROJECT_BINARY_DIR})
+        file(COPY ${GLEW_LIB}
+        DESTINATION ${PROJECT_BINARY_DIR})
+        file(COPY ${GLEW_LIBS}
+        DESTINATION ${PROJECT_BINARY_DIR})     
+endif()
 
 # let us print all errors when on UNIX
 if(UNIX)

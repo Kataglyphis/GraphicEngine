@@ -103,7 +103,7 @@ and Windows. I do not provide support for MacOS. Be aware of the dependencies:
 * [GLFW](https://www.glfw.org/)
 * [TINYOBJLOADER](https://github.com/tinyobjloader/tinyobjloader)
 * [IMGUI](https://github.com/ocornut/imgui)
-* [GLEW](https://github.com/Perlmint/glew-cmake)
+* [GLEW](http://glew.sourceforge.net/)
 * [STB](https://github.com/nothings/stb)
 * [DOXYGEN](https://www.doxygen.nl/index.html)
 * [GTEST](https://github.com/google/googletest)
