@@ -11,12 +11,12 @@
 // this method is setting all files we want to use in a shader per #include
 // you have to specify the name(how file appears in shader)
 // and its actual file location relatively
+// https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
 ShaderIncludes::ShaderIncludes()
 {
 
     assert(includeNames.size() == file_locations_relative.size());
 
-    // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
     DebugApp DebugApp_ins;
 
     std::vector<std::string> file_locations_abs;
