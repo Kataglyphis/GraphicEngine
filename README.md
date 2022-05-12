@@ -108,7 +108,12 @@ and Windows. I do not provide support for MacOS. Be aware of the dependencies:
 * [DOXYGEN](https://www.doxygen.nl/index.html)
 * [GTEST](https://github.com/google/googletest)
 * [CMAKE](https://cmake.org/)
+
+### Useful tools (you might also considering :) )
+
 * [CPPCHECK](https://cppcheck.sourceforge.io/)
+* [RENDERDOC](https://renderdoc.org/)
+* [NSIGHTGRAPHICS](https://developer.nvidia.com/nsight-graphics)
 
 <!-- GETTING STARTED -->
 ## Getting Started

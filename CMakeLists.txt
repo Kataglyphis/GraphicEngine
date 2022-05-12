@@ -50,13 +50,14 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
 # add all external libs as interface
 add_subdirectory(ExternalLib)
+
+add_subdirectory(ExternalLib/GLEW/buildD/cmake)
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(ExternalLib/GLFW)
 
-add_subdirectory(ExternalLib/GLEW/buildD/cmake)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
@@ -283,19 +284,21 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
 target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
                                         Threads::Threads
                                         ${OPENGL_LIBRARIES}
-                                        glew_s
+                                        glfw
+                                        glew
                                         imgui
                                         stb 
                                         glm 
-                                        tinyobjloader
-                                        glfw)
+                                        tinyobjloader)
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${GraphicsEngine_VERSION_MINOR}")
 
-set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY 
-                       ${PROJECT_BINARY_DIR})
+# we really need this; glew already build its libraries in bin/ folder
+# otherwise program will not find our library!
+set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+                                                    ${PROJECT_BINARY_DIR}/bin)
 
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR})
