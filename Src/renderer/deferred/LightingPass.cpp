@@ -93,7 +93,7 @@ void LightingPass::retrieve_lighting_pass_locations(glm::mat4 projection_matrix,
                     shader_program->get_g_albedo_location(),
                     shader_program->get_uniform_material_id_location());
 
-    std::vector<std::shared_ptr<PointLight>>& p_lights = scene->get_point_lights();
+    std::vector<std::shared_ptr<PointLight>> p_lights = scene->get_point_lights();
     shader_program->set_point_lights(p_lights, P_LIGHT_SHADOW_TEXTURES_SLOT);
 
     shader_program->set_noise_textures();

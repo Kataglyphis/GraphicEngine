@@ -13,3 +13,6 @@
 [submodule "ExternalLib/GLFW"]
 	path = ExternalLib/GLFW
 	url = https://github.com/glfw/glfw
+[submodule "ExternalLib/GLEW"]
+	path = ExternalLib/GLEW
+	url = https://github.com/Perlmint/glew-cmake

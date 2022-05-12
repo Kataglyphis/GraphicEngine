@@ -109,6 +109,7 @@ and Windows. I do not provide support for MacOS. Be aware of the dependencies:
 * [GTEST](https://github.com/google/googletest)
 * [CMAKE](https://cmake.org/)
 * [CPPCHECK](https://cppcheck.sourceforge.io/)
+
 <!-- GETTING STARTED -->
 ## Getting Started
 

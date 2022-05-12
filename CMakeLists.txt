@@ -56,7 +56,7 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(ExternalLib/GLFW)
 
-add_subdirectory(ExternalLib/GLEW/build/cmake)
+add_subdirectory(ExternalLib/GLEW/buildD/cmake)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
@@ -277,12 +277,13 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/scene/texture"
                                                 PUBLIC "./Src/gui"
                                                 PUBLIC "./Src/util"
+                                                PUBLIC "./ExternalLib/GLEW/include"
                                                 ${OPENGL_INCLUDE_DIRS})
                                             
 target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
                                         Threads::Threads
-                                        libglew_shared
-                                        ${OPENGL_LIBRARIES} 
+                                        ${OPENGL_LIBRARIES}
+                                        glew_s
                                         imgui
                                         stb 
                                         glm 
