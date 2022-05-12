@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1970535890">
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;color&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;color&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/Light.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\Light.cpp" line="5" column="2"/>
+            <symbol>color</symbol>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;color&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;color&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/Light.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\Light.cpp" line="15" column="2"/>
+            <symbol>color</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="Light" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/Light.h" line="8" col="1" hash="10037317083412832803"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functioncall functionName="Light"/>
+    <functioncall functionName="blue"/>
+    <functioncall functionName="float"/>
+    <functioncall functionName="green"/>
+    <functioncall functionName="radiance"/>
+    <functioncall functionName="red"/>
+    <functioncall functionName="vec3"/>
+  </FileInfo>
+</analyzerinfo>

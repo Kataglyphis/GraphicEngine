@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4001692238">
+        <error id="constVariable" severity="style" msg="Variable &apos;style&apos; can be declared with const" verbose="Variable &apos;style&apos; can be declared with const" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\gui\GUI.cpp" line="67" column="17" info="Variable &apos;style&apos; can be declared with const"/>
+            <symbol>style</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="GUI" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.h" line="11" col="1" hash="13297757395709272665"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="init" lineNumber="61"/>
+    <functiondecl functionName="render" lineNumber="79"/>
+    <functiondecl functionName="update_user_input" lineNumber="197"/>
+    <functioncall functionName="Begin"/>
+    <functioncall functionName="Button"/>
+    <functioncall functionName="Checkbox"/>
+    <functioncall functionName="Clouds"/>
+    <functioncall functionName="CollapsingHeader"/>
+    <functioncall functionName="ColorEdit3"/>
+    <functioncall functionName="Combo"/>
+    <functioncall functionName="CreateContext"/>
+    <functioncall functionName="DestroyContext"/>
+    <functioncall functionName="DirectionalLight"/>
+    <functioncall functionName="End"/>
+    <functioncall functionName="FrameBorderSize"/>
+    <functioncall functionName="FrameRounding"/>
+    <functioncall functionName="Framerate"/>
+    <functioncall functionName="GUI"/>
+    <functioncall functionName="GetDrawData"/>
+    <functioncall functionName="GetIO"/>
+    <functioncall functionName="GetStyle"/>
+    <functioncall functionName="IMGUI_CHECKVERSION"/>
+    <functioncall functionName="IM_ARRAYSIZE"/>
+    <functioncall functionName="ImGuiStyleVar_FrameBorderSize"/>
+    <functioncall functionName="ImGuiStyleVar_FrameRounding"/>
+    <functioncall functionName="ImGuiStyleVar_WindowRounding"/>
+    <functioncall functionName="ImGui_ImplGlfw_InitForOpenGL"/>
+    <functioncall functionName="ImGui_ImplGlfw_NewFrame"/>
+    <functioncall functionName="ImGui_ImplGlfw_Shutdown"/>
+    <functioncall functionName="ImGui_ImplOpenGL3_Init"/>
+    <functioncall functionName="ImGui_ImplOpenGL3_NewFrame"/>
+    <functioncall functionName="ImGui_ImplOpenGL3_RenderDrawData"/>
+    <functioncall functionName="ImGui_ImplOpenGL3_Shutdown"/>
+    <functioncall functionName="ImVec2"/>
+    <functioncall functionName="Image"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="NUM_CASCADES"/>
+    <functioncall functionName="NUM_MIN_CASCADES"/>
+    <functioncall functionName="NewFrame"/>
+    <functioncall functionName="ProgressBar"/>
+    <functioncall functionName="PushStyleVar"/>
+    <functioncall functionName="Render"/>
+    <functioncall functionName="RepeatMode"/>
+    <functioncall functionName="SameLine"/>
+    <functioncall functionName="Scene"/>
+    <functioncall functionName="Separator"/>
+    <functioncall functionName="SliderFloat"/>
+    <functioncall functionName="SliderFloat3"/>
+    <functioncall functionName="SliderInt"/>
+    <functioncall functionName="StyleColorsDark"/>
+    <functioncall functionName="Text"/>
+    <functioncall functionName="Texture"/>
+    <functioncall functionName="TreeNode"/>
+    <functioncall functionName="TreePop"/>
+    <functioncall functionName="Window"/>
+    <functioncall functionName="WindowRounding"/>
+    <functioncall functionName="available_shadow_map_resolutions"/>
+    <functioncall functionName="border"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="cascaded_shadow_intensity"/>
+    <functioncall functionName="cloud_cirrus_effect"/>
+    <functioncall functionName="cloud_density"/>
+    <functioncall functionName="cloud_mesh_scale"/>
+    <functioncall functionName="cloud_move"/>
+    <functioncall functionName="cloud_movement_direction"/>
+    <functioncall functionName="cloud_pillowness"/>
+    <functioncall functionName="cloud_powder_effect"/>
+    <functioncall functionName="cloud_scale"/>
+    <functioncall functionName="cloud_speed"/>
+    <functioncall functionName="direcional_light_radiance"/>
+    <functioncall functionName="directional_light_color"/>
+    <functioncall functionName="directional_light_direction"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="get_clouds"/>
+    <functioncall functionName="get_id"/>
+    <functioncall functionName="get_shadow_map"/>
+    <functioncall functionName="get_sun"/>
+    <functioncall functionName="get_window"/>
+    <functioncall functionName="glsl_version"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="load_texture_with_alpha_channel"/>
+    <functioncall functionName="loading_in_progress"/>
+    <functioncall functionName="long"/>
+    <functioncall functionName="make_shared"/>
+    <functioncall functionName="new_main_light_color"/>
+    <functioncall functionName="new_main_light_pos"/>
+    <functioncall functionName="num_shadow_cascades"/>
+    <functioncall functionName="pcf_radius"/>
+    <functioncall functionName="progress"/>
+    <functioncall functionName="set_cirrus_effect"/>
+    <functioncall functionName="set_color"/>
+    <functioncall functionName="set_density"/>
+    <functioncall functionName="set_direction"/>
+    <functioncall functionName="set_intensity"/>
+    <functioncall functionName="set_movement_direction"/>
+    <functioncall functionName="set_movement_speed"/>
+    <functioncall functionName="set_pcf_radius"/>
+    <functioncall functionName="set_pillowness"/>
+    <functioncall functionName="set_powder_effect"/>
+    <functioncall functionName="set_radiance"/>
+    <functioncall functionName="set_scale"/>
+    <functioncall functionName="shadow_map_res_index"/>
+    <functioncall functionName="shadow_map_resolution"/>
+    <functioncall functionName="shadow_resolution_changed"/>
+    <functioncall functionName="str"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="update_shadow_map"/>
+    <functioncall functionName="vec3"/>
+    <functioncall functionName="x"/>
+  </FileInfo>
+</analyzerinfo>

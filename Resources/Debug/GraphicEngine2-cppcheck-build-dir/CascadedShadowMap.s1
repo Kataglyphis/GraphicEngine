@@ -1,0 +1,14 @@
+get_shadow_width
+get_shadow_height
+CascadedShadowMap
+init global:[NUM_CASCADES] call:[areErrorPrintAll,arePreError,glBindBuffer,glBindBufferBase,glBindFramebuffer,glBindTexture,glBufferData,glCheckFramebufferStatus,glDrawBuffer,glFramebufferTexture,glGenBuffers,glGenFramebuffers,glGenTextures,glReadBuffer,glTexImage3D,glTexParameterfv,glTexParameteri,sizeof]
+write_light_matrices call:[glBindBuffer,glBufferSubData,size,sizeof] noreturn:[glBindBuffer,glBufferSubData]
+write call:[glBindFramebuffer] noreturn:[glBindFramebuffer]
+read call:[glActiveTexture,glBindTexture] noreturn:[glBindTexture]
+set_pcf_radius
+set_intensity
+get_intensity
+get_id
+get_num_active_cascades
+get_pcf_radius
+CascadedShadowMap call:[glDeleteFramebuffers,glDeleteTextures] noreturn:[glDeleteFramebuffers,glDeleteTextures]

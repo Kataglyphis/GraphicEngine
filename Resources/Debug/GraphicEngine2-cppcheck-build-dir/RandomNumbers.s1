@@ -1,0 +1,4 @@
+RandomNumbers call:[generate_random_numbers,get,glBindTexture,glGenTextures,glTexImage2D,glTexParameteri] noreturn:[glBindTexture]
+read global:[G_BUFFER_SIZE,MAX_POINT_LIGHTS,MAX_TEXTURE_COUNT,NUM_CELL_POSITIONS] call:[glActiveTexture,glBindTexture] noreturn:[glBindTexture]
+generate_random_numbers call:[dis,gen64,get]
+RandomNumbers call:[glDeleteTextures] noreturn:[glDeleteTextures]

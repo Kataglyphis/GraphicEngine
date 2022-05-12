@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3834007782">
+  <FileInfo check="Class">
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
+<class name="Mesh" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Mesh.h" line="16" col="1" hash="10518873902503988256"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="render" lineNumber="62"/>
+    <functioncall functionName="GL_ARRAY_BUFFER"/>
+    <functioncall functionName="GL_DYNAMIC_DRAW"/>
+    <functioncall functionName="GL_ELEMENT_ARRAY_BUFFER"/>
+    <functioncall functionName="GL_FALSE"/>
+    <functioncall functionName="GL_FLOAT"/>
+    <functioncall functionName="GL_TRIANGLES"/>
+    <functioncall functionName="GL_UNSIGNED_INT"/>
+    <functioncall functionName="Mesh"/>
+    <functioncall functionName="NUM_BUFFERS"/>
+    <functioncall functionName="POSITION_VB"/>
+    <functioncall functionName="Vertex"/>
+    <functioncall functionName="areErrorPrintAll"/>
+    <functioncall functionName="arePreError"/>
+    <functioncall functionName="color"/>
+    <functioncall functionName="glBindBuffer"/>
+    <functioncall functionName="glBindVertexArray"/>
+    <functioncall functionName="glBufferData"/>
+    <functioncall functionName="glDeleteBuffers"/>
+    <functioncall functionName="glDeleteVertexArrays"/>
+    <functioncall functionName="glDrawElements"/>
+    <functioncall functionName="glEnableVertexAttribArray"/>
+    <functioncall functionName="glGenBuffers"/>
+    <functioncall functionName="glGenVertexArrays"/>
+    <functioncall functionName="glVertexAttribPointer"/>
+    <functioncall functionName="hash"/>
+    <functioncall functionName="indices"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="m_drawCount"/>
+    <functioncall functionName="m_ibo"/>
+    <functioncall functionName="m_vab"/>
+    <functioncall functionName="m_vao"/>
+    <functioncall functionName="normal"/>
+    <functioncall functionName="num_indices"/>
+    <functioncall functionName="offsetof"/>
+    <functioncall functionName="pos"/>
+    <functioncall functionName="position"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="texture_coords"/>
+    <functioncall functionName="vec2"/>
+    <functioncall functionName="vec3"/>
+    <functioncall functionName="vertices"/>
+  </FileInfo>
+</analyzerinfo>

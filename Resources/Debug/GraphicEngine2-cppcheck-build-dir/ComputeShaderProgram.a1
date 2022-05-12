@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2051444369">
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/compute/ComputeShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\compute\ComputeShaderProgram.cpp" line="29" column="3"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/compute/ComputeShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\compute\ComputeShaderProgram.cpp" line="32" column="3"/>
+        </error>
+  <FileInfo check="Class">
+<class name="ComputeShaderProgram" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/compute/ComputeShaderProgram.h" line="7" col="1" hash="4177216524733137273"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="get_cell_location" lineNumber="7"/>
+    <functiondecl functionName="get_num_cell_location" lineNumber="12"/>
+    <functiondecl functionName="get_noise_image_location" lineNumber="17"/>
+    <functiondecl functionName="retrieve_uniform_locations" lineNumber="22"/>
+    <functiondecl functionName="reload" lineNumber="39"/>
+    <functioncall functionName="ComputeShaderProgram"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="NUM_CELL_POSITIONS"/>
+    <functioncall functionName="compute_location"/>
+    <functioncall functionName="create_computer_shader_program_from_file"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="glGetUniformLocation"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="index"/>
+    <functioncall functionName="loc_buff"/>
+    <functioncall functionName="program_id"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="snprintf"/>
+  </FileInfo>
+</analyzerinfo>

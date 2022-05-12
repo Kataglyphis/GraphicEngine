@@ -2,6 +2,8 @@
 #include "DebugApp.h"
 #include "File.h"
 
+#include <stdio.h>
+#include <string.h>
 #include <array>
 #include <sstream>
 #include <cassert>

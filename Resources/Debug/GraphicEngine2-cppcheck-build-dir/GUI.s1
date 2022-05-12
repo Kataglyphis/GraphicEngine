@@ -1,0 +1,5 @@
+GUI global:[NUM_CASCADES] call:[Texture,c_str,load_texture_with_alpha_channel,str] noreturn:[load_texture_with_alpha_channel]
+init call:[CreateContext,GetStyle,IMGUI_CHECKVERSION,ImGui_ImplGlfw_InitForOpenGL,ImGui_ImplOpenGL3_Init,PushStyleVar,StyleColorsDark,get_window] noreturn:[PushStyleVar]
+render global:[NUM_CASCADES] call:[Begin,Button,Checkbox,CollapsingHeader,ColorEdit3,Combo,End,GetDrawData,GetIO,GetStyle,IM_ARRAYSIZE,ImGui_ImplGlfw_NewFrame,ImGui_ImplOpenGL3_NewFrame,ImGui_ImplOpenGL3_RenderDrawData,ImVec2,Image,NewFrame,ProgressBar,Render,SameLine,Separator,SliderFloat,SliderFloat3,SliderInt,Text,TreeNode,TreePop,get_id] noreturn:[ImGui_ImplOpenGL3_RenderDrawData,Separator,SliderFloat,Text,TreePop]
+update_user_input global:[NUM_CASCADES] call:[cloud_move,get_clouds,get_shadow_map,get_sun,new_main_light_color,new_main_light_pos,set_cirrus_effect,set_color,set_density,set_direction,set_intensity,set_movement_direction,set_movement_speed,set_pcf_radius,set_pillowness,set_powder_effect,set_radiance,set_scale,update_shadow_map,vec3]
+GUI call:[DestroyContext,ImGui_ImplGlfw_Shutdown,ImGui_ImplOpenGL3_Shutdown] noreturn:[DestroyContext]

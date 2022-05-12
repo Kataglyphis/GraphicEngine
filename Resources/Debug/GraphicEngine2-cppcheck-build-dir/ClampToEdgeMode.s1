@@ -1,0 +1,3 @@
+ClampToEdgeMode
+activate call:[areErrorPrintAll,glTexParameteri] noreturn:[areErrorPrintAll]
+ClampToEdgeMode

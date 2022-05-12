@@ -1,0 +1,8 @@
+UniformHelper
+setUniformVec3 call:[glUniform3f,validateUniformLocation] noreturn:[glUniform3f]
+setUniformFloat call:[glUniform1f,validateUniformLocation] noreturn:[glUniform1f]
+setUniformInt call:[glUniform1i,validateUniformLocation] noreturn:[glUniform1i]
+setUniformMatrix4fv call:[glUniformMatrix4fv,validateUniformLocation,value_ptr] noreturn:[glUniformMatrix4fv]
+setUniformBlockBinding call:[glUniformBlockBinding,validateUniformLocation] noreturn:[glUniformBlockBinding]
+UniformHelper
+validateUniformLocation call:[return]

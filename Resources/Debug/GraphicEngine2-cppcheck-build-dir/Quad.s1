@@ -1,0 +1,3 @@
+Quad call:[glBindBuffer,glBindVertexArray,glBufferData,glEnableVertexAttribArray,glGenBuffers,glGenVertexArrays,glVertexAttribPointer,sizeof] noreturn:[glVertexAttribPointer]
+render call:[glBindVertexArray,glDrawArrays] noreturn:[glBindVertexArray]
+Quad call:[glDeleteBuffers,glDeleteVertexArrays] noreturn:[glDeleteBuffers]

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4058719354">
+  <FileInfo check="Class">
+<class name="OmniDirShadowMap" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniDirShadowMap.h" line="4" col="1" hash="8382595181890037090"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="init" lineNumber="8"/>
+    <functiondecl functionName="write" lineNumber="54"/>
+    <functiondecl functionName="read" lineNumber="59"/>
+    <functioncall functionName="FBO"/>
+    <functioncall functionName="GL_CLAMP_TO_EDGE"/>
+    <functioncall functionName="GL_DEPTH_ATTACHMENT"/>
+    <functioncall functionName="GL_DEPTH_COMPONENT"/>
+    <functioncall functionName="GL_FLOAT"/>
+    <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="GL_NEAREST"/>
+    <functioncall functionName="GL_NONE"/>
+    <functioncall functionName="GL_TEXTURE_CUBE_MAP"/>
+    <functioncall functionName="GL_TEXTURE_MAG_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_MIN_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_R"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_S"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_T"/>
+    <functioncall functionName="GLenum"/>
+    <functioncall functionName="OmniDirShadowMap"/>
+    <functioncall functionName="ShadowMap"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="glActiveTexture"/>
+    <functioncall functionName="glBindFramebuffer"/>
+    <functioncall functionName="glBindTexture"/>
+    <functioncall functionName="glCheckFramebufferStatus"/>
+    <functioncall functionName="glDrawBuffer"/>
+    <functioncall functionName="glFramebufferTexture"/>
+    <functioncall functionName="glGenFramebuffers"/>
+    <functioncall functionName="glGenTextures"/>
+    <functioncall functionName="glReadBuffer"/>
+    <functioncall functionName="glTexImage2D"/>
+    <functioncall functionName="glTexParameteri"/>
+    <functioncall functionName="height"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="nullptr"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="shadow_height"/>
+    <functioncall functionName="shadow_map"/>
+    <functioncall functionName="shadow_width"/>
+    <functioncall functionName="status"/>
+    <functioncall functionName="texture_unit"/>
+    <functioncall functionName="width"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2449128053">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;AdditionalArrayMessage&apos; should be passed by const reference." verbose="Parameter &apos;AdditionalArrayMessage&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\debug\DebugApp.cpp" line="67" column="45"/>
+            <symbol>AdditionalArrayMessage</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;AdditionalArrayMessage&apos; should be passed by const reference." verbose="Parameter &apos;AdditionalArrayMessage&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\debug\DebugApp.cpp" line="98" column="40"/>
+            <symbol>AdditionalArrayMessage</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="DebugApp" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.h" line="8" col="1" hash="3070221796948559276"/>
+  </FileInfo>
+  <FileInfo check="Class">
+<class name="DebugApp" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.h" line="8" col="1" hash="9760803156496042922"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="glDebugOutput" lineNumber="4"/>
+    <functiondecl functionName="areErrorPrintAll" lineNumber="67"/>
+    <functiondecl functionName="arePreError" lineNumber="98"/>
+    <functiondecl functionName="glDebugOutput" lineNumber="4"/>
+    <functiondecl functionName="areErrorPrintAll" lineNumber="67"/>
+    <functiondecl functionName="arePreError" lineNumber="98"/>
+    <functioncall functionName="DebugApp"/>
+    <functioncall functionName="GL_CONTEXT_FLAGS"/>
+    <functioncall functionName="GL_DEBUG_OUTPUT"/>
+    <functioncall functionName="GL_DEBUG_OUTPUT_SYNCHRONOUS"/>
+    <functioncall functionName="GL_DONT_CARE"/>
+    <functioncall functionName="GL_TRUE"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="err"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="flags"/>
+    <functioncall functionName="glDebugMessageCallback"/>
+    <functioncall functionName="glDebugMessageControl"/>
+    <functioncall functionName="glDebugOutput"/>
+    <functioncall functionName="glEnable"/>
+    <functioncall functionName="glGetError"/>
+    <functioncall functionName="glGetIntegerv"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="nullptr"/>
+    <functioncall functionName="private:"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="severity"/>
+    <functioncall functionName="source"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="type"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

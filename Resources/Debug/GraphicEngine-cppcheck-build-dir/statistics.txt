@@ -1,0 +1,7 @@
+[12.05.2022]
+1652347974399
+cppcheck-error:84
+cppcheck-warning:5
+cppcheck-style:2
+cppcheck-performance:2
+cppcheck-portability:4

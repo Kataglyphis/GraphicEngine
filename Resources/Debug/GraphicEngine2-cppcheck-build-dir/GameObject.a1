@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4292247954">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\GameObject.cpp" line="7" column="36"/>
+            <symbol>model_path</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\GameObject.cpp" line="16" column="35"/>
+            <symbol>model_path</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
+<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
+<class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/Rotation.h" line="5" col="1" hash="896651279113435361"/>
+<class name="GameObject" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.h" line="5" col="1" hash="17651593621024206736"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h:35:21" my-argnr="1" my-argname="filepath" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="37" col="7" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="init" lineNumber="16"/>
+    <functiondecl functionName="get_world_trafo" lineNumber="26"/>
+    <functiondecl functionName="get_normal_world_trafo" lineNumber="36"/>
+    <functiondecl functionName="render" lineNumber="42"/>
+    <functiondecl functionName="get_aabb" lineNumber="47"/>
+    <functiondecl functionName="get_model" lineNumber="52"/>
+    <functiondecl functionName="translate" lineNumber="57"/>
+    <functiondecl functionName="rotate" lineNumber="62"/>
+    <functiondecl functionName="scale" lineNumber="67"/>
+    <functioncall functionName="AABB"/>
+    <functioncall functionName="GameObject"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="Mesh"/>
+    <functioncall functionName="Model"/>
+    <functioncall functionName="NUM_BUFFERS"/>
+    <functioncall functionName="ObjMaterial"/>
+    <functioncall functionName="POSITION_VB"/>
+    <functioncall functionName="Texture"/>
+    <functioncall functionName="Vertex"/>
+    <functioncall functionName="axis"/>
+    <functioncall functionName="color"/>
+    <functioncall functionName="degrees"/>
+    <functioncall functionName="find_last_of"/>
+    <functioncall functionName="float"/>
+    <functioncall functionName="get_aabb"/>
+    <functioncall functionName="get_world_trafo"/>
+    <functioncall functionName="hash"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="indices"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="inverse"/>
+    <functioncall functionName="load_model_in_ram"/>
+    <functioncall functionName="make_shared"/>
+    <functioncall functionName="mat4"/>
+    <functioncall functionName="model"/>
+    <functioncall functionName="model_path"/>
+    <functioncall functionName="model_to_world"/>
+    <functioncall functionName="normal"/>
+    <functioncall functionName="pos"/>
+    <functioncall functionName="position"/>
+    <functioncall functionName="radians"/>
+    <functioncall functionName="render"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="rot"/>
+    <functioncall functionName="rotate"/>
+    <functioncall functionName="scale"/>
+    <functioncall functionName="scale_factor"/>
+    <functioncall functionName="shared_ptr"/>
+    <functioncall functionName="string"/>
+    <functioncall functionName="substr"/>
+    <functioncall functionName="texture_coords"/>
+    <functioncall functionName="translate"/>
+    <functioncall functionName="translation"/>
+    <functioncall functionName="transpose"/>
+    <functioncall functionName="vec2"/>
+    <functioncall functionName="vec3"/>
+    <functioncall functionName="vec4"/>
+    <functioncall functionName="vertices"/>
+    <functioncall functionName="world_trafo"/>
+  </FileInfo>
+</analyzerinfo>

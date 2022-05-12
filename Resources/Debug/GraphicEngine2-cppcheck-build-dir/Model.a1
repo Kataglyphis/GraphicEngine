@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2661829809">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Model.cpp" line="23" column="43"/>
+            <symbol>model_path</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
+<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
+<class name="Model" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h" line="18" col="1" hash="8674810283005024961"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h:35:21" my-argnr="1" my-argname="filepath" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="37" col="7" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="get_aabb" lineNumber="8"/>
+    <functiondecl functionName="get_materials" lineNumber="13"/>
+    <functiondecl functionName="get_texture_count" lineNumber="18"/>
+    <functiondecl functionName="load_model_in_ram" lineNumber="23"/>
+    <functiondecl functionName="create_render_context" lineNumber="37"/>
+    <functiondecl functionName="bind_ressources" lineNumber="61"/>
+    <functiondecl functionName="unbind_resources" lineNumber="69"/>
+    <functiondecl functionName="render" lineNumber="77"/>
+    <functioncall functionName="AABB"/>
+    <functioncall functionName="GL_SHADER_STORAGE_BUFFER"/>
+    <functioncall functionName="GL_STREAM_READ"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="Mesh"/>
+    <functioncall functionName="Model"/>
+    <functioncall functionName="NUM_BUFFERS"/>
+    <functioncall functionName="ObjLoader"/>
+    <functioncall functionName="ObjMaterial"/>
+    <functioncall functionName="POSITION_VB"/>
+    <functioncall functionName="RepeatMode"/>
+    <functioncall functionName="Texture"/>
+    <functioncall functionName="Vertex"/>
+    <functioncall functionName="aabb"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="color"/>
+    <functioncall functionName="data"/>
+    <functioncall functionName="find_last_of"/>
+    <functioncall functionName="float"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="glBindBuffer"/>
+    <functioncall functionName="glBindBufferBase"/>
+    <functioncall functionName="glBufferData"/>
+    <functioncall functionName="glGenBuffers"/>
+    <functioncall functionName="hash"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="indices"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="load"/>
+    <functioncall functionName="load_SRGB_texture_without_alpha_channel"/>
+    <functioncall functionName="make_shared"/>
+    <functioncall functionName="materialIndex"/>
+    <functioncall functionName="materials"/>
+    <functioncall functionName="model_path"/>
+    <functioncall functionName="normal"/>
+    <functioncall functionName="pos"/>
+    <functioncall functionName="position"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="render"/>
+    <functioncall functionName="reset"/>
+    <functioncall functionName="resize"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="shared_ptr"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="ssbo"/>
+    <functioncall functionName="static_cast"/>
+    <functioncall functionName="string"/>
+    <functioncall functionName="substr"/>
+    <functioncall functionName="texture_coords"/>
+    <functioncall functionName="textures"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="unbind_texture"/>
+    <functioncall functionName="use_texture"/>
+    <functioncall functionName="vec2"/>
+    <functioncall functionName="vec3"/>
+    <functioncall functionName="vec4"/>
+    <functioncall functionName="vertices"/>
+  </FileInfo>
+</analyzerinfo>

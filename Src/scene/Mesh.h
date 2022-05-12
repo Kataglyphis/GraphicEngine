@@ -4,7 +4,6 @@
 #include "Vertex.h"
 #include <vector>
 #include <GL/glew.h>
-
 #include "GlobalValues.h"
 
 #include "DebugApp.h"

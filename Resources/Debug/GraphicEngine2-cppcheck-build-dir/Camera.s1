@@ -1,0 +1,20 @@
+Camera
+Camera call:[vec3]
+key_control
+mouse_control call:[update] noreturn:[update]
+get_camera_position
+get_camera_direction call:[normalize] noreturn:[normalize]
+get_up_axis
+get_right_axis
+get_near_plane
+get_far_plane
+get_fov
+get_yaw
+set_near_plane
+set_far_plane
+set_fov
+set_camera_position
+calculate_viewmatrix call:[lookAt] noreturn:[lookAt]
+Camera
+update call:[cos,cross,normalize,radians,sin] noreturn:[normalize]
+to_radians

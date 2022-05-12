@@ -1,0 +1,21 @@
+Vertex call:[vec2,vec3] noreturn:[vec2]
+Vertex
+get_position
+get_normal
+get_color
+get_tex_coors
+operator==
+operator() call:[return]
+getVertices
+getIndices
+get_base_dir call:[find_last_of,substr] noreturn:[substr]
+Model
+get_aabb
+get_materials
+get_texture_count call:[size]
+load_model_in_ram call:[ObjLoader,load] noreturn:[load]
+create_render_context call:[c_str,data,glBindBuffer,glBufferData,glGenBuffers,load_SRGB_texture_without_alpha_channel,printf,reset,resize,size,sizeof] noreturn:[glBufferData,reset]
+bind_ressources call:[glBindBufferBase,size,use_texture] noreturn:[use_texture]
+unbind_resources call:[glBindBuffer,size,unbind_texture] noreturn:[unbind_texture]
+render call:[render] noreturn:[render]
+Model

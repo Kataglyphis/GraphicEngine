@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4262513232">
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="34" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="45" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="48" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="51" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="54" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="57" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="60" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="64" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="67" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="75" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="78" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="81" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="84" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="87" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="90" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="93" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="96" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="99" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="102" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPassShaderProgram.cpp" line="128" column="9"/>
+        </error>
+  <FileInfo check="Class">
+<class name="LightingPassShaderProgram" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.h" line="11" col="1" hash="6990752593942839360"/>
+<class name="LightingPassShaderProgram::uniform_cloud" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.h" line="102" col="2" hash="10036801249874750377"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.h:51:7" my-argnr="1" my-argname="p_light" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.cpp" line="287" col="66" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="retrieve_uniform_locations" lineNumber="8"/>
+    <functiondecl functionName="get_g_position_location" lineNumber="146"/>
+    <functiondecl functionName="get_g_normal_location" lineNumber="151"/>
+    <functiondecl functionName="get_g_albedo_location" lineNumber="156"/>
+    <functiondecl functionName="get_g_directional_light_position_location" lineNumber="161"/>
+    <functiondecl functionName="get_uniform_cloud_threshold_location" lineNumber="166"/>
+    <functiondecl functionName="get_directional_light_transform_location" lineNumber="171"/>
+    <functiondecl functionName="get_g_clouds_location" lineNumber="176"/>
+    <functiondecl functionName="get_random_number_location" lineNumber="181"/>
+    <functiondecl functionName="get_uniform_pillowness_location" lineNumber="186"/>
+    <functiondecl functionName="get_cirrus_effect_location" lineNumber="191"/>
+    <functiondecl functionName="get_cloud_powderness_effect" lineNumber="196"/>
+    <functiondecl functionName="get_uniform_num_active_cascades_location" lineNumber="201"/>
+    <functiondecl functionName="get_uniform_pcf_radius_location" lineNumber="206"/>
+    <functiondecl functionName="get_uniform_view_location" lineNumber="211"/>
+    <functiondecl functionName="get_uniform_projection_location" lineNumber="216"/>
+    <functiondecl functionName="get_light_matrics_id_location" lineNumber="221"/>
+    <functiondecl functionName="get_directional_shadow_map_location" lineNumber="226"/>
+    <functiondecl functionName="get_eye_position_location" lineNumber="231"/>
+    <functiondecl functionName="get_cascade_endpoint_location" lineNumber="236"/>
+    <functiondecl functionName="get_uniform_omni_dir_shadow_map_location" lineNumber="241"/>
+    <functiondecl functionName="get_uniform_point_light_far_plane_location" lineNumber="246"/>
+    <functiondecl functionName="get_uniform_material_locations" lineNumber="251"/>
+    <functiondecl functionName="get_uniform_material_id_location" lineNumber="258"/>
+    <functiondecl functionName="get_uniform_cloud_rad_location" lineNumber="263"/>
+    <functiondecl functionName="get_uniform_cloud_offset" lineNumber="268"/>
+    <functiondecl functionName="get_uniform_cloud_model" lineNumber="273"/>
+    <functiondecl functionName="get_uniform_cloud_scale_location" lineNumber="278"/>
+    <functiondecl functionName="set_point_lights" lineNumber="283"/>
+    <functiondecl functionName="set_noise_textures" lineNumber="309"/>
+    <functiondecl functionName="set_cloud_texture" lineNumber="318"/>
+    <functiondecl functionName="get_directional_light_radiance_location" lineNumber="323"/>
+    <functiondecl functionName="get_directional_light_color_location" lineNumber="328"/>
+    <functiondecl functionName="get_directional_light_direction_location" lineNumber="333"/>
+    <functiondecl functionName="get_directional_light_shadow_intensity_location" lineNumber="338"/>
+    <functioncall functionName="GLint"/>
+    <functioncall functionName="LightingPassShaderProgram"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="MAX_POINT_LIGHTS"/>
+    <functioncall functionName="NUM_CASCADES"/>
+    <functioncall functionName="PointLight"/>
+    <functioncall functionName="areErrorPrintAll"/>
+    <functioncall functionName="arePreError"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="get_far_plane"/>
+    <functioncall functionName="get_omni_shadow_map"/>
+    <functioncall functionName="glGetUniformBlockIndex"/>
+    <functioncall functionName="glGetUniformLocation"/>
+    <functioncall functionName="glUniform1f"/>
+    <functioncall functionName="glUniform1i"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="index"/>
+    <functioncall functionName="loc_buff"/>
+    <functioncall functionName="program_id"/>
+    <functioncall functionName="read"/>
+    <functioncall functionName="shared_ptr"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="snprintf"/>
+    <functioncall functionName="static_cast"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="uniform_cirrus_effect_location"/>
+    <functioncall functionName="uniform_cloud_offset_location"/>
+    <functioncall functionName="uniform_cloud_rad_location"/>
+    <functioncall functionName="uniform_cloud_texture_location"/>
+    <functioncall functionName="uniform_color"/>
+    <functioncall functionName="uniform_color_location"/>
+    <functioncall functionName="uniform_constant"/>
+    <functioncall functionName="uniform_direction_location"/>
+    <functioncall functionName="uniform_exponent"/>
+    <functioncall functionName="uniform_far_plane"/>
+    <functioncall functionName="uniform_linear"/>
+    <functioncall functionName="uniform_model_to_world"/>
+    <functioncall functionName="uniform_noise_texture_1_location"/>
+    <functioncall functionName="uniform_noise_texture_2_location"/>
+    <functioncall functionName="uniform_pillowness_location"/>
+    <functioncall functionName="uniform_point_light_count"/>
+    <functioncall functionName="uniform_position"/>
+    <functioncall functionName="uniform_powder_effect_location"/>
+    <functioncall functionName="uniform_radiance"/>
+    <functioncall functionName="uniform_radiance_location"/>
+    <functioncall functionName="uniform_scale_location"/>
+    <functioncall functionName="uniform_shadow_intensity_location"/>
+    <functioncall functionName="uniform_shadow_map"/>
+    <functioncall functionName="uniform_threshold_location"/>
+    <functioncall functionName="use_light"/>
+  </FileInfo>
+</analyzerinfo>

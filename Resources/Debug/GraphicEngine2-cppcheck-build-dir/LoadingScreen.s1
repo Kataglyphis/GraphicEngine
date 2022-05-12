@@ -1,0 +1,5 @@
+LoadingScreen call:[create_shader_program] noreturn:[create_shader_program]
+init call:[Texture,c_str,load_texture_with_alpha_channel,load_texture_without_alpha_channel,str] noreturn:[load_texture_with_alpha_channel]
+render call:[glBindFramebuffer,glClear,render,use_shader_program,use_texture] noreturn:[glBindFramebuffer]
+create_shader_program call:[create_from_files] noreturn:[create_from_files]
+LoadingScreen

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4187391930">
+        <error id="constVariable" severity="style" msg="Variable &apos;random_offset&apos; can be declared with const" verbose="Variable &apos;random_offset&apos; can be declared with const" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\util\RandomNumbers.cpp" line="40" column="21" info="Variable &apos;random_offset&apos; can be declared with const"/>
+            <symbol>random_offset</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="RandomNumbers" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.h" line="9" col="1" hash="10071675405549212629"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="read" lineNumber="23"/>
+    <functiondecl functionName="generate_random_numbers" lineNumber="29"/>
+    <functioncall functionName="GL_CLAMP_TO_EDGE"/>
+    <functioncall functionName="GL_FLOAT"/>
+    <functioncall functionName="GL_NEAREST"/>
+    <functioncall functionName="GL_RGBA"/>
+    <functioncall functionName="GL_RGBA32F"/>
+    <functioncall functionName="GL_TEXTURE_2D"/>
+    <functioncall functionName="GL_TEXTURE_MAG_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_MIN_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_S"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_T"/>
+    <functioncall functionName="GLenum"/>
+    <functioncall functionName="GLfloat"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="NUM_CELL_POSITIONS"/>
+    <functioncall functionName="RandomNumbers"/>
+    <functioncall functionName="dis"/>
+    <functioncall functionName="float"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="gen64"/>
+    <functioncall functionName="generate_random_numbers"/>
+    <functioncall functionName="get"/>
+    <functioncall functionName="glActiveTexture"/>
+    <functioncall functionName="glBindTexture"/>
+    <functioncall functionName="glDeleteTextures"/>
+    <functioncall functionName="glGenTextures"/>
+    <functioncall functionName="glTexImage2D"/>
+    <functioncall functionName="glTexParameteri"/>
+    <functioncall functionName="index"/>
+    <functioncall functionName="k"/>
+    <functioncall functionName="random_number_id"/>
+    <functioncall functionName="shared_ptr"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,13 +1,18 @@
 cmake_minimum_required(VERSION 3.14)
 
 # set the project name
-project(GraphicsEngine VERSION 1.0
+project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
                        LANGUAGES CXX)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+#find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
+#if(CMAKE_CXX_CPPCHECK) 
+
+    #set(CMAKE_CXX_CPPCHECK "cppcheck")
 
 # include google test to project
 include(FetchContent)
@@ -20,16 +25,17 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # now make glew available
-FetchContent_Declare(
-  glew
-  GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
-  GIT_TAG        origin/master
-)
-FetchContent_GetProperties(glew)
-if(NOT glew_POPULATED)
-  FetchContent_Populate(glew)
-  add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
-endif()
+#FetchContent_Declare(
+#  glew
+#  GIT_REPOSITORY https://github.com/Perlmint/glew-cmake.git
+#  GIT_TAG        origin/master
+#)
+#FetchContent_GetProperties(glew)
+#if(NOT glew_POPULATED)
+#  FetchContent_Populate(glew)
+#  add_subdirectory(${glew_SOURCE_DIR} ${glew_BINARY_DIR} EXCLUDE_FROM_ALL)
+#endif()
+
 
 # remove dirty file directories ... 
 add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
@@ -49,6 +55,8 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(ExternalLib/GLFW)
+
+add_subdirectory(ExternalLib/GLEW/build/cmake)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
@@ -245,11 +253,11 @@ add_executable( ${PROJECT_NAME}
                 ${SCENE_FILTER}
                 ${MAIN_FILTER})
 
-if(UNIX)
-install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-else()
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-endif()
+#if(UNIX)
+#install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+#else()
+#install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+#endif()
 
 target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/camera"
@@ -273,7 +281,7 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                             
 target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
                                         Threads::Threads
-                                        libglew_static
+                                        libglew_shared
                                         ${OPENGL_LIBRARIES} 
                                         imgui
                                         stb 

@@ -1,0 +1,6 @@
+CloudsShaderProgram
+get_projection_location
+get_view_location
+get_model_location
+CloudsShaderProgram
+retrieve_uniform_locations call:[glGetUniformLocation] noreturn:[glGetUniformLocation]

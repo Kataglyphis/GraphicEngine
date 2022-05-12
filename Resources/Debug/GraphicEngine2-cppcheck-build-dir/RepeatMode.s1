@@ -1,0 +1,3 @@
+RepeatMode
+activate call:[glTexParameteri] noreturn:[glTexParameteri]
+RepeatMode

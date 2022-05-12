@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2360963206">
+  <FileInfo check="Class">
+<class name="GBuffer" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GBuffer.h" line="9" col="1" hash="10450130661937869718"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="create" lineNumber="19"/>
+    <functiondecl functionName="read" lineNumber="70"/>
+    <functiondecl functionName="update_window_params" lineNumber="99"/>
+    <functiondecl functionName="get_id" lineNumber="105"/>
+    <functioncall functionName="GBuffer"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT0"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT1"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT2"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT3"/>
+    <functioncall functionName="GL_DEPTH_ATTACHMENT"/>
+    <functioncall functionName="GL_DEPTH_COMPONENT32F"/>
+    <functioncall functionName="GL_FLOAT"/>
+    <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="GL_NEAREST"/>
+    <functioncall functionName="GL_RENDERBUFFER"/>
+    <functioncall functionName="GL_RGBA"/>
+    <functioncall functionName="GL_RGBA32F"/>
+    <functioncall functionName="GL_TEXTURE_2D"/>
+    <functioncall functionName="GL_TEXTURE_MAG_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_MIN_FILTER"/>
+    <functioncall functionName="GL_UNSIGNED_BYTE"/>
+    <functioncall functionName="GL_UNSIGNED_INT"/>
+    <functioncall functionName="G_BUFFER_SIZE"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="UniformHelper"/>
+    <functioncall functionName="g_albedo"/>
+    <functioncall functionName="g_buffer"/>
+    <functioncall functionName="g_buffer_attachment"/>
+    <functioncall functionName="g_buffer_lighting_uniform_albedo_location"/>
+    <functioncall functionName="g_buffer_lighting_uniform_normal_location"/>
+    <functioncall functionName="g_buffer_lighting_uniform_position_location"/>
+    <functioncall functionName="g_buffer_material_id_location"/>
+    <functioncall functionName="g_depth"/>
+    <functioncall functionName="g_material_id"/>
+    <functioncall functionName="g_normal"/>
+    <functioncall functionName="g_position"/>
+    <functioncall functionName="glActiveTexture"/>
+    <functioncall functionName="glBindFramebuffer"/>
+    <functioncall functionName="glBindRenderbuffer"/>
+    <functioncall functionName="glBindTexture"/>
+    <functioncall functionName="glCheckFramebufferStatus"/>
+    <functioncall functionName="glDeleteFramebuffers"/>
+    <functioncall functionName="glDeleteTextures"/>
+    <functioncall functionName="glDrawBuffers"/>
+    <functioncall functionName="glFramebufferRenderbuffer"/>
+    <functioncall functionName="glFramebufferTexture2D"/>
+    <functioncall functionName="glGenFramebuffers"/>
+    <functioncall functionName="glGenRenderbuffers"/>
+    <functioncall functionName="glGenTextures"/>
+    <functioncall functionName="glRenderbufferStorage"/>
+    <functioncall functionName="glTexImage2D"/>
+    <functioncall functionName="glTexParameteri"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="setUniformInt"/>
+    <functioncall functionName="texture_index"/>
+    <functioncall functionName="window_height"/>
+    <functioncall functionName="window_width"/>
+  </FileInfo>
+</analyzerinfo>

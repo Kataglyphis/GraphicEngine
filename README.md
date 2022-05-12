@@ -85,6 +85,7 @@ the milestone document.
 | Omni-Directional Shadow Mapping               |         ✔️         |
 | Cascaded Shadow Mapping                       |         ✔️         |
 | Cloud system                                  |         ✔️         |
+| 3D-worley noise generation                    |         ✔️         |
 | .obj Model loading                            |         ✔️         |
 | PBR support (UE4,disney,phong, etc.)          |         ✔️         |
 | Support for `#include` directives in shaders. |         ✔️         |
@@ -107,7 +108,7 @@ and Windows. I do not provide support for MacOS. Be aware of the dependencies:
 * [DOXYGEN](https://www.doxygen.nl/index.html)
 * [GTEST](https://github.com/google/googletest)
 * [CMAKE](https://cmake.org/)
-
+* [CPPCHECK](https://cppcheck.sourceforge.io/)
 <!-- GETTING STARTED -->
 ## Getting Started
 

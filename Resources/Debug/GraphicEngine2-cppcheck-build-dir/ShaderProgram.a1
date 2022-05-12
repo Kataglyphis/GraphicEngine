@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2069998609">
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;ShaderProgram::vertex_location&apos; is not initialized in the constructor." verbose="Member variable &apos;ShaderProgram::vertex_location&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\ShaderProgram.cpp" line="6" column="16"/>
+            <symbol>ShaderProgram::vertex_location</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;ShaderProgram::fragment_location&apos; is not initialized in the constructor." verbose="Member variable &apos;ShaderProgram::fragment_location&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\ShaderProgram.cpp" line="6" column="16"/>
+            <symbol>ShaderProgram::fragment_location</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;ShaderProgram::geometry_location&apos; is not initialized in the constructor." verbose="Member variable &apos;ShaderProgram::geometry_location&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\ShaderProgram.cpp" line="6" column="16"/>
+            <symbol>ShaderProgram::geometry_location</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;ShaderProgram::compute_location&apos; is not initialized in the constructor." verbose="Member variable &apos;ShaderProgram::compute_location&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\ShaderProgram.cpp" line="6" column="16"/>
+            <symbol>ShaderProgram::compute_location</symbol>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;program_id&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;program_id&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\ShaderProgram.cpp" line="8" column="5"/>
+            <symbol>program_id</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:49:7" call-funcname="add_shader" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="160" col="5" my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:51:7" my-argnr="1"/>
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:49:7" call-funcname="add_shader" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="162" col="5" my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:51:7" my-argnr="2"/>
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:49:7" call-funcname="add_shader" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="179" col="5" my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:52:7" my-argnr="1"/>
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:49:7" call-funcname="add_shader" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="180" col="5" my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:52:7" my-argnr="2"/>
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:49:7" call-funcname="add_shader" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="181" col="5" my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:52:7" my-argnr="3"/>
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:49:7" call-funcname="add_shader" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="195" col="5" my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:55:7" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:22:7" my-argnr="1" my-argname="vertex_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="22" col="41" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:22:7" my-argnr="2" my-argname="fragment_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="23" col="43" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:23:7" my-argnr="1" my-argname="vertex_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="48" col="41" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:23:7" my-argnr="2" my-argname="geometry_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="49" col="43" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:23:7" my-argnr="3" my-argname="fragment_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="50" col="43" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:26:7" my-argnr="1" my-argname="compute_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="76" col="39" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:22:7" my-argnr="1" my-argname="vertex_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="22" col="41" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:22:7" my-argnr="2" my-argname="fragment_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="23" col="43" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:23:7" my-argnr="1" my-argname="vertex_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="48" col="41" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:23:7" my-argnr="2" my-argname="geometry_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="49" col="43" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:23:7" my-argnr="3" my-argname="fragment_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="50" col="43" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.h:26:7" my-argnr="1" my-argname="compute_location" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderProgram.cpp" line="76" col="39" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="create_from_files" lineNumber="17"/>
+    <functiondecl functionName="create_from_files" lineNumber="41"/>
+    <functiondecl functionName="create_computer_shader_program_from_file" lineNumber="72"/>
+    <functiondecl functionName="get_id" lineNumber="88"/>
+    <functiondecl functionName="validate_program" lineNumber="93"/>
+    <functiondecl functionName="use_shader_program" lineNumber="114"/>
+    <functiondecl functionName="add_shader" lineNumber="119"/>
+    <functiondecl functionName="compile_shader_program" lineNumber="150"/>
+    <functiondecl functionName="compile_shader_program" lineNumber="169"/>
+    <functiondecl functionName="compile_compute_shader_program" lineNumber="186"/>
+    <functiondecl functionName="compile_program" lineNumber="200"/>
+    <functiondecl functionName="clear_shader_program" lineNumber="225"/>
+    <functioncall functionName="GL_COMPILE_STATUS"/>
+    <functioncall functionName="GL_COMPUTE_SHADER"/>
+    <functioncall functionName="GL_FRAGMENT_SHADER"/>
+    <functioncall functionName="GL_GEOMETRY_SHADER"/>
+    <functioncall functionName="GL_LINK_STATUS"/>
+    <functioncall functionName="GL_VALIDATE_STATUS"/>
+    <functioncall functionName="GL_VERTEX_SHADER"/>
+    <functioncall functionName="GLint"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="ShaderProgram"/>
+    <functioncall functionName="UniformHelper"/>
+    <functioncall functionName="add_shader"/>
+    <functioncall functionName="areErrorPrintAll"/>
+    <functioncall functionName="arePreError"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="clear_shader_program"/>
+    <functioncall functionName="code"/>
+    <functioncall functionName="code_length"/>
+    <functioncall functionName="compile_compute_shader_program"/>
+    <functioncall functionName="compile_program"/>
+    <functioncall functionName="compile_shader_program"/>
+    <functioncall functionName="compute_code"/>
+    <functioncall functionName="compute_location"/>
+    <functioncall functionName="compute_shader_file"/>
+    <functioncall functionName="default"/>
+    <functioncall functionName="eLog"/>
+    <functioncall functionName="fragment_code"/>
+    <functioncall functionName="fragment_location"/>
+    <functioncall functionName="fragment_shader_file"/>
+    <functioncall functionName="geometry_code"/>
+    <functioncall functionName="geometry_location"/>
+    <functioncall functionName="geometry_shader_file"/>
+    <functioncall functionName="glAttachShader"/>
+    <functioncall functionName="glCompileShader"/>
+    <functioncall functionName="glCreateProgram"/>
+    <functioncall functionName="glCreateShader"/>
+    <functioncall functionName="glDeleteProgram"/>
+    <functioncall functionName="glGetProgramInfoLog"/>
+    <functioncall functionName="glGetProgramiv"/>
+    <functioncall functionName="glGetShaderInfoLog"/>
+    <functioncall functionName="glGetShaderiv"/>
+    <functioncall functionName="glLinkProgram"/>
+    <functioncall functionName="glShaderSource"/>
+    <functioncall functionName="glUseProgram"/>
+    <functioncall functionName="glValidateProgram"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="program"/>
+    <functioncall functionName="program_id"/>
+    <functioncall functionName="read"/>
+    <functioncall functionName="result"/>
+    <functioncall functionName="retrieve_uniform_locations"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="shader"/>
+    <functioncall functionName="shader_code"/>
+    <functioncall functionName="shader_type"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="str"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="validate_program"/>
+    <functioncall functionName="vertex_code"/>
+    <functioncall functionName="vertex_location"/>
+    <functioncall functionName="vertex_shader_file"/>
+  </FileInfo>
+</analyzerinfo>

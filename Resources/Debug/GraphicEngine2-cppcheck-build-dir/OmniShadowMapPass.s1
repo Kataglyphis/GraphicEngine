@@ -1,0 +1,6 @@
+get_omni_shadow_map
+OmniShadowMapPass call:[create_shader_program] noreturn:[create_shader_program]
+set_game_object_uniforms call:[get_model_location,glUniformMatrix4fv,value_ptr] noreturn:[glUniformMatrix4fv]
+execute call:[areErrorPrintAll,calculate_light_transform,get_far_plane,get_far_plane_location,get_omni_light_pos_location,get_omni_shadow_map,get_position,get_shadow_height,get_shadow_width,glBindFramebuffer,glClear,glUniform1f,glUniform3f,glViewport,render,set_light_matrices,use_shader_program,validate_program,write] noreturn:[areErrorPrintAll]
+create_shader_program call:[create_from_files] noreturn:[create_from_files]
+OmniShadowMapPass

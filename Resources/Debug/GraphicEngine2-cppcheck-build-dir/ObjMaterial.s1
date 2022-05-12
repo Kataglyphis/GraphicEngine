@@ -1,0 +1,4 @@
+ObjMaterial call:[UniformHelper,vec3] noreturn:[UniformHelper]
+ObjMaterial call:[UniformHelper] noreturn:[UniformHelper]
+use_material call:[setUniformFloat,setUniformInt,setUniformVec3] noreturn:[setUniformInt]
+ObjMaterial

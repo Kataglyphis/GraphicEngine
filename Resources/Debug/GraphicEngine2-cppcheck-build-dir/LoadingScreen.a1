@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2201435126">
+  <FileInfo check="Class">
+<class name="LoadingScreen" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/loading_screen/LoadingScreen.h" line="6" col="1" hash="17466008317800770773"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="init" lineNumber="11"/>
+    <functiondecl functionName="render" lineNumber="34"/>
+    <functiondecl functionName="create_shader_program" lineNumber="49"/>
+    <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
+    <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="LoadingScreen"/>
+    <functioncall functionName="LoadingScreenShaderProgram"/>
+    <functioncall functionName="RepeatMode"/>
+    <functioncall functionName="Texture"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="create_from_files"/>
+    <functioncall functionName="create_shader_program"/>
+    <functioncall functionName="glBindFramebuffer"/>
+    <functioncall functionName="glClear"/>
+    <functioncall functionName="load_texture_with_alpha_channel"/>
+    <functioncall functionName="load_texture_without_alpha_channel"/>
+    <functioncall functionName="make_shared"/>
+    <functioncall functionName="render"/>
+    <functioncall functionName="str"/>
+    <functioncall functionName="use_shader_program"/>
+    <functioncall functionName="use_texture"/>
+  </FileInfo>
+</analyzerinfo>

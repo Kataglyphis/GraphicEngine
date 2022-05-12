@@ -1,0 +1,14 @@
+Vertex call:[vec2,vec3] noreturn:[vec2]
+Vertex
+get_position
+get_normal
+get_color
+get_tex_coors
+operator==
+operator() call:[return]
+getVertices
+getIndices
+Mesh
+Mesh call:[areErrorPrintAll,arePreError,glBindBuffer,glBindVertexArray,glBufferData,glEnableVertexAttribArray,glGenBuffers,glGenVertexArrays,glVertexAttribPointer,offsetof,size,sizeof] noreturn:[areErrorPrintAll]
+render call:[areErrorPrintAll,arePreError,glBindBuffer,glBindVertexArray,glDrawElements] noreturn:[areErrorPrintAll]
+Mesh call:[glDeleteBuffers,glDeleteVertexArrays] noreturn:[glDeleteBuffers]

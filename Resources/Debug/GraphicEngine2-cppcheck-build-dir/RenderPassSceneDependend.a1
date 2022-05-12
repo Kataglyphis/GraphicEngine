@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4076891625">
+  <FileInfo check="CheckUnusedFunctions">
+    <functioncall functionName="RenderPass"/>
+    <functioncall functionName="RenderPassSceneDependend"/>
+    <functioncall functionName="private:"/>
+  </FileInfo>
+</analyzerinfo>

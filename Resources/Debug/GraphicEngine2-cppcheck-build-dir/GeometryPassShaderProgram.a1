@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="620702819">
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="20" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="29" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="32" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="35" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="38" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="41" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="44" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="47" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="50" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="53" column="9"/>
+        </error>
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\GeometryPassShaderProgram.cpp" line="56" column="9"/>
+        </error>
+  <FileInfo check="Class">
+<class name="GeometryPassShaderProgram" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPassShaderProgram.h" line="6" col="1" hash="12526598527627410565"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="retrieve_uniform_locations" lineNumber="7"/>
+    <functiondecl functionName="get_projection_location" lineNumber="66"/>
+    <functiondecl functionName="get_view_location" lineNumber="70"/>
+    <functiondecl functionName="get_model_location" lineNumber="75"/>
+    <functiondecl functionName="get_normal_modal_location" lineNumber="79"/>
+    <functiondecl functionName="get_uniform_material_locations" lineNumber="84"/>
+    <functiondecl functionName="get_uniform_texture_locations" lineNumber="89"/>
+    <functioncall functionName="GeometryPassShaderProgram"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="MAX_TEXTURE_COUNT"/>
+    <functioncall functionName="areErrorPrintAll"/>
+    <functioncall functionName="arePreError"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="glGetUniformLocation"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="index"/>
+    <functioncall functionName="loc_buff"/>
+    <functioncall functionName="program_id"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="snprintf"/>
+  </FileInfo>
+</analyzerinfo>

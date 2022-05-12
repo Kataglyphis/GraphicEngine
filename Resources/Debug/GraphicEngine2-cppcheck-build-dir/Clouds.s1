@@ -1,0 +1,27 @@
+Clouds call:[AABB,create_from_files,create_noise_textures,init,mat4,vec3] noreturn:[vec3]
+render call:[render,retrieve_and_set_uniform_locations,use_shader_program] noreturn:[render]
+read call:[read,read_res128_noise,read_res32_noise] noreturn:[read_res32_noise]
+create_noise_textures call:[create_res128_noise,create_res32_noise] noreturn:[create_res32_noise]
+set_powder_effect
+set_cirrus_effect
+set_pillowness
+set_scale
+set_density
+set_movement_speed
+set_scale
+set_translation
+get_model call:[mat4,scale,translate]
+retrieve_and_set_uniform_locations call:[get_model,get_model_location,get_projection_location,get_view_location,glUniformMatrix4fv,validate_program,value_ptr] noreturn:[validate_program]
+get_movement_direction
+get_rad call:[vec3] noreturn:[vec3]
+get_normal_model call:[inverse,transpose] noreturn:[transpose]
+get_mesh_scale
+get_movement_speed
+get_density
+get_scale
+get_pillowness
+get_cirrus_effect
+get_powder_effect
+set_movement_direction
+get_shader_program
+Clouds

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3674551876">
+        <error id="unreadVariable" severity="style" msg="Variable &apos;main_light&apos; is assigned a value that is never used." verbose="Variable &apos;main_light&apos; is assigned a value that is never used." cwe="563" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPass.cpp" line="26" column="69"/>
+            <symbol>main_light</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;point_lights&apos; is assigned a value that is never used." verbose="Variable &apos;point_lights&apos; is assigned a value that is never used." cwe="563" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\renderer\deferred\LightingPass.cpp" line="27" column="69"/>
+            <symbol>point_lights</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="LightingPassShaderProgram::uniform_cloud" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPassShaderProgram.h" line="102" col="2" hash="10036801249874750377"/>
+<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="10662435254561073762"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="init" lineNumber="7"/>
+    <functiondecl functionName="execute" lineNumber="17"/>
+    <functiondecl functionName="create_shader_program" lineNumber="44"/>
+    <functiondecl functionName="retrieve_lighting_pass_locations" lineNumber="51"/>
+    <functiondecl functionName="bind_buffers_for_lighting" lineNumber="151"/>
+    <functioncall functionName="Camera"/>
+    <functioncall functionName="Clouds"/>
+    <functioncall functionName="DirectionalLight"/>
+    <functioncall functionName="GBuffer"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT0"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT1"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT2"/>
+    <functioncall functionName="GL_COLOR_ATTACHMENT3"/>
+    <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
+    <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="GLfloat"/>
+    <functioncall functionName="G_BUFFER_SIZE"/>
+    <functioncall functionName="LightingPass"/>
+    <functioncall functionName="LightingPassShaderProgram"/>
+    <functioncall functionName="MAX_MATERIALS"/>
+    <functioncall functionName="MAX_POINT_LIGHTS"/>
+    <functioncall functionName="NUM_CASCADES"/>
+    <functioncall functionName="NUM_CELL_POSITIONS"/>
+    <functioncall functionName="ObjMaterial"/>
+    <functioncall functionName="PointLight"/>
+    <functioncall functionName="Scene"/>
+    <functioncall functionName="UniformHelper"/>
+    <functioncall functionName="bind_buffers_for_lighting"/>
+    <functioncall functionName="calculate_viewmatrix"/>
+    <functioncall functionName="camera_position"/>
+    <functioncall functionName="cloud"/>
+    <functioncall functionName="create_from_files"/>
+    <functioncall functionName="create_shader_program"/>
+    <functioncall functionName="current_offset"/>
+    <functioncall functionName="delta_time"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="gbuffer"/>
+    <functioncall functionName="get_camera_position"/>
+    <functioncall functionName="get_cascade_endpoint_location"/>
+    <functioncall functionName="get_cascaded_light_matrices"/>
+    <functioncall functionName="get_cascaded_slots"/>
+    <functioncall functionName="get_cirrus_effect"/>
+    <functioncall functionName="get_cirrus_effect_location"/>
+    <functioncall functionName="get_cloud_powderness_effect"/>
+    <functioncall functionName="get_clouds"/>
+    <functioncall functionName="get_color"/>
+    <functioncall functionName="get_density"/>
+    <functioncall functionName="get_direction"/>
+    <functioncall functionName="get_directional_light_color_location"/>
+    <functioncall functionName="get_directional_light_direction_location"/>
+    <functioncall functionName="get_directional_light_radiance_location"/>
+    <functioncall functionName="get_directional_light_shadow_intensity_location"/>
+    <functioncall functionName="get_directional_light_transform_location"/>
+    <functioncall functionName="get_directional_shadow_map_location"/>
+    <functioncall functionName="get_eye_position_location"/>
+    <functioncall functionName="get_g_albedo_location"/>
+    <functioncall functionName="get_g_normal_location"/>
+    <functioncall functionName="get_g_position_location"/>
+    <functioncall functionName="get_id"/>
+    <functioncall functionName="get_intensity"/>
+    <functioncall functionName="get_light_matrics_id_location"/>
+    <functioncall functionName="get_light_view_matrix"/>
+    <functioncall functionName="get_materials"/>
+    <functioncall functionName="get_model"/>
+    <functioncall functionName="get_movement_direction"/>
+    <functioncall functionName="get_movement_speed"/>
+    <functioncall functionName="get_num_active_cascades"/>
+    <functioncall functionName="get_pcf_radius"/>
+    <functioncall functionName="get_pillowness"/>
+    <functioncall functionName="get_point_light_count"/>
+    <functioncall functionName="get_point_lights"/>
+    <functioncall functionName="get_powder_effect"/>
+    <functioncall functionName="get_rad"/>
+    <functioncall functionName="get_radiance"/>
+    <functioncall functionName="get_random_number_location"/>
+    <functioncall functionName="get_scale"/>
+    <functioncall functionName="get_shadow_map"/>
+    <functioncall functionName="get_sun"/>
+    <functioncall functionName="get_uniform_cloud_model"/>
+    <functioncall functionName="get_uniform_cloud_offset"/>
+    <functioncall functionName="get_uniform_cloud_rad_location"/>
+    <functioncall functionName="get_uniform_cloud_scale_location"/>
+    <functioncall functionName="get_uniform_cloud_threshold_location"/>
+    <functioncall functionName="get_uniform_material_id_location"/>
+    <functioncall functionName="get_uniform_material_locations"/>
+    <functioncall functionName="get_uniform_num_active_cascades_location"/>
+    <functioncall functionName="get_uniform_pcf_radius_location"/>
+    <functioncall functionName="get_uniform_pillowness_location"/>
+    <functioncall functionName="get_uniform_projection_location"/>
+    <functioncall functionName="get_uniform_view_location"/>
+    <functioncall functionName="glBindFramebuffer"/>
+    <functioncall functionName="glClear"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="main_camera"/>
+    <functioncall functionName="make_shared"/>
+    <functioncall functionName="mat4"/>
+    <functioncall functionName="num_active_slots"/>
+    <functioncall functionName="p_lights"/>
+    <functioncall functionName="projection_matrix"/>
+    <functioncall functionName="read"/>
+    <functioncall functionName="render"/>
+    <functioncall functionName="retrieve_lighting_pass_locations"/>
+    <functioncall functionName="scene"/>
+    <functioncall functionName="setUniformBlockBinding"/>
+    <functioncall functionName="setUniformFloat"/>
+    <functioncall functionName="setUniformInt"/>
+    <functioncall functionName="setUniformMatrix4fv"/>
+    <functioncall functionName="setUniformVec3"/>
+    <functioncall functionName="set_noise_textures"/>
+    <functioncall functionName="set_point_lights"/>
+    <functioncall functionName="shared_ptr"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="uniform_color_location"/>
+    <functioncall functionName="uniform_direction_location"/>
+    <functioncall functionName="uniform_radiance_location"/>
+    <functioncall functionName="use_material"/>
+    <functioncall functionName="use_shader_program"/>
+    <functioncall functionName="validate_program"/>
+    <functioncall functionName="vec3"/>
+    <functioncall functionName="vec4"/>
+    <functioncall functionName="view_matrix"/>
+    <functioncall functionName="z"/>
+  </FileInfo>
+</analyzerinfo>

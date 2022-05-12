@@ -1,0 +1,3 @@
+File
+read call:[append,close,eof,file_stream,getline,is_open,printf] noreturn:[append]
+File

@@ -1,0 +1,8 @@
+OmniDirShadowShaderProgram
+get_model_location
+get_omni_light_pos_location
+get_far_plane_location
+reload call:[create_from_files] noreturn:[create_from_files]
+set_light_matrices call:[glUniformMatrix4fv,value_ptr] noreturn:[glUniformMatrix4fv]
+retrieve_uniform_locations call:[glGetUniformLocation,sizeof,snprintf] noreturn:[glGetUniformLocation]
+OmniDirShadowShaderProgram

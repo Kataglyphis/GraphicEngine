@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.7"/>
+    <errors>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="260"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="270"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="280"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="290"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="300"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="310"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="320"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="331"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x2.inl" line="340"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="262"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="272"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="282"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="292"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="302"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="312"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="329"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="347"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="356"/>
+        </error>
+        <error id="funcArgOrderDifferent" severity="warning" msg="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1, v2&amp;#039; definition &amp;#039;v1, v2, v3&amp;#039;" verbose="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1, v2&amp;#039; definition &amp;#039;v1, v2, v3&amp;#039;" cwe="683" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.inl" line="106" info=""/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x3.hpp" line="45" info=""/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="266"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="276"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="286"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="296"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="306"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="316"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="326"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="337"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat3x4.inl" line="346"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="279"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="280"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="290"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="291"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="301"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="302"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="312"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="313"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="323"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="324"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="334"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="335"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="345"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="346"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="357"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="358"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="367"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x2.inl" line="368"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="279"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="280"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="290"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="291"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="301"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="302"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="312"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="313"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="323"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="324"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="334"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="335"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="345"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="346"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="357"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="358"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="367"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="368"/>
+        </error>
+        <error id="funcArgOrderDifferent" severity="warning" msg="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1, v2, v3&amp;#039; definition &amp;#039;v1, v2, v3, v4&amp;#039;" verbose="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1, v2, v3&amp;#039; definition &amp;#039;v1, v2, v3, v4&amp;#039;" cwe="683" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.inl" line="113" info=""/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x3.hpp" line="47" info=""/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="312"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="313"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="323"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="324"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="334"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="335"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="345"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="346"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="356"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="357"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="367"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="368"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="385"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="386"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="404"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="405"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 2, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="414"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." verbose="Array &amp;#039;this-&amp;gt;value[2]&amp;#039; accessed at index 3, which is out of bounds." cwe="788" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="415"/>
+        </error>
+        <error id="funcArgOrderDifferent" severity="warning" msg="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1, v2, v3&amp;#039; definition &amp;#039;v1, v2, v3, v4&amp;#039;" verbose="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1, v2, v3&amp;#039; definition &amp;#039;v1, v2, v3, v4&amp;#039;" cwe="683" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.inl" line="154" info=""/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat4x4.hpp" line="46" info=""/>
+        </error>
+        <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &amp;#039;Camera::to_radians&amp;#039;" verbose="Unused private function: &amp;#039;Camera::to_radians&amp;#039;" cwe="398" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\Src\camera\Camera.h" line="60"/>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &amp;#039;position&amp;#039; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&amp;#039;t explicitly write them to the initialization list. You could avoid assigning &amp;#039;position&amp;#039; a value by passing the value to the constructor in the initialization list." cwe="398" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\Src\camera\Camera.cpp" line="13"/>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &amp;#039;world_up&amp;#039; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&amp;#039;t explicitly write them to the initialization list. You could avoid assigning &amp;#039;world_up&amp;#039; a value by passing the value to the constructor in the initialization list." cwe="398" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\Src\camera\Camera.cpp" line="14"/>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &amp;#039;front&amp;#039; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&amp;#039;t explicitly write them to the initialization list. You could avoid assigning &amp;#039;front&amp;#039; a value by passing the value to the constructor in the initialization list." cwe="398" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\Src\camera\Camera.cpp" line="19"/>
+        </error>
+        <error id="funcArgOrderDifferent" severity="warning" msg="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1&amp;#039; definition &amp;#039;v1, v2&amp;#039;" verbose="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1&amp;#039; definition &amp;#039;v1, v2&amp;#039;" cwe="683" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat2x3.inl" line="95" info=""/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat2x3.hpp" line="45" info=""/>
+        </error>
+        <error id="funcArgOrderDifferent" severity="warning" msg="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1&amp;#039; definition &amp;#039;v1, v2&amp;#039;" verbose="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;v0, v1&amp;#039; definition &amp;#039;v1, v2&amp;#039;" cwe="683" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat2x4.inl" line="97" info=""/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat2x4.hpp" line="45" info=""/>
+        </error>
+        <error id="funcArgOrderDifferent" severity="warning" msg="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;x1, y1, x2, y2&amp;#039; definition &amp;#039;x0, y0, x1, y1&amp;#039;" verbose="Function &amp;#039;mat&amp;#039; argument order different: declaration &amp;#039;x1, y1, x2, y2&amp;#039; definition &amp;#039;x0, y0, x1, y1&amp;#039;" cwe="683" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat2x2.inl" line="49" info=""/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_mat2x2.hpp" line="41" info=""/>
+        </error>
+        <error id="shadowFunction" severity="style" msg="Local variable &amp;#039;e&amp;#039; shadows outer function" verbose="Local variable &amp;#039;e&amp;#039; shadows outer function" cwe="398" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="34" info="Shadow variable"/>
+            <location file="..\..\ExternalLib\GLM\glm\gtc\constants.hpp" line="110" info="Shadowed declaration"/>
+        </error>
+        <error id="shadowFunction" severity="style" msg="Local variable &amp;#039;e&amp;#039; shadows outer function" verbose="Local variable &amp;#039;e&amp;#039; shadows outer function" cwe="398" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="122" info="Shadow variable"/>
+            <location file="..\..\ExternalLib\GLM\glm\gtc\constants.hpp" line="110" info="Shadowed declaration"/>
+        </error>
+        <error id="shiftTooManyBitsSigned" severity="portability" msg="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" verbose="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" cwe="758" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="46"/>
+        </error>
+        <error id="shiftTooManyBitsSigned" severity="portability" msg="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" verbose="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" cwe="758" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="74"/>
+        </error>
+        <error id="shiftTooManyBitsSigned" severity="portability" msg="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" verbose="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" cwe="758" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="84"/>
+        </error>
+        <error id="shiftTooManyBitsSigned" severity="portability" msg="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" verbose="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" cwe="758" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="101"/>
+        </error>
+        <error id="integerOverflow" severity="error" msg="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." verbose="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." cwe="190" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="46" info="Integer overflow"/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="33" info="Assignment &amp;#039;s=(value&amp;gt;&amp;gt;15)&amp;amp;0x00000001&amp;#039;, assigned value is 1"/>
+        </error>
+        <error id="integerOverflow" severity="error" msg="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." verbose="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." cwe="190" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="74" info="Integer overflow"/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="33" info="Assignment &amp;#039;s=(value&amp;gt;&amp;gt;15)&amp;amp;0x00000001&amp;#039;, assigned value is 1"/>
+        </error>
+        <error id="integerOverflow" severity="error" msg="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." verbose="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." cwe="190" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="84" info="Integer overflow"/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="33" info="Assignment &amp;#039;s=(value&amp;gt;&amp;gt;15)&amp;amp;0x00000001&amp;#039;, assigned value is 1"/>
+        </error>
+        <error id="integerOverflow" severity="error" msg="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." verbose="Signed integer overflow for expression &amp;#039;s&amp;lt;&amp;lt;31&amp;#039;." cwe="190" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="101" info="Integer overflow"/>
+            <location file="..\..\ExternalLib\GLM\glm\detail\type_half.inl" line="33" info="Assignment &amp;#039;s=(value&amp;gt;&amp;gt;15)&amp;amp;0x00000001&amp;#039;, assigned value is 1"/>
+        </error>
+        <error id="shiftTooManyBitsSigned" severity="portability" msg="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" verbose="Shifting signed 32-bit value by 31 bits is implementation-defined behaviour" cwe="758" file0="../../Src/camera/Camera.cpp" sinceDate="12.05.2022">
+            <location file="..\..\ExternalLib\GLM\glm\detail\func_common.inl" line="36"/>
+        </error>
+    </errors>
+</results>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="129996332">
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;FBO&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;FBO&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/shadows/ShadowMap.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\shadows\ShadowMap.cpp" line="6" column="2"/>
+            <symbol>FBO</symbol>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;shadow_map&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;shadow_map&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/shadows/ShadowMap.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\shadows\ShadowMap.cpp" line="7" column="2"/>
+            <symbol>shadow_map</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="ShadowMap" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/shadows/ShadowMap.h" line="6" col="1" hash="12197548525377134163"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="init" lineNumber="10"/>
+    <functiondecl functionName="write" lineNumber="51"/>
+    <functiondecl functionName="read" lineNumber="57"/>
+    <functiondecl functionName="get_id" lineNumber="65"/>
+    <functioncall functionName="FBO"/>
+    <functioncall functionName="GL_CLAMP_TO_BORDER"/>
+    <functioncall functionName="GL_DEPTH_ATTACHMENT"/>
+    <functioncall functionName="GL_DEPTH_COMPONENT"/>
+    <functioncall functionName="GL_FLOAT"/>
+    <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="GL_NEAREST"/>
+    <functioncall functionName="GL_NONE"/>
+    <functioncall functionName="GL_TEXTURE_2D"/>
+    <functioncall functionName="GL_TEXTURE_BORDER_COLOR"/>
+    <functioncall functionName="GL_TEXTURE_MAG_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_MIN_FILTER"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_S"/>
+    <functioncall functionName="GL_TEXTURE_WRAP_T"/>
+    <functioncall functionName="ShadowMap"/>
+    <functioncall functionName="border_color"/>
+    <functioncall functionName="glActiveTexture"/>
+    <functioncall functionName="glBindFramebuffer"/>
+    <functioncall functionName="glBindTexture"/>
+    <functioncall functionName="glCheckFramebufferStatus"/>
+    <functioncall functionName="glDeleteFramebuffers"/>
+    <functioncall functionName="glDeleteTextures"/>
+    <functioncall functionName="glDrawBuffer"/>
+    <functioncall functionName="glFramebufferTexture2D"/>
+    <functioncall functionName="glGenFramebuffers"/>
+    <functioncall functionName="glGenTextures"/>
+    <functioncall functionName="glReadBuffer"/>
+    <functioncall functionName="glTexImage2D"/>
+    <functioncall functionName="glTexParameterfv"/>
+    <functioncall functionName="glTexParameteri"/>
+    <functioncall functionName="height"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="nullptr"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="shadow_height"/>
+    <functioncall functionName="shadow_map"/>
+    <functioncall functionName="shadow_width"/>
+    <functioncall functionName="status"/>
+    <functioncall functionName="texture_unit"/>
+    <functioncall functionName="width"/>
+  </FileInfo>
+</analyzerinfo>
