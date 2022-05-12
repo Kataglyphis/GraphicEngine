@@ -19,8 +19,7 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-
-# remove dirty file directories ... 
+# for removing dirty file directories in the cpp-code
 add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
 
 # control where the static and shared libraries are built so that on windows
@@ -40,7 +39,6 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(ExternalLib/GLFW)
 
-
 # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
 #surpress warnings
@@ -50,6 +48,7 @@ set(OpenGL_GL_PREFERENCE GLVND)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
+# if on UNIX we rely on the user has the package installed
 if(UNIX)
         find_package(GLEW REQUIRED)
 endif()
@@ -260,11 +259,13 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/util"  
                                                 ${OPENGL_INCLUDE_DIRS})
 
+# for windows we use precompiled .dll/.lib and previous included header files 
 if(WIN32)
         target_include_directories(${PROJECT_NAME}      
                                                 PUBLIC "./ExternalLib/GLEW/include/")
 endif()
 
+# for we used the glew lib from the package
 if(UNIX)
         target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
                                                         GLEW::GLEW#glew_s
@@ -277,6 +278,8 @@ if(UNIX)
                                                         tinyobjloader)
 endif()
 
+# for we will provide precompiled .dll/.lib from:
+# http://glew.sourceforge.net/
 if(WIN32)
         target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
                                                         glew32
@@ -302,6 +305,7 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR})
 
 if(WIN32)
+        # copy the precompiled libraries into our solution dir
         set(GLEW_DLL ExternalLib/GLEW/bin/Release/x64/glew32.dll)
         set(GLEW_LIB ExternalLib/GLEW/lib/Release/x64/glew32.lib)
         set(GLEW_LIBS ExternalLib/GLEW/lib/Release/x64/glew32s.lib)
