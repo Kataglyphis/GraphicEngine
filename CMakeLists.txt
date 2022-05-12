@@ -52,6 +52,7 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 add_subdirectory(ExternalLib)
 
 add_subdirectory(ExternalLib/GLEW/buildD/cmake)
+
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -283,9 +284,9 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                             
 target_link_libraries(${PROJECT_NAME}   ${CMAKE_DL_LIBS} 
                                         Threads::Threads
+                                        glew_s
                                         ${OPENGL_LIBRARIES}
                                         glfw
-                                        glew
                                         imgui
                                         stb 
                                         glm 
