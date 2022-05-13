@@ -309,11 +309,11 @@ GLuint ShaderProgram::getUniformLocation(std::string shaderUniformName, bool& va
     #else
 
         if (!validity) {
-            std::stringstream ss;
+            /*std::stringstream ss;
             ss << "You have set a wrong uniform! "
                 << "Name: " << shaderUniformName << "\n";
 
-            std::cout << ss.str();
+            std::cout << ss.str();*/
         }
 
     #endif

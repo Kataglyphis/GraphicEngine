@@ -201,6 +201,9 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 
     shader_program->setUniformInt(RANDOM_NUMBERS_SLOT, "random_number");
 
+    shader_program->setUniformInt(NOISE_128D_TEXTURES_SLOT, "noise_texture_1");
+    shader_program->setUniformInt(NOISE_32D_TEXTURES_SLOT, "noise_texture_2");
+
     shader_program->validate_program();
 }
 
