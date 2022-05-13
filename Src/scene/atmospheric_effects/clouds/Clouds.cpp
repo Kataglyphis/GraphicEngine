@@ -43,7 +43,12 @@ void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix,
 {
 
 	shader_program->use_shader_program();
-	retrieve_and_set_uniform_locations(projection_matrix, view_matrix);
+	shader_program->setUniformMatrix4fv(projection_matrix, "projection");
+	shader_program->setUniformMatrix4fv(view_matrix, "view");
+	shader_program->setUniformMatrix4fv(get_model(), "model");
+
+	shader_program->validate_program();
+
 	aabb.render();
 
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -113,21 +118,6 @@ glm::mat4 Clouds::get_model()
 	model = glm::translate(model, translation);
 	model = glm::scale(model, scale_factor);
 	return model;
-}
-
-void Clouds::retrieve_and_set_uniform_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix)
-{
-
-	glUniformMatrix4fv(	shader_program->get_projection_location(), 1, GL_FALSE, 
-						glm::value_ptr(projection_matrix));
-
-	glUniformMatrix4fv(	shader_program->get_view_location(), 1, GL_FALSE, 
-						glm::value_ptr(view_matrix));
-
-	glUniformMatrix4fv(	shader_program->get_model_location(), 1, GL_FALSE, 
-						glm::value_ptr(get_model()));
-
-	shader_program->validate_program();
 }
 
 glm::vec3 Clouds::get_movement_direction()

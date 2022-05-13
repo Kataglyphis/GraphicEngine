@@ -1,25 +1,39 @@
 #include "SkyBox.h"
+#include <array>
 
 SkyBox::SkyBox()
 {
-}
+	std::stringstream skybox_base_dir;
+	skybox_base_dir << CMAKELISTS_DIR;
+	skybox_base_dir << "/Resources/Textures/Skybox/DOOM2016/";
 
-SkyBox::SkyBox(std::vector<std::string> face_locations)
-{
+	stringstream texture_loading;
+	std::array<std::string, 6> skybox_textures = { "DOOM16RT.png",
+													"DOOM16LF.png",
+													"DOOM16UP.png",
+													"DOOM16DN.png",
+													"DOOM16FT.png",
+													"DOOM16BK.png"
+	};
+
+	std::vector<std::string> skybox_faces;
+
+	for (int i = 0; i < skybox_textures.size(); i++) {
+
+		texture_loading << skybox_base_dir.str() << skybox_textures[i];
+		skybox_faces.push_back(texture_loading.str());
+		texture_loading.str(std::string());
+
+	}
 
 	// check if there any other gl Error  appears before execue gl functions
 	DebugApp_ins.arePreError("From SkyBox constructor in SkyBox.cpp file.");
 
-	uniform_helper = UniformHelper();
-
 	srand(time(NULL));
 	shader_playback_time = 1;
 
-	sky_shader_program = std::make_shared<SkyBoxShaderProgram>();
-	sky_shader_program->create_from_files("skybox/SkyBox.vert", "skybox/SkyBox.frag");
-
-	uniform_projection	= sky_shader_program->get_projection_location();
-	uniform_view		= sky_shader_program->get_view_location();
+	shader_program = std::make_shared<SkyBoxShaderProgram>();
+	shader_program->create_from_files("skybox/SkyBox.vert", "skybox/SkyBox.frag");
 
 	//texture setup
 	glGenTextures(1, &texture_id);
@@ -29,14 +43,14 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 
 	for (size_t i = 0; i < 6; i++) {
 
-		unsigned char* texture_data = stbi_load(face_locations[i].c_str(), &width, &height, &bit_depth, 0);
+		unsigned char* texture_data = stbi_load(skybox_faces[i].c_str(), &width, &height, &bit_depth, 0);
 		if (!texture_data) {
-			printf("Failed to find: %s\n", face_locations[i].c_str());
+			printf("Failed to find: %s\n", skybox_faces[i].c_str());
 			return;
 		}
 
-		glTexImage2D(	GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0, GL_RGBA, 
-						GL_UNSIGNED_BYTE, texture_data);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0, GL_RGBA,
+			GL_UNSIGNED_BYTE, texture_data);
 
 		stbi_image_free(texture_data);
 	}
@@ -76,35 +90,34 @@ SkyBox::SkyBox(std::vector<std::string> face_locations)
 
 	std::vector<Vertex> sky_box_vertices = {
 
-		Vertex(	glm::vec3(-1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+		Vertex(glm::vec3(-1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-		Vertex(	glm::vec3(-1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+		Vertex(glm::vec3(-1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-		Vertex(	glm::vec3(1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
+		Vertex(glm::vec3(1.0f, 1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-		Vertex(	glm::vec3(1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+		Vertex(glm::vec3(1.0f, -1.0f, -1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-																		   
-		Vertex(	glm::vec3(-1.0f, 1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+
+		Vertex(glm::vec3(-1.0f, 1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-		Vertex(	glm::vec3(1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+		Vertex(glm::vec3(1.0f, 1.0f, 1.0f)		, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-		Vertex(	glm::vec3(-1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+		Vertex(glm::vec3(-1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
 
-		Vertex(	glm::vec3(1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f), 
+		Vertex(glm::vec3(1.0f, -1.0f, 1.0f)	, glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,0.0f,0.0f),
 				glm::vec2(0.0f, 0.0f)),
-				
+
 	};
 
 	sky_mesh = std::make_shared<Mesh>(sky_box_vertices, sky_box_indices);
-
 }
 
 void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width,
@@ -123,16 +136,16 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 	glDepthFunc(GL_LEQUAL);
 	//std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 
-	sky_shader_program->use_shader_program();
+	shader_program->use_shader_program();
 
-	uniform_helper.setUniformMatrix4fv(projection_matrix, uniform_projection);
-	uniform_helper.setUniformMatrix4fv(new_view_matrix, uniform_view);
-	uniform_helper.setUniformInt(SKYBOX_TEXTURES_SLOT, sky_shader_program->get_uniform_samplerCube_location());
+	shader_program->setUniformMatrix4fv(projection_matrix, "projection");
+	shader_program->setUniformMatrix4fv(new_view_matrix, "view");
+	shader_program->setUniformInt(SKYBOX_TEXTURES_SLOT, "skybox");
 
 	glActiveTexture(GL_TEXTURE0 + SKYBOX_TEXTURES_SLOT);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, texture_id);
 
-	sky_shader_program->validate_program();
+	shader_program->validate_program();
 
 	sky_mesh->render();
 
@@ -149,14 +162,11 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 
 void SkyBox::reload()
 {
-	sky_shader_program = std::make_shared<SkyBoxShaderProgram>();
-	sky_shader_program->create_from_files("Shaders/SkyBox.vert", "Shaders/SkyBox.frag");
-
-	uniform_projection = sky_shader_program->get_projection_location();
-	uniform_view = sky_shader_program->get_view_location();
+	shader_program = std::make_shared<SkyBoxShaderProgram>();
+	shader_program->create_from_files("Shaders/SkyBox.vert", "Shaders/SkyBox.frag");
 }
 
 SkyBox::~SkyBox()
 {
-
+	glDeleteTextures(1, &texture_id);
 }

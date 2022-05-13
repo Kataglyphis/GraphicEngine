@@ -5,7 +5,7 @@ GBuffer::GBuffer()
 {
     this->window_width = 1024;
     this->window_height = 768;
-    this->uniform_helper = UniformHelper();
+
 }
 
 GBuffer::GBuffer(GLint window_width, GLint window_height)
@@ -13,7 +13,7 @@ GBuffer::GBuffer(GLint window_width, GLint window_height)
 
     this->window_width = window_width;
     this->window_height = window_height;
-    this->uniform_helper = UniformHelper();
+
 }
 
 void GBuffer::create()
@@ -67,32 +67,28 @@ void GBuffer::create()
 
 }
 
-void GBuffer::read( GLuint g_buffer_lighting_uniform_position_location,
-                    GLuint g_buffer_lighting_uniform_normal_location,
-                    GLuint g_buffer_lighting_uniform_albedo_location,
-                    GLuint g_buffer_material_id_location)
+void GBuffer::read(std::shared_ptr<ShaderProgram> shader_program)
 {
-
+    // GBUFFER
     GLuint texture_index = GBUFFER_TEXTURES_SLOT;
-    uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_position_location);
+    shader_program->setUniformInt(texture_index, "g_position");
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_position);
 
     texture_index++;
-    uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_normal_location);
+    shader_program->setUniformInt(texture_index, "g_normal");
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_normal);
 
     texture_index++;
-    uniform_helper.setUniformInt(texture_index, g_buffer_lighting_uniform_albedo_location);
+    shader_program->setUniformInt(texture_index, "g_albedo");
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_albedo);
 
     texture_index++;
-    uniform_helper.setUniformInt(texture_index, g_buffer_material_id_location);
+    shader_program->setUniformInt(texture_index, "g_material_id");
     glActiveTexture(GL_TEXTURE0 + texture_index);
     glBindTexture(GL_TEXTURE_2D, g_material_id);
-
 
 }
 

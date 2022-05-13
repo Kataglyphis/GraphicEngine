@@ -19,7 +19,7 @@
 #include <memory>
 
 #include "RandomNumbers.h"
-#include "UniformHelper.h"
+
 
 class LightingPass : public RenderPass
 {
@@ -43,19 +43,13 @@ private:
 
     glm::vec3 current_offset;
 
-    void retrieve_lighting_pass_locations(  glm::mat4 projection_matrix,
-                                            std::shared_ptr<Camera> main_camera,
-                                            std::shared_ptr<Scene> scene,
-                                            std::shared_ptr<GBuffer> gbuffer,
-                                            float delta_time);
-
-    void bind_buffers_for_lighting( std::shared_ptr<GBuffer> gbuffer, 
-                                    std::shared_ptr<Scene> scene, 
-                                    std::shared_ptr<Clouds> cloud);
+    void set_uniforms(  glm::mat4 projection_matrix,
+                        std::shared_ptr<Camera> main_camera,
+                        std::shared_ptr<Scene> scene,
+                        std::shared_ptr<GBuffer> gbuffer,
+                        float delta_time);
 
     std::shared_ptr<LightingPassShaderProgram> shader_program;
-
-    UniformHelper uniform_helper;
 
     Quad quad;
 

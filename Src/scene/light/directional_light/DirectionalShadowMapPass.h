@@ -4,7 +4,7 @@
 #include "ShadowMapShaderProgram.h"
 #include "ViewFrustumCulling.h"
 #include "Scene.h"
-#include "UniformHelper.h"
+
 #include "DebugApp.h"
 
 class DirectionalShadowMapPass :
@@ -30,7 +30,6 @@ private:
     std::shared_ptr<ShadowMapShaderProgram> shader_program;
 
     DebugApp        DebugApp_ins;
-    UniformHelper   uniform_helper;
 
 };
 

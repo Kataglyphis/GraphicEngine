@@ -28,13 +28,13 @@ void main() {
     float worley_sub_data_3[3] = {worley_3, worley_4, worley_5};
 
 	//store layered worley noise in RGB; A is for perlin worley noise
-//    vec4 pixel =  vec4( 1.f - fbm_worley(worley_sub_data_1, 0.85f),
-//                        1.f - fbm_worley(worley_sub_data_2, 0.85f),
-//                        1.f - fbm_worley(worley_sub_data_3, 0.85f), 
-//                        (1.f - fbm_worley(worley_sub_data_1, 0.85f) * 0.8f  
-//                        + snoise(gl_GlobalInvocationID.xyz) * 0.2f)) ; // *( 1.f - fbm_worley(worley_sub_data_1, 0.85f))
+    vec4 pixel =  vec4( 1.f - fbm_worley(worley_sub_data_1, 0.85f),
+                        1.f - fbm_worley(worley_sub_data_2, 0.85f),
+                        1.f - fbm_worley(worley_sub_data_3, 0.85f), 
+                        (1.f - fbm_worley(worley_sub_data_1, 0.85f) * 0.8f  
+                        + snoise(gl_GlobalInvocationID.xyz) * 0.2f)) ; // *( 1.f - fbm_worley(worley_sub_data_1, 0.85f))
 
-    vec4 pixel =  vec4(vec3(1.f - worley_5),1.0f);
+    //vec4 pixel =  vec4(vec3(1.f - worley_5),1.0f);
 
     ivec3 pixel_coords = ivec3(gl_GlobalInvocationID);
 

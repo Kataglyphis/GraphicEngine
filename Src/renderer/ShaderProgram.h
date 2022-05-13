@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -9,7 +10,8 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "DebugApp.h"
-#include "UniformHelper.h"
+
+#include <cassert>
 
 class ShaderProgram
 {
@@ -25,6 +27,12 @@ public:
 
 	void create_computer_shader_program_from_file(const char* compute_location);
 
+	bool setUniformVec3			(glm::vec3 uniform, std::string shaderUniformName);
+	bool setUniformFloat		(GLfloat uniform, std::string shaderUniformName);
+	bool setUniformInt			(GLint uniform, std::string shaderUniformName);
+	bool setUniformMatrix4fv	(glm::mat4 matrix, std::string shaderUniformName);
+	bool setUniformBlockBinding	(GLuint block_binding, std::string shaderUniformName);
+
 	GLuint get_id();
 
 	void use_shader_program();
@@ -35,7 +43,6 @@ public:
 
 protected:
 
-	UniformHelper	uniform_helper;
 	std::string		shader_base_dir;
 	GLuint			program_id;
 	DebugApp		DebugApp_ins;
@@ -55,7 +62,8 @@ protected:
 	void compile_compute_shader_program(const char * compute_code);
 	void compile_program();
 
-	virtual void retrieve_uniform_locations() = 0;
+	bool	validateUniformLocation(GLint uniformLocation);
+	GLuint	getUniformLocation(std::string shaderUniformName, bool& validity);
 
 	void clear_shader_program();
 

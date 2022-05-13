@@ -5,20 +5,32 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "ObjMaterialLocations.h"
 #include "GlobalValues.h"
-#include "UniformHelper.h"
+#include "host_device_shared.h"
+#include "ShaderProgram.h"
 
 class ObjMaterial
 {
 public:
 
 	ObjMaterial();
+
 	ObjMaterial(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, glm::vec3 transmittance,
 				glm::vec3 emission, float shininess, float ior, float dissolve,
 				int illum, int textureID);
 
-	void use_material(ObjMaterialLocations material_locations);
+	glm::vec3 get_ambient() { return ambient; };
+	glm::vec3 get_diffuse() { return diffuse; };
+	glm::vec3 get_specular() { return specular; };
+	glm::vec3 get_transmittance() { return transmittance; };
+	glm::vec3 get_emission() { return emission; };
+
+	float get_shininess() { return shininess; };
+	float get_ior() { return ior; };
+	float get_dissolve() { return dissolve; };
+
+	int get_illum() { return illum; };
+	int get_textureID() { return textureID; };
 
 	glm::vec3 ambient		= glm::vec3(0.1f, 0.1f, 0.1f);
 	glm::vec3 diffuse		= glm::vec3(0.7f, 0.7f, 0.7f);
@@ -35,8 +47,6 @@ public:
 	~ObjMaterial();
 
 private:
-
-	UniformHelper uniform_helper;
 
 };
 

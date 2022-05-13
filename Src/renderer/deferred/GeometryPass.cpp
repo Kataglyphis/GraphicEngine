@@ -1,66 +1,20 @@
 #include "GeometryPass.h"
 
-GeometryPass::GeometryPass()
+GeometryPass::GeometryPass() :
+                    skybox()
 {
 
-    this->uniform_helper = UniformHelper();
     create_shader_program();
 
-    std::stringstream skybox_base_dir;
-    skybox_base_dir << CMAKELISTS_DIR;
-    skybox_base_dir << "/Resources/Textures/Skybox/DOOM2016/";
-
-    stringstream texture_loading;
-    std::array<std::string, 6> skybox_textures = {  "DOOM16RT.png",
-                                                    "DOOM16LF.png",
-                                                    "DOOM16UP.png",
-                                                    "DOOM16DN.png",
-                                                    "DOOM16FT.png",
-                                                    "DOOM16BK.png"
-    };
-
-    std::vector<std::string> skybox_faces;
-
-    for (int i = 0; i < skybox_textures.size(); i++) {
-
-        texture_loading << skybox_base_dir.str() << skybox_textures[i];
-        skybox_faces.push_back(texture_loading.str());
-        texture_loading.str(std::string());
-
-    }
-
-    skybox = SkyBox(skybox_faces);
-
 }
 
-void GeometryPass::retrieve_geometry_pass_locations(glm::mat4 projection_matrix, 
-                                                    glm::mat4 view_matrix,
-                                                    std::vector<ObjMaterial>& materials, 
-                                                    std::shared_ptr<Scene> scene)
-{
-
-    uniform_helper.setUniformMatrix4fv(projection_matrix, shader_program->get_projection_location());
-    uniform_helper.setUniformMatrix4fv(view_matrix, shader_program->get_view_location());
-
-    for (int i = 0; i < scene->get_texture_count(0); i++) {
-        uniform_helper.setUniformInt(i, shader_program->get_uniform_texture_locations(i));
-    }
-
-    for (size_t i = 0; i < materials.size(); i++) {
-        materials[i].use_material(shader_program->get_uniform_material_locations(i));
-    }
-
-    shader_program->validate_program();
-
-    // Check if there any unchecked gl Errors from the render functions
-    DebugApp_ins.areErrorPrintAll("From retrieve_geometry_pass_locations function in GeometryPass.");
-}
-
-void GeometryPass::execute( glm::mat4 projection_matrix, 
+void GeometryPass::execute( glm::mat4               projection_matrix, 
                             std::shared_ptr<Camera> main_camera, 
-                            GLfloat window_width, GLfloat window_height,
-                            GLuint gbuffer_id, GLfloat delta_time, 
-                            std::shared_ptr<Scene> scene)
+                            GLfloat                 window_width, 
+                            GLfloat                 window_height,
+                            GLuint                  gbuffer_id, 
+                            GLfloat                 delta_time, 
+                            std::shared_ptr<Scene>  scene)
 {
 
     glBindFramebuffer(GL_FRAMEBUFFER, gbuffer_id);
@@ -68,17 +22,81 @@ void GeometryPass::execute( glm::mat4 projection_matrix,
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, window_width, window_height);
 
-    glm::mat4 view_matrix = main_camera->calculate_viewmatrix();
-
     shader_program->use_shader_program();
 
-    std::vector<ObjMaterial> materials = scene->get_materials();
+    glm::mat4 view_matrix               = main_camera->calculate_viewmatrix();
+    std::vector<ObjMaterial> materials  = scene->get_materials();
 
-    retrieve_geometry_pass_locations(projection_matrix, view_matrix, materials, scene);
+    shader_program->setUniformMatrix4fv(projection_matrix, "projection");
+    shader_program->setUniformMatrix4fv(view_matrix, "view");
+
+    for (int i = 0; i < scene->get_texture_count(0); i++) {
+
+        char loc_buff[100] = { '\0' };
+        snprintf(loc_buff, sizeof(loc_buff), "model_textures[%zd]", i);
+        shader_program->setUniformInt(MODEL_TEXTURES_SLOT + i, loc_buff);
+
+    }
+
+    for (size_t i = 0; i < materials.size(); i++) {
+
+        char loc_buff[100] = { '\0' };
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ambient", i);
+        shader_program->setUniformVec3(materials[i].get_ambient(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].diffuse", i);
+        shader_program->setUniformVec3(materials[i].get_diffuse(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].specular", i);
+        shader_program->setUniformVec3(materials[i].get_specular(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].transmittance", i);
+        shader_program->setUniformVec3(materials[i].get_transmittance(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].emission", i);
+        shader_program->setUniformVec3(materials[i].get_emission(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].shininess", i);
+        shader_program->setUniformFloat(materials[i].get_shininess(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ior", i);
+        shader_program->setUniformFloat(materials[i].get_ior(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].dissolve", i);
+        shader_program->setUniformFloat(materials[i].get_dissolve(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].illum", i);
+        shader_program->setUniformInt(materials[i].get_illum(), loc_buff);
+
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].textureID", i);
+        shader_program->setUniformInt(materials[i].get_textureID(), loc_buff);
+
+    }
+
+    shader_program->validate_program();
 
     scene->bind_textures_and_buffer();
 
-    scene->render(this);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //aabb->render();
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    // 
+
+    std::vector<std::shared_ptr<GameObject>> game_objects = 
+                                            scene->get_game_objects();
+
+    for (std::shared_ptr<GameObject> object : game_objects) {
+
+        /* if (object_is_visible(object)) {*/
+
+        set_game_object_uniforms(   object->get_world_trafo(),
+                                    object->get_normal_world_trafo());
+
+        object->render();
+        //}
+
+    }
 
     skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
 
@@ -106,8 +124,8 @@ void GeometryPass::create_shader_program()
 void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)
 {
 
-    uniform_helper.setUniformMatrix4fv(model, shader_program->get_model_location());
-    uniform_helper.setUniformMatrix4fv(normal_model, shader_program->get_normal_modal_location());
+    shader_program->setUniformMatrix4fv(model, "model");
+    shader_program->setUniformMatrix4fv(normal_model, "normal_model");
 
     // check if there any gl Errors
     DebugApp_ins.areErrorPrintAll("Error, from set_game_object_uniforms function in GeometryPass.");

@@ -10,7 +10,7 @@
 #include "SkyBox.h"
 #include <array>
 
-#include "UniformHelper.h"
+
 
 #include "DebugApp.h"
 
@@ -45,7 +45,6 @@ private:
     SkyBox          skybox;
     // TO check if there are any gl error
     DebugApp        DebugApp_ins;
-    UniformHelper   uniform_helper;
 
 };
 

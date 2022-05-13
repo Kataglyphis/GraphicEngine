@@ -15,7 +15,7 @@ Scene::Scene(const Scene& other)
     clouds = other.clouds;
 
 
-    ambient_objects = other.ambient_objects;
+    game_objects = other.game_objects;
 
     progress = other.progress;
     loaded_scene = other.loaded_scene;
@@ -106,7 +106,7 @@ void Scene::load_models()
                                                                     sponza_rot);
     progress += 1.f;
 
-    ambient_objects.push_back(sponza);
+    game_objects.push_back(sponza);
 
     mx_isLoaded.lock();
     loaded_scene = true;
@@ -116,7 +116,7 @@ void Scene::load_models()
 
 std::vector<ObjMaterial> Scene::get_materials()
 {
-    return ambient_objects[0]->get_model()->get_materials();
+    return game_objects[0]->get_model()->get_materials();
 }
 
 bool Scene::is_loaded()
@@ -133,23 +133,23 @@ GLfloat Scene::get_progress()
 
 void Scene::setup_game_object_context()
 {
-    ambient_objects[0]->get_model()->create_render_context();
+    game_objects[0]->get_model()->create_render_context();
     context_setup = true;
 }
 
 void Scene::bind_textures_and_buffer()
 {
-    ambient_objects[0]->get_model()->bind_ressources();
+    game_objects[0]->get_model()->bind_ressources();
 }
 
 void Scene::unbind_textures_and_buffer()
 {
-    ambient_objects[0]->get_model()->unbind_resources();
+    game_objects[0]->get_model()->unbind_resources();
 }
 
 int Scene::get_texture_count(int index)
 {
-    return ambient_objects[0]->get_model()->get_texture_count();
+    return game_objects[0]->get_model()->get_texture_count();
 }
 
 void Scene::set_context_setup(bool context_setup)
@@ -162,37 +162,20 @@ bool Scene::get_context_setup()
     return context_setup;
 }
 
-void Scene::render(RenderPassSceneDependend* render_pass)
+void Scene::add_game_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
 {
-    lock_guard<mutex> guard{ mx_space_ship };
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    //aabb->render();
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    // 
-    
-    for (std::shared_ptr<GameObject> object : ambient_objects) {
-
-       /* if (object_is_visible(object)) {*/
-
-            render_pass->set_game_object_uniforms(  object->get_world_trafo(),
-                                                    object->get_normal_world_trafo());
-
-            object->render();
-        //}
-
-    }
-    
-}
-
-void Scene::add_ambient_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
-{
-    ambient_objects.push_back(std::make_shared<GameObject>(GameObject()));
-    ambient_objects.back()->init(model_path, translation, scale, rot);
+    game_objects.push_back(std::make_shared<GameObject>(GameObject()));
+    game_objects.back()->init(model_path, translation, scale, rot);
 }
 
 std::shared_ptr<Clouds> Scene::get_clouds()
 {
     return clouds;
+}
+
+std::vector<std::shared_ptr<GameObject>> Scene::get_game_objects()
+{
+    return game_objects;
 }
 
 bool Scene::object_is_visible(std::shared_ptr<GameObject> game_object)

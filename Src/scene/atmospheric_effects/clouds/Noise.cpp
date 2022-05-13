@@ -22,11 +22,11 @@ Noise::Noise()
 
 void Noise::create_shader_programs()
 {
-	texture_1_shader_program = ComputeShaderProgram();
-	texture_2_shader_program = ComputeShaderProgram();
+	texture_1_shader_program = std::make_shared<ComputeShaderProgram>();
+	texture_2_shader_program = std::make_shared<ComputeShaderProgram>();
 
-	texture_1_shader_program.create_computer_shader_program_from_file("clouds/noise_texture_128_res.comp");
-	texture_2_shader_program.create_computer_shader_program_from_file("clouds/noise_texture_32_res.comp");
+	texture_1_shader_program->create_computer_shader_program_from_file("clouds/noise_texture_128_res.comp");
+	texture_2_shader_program->create_computer_shader_program_from_file("clouds/noise_texture_32_res.comp");
 }
 
 void Noise::generate_textures()
@@ -141,8 +141,8 @@ void Noise::update()
 
 	delete_textures();
 
-	texture_1_shader_program.reload();
-	texture_2_shader_program.reload();
+	texture_1_shader_program->reload();
+	texture_2_shader_program->reload();
 
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
@@ -225,13 +225,19 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 void Noise::create_res128_noise()
 {
 	
-	texture_1_shader_program.use_shader_program();
+	texture_1_shader_program->use_shader_program();
+
+	texture_1_shader_program->setUniformInt(NOISE_128D_IMAGE_SLOT, "noise");
 
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		glUniform1i(texture_1_shader_program.get_cell_location(i), NOISE_CELL_POSITIONS_SLOT + i);
-		glUniform1i(texture_1_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
-		glUniform1i(texture_1_shader_program.get_noise_image_location(), NOISE_128D_IMAGE_SLOT);
+		char loc_buff[100] = { '\0' };
+
+		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%zd]", i);
+		texture_1_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, loc_buff);
+
+		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%zd]", i);
+		texture_1_shader_program->setUniformInt(num_cells_per_axis[i], loc_buff);
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
@@ -253,13 +259,19 @@ void Noise::create_res128_noise()
 void Noise::create_res32_noise()
 {
 
-	texture_2_shader_program.use_shader_program();
+	texture_2_shader_program->use_shader_program();
+
+	texture_2_shader_program->setUniformInt(NOISE_32D_IMAGE_SLOT, "noise");
 
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		glUniform1i(texture_2_shader_program.get_cell_location(i), NOISE_CELL_POSITIONS_SLOT + i);
-		glUniform1i(texture_2_shader_program.get_num_cell_location(i), num_cells_per_axis[i]);
-		glUniform1i(texture_2_shader_program.get_noise_image_location(), NOISE_32D_IMAGE_SLOT);
+		char loc_buff[100] = { '\0' };
+
+		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%zd]", i);
+		texture_2_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, loc_buff);
+
+		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%zd]", i);
+		texture_2_shader_program->setUniformInt(num_cells_per_axis[i], loc_buff);
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);

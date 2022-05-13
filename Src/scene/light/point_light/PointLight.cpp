@@ -1,4 +1,5 @@
 #include "PointLight.h"
+
 PointLight::PointLight()
 {
     position = glm::vec3(0.0f);
@@ -30,22 +31,6 @@ PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
 
     
     omni_dir_shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height);
-}
-
-void PointLight::use_light( GLuint radiance_location, GLuint ambient_color_location,
-                            GLuint position_location, GLuint constant_location, 
-                            GLuint linear_location,
-                            GLuint exponent_location)
-{
-
-    glUniform3f(ambient_color_location, color.x, color.y, color.z);
-    glUniform1f(radiance_location, radiance);
-
-    glUniform3f(position_location, position.x, position.y, position.z);
-    glUniform1f(constant_location, constant);
-    glUniform1f(linear_location, linear);
-    glUniform1f(exponent_location, exponent);
-
 }
 
 std::vector<glm::mat4> PointLight::calculate_light_transform()

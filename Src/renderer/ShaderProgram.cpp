@@ -11,7 +11,7 @@ ShaderProgram::ShaderProgram()
     aux << "/Resources/Shaders/";
 
     shader_base_dir = aux.str();
-    uniform_helper = UniformHelper();
+
 }
 
 void ShaderProgram::create_from_files(const char* vertex_location, const char* fragment_location)
@@ -213,13 +213,112 @@ void ShaderProgram::compile_program()
     }
 
     validate_program();
-    //after linking we are able to retrieve all the positions of the uniforms in our shader program :) 
-    retrieve_uniform_locations();
+    
 }
 
-ShaderProgram::~ShaderProgram()
+bool ShaderProgram::setUniformVec3(glm::vec3 uniform, std::string shaderUniformName)
 {
-    clear_shader_program();
+    bool validity           = true;
+    GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
+
+    if (validity) {
+        glUniform3f(uniform_location, uniform.x, uniform.y, uniform.z);
+    }
+
+    return validity;
+}
+
+bool ShaderProgram::setUniformFloat(GLfloat uniform, std::string shaderUniformName)
+{
+
+    bool validity = true;
+    GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
+
+    if (validity) {
+        glUniform1f(uniform_location, uniform);
+    }
+
+    return validity;
+}
+
+bool ShaderProgram::setUniformInt(GLint uniform, std::string shaderUniformName)
+{
+    bool validity = true;
+    GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
+
+    if (validity) {
+        glUniform1i(uniform_location, uniform);
+    }
+
+    return validity;
+
+}
+
+bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix, std::string shaderUniformName)
+{
+
+    bool validity = true;
+    GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
+
+    if (validity) {
+        glUniformMatrix4fv(uniform_location, 1, GL_FALSE, glm::value_ptr(matrix));
+    }
+
+    return validity;
+
+}
+
+bool ShaderProgram::setUniformBlockBinding(GLuint block_binding, std::string shaderUniformName)
+{
+
+    bool validity = true;
+    GLint uniform_location = glGetUniformBlockIndex(program_id, shaderUniformName.c_str());
+
+    (uniform_location < 0) ? validity = false : validity = true;
+
+    if (validity) {
+        glUniformBlockBinding(program_id, uniform_location, block_binding);
+    }
+    else {
+        #ifdef NDEBUG
+            // nondebug
+            
+        #else
+            //printf("Error at setting uniform block binding!");
+        #endif
+    }
+
+    return validity;
+
+}
+
+bool ShaderProgram::validateUniformLocation(GLint uniformLocation)
+{
+    // if uniform location is invalid (f.e. var disappears because of optimizing of unused vars)
+    return (uniformLocation == -1) ? false : true;
+}
+
+GLuint ShaderProgram::getUniformLocation(std::string shaderUniformName, bool& validity)
+{
+    GLuint uniform_location = glGetUniformLocation(program_id, shaderUniformName.c_str());
+    validity = validateUniformLocation(uniform_location);
+
+    #ifdef NDEBUG
+        // nondebug
+        
+    #else
+
+        if (!validity) {
+            /*std::stringstream ss;
+            ss << "You have set a wrong uniform! "
+                << "Name: " << shaderUniformName;
+
+            std::cout << ss.str();*/
+        }
+
+    #endif
+
+    return uniform_location;
 }
 
 void ShaderProgram::clear_shader_program()
@@ -231,3 +330,9 @@ void ShaderProgram::clear_shader_program()
         program_id = 0;
     }
 }
+
+ShaderProgram::~ShaderProgram()
+{
+    clear_shader_program();
+}
+
