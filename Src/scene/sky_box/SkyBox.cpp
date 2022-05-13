@@ -32,7 +32,7 @@ SkyBox::SkyBox()
 	srand(time(NULL));
 	shader_playback_time = 1;
 
-	shader_program = std::make_shared<SkyBoxShaderProgram>();
+	shader_program = std::make_shared<ShaderProgram>();
 	shader_program->create_from_files("skybox/SkyBox.vert", "skybox/SkyBox.frag");
 
 	//texture setup
@@ -162,7 +162,7 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 
 void SkyBox::reload()
 {
-	shader_program = std::make_shared<SkyBoxShaderProgram>();
+	shader_program = std::make_shared<ShaderProgram>();
 	shader_program->create_from_files("Shaders/SkyBox.vert", "Shaders/SkyBox.frag");
 }
 

@@ -31,8 +31,8 @@ uniform sampler2D g_material_id;
 uniform DirectionalLight    directional_light;
 uniform sampler2DArray      directional_shadow_maps;
 uniform float               cascade_endpoints[NUM_CASCADES];
-uniform int                 num_active_cascades;
 uniform int                 pcf_radius;
+
 layout (std140, binding = UNIFORM_LIGHT_MATRICES_BINDING) uniform LightSpaceMatrices
 {
     mat4 lightSpaceMatrices[NUM_CASCADES];

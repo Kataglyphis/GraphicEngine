@@ -1,8 +1,7 @@
 #include "Clouds.h"
 
-Clouds::Clouds(GLfloat window_width, GLfloat window_height) :
-
-					shader_program(std::make_shared<CloudsShaderProgram>(CloudsShaderProgram{}))
+Clouds::Clouds() :
+				shader_program(std::make_shared<ShaderProgram>(ShaderProgram{}))
 
 {
 	noise			= std::make_shared<Noise>();
@@ -175,7 +174,7 @@ void Clouds::set_movement_direction(glm::vec3 movement_dir)
 	this->movement_direction = movement_dir;
 }
 
-std::shared_ptr<CloudsShaderProgram> Clouds::get_shader_program()
+std::shared_ptr<ShaderProgram> Clouds::get_shader_program()
 {
 	return shader_program;
 }

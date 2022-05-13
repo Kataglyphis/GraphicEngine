@@ -10,7 +10,7 @@
 
 #include "Mesh.h"
 #include "Vertex.h"
-#include "SkyBoxShaderProgram.h"
+#include "ShaderProgram.h"
 
 #include <sstream>
 
@@ -47,7 +47,7 @@ private:
 	GLfloat shader_playback_time;
 
 	std::shared_ptr<Mesh> sky_mesh;
-	std::shared_ptr<SkyBoxShaderProgram> shader_program;
+	std::shared_ptr<ShaderProgram> shader_program;
 
 	GLuint texture_id;
 	GLuint uniform_projection, uniform_view;

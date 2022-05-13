@@ -36,7 +36,7 @@ private:
 	// This to test gl operators if they went correctly.
 	DebugApp DebugApp_ins;
 
-
 	GLfloat minX, maxX, minY, maxY, minZ, maxZ;
+
 };
 

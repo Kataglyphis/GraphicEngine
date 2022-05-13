@@ -1,7 +1,7 @@
 #pragma once
 #include "RenderPassSceneDependend.h"
 #include "DirectionalLight.h"
-#include "ShadowMapShaderProgram.h"
+#include "ShaderProgram.h"
 #include "ViewFrustumCulling.h"
 #include "Scene.h"
 
@@ -27,7 +27,7 @@ public:
 
 private:
 
-    std::shared_ptr<ShadowMapShaderProgram> shader_program;
+    std::shared_ptr<ShaderProgram> shader_program;
 
     DebugApp        DebugApp_ins;
 

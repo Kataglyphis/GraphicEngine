@@ -37,6 +37,7 @@ void LightingPass::execute( glm::mat4 projection_matrix,
     //bind textures to their units
     main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);
     cloud->read();
+
     for (int i = 0; i < static_cast<GLuint>(point_lights.size()); i++) {
         point_lights[i]->get_omni_shadow_map()->read(P_LIGHT_SHADOW_TEXTURES_SLOT + i);
     }
@@ -71,7 +72,6 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
     shader_program->setUniformFloat(    main_light->get_radiance(), "directional_light.base.radiance");
     shader_program->setUniformVec3(     main_light->get_color(), "directional_light.base.color");
     shader_program->setUniformVec3(     main_light->get_direction(), "directional_light.direction");
-    shader_program->setUniformFloat(    main_light->get_shadow_map()->get_intensity(), "directional_light.shadow_intensity");
 
     // EVERYTHING REGARDING THE SHADOW CASCADE
     glm::mat4 light_view = main_light->get_light_view_matrix();
@@ -88,16 +88,9 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
         snprintf(loc_buff, sizeof(loc_buff), "cascade_endpoints[%zd]", i);
         shader_program->setUniformFloat(clip_end_slot.z, loc_buff);
 
-        char loc_buff2[100] = { '\0' };
-        snprintf(loc_buff2, sizeof(loc_buff2), "directional_light_transform[%zd]", i);
-        shader_program->setUniformMatrix4fv(cascade_light_matrices[i] * light_view,
-                                            loc_buff2);
     }
 
-    GLuint num_active_slots = main_light->get_shadow_map()->get_num_active_cascades();
-    shader_program->setUniformInt(num_active_slots, "num_active_cascades");
-    shader_program->setUniformInt(main_light->get_shadow_map()->get_pcf_radius(),
-                                                        "pcf_radius");
+    shader_program->setUniformInt(main_light->get_shadow_map()->get_pcf_radius(), "pcf_radius");
 
     // READ GBUFFER
     gbuffer->read(shader_program);

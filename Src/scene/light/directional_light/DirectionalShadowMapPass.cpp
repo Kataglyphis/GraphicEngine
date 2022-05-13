@@ -54,7 +54,7 @@ void DirectionalShadowMapPass::execute( glm::mat4 projection,
 
 void DirectionalShadowMapPass::create_shader_program()
 {
-    shader_program = std::make_shared<ShadowMapShaderProgram>(ShadowMapShaderProgram{});
+    shader_program = std::make_shared<ShaderProgram>(ShaderProgram{});
     shader_program->create_from_files(  "rasterizer/shadows/directional_shadow_map.vert",
                                         "rasterizer/shadows/directional_shadow_map.geom",
                                         "rasterizer/shadows/directional_shadow_map.frag");

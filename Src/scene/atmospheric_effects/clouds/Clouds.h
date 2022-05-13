@@ -1,22 +1,23 @@
 #pragma once
+#include <memory>
+
 #include "AABB.h"
-#include "CloudsShaderProgram.h"
+#include "ShaderProgram.h"
 #include "Noise.h"
 #include "RandomNumbers.h"
-#include <memory>
 
 class Clouds
 {
 public:
 
-	Clouds(GLfloat window_width, GLfloat window_height);
+	Clouds();
 
-	void render(glm::mat4 projection_matrix, glm::mat4 view_matrix, 
-				GLfloat window_width, GLfloat window_height);
+	void		render(	glm::mat4 projection_matrix, glm::mat4 view_matrix, 
+						GLfloat window_width, GLfloat window_height);
 
-	void read();
+	void		read();
 
-	void create_noise_textures();
+	void		create_noise_textures();
 
 	glm::mat4	get_model();
 	glm::vec3	get_movement_direction();
@@ -40,13 +41,11 @@ public:
 	void		set_translation(glm::vec3 translation);
 	void		set_movement_direction(glm::vec3 movement_dir);
 
-	std::shared_ptr<CloudsShaderProgram> get_shader_program();
+	std::shared_ptr<ShaderProgram> get_shader_program();
 
 	~Clouds();
 
 private:
-
-	void retrieve_and_set_uniform_locations(glm::mat4 projection_matrix, glm::mat4 view_matrix);
 
 	glm::mat4 model;
 	AABB aabb;
@@ -59,9 +58,9 @@ private:
 
 	bool powder_effect;
 
-	std::shared_ptr<CloudsShaderProgram>	shader_program;
-	std::shared_ptr<Noise>					noise;
-	std::shared_ptr<RandomNumbers>			random_numbers;
+	std::shared_ptr<ShaderProgram>	shader_program;
+	std::shared_ptr<Noise>			noise;
+	std::shared_ptr<RandomNumbers>	random_numbers;
 
 };
 
