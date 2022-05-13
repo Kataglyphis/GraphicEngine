@@ -22,6 +22,8 @@ std::vector<glm::vec3> AABB::get_corners(glm::mat4 model)
 
 void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat minZ, GLfloat maxZ)
 {
+
+
     this->minX = minX;
     this->maxX = maxX;
     this->minY = minY;  
@@ -38,25 +40,18 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
     corners.push_back(glm::vec3(maxX, maxY, minZ));
     corners.push_back(glm::vec3(maxX, maxY, maxZ));
 
-	//unsigned int num_corners = (int)corners.size();
-    m_drawCount = 36;//num_corners;
+    vertices.push_back(Vertex(glm::vec3(minX, minY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(minX, minY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(minX, maxY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(minX, maxY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(maxX, minY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(maxX, minY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(maxX, maxY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    vertices.push_back(Vertex(glm::vec3(maxX, maxY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
 
-    float vertices[] = {
-
-        minX, minY, minZ,   // left bottom front
-        minX, minY, maxZ,   // left bottom back
-        minX, maxY, minZ,   // left top front
-        minX, maxY, maxZ,   // left top back
-        maxX, minY, minZ,   // right bottom front
-        maxX, minY, maxZ,   //right bottom back
-        maxX, maxY, minZ,   //right top front
-        maxX, maxY, maxZ    //right top back
-
-    };
-
-    unsigned int indices[] = {  // note that we start from 0!
+    indices = {  // note that we start from 0!
                     //left 
-                    0, 3, 1,  
+                    0, 3, 1,
                     0, 2, 3,
                     //right 
                     4, 7, 5,
@@ -75,40 +70,13 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
                     4, 6, 2,
     };
 
+    mesh = std::make_shared<Mesh>(vertices, indices);
+
     // check with DebugApp_ins.h if they are any glError before executing gl stuffs and print it.
     if (DebugApp_ins.arePreError("From init function in AABB.")) {
         // to something?
     }
 
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-    // remember: do NOT unbind the EBO while a VAO is active as the bound element buffer object IS stored in the VAO; keep the EBO bound.
-    //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-    glBindVertexArray(0);
-
-    // check with DebugApp_ins.h if they are any glError and print it.
-    if (DebugApp_ins.areErrorPrintAll("From init function in AABB.cpp file.")) {
-        // return false;
-    }
 }
 
 void AABB::render()
@@ -119,14 +87,7 @@ void AABB::render()
         // to something?
     }
 
-    glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-        //glDrawArrays(GL_TRIANGLES, 0, 6);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glDrawElements(GL_TRIANGLES, m_drawCount, GL_UNSIGNED_INT, 0);
-
-    //unbind all again
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
+    mesh->render();
 
     // check with DebugApp_ins.h if they are any glError and print it.
     if (DebugApp_ins.areErrorPrintAll("From render function in AABB.cpp file.")) {
@@ -136,7 +97,5 @@ void AABB::render()
 
 AABB::~AABB()
 {
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
+   
 }

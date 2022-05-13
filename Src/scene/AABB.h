@@ -5,6 +5,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
+#include <memory>
+
+#include "Mesh.h"
 
 #include "DebugApp.h"
 
@@ -26,9 +29,13 @@ public:
 
 private:
 
-	unsigned int VBO, VAO, EBO;
+	std::vector<Vertex>			vertices; 
+	std::vector<unsigned int>	indices;
 
-	unsigned int m_drawCount;
+	std::shared_ptr<Mesh> mesh;
+	/*unsigned int VBO, VAO, EBO;
+
+	unsigned int m_drawCount;*/
 
 	std::vector<glm::vec3> corners;
 
