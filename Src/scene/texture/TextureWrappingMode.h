@@ -1,6 +1,6 @@
 #pragma once
 //lets mimic and c++-style interface :)
-#include <GL/glew.h>
+#include <glad/glad.h>
 
 class TextureWrappingMode
 {

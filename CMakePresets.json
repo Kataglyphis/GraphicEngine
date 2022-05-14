@@ -1,6 +1,4 @@
 ﻿{
-  "enableClangTidyCodeAnalysis":true,
-  "enableMicrosoftCodeAnalysis":true,
   "version": 3,
   "configurePresets": [
     {

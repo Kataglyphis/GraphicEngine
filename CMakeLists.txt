@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14)
 # set the project name
 project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
-                       LANGUAGES CXX)
+                       LANGUAGES CXX C)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -48,11 +48,6 @@ set(OpenGL_GL_PREFERENCE GLVND)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-# if on UNIX we rely on the user has the package installed
-if(UNIX)
-        find_package(GLEW REQUIRED)
-endif()
-
 FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h" 
                                 "ExternalLib/IMGUI/backends/imgui_impl_glfw.h"
                                 "ExternalLib/IMGUI/backends/imgui_impl_opengl3.h"
@@ -84,6 +79,9 @@ FILE(GLOB WINDOW_FILTER                 "Src/window/*.h"                        
 FILE(GLOB DEBUG_FILTER                  "Src/debug/*.h"                                 "Src/debug/*.cpp")
 FILE(GLOB UTIL_FILTER                   "Src/util/*.h"                                  "Src/util/*.cpp")
 FILE(GLOB MAIN_FILTER                   "Src/*.h"                                       "Src/*.cpp")
+
+FILE(GLOB GLAD_FILTER                   "ExternalLib/GLAD/include/glad/*.h"             "ExternalLib/GLAD/src/*.c"
+                                        "ExternalLib/GLAD/include/KHR/*.h")
 
 # add filters to the solution explorer for the shaders :))
 file(GLOB SHADER_FILTER   
@@ -182,6 +180,8 @@ source_group("window"                                   FILES ${WINDOW_FILTER})
 source_group("debug"                                    FILES ${DEBUG_FILTER})
 source_group("util"                                     FILES ${UTIL_FILTER})
 
+source_group("glad"                                     FILES ${GLAD_FILTER})
+
 source_group("scene/atmospheric_effects/clouds"         FILES ${CLOUD_FILTER})
 
 source_group("scene/lights"                             FILES ${LIGHT_FILTER})
@@ -198,12 +198,14 @@ source_group("app"                                      FILES ${MAIN_FILTER})
 #set all your sources accordingly
 file(GLOB_RECURSE SOURCES "Src/*.cpp"
                           "Src/*.c"
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/GLAD/*.cpp
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
 
 file(GLOB_RECURSE HEADERS "Src/*.h"
                           "Src/*.hpp"
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/GLAD/*.h
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
@@ -221,6 +223,7 @@ add_executable( ${PROJECT_NAME}
                 ${RASTERIZER_SHADOWS_SHADER_FILTER}
                 ${SKYBOX_SHADER_FILTER}
                 ${GUI_FILTER}
+                ${GLAD_FILTER}
                 ${WINDOW_FILTER}
                 ${DEBUG_FILTER}
                 ${UTIL_FILTER}
@@ -257,40 +260,19 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/scene/texture"
                                                 PUBLIC "./Src/gui"
                                                 PUBLIC "./Src/util"  
+                                                PUBLIC "./ExternalLib/GLAD/include"
                                                 ${OPENGL_INCLUDE_DIRS})
 
-# for windows we use precompiled .dll/.lib and previous included header files 
-if(WIN32)
-        target_include_directories(${PROJECT_NAME}      
-                                                PUBLIC "./ExternalLib/GLEW/include/")
-endif()
 
-# for we used the glew lib from the package
-if(UNIX)
-        target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
-                                                        GLEW::GLEW#glew_s
-                                                        Threads::Threads
-                                                        ${OPENGL_LIBRARIES}
-                                                        glfw
-                                                        imgui
-                                                        stb 
-                                                        glm 
-                                                        tinyobjloader)
-endif()
+target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
+                                                Threads::Threads
+                                                ${OPENGL_LIBRARIES}
+                                                glfw
+                                                imgui
+                                                stb 
+                                                glm 
+                                                tinyobjloader)
 
-# for we will provide precompiled .dll/.lib from:
-# http://glew.sourceforge.net/
-if(WIN32)
-        target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
-                                                        glew32
-                                                        Threads::Threads
-                                                        ${OPENGL_LIBRARIES}
-                                                        glfw
-                                                        imgui
-                                                        stb 
-                                                        glm 
-                                                        tinyobjloader)
-endif()
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
@@ -303,19 +285,6 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR})
-
-if(WIN32)
-        # copy the precompiled libraries into our solution dir
-        set(GLEW_DLL ExternalLib/GLEW/bin/Release/x64/glew32.dll)
-        set(GLEW_LIB ExternalLib/GLEW/lib/Release/x64/glew32.lib)
-        set(GLEW_LIBS ExternalLib/GLEW/lib/Release/x64/glew32s.lib)
-        file(COPY ${GLEW_DLL}
-        DESTINATION ${PROJECT_BINARY_DIR})
-        file(COPY ${GLEW_LIB}
-        DESTINATION ${PROJECT_BINARY_DIR})
-        file(COPY ${GLEW_LIBS}
-        DESTINATION ${PROJECT_BINARY_DIR})     
-endif()
 
 # let us print all errors when on UNIX
 if(UNIX)

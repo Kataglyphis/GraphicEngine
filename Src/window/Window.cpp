@@ -1,4 +1,5 @@
 #include "Window.h"
+#include <iostream>
 
 Window::Window() {
     //at least sth useful
@@ -69,21 +70,16 @@ int Window::initialize() {
 
     }
 
-    if (glfwExtensionSupported("GL_ARB_shading_language_include"))
-    {
-        printf("The extension is supported by the current context");
-    }
-
-    if (glfwExtensionSupported("GL_ARB_fragment_program"))
-    {
-        printf("The extension is supported by the current context");
-    }
-
     // get buffer size information
     glfwGetFramebufferSize(main_window, &window_buffer_width, &window_buffer_height);
 
     // set context for GLEW to use
     glfwMakeContextCurrent(main_window);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout << "Failed to initialize OpenGL context" << std::endl;
+        return -1;
+    }
 
     //disabling frame limits
     glfwSwapInterval(0);
@@ -91,27 +87,6 @@ int Window::initialize() {
     //Handle key + mouse Input
     init_callbacks();
     glfwSetInputMode(main_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-
-    // allow modern extension features
-    glewExperimental = GL_TRUE;
-
-
-    if (glewInit() != GLEW_OK) {
-
-        printf("GLEW Init failed!");
-        glfwDestroyWindow(main_window);
-        glfwTerminate();
-        return 1;
-
-    }
-
-    /*if (glewGetExtension("GL_ARB_shading_language_include")) {
-        printf("Looks like we supporting it.");
-    }*/
-
-    /*if (glewGetExtension("GL_ARB_fragment_program")) {
-        printf("Looks like we supporting it.");
-    }*/
 
     glEnable(GL_DEPTH_TEST);
 
