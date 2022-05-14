@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 
+// https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
 class ShaderIncludes
 {
 

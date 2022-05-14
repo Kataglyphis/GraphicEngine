@@ -60,6 +60,7 @@ int main()
     //enable depth testing
     glEnable(GL_DEPTH_TEST);
 
+
     while (!main_window->get_should_close()) {
 
         glViewport(0, 0, window_width, window_height);

@@ -46,10 +46,11 @@ int Window::initialize() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // allow forward compatibility
-    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     
     //allow it to resize
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+
 
 #ifdef NDEBUG
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, false);
@@ -68,13 +69,23 @@ int Window::initialize() {
 
     }
 
+    if (glfwExtensionSupported("GL_ARB_shading_language_include"))
+    {
+        printf("The extension is supported by the current context");
+    }
+
+    if (glfwExtensionSupported("GL_ARB_fragment_program"))
+    {
+        printf("The extension is supported by the current context");
+    }
+
     // get buffer size information
     glfwGetFramebufferSize(main_window, &window_buffer_width, &window_buffer_height);
 
     // set context for GLEW to use
     glfwMakeContextCurrent(main_window);
 
-    //disabling frame limits!!!
+    //disabling frame limits
     glfwSwapInterval(0);
 
     //Handle key + mouse Input
@@ -84,6 +95,7 @@ int Window::initialize() {
     // allow modern extension features
     glewExperimental = GL_TRUE;
 
+
     if (glewInit() != GLEW_OK) {
 
         printf("GLEW Init failed!");
@@ -92,6 +104,14 @@ int Window::initialize() {
         return 1;
 
     }
+
+    /*if (glewGetExtension("GL_ARB_shading_language_include")) {
+        printf("Looks like we supporting it.");
+    }*/
+
+    /*if (glewGetExtension("GL_ARB_fragment_program")) {
+        printf("Looks like we supporting it.");
+    }*/
 
     glEnable(GL_DEPTH_TEST);
 

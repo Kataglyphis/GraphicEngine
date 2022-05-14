@@ -49,7 +49,7 @@ void LoadingScreen::render()
 void LoadingScreen::create_shader_program() {
 
     loading_screen_shader_program = 
-                std::make_shared<LoadingScreenShaderProgram>(LoadingScreenShaderProgram{});
+                std::make_shared<ShaderProgram>(ShaderProgram{});
 
     loading_screen_shader_program->create_from_files(   "loading_screen/loading_screen.vert",
                                                         "loading_screen/loading_screen.frag");

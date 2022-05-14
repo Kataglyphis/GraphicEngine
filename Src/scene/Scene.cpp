@@ -82,8 +82,6 @@ std::vector<std::shared_ptr<PointLight>> Scene::get_point_lights()
 void Scene::load_models()
 {
 
-    lock_guard<mutex> guard{ mx_space_ship };
-
     glm::vec3 sponza_offset = glm::vec3(0.f, 0.0f, 0.0f);
     GLfloat sponza_scale = 10.f;
     Rotation sponza_rot;

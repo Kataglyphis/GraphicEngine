@@ -8,6 +8,11 @@
 #include <sstream>
 #include <cassert>
 
+#define GLFW_INCLUDE_GLEXT
+#include <GLFW/glfw3.h>
+
+#define glNamedStringARB2 pfnNamedStringARB
+PFNGLNAMEDSTRINGARBPROC pfnNamedStringARB;
 // this method is setting all files we want to use in a shader per #include
 // you have to specify the name(how file appears in shader)
 // and its actual file location relatively
@@ -34,11 +39,19 @@ ShaderIncludes::ShaderIncludes()
         std::string file_content = file.read();
         char tmpstr[200];
         sprintf(tmpstr, "/%s", includeNames[i]);
-        glNamedStringARB(   GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr, 
-                            strlen(file_content.c_str()), file_content.c_str());
+
+        if (glfwExtensionSupported("GL_ARB_shading_language_include")) {
+
+            pfnNamedStringARB = (PFNGLNAMEDSTRINGARBPROC) glfwGetProcAddress("glNamedStringARB");
+
+            glNamedStringARB2(GL_SHADER_INCLUDE_ARB, strlen(tmpstr), tmpstr,
+                strlen(file_content.c_str()), file_content.c_str());
+        }
+
         DebugApp_ins.areErrorPrintAll("From glNamedStringARB.");
 
     }
+
 }
 
 ShaderIncludes::~ShaderIncludes()

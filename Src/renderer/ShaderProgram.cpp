@@ -129,6 +129,7 @@ void ShaderProgram::add_shader(GLuint program, const char* shader_code, GLenum s
 
     glShaderSource(shader, 1, code, code_length);
     glCompileShader(shader);
+    //glCompileShaderIncludeARB(shader);
 
     GLint result = 0;
     GLchar eLog[1024] = { 0 };

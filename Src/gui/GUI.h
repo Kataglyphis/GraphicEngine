@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "Clouds.h"
 #include "host_device_shared.h"
+#include <GLFW/glfw3.h>
 
 #include "Scene.h"
 
