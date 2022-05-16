@@ -92,16 +92,13 @@ GLuint ShaderProgram::get_id()
 
 void ShaderProgram::validate_program()
 {
-    // check if there are any gl error before executing gl function
-    DebugApp_ins.arePreError("From validate_program in ShaderProgram.cpp");
+
     GLint result = 0;
     GLchar eLog[1024] = { 0 };
 
     glValidateProgram(program_id);
 
     glGetProgramiv(program_id, GL_VALIDATE_STATUS, &result);
-
-    DebugApp_ins.areErrorPrintAll("From validate_program in ShaderProgram.cpp");
 
     if (!result) {
         glGetProgramInfoLog(program_id, sizeof(eLog), NULL, eLog);

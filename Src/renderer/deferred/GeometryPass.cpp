@@ -109,9 +109,6 @@ void GeometryPass::execute( glm::mat4               projection_matrix,
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-    // Check if there any unchecked gl Errors from the render functions
-    DebugApp_ins.areErrorPrintAll("From Execute function in GeometryPass.");
-
 }
 
 void GeometryPass::create_shader_program()
@@ -126,10 +123,6 @@ void GeometryPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_mo
 
     shader_program->setUniformMatrix4fv(model, "model");
     shader_program->setUniformMatrix4fv(normal_model, "normal_model");
-
-    // check if there any gl Errors
-    DebugApp_ins.areErrorPrintAll("Error, from set_game_object_uniforms function in GeometryPass.");
-
 
 }
 

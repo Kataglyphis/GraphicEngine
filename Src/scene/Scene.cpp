@@ -98,9 +98,9 @@ void Scene::load_models()
     /*"../Resources/Models/Pillum/PilumPainting_Export.obj",*/
     /*"../Resources/Models/crytek-sponza/sponza_triag.obj",*/
 
-    std::shared_ptr<GameObject> sponza = make_shared<GameObject>(   modelFile.str(),
-                                                                    sponza_offset, sponza_scale,
-                                                                    sponza_rot);
+    std::shared_ptr<GameObject> sponza = std::make_shared<GameObject>(  modelFile.str(),
+                                                                        sponza_offset, sponza_scale,
+                                                                        sponza_rot);
     progress += 1.f;
 
     game_objects.push_back(sponza);
@@ -118,13 +118,13 @@ std::vector<ObjMaterial> Scene::get_materials()
 
 bool Scene::is_loaded()
 {
-    lock_guard<mutex> guard{mx_isLoaded};
+    std::lock_guard<std::mutex> guard{mx_isLoaded};
     return loaded_scene;
 }
 
 GLfloat Scene::get_progress()
 {
-    lock_guard<mutex> guard{mx_progress};
+    std::lock_guard<std::mutex> guard{mx_progress};
     return progress;
 }
 

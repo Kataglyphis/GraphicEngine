@@ -22,6 +22,7 @@
 
 #include "GlobalValues.h"
 #include "host_device_shared.h"
+#include "DebugApp.h"
 
 int main()
 {
@@ -35,6 +36,8 @@ int main()
     // this will create opengl context!
     std::shared_ptr<Window> main_window = std::make_shared<Window>(window_width, window_height);
     main_window->initialize();
+
+    DebugApp debugCallbacks;
 
     Renderer renderer(window_width, window_height);
 

@@ -11,9 +11,6 @@
 #include <array>
 
 
-
-#include "DebugApp.h"
-
 class GeometryPass :
     public RenderPassSceneDependend
 {
@@ -43,8 +40,6 @@ private:
     std::shared_ptr<GeometryPassShaderProgram> shader_program;
 
     SkyBox          skybox;
-    // TO check if there are any gl error
-    DebugApp        DebugApp_ins;
 
 };
 

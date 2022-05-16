@@ -4,9 +4,6 @@
 #include "ShaderProgram.h"
 #include "ViewFrustumCulling.h"
 #include "Scene.h"
-
-#include "DebugApp.h"
-
 class DirectionalShadowMapPass :
     public RenderPassSceneDependend
 {
@@ -28,8 +25,6 @@ public:
 private:
 
     std::shared_ptr<ShaderProgram> shader_program;
-
-    DebugApp        DebugApp_ins;
 
 };
 

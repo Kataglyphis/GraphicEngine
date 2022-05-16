@@ -1,7 +1,4 @@
 #include "AABB.h"
-
-#include "DebugApp.h"
-
 AABB::AABB()
 {
 }
@@ -72,27 +69,13 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
 
     mesh = std::make_shared<Mesh>(vertices, indices);
 
-    // check with DebugApp_ins.h if they are any glError before executing gl stuffs and print it.
-    if (DebugApp_ins.arePreError("From init function in AABB.")) {
-        // to something?
-    }
-
 }
 
 void AABB::render()
 {
 
-    // check with DebugApp_ins.h if they are any glError before executing gl stuffs and print it.
-    if (DebugApp_ins.arePreError("From render function in AABB.")) {
-        // to something?
-    }
-
     mesh->render();
 
-    // check with DebugApp_ins.h if they are any glError and print it.
-    if (DebugApp_ins.areErrorPrintAll("From render function in AABB.cpp file.")) {
-        // return false;
-    }
 }
 
 AABB::~AABB()

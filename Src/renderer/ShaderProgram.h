@@ -8,9 +8,6 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
-#include "DebugApp.h"
-
 #include <cassert>
 
 class ShaderProgram
@@ -45,7 +42,6 @@ protected:
 
 	std::string		shader_base_dir;
 	GLuint			program_id;
-	DebugApp		DebugApp_ins;
 
 	// the file locations from our shaders
 	const char*		vertex_location;

@@ -6,8 +6,6 @@
 #include "ComputeShaderProgram.h"
 
 #include "bindings.h"
-#include "DebugApp.h"
-
 #include <random>
 #include <memory>
 #include <array>
@@ -60,8 +58,6 @@ private:
 	GLuint	cell_ids[NUM_CELL_POSITIONS];
 	GLuint	num_cells_per_axis[NUM_CELL_POSITIONS];
 	std::array<std::vector<GLfloat>, NUM_CELL_POSITIONS> cell_data;
-
-	DebugApp DebugApp_ins;
 
 };
 

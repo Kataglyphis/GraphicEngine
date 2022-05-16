@@ -1,5 +1,6 @@
 #include "CascadedShadowMap.h"
 #include "bindings.h"
+#include <iostream>
 
 CascadedShadowMap::CascadedShadowMap()
 {
@@ -10,7 +11,6 @@ CascadedShadowMap::CascadedShadowMap()
 
 bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 {
-	DebugApp_ins.arePreError("From init() function in CascadedShadowMap.");
 
 	shadow_width = width;
 	shadow_height = height;
@@ -61,10 +61,6 @@ bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
 	glBufferData(GL_UNIFORM_BUFFER, sizeof(glm::mat4) * NUM_CASCADES, nullptr, GL_DYNAMIC_DRAW);
 	glBindBufferBase(GL_UNIFORM_BUFFER, UNIFORM_LIGHT_MATRICES_BINDING, matrices_UBO);
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
-
-	if (DebugApp_ins.areErrorPrintAll("From int() function in CascadedShadowMap.")) {
-		// DO something?
-	}
 
 	return true;
 }

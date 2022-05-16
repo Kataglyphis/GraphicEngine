@@ -9,8 +9,6 @@
 
 #include "Mesh.h"
 
-#include "DebugApp.h"
-
 class AABB
 {
 public: 
@@ -38,10 +36,6 @@ private:
 	unsigned int m_drawCount;*/
 
 	std::vector<glm::vec3> corners;
-
-
-	// This to test gl operators if they went correctly.
-	DebugApp DebugApp_ins;
 
 	GLfloat minX, maxX, minY, maxY, minZ, maxZ;
 

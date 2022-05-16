@@ -9,10 +9,9 @@
 #include "ClampToEdgeMode.h"
 
 #include <memory>
+#include <string>
 
 #include "GlobalValues.h"
-
-#include "DebugApp.h"
 
 
 class Texture
@@ -48,6 +47,5 @@ private:
 
 	std::string file_location;
 
-	DebugApp DebugApp_ins;
 };
 

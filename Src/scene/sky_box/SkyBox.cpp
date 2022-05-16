@@ -1,5 +1,6 @@
 #include "SkyBox.h"
 #include <array>
+#include <sstream>
 
 SkyBox::SkyBox()
 {
@@ -7,7 +8,7 @@ SkyBox::SkyBox()
 	skybox_base_dir << CMAKELISTS_DIR;
 	skybox_base_dir << "/Resources/Textures/Skybox/DOOM2016/";
 
-	stringstream texture_loading;
+	std::stringstream texture_loading;
 	std::array<std::string, 6> skybox_textures = { "DOOM16RT.png",
 													"DOOM16LF.png",
 													"DOOM16UP.png",
@@ -25,9 +26,6 @@ SkyBox::SkyBox()
 		texture_loading.str(std::string());
 
 	}
-
-	// check if there any other gl Error  appears before execue gl functions
-	DebugApp_ins.arePreError("From SkyBox constructor in SkyBox.cpp file.");
 
 	srand(time(NULL));
 	shader_playback_time = 1;
@@ -60,11 +58,6 @@ SkyBox::SkyBox()
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	// check with DebugApp_ins.h if they are any glError and print it.
-	if (DebugApp_ins.areErrorPrintAll("From SkyBox constructor in SkyBox.cpp file.")) {
-		// return false;
-	}
 
 	// Mesh Setup
 	std::vector<unsigned int> sky_box_indices = {
@@ -123,8 +116,6 @@ SkyBox::SkyBox()
 void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width,
 							GLfloat window_height, GLfloat delta_time)
 {
-	// check if there any other gl Error  appears before execue gl functions
-	DebugApp_ins.arePreError("From draw_sky_box function in SkyBox.cpp file.");
 
 	// https://learnopengl.com/Advanced-OpenGL/Cubemaps
  	GLfloat velocity = movement_speed * delta_time;
@@ -153,10 +144,6 @@ void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, G
 	glDepthFunc(GL_LESS);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-	// check with DebugApp_ins.h if they are any glError and print it.
-	if (DebugApp_ins.areErrorPrintAll("From draw_sky_box function in SkyBox.cpp file.")) {
-		// do something?
-	}
 
 }
 

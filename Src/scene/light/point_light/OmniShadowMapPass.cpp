@@ -47,8 +47,6 @@ void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light,
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-    DebugApp_ins.areErrorPrintAll("From execute function OmniShadowMapPass");
-
 }
 
 void OmniShadowMapPass::set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model)

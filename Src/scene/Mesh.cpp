@@ -13,8 +13,6 @@ Mesh::Mesh()
 
 Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<unsigned int>& indices) {
 
-	DebugApp_ins.arePreError("From Mesh konstructor function in Mesh.cpp");
-
 	this->vertices = vertices;
 	this->indices = indices;
 		 
@@ -54,14 +52,10 @@ Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<unsigned int>& indices) {
 	glBindVertexArray(0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	DebugApp_ins.areErrorPrintAll("From Mesh konstructor function in Mesh.cpp");
-
 }
 
 
 void Mesh::render() {
-
-	DebugApp_ins.arePreError("From render function in Mesh.cpp");
 
 	glBindVertexArray(m_vao);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
@@ -71,8 +65,6 @@ void Mesh::render() {
 	//unbind all again
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-
-	DebugApp_ins.areErrorPrintAll("From render function in Mesh.cpp");
 
 }
 

@@ -155,9 +155,6 @@ void Noise::update()
 	create_res128_noise();
 	create_res32_noise();
 
-	// Check if any gl errorers appears.
-	DebugApp_ins.areErrorPrintAll("From update function in Noise.cpp");
-
 }
 
 void Noise::set_num_cells(GLuint num_cells_per_axis, GLuint index)
@@ -252,8 +249,6 @@ void Noise::create_res128_noise()
 
 	glBindTexture(GL_TEXTURE_3D, 0);
 
-	// Check if any gl errorers appears.
-	DebugApp_ins.areErrorPrintAll("From create worley noise function in Noise.cpp");
 }
 
 void Noise::create_res32_noise()
@@ -285,9 +280,6 @@ void Noise::create_res32_noise()
 	//glMemoryBarrier(GL_ALL_BARRIER_BITS);
 	glBindTexture(GL_TEXTURE_3D, 0);
 
-	// Check if any gl errorers appears.
-	DebugApp_ins.areErrorPrintAll("From create grad noise function in Noise.cpp");
-
 }
 
 void Noise::read_res128_noise()
@@ -296,8 +288,6 @@ void Noise::read_res128_noise()
 	glActiveTexture((GLenum)texture_index);
 	glBindTexture(GL_TEXTURE_3D, texture_1_id);
 
-	// Check if any gl errorers appears.
-	DebugApp_ins.areErrorPrintAll("From read worley noise function in Noise.cpp");
 }
 
 void Noise::read_res32_noise()
@@ -306,8 +296,6 @@ void Noise::read_res32_noise()
 	glActiveTexture((GLenum)texture_index);
 	glBindTexture(GL_TEXTURE_3D, texture_2_id);
 
-	// Check if any gl errorers appears.
-	DebugApp_ins.areErrorPrintAll("From read grad noise function in Noise.cpp");
 }
 
 void Noise::delete_textures()

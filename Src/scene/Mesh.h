@@ -6,11 +6,6 @@
 #include <glad/glad.h>
 #include "GlobalValues.h"
 
-#include "DebugApp.h"
-
-
-using namespace std;
-
 // this a simple Mesh without mesh generation
 class Mesh {
 public:
@@ -56,9 +51,6 @@ private:
     unsigned int m_drawCount;
     std::vector<Vertex> vertices; 
     std::vector<unsigned int> indices;
-
-    // for gl error checks
-    DebugApp DebugApp_ins;
 
 };
 

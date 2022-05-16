@@ -22,9 +22,6 @@
 
 #include "bindings.h"
 
-
-#include "DebugApp.h"
-
 class SkyBox
 {
 public:
@@ -51,8 +48,6 @@ private:
 
 	GLuint texture_id;
 	GLuint uniform_projection, uniform_view;
-
-	DebugApp		DebugApp_ins;
 
 };
 

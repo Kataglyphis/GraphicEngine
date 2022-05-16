@@ -6,7 +6,6 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
-#include "DebugApp.h"
 #include "host_device_shared.h"
 
 class CascadedShadowMap
@@ -45,6 +44,5 @@ protected:
 
 	GLfloat intensity;
 
-	DebugApp DebugApp_ins;
 };
 
