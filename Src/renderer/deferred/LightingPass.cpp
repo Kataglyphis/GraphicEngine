@@ -188,6 +188,8 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
     shader_program->setUniformFloat(1.f - cloud->get_density(), "cloud.threshold");
     shader_program->setUniformFloat(cloud->get_pillowness(), "cloud.pillowness");
     shader_program->setUniformFloat(cloud->get_cirrus_effect(), "cloud.cirrus_effect");
+    shader_program->setUniformInt(cloud->get_num_march_steps(), "cloud.num_march_steps");
+    shader_program->setUniformInt(cloud->get_num_march_steps_to_light(), "cloud.num_march_steps_to_light");
 
     if (cloud->get_powder_effect()) {
         shader_program->setUniformInt(true, "cloud.powder_effect");

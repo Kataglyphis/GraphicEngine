@@ -12,28 +12,31 @@ Clouds::Clouds() :
 
 	create_noise_textures();
 
-	model = glm::mat4(1.f);
-	aabb = AABB();
+	model						= glm::mat4(1.f);
+	aabb						= AABB();
 
-	this->movement_speed = 0.65f;
-	pillowness = 1.0;
-	density = 0.7;
-	cirrus_effect = 0.0f;
-	powder_effect = true;
+	num_march_steps				= 8;
+	num_march_steps_to_light	= 3;
 
-	minX = -1.f;  
-	maxX = 1.f;
-	minY = -1.f;
-	maxY = 1.f;
-	minZ = -1.f;
-	maxZ = 1.f;
+	this->movement_speed		= 0.65f;
+	pillowness					= 1.0;
+	density						= 0.7;
+	cirrus_effect				= 0.0f;
+	powder_effect				= true;
+
+	minX						= -1.f;  
+	maxX						= 1.f;
+	minY						= -1.f;
+	maxY						= 1.f;
+	minZ						= -1.f;
+	maxZ						= 1.f;
 
 	aabb.init(minX, maxX, minY, maxY, minZ, maxZ);
 
-	movement_direction = glm::vec3(0.0f,0.0f,1.0f);
+	movement_direction			= glm::vec3(0.0f,0.0f,1.0f);
 
-	translation = glm::vec3(0.0f);
-	scale_factor = glm::vec3(1.f);
+	translation					= glm::vec3(0.0f);
+	scale_factor				= glm::vec3(1.f);
 
 }
 
@@ -114,8 +117,8 @@ void Clouds::set_translation(glm::vec3 translation)
 glm::mat4 Clouds::get_model()
 {
 	glm::mat4 model = glm::mat4(1.f);
-	model = glm::translate(model, translation);
 	model = glm::scale(model, scale_factor);
+	model = glm::translate(model, translation);
 	return model;
 }
 
@@ -126,7 +129,7 @@ glm::vec3 Clouds::get_movement_direction()
 
 glm::vec3 Clouds::get_rad()
 {
-	return glm::vec3(1.f);
+	return scale_factor / 2.f;
 }
 
 glm::mat4 Clouds::get_normal_model()
@@ -164,6 +167,16 @@ GLfloat Clouds::get_cirrus_effect()
 	return this->cirrus_effect;
 }
 
+GLuint Clouds::get_num_march_steps()
+{
+	return num_march_steps;
+}
+
+GLuint Clouds::get_num_march_steps_to_light()
+{
+	return num_march_steps_to_light;
+}
+
 bool Clouds::get_powder_effect()
 {
 	return this->powder_effect;
@@ -172,6 +185,16 @@ bool Clouds::get_powder_effect()
 void Clouds::set_movement_direction(glm::vec3 movement_dir)
 {
 	this->movement_direction = movement_dir;
+}
+
+void Clouds::set_num_march_steps(GLuint num_march_steps)
+{
+	this->num_march_steps = num_march_steps;
+}
+
+void Clouds::set_num_march_steps_to_light(GLuint num_march_steps_to_light)
+{
+	this->num_march_steps_to_light = num_march_steps_to_light;
 }
 
 std::shared_ptr<ShaderProgram> Clouds::get_shader_program()

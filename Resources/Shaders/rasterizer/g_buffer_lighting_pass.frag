@@ -140,15 +140,15 @@ void main () {
     vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
     float rnd_numb  = texture(random_number, tex_coords).r;
 
-    vec4 final_color = calc_directional_light(albedo, frag_pos, material_id, N);
-    // final_color += calc_point_lights(frag_pos);
-
     if(belongs_to_skybox(material_id) || belongs_to_clouds(material_id)) {
         // here we only hit the skybox/ or clouds; avoid shading!
         color = albedo;
     } else {
-        color = final_color;
+        color = calc_directional_light(albedo, frag_pos, material_id, N);
+        // final_color += calc_point_lights(frag_pos);
     }
+
+    vec4 frag_pos_clip_space = projection * view * frag_pos;
 
     if(belongs_to_clouds(material_id)) {
         

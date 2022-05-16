@@ -21,19 +21,26 @@ GUI::GUI()
 
     this->cloud_speed           = 6;
     this->cloud_scale           = 0.63f;
-    this->cloud_density         = 0.667f;
+    this->cloud_density         = 0.4f;
     this->cloud_pillowness      = 0.966f;
-    this->cloud_cirrus_effect   = 0.0f;
+    this->cloud_cirrus_effect   = 0.034f;
 
     this->cloud_mesh_scale[0] = 100.f;
-    this->cloud_mesh_scale[1] = 10.f;
+    this->cloud_mesh_scale[1] = 12.7f;
     this->cloud_mesh_scale[2] = 100.f;
+
+    this->cloud_mesh_offset[0] = -.364f;
+    this->cloud_mesh_offset[1] = 13.8f;
+    this->cloud_mesh_offset[2] = -.351f;
 
     this->cloud_powder_effect = false;
 
     this->cloud_movement_direction[0] = 1.f;
     this->cloud_movement_direction[1] = 1.f;
     this->cloud_movement_direction[2] = 1.f;
+
+    this->cloud_num_march_steps = 8;
+    this->cloud_num_march_steps_to_light = 3;
 
     this->shadow_map_res_index = 3;
     this->shadow_resolution_changed = false;
@@ -139,6 +146,8 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
         if (ImGui::TreeNode("Cloud Settings")) {
 
             ImGui::SliderInt("Speed", &cloud_speed, 0, 15);
+            ImGui::SliderInt("# march steps", &cloud_num_march_steps, 1, 16);
+            ImGui::SliderInt("# march steps to light", &cloud_num_march_steps_to_light, 1, 16);
             ImGui::SliderFloat3("Movement Direction", cloud_movement_direction, -10.f, 10.0f);
             ImGui::SliderFloat("Illumination intensity", &cloud_scale, 0.f, 1.0f);
             ImGui::SliderFloat("Density", &cloud_density, 0.f, 1.0f);
@@ -146,6 +155,7 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
             ImGui::SliderFloat("Cirrus effect", &cloud_cirrus_effect, 0.f, 1.0f);
             ImGui::Checkbox("Powder effect", &cloud_powder_effect);
             ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 100.0f);
+            ImGui::SliderFloat3("Translation", cloud_mesh_offset, -40.f, 40.0f);
 
             ImGui::TreePop();
         }
@@ -217,6 +227,7 @@ void GUI::update_user_input(std::shared_ptr<Scene> scene)
                             cloud_movement_direction[2]);
 
     std::shared_ptr<Clouds> clouds = scene->get_clouds();
+
     clouds->set_movement_direction(cloud_move);
     clouds->set_movement_speed(cloud_speed);
     clouds->set_density(cloud_density);
@@ -224,7 +235,14 @@ void GUI::update_user_input(std::shared_ptr<Scene> scene)
     clouds->set_pillowness(cloud_pillowness);
     clouds->set_cirrus_effect(cloud_cirrus_effect);
     clouds->set_powder_effect(cloud_powder_effect);
-    clouds->set_scale(glm::vec3(cloud_mesh_scale[0], cloud_mesh_scale[1], cloud_mesh_scale[2]));
+
+    clouds->set_scale(  glm::vec3(  cloud_mesh_scale[0], 
+                                    cloud_mesh_scale[1], 
+                                    cloud_mesh_scale[2]));
+
+    clouds->set_translation(glm::vec3(  cloud_mesh_offset[0], 
+                                        cloud_mesh_offset[1], 
+                                        cloud_mesh_offset[2]));
 
     GLuint shadow_map_resolution = 4096;
 

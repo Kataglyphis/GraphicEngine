@@ -29,6 +29,8 @@ public:
 	GLfloat		get_scale();
 	GLfloat		get_pillowness();
 	GLfloat		get_cirrus_effect();
+	GLuint		get_num_march_steps();
+	GLuint		get_num_march_steps_to_light();
 	bool		get_powder_effect();
 
 	void		set_powder_effect(bool cloud_powder_effect);
@@ -40,6 +42,8 @@ public:
 	void		set_scale(glm::vec3 scale);
 	void		set_translation(glm::vec3 translation);
 	void		set_movement_direction(glm::vec3 movement_dir);
+	void		set_num_march_steps(GLuint num_march_steps);
+	void		set_num_march_steps_to_light(GLuint num_march_steps_to_light);
 
 	std::shared_ptr<ShaderProgram> get_shader_program();
 
@@ -55,6 +59,8 @@ private:
 	glm::vec3 scale_factor, translation;
 
 	GLfloat movement_speed, density, scale, pillowness, cirrus_effect;
+
+	GLuint	num_march_steps, num_march_steps_to_light;
 
 	bool powder_effect;
 

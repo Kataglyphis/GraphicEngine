@@ -59,7 +59,7 @@ float Sin2Phi(const vec3 w, vec3 N) {
 // oN is the normal in world space
 // oU contains the UVs at the intersection point
 // oF contains the index if the intersected face [0..5]
-// source: https://iquilezles.org/articles/intersectors/
+// source: https://iquilezles.org/articles/boxfunctions/
 bool box_intersect_with_ray(in vec3 row, in vec3 rdw, in mat4 txx, in mat4 txi, in vec3 rad,
     out vec2 oT, out vec3 oN, out vec2 oU, out int oF)
 {
