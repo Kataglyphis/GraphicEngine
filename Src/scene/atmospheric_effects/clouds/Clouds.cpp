@@ -117,8 +117,8 @@ void Clouds::set_translation(glm::vec3 translation)
 glm::mat4 Clouds::get_model()
 {
 	glm::mat4 model = glm::mat4(1.f);
-	model = glm::scale(model, scale_factor);
 	model = glm::translate(model, translation);
+	model = glm::scale(model, scale_factor);
 	return model;
 }
 

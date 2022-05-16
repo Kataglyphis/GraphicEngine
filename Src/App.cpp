@@ -51,7 +51,7 @@ int main()
                                                                     glm::vec3(0.0f, 1.0f, 0.0f), 
                                                                     -60.0f,
                                                                     0.0f, 35.0f, 0.25f,
-                                                                    0.1f, 500.f, 45.f);
+                                                                    0.1f, 1000.f, 45.f);
 
     std::shared_ptr<Scene> scene = std::make_shared<Scene>();
     scene->init(main_camera, main_window);

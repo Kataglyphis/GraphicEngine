@@ -30,7 +30,7 @@ GUI::GUI()
     this->cloud_mesh_scale[2] = 100.f;
 
     this->cloud_mesh_offset[0] = -.364f;
-    this->cloud_mesh_offset[1] = 13.8f;
+    this->cloud_mesh_offset[1] = 200.f;
     this->cloud_mesh_offset[2] = -.351f;
 
     this->cloud_powder_effect = false;
@@ -146,16 +146,16 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
         if (ImGui::TreeNode("Cloud Settings")) {
 
             ImGui::SliderInt("Speed", &cloud_speed, 0, 15);
-            ImGui::SliderInt("# march steps", &cloud_num_march_steps, 1, 16);
-            ImGui::SliderInt("# march steps to light", &cloud_num_march_steps_to_light, 1, 16);
+            ImGui::SliderInt("# march steps", &cloud_num_march_steps, 1, 128);
+            ImGui::SliderInt("# march steps to light", &cloud_num_march_steps_to_light, 1, 128);
             ImGui::SliderFloat3("Movement Direction", cloud_movement_direction, -10.f, 10.0f);
             ImGui::SliderFloat("Illumination intensity", &cloud_scale, 0.f, 1.0f);
             ImGui::SliderFloat("Density", &cloud_density, 0.f, 1.0f);
             ImGui::SliderFloat("Pillowness", &cloud_pillowness, 0.f, 1.0f);
             ImGui::SliderFloat("Cirrus effect", &cloud_cirrus_effect, 0.f, 1.0f);
             ImGui::Checkbox("Powder effect", &cloud_powder_effect);
-            ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 100.0f);
-            ImGui::SliderFloat3("Translation", cloud_mesh_offset, -40.f, 40.0f);
+            ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 200.0f);
+            ImGui::SliderFloat3("Translation", cloud_mesh_offset, -200.f, 200.0f);
 
             ImGui::TreePop();
         }

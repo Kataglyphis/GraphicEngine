@@ -16,6 +16,6 @@ void main()
   {
 
     g_albedo = texture(skybox, tex_coords).xyz;
-    g_material_id = vec3(CLOUDS_MATERIAL_ID);
+    g_material_id = vec3(SKYBOX_MATERIAL_ID);
 
   }
