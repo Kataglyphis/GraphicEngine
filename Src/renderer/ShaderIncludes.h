@@ -16,7 +16,6 @@ private:
 
     std::vector<const char*> includeNames = {
             "host_device_shared.h",
-            "Globals.glsl",
             "Matlib.glsl",
             "microfacet.glsl",
             "ShadingLibrary.glsl",
@@ -29,12 +28,15 @@ private:
             "grad_noise.glsl",
             "worley_noise.glsl",
             "bindings.h",
-            "GlobalValues.h"
+            "GlobalValues.h",
+            "directional_light.glsl",
+            "light.glsl", 
+            "material.glsl",
+            "point_light.glsl"
     };
 
     std::vector<const char*> file_locations_relative = {
             "/Src/host_device_shared.h",
-            "/Resources/Shaders/common/Globals.glsl",
             "/Resources/Shaders/common/Matlib.glsl",
             "/Resources/Shaders/pbr/microfacet.glsl",
             "/Resources/Shaders/common/ShadingLibrary.glsl" ,
@@ -48,6 +50,10 @@ private:
             "/Resources/Shaders/common/worley_noise.glsl",
             "/Src/bindings.h",
             "/Src/GlobalValues.h",
+            "/Resources/Shaders/common/directional_light.glsl",
+            "/Resources/Shaders/common/light.glsl",
+            "/Resources/Shaders/common/material.glsl",
+            "/Resources/Shaders/common/point_light.glsl"
     };
 
 };

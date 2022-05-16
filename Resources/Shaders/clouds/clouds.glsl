@@ -1,6 +1,6 @@
 #include "/host_device_shared.h"
 #include "/Matlib.glsl"
-#include "/Globals.glsl"
+#include "/directional_light.glsl"
 
 #ifndef CLOUDS
 #define CLOUDS

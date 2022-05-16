@@ -1,7 +1,8 @@
 #version 460
 #extension GL_ARB_shading_language_include : require
 
-#include "/Globals.glsl"
+#include "/material.glsl"
+
 #include "/host_device_shared.h"
 #include "/bindings.h"
 

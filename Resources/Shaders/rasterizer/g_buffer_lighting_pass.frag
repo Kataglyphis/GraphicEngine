@@ -2,11 +2,14 @@
 
 #extension GL_ARB_shading_language_include : require
 
-#include "/Globals.glsl"
 #include "/host_device_shared.h"
 #include "/bindings.h"
 
 #include "/Matlib.glsl"
+
+#include "/material.glsl"
+#include "/directional_light.glsl"
+#include "/point_light.glsl"
 
 #include "/microfacet.glsl"
 #include "/disney.glsl"
@@ -60,109 +63,6 @@ uniform mat4 view;
 uniform mat4 projection;
 
 
-//all sample directions for our omni directional shader
-vec3 sample_offset_directions[20] = vec3[] (
-    vec3( 1, 1, 1), vec3( 1,-1, 1), vec3(-1,-1, 1), vec3(-1, 1, 1),
-    vec3( 1, 1,-1), vec3( 1,-1,-1), vec3(-1,-1,-1), vec3(-1, 1,-1),
-    vec3( 1, 1, 0), vec3( 1,-1, 0), vec3(-1,-1, 0), vec3(-1, 1, 0),
-    vec3( 1, 0, 1), vec3(-1, 0, 1), vec3( 1, 0,-1), vec3(-1, 0,-1),
-    vec3( 0, 1, 1), vec3( 0,-1, 1), vec3( 0,-1,-1), vec3( 0, 1,-1)
-);
-
-float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
-    
-     //PCF
-    float current_depth = proj_coords.z;
-    float shadow = 0.0f;
-    vec2 texel_size = 1.0f / textureSize(directional_shadow_maps, 0).xy;
-    float num_neighbors = 0.0f;
-
-    for(int x = -pcf_radius; x <= pcf_radius; x++) {
-        for(int y = -pcf_radius; y <= pcf_radius; y++) {
-            
-            vec3 proj_neighbor = vec3(proj_coords.xy + vec2(x,y) * texel_size, 1.0);
-            float closest_depth_neighbor = texture(directional_shadow_maps, vec3(proj_coords.xy + 
-                                                    vec2(x, y) * texel_size, cascade_index)).r;
-            shadow += current_depth > closest_depth_neighbor + 0.001f  ? 1.0f : 0.0f;
-            num_neighbors++;
-
-        }
-    }
-
-    shadow /= num_neighbors;
-
-    if(proj_coords.z >= 1.0) {
-        shadow = 0.0f;
-    }
-
-    return shadow;
-
-}
-
-//with PCF; cascaded approach
-float calc_directional_shadow_factor(DirectionalLight d_light, vec4 frag_pos, vec3 N) {
-    
-    vec4 fragPosWorldSpace = vec4(frag_pos.xyz, 1.0f);
-    vec4 fragPosViewSpace = view * fragPosWorldSpace;
-    float frag_depth = abs(fragPosViewSpace.z);
-    int cascade_index = -1;
-
-    for(int i = 0; i < NUM_CASCADES; i++) {
-
-        if (frag_depth  < cascade_endpoints[i]) {
-            cascade_index = i;
-            break;
-        }
-
-    }
-
-    if(cascade_index == -1) cascade_index = NUM_CASCADES;
-
-    vec4 fragPosLightSpace = lightSpaceMatrices[cascade_index] * fragPosWorldSpace;
-
-    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
-    // transform to [0,1] range
-    projCoords = projCoords * 0.5 + 0.5;
-
-    // get depth of current fragment from light's perspective
-    float currentDepth = projCoords.z;
-
-    // keep the shadow at 0.0 when outside the far_plane region of the light's frustum.
-    if (currentDepth > 1.0)
-    {
-        return 0.0;
-    }
-
-    // calculate bias (based on depth map resolution and slope)
-    float bias = max(0.05 * (1.0 - dot(N, d_light.direction)), 0.005);
-    const float biasModifier = 0.5f;
-    if (cascade_index == NUM_CASCADES)
-    {
-        float farPlane = cascade_endpoints[NUM_CASCADES - 1];
-        bias *= 1 / (farPlane * biasModifier);
-    }
-    else
-    {
-        bias *= 1 / (cascade_endpoints[cascade_index] * biasModifier);
-    }
-
-    // PCF
-    float shadow = 0.0;
-    vec2 texelSize = 1.0 / vec2(textureSize(directional_shadow_maps, 0));
-    for(int x = -1; x <= 1; ++x)
-    {
-        for(int y = -1; y <= 1; ++y)
-        {
-            float pcfDepth = texture(directional_shadow_maps, vec3(projCoords.xy + vec2(x, y) * texelSize, cascade_index)).r;
-            shadow += (currentDepth - bias) > pcfDepth ? 1.0 : 0.0;        
-        }    
-    }
-
-    shadow /= 9.0;
-        
-    return shadow;
-}
-
 vec4 calc_light_by_direction(   Light light, vec3 direction, float shadow_factor,
                                 vec4 albedo, vec4 frag_pos, int material_id, vec3 N) {
 
@@ -194,52 +94,15 @@ vec4 calc_light_by_direction(   Light light, vec3 direction, float shadow_factor
 
 vec4 calc_directional_light(vec4 albedo, vec4 frag_pos, int material_id, vec3 N) {
     
-    float shadow_factor = calc_directional_shadow_factor(directional_light, frag_pos, N);
+    float shadow_factor = calc_directional_shadow_factor(   directional_light, 
+                                                            directional_shadow_maps,
+                                                            pcf_radius,
+                                                            frag_pos, N, view,
+                                                            cascade_endpoints, 
+                                                            lightSpaceMatrices);
+
     return calc_light_by_direction( directional_light.base, directional_light.direction, shadow_factor,
                                     albedo, frag_pos, material_id, N);
-
-}
-
-float calc_omni_shadow_factor(vec3 frag_pos, PointLight p_light, int shadow_index) {
-    
-    vec3 frag_to_light  = frag_pos - p_light.position;
-    float current_depth = length(frag_to_light);
-
-    float shadow        = 0.0f;
-    float bias          = 0.05f;
-    int num_samples     = 20;
-
-    float view_distance = length(eye_position - frag_pos);
-    float disk_radius   = (1.0f + (view_distance/omni_shadow_maps[shadow_index].far_plane)) / 25.0;
-
-    //PCF
-    for(int i = 0; i < num_samples; i++) {
-        float closest_depth = texture(omni_shadow_maps[shadow_index].shadow_map, frag_to_light + sample_offset_directions[i] * disk_radius).r;
-                closest_depth *= omni_shadow_maps[shadow_index].far_plane;
-                if(current_depth - bias > closest_depth) {
-                    shadow += 1.0f;
-                }
-    }
-
-    shadow /= float(num_samples); 
-
-    return shadow;
-
-}
-
-vec4 calc_point_light(vec3 frag_pos, PointLight p_light, int shadow_index) {
-        
-    vec3 direction      = p_light.position - frag_pos;
-    float dist          = length(direction);
-    direction           = normalize(direction);
-
-    float shadow_factor = calc_omni_shadow_factor(frag_pos, p_light, shadow_index);
-
-    vec4 color          = vec4(p_light.base.color, 1.0f);//calc_light_by_direction(p_light.base, direction, shadow_factor); // 
-    //float attentuation =1.0f * dist ;//pow(distance,2) ;
-    float attentuation  =  (p_light.exponent * dist * dist) +  (p_light.linear * dist);
-
-    return (color / attentuation);
 
 }
 
@@ -249,7 +112,8 @@ vec4 calc_point_lights(vec4 frag_pos) {
 
     for(int i = 0; i < point_light_count; i++) {
 
-        total_color += calc_point_light(frag_pos.xyz, point_lights[i], i);
+        total_color += calc_point_light(frag_pos.xyz, eye_position,
+                                        point_lights[i], omni_shadow_maps[i]);
 
     }
 
