@@ -36,6 +36,7 @@ public:
 private:
 
 	GLFWwindow* main_window;
+
 	GLint window_width, window_height;
 	// what key(-s) was/were pressed
 	bool keys[1024];

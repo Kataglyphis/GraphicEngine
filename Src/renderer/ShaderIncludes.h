@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <glad/glad.h>
 
 // https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_include.txt
 class ShaderIncludes

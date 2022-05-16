@@ -25,9 +25,9 @@ GUI::GUI()
     this->cloud_pillowness      = 0.966f;
     this->cloud_cirrus_effect   = 0.0f;
 
-    this->cloud_mesh_scale[0] = 10.f;
+    this->cloud_mesh_scale[0] = 100.f;
     this->cloud_mesh_scale[1] = 10.f;
-    this->cloud_mesh_scale[2] = 10.f;
+    this->cloud_mesh_scale[2] = 100.f;
 
     this->cloud_powder_effect = false;
 

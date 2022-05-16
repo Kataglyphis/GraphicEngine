@@ -4,8 +4,11 @@
 
 #include <memory>
 #include <vector>
+#include <string>
+#include <iostream>
 
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "File.h"
 #include "GUI.h"
@@ -27,7 +30,7 @@ int main()
 
     GLint window_width = 1200;
     GLint window_height = 800;
-    
+
     // make sure ti initialize window first
     // this will create opengl context!
     std::shared_ptr<Window> main_window = std::make_shared<Window>(window_width, window_height);

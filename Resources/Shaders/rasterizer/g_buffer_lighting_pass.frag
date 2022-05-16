@@ -50,8 +50,8 @@ uniform sampler2D   random_number;
 
 //all other uniforms
 uniform PointLight      point_lights[MAX_POINT_LIGHTS];
-uniform int             point_light_count;
 uniform OmniShadowMap   omni_shadow_maps[MAX_POINT_LIGHTS];
+uniform int             point_light_count;
 
 uniform Material    materials[MAX_MATERIALS];
 
@@ -100,18 +100,18 @@ float percentage_closer_shadow_filtering(int cascade_index, vec3 proj_coords) {
 }
 
 //with PCF; cascaded approach
-float calc_directional_shadow_factor(DirectionalLight d_light) {
+float calc_directional_shadow_factor(DirectionalLight d_light, vec4 frag_pos, vec3 N) {
     
-    vec4 fragPosWorldSpace = vec4(texture(g_position, tex_coords).xyz, 1.0f);
+    vec4 fragPosWorldSpace = vec4(frag_pos.xyz, 1.0f);
     vec4 fragPosViewSpace = view * fragPosWorldSpace;
     float frag_depth = abs(fragPosViewSpace.z);
     int cascade_index = -1;
 
     for(int i = 0; i < NUM_CASCADES; i++) {
+
         if (frag_depth  < cascade_endpoints[i]) {
             cascade_index = i;
             break;
-
         }
 
     }
@@ -132,9 +132,9 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
     {
         return 0.0;
     }
+
     // calculate bias (based on depth map resolution and slope)
-    vec3 normal = normalize(texture(g_normal, tex_coords).rgb);
-    float bias = max(0.05 * (1.0 - dot(normal, d_light.direction)), 0.005);
+    float bias = max(0.05 * (1.0 - dot(N, d_light.direction)), 0.005);
     const float biasModifier = 0.5f;
     if (cascade_index == NUM_CASCADES)
     {
@@ -163,14 +163,10 @@ float calc_directional_shadow_factor(DirectionalLight d_light) {
     return shadow;
 }
 
-vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
+vec4 calc_light_by_direction(   Light light, vec3 direction, float shadow_factor,
+                                vec4 albedo, vec4 frag_pos, int material_id, vec3 N) {
 
-    int material_id = int(texture(g_material_id, tex_coords).r);
-    vec3 ambient    = texture(g_albedo, tex_coords).rgb;
-    vec3 frag_pos   = texture(g_position, tex_coords).rgb;
-    vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
-
-    vec3 V          = normalize(eye_position - frag_pos);
+    vec3 V          = normalize(eye_position - frag_pos.xyz);
     vec3 L          = normalize(-direction);
     vec3 H          = normalize(V+L);
     
@@ -180,15 +176,15 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
     int mode = 4;
 	switch (mode) {
-	case 0: color += evaluteUnreal4PBR(ambient, N, L, V, roughness, light.color, light.radiance);
+	case 0: color += evaluteUnreal4PBR(albedo.xyz, N, L, V, roughness, light.color, light.radiance);
 		break;
-	case 1: color += evaluatePBRBooksPBR(ambient, N, L, V, roughness, light.color, light.radiance);
+	case 1: color += evaluatePBRBooksPBR(albedo.xyz, N, L, V, roughness, light.color, light.radiance);
 		break;
-	case 2: color += evaluateDisneysPBR(ambient, N, L, V, roughness, light.color, light.radiance);
+	case 2: color += evaluateDisneysPBR(albedo.xyz, N, L, V, roughness, light.color, light.radiance);
 		break;
-	case 3: color += evaluatePhong(ambient, N, L, V, light.color, light.radiance);
+	case 3: color += evaluatePhong(albedo.xyz, N, L, V, light.color, light.radiance);
 		break;		
-	case 4: color += evaluateFrostbitePBR(ambient, N, L, V, roughness, light.color, light.radiance);
+	case 4: color += evaluateFrostbitePBR(albedo.xyz, N, L, V, roughness, light.color, light.radiance);
 		break;
 	}
 
@@ -196,24 +192,25 @@ vec4 calc_light_by_direction(Light light, vec3 direction, float shadow_factor) {
 
 }
 
-vec4 calc_directional_light() {
+vec4 calc_directional_light(vec4 albedo, vec4 frag_pos, int material_id, vec3 N) {
     
-    float shadow_factor = calc_directional_shadow_factor(directional_light);
-    return calc_light_by_direction(directional_light.base, directional_light.direction, shadow_factor);
+    float shadow_factor = calc_directional_shadow_factor(directional_light, frag_pos, N);
+    return calc_light_by_direction( directional_light.base, directional_light.direction, shadow_factor,
+                                    albedo, frag_pos, material_id, N);
 
 }
 
 float calc_omni_shadow_factor(vec3 frag_pos, PointLight p_light, int shadow_index) {
     
-    vec3 frag_to_light = frag_pos - p_light.position;
+    vec3 frag_to_light  = frag_pos - p_light.position;
     float current_depth = length(frag_to_light);
 
-    float shadow = 0.0f;
-    float bias = 0.05f;
-    int num_samples = 20;
+    float shadow        = 0.0f;
+    float bias          = 0.05f;
+    int num_samples     = 20;
 
     float view_distance = length(eye_position - frag_pos);
-    float disk_radius = (1.0 + (view_distance/omni_shadow_maps[shadow_index].far_plane)) / 25.0;
+    float disk_radius   = (1.0f + (view_distance/omni_shadow_maps[shadow_index].far_plane)) / 25.0;
 
     //PCF
     for(int i = 0; i < num_samples; i++) {
@@ -232,28 +229,27 @@ float calc_omni_shadow_factor(vec3 frag_pos, PointLight p_light, int shadow_inde
 
 vec4 calc_point_light(vec3 frag_pos, PointLight p_light, int shadow_index) {
         
-    vec3 direction = p_light.position - frag_pos;
-    float dist = length(direction);
-    direction = normalize(direction);
+    vec3 direction      = p_light.position - frag_pos;
+    float dist          = length(direction);
+    direction           = normalize(direction);
 
     float shadow_factor = calc_omni_shadow_factor(frag_pos, p_light, shadow_index);
 
-    vec4 color = vec4(p_light.base.color, 1.0f);//calc_light_by_direction(p_light.base, direction, shadow_factor); // 
+    vec4 color          = vec4(p_light.base.color, 1.0f);//calc_light_by_direction(p_light.base, direction, shadow_factor); // 
     //float attentuation =1.0f * dist ;//pow(distance,2) ;
-    float attentuation =  (p_light.exponent * dist * dist) +  (p_light.linear * dist);
+    float attentuation  =  (p_light.exponent * dist * dist) +  (p_light.linear * dist);
 
     return (color / attentuation);
 
 }
 
-vec4 calc_point_lights() {
+vec4 calc_point_lights(vec4 frag_pos) {
 
-    vec3 frag_pos = texture(g_position, tex_coords).rgb;
     vec4 total_color = vec4(0.0f,0.0f,0.0f,0.0f);
 
     for(int i = 0; i < point_light_count; i++) {
 
-        total_color += calc_point_light(frag_pos, point_lights[i], i);
+        total_color += calc_point_light(frag_pos.xyz, point_lights[i], i);
 
     }
 
@@ -277,10 +273,11 @@ void main () {
     vec4 albedo     = texture(g_albedo, tex_coords);
     vec4 frag_pos   = texture(g_position, tex_coords);
     int material_id = int(texture(g_material_id, tex_coords).r);
+    vec3 N          = normalize(texture(g_normal, tex_coords).rgb);
     float rnd_numb  = texture(random_number, tex_coords).r;
 
-    vec4 final_color = calc_directional_light();
-    // final_color += calc_point_lights();
+    vec4 final_color = calc_directional_light(albedo, frag_pos, material_id, N);
+    // final_color += calc_point_lights(frag_pos);
 
     if(belongs_to_skybox(material_id) || belongs_to_clouds(material_id)) {
         // here we only hit the skybox/ or clouds; avoid shading!

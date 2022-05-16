@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glad/glad.h>
 #include "DirectionalShadowMapPass.h"
 #include "OmniShadowMapPass.h"
 #include "LightingPass.h"

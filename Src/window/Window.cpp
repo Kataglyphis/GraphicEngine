@@ -28,7 +28,7 @@ Window::Window(GLint window_width, GLint window_height) {
 }
 
 int Window::initialize() {
-    
+
     if (!glfwInit()) {
 
         printf("GLFW Init failed!");

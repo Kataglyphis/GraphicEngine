@@ -88,7 +88,7 @@ void Scene::load_models()
     sponza_rot.degrees = 0.0f;
     sponza_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    glm::vec3 clouds_offset = glm::vec3(1.f, 80.0f, 1.0f);
+    glm::vec3 clouds_offset = glm::vec3(1.f, 160.0f, 1.0f);
     glm::vec3 clouds_scale = glm::vec3(1.f, 1.f, 1.f);
     clouds->set_scale(clouds_scale);
     clouds->set_translation(clouds_offset);

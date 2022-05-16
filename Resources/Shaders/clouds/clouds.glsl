@@ -44,7 +44,7 @@ float sample_density(   vec3 position, Clouds cloud,
                             + 0.15f * max(0.0f, noise_32.g - cloud.threshold) * cloud.scale
                             + 0.15f * max(0.0f, noise_32.b - cloud.threshold) * cloud.scale;
 
-    return  base_density;// + fine_density * 0.3f;
+    return  base_density + fine_density * 0.3f;
 
 }
 
