@@ -22,7 +22,7 @@ public:
 	glm::mat4	get_model() const;
 	glm::vec3	get_movement_direction()		const { return movement_direction; };
 	glm::vec3	get_radius()					const { return scale_factor / 2.f; };
-	glm::mat4	get_normal_model()				const { glm::transpose(glm::inverse(model)); };
+	glm::mat4	get_normal_model()				const { return glm::transpose(glm::inverse(model)); };
 	glm::vec3	get_mesh_scale()				const { return scale_factor; };
 	GLfloat		get_movement_speed()			const { return movement_speed; };
 	GLfloat		get_density()					const { return density; };

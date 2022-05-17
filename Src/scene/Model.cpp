@@ -38,7 +38,7 @@ void Model::create_render_context()
 {
     texture_list.resize(textures.size());
 
-    for (int i = 0; i < textures.size(); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(textures.size()); i++) {
 
         texture_list[i] = std::make_shared<Texture>(textures[i].c_str(), std::make_shared<RepeatMode>());
 

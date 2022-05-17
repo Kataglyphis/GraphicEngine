@@ -19,7 +19,7 @@ SkyBox::SkyBox()
 
 	std::vector<std::string> skybox_faces;
 
-	for (int i = 0; i < skybox_textures.size(); i++) {
+	for (uint32_t i = 0; i < static_cast<uint32_t>(skybox_textures.size()); i++) {
 
 		texture_loading << skybox_base_dir.str() << skybox_textures[i];
 		skybox_faces.push_back(texture_loading.str());

@@ -72,7 +72,6 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
     shader_program->setUniformVec3(     main_light->get_direction(), "directional_light.direction");
 
     // EVERYTHING REGARDING THE SHADOW CASCADE
-    glm::mat4 light_view = main_light->get_light_view_matrix();
     shader_program->setUniformInt(  D_LIGHT_SHADOW_TEXTURES_SLOT, 
                                     "directional_shadow_maps");
 
@@ -96,8 +95,6 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 
     // POINT LIGHTS
     std::vector<std::shared_ptr<PointLight>>    point_lights = scene->get_point_lights();
-    GLuint                                      point_light_count = scene->get_point_light_count();
-
 
     shader_program->setUniformInt(static_cast<uint32_t>(point_lights.size()), "point_light_count");
 

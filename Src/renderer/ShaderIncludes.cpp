@@ -17,7 +17,7 @@ ShaderIncludes::ShaderIncludes()
     assert(includeNames.size() == file_locations_relative.size());
 
     std::vector<std::string> file_locations_abs;
-    for (int i = 0; i < includeNames.size(); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
 
         std::stringstream aux;
         aux << CMAKELISTS_DIR;
@@ -25,7 +25,7 @@ ShaderIncludes::ShaderIncludes()
         file_locations_abs.push_back(aux.str());
     }
 
-    for (int i = 0; i < includeNames.size(); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
 
         File file(file_locations_abs[i]);
         std::string file_content = file.read();

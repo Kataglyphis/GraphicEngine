@@ -35,7 +35,7 @@ void GeometryPass::execute( glm::mat4               projection_matrix,
     shader_program->setUniformMatrix4fv(view_matrix, "view");
 
     std::stringstream ss;
-    for (uint32_t i = 0; i < scene->get_texture_count(0); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(scene->get_texture_count(0)); i++) {
 
         ss << "model_textures[" << i << "]";
         shader_program->setUniformInt(MODEL_TEXTURES_SLOT + i, ss.str());

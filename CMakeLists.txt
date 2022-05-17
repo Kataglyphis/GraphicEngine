@@ -198,7 +198,7 @@ source_group("app"                                      FILES ${MAIN_FILTER})
 #set all your sources accordingly
 file(GLOB_RECURSE SOURCES "Src/*.cpp"
                           "Src/*.c"
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/GLAD/*.cpp
+                          ${PROJECT_BINARY_DIR}/../ExternalLib/GLAD/*.c
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
                           ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
