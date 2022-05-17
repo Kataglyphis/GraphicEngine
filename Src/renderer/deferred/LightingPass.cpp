@@ -1,13 +1,11 @@
 #include "LightingPass.h"
 
-LightingPass::LightingPass()
-{
-}
+LightingPass::LightingPass() :
 
-void LightingPass::init()
-{
+            current_offset(glm::vec3(0.0f)),
+            quad()
 
-    current_offset          = glm::vec3(0.0f);
+{
 
     create_shader_program();
 
@@ -38,7 +36,7 @@ void LightingPass::execute( glm::mat4 projection_matrix,
     main_light->get_shadow_map()->read(D_LIGHT_SHADOW_TEXTURES_SLOT);
     cloud->read();
 
-    for (int i = 0; i < static_cast<GLuint>(point_lights.size()); i++) {
+    for (uint32_t i = 0; i < static_cast<GLuint>(point_lights.size()); i++) {
         point_lights[i]->get_omni_shadow_map()->read(P_LIGHT_SHADOW_TEXTURES_SLOT + i);
     }
 
@@ -80,12 +78,14 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 
     std::vector<GLfloat> cascade_slots              = main_light->get_cascaded_slots();
 
+    std::stringstream ss;
     for (uint32_t i = 0; i < NUM_CASCADES; i++) {
 
         glm::vec4 clip_end_slot = projection_matrix * glm::vec4(0.0f, 0.0f, -cascade_slots[i+1], 1.0f);
-        char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "cascade_endpoints[%ui]", i);
-        shader_program->setUniformFloat(clip_end_slot.z, loc_buff);
+        ss << "cascade_endpoints[" << i << "]";
+        shader_program->setUniformFloat(clip_end_slot.z, ss.str());
+        ss.clear();
+        ss.str(std::string());
 
     }
 
@@ -103,32 +103,45 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 
     for (uint32_t i = 0; i < static_cast<uint32_t>(point_lights.size()); i++) {
 
-        char loc_buff[100] = { '\0' };
+        ss << "point_lights[" << i << "].base.color";
+        shader_program->setUniformVec3(point_lights[i]->get_color(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].base.color", i);
-        shader_program->setUniformVec3(point_lights[i]->get_color(), loc_buff);
+        ss << "point_lights[" << i << "].base.radiance";
+        shader_program->setUniformFloat(point_lights[i]->get_radiance(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].base.radiance", i);
-        shader_program->setUniformFloat(point_lights[i]->get_radiance(), loc_buff);
+        ss << "point_lights[" << i << "].position";
+        shader_program->setUniformVec3(point_lights[i]->get_position(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].position", i);
-        shader_program->setUniformVec3(point_lights[i]->get_position(), loc_buff);
+        ss << "point_lights[" << i << "].base.constant";
+        shader_program->setUniformFloat(point_lights[i]->get_constant_factor(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].constant", i);
-        shader_program->setUniformFloat(point_lights[i]->get_constant_factor(), loc_buff);
+        ss << "point_lights[" << i << "].linear";
+        shader_program->setUniformFloat(point_lights[i]->get_linear_factor(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].linear", i);
-        shader_program->setUniformFloat(point_lights[i]->get_linear_factor(), loc_buff);
+        ss << "point_lights[" << i << "].exponent";
+        shader_program->setUniformFloat(point_lights[i]->get_exponent_factor(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].exponent", i);
-        shader_program->setUniformFloat(point_lights[i]->get_exponent_factor(), loc_buff);
+        ss << "omni_shadow_maps[" << i << "].shadow_map";
+        shader_program->setUniformInt((GLint)(P_LIGHT_SHADOW_TEXTURES_SLOT + i), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        //unofrom locations for omni shadow maps
-        snprintf(loc_buff, sizeof(loc_buff), "omni_shadow_maps[%ui].shadow_map", i);
-        shader_program->setUniformInt((GLint)(P_LIGHT_SHADOW_TEXTURES_SLOT + i), loc_buff);
-
-        snprintf(loc_buff, sizeof(loc_buff), "omni_shadow_maps[%ui].far_plane", i);
-        shader_program->setUniformInt(point_lights[i]->get_far_plane(), loc_buff);
+        ss << "omni_shadow_maps[" << i << "]far_plane";
+        shader_program->setUniformInt(point_lights[i]->get_far_plane(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
     }
 
@@ -140,37 +153,55 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
     std::vector<ObjMaterial> materials = scene->get_materials();
     for (uint32_t i = 0; i < static_cast<uint32_t>(materials.size()); i++) {
 
-        char loc_buff[100] = { '\0' };
+        ss << "materials[" << i << "].ambient";
+        shader_program->setUniformVec3(materials[i].get_ambient(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ambient", i);
-        shader_program->setUniformVec3(materials[i].get_ambient(), loc_buff);
+        ss << "materials[" << i << "].diffuse";
+        shader_program->setUniformVec3(materials[i].get_diffuse(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].diffuse", i);
-        shader_program->setUniformVec3(materials[i].get_diffuse(), loc_buff);
+        ss << "materials[" << i << "].specular";
+        shader_program->setUniformVec3(materials[i].get_specular(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].specular", i);
-        shader_program->setUniformVec3(materials[i].get_specular(), loc_buff);
+        ss << "materials[" << i << "].transmittance";
+        shader_program->setUniformVec3(materials[i].get_transmittance(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].transmittance", i);
-        shader_program->setUniformVec3(materials[i].get_transmittance(), loc_buff);
+        ss << "materials[" << i << "].emission";
+        shader_program->setUniformVec3(materials[i].get_emission(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].emission", i);
-        shader_program->setUniformVec3(materials[i].get_emission(), loc_buff);
+        ss << "materials[" << i << "].shininess";
+        shader_program->setUniformFloat(materials[i].get_shininess(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].shininess", i);
-        shader_program->setUniformFloat(materials[i].get_shininess(), loc_buff);
+        ss << "materials[" << i << "].ior";
+        shader_program->setUniformFloat(materials[i].get_ior(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ior", i);
-        shader_program->setUniformFloat(materials[i].get_ior(), loc_buff);
+        ss << "materials[" << i << "].dissolve";
+        shader_program->setUniformFloat(materials[i].get_dissolve(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].dissolve", i);
-        shader_program->setUniformFloat(materials[i].get_dissolve(), loc_buff);
+        ss << "materials[" << i << "].illum";
+        shader_program->setUniformInt(materials[i].get_illum(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].illum", i);
-        shader_program->setUniformInt(materials[i].get_illum(), loc_buff);
-
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].textureID", i);
-        shader_program->setUniformInt(materials[i].get_textureID(), loc_buff);
+        ss << "materials[" << i << "].textureID";
+        shader_program->setUniformInt(materials[i].get_textureID(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
     }
 
@@ -178,7 +209,7 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
     
     std::shared_ptr<Clouds> cloud = scene->get_clouds();
 
-    shader_program->setUniformVec3(cloud->get_rad(), "cloud.rad");
+    shader_program->setUniformVec3(cloud->get_radius(), "cloud.radius");
     GLfloat velocity = cloud->get_movement_speed() * delta_time;
     current_offset = current_offset + cloud->get_movement_direction() * velocity;
     shader_program->setUniformVec3(current_offset, "cloud.offset");

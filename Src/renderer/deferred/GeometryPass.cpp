@@ -34,47 +34,67 @@ void GeometryPass::execute( glm::mat4               projection_matrix,
     shader_program->setUniformMatrix4fv(projection_matrix, "projection");
     shader_program->setUniformMatrix4fv(view_matrix, "view");
 
+    std::stringstream ss;
     for (uint32_t i = 0; i < scene->get_texture_count(0); i++) {
 
-        char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "model_textures[%ui]", i);
-        shader_program->setUniformInt(MODEL_TEXTURES_SLOT + i, loc_buff);
+        ss << "model_textures[" << i << "]";
+        shader_program->setUniformInt(MODEL_TEXTURES_SLOT + i, ss.str());
+        ss.clear();
+        ss.str(std::string());
 
     }
 
     for (uint32_t i = 0; i < static_cast<uint32_t>(materials.size()); i++) {
 
-        char loc_buff[100] = { '\0' };
+        ss << "materials[" << i << "].ambient";
+        shader_program->setUniformVec3(materials[i].get_ambient(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ambient", i);
-        shader_program->setUniformVec3(materials[i].get_ambient(), loc_buff);
+        ss << "materials[" << i << "].diffuse";
+        shader_program->setUniformVec3(materials[i].get_diffuse(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].diffuse", i);
-        shader_program->setUniformVec3(materials[i].get_diffuse(), loc_buff);
+        ss << "materials[" << i << "].specular";
+        shader_program->setUniformVec3(materials[i].get_specular(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].specular", i);
-        shader_program->setUniformVec3(materials[i].get_specular(), loc_buff);
+        ss << "materials[" << i << "].transmittance";
+        shader_program->setUniformVec3(materials[i].get_transmittance(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].transmittance", i);
-        shader_program->setUniformVec3(materials[i].get_transmittance(), loc_buff);
+        ss << "materials[" << i << "].emission";
+        shader_program->setUniformVec3(materials[i].get_emission(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].emission", i);
-        shader_program->setUniformVec3(materials[i].get_emission(), loc_buff);
+        ss << "materials[" << i << "].shininess";
+        shader_program->setUniformFloat(materials[i].get_shininess(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].shininess", i);
-        shader_program->setUniformFloat(materials[i].get_shininess(), loc_buff);
+        ss << "materials[" << i << "].ior";
+        shader_program->setUniformFloat(materials[i].get_ior(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ior", i);
-        shader_program->setUniformFloat(materials[i].get_ior(), loc_buff);
+        ss << "materials[" << i << "].dissolve";
+        shader_program->setUniformFloat(materials[i].get_dissolve(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].dissolve", i);
-        shader_program->setUniformFloat(materials[i].get_dissolve(), loc_buff);
+        ss << "materials[" << i << "].illum";
+        shader_program->setUniformInt(materials[i].get_illum(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].illum", i);
-        shader_program->setUniformInt(materials[i].get_illum(), loc_buff);
-
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].textureID", i);
-        shader_program->setUniformInt(materials[i].get_textureID(), loc_buff);
+        ss << "materials[" << i << "].textureID";
+        shader_program->setUniformInt(materials[i].get_textureID(), ss.str());
+        ss.clear();
+        ss.str(std::string());
 
     }
 

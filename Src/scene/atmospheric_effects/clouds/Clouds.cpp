@@ -123,66 +123,6 @@ glm::mat4 Clouds::get_model() const
 	return model;
 }
 
-glm::vec3 Clouds::get_movement_direction() const
-{
-	return movement_direction;
-}
-
-glm::vec3 Clouds::get_rad() const
-{
-	return scale_factor / 2.f;
-}
-
-glm::mat4 Clouds::get_normal_model() const
-{
-	return glm::transpose(glm::inverse(model));
-}
-
-glm::vec3 Clouds::get_mesh_scale() const
-{
-	return this->scale_factor;
-}
-
-GLfloat Clouds::get_movement_speed() const
-{
-	return movement_speed / 10.f;
-}
-
-GLfloat Clouds::get_density() const
-{
-	return density;
-}
-
-GLfloat Clouds::get_scale() const
-{
-	return scale;
-}
-
-GLfloat Clouds::get_pillowness() const
-{
-	return this->pillowness;
-}
-
-GLfloat Clouds::get_cirrus_effect() const
-{
-	return this->cirrus_effect;
-}
-
-GLuint Clouds::get_num_march_steps() const
-{
-	return num_march_steps;
-}
-
-GLuint Clouds::get_num_march_steps_to_light() const
-{
-	return num_march_steps_to_light;
-}
-
-bool Clouds::get_powder_effect() const
-{
-	return this->powder_effect;
-}
-
 void Clouds::set_movement_direction(glm::vec3 movement_dir)
 {
 	this->movement_direction = movement_dir;
@@ -196,11 +136,6 @@ void Clouds::set_num_march_steps(GLuint num_march_steps)
 void Clouds::set_num_march_steps_to_light(GLuint num_march_steps_to_light)
 {
 	this->num_march_steps_to_light = num_march_steps_to_light;
-}
-
-std::shared_ptr<ShaderProgram> Clouds::get_shader_program()
-{
-	return shader_program;
 }
 
 Clouds::~Clouds()

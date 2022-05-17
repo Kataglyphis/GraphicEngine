@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2293154276">
+<analyzerinfo checksum="2494926289">
   <FileInfo check="Class">
-<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="7807722501153398123"/>
+<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="1871783933645726347"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="init" lineNumber="7"/>
@@ -37,6 +37,7 @@
     <functioncall functionName="current_offset"/>
     <functioncall functionName="delta_time"/>
     <functioncall functionName="false"/>
+    <functioncall functionName="flush"/>
     <functioncall functionName="for"/>
     <functioncall functionName="gbuffer"/>
     <functioncall functionName="get_ambient"/>
@@ -70,8 +71,8 @@
     <functioncall functionName="get_point_lights"/>
     <functioncall functionName="get_position"/>
     <functioncall functionName="get_powder_effect"/>
-    <functioncall functionName="get_rad"/>
     <functioncall functionName="get_radiance"/>
+    <functioncall functionName="get_radius"/>
     <functioncall functionName="get_scale"/>
     <functioncall functionName="get_shadow_map"/>
     <functioncall functionName="get_shininess"/>
@@ -84,7 +85,6 @@
     <functioncall functionName="glClear"/>
     <functioncall functionName="i"/>
     <functioncall functionName="if"/>
-    <functioncall functionName="loc_buff"/>
     <functioncall functionName="main_camera"/>
     <functioncall functionName="make_shared"/>
     <functioncall functionName="private:"/>
@@ -101,9 +101,8 @@
     <functioncall functionName="shader_program"/>
     <functioncall functionName="shared_ptr"/>
     <functioncall functionName="size"/>
-    <functioncall functionName="sizeof"/>
-    <functioncall functionName="snprintf"/>
     <functioncall functionName="static_cast"/>
+    <functioncall functionName="str"/>
     <functioncall functionName="true"/>
     <functioncall functionName="uint32_t"/>
     <functioncall functionName="use_shader_program"/>

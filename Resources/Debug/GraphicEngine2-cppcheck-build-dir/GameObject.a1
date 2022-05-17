@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1975921796">
+<analyzerinfo checksum="1337452005">
   <FileInfo check="Class">
 <class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
 <class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Rotation.h" line="5" col="1" hash="896651279113435361"/>

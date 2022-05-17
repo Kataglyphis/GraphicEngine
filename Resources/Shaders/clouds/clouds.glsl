@@ -10,7 +10,7 @@ struct Clouds {
     int     num_march_steps;
     int     num_march_steps_to_light;
 
-    vec3    rad;
+    vec3    radius;
     vec3    offset;
     mat4    model_to_world;
 
@@ -41,8 +41,8 @@ float sample_density(   vec3 position, Clouds cloud,
                             +((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.g - cloud.threshold) * cloud.scale
                             + ((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.b - cloud.threshold) * cloud.scale;
 
-    /*base_density        =   base_density * (1.f - cloud.cirrus_effect) + 
-                            max(0.0f, noise_128.a - cloud.threshold) * cloud.scale * (cloud.cirrus_effect);*/
+    base_density        =   base_density * (1.f - cloud.cirrus_effect) + 
+                            max(0.0f, noise_128.a - cloud.threshold) * cloud.scale * (cloud.cirrus_effect);
 
     vec3 uvw_32         = abs(mod(position + cloud.offset, 256.f)) / 256.f;
     vec4 noise_32       = texture(noise_texture_2, uvw_32);
@@ -51,7 +51,7 @@ float sample_density(   vec3 position, Clouds cloud,
                             + 0.15f * max(0.0f, noise_32.g - cloud.threshold) * cloud.scale
                             + 0.15f * max(0.0f, noise_32.b - cloud.threshold) * cloud.scale;
 
-    return  base_density;// +fine_density * 0.3f;
+    return  base_density + fine_density * 0.3f;
 
 }
 
@@ -82,7 +82,7 @@ float light_march(  vec3 sample_pos,
                                                 direction_to_light, 
                                                 inverse(cloud.model_to_world),
                                                 cloud.model_to_world, 
-                                                cloud.rad,
+                                                cloud.radius,
                                                 oT, oN, oU, oF);
 
     for (int i = 0; i < cloud.num_march_steps_to_light; i++) {
@@ -124,7 +124,7 @@ void calc_clouds(   mat4 projection, mat4 view,
     int oF;
     bool intersection = box_intersect_with_ray( eye_position, ray_direction, 
                                                 inverse(cloud.model_to_world),
-                                                cloud.model_to_world, cloud.rad, 
+                                                cloud.model_to_world, cloud.radius, 
                                                 oT, oN, oU, oF);
 
     float light_energy = 0.0f;
@@ -173,10 +173,6 @@ void calc_clouds(   mat4 projection, mat4 view,
             }
 
         }
-
-        vec4 fragPosModelSpace  = inverse(cloud.model_to_world) * frag_pos;
-        //in [0,1]
-        vec3 dist_to_center    = (abs((cloud.rad - fragPosModelSpace.xyz)) / (20.f*cloud.rad));
 
         vec3 cloud_color        = light_energy * directional_light.base.color * directional_light.base.radiance;
         color                   = color * (transmittance) + vec4(cloud_color, 1.0f);

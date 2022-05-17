@@ -11,5 +11,6 @@ getIndices
 AABB
 get_corners call:[push_back,vec3,vec4] noreturn:[push_back]
 init call:[Vertex,push_back,vec2,vec3]
+get_radius call:[abs,vec3] noreturn:[vec3]
 render call:[render] noreturn:[render]
 AABB

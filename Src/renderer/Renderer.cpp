@@ -19,8 +19,6 @@ Renderer::Renderer(GLuint window_width, GLuint window_height) :
     render_passes.push_back(lighting_pass);
 
     gbuffer->create();
-    
-    lighting_pass->init();
 
 }
 

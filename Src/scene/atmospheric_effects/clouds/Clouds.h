@@ -20,18 +20,20 @@ public:
 	void		create_noise_textures();
 
 	glm::mat4	get_model() const;
-	glm::vec3	get_movement_direction() const;
-	glm::vec3	get_rad() const;
-	glm::mat4	get_normal_model() const;
-	glm::vec3	get_mesh_scale() const;
-	GLfloat		get_movement_speed() const;
-	GLfloat		get_density() const;
-	GLfloat		get_scale() const;
-	GLfloat		get_pillowness() const;
-	GLfloat		get_cirrus_effect() const;
-	GLuint		get_num_march_steps() const;
-	GLuint		get_num_march_steps_to_light() const;
-	bool		get_powder_effect() const;
+	glm::vec3	get_movement_direction()		const { return movement_direction; };
+	glm::vec3	get_radius()					const { return scale_factor / 2.f; };
+	glm::mat4	get_normal_model()				const { glm::transpose(glm::inverse(model)); };
+	glm::vec3	get_mesh_scale()				const { return scale_factor; };
+	GLfloat		get_movement_speed()			const { return movement_speed; };
+	GLfloat		get_density()					const { return density; };
+	GLfloat		get_scale()						const { return scale; };
+	GLfloat		get_pillowness()				const { return pillowness; };
+	GLfloat		get_cirrus_effect()				const { return cirrus_effect; };
+	GLuint		get_num_march_steps()			const { return num_march_steps; };
+	GLuint		get_num_march_steps_to_light()	const { return num_march_steps_to_light; };
+	bool		get_powder_effect()				const { return powder_effect; };
+
+	std::shared_ptr<ShaderProgram> get_shader_program() const { return shader_program; };
 
 	void		set_powder_effect(bool cloud_powder_effect);
 	void		set_cirrus_effect(GLfloat cirrus_effect);
@@ -45,8 +47,6 @@ public:
 	void		set_num_march_steps(GLuint num_march_steps);
 	void		set_num_march_steps_to_light(GLuint num_march_steps_to_light);
 
-	std::shared_ptr<ShaderProgram> get_shader_program();
-
 	~Clouds();
 
 private:
@@ -55,8 +55,9 @@ private:
 	std::shared_ptr<Noise>			noise;
 	std::shared_ptr<RandomNumbers>	random_numbers;
 
-	glm::mat4 model;
-	AABB aabb;
+	glm::mat4	model;
+	AABB		aabb;
+
 	GLfloat minX, maxX, minY, maxY, minZ, maxZ;
 
 	glm::vec3 movement_direction;

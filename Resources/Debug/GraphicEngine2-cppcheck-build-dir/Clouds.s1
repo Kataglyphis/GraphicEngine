@@ -1,3 +1,15 @@
+get_movement_direction
+get_radius
+get_normal_model call:[inverse,transpose] noreturn:[transpose]
+get_mesh_scale
+get_movement_speed
+get_density
+get_scale
+get_pillowness
+get_cirrus_effect
+get_num_march_steps
+get_num_march_steps_to_light
+get_powder_effect
 Clouds call:[create_from_files,create_noise_textures,init] noreturn:[init]
 render call:[get_model,render,setUniformMatrix4fv,use_shader_program,validate_program] noreturn:[render]
 read call:[read,read_res128_noise,read_res32_noise] noreturn:[read_res32_noise]
@@ -11,18 +23,6 @@ set_movement_speed
 set_scale
 set_translation
 get_model call:[mat4,scale,translate]
-get_movement_direction
-get_rad
-get_normal_model call:[inverse,transpose] noreturn:[transpose]
-get_mesh_scale
-get_movement_speed
-get_density
-get_scale
-get_pillowness
-get_cirrus_effect
-get_num_march_steps
-get_num_march_steps_to_light
-get_powder_effect
 set_movement_direction
 set_num_march_steps
 set_num_march_steps_to_light

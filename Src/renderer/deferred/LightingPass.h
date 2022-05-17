@@ -27,8 +27,6 @@ public:
 
     LightingPass();
 
-    void init();
-
     void execute(   glm::mat4 projection_matrix, 
                     std::shared_ptr<Camera>,
                     std::shared_ptr<Scene> scene,

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="750817208">
+<analyzerinfo checksum="687720560">
   <FileInfo check="Class">
-<class name="GeometryPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h" line="14" col="1" hash="3154509792303573143"/>
+<class name="GeometryPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h" line="14" col="1" hash="9067581022218883617"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="execute" lineNumber="11"/>
-    <functiondecl functionName="create_shader_program" lineNumber="120"/>
-    <functiondecl functionName="set_game_object_uniforms" lineNumber="127"/>
+    <functiondecl functionName="create_shader_program" lineNumber="129"/>
+    <functiondecl functionName="set_game_object_uniforms" lineNumber="136"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="Clouds"/>
     <functioncall functionName="GL_BACK"/>
@@ -25,6 +25,7 @@
     <functioncall functionName="create_shader_program"/>
     <functioncall functionName="delta_time"/>
     <functioncall functionName="draw_sky_box"/>
+    <functioncall functionName="flush"/>
     <functioncall functionName="for"/>
     <functioncall functionName="game_objects"/>
     <functioncall functionName="gbuffer_id"/>
@@ -53,7 +54,6 @@
     <functioncall functionName="glFrontFace"/>
     <functioncall functionName="glViewport"/>
     <functioncall functionName="i"/>
-    <functioncall functionName="loc_buff"/>
     <functioncall functionName="make_shared"/>
     <functioncall functionName="model"/>
     <functioncall functionName="normal_model"/>
@@ -67,10 +67,9 @@
     <functioncall functionName="set_game_object_uniforms"/>
     <functioncall functionName="shared_ptr"/>
     <functioncall functionName="size"/>
-    <functioncall functionName="sizeof"/>
     <functioncall functionName="skybox"/>
-    <functioncall functionName="snprintf"/>
     <functioncall functionName="static_cast"/>
+    <functioncall functionName="str"/>
     <functioncall functionName="uint32_t"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>

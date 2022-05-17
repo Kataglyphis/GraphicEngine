@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2265375805">
+<analyzerinfo checksum="2454017266">
         <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.cpp">
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="14" column="29"/>
         </error>
   <FileInfo check="Class">
 <class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
-<class name="AABB" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.h" line="12" col="1" hash="16107701246467543386"/>
+<class name="AABB" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.h" line="12" col="1" hash="17672616836423488435"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
@@ -13,12 +13,14 @@
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="get_corners" lineNumber="8"/>
     <functiondecl functionName="init" lineNumber="22"/>
-    <functiondecl functionName="render" lineNumber="91"/>
+    <functiondecl functionName="get_radius" lineNumber="91"/>
+    <functiondecl functionName="render" lineNumber="96"/>
     <functioncall functionName="AABB"/>
     <functioncall functionName="Mesh"/>
     <functioncall functionName="NUM_BUFFERS"/>
     <functioncall functionName="POSITION_VB"/>
     <functioncall functionName="Vertex"/>
+    <functioncall functionName="abs"/>
     <functioncall functionName="color"/>
     <functioncall functionName="corner"/>
     <functioncall functionName="corners"/>

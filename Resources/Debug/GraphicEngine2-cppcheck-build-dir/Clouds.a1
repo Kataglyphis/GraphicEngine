@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3997087647">
+<analyzerinfo checksum="2083753230">
   <FileInfo check="Class">
-<class name="Clouds" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.h" line="9" col="1" hash="11759956242079518457"/>
+<class name="Clouds" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.h" line="9" col="1" hash="16051210384341403032"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="render" lineNumber="44"/>
@@ -16,22 +16,10 @@
     <functiondecl functionName="set_scale" lineNumber="108"/>
     <functiondecl functionName="set_translation" lineNumber="113"/>
     <functiondecl functionName="get_model" lineNumber="118"/>
-    <functiondecl functionName="get_movement_direction" lineNumber="126"/>
-    <functiondecl functionName="get_rad" lineNumber="131"/>
-    <functiondecl functionName="get_normal_model" lineNumber="136"/>
-    <functiondecl functionName="get_mesh_scale" lineNumber="141"/>
-    <functiondecl functionName="get_movement_speed" lineNumber="146"/>
-    <functiondecl functionName="get_density" lineNumber="151"/>
-    <functiondecl functionName="get_scale" lineNumber="156"/>
-    <functiondecl functionName="get_pillowness" lineNumber="161"/>
-    <functiondecl functionName="get_cirrus_effect" lineNumber="166"/>
-    <functiondecl functionName="get_num_march_steps" lineNumber="171"/>
-    <functiondecl functionName="get_num_march_steps_to_light" lineNumber="176"/>
-    <functiondecl functionName="get_powder_effect" lineNumber="181"/>
-    <functiondecl functionName="set_movement_direction" lineNumber="186"/>
-    <functiondecl functionName="set_num_march_steps" lineNumber="191"/>
-    <functiondecl functionName="set_num_march_steps_to_light" lineNumber="196"/>
-    <functiondecl functionName="get_shader_program" lineNumber="201"/>
+    <functiondecl functionName="set_movement_direction" lineNumber="126"/>
+    <functiondecl functionName="set_num_march_steps" lineNumber="131"/>
+    <functiondecl functionName="set_num_march_steps_to_light" lineNumber="136"/>
+    <functiondecl functionName="get_shader_program" lineNumber="141"/>
     <functioncall functionName="AABB"/>
     <functioncall functionName="Clouds"/>
     <functioncall functionName="ComputeShaderProgram"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="149977434">
+<analyzerinfo checksum="1467526723">
   <FileInfo check="Class">
 <class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
 <class name="Model" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h" line="18" col="1" hash="8688564133719038208"/>

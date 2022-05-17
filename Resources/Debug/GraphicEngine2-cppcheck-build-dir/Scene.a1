@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="4130616446">
+<analyzerinfo checksum="2992552096">
         <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &apos;Scene::object_is_visible&apos;" verbose="Unused private function: &apos;Scene::object_is_visible&apos;" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.h" line="57" column="7"/>
             <symbol>Scene::object_is_visible</symbol>

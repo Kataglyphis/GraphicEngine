@@ -21,6 +21,8 @@ public:
 				GLfloat minY,GLfloat maxY,
 				GLfloat minZ,GLfloat maxZ);
 
+	glm::vec3	get_radius();
+
 	void render();
 
 	~AABB();
@@ -31,9 +33,6 @@ private:
 	std::vector<unsigned int>	indices;
 
 	std::shared_ptr<Mesh> mesh;
-	/*unsigned int VBO, VAO, EBO;
-
-	unsigned int m_drawCount;*/
 
 	std::vector<glm::vec3> corners;
 

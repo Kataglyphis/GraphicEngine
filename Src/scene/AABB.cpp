@@ -88,6 +88,11 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
 
 }
 
+glm::vec3 AABB::get_radius()
+{   
+    return glm::vec3(std::abs(maxX-minX), std::abs(maxY-minY), std::abs(maxZ-minZ));
+}
+
 void AABB::render()
 {
 

@@ -1,12 +1,13 @@
 #include "Noise.h"
 
+#include <sstream>
+
 Noise::Noise() :
 
 	texture_dim_1(128),
 	texture_dim_2(32)
 
 {
-	
 
 	create_shader_programs();
 
@@ -229,15 +230,19 @@ void Noise::create_res128_noise()
 
 	texture_1_shader_program->setUniformInt(NOISE_128D_IMAGE_SLOT, "noise");
 
+	std::stringstream ss;
+
 	for (uint32_t i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		char loc_buff[100] = { '\0' };
+		ss << "cell_positions[" << i << "]";
+		texture_1_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, ss.str());
+		ss.clear();
+		ss.str(std::string());
 
-		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%ui]", i);
-		texture_1_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, loc_buff);
-
-		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%ui]", i);
-		texture_1_shader_program->setUniformInt(num_cells_per_axis[i], loc_buff);
+		ss << "num_cells[" << i << "]";
+		texture_1_shader_program->setUniformInt(num_cells_per_axis[i], ss.str());
+		ss.clear();
+		ss.str(std::string());
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
@@ -261,15 +266,19 @@ void Noise::create_res32_noise()
 
 	texture_2_shader_program->setUniformInt(NOISE_32D_IMAGE_SLOT, "noise");
 
+	std::stringstream ss;
+
 	for (uint32_t i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		char loc_buff[100] = { '\0' };
+		ss << "cell_positions[" << i << "]";
+		texture_2_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, ss.str());
+		ss.clear();
+		ss.str(std::string());
 
-		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%ui]", i);
-		texture_2_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, loc_buff);
-
-		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%ui]", i);
-		texture_2_shader_program->setUniformInt(num_cells_per_axis[i], loc_buff);
+		ss << "num_cells[" << i << "]";
+		texture_2_shader_program->setUniformInt(num_cells_per_axis[i], ss.str());
+		ss.clear();
+		ss.str(std::string());
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
 		glBindTexture(GL_TEXTURE_3D, cell_ids[i]);
