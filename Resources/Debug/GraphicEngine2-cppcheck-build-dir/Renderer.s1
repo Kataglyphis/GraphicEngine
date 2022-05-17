@@ -1,4 +1,4 @@
-Renderer call:[create,init,push_back] noreturn:[init]
+Renderer call:[create,push_back] noreturn:[create]
 drawFrame call:[execute,get_id,get_point_light_count,get_point_lights] noreturn:[execute]
 update_window_params call:[create,update_window_params] noreturn:[create]
 reload_shader_programs call:[ShaderIncludes,create_shader_program] noreturn:[create_shader_program]

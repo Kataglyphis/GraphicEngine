@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="669726199">
+<analyzerinfo checksum="947222671">
         <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &apos;Noise::print_comp_shader_capabilities&apos;" verbose="Unused private function: &apos;Noise::print_comp_shader_capabilities&apos;" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.cpp">
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\atmospheric_effects\clouds\Noise.h" line="46" column="7"/>
             <symbol>Noise::print_comp_shader_capabilities</symbol>
         </error>
   <FileInfo check="ctu">
-<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.h:37:7" call-funcname="generate_cells" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.cpp" line="20" col="17" call-argexpr="i" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.h:37:7" call-funcname="generate_cells" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.cpp" line="154" col="17" call-argexpr="i" call-argvaluetype="0" call-argvalue="0"/>  </FileInfo>
+<function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.h:37:7" call-funcname="generate_cells" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.cpp" line="19" col="17" call-argexpr="i" call-argvaluetype="0" call-argvalue="0"/><function-call call-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.h:37:7" call-funcname="generate_cells" call-argnr="2" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.cpp" line="153" col="17" call-argexpr="i" call-argvaluetype="0" call-argvalue="0"/>  </FileInfo>
   <FileInfo check="Class">
-<class name="Noise" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.h" line="16" col="1" hash="7503531860814661148"/>
+<class name="Noise" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Noise.h" line="16" col="1" hash="17984111142726806400"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="create_shader_programs" lineNumber="28"/>
-    <functiondecl functionName="generate_textures" lineNumber="37"/>
-    <functiondecl functionName="generate_num_cells_textures" lineNumber="46"/>
-    <functiondecl functionName="generate_res128_noise_texture" lineNumber="71"/>
-    <functiondecl functionName="generate_res32_noise_texture" lineNumber="95"/>
-    <functiondecl functionName="print_comp_shader_capabilities" lineNumber="121"/>
-    <functiondecl functionName="update" lineNumber="144"/>
-    <functiondecl functionName="set_num_cells" lineNumber="165"/>
-    <functiondecl functionName="generate_cells" lineNumber="177"/>
-    <functiondecl functionName="create_res128_noise" lineNumber="227"/>
-    <functiondecl functionName="create_res32_noise" lineNumber="261"/>
-    <functiondecl functionName="read_res128_noise" lineNumber="294"/>
-    <functiondecl functionName="read_res32_noise" lineNumber="302"/>
-    <functiondecl functionName="delete_textures" lineNumber="310"/>
+    <functiondecl functionName="create_shader_programs" lineNumber="27"/>
+    <functiondecl functionName="generate_textures" lineNumber="36"/>
+    <functiondecl functionName="generate_num_cells_textures" lineNumber="45"/>
+    <functiondecl functionName="generate_res128_noise_texture" lineNumber="70"/>
+    <functiondecl functionName="generate_res32_noise_texture" lineNumber="94"/>
+    <functiondecl functionName="print_comp_shader_capabilities" lineNumber="120"/>
+    <functiondecl functionName="update" lineNumber="143"/>
+    <functiondecl functionName="set_num_cells" lineNumber="164"/>
+    <functiondecl functionName="generate_cells" lineNumber="176"/>
+    <functiondecl functionName="create_res128_noise" lineNumber="226"/>
+    <functiondecl functionName="create_res32_noise" lineNumber="262"/>
+    <functiondecl functionName="read_res128_noise" lineNumber="297"/>
+    <functiondecl functionName="read_res32_noise" lineNumber="305"/>
+    <functiondecl functionName="delete_textures" lineNumber="313"/>
     <functioncall functionName="ComputeShaderProgram"/>
     <functioncall functionName="GL_CLAMP_TO_EDGE"/>
     <functioncall functionName="GL_FALSE"/>
@@ -53,6 +53,7 @@
     <functioncall functionName="Noise"/>
     <functioncall functionName="cell_ids"/>
     <functioncall functionName="cell_index"/>
+    <functioncall functionName="clear"/>
     <functioncall functionName="create_computer_shader_program_from_file"/>
     <functioncall functionName="create_res128_noise"/>
     <functioncall functionName="create_res32_noise"/>
@@ -61,7 +62,6 @@
     <functioncall functionName="delete_textures"/>
     <functioncall functionName="dis"/>
     <functioncall functionName="float"/>
-    <functioncall functionName="flush"/>
     <functioncall functionName="for"/>
     <functioncall functionName="gen64"/>
     <functioncall functionName="generate_cells"/>
@@ -92,6 +92,7 @@
     <functioncall functionName="setUniformInt"/>
     <functioncall functionName="static_cast"/>
     <functioncall functionName="str"/>
+    <functioncall functionName="string"/>
     <functioncall functionName="texture_1_id"/>
     <functioncall functionName="texture_2_id"/>
     <functioncall functionName="texture_dim_1"/>

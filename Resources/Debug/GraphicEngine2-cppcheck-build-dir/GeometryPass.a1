@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="687720560">
+<analyzerinfo checksum="2847521442">
   <FileInfo check="Class">
-<class name="GeometryPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h" line="14" col="1" hash="9067581022218883617"/>
+<class name="GeometryPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h" line="14" col="1" hash="15353279263712842744"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="execute" lineNumber="11"/>
-    <functiondecl functionName="create_shader_program" lineNumber="129"/>
-    <functiondecl functionName="set_game_object_uniforms" lineNumber="136"/>
+    <functiondecl functionName="create_shader_program" lineNumber="140"/>
+    <functiondecl functionName="set_game_object_uniforms" lineNumber="147"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="Clouds"/>
     <functioncall functionName="GL_BACK"/>
@@ -21,11 +21,11 @@
     <functioncall functionName="ObjMaterial"/>
     <functioncall functionName="Scene"/>
     <functioncall functionName="bind_textures_and_buffer"/>
+    <functioncall functionName="clear"/>
     <functioncall functionName="create_from_files"/>
     <functioncall functionName="create_shader_program"/>
     <functioncall functionName="delta_time"/>
     <functioncall functionName="draw_sky_box"/>
-    <functioncall functionName="flush"/>
     <functioncall functionName="for"/>
     <functioncall functionName="game_objects"/>
     <functioncall functionName="gbuffer_id"/>
@@ -70,6 +70,7 @@
     <functioncall functionName="skybox"/>
     <functioncall functionName="static_cast"/>
     <functioncall functionName="str"/>
+    <functioncall functionName="string"/>
     <functioncall functionName="uint32_t"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>

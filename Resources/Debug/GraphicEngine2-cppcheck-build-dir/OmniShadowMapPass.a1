@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3471775219">
+<analyzerinfo checksum="2804823972">
   <FileInfo check="Class">
-<class name="OmniShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.h" line="9" col="1" hash="16248798620129142144"/>
+<class name="OmniShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.h" line="9" col="1" hash="7299711426402574387"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="execute" lineNumber="8"/>
-    <functiondecl functionName="set_game_object_uniforms" lineNumber="52"/>
-    <functiondecl functionName="create_shader_program" lineNumber="57"/>
+    <functiondecl functionName="execute" lineNumber="9"/>
+    <functiondecl functionName="set_game_object_uniforms" lineNumber="53"/>
+    <functiondecl functionName="create_shader_program" lineNumber="58"/>
     <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
     <functioncall functionName="GL_FRAMEBUFFER"/>
     <functioncall functionName="GameObject"/>
@@ -32,7 +32,6 @@
     <functioncall functionName="glClear"/>
     <functioncall functionName="glViewport"/>
     <functioncall functionName="i"/>
-    <functioncall functionName="loc_buff"/>
     <functioncall functionName="make_shared"/>
     <functioncall functionName="mat4"/>
     <functioncall functionName="model"/>
@@ -43,8 +42,7 @@
     <functioncall functionName="setUniformVec3"/>
     <functioncall functionName="set_game_object_uniforms"/>
     <functioncall functionName="shared_ptr"/>
-    <functioncall functionName="sizeof"/>
-    <functioncall functionName="snprintf"/>
+    <functioncall functionName="str"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>
     <functioncall functionName="write"/>

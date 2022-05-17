@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2494926289">
+<analyzerinfo checksum="592168019">
   <FileInfo check="Class">
-<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="1871783933645726347"/>
+<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="4651007670101472899"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="init" lineNumber="7"/>
-    <functiondecl functionName="execute" lineNumber="16"/>
-    <functiondecl functionName="create_shader_program" lineNumber="51"/>
-    <functiondecl functionName="set_uniforms" lineNumber="58"/>
+    <functiondecl functionName="execute" lineNumber="14"/>
+    <functiondecl functionName="create_shader_program" lineNumber="49"/>
+    <functiondecl functionName="set_uniforms" lineNumber="56"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="Clouds"/>
     <functioncall functionName="DirectionalLight"/>
@@ -32,12 +31,12 @@
     <functioncall functionName="Scene"/>
     <functioncall functionName="ShaderProgram"/>
     <functioncall functionName="camera_position"/>
+    <functioncall functionName="clear"/>
     <functioncall functionName="create_from_files"/>
     <functioncall functionName="create_shader_program"/>
     <functioncall functionName="current_offset"/>
     <functioncall functionName="delta_time"/>
     <functioncall functionName="false"/>
-    <functioncall functionName="flush"/>
     <functioncall functionName="for"/>
     <functioncall functionName="gbuffer"/>
     <functioncall functionName="get_ambient"/>
@@ -89,6 +88,7 @@
     <functioncall functionName="make_shared"/>
     <functioncall functionName="private:"/>
     <functioncall functionName="projection_matrix"/>
+    <functioncall functionName="quad"/>
     <functioncall functionName="read"/>
     <functioncall functionName="render"/>
     <functioncall functionName="scene"/>
@@ -103,6 +103,7 @@
     <functioncall functionName="size"/>
     <functioncall functionName="static_cast"/>
     <functioncall functionName="str"/>
+    <functioncall functionName="string"/>
     <functioncall functionName="true"/>
     <functioncall functionName="uint32_t"/>
     <functioncall functionName="use_shader_program"/>
