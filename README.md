@@ -18,7 +18,8 @@
   </a>
 </p> -->
 
-[![CMake](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/cmake.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/cmake.yml)
+[![Windows](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml)
+[![Linux](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml)
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
