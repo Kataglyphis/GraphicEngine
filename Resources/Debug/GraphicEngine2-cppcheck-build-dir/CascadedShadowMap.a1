@@ -1,54 +1,18 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3225016745">
-        <error id="virtualDestructor" severity="warning" msg="Class &apos;CascadedShadowMap&apos; which has virtual members does not have a virtual destructor." verbose="Class &apos;CascadedShadowMap&apos; which has virtual members does not have a virtual destructor." cwe="404" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="31" column="3"/>
-            <symbol>CascadedShadowMap</symbol>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;CascadedShadowMap::get_intensity&apos; can be const." verbose="The member function &apos;CascadedShadowMap::get_intensity&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="24" column="12"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="100" column="28"/>
-            <symbol>CascadedShadowMap::get_intensity</symbol>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;CascadedShadowMap::get_shadow_width&apos; can be const." verbose="The member function &apos;CascadedShadowMap::get_shadow_width&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="25" column="11"/>
-            <symbol>CascadedShadowMap::get_shadow_width</symbol>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;CascadedShadowMap::get_shadow_height&apos; can be const." verbose="The member function &apos;CascadedShadowMap::get_shadow_height&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="26" column="11"/>
-            <symbol>CascadedShadowMap::get_shadow_height</symbol>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;CascadedShadowMap::get_id&apos; can be const." verbose="The member function &apos;CascadedShadowMap::get_id&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="27" column="11"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="105" column="27"/>
-            <symbol>CascadedShadowMap::get_id</symbol>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;CascadedShadowMap::get_num_active_cascades&apos; can be const." verbose="The member function &apos;CascadedShadowMap::get_num_active_cascades&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="28" column="11"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="110" column="27"/>
-            <symbol>CascadedShadowMap::get_num_active_cascades</symbol>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &apos;CascadedShadowMap::get_pcf_radius&apos; can be const." verbose="The member function &apos;CascadedShadowMap::get_pcf_radius&apos; can be made a const function. Making this function &apos;const&apos; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.h" line="29" column="11"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="115" column="27"/>
-            <symbol>CascadedShadowMap::get_pcf_radius</symbol>
-        </error>
+<analyzerinfo checksum="2461888220">
   <FileInfo check="Class">
-<class name="CascadedShadowMap" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.h" line="11" col="1" hash="12342281162358503153"/>
+<class name="CascadedShadowMap" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.h" line="11" col="1" hash="4391246197290694764"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.h:19:9" my-argnr="1" my-argname="lightMatrices" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp" line="71" col="25" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.h:21:9" my-argnr="1" my-argname="lightMatrices" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/CascadedShadowMap.cpp" line="79" col="25" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="init" lineNumber="12"/>
-    <functiondecl functionName="write_light_matrices" lineNumber="68"/>
-    <functiondecl functionName="write" lineNumber="79"/>
-    <functiondecl functionName="read" lineNumber="84"/>
-    <functiondecl functionName="set_pcf_radius" lineNumber="90"/>
-    <functiondecl functionName="set_intensity" lineNumber="95"/>
-    <functiondecl functionName="get_intensity" lineNumber="100"/>
-    <functiondecl functionName="get_id" lineNumber="105"/>
-    <functiondecl functionName="get_num_active_cascades" lineNumber="110"/>
-    <functiondecl functionName="get_pcf_radius" lineNumber="115"/>
+    <functiondecl functionName="init" lineNumber="20"/>
+    <functiondecl functionName="write_light_matrices" lineNumber="76"/>
+    <functiondecl functionName="write" lineNumber="87"/>
+    <functiondecl functionName="read" lineNumber="92"/>
+    <functiondecl functionName="set_pcf_radius" lineNumber="98"/>
+    <functiondecl functionName="set_intensity" lineNumber="103"/>
     <functioncall functionName="CascadedShadowMap"/>
     <functioncall functionName="FBO"/>
     <functioncall functionName="GL_CLAMP_TO_BORDER"/>
@@ -98,7 +62,9 @@
     <functioncall functionName="mat4x4"/>
     <functioncall functionName="matrices_UBO"/>
     <functioncall functionName="nullptr"/>
+    <functioncall functionName="num_active_cascades"/>
     <functioncall functionName="num_cascades"/>
+    <functioncall functionName="pcf_radius"/>
     <functioncall functionName="radius"/>
     <functioncall functionName="shadow_height"/>
     <functioncall functionName="shadow_maps"/>

@@ -22,10 +22,10 @@ void OmniShadowMapPass::execute(std::shared_ptr<PointLight> p_light,
 
     std::vector<glm::mat4> light_matrices = p_light->calculate_light_transform();
 
-    for (size_t i = 0; i < 6; i++) {
+    for (uint32_t i = 0; i < 6; i++) {
 
         char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "light_matrices[%zd]", i);
+        snprintf(loc_buff, sizeof(loc_buff), "light_matrices[%ui]", i);
         shader_program->setUniformMatrix4fv(light_matrices[i], loc_buff);
 
     }

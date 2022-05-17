@@ -2,7 +2,7 @@ get_omni_shadow_map
 get_constant_factor
 get_linear_factor
 get_exponent_factor
-PointLight call:[vec3]
+PointLight
 PointLight call:[init,perspective,radians] noreturn:[init]
 calculate_light_transform call:[lookAt,push_back,vec3]
 set_position

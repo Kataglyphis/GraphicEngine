@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="4016916345">
-        <error id="virtualDestructor" severity="warning" msg="Class &apos;ShadowMap&apos; which has virtual members does not have a virtual destructor." verbose="Class &apos;ShadowMap&apos; which has virtual members does not have a virtual destructor." cwe="404" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/shadows/ShadowMap.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\shadows\ShadowMap.h" line="24" column="3"/>
-            <symbol>ShadowMap</symbol>
-        </error>
+<analyzerinfo checksum="84613674">
   <FileInfo check="Class">
-<class name="ShadowMap" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/shadows/ShadowMap.h" line="6" col="1" hash="9422558214321547069"/>
+<class name="ShadowMap" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/shadows/ShadowMap.h" line="6" col="1" hash="17753414682245195592"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="init" lineNumber="15"/>

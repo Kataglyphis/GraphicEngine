@@ -2,11 +2,19 @@
 #include "bindings.h"
 #include <iostream>
 
-CascadedShadowMap::CascadedShadowMap()
+CascadedShadowMap::CascadedShadowMap() :
+
+			FBO(0),
+			shadow_maps(0),
+			shadow_width(0), 
+			shadow_height(0),
+			matrices_UBO(0),
+			num_active_cascades(0),
+			pcf_radius(1),
+			intensity(1)
+
 {
-	/*FBO = 0;
-	shadow_maps = 0;
-	pcf_radius = 1;*/
+	
 }
 
 bool CascadedShadowMap::init(GLuint width, GLuint height, GLuint num_cascades)
@@ -95,26 +103,6 @@ void CascadedShadowMap::set_pcf_radius(GLuint radius)
 void CascadedShadowMap::set_intensity(GLfloat intensity)
 {
 	this->intensity = intensity;
-}
-
-GLfloat CascadedShadowMap::get_intensity()
-{
-	return intensity;
-}
-
-GLuint CascadedShadowMap::get_id()
-{
-	return shadow_maps;
-}
-
-GLuint CascadedShadowMap::get_num_active_cascades()
-{
-	return num_active_cascades;
-}
-
-GLuint CascadedShadowMap::get_pcf_radius()
-{
-	return pcf_radius;
 }
 
 CascadedShadowMap::~CascadedShadowMap()

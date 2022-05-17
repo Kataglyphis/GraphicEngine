@@ -6,138 +6,20 @@
             <location file="..\..\Src\renderer\ShaderProgram.h" line="61" info=""/>
             <location file="..\..\Src\renderer\ShaderProgram.cpp" line="300" info=""/>
         </error>
-        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="../../Src/scene/AABB.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\AABB.cpp" line="14"/>
-        </error>
-        <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &amp;#039;Scene::object_is_visible&amp;#039;" verbose="Unused private function: &amp;#039;Scene::object_is_visible&amp;#039;" cwe="398" file0="../../Src/scene/Scene.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\Scene.h" line="57"/>
-        </error>
-        <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &amp;#039;ViewFrustumCulling::init&amp;#039;" verbose="Unused private function: &amp;#039;ViewFrustumCulling::init&amp;#039;" cwe="398" file0="../../Src/scene/ViewFrustumCulling.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\ViewFrustumCulling.h" line="61"/>
+        <error id="functionStatic" severity="performance" msg="Technically the member function &amp;#039;GUI::init&amp;#039; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &amp;#039;GUI::init&amp;#039; can be made a static function. Making a function static can bring a performance benefit since no &amp;#039;this&amp;#039; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." inconclusive="true" cwe="398" file0="../../Src/gui/GUI.cpp" sinceDate="17.05.2022">
+            <location file="..\..\Src\gui\GUI.h" line="18" info=""/>
+            <location file="..\..\Src\gui\GUI.cpp" line="68" info=""/>
         </error>
         <error id="functionStatic" severity="performance" msg="Technically the member function &amp;#039;ViewFrustumCulling::plane_point_distance&amp;#039; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &amp;#039;ViewFrustumCulling::plane_point_distance&amp;#039; can be made a static function. Making a function static can bring a performance benefit since no &amp;#039;this&amp;#039; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." inconclusive="true" cwe="398" file0="../../Src/scene/ViewFrustumCulling.cpp" sinceDate="17.05.2022">
             <location file="..\..\Src\scene\ViewFrustumCulling.h" line="67" info=""/>
             <location file="..\..\Src\scene\ViewFrustumCulling.cpp" line="135" info=""/>
         </error>
-        <error id="unusedVariable" severity="style" msg="Unused variable: frustum_corners" verbose="Unused variable: frustum_corners" cwe="563" file0="../../Src/scene/ViewFrustumCulling.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\ViewFrustumCulling.cpp" line="215"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;render_view_frustum&amp;#039; is never used." verbose="The function &amp;#039;render_view_frustum&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\ViewFrustumCulling.cpp" line="90"/>
-        </error>
-        <error id="functionStatic" severity="performance" msg="Technically the member function &amp;#039;GUI::init&amp;#039; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &amp;#039;GUI::init&amp;#039; can be made a static function. Making a function static can bring a performance benefit since no &amp;#039;this&amp;#039; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." inconclusive="true" cwe="398" file0="../../Src/gui/GUI.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\gui\GUI.h" line="18" info=""/>
-            <location file="..\..\Src\gui\GUI.cpp" line="68" info=""/>
-        </error>
-        <error id="virtualDestructor" severity="warning" msg="Class &amp;#039;CascadedShadowMap&amp;#039; which has virtual members does not have a virtual destructor." verbose="Class &amp;#039;CascadedShadowMap&amp;#039; which has virtual members does not have a virtual destructor." inconclusive="true" cwe="404" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="31"/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;CascadedShadowMap::get_intensity&amp;#039; can be const." verbose="The member function &amp;#039;CascadedShadowMap::get_intensity&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="24" info=""/>
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="100" info=""/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;CascadedShadowMap::get_shadow_width&amp;#039; can be const." verbose="The member function &amp;#039;CascadedShadowMap::get_shadow_width&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="25"/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;CascadedShadowMap::get_shadow_height&amp;#039; can be const." verbose="The member function &amp;#039;CascadedShadowMap::get_shadow_height&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="26"/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;CascadedShadowMap::get_id&amp;#039; can be const." verbose="The member function &amp;#039;CascadedShadowMap::get_id&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="27" info=""/>
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="105" info=""/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;CascadedShadowMap::get_num_active_cascades&amp;#039; can be const." verbose="The member function &amp;#039;CascadedShadowMap::get_num_active_cascades&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="28" info=""/>
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="110" info=""/>
-        </error>
-        <error id="functionConst" severity="style" msg="Technically the member function &amp;#039;CascadedShadowMap::get_pcf_radius&amp;#039; can be const." verbose="The member function &amp;#039;CascadedShadowMap::get_pcf_radius&amp;#039; can be made a const function. Making this function &amp;#039;const&amp;#039; should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?" inconclusive="true" cwe="398" file0="../../Src/scene/light/directional_light/CascadedShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.h" line="29" info=""/>
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="115" info=""/>
-        </error>
-        <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &amp;#039;Noise::print_comp_shader_capabilities&amp;#039;" verbose="Unused private function: &amp;#039;Noise::print_comp_shader_capabilities&amp;#039;" cwe="398" file0="../../Src/scene/atmospheric_effects/clouds/Noise.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Noise.h" line="46"/>
-        </error>
         <error id="stlFindInsert" severity="performance" msg="Searching before insertion is not necessary. Instead of &amp;#039;vertices_map[vert]=vertices.size()&amp;#039; consider using &amp;#039;vertices_map.try_emplace(vert, vertices.size());&amp;#039;." verbose="Searching before insertion is not necessary. Instead of &amp;#039;vertices_map[vert]=vertices.size()&amp;#039; consider using &amp;#039;vertices_map.try_emplace(vert, vertices.size());&amp;#039;." cwe="398" file0="../../Src/scene/ObjLoader.cpp" sinceDate="17.05.2022">
             <location file="..\..\Src\scene\ObjLoader.cpp" line="152"/>
-        </error>
-        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &amp;#039;ssize_t&amp;#039; but the argument type is &amp;#039;size_t {aka unsigned long long}&amp;#039;." verbose="%zd in format string (no. 1) requires &amp;#039;ssize_t&amp;#039; but the argument type is &amp;#039;size_t {aka unsigned long long}&amp;#039;." cwe="686" file0="../../Src/scene/light/point_light/OmniShadowMapPass.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\point_light\OmniShadowMapPass.cpp" line="28"/>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &amp;#039;position&amp;#039; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&amp;#039;t explicitly write them to the initialization list. You could avoid assigning &amp;#039;position&amp;#039; a value by passing the value to the constructor in the initialization list." cwe="398" file0="../../Src/scene/light/point_light/PointLight.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\point_light\PointLight.cpp" line="5"/>
-        </error>
-        <error id="virtualDestructor" severity="warning" msg="Class &amp;#039;ShadowMap&amp;#039; which has virtual members does not have a virtual destructor." verbose="Class &amp;#039;ShadowMap&amp;#039; which has virtual members does not have a virtual destructor." inconclusive="true" cwe="404" file0="../../Src/scene/shadows/ShadowMap.cpp" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\shadows\ShadowMap.h" line="24"/>
         </error>
         <error id="functionStatic" severity="performance" msg="Technically the member function &amp;#039;Texture::unbind_texture&amp;#039; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &amp;#039;Texture::unbind_texture&amp;#039; can be made a static function. Making a function static can bring a performance benefit since no &amp;#039;this&amp;#039; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." inconclusive="true" cwe="398" file0="../../Src/scene/texture/Texture.cpp" sinceDate="17.05.2022">
             <location file="..\..\Src\scene\texture\Texture.h" line="34" info=""/>
             <location file="..\..\Src\scene\texture\Texture.cpp" line="178" info=""/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;add_game_object&amp;#039; is never used." verbose="The function &amp;#039;add_game_object&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\Scene.cpp" line="162"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;object_is_visible&amp;#039; is never used." verbose="The function &amp;#039;object_is_visible&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\Scene.cpp" line="178"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_context_setup&amp;#039; is never used." verbose="The function &amp;#039;set_context_setup&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\Scene.cpp" line="152"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;unbind_textures_and_buffer&amp;#039; is never used." verbose="The function &amp;#039;unbind_textures_and_buffer&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\Scene.cpp" line="142"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;areErrorPrintAll&amp;#039; is never used." verbose="The function &amp;#039;areErrorPrintAll&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\debug\DebugApp.cpp" line="67"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;arePreError&amp;#039; is never used." verbose="The function &amp;#039;arePreError&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\debug\DebugApp.cpp" line="98"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;get_filename&amp;#039; is never used." verbose="The function &amp;#039;get_filename&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\texture\Texture.cpp" line="167"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;load_SRGB_texture_with_alpha_channel&amp;#039; is never used." verbose="The function &amp;#039;load_SRGB_texture_with_alpha_channel&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\texture\Texture.cpp" line="132"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;get_intensity&amp;#039; is never used." verbose="The function &amp;#039;get_intensity&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\light\directional_light\CascadedShadowMap.cpp" line="100"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;get_mesh_scale&amp;#039; is never used." verbose="The function &amp;#039;get_mesh_scale&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="141"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;get_normal_model&amp;#039; is never used." verbose="The function &amp;#039;get_normal_model&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="136"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;get_shader_program&amp;#039; is never used." verbose="The function &amp;#039;get_shader_program&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="201"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_num_march_steps&amp;#039; is never used." verbose="The function &amp;#039;set_num_march_steps&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="191"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_num_march_steps_to_light&amp;#039; is never used." verbose="The function &amp;#039;set_num_march_steps_to_light&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="196"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;get_yaw&amp;#039; is never used." verbose="The function &amp;#039;get_yaw&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\camera\Camera.cpp" line="146"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_camera_position&amp;#039; is never used." verbose="The function &amp;#039;set_camera_position&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\camera\Camera.cpp" line="166"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_far_plane&amp;#039; is never used." verbose="The function &amp;#039;set_far_plane&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\camera\Camera.cpp" line="156"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_fov&amp;#039; is never used." verbose="The function &amp;#039;set_fov&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\camera\Camera.cpp" line="161"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_near_plane&amp;#039; is never used." verbose="The function &amp;#039;set_near_plane&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\camera\Camera.cpp" line="151"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;print_comp_shader_capabilities&amp;#039; is never used." verbose="The function &amp;#039;print_comp_shader_capabilities&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Noise.cpp" line="119"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_num_cells&amp;#039; is never used." verbose="The function &amp;#039;set_num_cells&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\scene\atmospheric_effects\clouds\Noise.cpp" line="163"/>
-        </error>
-        <error id="unusedFunction" severity="style" msg="The function &amp;#039;set_buffer_size&amp;#039; is never used." verbose="The function &amp;#039;set_buffer_size&amp;#039; is never used." cwe="561" sinceDate="17.05.2022">
-            <location file="..\..\Src\window\Window.cpp" line="117"/>
         </error>
     </errors>
 </results>

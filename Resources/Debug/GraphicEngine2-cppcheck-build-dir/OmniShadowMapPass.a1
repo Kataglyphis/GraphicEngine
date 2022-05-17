@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1535601778">
-        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\OmniShadowMapPass.cpp" line="28" column="9"/>
-        </error>
+<analyzerinfo checksum="3471775219">
   <FileInfo check="Class">
-<class name="OmniShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.h" line="9" col="1" hash="6193635732289746008"/>
+<class name="OmniShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.h" line="9" col="1" hash="16248798620129142144"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="execute" lineNumber="8"/>

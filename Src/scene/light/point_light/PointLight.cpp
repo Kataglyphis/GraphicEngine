@@ -1,11 +1,15 @@
 #include "PointLight.h"
 
-PointLight::PointLight()
+PointLight::PointLight() :
+
+    position(glm::vec3(0.0f)),
+    constant(1.0f),
+    linear(0.0f),
+    exponent(0.0f), 
+    far_plane(0.f)
+
 {
-    position = glm::vec3(0.0f);
-    constant = 1.0f;
-    linear = 0.0f;
-    exponent = 0.0f;
+    
 }
 
 PointLight::PointLight( GLfloat shadow_width, GLfloat shadow_height,

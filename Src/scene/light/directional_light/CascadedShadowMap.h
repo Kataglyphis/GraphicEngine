@@ -14,19 +14,20 @@ public:
 
 	CascadedShadowMap();
 
-	virtual bool	init(GLuint width, GLuint height, GLuint num_cascades);
-	virtual void	write();
+	bool			init(GLuint width, GLuint height, GLuint num_cascades);
+	void			write();
+	void			read(GLenum texture_unit);
+
 	void			write_light_matrices(std::vector<glm::mat4x4>& lightMatrices);
-	virtual void	read(GLenum texture_unit);
 	void			set_pcf_radius(GLuint radius);
 	void			set_intensity(GLfloat intensity);
 
-	GLfloat			get_intensity();
-	GLuint			get_shadow_width() { return shadow_width; };
-	GLuint			get_shadow_height() { return shadow_height; }
-	GLuint			get_id();
-	GLuint			get_num_active_cascades();
-	GLuint			get_pcf_radius();
+	GLfloat			get_intensity() const { return intensity; };
+	GLuint			get_shadow_width() const { return shadow_width; } ;
+	GLuint			get_shadow_height() const { return shadow_height; }
+	GLuint			get_id() const { return shadow_maps; };
+	GLuint			get_num_active_cascades() const { return num_active_cascades; };
+	GLuint			get_pcf_radius() const { return pcf_radius; };
 
 	~CascadedShadowMap();
 

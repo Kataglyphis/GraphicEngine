@@ -1,17 +1,13 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="698307341">
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;position&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;position&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\PointLight.cpp" line="5" column="5"/>
-            <symbol>position</symbol>
-        </error>
+<analyzerinfo checksum="851471414">
   <FileInfo check="Class">
-<class name="PointLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.h" line="8" col="1" hash="17572555676139454377"/>
+<class name="PointLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.h" line="8" col="1" hash="13054745625506372531"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="calculate_light_transform" lineNumber="35"/>
-    <functiondecl functionName="set_position" lineNumber="61"/>
-    <functiondecl functionName="get_far_plane" lineNumber="66"/>
-    <functiondecl functionName="get_position" lineNumber="71"/>
+    <functiondecl functionName="calculate_light_transform" lineNumber="39"/>
+    <functiondecl functionName="set_position" lineNumber="65"/>
+    <functiondecl functionName="get_far_plane" lineNumber="70"/>
+    <functiondecl functionName="get_position" lineNumber="75"/>
     <functioncall functionName="GLuint"/>
     <functioncall functionName="Light"/>
     <functioncall functionName="OmniDirShadowMap"/>
