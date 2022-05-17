@@ -1,56 +1,31 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="405575436">
-        <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &apos;Camera::to_radians&apos;" verbose="Unused private function: &apos;Camera::to_radians&apos;" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\camera\Camera.h" line="60" column="8"/>
-            <symbol>Camera::to_radians</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;position&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;position&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\camera\Camera.cpp" line="13" column="2"/>
-            <symbol>position</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;world_up&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;world_up&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\camera\Camera.cpp" line="14" column="2"/>
-            <symbol>world_up</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;yaw&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;yaw&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\camera\Camera.cpp" line="15" column="2"/>
-            <symbol>yaw</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;pitch&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;pitch&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\camera\Camera.cpp" line="16" column="2"/>
-            <symbol>pitch</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;front&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;front&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\camera\Camera.cpp" line="19" column="2"/>
-            <symbol>front</symbol>
-        </error>
+<analyzerinfo checksum="3268691876">
   <FileInfo check="Class">
-<class name="Camera" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h" line="8" col="1" hash="17226513444815721960"/>
+<class name="Camera" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h" line="8" col="1" hash="3533508685444342994"/>
   </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h:20:7" my-argnr="1" my-argname="keys" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp" line="34" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h:20:7" my-argnr="1" my-argname="keys" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp" line="49" col="6" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h:20:7" my-argnr="1" my-argname="keys" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp" line="34" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h:20:7" my-argnr="1" my-argname="keys" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp" line="49" col="6" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="key_control" lineNumber="30"/>
-    <functiondecl functionName="mouse_control" lineNumber="71"/>
-    <functiondecl functionName="get_camera_position" lineNumber="96"/>
-    <functiondecl functionName="get_camera_direction" lineNumber="101"/>
-    <functiondecl functionName="get_up_axis" lineNumber="106"/>
-    <functiondecl functionName="get_right_axis" lineNumber="111"/>
-    <functiondecl functionName="get_near_plane" lineNumber="116"/>
-    <functiondecl functionName="get_far_plane" lineNumber="121"/>
-    <functiondecl functionName="get_fov" lineNumber="126"/>
-    <functiondecl functionName="get_yaw" lineNumber="131"/>
-    <functiondecl functionName="set_near_plane" lineNumber="136"/>
-    <functiondecl functionName="set_far_plane" lineNumber="141"/>
-    <functiondecl functionName="set_fov" lineNumber="146"/>
-    <functiondecl functionName="set_camera_position" lineNumber="151"/>
-    <functiondecl functionName="calculate_viewmatrix" lineNumber="156"/>
-    <functiondecl functionName="update" lineNumber="166"/>
-    <functiondecl functionName="to_radians" lineNumber="185"/>
+    <functiondecl functionName="key_control" lineNumber="45"/>
+    <functiondecl functionName="mouse_control" lineNumber="86"/>
+    <functiondecl functionName="get_camera_position" lineNumber="111"/>
+    <functiondecl functionName="get_camera_direction" lineNumber="116"/>
+    <functiondecl functionName="get_up_axis" lineNumber="121"/>
+    <functiondecl functionName="get_right_axis" lineNumber="126"/>
+    <functiondecl functionName="get_near_plane" lineNumber="131"/>
+    <functiondecl functionName="get_far_plane" lineNumber="136"/>
+    <functiondecl functionName="get_fov" lineNumber="141"/>
+    <functiondecl functionName="get_yaw" lineNumber="146"/>
+    <functiondecl functionName="set_near_plane" lineNumber="151"/>
+    <functiondecl functionName="set_far_plane" lineNumber="156"/>
+    <functiondecl functionName="set_fov" lineNumber="161"/>
+    <functiondecl functionName="set_camera_position" lineNumber="166"/>
+    <functiondecl functionName="get_viewmatrix" lineNumber="171"/>
+    <functiondecl functionName="update" lineNumber="181"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="GLFW_KEY_A"/>
     <functioncall functionName="GLFW_KEY_D"/>
@@ -58,6 +33,7 @@
     <functioncall functionName="GLFW_KEY_Q"/>
     <functioncall functionName="GLFW_KEY_S"/>
     <functioncall functionName="GLFW_KEY_W"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="cos"/>
     <functioncall functionName="cross"/>
     <functioncall functionName="far_plane"/>
@@ -65,6 +41,7 @@
     <functioncall functionName="front"/>
     <functioncall functionName="if"/>
     <functioncall functionName="lookAt"/>
+    <functioncall functionName="movement_speed"/>
     <functioncall functionName="near_plane"/>
     <functioncall functionName="new_camera_position"/>
     <functioncall functionName="normalize"/>
@@ -79,6 +56,7 @@
     <functioncall functionName="start_turn_speed"/>
     <functioncall functionName="start_up"/>
     <functioncall functionName="start_yaw"/>
+    <functioncall functionName="turn_speed"/>
     <functioncall functionName="up"/>
     <functioncall functionName="update"/>
     <functioncall functionName="vec3"/>

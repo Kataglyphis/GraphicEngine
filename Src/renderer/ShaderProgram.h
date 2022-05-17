@@ -24,13 +24,13 @@ public:
 
 	void create_computer_shader_program_from_file(const char* compute_location);
 
-	bool setUniformVec3			(glm::vec3 uniform, std::string shaderUniformName);
-	bool setUniformFloat		(GLfloat uniform, std::string shaderUniformName);
-	bool setUniformInt			(GLint uniform, std::string shaderUniformName);
-	bool setUniformMatrix4fv	(glm::mat4 matrix, std::string shaderUniformName);
-	bool setUniformBlockBinding	(GLuint block_binding, std::string shaderUniformName);
+	bool setUniformVec3			(glm::vec3 uniform, const std::string& shaderUniformName);
+	bool setUniformFloat		(GLfloat uniform, const std::string& shaderUniformName);
+	bool setUniformInt			(GLint uniform, const std::string& shaderUniformName);
+	bool setUniformMatrix4fv	(glm::mat4 matrix, const std::string& shaderUniformName);
+	bool setUniformBlockBinding	(GLuint block_binding, const std::string& shaderUniformName);
 
-	GLuint get_id();
+	GLuint get_id() const;
 
 	void use_shader_program();
 
@@ -59,7 +59,7 @@ protected:
 	void compile_program();
 
 	bool	validateUniformLocation(GLint uniformLocation);
-	GLuint	getUniformLocation(std::string shaderUniformName, bool& validity);
+	GLuint	getUniformLocation(const std::string& shaderUniformName, bool& validity);
 
 	void clear_shader_program();
 

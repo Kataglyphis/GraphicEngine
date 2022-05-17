@@ -1,14 +1,21 @@
 #include "DirectionalLight.h"
 
-DirectionalLight::DirectionalLight() :  Light(), 
-                                        shadow_map(std::make_shared<CascadedShadowMap>()),
-                                        cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
-{
-    //shadow_map = new CascadedShadowMap{};
-	direction = glm::vec3{0, 0, 0};
-	light_proj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.f);
+DirectionalLight::DirectionalLight() : 
+            
+            Light(),
+            shadow_map(std::make_shared<CascadedShadowMap>()),
 
-    
+            direction(glm::vec3{ 0, 0, 0 }),
+
+            shadow_near_plane(0.f),
+            shadow_far_plane(0.f),
+
+            cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
+
+{
+
+    light_proj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.f);
+
 }
 
 
@@ -19,27 +26,45 @@ DirectionalLight::DirectionalLight( GLuint shadow_width, GLuint shadow_height,
                                     GLfloat near_plane, GLfloat far_plane,
                                     int num_cascades) : 
 
-                                    Light(shadow_width, shadow_height,
-                                    red, green, blue,
-                                    radiance),
+                                    Light(  red, green, blue,
+                                            radiance),
                                     shadow_map(std::make_shared<CascadedShadowMap>()),
-                                    cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
-    {
+                                    direction(glm::vec3{ x_dir, y_dir, z_dir }),
 
-    direction = glm::vec3{ x_dir, y_dir, z_dir };
+                                    shadow_near_plane(near_plane),
+                                    shadow_far_plane(far_plane),
+                                    
+                                    cascade_light_matrices(NUM_CASCADES, glm::mat4(0.f))
+
+{
+
 	light_proj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.f);
 
 	shadow_map->init(shadow_width, shadow_height, num_cascades);
 
-    shadow_near_plane = near_plane;
-    shadow_far_plane = far_plane;
+    
 }
 
-glm::mat4 DirectionalLight::get_light_view_matrix() {
+glm::mat4 DirectionalLight::get_light_view_matrix() const {
 	return glm::lookAt(direction, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
-std::vector<GLfloat> DirectionalLight::get_cascaded_slots()
+glm::vec3 DirectionalLight::get_direction() const
+{
+    return direction;
+}
+
+glm::vec3 DirectionalLight::get_color() const
+{
+    return color;
+}
+
+float DirectionalLight::get_radiance() const
+{
+    return radiance;
+}
+
+std::vector<GLfloat> DirectionalLight::get_cascaded_slots() const
 {
     std::vector<GLfloat> result;
 
@@ -172,7 +197,7 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
 
         // Tune this parameter according to the scene
         // for having objects casting shadows that are actually not in the frustum :) 
-        /*constexpr float zMult = 10.0f;
+        constexpr float zMult = 10.0f;
         if (minZ < 0)
         {
             minZ *= zMult;
@@ -188,7 +213,7 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
         else
         {
             maxZ *= zMult;
-        }*/
+        }
 
         glm::mat4 light_projection = glm::ortho(minX, maxX, minY, maxY, minZ, maxZ);
 
@@ -200,21 +225,6 @@ void DirectionalLight::calc_orthogonal_projections( glm::mat4 camera_view_matrix
 glm::mat4 DirectionalLight::calculate_light_transform()
 {
 	return light_proj * get_light_view_matrix();
-}
-
-glm::vec3 DirectionalLight::get_direction()
-{
-	return direction;
-}
-
-glm::vec3 DirectionalLight::get_color()
-{
-	return color;
-}
-
-float DirectionalLight::get_radiance()
-{
-	return radiance;
 }
 
 void DirectionalLight::set_direction(glm::vec3 direction)

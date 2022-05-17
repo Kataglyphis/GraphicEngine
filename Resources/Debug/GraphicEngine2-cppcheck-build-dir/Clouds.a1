@@ -1,68 +1,59 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1266611870">
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;noise&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;noise&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="8" column="2"/>
-            <symbol>noise</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;random_numbers&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;random_numbers&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\atmospheric_effects\clouds\Clouds.cpp" line="9" column="2"/>
-            <symbol>random_numbers</symbol>
-        </error>
+<analyzerinfo checksum="3997087647">
   <FileInfo check="Class">
-<class name="Clouds" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.h" line="8" col="1" hash="14566874532581979602"/>
+<class name="Clouds" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.h" line="9" col="1" hash="11759956242079518457"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="render" lineNumber="41"/>
-    <functiondecl functionName="read" lineNumber="55"/>
-    <functiondecl functionName="create_noise_textures" lineNumber="64"/>
-    <functiondecl functionName="set_powder_effect" lineNumber="70"/>
-    <functiondecl functionName="set_cirrus_effect" lineNumber="75"/>
-    <functiondecl functionName="set_pillowness" lineNumber="80"/>
-    <functiondecl functionName="set_scale" lineNumber="85"/>
-    <functiondecl functionName="set_density" lineNumber="90"/>
-    <functiondecl functionName="set_movement_speed" lineNumber="95"/>
-    <functiondecl functionName="set_scale" lineNumber="100"/>
-    <functiondecl functionName="set_translation" lineNumber="105"/>
-    <functiondecl functionName="get_model" lineNumber="110"/>
-    <functiondecl functionName="retrieve_and_set_uniform_locations" lineNumber="118"/>
-    <functiondecl functionName="get_movement_direction" lineNumber="133"/>
-    <functiondecl functionName="get_rad" lineNumber="138"/>
-    <functiondecl functionName="get_normal_model" lineNumber="143"/>
-    <functiondecl functionName="get_mesh_scale" lineNumber="148"/>
-    <functiondecl functionName="get_movement_speed" lineNumber="153"/>
-    <functiondecl functionName="get_density" lineNumber="158"/>
-    <functiondecl functionName="get_scale" lineNumber="163"/>
-    <functiondecl functionName="get_pillowness" lineNumber="168"/>
-    <functiondecl functionName="get_cirrus_effect" lineNumber="173"/>
-    <functiondecl functionName="get_powder_effect" lineNumber="178"/>
-    <functiondecl functionName="set_movement_direction" lineNumber="183"/>
-    <functiondecl functionName="get_shader_program" lineNumber="188"/>
+    <functiondecl functionName="render" lineNumber="44"/>
+    <functiondecl functionName="read" lineNumber="63"/>
+    <functiondecl functionName="create_noise_textures" lineNumber="72"/>
+    <functiondecl functionName="set_powder_effect" lineNumber="78"/>
+    <functiondecl functionName="set_cirrus_effect" lineNumber="83"/>
+    <functiondecl functionName="set_pillowness" lineNumber="88"/>
+    <functiondecl functionName="set_scale" lineNumber="93"/>
+    <functiondecl functionName="set_density" lineNumber="98"/>
+    <functiondecl functionName="set_movement_speed" lineNumber="103"/>
+    <functiondecl functionName="set_scale" lineNumber="108"/>
+    <functiondecl functionName="set_translation" lineNumber="113"/>
+    <functiondecl functionName="get_model" lineNumber="118"/>
+    <functiondecl functionName="get_movement_direction" lineNumber="126"/>
+    <functiondecl functionName="get_rad" lineNumber="131"/>
+    <functiondecl functionName="get_normal_model" lineNumber="136"/>
+    <functiondecl functionName="get_mesh_scale" lineNumber="141"/>
+    <functiondecl functionName="get_movement_speed" lineNumber="146"/>
+    <functiondecl functionName="get_density" lineNumber="151"/>
+    <functiondecl functionName="get_scale" lineNumber="156"/>
+    <functiondecl functionName="get_pillowness" lineNumber="161"/>
+    <functiondecl functionName="get_cirrus_effect" lineNumber="166"/>
+    <functiondecl functionName="get_num_march_steps" lineNumber="171"/>
+    <functiondecl functionName="get_num_march_steps_to_light" lineNumber="176"/>
+    <functiondecl functionName="get_powder_effect" lineNumber="181"/>
+    <functiondecl functionName="set_movement_direction" lineNumber="186"/>
+    <functiondecl functionName="set_num_march_steps" lineNumber="191"/>
+    <functiondecl functionName="set_num_march_steps_to_light" lineNumber="196"/>
+    <functiondecl functionName="get_shader_program" lineNumber="201"/>
     <functioncall functionName="AABB"/>
     <functioncall functionName="Clouds"/>
-    <functioncall functionName="CloudsShaderProgram"/>
-    <functioncall functionName="GL_FALSE"/>
+    <functioncall functionName="ComputeShaderProgram"/>
     <functioncall functionName="GLfloat"/>
     <functioncall functionName="MAX_MATERIALS"/>
     <functioncall functionName="NUM_CELL_POSITIONS"/>
     <functioncall functionName="Noise"/>
     <functioncall functionName="RandomNumbers"/>
+    <functioncall functionName="ShaderProgram"/>
+    <functioncall functionName="aabb"/>
     <functioncall functionName="cirrus_effect"/>
     <functioncall functionName="cloud_pillowness"/>
     <functioncall functionName="cloud_powder_effect"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="create_from_files"/>
     <functioncall functionName="create_noise_textures"/>
     <functioncall functionName="create_res128_noise"/>
     <functioncall functionName="create_res32_noise"/>
-    <functioncall functionName="default"/>
     <functioncall functionName="density"/>
     <functioncall functionName="get_model"/>
-    <functioncall functionName="get_model_location"/>
-    <functioncall functionName="get_projection_location"/>
-    <functioncall functionName="get_view_location"/>
-    <functioncall functionName="glUniformMatrix4fv"/>
     <functioncall functionName="init"/>
     <functioncall functionName="inverse"/>
-    <functioncall functionName="make_shared"/>
     <functioncall functionName="mat4"/>
     <functioncall functionName="maxX"/>
     <functioncall functionName="maxY"/>
@@ -72,16 +63,22 @@
     <functioncall functionName="minZ"/>
     <functioncall functionName="model"/>
     <functioncall functionName="movement_dir"/>
+    <functioncall functionName="movement_direction"/>
+    <functioncall functionName="movement_speed"/>
+    <functioncall functionName="noise"/>
+    <functioncall functionName="num_march_steps"/>
+    <functioncall functionName="num_march_steps_to_light"/>
     <functioncall functionName="pillowness"/>
     <functioncall functionName="powder_effect"/>
     <functioncall functionName="projection_matrix"/>
+    <functioncall functionName="random_numbers"/>
     <functioncall functionName="read"/>
     <functioncall functionName="read_res128_noise"/>
     <functioncall functionName="read_res32_noise"/>
     <functioncall functionName="render"/>
-    <functioncall functionName="retrieve_and_set_uniform_locations"/>
     <functioncall functionName="scale"/>
     <functioncall functionName="scale_factor"/>
+    <functioncall functionName="setUniformMatrix4fv"/>
     <functioncall functionName="shader_program"/>
     <functioncall functionName="speed"/>
     <functioncall functionName="translate"/>
@@ -90,7 +87,6 @@
     <functioncall functionName="true"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>
-    <functioncall functionName="value_ptr"/>
     <functioncall functionName="vec3"/>
     <functioncall functionName="vector"/>
     <functioncall functionName="view_matrix"/>

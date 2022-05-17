@@ -19,7 +19,7 @@ public:
 	
 	void update_window_params(GLfloat window_width, GLfloat window_height);
 
-	GLint get_id();
+	GLuint get_id() const { return g_buffer; };
 
 	~GBuffer();
 

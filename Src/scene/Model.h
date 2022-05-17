@@ -21,7 +21,7 @@ public:
 
     Model();
 
-    void load_model_in_ram(std::string model_path);
+    void load_model_in_ram(const std::string& model_path);
 
     void create_render_context();
 
@@ -30,8 +30,8 @@ public:
     void unbind_resources();
 
     std::shared_ptr<AABB>       get_aabb();
-    std::vector<ObjMaterial>    get_materials();
-    int                         get_texture_count();
+    std::vector<ObjMaterial>    get_materials() const;
+    int                         get_texture_count() const;
 
     void render();
 

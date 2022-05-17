@@ -5,11 +5,8 @@
 class TextureWrappingMode
 {
 public:
-	TextureWrappingMode();
 
 	virtual void activate() = 0;
-
-	~TextureWrappingMode();
 
 private:
 };

@@ -8,6 +8,16 @@ operator==
 operator() call:[return]
 getVertices
 getIndices
+get_ambient
+get_diffuse
+get_specular
+get_transmittance
+get_emission
+get_shininess
+get_ior
+get_dissolve
+get_illum
+get_textureID
 get_base_dir call:[find_last_of,substr] noreturn:[substr]
 GameObject
 GameObject call:[load_model_in_ram]

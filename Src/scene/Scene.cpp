@@ -2,35 +2,35 @@
 
 #include <sstream>
 
-Scene::Scene()
+Scene::Scene():
+
+    main_camera(),
+    sun(std::make_shared<DirectionalLight>( 4096,
+                                            4096,
+                                            1.f,
+                                            1.f,
+                                            1.f,
+                                            1.f,
+                                            -0.1f,
+                                            -0.8,
+                                            -0.1f,
+                                            main_camera->get_near_plane(),
+                                            main_camera->get_far_plane(),
+                                            NUM_CASCADES)),
+        clouds(std::make_shared<Clouds>()),
+        main_window(),
+        view_frustum_culling(std::make_shared<ViewFrustumCulling>(ViewFrustumCulling{})),
+        progress(0),
+        loaded_scene(false),
+        context_setup(false)
 {
 
 }
 
-Scene::Scene(const Scene& other)
-{
-    main_camera = other.main_camera;
-    main_window = other.main_window;
-    view_frustum_culling = other.view_frustum_culling;
-    clouds = other.clouds;
-
-
-    game_objects = other.game_objects;
-
-    progress = other.progress;
-    loaded_scene = other.loaded_scene;
-
-    context_setup = other.context_setup;
-}
-
-void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_window)
-{
-
-    this->main_camera = main_camera;
-    this->main_window = main_window;
-
-    //global objects
-    sun = std::make_shared<DirectionalLight>(   4096,
+Scene::Scene(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_window) :
+        
+        main_camera(main_camera),
+        sun(std::make_shared<DirectionalLight>( 4096,
                                                 4096,
                                                 1.f,
                                                 1.f,
@@ -39,8 +39,18 @@ void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> ma
                                                 -0.1f,
                                                 -0.8,
                                                 -0.1f,
-                                                main_camera->get_near_plane(), main_camera->get_far_plane(),
-                                                NUM_CASCADES);
+                                                main_camera->get_near_plane(),
+                                                main_camera->get_far_plane(),
+                                                NUM_CASCADES)),
+        clouds(std::make_shared<Clouds>()),
+        main_window(main_window),
+        view_frustum_culling(std::make_shared<ViewFrustumCulling>(ViewFrustumCulling{})),
+        progress(0),
+        loaded_scene(false),
+        context_setup(false)
+        
+
+{
 
     point_lights.reserve(MAX_POINT_LIGHTS);
     point_lights.push_back(std::make_shared<PointLight>( 1024, 1024,
@@ -52,19 +62,9 @@ void Scene::init(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> ma
 
     point_lights[0]->set_position(glm::vec3(0.0, -24.f, -24.0));
 
-    clouds = std::make_shared<Clouds>();
-
-    loaded_scene = false;
-
-    view_frustum_culling = std::make_shared<ViewFrustumCulling>(ViewFrustumCulling{});
-
-    progress = 0;
-
-    context_setup = false;
-
 }
 
-GLuint Scene::get_point_light_count()
+GLuint Scene::get_point_light_count() const
 {
     return static_cast<uint32_t>(point_lights.size());
 }
@@ -74,7 +74,7 @@ std::shared_ptr<DirectionalLight> Scene::get_sun()
     return sun;
 }
 
-std::vector<std::shared_ptr<PointLight>> Scene::get_point_lights()
+std::vector<std::shared_ptr<PointLight>> Scene::get_point_lights() const
 {
     return point_lights;
 }
@@ -154,12 +154,12 @@ void Scene::set_context_setup(bool context_setup)
     this->context_setup = context_setup;
 }
 
-bool Scene::get_context_setup()
+bool Scene::get_context_setup() const
 {
     return context_setup;
 }
 
-void Scene::add_game_object(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
+void Scene::add_game_object(const std::string& model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
 {
     game_objects.push_back(std::make_shared<GameObject>(GameObject()));
     game_objects.back()->init(model_path, translation, scale, rot);
@@ -170,7 +170,7 @@ std::shared_ptr<Clouds> Scene::get_clouds()
     return clouds;
 }
 
-std::vector<std::shared_ptr<GameObject>> Scene::get_game_objects()
+std::vector<std::shared_ptr<GameObject>> Scene::get_game_objects() const
 {
     return game_objects;
 }

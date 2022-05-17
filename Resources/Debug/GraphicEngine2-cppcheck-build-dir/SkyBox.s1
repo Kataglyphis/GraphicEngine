@@ -1,5 +1,4 @@
-SkyBox
-SkyBox call:[UniformHelper,Vertex,areErrorPrintAll,arePreError,c_str,create_from_files,get_projection_location,get_view_location,glBindTexture,glGenTextures,glTexImage2D,glTexParameteri,printf,srand,stbi_image_free,stbi_load,time,vec2,vec3] noreturn:[stbi_image_free]
-draw_sky_box global:[MAX_TEXTURE_COUNT] call:[areErrorPrintAll,arePreError,fmod,get_uniform_samplerCube_location,glActiveTexture,glBindTexture,glDepthFunc,glDepthMask,mat3,mat4,render,setUniformInt,setUniformMatrix4fv,use_shader_program,validate_program]
-reload call:[create_from_files,get_projection_location,get_view_location] noreturn:[get_view_location]
-SkyBox
+SkyBox call:[Vertex,c_str,create_from_files,glBindTexture,glGenTextures,glTexImage2D,glTexParameteri,printf,push_back,size,srand,stbi_image_free,stbi_load,str,string,time,vec2,vec3] noreturn:[stbi_image_free,str]
+draw_sky_box global:[MAX_TEXTURE_COUNT] call:[fmod,glActiveTexture,glBindTexture,glDepthFunc,glDepthMask,mat3,mat4,render,setUniformInt,setUniformMatrix4fv,use_shader_program,validate_program] noreturn:[glBindTexture]
+reload call:[create_from_files] noreturn:[create_from_files]
+SkyBox call:[glDeleteTextures] noreturn:[glDeleteTextures]

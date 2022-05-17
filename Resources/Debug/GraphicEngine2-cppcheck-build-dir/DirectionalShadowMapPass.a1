@@ -1,43 +1,49 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="915939720">
+<analyzerinfo checksum="78072135">
   <FileInfo check="Class">
-<class name="DirectionalShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalShadowMapPass.h" line="10" col="1" hash="3112858254382896156"/>
+<class name="DirectionalShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalShadowMapPass.h" line="7" col="1" hash="16606868408949542429"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="execute" lineNumber="10"/>
-    <functiondecl functionName="create_shader_program" lineNumber="48"/>
-    <functiondecl functionName="set_game_object_uniforms" lineNumber="56"/>
+    <functiondecl functionName="execute" lineNumber="9"/>
+    <functiondecl functionName="create_shader_program" lineNumber="60"/>
+    <functiondecl functionName="set_game_object_uniforms" lineNumber="68"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="CascadedShadowMap"/>
     <functioncall functionName="DirectionalLight"/>
     <functioncall functionName="DirectionalShadowMapPass"/>
+    <functioncall functionName="GL_BACK"/>
+    <functioncall functionName="GL_CCW"/>
+    <functioncall functionName="GL_CULL_FACE"/>
     <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
-    <functioncall functionName="GL_FALSE"/>
     <functioncall functionName="GL_FRAMEBUFFER"/>
     <functioncall functionName="GLfloat"/>
+    <functioncall functionName="GameObject"/>
     <functioncall functionName="MAX_MATERIALS"/>
     <functioncall functionName="NUM_CASCADES"/>
     <functioncall functionName="Scene"/>
-    <functioncall functionName="ShadowMapShaderProgram"/>
+    <functioncall functionName="ShaderProgram"/>
     <functioncall functionName="UNIFORM_LIGHT_MATRICES_BINDING"/>
-    <functioncall functionName="UniformHelper"/>
     <functioncall functionName="calc_orthogonal_projections"/>
-    <functioncall functionName="calculate_viewmatrix"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="create_from_files"/>
     <functioncall functionName="create_shader_program"/>
-    <functioncall functionName="get_VP_location"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="game_objects"/>
     <functioncall functionName="get_cascaded_light_matrices"/>
     <functioncall functionName="get_fov"/>
-    <functioncall functionName="get_id"/>
-    <functioncall functionName="get_light_matrics_id_location"/>
-    <functioncall functionName="get_model_location"/>
+    <functioncall functionName="get_game_objects"/>
+    <functioncall functionName="get_normal_world_trafo"/>
     <functioncall functionName="get_shadow_height"/>
     <functioncall functionName="get_shadow_map"/>
     <functioncall functionName="get_shadow_width"/>
     <functioncall functionName="get_sun"/>
+    <functioncall functionName="get_viewmatrix"/>
+    <functioncall functionName="get_world_trafo"/>
     <functioncall functionName="glBindFramebuffer"/>
     <functioncall functionName="glClear"/>
-    <functioncall functionName="glUniformMatrix4fv"/>
+    <functioncall functionName="glCullFace"/>
+    <functioncall functionName="glEnable"/>
+    <functioncall functionName="glFrontFace"/>
     <functioncall functionName="glViewport"/>
     <functioncall functionName="make_shared"/>
     <functioncall functionName="mat4"/>
@@ -45,10 +51,10 @@
     <functioncall functionName="render"/>
     <functioncall functionName="setUniformBlockBinding"/>
     <functioncall functionName="setUniformMatrix4fv"/>
-    <functioncall functionName="this"/>
+    <functioncall functionName="set_game_object_uniforms"/>
+    <functioncall functionName="shared_ptr"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>
-    <functioncall functionName="value_ptr"/>
     <functioncall functionName="vec4"/>
     <functioncall functionName="window_height"/>
     <functioncall functionName="window_width"/>

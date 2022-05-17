@@ -1,23 +1,13 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="4267288987">
-        <error id="noExplicitConstructor" severity="style" msg="Class &apos;File&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;File&apos; has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/File.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\util\File.h" line="9" column="2"/>
-            <symbol>File</symbol>
-        </error>
-        <error id="invalidPrintfArgType_s" severity="warning" msg="%s in format string (no. 1) requires &apos;char *&apos; but the argument type is &apos;std::string&apos;." verbose="%s in format string (no. 1) requires &apos;char *&apos; but the argument type is &apos;std::string&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/File.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\util\File.cpp" line="16" column="9"/>
-        </error>
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;file_location&apos; should be passed by const reference." verbose="Parameter &apos;file_location&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/File.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\util\File.cpp" line="5" column="24"/>
-            <symbol>file_location</symbol>
-        </error>
+<analyzerinfo checksum="3277287000">
   <FileInfo check="Class">
-<class name="File" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/File.h" line="4" col="1" hash="13305343400479688284"/>
+<class name="File" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/File.h" line="4" col="1" hash="18057020973360666147"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="read" lineNumber="10"/>
     <functioncall functionName="File"/>
     <functioncall functionName="append"/>
+    <functioncall functionName="c_str"/>
     <functioncall functionName="close"/>
     <functioncall functionName="eof"/>
     <functioncall functionName="file_location"/>

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-File::File(std::string file_location)
+File::File(const std::string& file_location)
 {
 	this->file_location = file_location;
 }
@@ -13,7 +13,7 @@ std::string File::read()
     std::ifstream file_stream(file_location, std::ios::in);
 
     if (!file_stream.is_open()) {
-        printf("Failed to read %s. File does not exist.", file_location);
+        printf("Failed to read %s. File does not exist.", file_location.c_str());
         return "";
     }
 

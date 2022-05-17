@@ -1,10 +1,3 @@
 get_program_id
 GeometryPassShaderProgram
-retrieve_uniform_locations global:[MAX_MATERIALS,MAX_TEXTURE_COUNT] call:[areErrorPrintAll,arePreError,glGetUniformLocation,sizeof,snprintf] noreturn:[areErrorPrintAll,glGetUniformLocation]
-get_projection_location
-get_view_location
-get_model_location
-get_normal_modal_location
-get_uniform_material_locations
-get_uniform_texture_locations
 GeometryPassShaderProgram

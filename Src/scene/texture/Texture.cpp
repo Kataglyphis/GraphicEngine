@@ -3,25 +3,32 @@
 #include <iostream>
 #include "Texture.h"
 
-Texture::Texture()
+Texture::Texture():
+
+		textureID(0),
+		width(0),
+		height(0),
+		bit_depth(0),
+		//go with reapeat as standard ...
+		wrapping_mode(std::make_shared<RepeatMode>()),
+		file_location(std::string(""))
+
 {
-	textureID			= 0;
-	width				= 0;
-	height				= 0;
-	bit_depth			= 0;
-	file_location		= strdup("");
-	//go with reapeat as standard ...
-	this->wrapping_mode = std::make_shared<RepeatMode>();
+	
 }
 
-Texture::Texture(const char* file_loc, std::shared_ptr<TextureWrappingMode> wrapping_mode)
+Texture::Texture(const char* file_loc, std::shared_ptr<TextureWrappingMode> wrapping_mode):
+
+						textureID(0),
+						width(0),
+						height(0),
+						bit_depth(0),
+						//go with reapeat as standard ...
+						wrapping_mode(wrapping_mode),
+						file_location(std::string(file_loc))
+
 {
-	textureID			= 0;
-	width				= 0;
-	height				= 0;
-	bit_depth			= 0;
-	file_location		= std::string(file_loc);
-	this->wrapping_mode = wrapping_mode;
+
 }
 
 bool Texture::load_texture_without_alpha_channel()
@@ -157,7 +164,7 @@ bool Texture::load_SRGB_texture_with_alpha_channel()
 	return true;
 }
 
-std::string Texture::get_filename()
+std::string Texture::get_filename() const
 {
 	return file_location;
 }
@@ -179,10 +186,10 @@ void Texture::clear_texture_context()
 	width			= 0;
 	height			= 0;
 	bit_depth		= 0;
-	file_location	= strdup("");
+	file_location	= std::string("");
 }
 
-GLuint Texture::get_id()
+GLuint Texture::get_id() const
 {
 	return textureID;
 }

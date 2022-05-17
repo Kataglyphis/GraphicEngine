@@ -1,8 +1,8 @@
 get_shadow_width
 get_shadow_height
+get_id
 ShadowMap
 init call:[glBindFramebuffer,glBindTexture,glCheckFramebufferStatus,glDrawBuffer,glFramebufferTexture2D,glGenFramebuffers,glGenTextures,glReadBuffer,glTexImage2D,glTexParameterfv,glTexParameteri,printf]
 write call:[glBindFramebuffer] noreturn:[glBindFramebuffer]
 read call:[glActiveTexture,glBindTexture] noreturn:[glBindTexture]
-get_id
 ShadowMap call:[glDeleteFramebuffers,glDeleteTextures] noreturn:[glDeleteFramebuffers,glDeleteTextures]

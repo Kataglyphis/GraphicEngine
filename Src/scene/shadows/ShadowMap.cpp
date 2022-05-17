@@ -1,10 +1,15 @@
 #include "ShadowMap.h"
 
 
-ShadowMap::ShadowMap()
+ShadowMap::ShadowMap() :
+			
+				FBO(0),
+				shadow_map(0),
+				shadow_width(0),
+				shadow_height(0)
+
 {
-	FBO = 0;
-	shadow_map = 0;
+	
 }
 
 bool ShadowMap::init(GLuint width, GLuint height)
@@ -60,11 +65,6 @@ void ShadowMap::read(GLenum texture_unit)
 	glActiveTexture(texture_unit);
 	glBindTexture(GL_TEXTURE_2D, shadow_map);
 
-}
-
-GLuint ShadowMap::get_id()
-{
-	return shadow_map;
 }
 
 ShadowMap::~ShadowMap()

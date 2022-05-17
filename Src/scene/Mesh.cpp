@@ -7,17 +7,25 @@
 #include "Texture.h"
 
 
-Mesh::Mesh()
+Mesh::Mesh():
+	m_vao(-1),
+	m_ibo(-1),
+	m_drawCount(0),
+	vertices(std::vector<Vertex>()),
+	indices(std::vector<uint32_t>())
 {
+
+
 }
 
-Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<unsigned int>& indices) {
-
-	this->vertices = vertices;
-	this->indices = indices;
+Mesh::Mesh(std::vector<Vertex>& vertices, std::vector<unsigned int>& indices) :
+								
+					vertices(vertices),
+					indices(indices) 
+{
 		 
-	unsigned int numVertices = (int)vertices.size();
-	unsigned int num_indices = (int)indices.size();
+	uint32_t numVertices = static_cast<uint32_t>(vertices.size());
+	uint32_t num_indices = static_cast<uint32_t>(indices.size());
 
 	m_drawCount = num_indices; 
 	glGenVertexArrays(1, &m_vao);

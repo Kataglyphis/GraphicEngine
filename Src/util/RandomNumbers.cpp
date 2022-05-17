@@ -37,7 +37,7 @@ void RandomNumbers::generate_random_numbers()
 
         for (int k = 0; k < MAX_RESOLUTION_Y; k++) {
 
-            GLfloat random_offset[4] = { dis(gen64), dis(gen64), dis(gen64), dis(gen64) };
+            const GLfloat random_offset[4] = { dis(gen64), dis(gen64), dis(gen64), dis(gen64) };
 
             GLuint index = (MAX_RESOLUTION_Y * i + k) * 4;
 

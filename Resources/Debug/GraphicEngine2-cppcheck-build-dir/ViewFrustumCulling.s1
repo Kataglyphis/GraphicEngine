@@ -1,3 +1,13 @@
+Vertex call:[vec2,vec3] noreturn:[vec2]
+Vertex
+get_position
+get_normal
+get_color
+get_tex_coors
+operator==
+operator() call:[return]
+getVertices
+getIndices
 ViewFrustumCulling
 is_inside global:[NUM_FRUSTUM_PLANES] call:[corners_outside_plane,get_corners,get_far_plane,get_fov,get_near_plane,update_frustum_param]
 render_view_frustum call:[glBindVertexArray,glDrawElements] noreturn:[glBindVertexArray]

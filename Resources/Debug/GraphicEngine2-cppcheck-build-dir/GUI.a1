@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="4001692238">
-        <error id="constVariable" severity="style" msg="Variable &apos;style&apos; can be declared with const" verbose="Variable &apos;style&apos; can be declared with const" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\gui\GUI.cpp" line="67" column="17" info="Variable &apos;style&apos; can be declared with const"/>
-            <symbol>style</symbol>
+<analyzerinfo checksum="3308059312">
+        <error id="functionStatic" severity="performance" msg="Technically the member function &apos;GUI::init&apos; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &apos;GUI::init&apos; can be made a static function. Making a function static can bring a performance benefit since no &apos;this&apos; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\gui\GUI.h" line="18" column="7"/>
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\gui\GUI.cpp" line="68" column="11"/>
+            <symbol>GUI::init</symbol>
         </error>
   <FileInfo check="Class">
-<class name="GUI" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.h" line="11" col="1" hash="13297757395709272665"/>
+<class name="GUI" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.h" line="12" col="1" hash="2893509950156280223"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="init" lineNumber="61"/>
-    <functiondecl functionName="render" lineNumber="79"/>
-    <functiondecl functionName="update_user_input" lineNumber="197"/>
+    <functiondecl functionName="init" lineNumber="68"/>
+    <functiondecl functionName="render" lineNumber="86"/>
+    <functiondecl functionName="update_user_input" lineNumber="211"/>
     <functioncall functionName="Begin"/>
     <functioncall functionName="Button"/>
     <functioncall functionName="Checkbox"/>
@@ -71,9 +72,12 @@
     <functioncall functionName="cascaded_shadow_intensity"/>
     <functioncall functionName="cloud_cirrus_effect"/>
     <functioncall functionName="cloud_density"/>
+    <functioncall functionName="cloud_mesh_offset"/>
     <functioncall functionName="cloud_mesh_scale"/>
     <functioncall functionName="cloud_move"/>
     <functioncall functionName="cloud_movement_direction"/>
+    <functioncall functionName="cloud_num_march_steps"/>
+    <functioncall functionName="cloud_num_march_steps_to_light"/>
     <functioncall functionName="cloud_pillowness"/>
     <functioncall functionName="cloud_powder_effect"/>
     <functioncall functionName="cloud_scale"/>
@@ -110,6 +114,7 @@
     <functioncall functionName="set_powder_effect"/>
     <functioncall functionName="set_radiance"/>
     <functioncall functionName="set_scale"/>
+    <functioncall functionName="set_translation"/>
     <functioncall functionName="shadow_map_res_index"/>
     <functioncall functionName="shadow_map_resolution"/>
     <functioncall functionName="shadow_resolution_changed"/>

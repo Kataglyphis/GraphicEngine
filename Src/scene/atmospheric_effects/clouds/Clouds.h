@@ -19,19 +19,19 @@ public:
 
 	void		create_noise_textures();
 
-	glm::mat4	get_model();
-	glm::vec3	get_movement_direction();
-	glm::vec3	get_rad();
-	glm::mat4	get_normal_model();
-	glm::vec3	get_mesh_scale();
-	GLfloat		get_movement_speed();
-	GLfloat		get_density();
-	GLfloat		get_scale();
-	GLfloat		get_pillowness();
-	GLfloat		get_cirrus_effect();
-	GLuint		get_num_march_steps();
-	GLuint		get_num_march_steps_to_light();
-	bool		get_powder_effect();
+	glm::mat4	get_model() const;
+	glm::vec3	get_movement_direction() const;
+	glm::vec3	get_rad() const;
+	glm::mat4	get_normal_model() const;
+	glm::vec3	get_mesh_scale() const;
+	GLfloat		get_movement_speed() const;
+	GLfloat		get_density() const;
+	GLfloat		get_scale() const;
+	GLfloat		get_pillowness() const;
+	GLfloat		get_cirrus_effect() const;
+	GLuint		get_num_march_steps() const;
+	GLuint		get_num_march_steps_to_light() const;
+	bool		get_powder_effect() const;
 
 	void		set_powder_effect(bool cloud_powder_effect);
 	void		set_cirrus_effect(GLfloat cirrus_effect);
@@ -51,6 +51,10 @@ public:
 
 private:
 
+	std::shared_ptr<ShaderProgram>	shader_program;
+	std::shared_ptr<Noise>			noise;
+	std::shared_ptr<RandomNumbers>	random_numbers;
+
 	glm::mat4 model;
 	AABB aabb;
 	GLfloat minX, maxX, minY, maxY, minZ, maxZ;
@@ -63,10 +67,6 @@ private:
 	GLuint	num_march_steps, num_march_steps_to_light;
 
 	bool powder_effect;
-
-	std::shared_ptr<ShaderProgram>	shader_program;
-	std::shared_ptr<Noise>			noise;
-	std::shared_ptr<RandomNumbers>	random_numbers;
 
 };
 

@@ -63,7 +63,7 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 {
 
     // VP
-    glm::mat4 view_matrix = main_camera->calculate_viewmatrix();
+    glm::mat4 view_matrix = main_camera->get_viewmatrix();
     shader_program->setUniformMatrix4fv(view_matrix, "view");
     shader_program->setUniformMatrix4fv(projection_matrix, "projection");
 
@@ -78,14 +78,13 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
     shader_program->setUniformInt(  D_LIGHT_SHADOW_TEXTURES_SLOT, 
                                     "directional_shadow_maps");
 
-    std::vector<glm::mat4> cascade_light_matrices   = main_light->get_cascaded_light_matrices();
     std::vector<GLfloat> cascade_slots              = main_light->get_cascaded_slots();
 
-    for (size_t i = 0; i < NUM_CASCADES; i++) {
+    for (uint32_t i = 0; i < NUM_CASCADES; i++) {
 
         glm::vec4 clip_end_slot = projection_matrix * glm::vec4(0.0f, 0.0f, -cascade_slots[i+1], 1.0f);
         char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "cascade_endpoints[%zd]", i);
+        snprintf(loc_buff, sizeof(loc_buff), "cascade_endpoints[%ui]", i);
         shader_program->setUniformFloat(clip_end_slot.z, loc_buff);
 
     }
@@ -102,33 +101,33 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 
     shader_program->setUniformInt(static_cast<uint32_t>(point_lights.size()), "point_light_count");
 
-    for (size_t i = 0; i < static_cast<uint32_t>(point_lights.size()); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(point_lights.size()); i++) {
 
         char loc_buff[100] = { '\0' };
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].base.color", i);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].base.color", i);
         shader_program->setUniformVec3(point_lights[i]->get_color(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].base.radiance", i);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].base.radiance", i);
         shader_program->setUniformFloat(point_lights[i]->get_radiance(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].position", i);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].position", i);
         shader_program->setUniformVec3(point_lights[i]->get_position(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].constant", i);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].constant", i);
         shader_program->setUniformFloat(point_lights[i]->get_constant_factor(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].linear", i);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].linear", i);
         shader_program->setUniformFloat(point_lights[i]->get_linear_factor(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%zd].exponent", i);
+        snprintf(loc_buff, sizeof(loc_buff), "point_lights[%ui].exponent", i);
         shader_program->setUniformFloat(point_lights[i]->get_exponent_factor(), loc_buff);
 
         //unofrom locations for omni shadow maps
-        snprintf(loc_buff, sizeof(loc_buff), "omni_shadow_maps[%zd].shadow_map", i);
+        snprintf(loc_buff, sizeof(loc_buff), "omni_shadow_maps[%ui].shadow_map", i);
         shader_program->setUniformInt((GLint)(P_LIGHT_SHADOW_TEXTURES_SLOT + i), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "omni_shadow_maps[%zd].far_plane", i);
+        snprintf(loc_buff, sizeof(loc_buff), "omni_shadow_maps[%ui].far_plane", i);
         shader_program->setUniformInt(point_lights[i]->get_far_plane(), loc_buff);
 
     }
@@ -139,38 +138,38 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
 
     // MATERIALS
     std::vector<ObjMaterial> materials = scene->get_materials();
-    for (size_t i = 0; i < materials.size(); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(materials.size()); i++) {
 
         char loc_buff[100] = { '\0' };
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ambient", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ambient", i);
         shader_program->setUniformVec3(materials[i].get_ambient(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].diffuse", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].diffuse", i);
         shader_program->setUniformVec3(materials[i].get_diffuse(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].specular", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].specular", i);
         shader_program->setUniformVec3(materials[i].get_specular(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].transmittance", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].transmittance", i);
         shader_program->setUniformVec3(materials[i].get_transmittance(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].emission", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].emission", i);
         shader_program->setUniformVec3(materials[i].get_emission(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].shininess", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].shininess", i);
         shader_program->setUniformFloat(materials[i].get_shininess(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ior", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ior", i);
         shader_program->setUniformFloat(materials[i].get_ior(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].dissolve", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].dissolve", i);
         shader_program->setUniformFloat(materials[i].get_dissolve(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].illum", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].illum", i);
         shader_program->setUniformInt(materials[i].get_illum(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].textureID", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].textureID", i);
         shader_program->setUniformInt(materials[i].get_textureID(), loc_buff);
 
     }

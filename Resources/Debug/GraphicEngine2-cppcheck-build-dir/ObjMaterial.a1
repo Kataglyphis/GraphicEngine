@@ -1,36 +1,22 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2657276507">
+<analyzerinfo checksum="1134530210">
   <FileInfo check="Class">
-<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
-<class name="ObjMaterial" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterial.h" line="12" col="1" hash="15731942570617805128"/>
+<class name="ObjMaterial" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterial.h" line="12" col="1" hash="3678697107659410216"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="use_material" lineNumber="36"/>
+    <functioncall functionName="MAX_MATERIALS"/>
     <functioncall functionName="ObjMaterial"/>
-    <functioncall functionName="UniformHelper"/>
     <functioncall functionName="ambient"/>
-    <functioncall functionName="ambient_location"/>
     <functioncall functionName="diffuse"/>
-    <functioncall functionName="diffuse_location"/>
     <functioncall functionName="dissolve"/>
-    <functioncall functionName="dissolve_location"/>
     <functioncall functionName="emission"/>
-    <functioncall functionName="emission_location"/>
     <functioncall functionName="illum"/>
-    <functioncall functionName="illum_location"/>
     <functioncall functionName="ior"/>
-    <functioncall functionName="ior_location"/>
-    <functioncall functionName="setUniformFloat"/>
-    <functioncall functionName="setUniformInt"/>
-    <functioncall functionName="setUniformVec3"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="shininess"/>
-    <functioncall functionName="shininess_location"/>
     <functioncall functionName="specular"/>
-    <functioncall functionName="specular_location"/>
     <functioncall functionName="textureID"/>
-    <functioncall functionName="textureID_location"/>
     <functioncall functionName="transmittance"/>
-    <functioncall functionName="transmittance_location"/>
     <functioncall functionName="vec3"/>
   </FileInfo>
 </analyzerinfo>

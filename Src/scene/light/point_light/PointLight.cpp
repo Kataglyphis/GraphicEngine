@@ -8,29 +8,28 @@ PointLight::PointLight()
     exponent = 0.0f;
 }
 
-PointLight::PointLight(GLfloat shadow_width, GLfloat shadow_height,
-                                        GLfloat near, GLfloat far,
-                                        GLfloat red, GLfloat green, GLfloat blue,
-                                        GLfloat radiance,
-                                        GLfloat x_pos, GLfloat y_pos, GLfloat z_pos,
-                                        GLfloat con, GLfloat lin, GLfloat exp) :
+PointLight::PointLight( GLfloat shadow_width, GLfloat shadow_height,
+                        GLfloat near, GLfloat far,
+                        GLfloat red, GLfloat green, GLfloat blue,
+                        GLfloat radiance,
+                        GLfloat x_pos, GLfloat y_pos, GLfloat z_pos,
+                        GLfloat con, GLfloat lin, GLfloat exp) :
 
-                                            Light(shadow_width, shadow_height,
-                                            red, green, blue,
-                                            radiance), 
-                                            omni_dir_shadow_map(std::make_shared<OmniDirShadowMap>())
+                                            Light(  red, green, blue,
+                                                    radiance), 
+                                            omni_dir_shadow_map(std::make_shared<OmniDirShadowMap>()),
+
+                                            position(glm::vec3(x_pos, y_pos, z_pos)),
+                                            constant(con),
+                                            linear(lin),
+                                            exponent(exp),
+                                            far_plane(far)
 {
-    position = glm::vec3(x_pos, y_pos, z_pos);
-    constant = con;
-    linear = lin;
-    exponent = exp;
-    far_plane = far;
-
+    
     float aspect = (float)shadow_width / (float)shadow_height;
     light_proj = glm::perspective(glm::radians(90.0f), aspect, near, far);
-
-    
     omni_dir_shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height);
+
 }
 
 std::vector<glm::mat4> PointLight::calculate_light_transform()

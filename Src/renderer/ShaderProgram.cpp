@@ -3,9 +3,16 @@
 
 #include <sstream>
 
-ShaderProgram::ShaderProgram()
+ShaderProgram::ShaderProgram() :
+
+            program_id(0),
+            vertex_location(""),
+            fragment_location(""),
+            geometry_location(""),
+            compute_location("fragment_location")
+
 {
-    program_id = 0;
+    
     std::stringstream aux;
     aux << CMAKELISTS_DIR;
     aux << "/Resources/Shaders/";
@@ -85,7 +92,7 @@ void ShaderProgram::create_computer_shader_program_from_file(const char* compute
 
 }
 
-GLuint ShaderProgram::get_id()
+GLuint ShaderProgram::get_id() const
 {
     return program_id;
 }
@@ -214,7 +221,7 @@ void ShaderProgram::compile_program()
     
 }
 
-bool ShaderProgram::setUniformVec3(glm::vec3 uniform, std::string shaderUniformName)
+bool ShaderProgram::setUniformVec3(glm::vec3 uniform, const std::string& shaderUniformName)
 {
     bool validity           = true;
     GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
@@ -226,7 +233,7 @@ bool ShaderProgram::setUniformVec3(glm::vec3 uniform, std::string shaderUniformN
     return validity;
 }
 
-bool ShaderProgram::setUniformFloat(GLfloat uniform, std::string shaderUniformName)
+bool ShaderProgram::setUniformFloat(GLfloat uniform, const std::string& shaderUniformName)
 {
 
     bool validity = true;
@@ -239,7 +246,7 @@ bool ShaderProgram::setUniformFloat(GLfloat uniform, std::string shaderUniformNa
     return validity;
 }
 
-bool ShaderProgram::setUniformInt(GLint uniform, std::string shaderUniformName)
+bool ShaderProgram::setUniformInt(GLint uniform, const std::string& shaderUniformName)
 {
     bool validity = true;
     GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
@@ -252,7 +259,7 @@ bool ShaderProgram::setUniformInt(GLint uniform, std::string shaderUniformName)
 
 }
 
-bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix, std::string shaderUniformName)
+bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix, const std::string& shaderUniformName)
 {
 
     bool validity = true;
@@ -266,7 +273,7 @@ bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix, std::string shaderUnif
 
 }
 
-bool ShaderProgram::setUniformBlockBinding(GLuint block_binding, std::string shaderUniformName)
+bool ShaderProgram::setUniformBlockBinding(GLuint block_binding, const std::string& shaderUniformName)
 {
 
     bool validity = true;
@@ -296,7 +303,7 @@ bool ShaderProgram::validateUniformLocation(GLint uniformLocation)
     return (uniformLocation == -1) ? false : true;
 }
 
-GLuint ShaderProgram::getUniformLocation(std::string shaderUniformName, bool& validity)
+GLuint ShaderProgram::getUniformLocation(const std::string& shaderUniformName, bool& validity)
 {
     GLuint uniform_location = glGetUniformLocation(program_id, shaderUniformName.c_str());
     validity = validateUniformLocation(uniform_location);

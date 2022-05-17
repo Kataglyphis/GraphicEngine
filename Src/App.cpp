@@ -35,7 +35,6 @@ int main()
     // make sure ti initialize window first
     // this will create opengl context!
     std::shared_ptr<Window> main_window = std::make_shared<Window>(window_width, window_height);
-    main_window->initialize();
 
     DebugApp debugCallbacks;
 
@@ -47,14 +46,9 @@ int main()
     LoadingScreen loading_screen; 
     loading_screen.init();
 
-    std::shared_ptr<Camera> main_camera = std::make_shared<Camera>( glm::vec3(0.0f,50.0f,0.0f), 
-                                                                    glm::vec3(0.0f, 1.0f, 0.0f), 
-                                                                    -60.0f,
-                                                                    0.0f, 35.0f, 0.25f,
-                                                                    0.1f, 1000.f, 45.f);
+    std::shared_ptr<Camera> main_camera = std::make_shared<Camera>();
 
-    std::shared_ptr<Scene> scene = std::make_shared<Scene>();
-    scene->init(main_camera, main_window);
+    std::shared_ptr<Scene> scene = std::make_shared<Scene>(main_camera, main_window);
 
     // load scene in an other thread than the rendering thread; would block otherwise
     std::thread t1 = scene->spwan();

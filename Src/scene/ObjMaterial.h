@@ -19,18 +19,18 @@ public:
 				glm::vec3 emission, float shininess, float ior, float dissolve,
 				int illum, int textureID);
 
-	glm::vec3 get_ambient() { return ambient; };
-	glm::vec3 get_diffuse() { return diffuse; };
-	glm::vec3 get_specular() { return specular; };
-	glm::vec3 get_transmittance() { return transmittance; };
-	glm::vec3 get_emission() { return emission; };
+	glm::vec3 get_ambient() const { return ambient; };
+	glm::vec3 get_diffuse() const { return diffuse; };
+	glm::vec3 get_specular() const { return specular; };
+	glm::vec3 get_transmittance() const { return transmittance; };
+	glm::vec3 get_emission() const { return emission; };
 
-	float get_shininess() { return shininess; };
-	float get_ior() { return ior; };
-	float get_dissolve() { return dissolve; };
+	float get_shininess() const { return shininess; };
+	float get_ior() const { return ior; };
+	float get_dissolve() const { return dissolve; };
 
-	int get_illum() { return illum; };
-	int get_textureID() { return textureID; };
+	int get_illum() const { return illum; };
+	int get_textureID() const { return textureID; };
 
 	glm::vec3 ambient		= glm::vec3(0.1f, 0.1f, 0.1f);
 	glm::vec3 diffuse		= glm::vec3(0.7f, 0.7f, 0.7f);

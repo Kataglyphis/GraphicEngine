@@ -1,18 +1,13 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="4292247954">
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\GameObject.cpp" line="7" column="36"/>
-            <symbol>model_path</symbol>
-        </error>
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\GameObject.cpp" line="16" column="35"/>
-            <symbol>model_path</symbol>
-        </error>
+<analyzerinfo checksum="1975921796">
   <FileInfo check="Class">
-<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
-<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
-<class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/Rotation.h" line="5" col="1" hash="896651279113435361"/>
-<class name="GameObject" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.h" line="5" col="1" hash="17651593621024206736"/>
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
+<class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Rotation.h" line="5" col="1" hash="896651279113435361"/>
+<class name="GameObject" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.h" line="5" col="1" hash="15616863890923935876"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.h:11:2" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.cpp" line="10" col="27" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.h:13:7" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/GameObject.cpp" line="19" col="27" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
@@ -40,6 +35,7 @@
     <functioncall functionName="Vertex"/>
     <functioncall functionName="axis"/>
     <functioncall functionName="color"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="degrees"/>
     <functioncall functionName="find_last_of"/>
     <functioncall functionName="float"/>
@@ -59,6 +55,7 @@
     <functioncall functionName="normal"/>
     <functioncall functionName="pos"/>
     <functioncall functionName="position"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="radians"/>
     <functioncall functionName="render"/>
     <functioncall functionName="return"/>
@@ -73,6 +70,7 @@
     <functioncall functionName="translate"/>
     <functioncall functionName="translation"/>
     <functioncall functionName="transpose"/>
+    <functioncall functionName="uint32_t"/>
     <functioncall functionName="vec2"/>
     <functioncall functionName="vec3"/>
     <functioncall functionName="vec4"/>

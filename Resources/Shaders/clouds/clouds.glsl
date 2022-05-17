@@ -29,26 +29,29 @@ float sample_density(   vec3 position, Clouds cloud,
 
     // we are tiling a noise texture on the screen; first texture dim is 128
     // convert to [0,1]
-    vec3 uvw_128        =   (mod(position + cloud.offset, 128)) / 128.f;
+
+    vec3 uvw_128        =   abs(mod(position + cloud.offset, 256.f))/ 256.f;
     vec4 noise_128      =   texture(noise_texture_1, uvw_128);
 
     // how you combine the different densities is up to you
     // those values following give some plausible results
-    float base_density  =   (0.75f + (cloud.pillowness * 0.25f)) *  max(0.0f, noise_128.r - cloud.threshold) * cloud.scale
-                            + ((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.g - cloud.threshold) * cloud.scale
+
+    // threshold = 1- density
+    float base_density = ((cloud.pillowness * 0.25f)) * max(0.0f, noise_128.r - cloud.threshold) * cloud.scale
+                            +((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.g - cloud.threshold) * cloud.scale
                             + ((1.f - cloud.pillowness) * 0.125f) * max(0.0f, noise_128.b - cloud.threshold) * cloud.scale;
 
-    base_density        =   base_density * (1.f - cloud.cirrus_effect) + 
-                            max(0.0f, noise_128.a - cloud.threshold) * cloud.scale * (cloud.cirrus_effect);
+    /*base_density        =   base_density * (1.f - cloud.cirrus_effect) + 
+                            max(0.0f, noise_128.a - cloud.threshold) * cloud.scale * (cloud.cirrus_effect);*/
 
-    vec3 uvw_32         =   (mod(position + cloud.offset, 32)) / 32.f; // + cloud.offset
-    vec4 noise_32       =   texture(noise_texture_2, uvw_32);
+    vec3 uvw_32         = abs(mod(position + cloud.offset, 256.f)) / 256.f;
+    vec4 noise_32       = texture(noise_texture_2, uvw_32);
 
     float fine_density  =    0.6f * max(0.0f, noise_32.r - cloud.threshold) * cloud.scale
                             + 0.15f * max(0.0f, noise_32.g - cloud.threshold) * cloud.scale
                             + 0.15f * max(0.0f, noise_32.b - cloud.threshold) * cloud.scale;
 
-    return  base_density + fine_density * 0.3f;
+    return  base_density;// +fine_density * 0.3f;
 
 }
 
@@ -171,8 +174,12 @@ void calc_clouds(   mat4 projection, mat4 view,
 
         }
 
-        vec3 cloud_color = light_energy * directional_light.base.color * directional_light.base.radiance;
-        color = color * (transmittance) + vec4(cloud_color, 1.0f);
+        vec4 fragPosModelSpace  = inverse(cloud.model_to_world) * frag_pos;
+        //in [0,1]
+        vec3 dist_to_center    = (abs((cloud.rad - fragPosModelSpace.xyz)) / (20.f*cloud.rad));
+
+        vec3 cloud_color        = light_energy * directional_light.base.color * directional_light.base.radiance;
+        color                   = color * (transmittance) + vec4(cloud_color, 1.0f);
 
     }
 

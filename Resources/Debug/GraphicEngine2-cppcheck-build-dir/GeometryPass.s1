@@ -1,7 +1,6 @@
 get_program_id
-GeometryPass call:[SkyBox,UniformHelper,create_shader_program,push_back,size,str,string] noreturn:[SkyBox,str]
-retrieve_geometry_pass_locations call:[areErrorPrintAll,get_projection_location,get_texture_count,get_uniform_material_locations,get_uniform_texture_locations,get_view_location,setUniformInt,setUniformMatrix4fv,size,use_material,validate_program] noreturn:[areErrorPrintAll,setUniformInt,use_material]
-execute call:[areErrorPrintAll,bind_textures_and_buffer,calculate_viewmatrix,draw_sky_box,get_clouds,get_materials,glBindFramebuffer,glClear,glViewport,render,retrieve_geometry_pass_locations,use_shader_program] noreturn:[areErrorPrintAll]
+GeometryPass call:[create_shader_program] noreturn:[create_shader_program]
+execute call:[bind_textures_and_buffer,draw_sky_box,get_ambient,get_clouds,get_diffuse,get_dissolve,get_emission,get_game_objects,get_illum,get_ior,get_materials,get_normal_world_trafo,get_shininess,get_specular,get_textureID,get_texture_count,get_transmittance,get_viewmatrix,get_world_trafo,glBindFramebuffer,glClear,glCullFace,glDisable,glEnable,glFrontFace,glViewport,render,setUniformFloat,setUniformInt,setUniformMatrix4fv,setUniformVec3,set_game_object_uniforms,size,sizeof,snprintf,use_shader_program,validate_program] noreturn:[glBindFramebuffer,render,setUniformInt]
 create_shader_program call:[create_from_files] noreturn:[create_from_files]
-set_game_object_uniforms call:[areErrorPrintAll,get_model_location,get_normal_modal_location,setUniformMatrix4fv] noreturn:[areErrorPrintAll]
+set_game_object_uniforms call:[setUniformMatrix4fv] noreturn:[setUniformMatrix4fv]
 GeometryPass

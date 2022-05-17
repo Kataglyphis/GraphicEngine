@@ -64,7 +64,7 @@ DebugApp::DebugApp()
     #endif
 }
 
-bool DebugApp::areErrorPrintAll(std::string AdditionalArrayMessage, const char* file, int line)
+bool DebugApp::areErrorPrintAll(const std::string& AdditionalArrayMessage, const char* file, int line)
 {
 #ifdef NDEBUG
     // nondebug
@@ -95,7 +95,7 @@ bool DebugApp::areErrorPrintAll(std::string AdditionalArrayMessage, const char* 
 #endif
 }
 
-bool DebugApp::arePreError(std::string AdditionalArrayMessage, const char* file, int line)
+bool DebugApp::arePreError(const std::string& AdditionalArrayMessage, const char* file, int line)
 {
 #ifdef NDEBUG
     // nondebug

@@ -1,13 +1,15 @@
 #include "Renderer.h"
 
 Renderer::Renderer(GLuint window_width, GLuint window_height) :
-
+                        
+                        window_width(window_width),
+                        window_height(window_height),
+                        gbuffer(std::make_shared<GBuffer>(window_width, window_height)),
                         shader_includes(),
                         omni_shadow_map_pass(std::make_shared<OmniShadowMapPass>()),
                         directional_shadow_map_pass(std::make_shared<DirectionalShadowMapPass>()),
                         geometry_pass(std::make_shared<GeometryPass>()),
-                        lighting_pass(std::make_shared<LightingPass>()),
-                        gbuffer(std::make_shared<GBuffer>(window_width, window_height))
+                        lighting_pass(std::make_shared<LightingPass>())
 
 {
 
@@ -15,9 +17,6 @@ Renderer::Renderer(GLuint window_width, GLuint window_height) :
     render_passes.push_back(directional_shadow_map_pass);
     render_passes.push_back(geometry_pass);
     render_passes.push_back(lighting_pass);
-
-    this->window_width  = window_width;
-    this->window_height = window_height;
 
     gbuffer->create();
     

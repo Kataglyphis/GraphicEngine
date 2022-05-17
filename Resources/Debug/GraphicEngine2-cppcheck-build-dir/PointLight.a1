@@ -1,64 +1,49 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3835535896">
+<analyzerinfo checksum="698307341">
         <error id="useInitializationList" severity="performance" msg="Variable &apos;position&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;position&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\PointLight.cpp" line="4" column="5"/>
-            <symbol>position</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;position&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;position&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\PointLight.cpp" line="22" column="5"/>
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\PointLight.cpp" line="5" column="5"/>
             <symbol>position</symbol>
         </error>
   <FileInfo check="Class">
-<class name="PointLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.h" line="7" col="1" hash="4474023626567195758"/>
+<class name="PointLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.h" line="8" col="1" hash="17572555676139454377"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="use_light" lineNumber="35"/>
-    <functiondecl functionName="calculate_light_transform" lineNumber="51"/>
-    <functiondecl functionName="set_position" lineNumber="77"/>
-    <functiondecl functionName="get_far_plane" lineNumber="82"/>
-    <functiondecl functionName="get_position" lineNumber="87"/>
+    <functiondecl functionName="calculate_light_transform" lineNumber="35"/>
+    <functiondecl functionName="set_position" lineNumber="61"/>
+    <functiondecl functionName="get_far_plane" lineNumber="66"/>
+    <functiondecl functionName="get_position" lineNumber="71"/>
     <functioncall functionName="GLuint"/>
     <functioncall functionName="Light"/>
     <functioncall functionName="OmniDirShadowMap"/>
     <functioncall functionName="PointLight"/>
-    <functioncall functionName="ambient_color_location"/>
     <functioncall functionName="aspect"/>
     <functioncall functionName="blue"/>
     <functioncall functionName="con"/>
     <functioncall functionName="constant"/>
-    <functioncall functionName="constant_location"/>
     <functioncall functionName="exp"/>
     <functioncall functionName="exponent"/>
-    <functioncall functionName="exponent_location"/>
     <functioncall functionName="far"/>
+    <functioncall functionName="far_plane"/>
     <functioncall functionName="float"/>
-    <functioncall functionName="glUniform1f"/>
-    <functioncall functionName="glUniform3f"/>
     <functioncall functionName="green"/>
     <functioncall functionName="init"/>
     <functioncall functionName="lin"/>
     <functioncall functionName="linear"/>
-    <functioncall functionName="linear_location"/>
     <functioncall functionName="lookAt"/>
     <functioncall functionName="mat4"/>
     <functioncall functionName="near"/>
     <functioncall functionName="omni_dir_shadow_map"/>
     <functioncall functionName="perspective"/>
     <functioncall functionName="position"/>
-    <functioncall functionName="position_location"/>
     <functioncall functionName="push_back"/>
     <functioncall functionName="radiance"/>
-    <functioncall functionName="radiance_location"/>
     <functioncall functionName="radians"/>
     <functioncall functionName="red"/>
     <functioncall functionName="shadow_height"/>
     <functioncall functionName="shadow_width"/>
     <functioncall functionName="vec3"/>
-    <functioncall functionName="x"/>
     <functioncall functionName="x_pos"/>
-    <functioncall functionName="y"/>
     <functioncall functionName="y_pos"/>
-    <functioncall functionName="z"/>
     <functioncall functionName="z_pos"/>
   </FileInfo>
 </analyzerinfo>

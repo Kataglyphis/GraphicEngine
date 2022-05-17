@@ -19,8 +19,8 @@ public:
 
 	void update_viewport();
 
-	GLfloat get_buffer_width() { return (GLfloat)window_buffer_width; }
-	GLfloat get_buffer_height() { return (GLfloat)window_buffer_height; }
+	GLfloat get_buffer_width() const { return (GLfloat)window_buffer_width; }
+	GLfloat get_buffer_height() const { return (GLfloat)window_buffer_height; }
 
 	GLfloat get_x_change();
 	GLfloat get_y_change();

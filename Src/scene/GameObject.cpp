@@ -4,7 +4,7 @@ GameObject::GameObject() : model(std::make_shared<Model>(Model())) {
 
 }
 
-GameObject::GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot): 
+GameObject::GameObject(const std::string& model_path, glm::vec3 translation, GLfloat scale, Rotation rot): 
 									model(std::make_shared<Model>())
 {
 	model->load_model_in_ram(model_path);
@@ -13,7 +13,7 @@ GameObject::GameObject(std::string model_path, glm::vec3 translation, GLfloat sc
 	this->rot			= rot;
 }
 
-void GameObject::init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
+void GameObject::init(const std::string& model_path, glm::vec3 translation, GLfloat scale, Rotation rot)
 {
 	model				= std::make_shared<Model>(Model());
 	model->load_model_in_ram(model_path);

@@ -1,5 +1,15 @@
+Vertex call:[vec2,vec3] noreturn:[vec2]
+Vertex
+get_position
+get_normal
+get_color
+get_tex_coors
+operator==
+operator() call:[return]
+getVertices
+getIndices
 AABB
 get_corners call:[push_back,vec3,vec4] noreturn:[push_back]
-init call:[areErrorPrintAll,arePreError,glBindBuffer,glBindVertexArray,glBufferData,glEnableVertexAttribArray,glGenBuffers,glGenVertexArrays,glVertexAttribPointer,push_back,sizeof,vec3]
-render call:[areErrorPrintAll,arePreError,glBindBuffer,glBindVertexArray,glDrawElements]
-AABB call:[glDeleteBuffers,glDeleteVertexArrays] noreturn:[glDeleteBuffers]
+init call:[Vertex,push_back,vec2,vec3]
+render call:[render] noreturn:[render]
+AABB

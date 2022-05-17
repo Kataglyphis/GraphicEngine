@@ -1,76 +1,40 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1459729427">
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Scene::loaded_scene&apos; is not initialized in the constructor." verbose="Member variable &apos;Scene::loaded_scene&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="5" column="8"/>
-            <symbol>Scene::loaded_scene</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Scene::context_setup&apos; is not initialized in the constructor." verbose="Member variable &apos;Scene::context_setup&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="5" column="8"/>
-            <symbol>Scene::context_setup</symbol>
-        </error>
+<analyzerinfo checksum="4130616446">
         <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &apos;Scene::object_is_visible&apos;" verbose="Unused private function: &apos;Scene::object_is_visible&apos;" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.h" line="60" column="7"/>
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.h" line="57" column="7"/>
             <symbol>Scene::object_is_visible</symbol>
         </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;main_camera&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;main_camera&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="12" column="5"/>
-            <symbol>main_camera</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;main_window&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;main_window&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="13" column="5"/>
-            <symbol>main_window</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;view_frustum_culling&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;view_frustum_culling&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="14" column="5"/>
-            <symbol>view_frustum_culling</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;clouds&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;clouds&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="15" column="5"/>
-            <symbol>clouds</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;ambient_objects&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;ambient_objects&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="18" column="5"/>
-            <symbol>ambient_objects</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;progress&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;progress&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="20" column="5"/>
-            <symbol>progress</symbol>
-        </error>
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.cpp" line="187" column="44"/>
-            <symbol>model_path</symbol>
-        </error>
   <FileInfo check="Class">
-<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
-<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
-<class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/Rotation.h" line="5" col="1" hash="896651279113435361"/>
-<class name="ViewFrustumCulling::frustum_plane" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.h" line="51" col="2" hash="16382488488181841176"/>
-<class name="Scene" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h" line="16" col="1" hash="6038401421423032589"/>
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
+<class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Rotation.h" line="5" col="1" hash="896651279113435361"/>
+<class name="ViewFrustumCulling::frustum_plane" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.h" line="52" col="2" hash="16382488488181841176"/>
+<class name="Scene" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h" line="16" col="1" hash="12860898194168540173"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h:39:7" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp" line="165" col="31" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h:35:21" my-argnr="1" my-argname="filepath" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="37" col="7" value="0"/>
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h:23:2" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp" line="12" col="19" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="init" lineNumber="26"/>
-    <functiondecl functionName="get_point_light_count" lineNumber="68"/>
-    <functiondecl functionName="get_sun" lineNumber="73"/>
-    <functiondecl functionName="get_point_lights" lineNumber="78"/>
-    <functiondecl functionName="load_models" lineNumber="83"/>
-    <functiondecl functionName="get_materials" lineNumber="117"/>
-    <functiondecl functionName="is_loaded" lineNumber="122"/>
-    <functiondecl functionName="get_progress" lineNumber="128"/>
-    <functiondecl functionName="setup_game_object_context" lineNumber="134"/>
-    <functiondecl functionName="bind_textures_and_buffer" lineNumber="140"/>
-    <functiondecl functionName="unbind_textures_and_buffer" lineNumber="145"/>
-    <functiondecl functionName="get_texture_count" lineNumber="150"/>
-    <functiondecl functionName="set_context_setup" lineNumber="155"/>
-    <functiondecl functionName="get_context_setup" lineNumber="160"/>
-    <functiondecl functionName="render" lineNumber="165"/>
-    <functiondecl functionName="add_ambient_object" lineNumber="187"/>
-    <functiondecl functionName="get_clouds" lineNumber="193"/>
-    <functiondecl functionName="object_is_visible" lineNumber="198"/>
+    <functiondecl functionName="get_point_light_count" lineNumber="67"/>
+    <functiondecl functionName="get_sun" lineNumber="72"/>
+    <functiondecl functionName="get_point_lights" lineNumber="77"/>
+    <functiondecl functionName="load_models" lineNumber="82"/>
+    <functiondecl functionName="get_materials" lineNumber="114"/>
+    <functiondecl functionName="is_loaded" lineNumber="119"/>
+    <functiondecl functionName="get_progress" lineNumber="125"/>
+    <functiondecl functionName="setup_game_object_context" lineNumber="131"/>
+    <functiondecl functionName="bind_textures_and_buffer" lineNumber="137"/>
+    <functiondecl functionName="unbind_textures_and_buffer" lineNumber="142"/>
+    <functiondecl functionName="get_texture_count" lineNumber="147"/>
+    <functiondecl functionName="set_context_setup" lineNumber="152"/>
+    <functiondecl functionName="get_context_setup" lineNumber="157"/>
+    <functiondecl functionName="add_game_object" lineNumber="162"/>
+    <functiondecl functionName="get_clouds" lineNumber="168"/>
+    <functiondecl functionName="get_game_objects" lineNumber="173"/>
+    <functiondecl functionName="object_is_visible" lineNumber="178"/>
     <functioncall functionName="AABB"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="Clouds"/>
@@ -91,19 +55,18 @@
     <functioncall functionName="Vertex"/>
     <functioncall functionName="ViewFrustumCulling"/>
     <functioncall functionName="Window"/>
-    <functioncall functionName="ambient_objects"/>
     <functioncall functionName="back"/>
     <functioncall functionName="bind_ressources"/>
     <functioncall functionName="clouds"/>
     <functioncall functionName="clouds_offset"/>
     <functioncall functionName="clouds_scale"/>
     <functioncall functionName="color"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="context_setup"/>
     <functioncall functionName="create_render_context"/>
     <functioncall functionName="false"/>
     <functioncall functionName="find_last_of"/>
     <functioncall functionName="float"/>
-    <functioncall functionName="for"/>
     <functioncall functionName="get_aabb"/>
     <functioncall functionName="get_buffer_height"/>
     <functioncall functionName="get_buffer_width"/>
@@ -111,7 +74,6 @@
     <functioncall functionName="get_materials"/>
     <functioncall functionName="get_model"/>
     <functioncall functionName="get_near_plane"/>
-    <functioncall functionName="get_normal_world_trafo"/>
     <functioncall functionName="get_texture_count"/>
     <functioncall functionName="get_world_trafo"/>
     <functioncall functionName="hash"/>
@@ -130,18 +92,16 @@
     <functioncall functionName="mutex"/>
     <functioncall functionName="mx_isLoaded"/>
     <functioncall functionName="mx_progress"/>
-    <functioncall functionName="mx_space_ship"/>
     <functioncall functionName="normal"/>
     <functioncall functionName="pos"/>
     <functioncall functionName="position"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="progress"/>
     <functioncall functionName="push_back"/>
-    <functioncall functionName="render"/>
     <functioncall functionName="reserve"/>
     <functioncall functionName="return"/>
     <functioncall functionName="rot"/>
     <functioncall functionName="scale"/>
-    <functioncall functionName="set_game_object_uniforms"/>
     <functioncall functionName="set_position"/>
     <functioncall functionName="set_scale"/>
     <functioncall functionName="set_translation"/>
@@ -155,6 +115,7 @@
     <functioncall functionName="str"/>
     <functioncall functionName="string"/>
     <functioncall functionName="substr"/>
+    <functioncall functionName="sun"/>
     <functioncall functionName="texture_coords"/>
     <functioncall functionName="thread"/>
     <functioncall functionName="translation"/>

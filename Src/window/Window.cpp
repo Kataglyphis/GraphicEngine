@@ -1,30 +1,38 @@
 #include "Window.h"
 #include <iostream>
 
-Window::Window() {
-    //at least sth useful
-    window_width = 800;
-    window_height = 600;
+Window::Window() : 
+            window_width(800.f),
+            window_height(600.f),
+            x_change(0.0f),
+            y_change(0.0f)
+{
 
     // all keys non-pressed in the beginning
     for (size_t i = 0; i < 1024; i++) {
         keys[i] = 0;
     }
-    x_change = 0.0f;
-    y_change = 0.0f;
+
+    initialize();
+
 }
 
 //please use this constructor; never the standard
-Window::Window(GLint window_width, GLint window_height) {
-    this->window_width = window_width;
-    this->window_height = window_height;
+Window::Window(GLint window_width, GLint window_height):
+                
+                window_width(window_width),
+                window_height(window_height),
+                x_change(0.0f),
+                y_change(0.0f)
+{
 
     // all keys non-pressed in the beginning
     for (size_t i = 0; i < 1024; i++) {
         keys[i] = 0;
     }
-    x_change = 0.0f;
-    y_change = 0.0f;
+
+    initialize();
+
 }
 
 int Window::initialize() {

@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<analyzerinfo checksum="1827294335">
-  <FileInfo check="CheckUnusedFunctions">
-    <functioncall functionName="TextureWrappingMode"/>
-    <functioncall functionName="private:"/>
-  </FileInfo>
-</analyzerinfo>

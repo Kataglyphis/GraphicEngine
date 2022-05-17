@@ -1,12 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="383985652">
-        <error id="missingOverride" severity="style" msg="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/MirroredRepeatMode.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\MirroredRepeatMode.h" line="10" column="10" info="Function in derived class"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\TextureWrappingMode.h" line="10" column="15" info="Virtual function in base class"/>
-            <symbol>activate</symbol>
-        </error>
+<analyzerinfo checksum="863820701">
   <FileInfo check="Class">
-<class name="MirroredRepeatMode" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/MirroredRepeatMode.h" line="3" col="1" hash="8470480553954073092"/>
+<class name="MirroredRepeatMode" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/MirroredRepeatMode.h" line="3" col="1" hash="4608317425335724500"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="activate" lineNumber="7"/>
@@ -16,6 +11,7 @@
     <functioncall functionName="GL_TEXTURE_WRAP_T"/>
     <functioncall functionName="MirroredRepeatMode"/>
     <functioncall functionName="glTexParameteri"/>
+    <functioncall functionName="override"/>
     <functioncall functionName="private:"/>
   </FileInfo>
 </analyzerinfo>

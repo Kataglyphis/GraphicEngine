@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2201435126">
+<analyzerinfo checksum="1472812447">
   <FileInfo check="Class">
-<class name="LoadingScreen" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/loading_screen/LoadingScreen.h" line="6" col="1" hash="17466008317800770773"/>
+<class name="LoadingScreen" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/loading_screen/LoadingScreen.h" line="6" col="1" hash="12197059477152761263"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="init" lineNumber="11"/>
@@ -10,8 +10,8 @@
     <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
     <functioncall functionName="GL_FRAMEBUFFER"/>
     <functioncall functionName="LoadingScreen"/>
-    <functioncall functionName="LoadingScreenShaderProgram"/>
     <functioncall functionName="RepeatMode"/>
+    <functioncall functionName="ShaderProgram"/>
     <functioncall functionName="Texture"/>
     <functioncall functionName="c_str"/>
     <functioncall functionName="create_from_files"/>

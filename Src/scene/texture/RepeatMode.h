@@ -6,7 +6,7 @@ class RepeatMode :
 public:
     RepeatMode();
 
-    void activate();
+    void activate() override;
 
     ~RepeatMode();
 

@@ -27,8 +27,8 @@ public:
 	bool load_SRGB_texture_without_alpha_channel();
 	bool load_SRGB_texture_with_alpha_channel();
 
-	std::string get_filename();
-	GLuint		get_id();
+	std::string get_filename() const;
+	GLuint		get_id() const;
 
 	void use_texture(unsigned int index);
 	void unbind_texture(unsigned int index);

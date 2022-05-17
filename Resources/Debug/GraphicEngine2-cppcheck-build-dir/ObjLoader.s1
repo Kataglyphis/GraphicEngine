@@ -8,6 +8,16 @@ operator==
 operator() call:[return]
 getVertices
 getIndices
+get_ambient
+get_diffuse
+get_specular
+get_transmittance
+get_emission
+get_shininess
+get_ior
+get_dissolve
+get_illum
+get_textureID
 get_base_dir call:[find_last_of,substr] noreturn:[substr]
 ObjLoader
 load global:[MAX_MATERIALS] call:[Error,GetAttrib,GetMaterials,GetShapes,ObjMaterial,ParseFromFile,Warning,color,count,cross,emplace_back,empty,exit,get_base_dir,length,long,max,min,normalize,normals,push_back,reserve,runtime_error,size,str,tex_coords,vec2,vec3,vec4] noreturn:[Error,Warning,emplace_back,exit,push_back,runtime_error,vec2,vec3]

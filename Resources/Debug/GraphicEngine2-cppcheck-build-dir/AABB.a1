@@ -1,69 +1,47 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1014109458">
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;AABB::VBO&apos; is not initialized in the constructor." verbose="Member variable &apos;AABB::VBO&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="5" column="7"/>
-            <symbol>AABB::VBO</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;AABB::VAO&apos; is not initialized in the constructor." verbose="Member variable &apos;AABB::VAO&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="5" column="7"/>
-            <symbol>AABB::VAO</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;AABB::EBO&apos; is not initialized in the constructor." verbose="Member variable &apos;AABB::EBO&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="5" column="7"/>
-            <symbol>AABB::EBO</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;AABB::m_drawCount&apos; is not initialized in the constructor." verbose="Member variable &apos;AABB::m_drawCount&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="5" column="7"/>
-            <symbol>AABB::m_drawCount</symbol>
-        </error>
+<analyzerinfo checksum="2265375805">
         <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="15" column="29"/>
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\AABB.cpp" line="14" column="29"/>
         </error>
   <FileInfo check="Class">
-<class name="AABB" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.h" line="11" col="1" hash="8607547796648154126"/>
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
+<class name="AABB" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/AABB.h" line="12" col="1" hash="16107701246467543386"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="get_corners" lineNumber="9"/>
-    <functiondecl functionName="init" lineNumber="25"/>
-    <functiondecl functionName="render" lineNumber="116"/>
+    <functiondecl functionName="get_corners" lineNumber="8"/>
+    <functiondecl functionName="init" lineNumber="22"/>
+    <functiondecl functionName="render" lineNumber="91"/>
     <functioncall functionName="AABB"/>
-    <functioncall functionName="EBO"/>
-    <functioncall functionName="GL_ARRAY_BUFFER"/>
-    <functioncall functionName="GL_ELEMENT_ARRAY_BUFFER"/>
-    <functioncall functionName="GL_FALSE"/>
-    <functioncall functionName="GL_FLOAT"/>
-    <functioncall functionName="GL_STATIC_DRAW"/>
-    <functioncall functionName="GL_TRIANGLES"/>
-    <functioncall functionName="GL_UNSIGNED_INT"/>
-    <functioncall functionName="VAO"/>
-    <functioncall functionName="VBO"/>
-    <functioncall functionName="areErrorPrintAll"/>
-    <functioncall functionName="arePreError"/>
+    <functioncall functionName="Mesh"/>
+    <functioncall functionName="NUM_BUFFERS"/>
+    <functioncall functionName="POSITION_VB"/>
+    <functioncall functionName="Vertex"/>
+    <functioncall functionName="color"/>
     <functioncall functionName="corner"/>
     <functioncall functionName="corners"/>
-    <functioncall functionName="float"/>
     <functioncall functionName="for"/>
-    <functioncall functionName="glBindBuffer"/>
-    <functioncall functionName="glBindVertexArray"/>
-    <functioncall functionName="glBufferData"/>
-    <functioncall functionName="glDeleteBuffers"/>
-    <functioncall functionName="glDeleteVertexArrays"/>
-    <functioncall functionName="glDrawElements"/>
-    <functioncall functionName="glEnableVertexAttribArray"/>
-    <functioncall functionName="glGenBuffers"/>
-    <functioncall functionName="glGenVertexArrays"/>
-    <functioncall functionName="glVertexAttribPointer"/>
-    <functioncall functionName="if"/>
+    <functioncall functionName="hash"/>
     <functioncall functionName="indices"/>
-    <functioncall functionName="m_drawCount"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="make_shared"/>
     <functioncall functionName="maxX"/>
     <functioncall functionName="maxY"/>
     <functioncall functionName="maxZ"/>
     <functioncall functionName="minX"/>
     <functioncall functionName="minY"/>
     <functioncall functionName="minZ"/>
+    <functioncall functionName="normal"/>
+    <functioncall functionName="pos"/>
+    <functioncall functionName="position"/>
     <functioncall functionName="push_back"/>
-    <functioncall functionName="sizeof"/>
+    <functioncall functionName="render"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="texture_coords"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="vec2"/>
     <functioncall functionName="vec3"/>
     <functioncall functionName="vec4"/>
     <functioncall functionName="vertices"/>

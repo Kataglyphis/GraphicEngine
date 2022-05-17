@@ -8,11 +8,20 @@ operator==
 operator() call:[return]
 getVertices
 getIndices
+get_ambient
+get_diffuse
+get_specular
+get_transmittance
+get_emission
+get_shininess
+get_ior
+get_dissolve
+get_illum
+get_textureID
 get_base_dir call:[find_last_of,substr] noreturn:[substr]
 spwan call:[load_models,thread] noreturn:[load_models,thread]
 Scene
-Scene
-init global:[MAX_POINT_LIGHTS,NUM_CASCADES] call:[get_buffer_height,get_buffer_width,get_far_plane,get_near_plane,push_back,reserve,set_position,vec3]
+Scene global:[MAX_POINT_LIGHTS] call:[push_back,reserve,set_position,vec3] noreturn:[set_position]
 get_point_light_count call:[size]
 get_sun
 get_point_lights
@@ -26,8 +35,8 @@ unbind_textures_and_buffer call:[get_model,unbind_resources] noreturn:[unbind_re
 get_texture_count call:[get_model,get_texture_count] noreturn:[get_texture_count]
 set_context_setup
 get_context_setup
-render call:[get_normal_world_trafo,get_world_trafo,render,set_game_object_uniforms] noreturn:[render]
-add_ambient_object call:[GameObject,back,init,push_back] noreturn:[init]
+add_game_object call:[GameObject,back,init,push_back] noreturn:[init]
 get_clouds
+get_game_objects
 object_is_visible call:[get_aabb,get_buffer_height,get_buffer_width,get_world_trafo,is_inside] noreturn:[is_inside]
 Scene

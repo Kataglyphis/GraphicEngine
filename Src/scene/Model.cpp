@@ -10,17 +10,17 @@ std::shared_ptr<AABB> Model::get_aabb()
     return aabb;
 }
 
-std::vector<ObjMaterial> Model::get_materials()
+std::vector<ObjMaterial> Model::get_materials() const
 {
     return materials;
 }
 
-int Model::get_texture_count()
+int Model::get_texture_count() const
 {
     return static_cast<uint32_t>(texture_list.size());
 }
 
-void Model::load_model_in_ram(std::string model_path) {
+void Model::load_model_in_ram(const std::string& model_path) {
 
     loader = ObjLoader();
     loader.load(model_path,

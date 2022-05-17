@@ -1,4 +1,6 @@
 #include "AABB.h"
+#include <algorithm>
+
 AABB::AABB()
 {
 }
@@ -37,34 +39,49 @@ void AABB::init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat 
     corners.push_back(glm::vec3(maxX, maxY, minZ));
     corners.push_back(glm::vec3(maxX, maxY, maxZ));
 
-    vertices.push_back(Vertex(glm::vec3(minX, minY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 0: left  bottom  front 
     vertices.push_back(Vertex(glm::vec3(minX, minY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
-    vertices.push_back(Vertex(glm::vec3(minX, maxY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
-    vertices.push_back(Vertex(glm::vec3(minX, maxY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
-    vertices.push_back(Vertex(glm::vec3(maxX, minY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 1: right bottom  front
     vertices.push_back(Vertex(glm::vec3(maxX, minY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
-    vertices.push_back(Vertex(glm::vec3(maxX, maxY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 2: left  top     front
+    vertices.push_back(Vertex(glm::vec3(minX, maxY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 3: right top     front
     vertices.push_back(Vertex(glm::vec3(maxX, maxY, maxZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 4: left  bottom  far      
+    vertices.push_back(Vertex(glm::vec3(minX, minY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 5: right bottom  far
+    vertices.push_back(Vertex(glm::vec3(maxX, minY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 6: left  top     far
+    vertices.push_back(Vertex(glm::vec3(minX, maxY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
+    // 7: right top     far
+    vertices.push_back(Vertex(glm::vec3(maxX, maxY, minZ), glm::vec3(0.f), glm::vec3(0.f), glm::vec2(0.f)));
 
     indices = {  // note that we start from 0!
+
                     //left 
-                    0, 3, 1,
-                    0, 2, 3,
+                    4,2,6,
+                    4,0,2,
+
                     //right 
-                    4, 7, 5,
-                    4, 6, 7,
+                    3,5,7,
+                    5,3,1,
+
                     //top
-                    3, 7, 2,
-                    2, 7, 6,
+                    2,3,6,
+                    6,3,7,
+
                     //bottom
-                    0, 1, 5,
-                    0, 5, 4,
+                    4,1,0,
+                    5,1,4,
+
                     //back
-                    1, 5, 3,
-                    5, 7, 3,
+                    7,4,6,
+                    5,4,7,
+
                     //front
-                    0, 4, 2,
-                    4, 6, 2,
+                    0,3,2,
+                    0,1,3
+
     };
 
     mesh = std::make_shared<Mesh>(vertices, indices);

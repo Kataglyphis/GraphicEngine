@@ -1,58 +1,23 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="281452319">
-        <error id="strdupCalled" severity="style" msg="Obsolete function &apos;strdup&apos; called. It is recommended to use &apos;_strdup&apos; instead." verbose="Obsolete function &apos;strdup&apos; called. It is recommended to use &apos;_strdup&apos; instead." cwe="477" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="12" column="19"/>
-        </error>
-        <error id="strdupCalled" severity="style" msg="Obsolete function &apos;strdup&apos; called. It is recommended to use &apos;_strdup&apos; instead." verbose="Obsolete function &apos;strdup&apos; called. It is recommended to use &apos;_strdup&apos; instead." cwe="477" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="226" column="18"/>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;textureID&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;textureID&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="8" column="2"/>
-            <symbol>textureID</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;file_location&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;file_location&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="12" column="2"/>
-            <symbol>file_location</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;textureID&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;textureID&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="19" column="2"/>
-            <symbol>textureID</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;file_location&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;file_location&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="23" column="2"/>
-            <symbol>file_location</symbol>
-        </error>
-        <error id="missingOverride" severity="style" msg="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\RepeatMode.h" line="9" column="10" info="Function in derived class"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\TextureWrappingMode.h" line="10" column="15" info="Virtual function in base class"/>
-            <symbol>activate</symbol>
-        </error>
-        <error id="missingOverride" severity="style" msg="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\MirroredRepeatMode.h" line="10" column="10" info="Function in derived class"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\TextureWrappingMode.h" line="10" column="15" info="Virtual function in base class"/>
-            <symbol>activate</symbol>
-        </error>
-        <error id="missingOverride" severity="style" msg="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;activate&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\ClampToEdgeMode.h" line="12" column="10" info="Function in derived class"/>
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\TextureWrappingMode.h" line="10" column="15" info="Virtual function in base class"/>
-            <symbol>activate</symbol>
+<analyzerinfo checksum="3925553627">
+        <error id="functionStatic" severity="performance" msg="Technically the member function &apos;Texture::unbind_texture&apos; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &apos;Texture::unbind_texture&apos; can be made a static function. Making a function static can bring a performance benefit since no &apos;this&apos; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.h" line="34" column="7"/>
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\texture\Texture.cpp" line="178" column="15"/>
+            <symbol>Texture::unbind_texture</symbol>
         </error>
   <FileInfo check="Class">
-<class name="Texture" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.h" line="18" col="1" hash="1513614219196076115"/>
-  </FileInfo>
-  <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.h:23:2" my-argnr="1" my-argname="file_loc" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.cpp" line="23" col="31" value="0"/>
+<class name="Texture" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/texture/Texture.h" line="17" col="1" hash="7866635739034245064"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="load_texture_without_alpha_channel" lineNumber="27"/>
-    <functiondecl functionName="load_texture_with_alpha_channel" lineNumber="69"/>
-    <functiondecl functionName="load_SRGB_texture_without_alpha_channel" lineNumber="113"/>
-    <functiondecl functionName="load_SRGB_texture_with_alpha_channel" lineNumber="154"/>
-    <functiondecl functionName="get_filename" lineNumber="199"/>
-    <functiondecl functionName="use_texture" lineNumber="204"/>
-    <functiondecl functionName="unbind_texture" lineNumber="215"/>
-    <functiondecl functionName="clear_texture_context" lineNumber="219"/>
-    <functiondecl functionName="get_id" lineNumber="229"/>
+    <functiondecl functionName="load_texture_without_alpha_channel" lineNumber="34"/>
+    <functiondecl functionName="load_texture_with_alpha_channel" lineNumber="66"/>
+    <functiondecl functionName="load_SRGB_texture_without_alpha_channel" lineNumber="100"/>
+    <functiondecl functionName="load_SRGB_texture_with_alpha_channel" lineNumber="132"/>
+    <functiondecl functionName="get_filename" lineNumber="167"/>
+    <functiondecl functionName="use_texture" lineNumber="172"/>
+    <functiondecl functionName="unbind_texture" lineNumber="178"/>
+    <functiondecl functionName="clear_texture_context" lineNumber="182"/>
+    <functiondecl functionName="get_id" lineNumber="192"/>
     <functioncall functionName="GL_CLAMP_TO_EDGE"/>
     <functioncall functionName="GL_LINEAR"/>
     <functioncall functionName="GL_LINEAR_MIPMAP_LINEAR"/>
@@ -70,13 +35,12 @@
     <functioncall functionName="Texture"/>
     <functioncall functionName="TextureWrappingMode"/>
     <functioncall functionName="activate"/>
-    <functioncall functionName="additionalMessage"/>
-    <functioncall functionName="areErrorPrintAll"/>
-    <functioncall functionName="arePreError"/>
     <functioncall functionName="bit_depth"/>
     <functioncall functionName="c_str"/>
     <functioncall functionName="clear_texture_context"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="file_loc"/>
+    <functioncall functionName="file_location"/>
     <functioncall functionName="glActiveTexture"/>
     <functioncall functionName="glBindTexture"/>
     <functioncall functionName="glDeleteTextures"/>
@@ -87,13 +51,12 @@
     <functioncall functionName="height"/>
     <functioncall functionName="if"/>
     <functioncall functionName="index"/>
-    <functioncall functionName="make_shared"/>
+    <functioncall functionName="override"/>
     <functioncall functionName="printf"/>
     <functioncall functionName="private:"/>
     <functioncall functionName="stbi_image_free"/>
     <functioncall functionName="stbi_load"/>
     <functioncall functionName="stbi_set_flip_vertically_on_load"/>
-    <functioncall functionName="strdup"/>
     <functioncall functionName="string"/>
     <functioncall functionName="textureID"/>
     <functioncall functionName="texture_data"/>

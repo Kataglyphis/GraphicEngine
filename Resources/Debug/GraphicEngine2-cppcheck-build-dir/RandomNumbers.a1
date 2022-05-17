@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="4187391930">
-        <error id="constVariable" severity="style" msg="Variable &apos;random_offset&apos; can be declared with const" verbose="Variable &apos;random_offset&apos; can be declared with const" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\util\RandomNumbers.cpp" line="40" column="21" info="Variable &apos;random_offset&apos; can be declared with const"/>
-            <symbol>random_offset</symbol>
-        </error>
+<analyzerinfo checksum="3865651405">
   <FileInfo check="Class">
-<class name="RandomNumbers" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.h" line="9" col="1" hash="10071675405549212629"/>
+<class name="RandomNumbers" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.h" line="9" col="1" hash="11591744289012330974"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="read" lineNumber="23"/>

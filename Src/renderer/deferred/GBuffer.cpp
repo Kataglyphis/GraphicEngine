@@ -98,11 +98,6 @@ void GBuffer::update_window_params(GLfloat window_width, GLfloat window_height)
     this->window_height = window_height;
 }
 
-GLint GBuffer::get_id()
-{
-    return g_buffer;
-}
-
 GBuffer::~GBuffer()
 {
 

@@ -1,67 +1,77 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2554650098">
+<analyzerinfo checksum="750817208">
   <FileInfo check="Class">
-<class name="GeometryPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h" line="17" col="1" hash="2140039031400699131"/>
-  </FileInfo>
-  <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h:38:10" my-argnr="3" my-argname="materials" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.cpp" line="49" col="28" value="0"/>
+<class name="GeometryPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GeometryPass.h" line="14" col="1" hash="3154509792303573143"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="retrieve_geometry_pass_locations" lineNumber="36"/>
-    <functiondecl functionName="execute" lineNumber="59"/>
-    <functiondecl functionName="create_shader_program" lineNumber="99"/>
-    <functiondecl functionName="set_game_object_uniforms" lineNumber="106"/>
+    <functiondecl functionName="execute" lineNumber="11"/>
+    <functiondecl functionName="create_shader_program" lineNumber="120"/>
+    <functiondecl functionName="set_game_object_uniforms" lineNumber="127"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="Clouds"/>
+    <functioncall functionName="GL_BACK"/>
+    <functioncall functionName="GL_CCW"/>
+    <functioncall functionName="GL_CULL_FACE"/>
     <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
     <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="GameObject"/>
     <functioncall functionName="GeometryPass"/>
     <functioncall functionName="GeometryPassShaderProgram"/>
     <functioncall functionName="MAX_MATERIALS"/>
-    <functioncall functionName="MAX_TEXTURE_COUNT"/>
     <functioncall functionName="ObjMaterial"/>
     <functioncall functionName="Scene"/>
-    <functioncall functionName="SkyBox"/>
-    <functioncall functionName="UniformHelper"/>
-    <functioncall functionName="areErrorPrintAll"/>
     <functioncall functionName="bind_textures_and_buffer"/>
-    <functioncall functionName="calculate_viewmatrix"/>
     <functioncall functionName="create_from_files"/>
     <functioncall functionName="create_shader_program"/>
     <functioncall functionName="delta_time"/>
     <functioncall functionName="draw_sky_box"/>
     <functioncall functionName="for"/>
+    <functioncall functionName="game_objects"/>
     <functioncall functionName="gbuffer_id"/>
+    <functioncall functionName="get_ambient"/>
     <functioncall functionName="get_clouds"/>
+    <functioncall functionName="get_diffuse"/>
+    <functioncall functionName="get_dissolve"/>
+    <functioncall functionName="get_emission"/>
+    <functioncall functionName="get_game_objects"/>
+    <functioncall functionName="get_illum"/>
+    <functioncall functionName="get_ior"/>
     <functioncall functionName="get_materials"/>
-    <functioncall functionName="get_model_location"/>
-    <functioncall functionName="get_normal_modal_location"/>
-    <functioncall functionName="get_projection_location"/>
+    <functioncall functionName="get_normal_world_trafo"/>
+    <functioncall functionName="get_shininess"/>
+    <functioncall functionName="get_specular"/>
+    <functioncall functionName="get_textureID"/>
     <functioncall functionName="get_texture_count"/>
-    <functioncall functionName="get_uniform_material_locations"/>
-    <functioncall functionName="get_uniform_texture_locations"/>
-    <functioncall functionName="get_view_location"/>
+    <functioncall functionName="get_transmittance"/>
+    <functioncall functionName="get_viewmatrix"/>
+    <functioncall functionName="get_world_trafo"/>
     <functioncall functionName="glBindFramebuffer"/>
     <functioncall functionName="glClear"/>
+    <functioncall functionName="glCullFace"/>
+    <functioncall functionName="glDisable"/>
+    <functioncall functionName="glEnable"/>
+    <functioncall functionName="glFrontFace"/>
     <functioncall functionName="glViewport"/>
     <functioncall functionName="i"/>
+    <functioncall functionName="loc_buff"/>
     <functioncall functionName="make_shared"/>
-    <functioncall functionName="materials"/>
     <functioncall functionName="model"/>
     <functioncall functionName="normal_model"/>
     <functioncall functionName="projection_matrix"/>
-    <functioncall functionName="push_back"/>
+    <functioncall functionName="protected:"/>
     <functioncall functionName="render"/>
-    <functioncall functionName="retrieve_geometry_pass_locations"/>
-    <functioncall functionName="scene"/>
+    <functioncall functionName="setUniformFloat"/>
     <functioncall functionName="setUniformInt"/>
     <functioncall functionName="setUniformMatrix4fv"/>
+    <functioncall functionName="setUniformVec3"/>
+    <functioncall functionName="set_game_object_uniforms"/>
+    <functioncall functionName="shared_ptr"/>
     <functioncall functionName="size"/>
-    <functioncall functionName="skybox_faces"/>
-    <functioncall functionName="str"/>
-    <functioncall functionName="string"/>
-    <functioncall functionName="this"/>
-    <functioncall functionName="use_material"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="skybox"/>
+    <functioncall functionName="snprintf"/>
+    <functioncall functionName="static_cast"/>
+    <functioncall functionName="uint32_t"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>
     <functioncall functionName="view_matrix"/>

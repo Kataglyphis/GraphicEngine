@@ -1,42 +1,43 @@
 #include "Clouds.h"
 
 Clouds::Clouds() :
-				shader_program(std::make_shared<ShaderProgram>(ShaderProgram{}))
+
+				shader_program(std::make_shared<ShaderProgram>(ShaderProgram{})),
+				noise(std::make_shared<Noise>()),
+				random_numbers(std::make_shared<RandomNumbers>()),
+				model(glm::mat4(1.f)),
+				aabb(AABB()),
+
+				minX(- 1.f),
+				maxX(1.f),
+				minY(- 1.f),
+				maxY(1.f),
+				minZ(- 1.f),
+				maxZ(1.f),
+
+				movement_direction(glm::vec3(0.0f, 0.0f, 1.0f)),
+				scale_factor(glm::vec3(1.f)),
+				translation(glm::vec3(0.0f)),
+
+				movement_speed(0.65f),
+				density(0.7f),
+				scale(0.63f),
+				pillowness(1.0f),
+				cirrus_effect(0.0f),
+
+				num_march_steps(8),
+				num_march_steps_to_light(3),
+
+				powder_effect(true)
 
 {
-	noise			= std::make_shared<Noise>();
-	random_numbers	= std::make_shared<RandomNumbers>();
 
 	shader_program->create_from_files(	"clouds/CloudsRectangle.vert",
 										"clouds/CloudsRectangle.frag");
 
 	create_noise_textures();
 
-	model						= glm::mat4(1.f);
-	aabb						= AABB();
-
-	num_march_steps				= 8;
-	num_march_steps_to_light	= 3;
-
-	this->movement_speed		= 0.65f;
-	pillowness					= 1.0;
-	density						= 0.7;
-	cirrus_effect				= 0.0f;
-	powder_effect				= true;
-
-	minX						= -1.f;  
-	maxX						= 1.f;
-	minY						= -1.f;
-	maxY						= 1.f;
-	minZ						= -1.f;
-	maxZ						= 1.f;
-
 	aabb.init(minX, maxX, minY, maxY, minZ, maxZ);
-
-	movement_direction			= glm::vec3(0.0f,0.0f,1.0f);
-
-	translation					= glm::vec3(0.0f);
-	scale_factor				= glm::vec3(1.f);
 
 }
 
@@ -51,11 +52,11 @@ void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix,
 
 	shader_program->validate_program();
 
-	aabb.render();
-
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	
+	aabb.render();
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	
 	
 }
 
@@ -114,7 +115,7 @@ void Clouds::set_translation(glm::vec3 translation)
 	this->translation = translation;
 }
 
-glm::mat4 Clouds::get_model()
+glm::mat4 Clouds::get_model() const
 {
 	glm::mat4 model = glm::mat4(1.f);
 	model = glm::translate(model, translation);
@@ -122,62 +123,62 @@ glm::mat4 Clouds::get_model()
 	return model;
 }
 
-glm::vec3 Clouds::get_movement_direction()
+glm::vec3 Clouds::get_movement_direction() const
 {
 	return movement_direction;
 }
 
-glm::vec3 Clouds::get_rad()
+glm::vec3 Clouds::get_rad() const
 {
 	return scale_factor / 2.f;
 }
 
-glm::mat4 Clouds::get_normal_model()
+glm::mat4 Clouds::get_normal_model() const
 {
 	return glm::transpose(glm::inverse(model));
 }
 
-glm::vec3 Clouds::get_mesh_scale()
+glm::vec3 Clouds::get_mesh_scale() const
 {
 	return this->scale_factor;
 }
 
-GLfloat Clouds::get_movement_speed()
+GLfloat Clouds::get_movement_speed() const
 {
 	return movement_speed / 10.f;
 }
 
-GLfloat Clouds::get_density()
+GLfloat Clouds::get_density() const
 {
 	return density;
 }
 
-GLfloat Clouds::get_scale()
+GLfloat Clouds::get_scale() const
 {
 	return scale;
 }
 
-GLfloat Clouds::get_pillowness()
+GLfloat Clouds::get_pillowness() const
 {
 	return this->pillowness;
 }
 
-GLfloat Clouds::get_cirrus_effect()
+GLfloat Clouds::get_cirrus_effect() const
 {
 	return this->cirrus_effect;
 }
 
-GLuint Clouds::get_num_march_steps()
+GLuint Clouds::get_num_march_steps() const
 {
 	return num_march_steps;
 }
 
-GLuint Clouds::get_num_march_steps_to_light()
+GLuint Clouds::get_num_march_steps_to_light() const
 {
 	return num_march_steps_to_light;
 }
 
-bool Clouds::get_powder_effect()
+bool Clouds::get_powder_effect() const
 {
 	return this->powder_effect;
 }

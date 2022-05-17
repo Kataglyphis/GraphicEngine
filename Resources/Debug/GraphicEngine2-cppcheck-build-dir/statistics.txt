@@ -1,7 +1,7 @@
-[12.05.2022]
-1652348050045
+[17.05.2022]
+1652796115743
 cppcheck-error:0
-cppcheck-warning:18
-cppcheck-style:41
-cppcheck-performance:35
-cppcheck-portability:33
+cppcheck-warning:1
+cppcheck-style:33
+cppcheck-performance:5
+cppcheck-portability:0

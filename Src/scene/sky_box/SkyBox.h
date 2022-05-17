@@ -25,9 +25,8 @@
 class SkyBox
 {
 public:
-	SkyBox();
 
-	SkyBox(std::vector<std::string> face_locations);
+	SkyBox();
 
 	void draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, 
 						GLfloat window_width, GLfloat window_height, 

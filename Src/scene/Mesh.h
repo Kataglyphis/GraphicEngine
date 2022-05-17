@@ -16,10 +16,10 @@ public:
 
     void render();
 
-    std::vector<Vertex> getVertices() {
+    std::vector<Vertex> getVertices() const {
         return this->vertices;
     }
-    std::vector<unsigned int> getIndices() {
+    std::vector<unsigned int> getIndices() const {
         return this->indices;
     }
 
@@ -48,9 +48,9 @@ private:
     // Vertex array buffer
     GLuint m_vab[NUM_BUFFERS];
 
-    unsigned int m_drawCount;
+    uint32_t m_drawCount;
     std::vector<Vertex> vertices; 
-    std::vector<unsigned int> indices;
+    std::vector<uint32_t> indices;
 
 };
 

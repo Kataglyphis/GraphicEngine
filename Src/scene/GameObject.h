@@ -8,9 +8,9 @@ public:
 
 	GameObject();
 
-	GameObject(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
+	GameObject(const std::string& model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 
-	void init(std::string model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
+	void init(const std::string& model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
 
 	glm::mat4 get_world_trafo();
 	glm::mat4 get_normal_world_trafo();

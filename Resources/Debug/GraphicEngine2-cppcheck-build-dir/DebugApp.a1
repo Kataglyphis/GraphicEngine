@@ -1,18 +1,10 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2449128053">
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;AdditionalArrayMessage&apos; should be passed by const reference." verbose="Parameter &apos;AdditionalArrayMessage&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\debug\DebugApp.cpp" line="67" column="45"/>
-            <symbol>AdditionalArrayMessage</symbol>
-        </error>
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;AdditionalArrayMessage&apos; should be passed by const reference." verbose="Parameter &apos;AdditionalArrayMessage&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\debug\DebugApp.cpp" line="98" column="40"/>
-            <symbol>AdditionalArrayMessage</symbol>
-        </error>
+<analyzerinfo checksum="3366037788">
   <FileInfo check="Class">
-<class name="DebugApp" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.h" line="8" col="1" hash="3070221796948559276"/>
+<class name="DebugApp" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.h" line="8" col="1" hash="13038722520505456622"/>
   </FileInfo>
   <FileInfo check="Class">
-<class name="DebugApp" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.h" line="8" col="1" hash="9760803156496042922"/>
+<class name="DebugApp" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/debug/DebugApp.h" line="8" col="1" hash="6289364442175478216"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="glDebugOutput" lineNumber="4"/>

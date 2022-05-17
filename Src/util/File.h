@@ -6,7 +6,7 @@ class File
 
 public:
 
-	File(std::string file_location);
+	explicit File(const std::string& file_location);
 
 	std::string read();
 

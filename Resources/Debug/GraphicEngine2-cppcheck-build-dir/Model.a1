@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2661829809">
-        <error id="passedByValue" severity="performance" msg="Function parameter &apos;model_path&apos; should be passed by const reference." verbose="Parameter &apos;model_path&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Model.cpp" line="23" column="43"/>
-            <symbol>model_path</symbol>
-        </error>
+<analyzerinfo checksum="149977434">
   <FileInfo check="Class">
-<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
-<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
-<class name="Model" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h" line="18" col="1" hash="8674810283005024961"/>
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
+<class name="Model" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h" line="18" col="1" hash="8688564133719038208"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h:24:10" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.cpp" line="26" col="17" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
@@ -38,6 +36,7 @@
     <functioncall functionName="aabb"/>
     <functioncall functionName="c_str"/>
     <functioncall functionName="color"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="data"/>
     <functioncall functionName="find_last_of"/>
     <functioncall functionName="float"/>
@@ -61,6 +60,7 @@
     <functioncall functionName="pos"/>
     <functioncall functionName="position"/>
     <functioncall functionName="printf"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="render"/>
     <functioncall functionName="reset"/>
     <functioncall functionName="resize"/>

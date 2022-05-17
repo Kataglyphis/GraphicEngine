@@ -15,11 +15,11 @@ public:
 
 	virtual void read(GLenum texture_unit);
 
-	GLuint get_shadow_width() { return shadow_width; };
+	GLuint get_shadow_width() const { return shadow_width; };
 
-	GLuint get_shadow_height() { return shadow_height; };
+	GLuint get_shadow_height() const { return shadow_height; };
 
-	GLuint get_id();
+	GLuint get_id() const { return shadow_map; };
 
 	~ShadowMap();
 

@@ -19,28 +19,25 @@ class Scene
 public:
 
 	Scene();
-
-	Scene(const Scene& other);
+	Scene(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_window);
 
 	std::thread spwan() {
 		return std::thread([=] {load_models();});
 	}
 
-	void init(	std::shared_ptr<Camera> main_camera, 
-				std::shared_ptr<Window> main_window);
-
-	GLuint										get_point_light_count();
+	GLuint										get_point_light_count() const;
 	std::shared_ptr<DirectionalLight>			get_sun();
-	std::vector<std::shared_ptr<PointLight>>	get_point_lights();
+	std::vector<std::shared_ptr<PointLight>>	get_point_lights() const;
 	std::vector<ObjMaterial>					get_materials();
 	GLfloat										get_progress();
 	int											get_texture_count(int index);
-	bool										get_context_setup();
+	bool										get_context_setup() const;
 	std::shared_ptr<Clouds>						get_clouds();
-	std::vector<std::shared_ptr<GameObject>>	get_game_objects();
+	std::vector<std::shared_ptr<GameObject>>	get_game_objects() const;
 
 
-	void add_game_object(std::string model_path, glm::vec3 translation, 
+	void add_game_object(	const std::string& model_path, 
+							glm::vec3 translation, 
 							GLfloat scale, Rotation rot);
 	void load_models();
 

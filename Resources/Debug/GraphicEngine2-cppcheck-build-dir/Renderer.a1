@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="592668081">
+<analyzerinfo checksum="417450316">
   <FileInfo check="Class">
-<class name="Renderer" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/Renderer.h" line="10" col="1" hash="8707135734615723109"/>
+<class name="Renderer" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/Renderer.h" line="11" col="1" hash="8876608285180378976"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="drawFrame" lineNumber="28"/>
-    <functiondecl functionName="update_window_params" lineNumber="59"/>
-    <functiondecl functionName="reload_shader_programs" lineNumber="67"/>
+    <functiondecl functionName="drawFrame" lineNumber="27"/>
+    <functiondecl functionName="update_window_params" lineNumber="58"/>
+    <functiondecl functionName="reload_shader_programs" lineNumber="66"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="DirectionalShadowMapPass"/>
     <functioncall functionName="GBuffer"/>
@@ -33,7 +33,6 @@
     <functioncall functionName="init"/>
     <functioncall functionName="lighting_pass"/>
     <functioncall functionName="main_camera"/>
-    <functioncall functionName="make_shared"/>
     <functioncall functionName="omni_shadow_map_pass"/>
     <functioncall functionName="p_light_count"/>
     <functioncall functionName="projection_matrix"/>

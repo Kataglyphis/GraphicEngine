@@ -22,54 +22,58 @@ void GeometryPass::execute( glm::mat4               projection_matrix,
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glViewport(0, 0, window_width, window_height);
 
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glFrontFace(GL_CCW);
+
     shader_program->use_shader_program();
 
-    glm::mat4 view_matrix               = main_camera->calculate_viewmatrix();
+    glm::mat4 view_matrix               = main_camera->get_viewmatrix();
     std::vector<ObjMaterial> materials  = scene->get_materials();
 
     shader_program->setUniformMatrix4fv(projection_matrix, "projection");
     shader_program->setUniformMatrix4fv(view_matrix, "view");
 
-    for (int i = 0; i < scene->get_texture_count(0); i++) {
+    for (uint32_t i = 0; i < scene->get_texture_count(0); i++) {
 
         char loc_buff[100] = { '\0' };
-        snprintf(loc_buff, sizeof(loc_buff), "model_textures[%zd]", i);
+        snprintf(loc_buff, sizeof(loc_buff), "model_textures[%ui]", i);
         shader_program->setUniformInt(MODEL_TEXTURES_SLOT + i, loc_buff);
 
     }
 
-    for (size_t i = 0; i < materials.size(); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(materials.size()); i++) {
 
         char loc_buff[100] = { '\0' };
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ambient", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ambient", i);
         shader_program->setUniformVec3(materials[i].get_ambient(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].diffuse", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].diffuse", i);
         shader_program->setUniformVec3(materials[i].get_diffuse(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].specular", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].specular", i);
         shader_program->setUniformVec3(materials[i].get_specular(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].transmittance", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].transmittance", i);
         shader_program->setUniformVec3(materials[i].get_transmittance(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].emission", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].emission", i);
         shader_program->setUniformVec3(materials[i].get_emission(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].shininess", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].shininess", i);
         shader_program->setUniformFloat(materials[i].get_shininess(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].ior", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].ior", i);
         shader_program->setUniformFloat(materials[i].get_ior(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].dissolve", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].dissolve", i);
         shader_program->setUniformFloat(materials[i].get_dissolve(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].illum", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].illum", i);
         shader_program->setUniformInt(materials[i].get_illum(), loc_buff);
 
-        snprintf(loc_buff, sizeof(loc_buff), "materials[%zd].textureID", i);
+        snprintf(loc_buff, sizeof(loc_buff), "materials[%ui].textureID", i);
         shader_program->setUniformInt(materials[i].get_textureID(), loc_buff);
 
     }
@@ -100,12 +104,14 @@ void GeometryPass::execute( glm::mat4               projection_matrix,
 
     skybox.draw_sky_box(projection_matrix, view_matrix, window_width, window_height, delta_time);
 
+    /*glCullFace(GL_FRONT);
+    glFrontFace(GL_CCW);*/
     // render the AABB for the clouds
+    glDisable(GL_CULL_FACE);
     std::shared_ptr<Clouds> clouds = scene->get_clouds();
     clouds->render( projection_matrix,
                     view_matrix,
                     window_width, window_height);
-
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 

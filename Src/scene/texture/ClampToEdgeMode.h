@@ -8,7 +8,7 @@ public:
 
     ClampToEdgeMode();
 
-    void activate();
+    void activate() override;
 
     ~ClampToEdgeMode();
 

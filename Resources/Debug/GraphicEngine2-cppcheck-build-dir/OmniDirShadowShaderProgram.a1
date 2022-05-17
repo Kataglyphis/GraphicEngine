@@ -1,33 +1,15 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="967482652">
-        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniDirShadowShaderProgram.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\OmniDirShadowShaderProgram.cpp" line="44" column="3"/>
-        </error>
+<analyzerinfo checksum="2193716620">
   <FileInfo check="Class">
-<class name="OmniDirShadowShaderProgram" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniDirShadowShaderProgram.h" line="4" col="1" hash="7334456406348513067"/>
+<class name="OmniDirShadowShaderProgram" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniDirShadowShaderProgram.h" line="4" col="1" hash="760268342681513978"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="get_model_location" lineNumber="7"/>
-    <functiondecl functionName="get_omni_light_pos_location" lineNumber="12"/>
-    <functiondecl functionName="get_far_plane_location" lineNumber="17"/>
-    <functiondecl functionName="reload" lineNumber="22"/>
-    <functiondecl functionName="set_light_matrices" lineNumber="27"/>
-    <functiondecl functionName="retrieve_uniform_locations" lineNumber="34"/>
-    <functioncall functionName="GL_FALSE"/>
+    <functiondecl functionName="reload" lineNumber="7"/>
     <functioncall functionName="OmniDirShadowShaderProgram"/>
     <functioncall functionName="create_from_files"/>
-    <functioncall functionName="for"/>
     <functioncall functionName="fragment_location"/>
     <functioncall functionName="geometry_location"/>
-    <functioncall functionName="glGetUniformLocation"/>
-    <functioncall functionName="glUniformMatrix4fv"/>
-    <functioncall functionName="i"/>
-    <functioncall functionName="loc_buff"/>
-    <functioncall functionName="mat4"/>
-    <functioncall functionName="program_id"/>
-    <functioncall functionName="sizeof"/>
-    <functioncall functionName="snprintf"/>
-    <functioncall functionName="value_ptr"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="vertex_location"/>
   </FileInfo>
 </analyzerinfo>

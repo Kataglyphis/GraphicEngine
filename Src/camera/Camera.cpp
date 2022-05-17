@@ -1,30 +1,45 @@
 #include "Camera.h"
 
-Camera::Camera()
+Camera::Camera() : 
+
+			position(glm::vec3(0.0f, 50.0f, 0.0f)),
+			//here we want the normal coord. axis z is showing to us !!
+			front(glm::vec3(0.0f, 0.0f, -1.0f)),
+			world_up(glm::vec3(0.0f, 1.0f, 0.0f)),
+			right(glm::normalize(glm::cross(front, world_up))),
+			up(glm::normalize(glm::cross(right, front))),
+			yaw(-60.0f),
+			pitch(0.0f),
+			movement_speed(35.0f),
+			turn_speed(0.25f),
+			near_plane(0.1f),
+			far_plane(1000.f),
+			fov(45.f)
+
 {
 }
 
-Camera::Camera(	glm::vec3 start_position, glm::vec3 start_up, 
-				GLfloat start_yaw, GLfloat start_pitch, 
-				GLfloat start_move_speed, GLfloat start_turn_speed, 
-				GLfloat near_plane, GLfloat far_plane, GLfloat fov)
+Camera::Camera(glm::vec3 start_position, glm::vec3 start_up,
+	GLfloat start_yaw, GLfloat start_pitch,
+	GLfloat start_move_speed, GLfloat start_turn_speed,
+	GLfloat near_plane, GLfloat far_plane, GLfloat fov) :
+
+											position(start_position),
+											//here we want the normal coord. axis z is showing to us !!
+											front(glm::vec3(0.0f, 0.0f, -1.0f)),
+											world_up(start_up),
+											right(glm::normalize(glm::cross(front, world_up))),
+											up(glm::normalize(glm::cross(right, front))),
+											yaw(start_yaw),
+											pitch(start_pitch),
+											movement_speed(start_move_speed),
+											turn_speed(start_turn_speed),
+											near_plane(near_plane),
+											far_plane(far_plane),
+											fov(fov)
+									
 {
 
-	position			= start_position;
-	world_up			= start_up;
-	yaw					= start_yaw;
-	pitch				= start_pitch;
-
-	//here we want the normal coord. axis z is showing to us !!
-	front				= glm::vec3(0.0f, 0.0f, -1.0f);
-
-	//choose it clever; is ordnial scale; so some trial and error in finding some good starting value
-	movement_speed		= start_move_speed;
-	turn_speed			= start_turn_speed;
-
-	this->near_plane	= near_plane;
-	this->far_plane		= far_plane;
-	this->fov			= fov;
 }
 
 void Camera::key_control(bool* keys, GLfloat delta_time)
@@ -93,42 +108,42 @@ void Camera::mouse_control(GLfloat x_change, GLfloat y_change)
 
 }
 
-glm::vec3 Camera::get_camera_position()
+glm::vec3 Camera::get_camera_position() const
 {
 	return position;
 }
 
-glm::vec3 Camera::get_camera_direction()
+glm::vec3 Camera::get_camera_direction() const
 {
 	return glm::normalize(front);
 }
 
-glm::vec3 Camera::get_up_axis()
+glm::vec3 Camera::get_up_axis() const
 {
 	return up;
 }
 
-glm::vec3 Camera::get_right_axis()
+glm::vec3 Camera::get_right_axis() const
 {
 	return right;
 }
 
-GLfloat Camera::get_near_plane()
+GLfloat Camera::get_near_plane() const
 {
 	return near_plane;
 }
 
-GLfloat Camera::get_far_plane()
+GLfloat Camera::get_far_plane() const
 {
 	return far_plane;
 }
 
-GLfloat Camera::get_fov()
+GLfloat Camera::get_fov() const
 {
 	return fov;
 }
 
-GLfloat Camera::get_yaw()
+GLfloat Camera::get_yaw() const
 {
 	return yaw;
 }
@@ -153,7 +168,7 @@ void Camera::set_camera_position(glm::vec3 new_camera_position)
 	this->position = new_camera_position;
 }
 
-glm::mat4 Camera::calculate_viewmatrix()
+glm::mat4 Camera::get_viewmatrix() const
 {
 	//very necessary for further calc
 	return glm::lookAt(position, position + front, up);
@@ -180,9 +195,4 @@ void Camera::update()
 
 	// but this means the up vector must again be calculated with right vector calculated!!!
 	up = glm::normalize(glm::cross(right, front));
-}
-
-float Camera::to_radians(float angle_in_degrees)
-{
-	return angle_in_degrees *(3.14159265f / 180.f);
 }

@@ -1,9 +1,12 @@
 #include "Noise.h"
 
-Noise::Noise() 
+Noise::Noise() :
+
+	texture_dim_1(128),
+	texture_dim_2(32)
+
 {
-	this->texture_dim_1 = 128;
-	this->texture_dim_2 = 32;
+	
 
 	create_shader_programs();
 
@@ -78,9 +81,9 @@ void Noise::generate_res128_noise_texture()
 	glBindImageTexture(	NOISE_128D_IMAGE_SLOT, texture_1_id, 0, GL_FALSE, 
 						0, GL_READ_WRITE, GL_RGBA32F);
 
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -103,9 +106,9 @@ void Noise::generate_res32_noise_texture()
 	glBindImageTexture(	NOISE_32D_IMAGE_SLOT, texture_2_id, 0, GL_FALSE,
 						0, GL_READ_WRITE, GL_RGBA32F);
 
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -191,7 +194,7 @@ void Noise::generate_cells(GLuint num_cells_per_axis, GLuint cell_index)
 				// of the texture image, and then in successively higher rows of the texture image. 
 				// The final element corresponds to the upper right corner of the texture image."
 
-				GLfloat random_offset[3] = { dis(gen64), dis(gen64),dis(gen64)};
+				const GLfloat random_offset[3] = { dis(gen64), dis(gen64),dis(gen64)};
 
 				GLfloat position[3] = { (m + random_offset[0]),
 										(k + random_offset[1]),
@@ -226,14 +229,14 @@ void Noise::create_res128_noise()
 
 	texture_1_shader_program->setUniformInt(NOISE_128D_IMAGE_SLOT, "noise");
 
-	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
+	for (uint32_t i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		char loc_buff[100] = { '\0' };
 
-		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%zd]", i);
+		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%ui]", i);
 		texture_1_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, loc_buff);
 
-		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%zd]", i);
+		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%ui]", i);
 		texture_1_shader_program->setUniformInt(num_cells_per_axis[i], loc_buff);
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);
@@ -258,14 +261,14 @@ void Noise::create_res32_noise()
 
 	texture_2_shader_program->setUniformInt(NOISE_32D_IMAGE_SLOT, "noise");
 
-	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
+	for (uint32_t i = 0; i < NUM_CELL_POSITIONS; i++) {
 
 		char loc_buff[100] = { '\0' };
 
-		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%zd]", i);
+		snprintf(loc_buff, sizeof(loc_buff), "cell_positions[%ui]", i);
 		texture_2_shader_program->setUniformInt(NOISE_CELL_POSITIONS_SLOT + i, loc_buff);
 
-		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%zd]", i);
+		snprintf(loc_buff, sizeof(loc_buff), "num_cells[%ui]", i);
 		texture_2_shader_program->setUniformInt(num_cells_per_axis[i], loc_buff);
 
 		glActiveTexture(GL_TEXTURE0 + NOISE_CELL_POSITIONS_SLOT + i);

@@ -1,6 +1,40 @@
 #include "ViewFrustumCulling.h"
 
-ViewFrustumCulling::ViewFrustumCulling() {
+ViewFrustumCulling::ViewFrustumCulling() :
+
+	VBO(-1),
+	VAO(-1),
+	EBO(-1),
+	m_drawCount(0),
+	//we get that as input
+	near_plane(0.f),
+	far_plane(0.f), 
+	fov(0.f), 
+	ratio(0.f),
+
+	//calculate as soon as we become params
+	tan(0.f),
+	near_height(0.f),
+	near_width(0.f),
+	far_height(0.f),
+	far_width(0.f),
+	main_camera(),
+
+	dir(glm::vec3(0.f)), 
+	near_center(glm::vec3(0.f)),
+	far_center(glm::vec3(0.f)),
+
+	near_top_left(glm::vec3(0.f)),
+	near_top_right(glm::vec3(0.f)),
+	near_bottom_left(glm::vec3(0.f)),
+	near_bottom_right(glm::vec3(0.f)),
+
+	far_top_left(glm::vec3(0.f)),
+	far_top_right(glm::vec3(0.f)),
+	far_bottom_left(glm::vec3(0.f)),
+	far_bottom_right(glm::vec3(0.f))
+
+{
 
 }
 

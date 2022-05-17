@@ -1,50 +1,55 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1669267181">
+<analyzerinfo checksum="1535601778">
+        <error id="invalidPrintfArgType_sint" severity="portability" msg="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." verbose="%zd in format string (no. 1) requires &apos;ssize_t&apos; but the argument type is &apos;size_t {aka unsigned long long}&apos;." cwe="686" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\point_light\OmniShadowMapPass.cpp" line="28" column="9"/>
+        </error>
   <FileInfo check="Class">
-<class name="OmniShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.h" line="11" col="1" hash="883702886802210689"/>
+<class name="OmniShadowMapPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/OmniShadowMapPass.h" line="9" col="1" hash="6193635732289746008"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="set_game_object_uniforms" lineNumber="8"/>
-    <functiondecl functionName="execute" lineNumber="14"/>
-    <functiondecl functionName="create_shader_program" lineNumber="44"/>
+    <functiondecl functionName="execute" lineNumber="8"/>
+    <functiondecl functionName="set_game_object_uniforms" lineNumber="52"/>
+    <functiondecl functionName="create_shader_program" lineNumber="57"/>
     <functioncall functionName="GL_DEPTH_BUFFER_BIT"/>
-    <functioncall functionName="GL_FALSE"/>
     <functioncall functionName="GL_FRAMEBUFFER"/>
+    <functioncall functionName="GameObject"/>
     <functioncall functionName="OmniDirShadowMap"/>
     <functioncall functionName="OmniDirShadowShaderProgram"/>
     <functioncall functionName="OmniShadowMapPass"/>
     <functioncall functionName="PointLight"/>
     <functioncall functionName="Scene"/>
-    <functioncall functionName="areErrorPrintAll"/>
     <functioncall functionName="calculate_light_transform"/>
     <functioncall functionName="create_from_files"/>
     <functioncall functionName="create_shader_program"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="game_objects"/>
     <functioncall functionName="get_far_plane"/>
-    <functioncall functionName="get_far_plane_location"/>
-    <functioncall functionName="get_model_location"/>
-    <functioncall functionName="get_omni_light_pos_location"/>
+    <functioncall functionName="get_game_objects"/>
+    <functioncall functionName="get_normal_world_trafo"/>
     <functioncall functionName="get_omni_shadow_map"/>
     <functioncall functionName="get_position"/>
     <functioncall functionName="get_shadow_height"/>
     <functioncall functionName="get_shadow_width"/>
+    <functioncall functionName="get_world_trafo"/>
     <functioncall functionName="glBindFramebuffer"/>
     <functioncall functionName="glClear"/>
-    <functioncall functionName="glUniform1f"/>
-    <functioncall functionName="glUniform3f"/>
-    <functioncall functionName="glUniformMatrix4fv"/>
     <functioncall functionName="glViewport"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="loc_buff"/>
     <functioncall functionName="make_shared"/>
     <functioncall functionName="mat4"/>
     <functioncall functionName="model"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="render"/>
-    <functioncall functionName="set_light_matrices"/>
-    <functioncall functionName="this"/>
+    <functioncall functionName="setUniformFloat"/>
+    <functioncall functionName="setUniformMatrix4fv"/>
+    <functioncall functionName="setUniformVec3"/>
+    <functioncall functionName="set_game_object_uniforms"/>
+    <functioncall functionName="shared_ptr"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="snprintf"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>
-    <functioncall functionName="value_ptr"/>
     <functioncall functionName="write"/>
-    <functioncall functionName="x"/>
-    <functioncall functionName="y"/>
-    <functioncall functionName="z"/>
   </FileInfo>
 </analyzerinfo>

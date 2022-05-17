@@ -1,62 +1,40 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3481517633">
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Window::main_window&apos; is not initialized in the constructor." verbose="Member variable &apos;Window::main_window&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\window\Window.cpp" line="3" column="9"/>
-            <symbol>Window::main_window</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Window::mouse_first_moved&apos; is not initialized in the constructor." verbose="Member variable &apos;Window::mouse_first_moved&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\window\Window.cpp" line="3" column="9"/>
-            <symbol>Window::mouse_first_moved</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Window::main_window&apos; is not initialized in the constructor." verbose="Member variable &apos;Window::main_window&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\window\Window.cpp" line="17" column="9"/>
-            <symbol>Window::main_window</symbol>
-        </error>
-        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Window::mouse_first_moved&apos; is not initialized in the constructor." verbose="Member variable &apos;Window::mouse_first_moved&apos; is not initialized in the constructor." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\window\Window.cpp" line="17" column="9"/>
-            <symbol>Window::mouse_first_moved</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;window_width&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;window_width&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\window\Window.cpp" line="5" column="5"/>
-            <symbol>window_width</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;window_height&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;window_height&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\window\Window.cpp" line="6" column="5"/>
-            <symbol>window_height</symbol>
-        </error>
+<analyzerinfo checksum="1242794127">
   <FileInfo check="Class">
-<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="16182004082499054843"/>
+<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="8642980378447334245"/>
   </FileInfo>
   <FileInfo check="Class">
-<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="250892387592686382"/>
+<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="5940889811121031104"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="initialize" lineNumber="29"/>
-    <functiondecl functionName="update_viewport" lineNumber="106"/>
-    <functiondecl functionName="set_buffer_size" lineNumber="114"/>
-    <functiondecl functionName="get_x_change" lineNumber="119"/>
-    <functiondecl functionName="get_y_change" lineNumber="126"/>
-    <functiondecl functionName="init_callbacks" lineNumber="139"/>
-    <functiondecl functionName="framebuffer_size_callback" lineNumber="149"/>
-    <functiondecl functionName="key_callback" lineNumber="153"/>
-    <functiondecl functionName="mouse_callback" lineNumber="173"/>
-    <functiondecl functionName="mouse_button_callback" lineNumber="193"/>
-    <functiondecl functionName="initialize" lineNumber="29"/>
-    <functiondecl functionName="update_viewport" lineNumber="106"/>
-    <functiondecl functionName="set_buffer_size" lineNumber="114"/>
-    <functiondecl functionName="get_x_change" lineNumber="119"/>
-    <functiondecl functionName="get_y_change" lineNumber="126"/>
-    <functiondecl functionName="init_callbacks" lineNumber="139"/>
-    <functiondecl functionName="framebuffer_size_callback" lineNumber="149"/>
-    <functiondecl functionName="key_callback" lineNumber="153"/>
-    <functiondecl functionName="mouse_callback" lineNumber="173"/>
-    <functiondecl functionName="mouse_button_callback" lineNumber="193"/>
+    <functiondecl functionName="initialize" lineNumber="38"/>
+    <functiondecl functionName="update_viewport" lineNumber="109"/>
+    <functiondecl functionName="set_buffer_size" lineNumber="117"/>
+    <functiondecl functionName="get_x_change" lineNumber="122"/>
+    <functiondecl functionName="get_y_change" lineNumber="129"/>
+    <functiondecl functionName="init_callbacks" lineNumber="142"/>
+    <functiondecl functionName="framebuffer_size_callback" lineNumber="152"/>
+    <functiondecl functionName="key_callback" lineNumber="156"/>
+    <functiondecl functionName="mouse_callback" lineNumber="176"/>
+    <functiondecl functionName="mouse_button_callback" lineNumber="196"/>
+    <functiondecl functionName="initialize" lineNumber="38"/>
+    <functiondecl functionName="update_viewport" lineNumber="109"/>
+    <functiondecl functionName="set_buffer_size" lineNumber="117"/>
+    <functiondecl functionName="get_x_change" lineNumber="122"/>
+    <functiondecl functionName="get_y_change" lineNumber="129"/>
+    <functiondecl functionName="init_callbacks" lineNumber="142"/>
+    <functiondecl functionName="framebuffer_size_callback" lineNumber="152"/>
+    <functiondecl functionName="key_callback" lineNumber="156"/>
+    <functiondecl functionName="mouse_callback" lineNumber="176"/>
+    <functiondecl functionName="mouse_button_callback" lineNumber="196"/>
+    <functioncall functionName="GLADloadproc"/>
     <functioncall functionName="GLFW_CONTEXT_VERSION_MAJOR"/>
     <functioncall functionName="GLFW_CONTEXT_VERSION_MINOR"/>
     <functioncall functionName="GLFW_CURSOR"/>
     <functioncall functionName="GLFW_CURSOR_NORMAL"/>
     <functioncall functionName="GLFW_OPENGL_CORE_PROFILE"/>
     <functioncall functionName="GLFW_OPENGL_DEBUG_CONTEXT"/>
+    <functioncall functionName="GLFW_OPENGL_FORWARD_COMPAT"/>
     <functioncall functionName="GLFW_OPENGL_PROFILE"/>
     <functioncall functionName="GLFW_RESIZABLE"/>
     <functioncall functionName="GLFW_TRUE"/>
@@ -71,10 +49,11 @@
     <functioncall functionName="framebuffer_size_callback"/>
     <functioncall functionName="glEnable"/>
     <functioncall functionName="glViewport"/>
-    <functioncall functionName="glewInit"/>
+    <functioncall functionName="gladLoadGLLoader"/>
     <functioncall functionName="glfwCreateWindow"/>
     <functioncall functionName="glfwDestroyWindow"/>
     <functioncall functionName="glfwGetFramebufferSize"/>
+    <functioncall functionName="glfwGetProcAddress"/>
     <functioncall functionName="glfwGetWindowUserPointer"/>
     <functioncall functionName="glfwInit"/>
     <functioncall functionName="glfwMakeContextCurrent"/>
@@ -93,6 +72,7 @@
     <functioncall functionName="i"/>
     <functioncall functionName="if"/>
     <functioncall functionName="init_callbacks"/>
+    <functioncall functionName="initialize"/>
     <functioncall functionName="key"/>
     <functioncall functionName="key_callback"/>
     <functioncall functionName="last_x"/>

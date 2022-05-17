@@ -9,6 +9,6 @@ operator() call:[return]
 getVertices
 getIndices
 Mesh
-Mesh call:[areErrorPrintAll,arePreError,glBindBuffer,glBindVertexArray,glBufferData,glEnableVertexAttribArray,glGenBuffers,glGenVertexArrays,glVertexAttribPointer,offsetof,size,sizeof] noreturn:[areErrorPrintAll]
-render call:[areErrorPrintAll,arePreError,glBindBuffer,glBindVertexArray,glDrawElements] noreturn:[areErrorPrintAll]
+Mesh call:[glBindBuffer,glBindVertexArray,glBufferData,glEnableVertexAttribArray,glGenBuffers,glGenVertexArrays,glVertexAttribPointer,offsetof,size,sizeof] noreturn:[glBindBuffer]
+render call:[glBindBuffer,glBindVertexArray,glDrawElements] noreturn:[glBindVertexArray]
 Mesh call:[glDeleteBuffers,glDeleteVertexArrays] noreturn:[glDeleteBuffers]

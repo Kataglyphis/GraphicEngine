@@ -21,19 +21,19 @@ GUI::GUI()
 
     this->cloud_speed           = 6;
     this->cloud_scale           = 0.63f;
-    this->cloud_density         = 0.4f;
+    this->cloud_density         = 0.493f;
     this->cloud_pillowness      = 0.966f;
     this->cloud_cirrus_effect   = 0.034f;
 
-    this->cloud_mesh_scale[0] = 100.f;
-    this->cloud_mesh_scale[1] = 12.7f;
-    this->cloud_mesh_scale[2] = 100.f;
+    this->cloud_mesh_scale[0] = 1000.f;
+    this->cloud_mesh_scale[1] = 5.f;
+    this->cloud_mesh_scale[2] = 1000.f;
 
     this->cloud_mesh_offset[0] = -.364f;
-    this->cloud_mesh_offset[1] = 200.f;
-    this->cloud_mesh_offset[2] = -.351f;
+    this->cloud_mesh_offset[1] = 367.f;
+    this->cloud_mesh_offset[2] = -18.351f;
 
-    this->cloud_powder_effect = false;
+    this->cloud_powder_effect = true;
 
     this->cloud_movement_direction[0] = 1.f;
     this->cloud_movement_direction[1] = 1.f;
@@ -71,7 +71,7 @@ void GUI::init(std::shared_ptr<Window> main_window)
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     //ImGuiIO& io = ImGui::GetIO();
-    ImGuiStyle& style = ImGui::GetStyle();
+    const ImGuiStyle& style = ImGui::GetStyle();
     // Setup Platform/Renderer bindings
     ImGui_ImplGlfw_InitForOpenGL(main_window->get_window(), true);
     const char* glsl_version = "#version 460";
@@ -118,22 +118,26 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
 
         if (ImGui::TreeNode("Directional Light")) {
             ImGui::Separator();
-            ImGui::SliderFloat("Radiance", &direcional_light_radiance, 0.0f, 50.0f);
+            ImGui::SliderFloat("Radiance",                  &direcional_light_radiance,     0.0f, 50.0f);
             ImGui::Separator();
             // Edit a color (stored as ~4 floats)
-            ImGui::ColorEdit3("Directional Light Color", directional_light_color);
+            ImGui::ColorEdit3("Directional Light Color",    directional_light_color);
             ImGui::Separator();
-            ImGui::SliderFloat3("Light Direction", directional_light_direction, -1.f, 1.0f);
+            ImGui::SliderFloat3("Light Direction",          directional_light_direction,    -1.f, 1.0f);
 
             if (ImGui::TreeNode("Shadows")) {
+
                 int shadow_map_res_index_before = shadow_map_res_index;
-                ImGui::Combo("Shadow Map Resolution", &shadow_map_res_index, available_shadow_map_resolutions, IM_ARRAYSIZE(available_shadow_map_resolutions));
+                ImGui::Combo("Shadow Map Resolution",   &shadow_map_res_index, available_shadow_map_resolutions, 
+                                                        IM_ARRAYSIZE(available_shadow_map_resolutions));
                 if (shadow_map_res_index_before != shadow_map_res_index) shadow_resolution_changed = true;
+
                 int num_cascades_before = num_shadow_cascades;
-                ImGui::SliderInt("# cascades", &num_shadow_cascades, NUM_MIN_CASCADES, NUM_CASCADES);
+                ImGui::SliderInt("# cascades",          &num_shadow_cascades, NUM_MIN_CASCADES, NUM_CASCADES);
                 if (num_cascades_before != num_shadow_cascades) shadow_resolution_changed = true;
-                ImGui::SliderInt("PCF radius", &pcf_radius, 1, 20);
-                ImGui::SliderFloat("Shadow intensity", &cascaded_shadow_intensity, 0.0f, 1.0f);
+
+                ImGui::SliderInt("PCF radius",          &pcf_radius,                1, 20);
+                ImGui::SliderFloat("Shadow intensity",  &cascaded_shadow_intensity, 0.0f, 1.0f);
 
                 ImGui::TreePop();
 
@@ -145,17 +149,17 @@ void GUI::render(   bool loading_in_progress, float progress, bool& shader_hot_r
 
         if (ImGui::TreeNode("Cloud Settings")) {
 
-            ImGui::SliderInt("Speed", &cloud_speed, 0, 15);
-            ImGui::SliderInt("# march steps", &cloud_num_march_steps, 1, 128);
-            ImGui::SliderInt("# march steps to light", &cloud_num_march_steps_to_light, 1, 128);
-            ImGui::SliderFloat3("Movement Direction", cloud_movement_direction, -10.f, 10.0f);
-            ImGui::SliderFloat("Illumination intensity", &cloud_scale, 0.f, 1.0f);
-            ImGui::SliderFloat("Density", &cloud_density, 0.f, 1.0f);
-            ImGui::SliderFloat("Pillowness", &cloud_pillowness, 0.f, 1.0f);
-            ImGui::SliderFloat("Cirrus effect", &cloud_cirrus_effect, 0.f, 1.0f);
-            ImGui::Checkbox("Powder effect", &cloud_powder_effect);
-            ImGui::SliderFloat3("Scale", cloud_mesh_scale, 0.f, 200.0f);
-            ImGui::SliderFloat3("Translation", cloud_mesh_offset, -200.f, 200.0f);
+            ImGui::SliderInt("Speed",                       &cloud_speed,                       0, 30);
+            ImGui::SliderInt("# march steps",               &cloud_num_march_steps,             1, 128);
+            ImGui::SliderInt("# march steps to light",      &cloud_num_march_steps_to_light,    1, 128);
+            ImGui::SliderFloat3("Movement Direction",       cloud_movement_direction,           -10.f, 10.0f);
+            ImGui::SliderFloat("Illumination intensity",    &cloud_scale,                       0.f, 1.0f);
+            ImGui::SliderFloat("Density",                   &cloud_density,                     0.f, 1.0f);
+            ImGui::SliderFloat("Pillowness",                &cloud_pillowness,                  0.f, 1.0f);
+            ImGui::SliderFloat("Cirrus effect",             &cloud_cirrus_effect,               0.f, 1.0f);
+            ImGui::Checkbox("Powder effect",                &cloud_powder_effect);
+            ImGui::SliderFloat3("Scale",                    cloud_mesh_scale,                   0.f, 1000.0f);
+            ImGui::SliderFloat3("Translation",              cloud_mesh_offset,                  -200.f, 400.0f);
 
             ImGui::TreePop();
         }
@@ -214,6 +218,7 @@ void GUI::update_user_input(std::shared_ptr<Scene> scene)
     glm::vec3 new_main_light_color( directional_light_color[0], 
                                     directional_light_color[1], 
                                     directional_light_color[2]);
+
     main_light->set_color(new_main_light_color);
 
     glm::vec3 new_main_light_pos(   directional_light_direction[0], 

@@ -1,5 +1,5 @@
 Camera
-Camera call:[vec3]
+Camera
 key_control
 mouse_control call:[update] noreturn:[update]
 get_camera_position
@@ -14,7 +14,6 @@ set_near_plane
 set_far_plane
 set_fov
 set_camera_position
-calculate_viewmatrix call:[lookAt] noreturn:[lookAt]
+get_viewmatrix call:[lookAt] noreturn:[lookAt]
 Camera
 update call:[cos,cross,normalize,radians,sin] noreturn:[normalize]
-to_radians

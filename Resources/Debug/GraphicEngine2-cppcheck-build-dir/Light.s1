@@ -1,3 +1,5 @@
-Light call:[float,vec3] noreturn:[float]
-Light call:[float,vec3] noreturn:[float]
+get_color
+get_radiance
+Light
+Light
 Light

@@ -1,4 +1,13 @@
-ObjMaterial call:[UniformHelper,vec3] noreturn:[UniformHelper]
-ObjMaterial call:[UniformHelper] noreturn:[UniformHelper]
-use_material call:[setUniformFloat,setUniformInt,setUniformVec3] noreturn:[setUniformInt]
+get_ambient
+get_diffuse
+get_specular
+get_transmittance
+get_emission
+get_shininess
+get_ior
+get_dissolve
+get_illum
+get_textureID
+ObjMaterial call:[vec3]
+ObjMaterial
 ObjMaterial

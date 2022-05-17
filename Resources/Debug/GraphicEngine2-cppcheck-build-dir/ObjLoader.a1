@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3356821056">
+<analyzerinfo checksum="3186463501">
         <error id="stlFindInsert" severity="performance" msg="Searching before insertion is not necessary. Instead of &apos;vertices_map[vert]=vertices.size()&apos; consider using &apos;vertices_map.try_emplace(vert, vertices.size());&apos;." verbose="Searching before insertion is not necessary. Instead of &apos;vertices_map[vert]=vertices.size()&apos; consider using &apos;vertices_map.try_emplace(vert, vertices.size());&apos;." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.cpp">
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\ObjLoader.cpp" line="152" column="55"/>
         </error>
   <FileInfo check="Class">
-<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="9225212040388208400"/>
-<class name="ObjMaterialLocations" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjMaterialLocations.h" line="4" col="1" hash="8016304547275912851"/>
+<class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
 <class name="ObjLoader" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="11" col="1" hash="4226704324098086444"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
@@ -74,6 +73,7 @@
     <functioncall functionName="nz"/>
     <functioncall functionName="pos"/>
     <functioncall functionName="position"/>
+    <functioncall functionName="private:"/>
     <functioncall functionName="push_back"/>
     <functioncall functionName="reader_config"/>
     <functioncall functionName="red"/>

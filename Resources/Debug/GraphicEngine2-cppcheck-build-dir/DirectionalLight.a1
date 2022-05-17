@@ -1,35 +1,27 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3601882183">
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;direction&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;direction&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\DirectionalLight.cpp" line="8" column="2"/>
-            <symbol>direction</symbol>
-        </error>
-        <error id="useInitializationList" severity="performance" msg="Variable &apos;direction&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;direction&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\light\directional_light\DirectionalLight.cpp" line="29" column="5"/>
-            <symbol>direction</symbol>
-        </error>
+<analyzerinfo checksum="3498171681">
   <FileInfo check="Class">
-<class name="DirectionalLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.h" line="9" col="1" hash="17269364981557522049"/>
+<class name="DirectionalLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.h" line="9" col="1" hash="9077322811892403125"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.h:48:25" my-argnr="1" my-argname="proj" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.cpp" line="69" col="35" value="0"/>
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.h:48:25" my-argnr="2" my-argname="view" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.cpp" line="69" col="42" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.h:49:25" my-argnr="1" my-argname="proj" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.cpp" line="94" col="35" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.h:49:25" my-argnr="2" my-argname="view" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional_light/DirectionalLight.cpp" line="94" col="42" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="get_light_view_matrix" lineNumber="38"/>
-    <functiondecl functionName="get_cascaded_slots" lineNumber="42"/>
-    <functiondecl functionName="get_cascaded_light_matrices" lineNumber="55"/>
-    <functiondecl functionName="update_shadow_map" lineNumber="60"/>
-    <functiondecl functionName="get_frustum_corners_world_space" lineNumber="66"/>
-    <functiondecl functionName="calc_cascaded_slots" lineNumber="93"/>
-    <functiondecl functionName="calc_orthogonal_projections" lineNumber="120"/>
-    <functiondecl functionName="calculate_light_transform" lineNumber="200"/>
-    <functiondecl functionName="get_direction" lineNumber="205"/>
-    <functiondecl functionName="get_color" lineNumber="210"/>
-    <functiondecl functionName="get_radiance" lineNumber="215"/>
-    <functiondecl functionName="set_direction" lineNumber="220"/>
-    <functiondecl functionName="set_radiance" lineNumber="225"/>
-    <functiondecl functionName="set_color" lineNumber="230"/>
+    <functiondecl functionName="get_light_view_matrix" lineNumber="48"/>
+    <functiondecl functionName="get_direction" lineNumber="52"/>
+    <functiondecl functionName="get_color" lineNumber="57"/>
+    <functiondecl functionName="get_radiance" lineNumber="62"/>
+    <functiondecl functionName="get_cascaded_slots" lineNumber="67"/>
+    <functiondecl functionName="get_cascaded_light_matrices" lineNumber="80"/>
+    <functiondecl functionName="update_shadow_map" lineNumber="85"/>
+    <functiondecl functionName="get_frustum_corners_world_space" lineNumber="91"/>
+    <functiondecl functionName="calc_cascaded_slots" lineNumber="118"/>
+    <functiondecl functionName="calc_orthogonal_projections" lineNumber="145"/>
+    <functiondecl functionName="calculate_light_transform" lineNumber="225"/>
+    <functiondecl functionName="set_direction" lineNumber="230"/>
+    <functiondecl functionName="set_radiance" lineNumber="235"/>
+    <functiondecl functionName="set_color" lineNumber="240"/>
     <functioncall functionName="CascadedShadowMap"/>
     <functioncall functionName="DirectionalLight"/>
     <functioncall functionName="GLfloat"/>
@@ -44,6 +36,7 @@
     <functioncall functionName="cascade_slots"/>
     <functioncall functionName="center"/>
     <functioncall functionName="color"/>
+    <functioncall functionName="const"/>
     <functioncall functionName="curr_cascade_proj"/>
     <functioncall functionName="current_num_cascades"/>
     <functioncall functionName="direction"/>

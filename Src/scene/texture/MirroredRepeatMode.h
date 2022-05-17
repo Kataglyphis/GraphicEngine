@@ -7,7 +7,7 @@ public:
 
     MirroredRepeatMode();
 
-    void activate();
+    void activate() override;
 
     ~MirroredRepeatMode();
 
