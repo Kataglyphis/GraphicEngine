@@ -1,16 +1,16 @@
 <h1 align="center">
   <br>
-  <a href="https://jotrocken.blog/"><img src="images/logo.png" alt="OpenGLEngine" width="150"></a>
+  <a href="https://jotrockenmitlocken.de"><img src="images/logo.png" alt="OpenGLEngine" width="150"></a>
   <br>
   Cataglyphis Engine
   <br>
   <br>
-  <a href="https://jotrocken.blog/"><img src="images/Opengl-logo.png" alt="OpenGLEngine" width="200"></a>
-  <a href="https://jotrocken.blog/"><img src="images/glm_logo.png" alt="OpenGLEngine" width="150"></a>
+  <a href="https://jotrockenmitlocken.de"><img src="images/Opengl-logo.png" alt="OpenGLEngine" width="200"></a>
+  <a href="https://jotrockenmitlocken.de"><img src="images/glm_logo.png" alt="OpenGLEngine" width="150"></a>
   <br>
 </h1>
 
-<h4 align="center">A graphics engine built on top of OpenGL <a href="https://jotrocken.blog/" target="_blank"></a>.</h4>
+<h4 align="center">A graphics engine built on top of OpenGL <a href="https://jotrockenmitlocken.de" target="_blank"></a>.</h4>
 
 <!-- <p align="center">
   <a href="https://paypal.me/JonasHeinle?locale.x=de_DE">
@@ -20,6 +20,7 @@
 
 [![Windows](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml)
 [![Linux](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=BX9AVVES2P9LN)
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
@@ -63,7 +64,15 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Kataglyphis Engine][product-screenshot]](https://jotrocken.blog/)
+<h1 align="center">
+  <br>
+  <a href="https://jotrockenmitlocken.de"><img src="images/Screenshot1.png" alt="VulkanEngine" width="600"></a>
+  <a href="https://jotrockenmitlocken.de"><img src="images/Screenshot2.png" alt="VulkanEngine" width="600"></a>
+  <br>
+  <a href="https://jotrockenmitlocken.de"><img src="images/Screenshot3.png" alt="VulkanEngine" width="200"></a>
+  <a href="https://jotrockenmitlocken.de"><img src="images/Screenshot4.png" alt="VulkanEngine" width="200"></a>
+</h1>
+<!-- [![Kataglyphis Engine][product-screenshot]](https://jotrockenmitlocken.de) -->
 
 The thought behind this project is to implement modern algortihms and 
 techniques that modern graphic engines rely on. 
@@ -102,21 +111,21 @@ With the provided CMake file you are able to built the project on Linux (Ubuntu 
 and Windows. I do not provide support for MacOS. Be aware of the dependencies: 
 
 * [OpenGL 4.6](https://www.opengl.org//)
-* [GLM](https://github.com/g-truc/glm)
-* [GLFW](https://www.glfw.org/)
-* [TINYOBJLOADER](https://github.com/tinyobjloader/tinyobjloader)
-* [IMGUI](https://github.com/ocornut/imgui)
-* [GLAD](https://github.com/Dav1dde/glad)
-* [STB](https://github.com/nothings/stb)
-* [DOXYGEN](https://www.doxygen.nl/index.html)
-* [GTEST](https://github.com/google/googletest)
-* [CMAKE](https://cmake.org/)
+* [glm](https://github.com/g-truc/glm)
+* [glfw](https://www.glfw.org/)
+* [tinyobjloader](https://github.com/tinyobjloader/tinyobjloader)
+* [imgui](https://github.com/ocornut/imgui)
+* [glad](https://github.com/Dav1dde/glad)
+* [stb](https://github.com/nothings/stb)
+* [doxygen](https://www.doxygen.nl/index.html)
+* [gtest](https://github.com/google/googletest)
+* [cmake](https://cmake.org/)
 
 ### Useful tools (you might also considering :) )
 
-* [CPPCHECK](https://cppcheck.sourceforge.io/)
-* [RENDERDOC](https://renderdoc.org/)
-* [NSIGHTGRAPHICS](https://developer.nvidia.com/nsight-graphics)
+* [cppcheck](https://cppcheck.sourceforge.io/)
+* [renderdoc](https://renderdoc.org/)
+* [nsightgraphics](https://developer.nvidia.com/nsight-graphics)
 
 <!-- GETTING STARTED -->
 ## Getting Started

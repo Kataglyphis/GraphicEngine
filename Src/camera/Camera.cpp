@@ -108,46 +108,6 @@ void Camera::mouse_control(GLfloat x_change, GLfloat y_change)
 
 }
 
-glm::vec3 Camera::get_camera_position() const
-{
-	return position;
-}
-
-glm::vec3 Camera::get_camera_direction() const
-{
-	return glm::normalize(front);
-}
-
-glm::vec3 Camera::get_up_axis() const
-{
-	return up;
-}
-
-glm::vec3 Camera::get_right_axis() const
-{
-	return right;
-}
-
-GLfloat Camera::get_near_plane() const
-{
-	return near_plane;
-}
-
-GLfloat Camera::get_far_plane() const
-{
-	return far_plane;
-}
-
-GLfloat Camera::get_fov() const
-{
-	return fov;
-}
-
-GLfloat Camera::get_yaw() const
-{
-	return yaw;
-}
-
 void Camera::set_near_plane(GLfloat near_plane)
 {
 	this->near_plane = near_plane;

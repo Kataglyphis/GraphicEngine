@@ -20,15 +20,15 @@ public:
 	void key_control(bool* keys, GLfloat delta_time);
 	void mouse_control(GLfloat x_change, GLfloat y_change);
 
-	glm::vec3 get_camera_position() const;
-	glm::vec3 get_camera_direction() const;
-	glm::vec3 get_up_axis() const;
-	glm::vec3 get_right_axis() const;
-	GLfloat get_near_plane() const;
-	GLfloat get_far_plane() const;
-	GLfloat get_fov() const;
-	GLfloat get_yaw() const;
-	glm::mat4 get_viewmatrix() const;
+	glm::vec3	get_camera_position() const { return position; };
+	glm::vec3	get_camera_direction() const { return glm::normalize(front); };
+	glm::vec3	get_up_axis() const { return up; };
+	glm::vec3	get_right_axis() const { return right; };
+	GLfloat		get_near_plane() const { return near_plane; };
+	GLfloat		get_far_plane() const { return far_plane; };
+	GLfloat		get_fov() const { return fov; };
+	GLfloat		get_yaw() const { return yaw; };
+	glm::mat4	get_viewmatrix() const;
 
 	void set_near_plane(GLfloat near_plane);
 	void set_far_plane(GLfloat far_plane);
