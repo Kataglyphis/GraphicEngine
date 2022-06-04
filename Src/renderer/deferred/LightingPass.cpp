@@ -136,7 +136,7 @@ void LightingPass::set_uniforms(    glm::mat4 projection_matrix,
         ss.str(std::string());
 
         ss << "omni_shadow_maps[" << i << "]far_plane";
-        shader_program->setUniformInt(point_lights[i]->get_far_plane(), ss.str());
+        shader_program->setUniformFloat(point_lights[i]->get_far_plane(), ss.str());
         ss.clear();
         ss.str(std::string());
 

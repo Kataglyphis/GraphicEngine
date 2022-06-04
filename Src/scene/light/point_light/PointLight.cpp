@@ -12,7 +12,7 @@ PointLight::PointLight() :
     
 }
 
-PointLight::PointLight( GLfloat shadow_width, GLfloat shadow_height,
+PointLight::PointLight( GLuint shadow_width, GLuint shadow_height,
                         GLfloat near, GLfloat far,
                         GLfloat red, GLfloat green, GLfloat blue,
                         GLfloat radiance,
@@ -32,7 +32,7 @@ PointLight::PointLight( GLfloat shadow_width, GLfloat shadow_height,
     
     float aspect = (float)shadow_width / (float)shadow_height;
     light_proj = glm::perspective(glm::radians(90.0f), aspect, near, far);
-    omni_dir_shadow_map->init((GLuint)shadow_width, (GLuint)shadow_height);
+    omni_dir_shadow_map->init(shadow_width, shadow_height);
 
 }
 

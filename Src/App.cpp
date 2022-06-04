@@ -113,8 +113,8 @@ int main()
         gui.update_user_input(scene);
 
         main_window->update_viewport();
-        GLfloat new_window_width = main_window->get_buffer_width();
-        GLfloat new_window_height = main_window->get_buffer_height();
+        GLuint new_window_width = main_window->get_buffer_width();
+        GLuint new_window_height = main_window->get_buffer_height();
 
         if ((new_window_width == window_width && window_height == new_window_height) == false) {
 

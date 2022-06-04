@@ -13,7 +13,7 @@ public:
 
     PointLight();
 
-    PointLight( GLfloat shadow_width, GLfloat shadow_height,
+    PointLight( GLuint shadow_width, GLuint shadow_height,
                 GLfloat near, GLfloat far,
                 GLfloat red, GLfloat green, GLfloat blue,
                 GLfloat radiance,

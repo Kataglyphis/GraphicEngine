@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2992552096">
+<analyzerinfo checksum="1223454642">
         <error id="unusedPrivateFunction" severity="style" msg="Unused private function: &apos;Scene::object_is_visible&apos;" verbose="Unused private function: &apos;Scene::object_is_visible&apos;" cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp">
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\Scene.h" line="57" column="7"/>
             <symbol>Scene::object_is_visible</symbol>
@@ -8,37 +8,38 @@
 <class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
 <class name="Rotation" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Rotation.h" line="5" col="1" hash="896651279113435361"/>
 <class name="ViewFrustumCulling::frustum_plane" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.h" line="52" col="2" hash="16382488488181841176"/>
-<class name="Scene" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h" line="16" col="1" hash="12860898194168540173"/>
+<class name="Scene" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h" line="16" col="1" hash="17924825206992033483"/>
   </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h:39:7" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp" line="165" col="31" value="0"/>
+    <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.h:39:7" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Scene.cpp" line="166" col="31" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h:35:21" my-argnr="1" my-argname="filepath" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="37" col="7" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="get_point_light_count" lineNumber="67"/>
-    <functiondecl functionName="get_sun" lineNumber="72"/>
-    <functiondecl functionName="get_point_lights" lineNumber="77"/>
-    <functiondecl functionName="load_models" lineNumber="82"/>
-    <functiondecl functionName="get_materials" lineNumber="114"/>
-    <functiondecl functionName="is_loaded" lineNumber="119"/>
-    <functiondecl functionName="get_progress" lineNumber="125"/>
-    <functiondecl functionName="setup_game_object_context" lineNumber="131"/>
-    <functiondecl functionName="bind_textures_and_buffer" lineNumber="137"/>
-    <functiondecl functionName="unbind_textures_and_buffer" lineNumber="142"/>
-    <functiondecl functionName="get_texture_count" lineNumber="147"/>
-    <functiondecl functionName="set_context_setup" lineNumber="152"/>
-    <functiondecl functionName="get_context_setup" lineNumber="157"/>
-    <functiondecl functionName="add_game_object" lineNumber="162"/>
-    <functiondecl functionName="get_clouds" lineNumber="168"/>
-    <functiondecl functionName="get_game_objects" lineNumber="173"/>
-    <functiondecl functionName="object_is_visible" lineNumber="178"/>
+    <functiondecl functionName="get_point_light_count" lineNumber="68"/>
+    <functiondecl functionName="get_sun" lineNumber="73"/>
+    <functiondecl functionName="get_point_lights" lineNumber="78"/>
+    <functiondecl functionName="load_models" lineNumber="83"/>
+    <functiondecl functionName="get_materials" lineNumber="115"/>
+    <functiondecl functionName="is_loaded" lineNumber="120"/>
+    <functiondecl functionName="get_progress" lineNumber="126"/>
+    <functiondecl functionName="setup_game_object_context" lineNumber="132"/>
+    <functiondecl functionName="bind_textures_and_buffer" lineNumber="138"/>
+    <functiondecl functionName="unbind_textures_and_buffer" lineNumber="143"/>
+    <functiondecl functionName="get_texture_count" lineNumber="148"/>
+    <functiondecl functionName="set_context_setup" lineNumber="153"/>
+    <functiondecl functionName="get_context_setup" lineNumber="158"/>
+    <functiondecl functionName="add_game_object" lineNumber="163"/>
+    <functiondecl functionName="get_clouds" lineNumber="169"/>
+    <functiondecl functionName="get_game_objects" lineNumber="174"/>
+    <functiondecl functionName="object_is_visible" lineNumber="179"/>
     <functioncall functionName="AABB"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="Clouds"/>
     <functioncall functionName="DirectionalLight"/>
+    <functioncall functionName="GLfloat"/>
     <functioncall functionName="GameObject"/>
     <functioncall functionName="MAX_MATERIALS"/>
     <functioncall functionName="MAX_POINT_LIGHTS"/>

@@ -1,2 +1,2 @@
-ShaderIncludes call:[assert,c_str,file,glNamedStringARB,push_back,read,size,sprintf,str,strlen] noreturn:[glNamedStringARB,push_back]
+ShaderIncludes call:[assert,c_str,file,glNamedStringARB,push_back,read,size,sprintf_s,str,strlen] noreturn:[glNamedStringARB,push_back]
 ShaderIncludes

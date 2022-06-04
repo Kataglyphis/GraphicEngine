@@ -5,14 +5,14 @@
 Scene::Scene():
 
     main_camera(),
-    sun(std::make_shared<DirectionalLight>( 4096,
-                                            4096,
+    sun(std::make_shared<DirectionalLight>(static_cast<uint32_t>(4096),
+                                            static_cast<uint32_t>(4096),
                                             1.f,
                                             1.f,
                                             1.f,
                                             1.f,
                                             -0.1f,
-                                            -0.8,
+                                            -0.8f,
                                             -0.1f,
                                             main_camera->get_near_plane(),
                                             main_camera->get_far_plane(),
@@ -20,7 +20,7 @@ Scene::Scene():
         clouds(std::make_shared<Clouds>()),
         main_window(),
         view_frustum_culling(std::make_shared<ViewFrustumCulling>(ViewFrustumCulling{})),
-        progress(0),
+        progress(0.f),
         loaded_scene(false),
         context_setup(false)
 {
@@ -30,14 +30,14 @@ Scene::Scene():
 Scene::Scene(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_window) :
         
         main_camera(main_camera),
-        sun(std::make_shared<DirectionalLight>( 4096,
-                                                4096,
+        sun(std::make_shared<DirectionalLight>( static_cast<uint32_t>(4096),
+                                                static_cast<uint32_t>(4096),
                                                 1.f,
                                                 1.f,
                                                 1.f,
                                                 1.f,
                                                 -0.1f,
-                                                -0.8,
+                                                -0.8f,
                                                 -0.1f,
                                                 main_camera->get_near_plane(),
                                                 main_camera->get_far_plane(),
@@ -45,7 +45,7 @@ Scene::Scene(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_w
         clouds(std::make_shared<Clouds>()),
         main_window(main_window),
         view_frustum_culling(std::make_shared<ViewFrustumCulling>(ViewFrustumCulling{})),
-        progress(0),
+        progress(0.f),
         loaded_scene(false),
         context_setup(false)
         
@@ -53,7 +53,8 @@ Scene::Scene(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_w
 {
 
     point_lights.reserve(MAX_POINT_LIGHTS);
-    point_lights.push_back(std::make_shared<PointLight>( 1024, 1024,
+    point_lights.push_back(std::make_shared<PointLight>(static_cast<uint32_t>(1024), 
+                                                            static_cast<uint32_t>(1024),
                                                         0.01f, 100.f,
                                                         0.0f, 1.0f, 0.0f,
                                                         1.0f,
@@ -177,8 +178,10 @@ std::vector<std::shared_ptr<GameObject>> Scene::get_game_objects() const
 
 bool Scene::object_is_visible(std::shared_ptr<GameObject> game_object)
 {
-    return view_frustum_culling->is_inside( main_window->get_buffer_width()/main_window->get_buffer_height(),
-                                            main_camera, game_object->get_aabb(), game_object->get_world_trafo());
+    return view_frustum_culling->is_inside( static_cast<GLfloat>(main_window->get_buffer_width())/
+                                                static_cast<GLfloat>(main_window->get_buffer_height()),
+                                            main_camera, game_object->get_aabb(),
+                                            game_object->get_world_trafo());
 }
 
 Scene::~Scene()

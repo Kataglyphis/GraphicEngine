@@ -42,7 +42,7 @@ Clouds::Clouds() :
 }
 
 void Clouds::render(glm::mat4 projection_matrix, glm::mat4 view_matrix, 
-					GLfloat window_width, GLfloat window_height)
+					GLuint window_width, GLuint window_height)
 {
 
 	shader_program->use_shader_program();

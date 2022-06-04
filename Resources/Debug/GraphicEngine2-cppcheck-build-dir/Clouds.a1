@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1540920621">
+<analyzerinfo checksum="1674674025">
   <FileInfo check="Class">
-<class name="Clouds" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.h" line="9" col="1" hash="6229288725888475444"/>
+<class name="Clouds" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/atmospheric_effects/clouds/Clouds.h" line="9" col="1" hash="14117883728415299014"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="render" lineNumber="44"/>

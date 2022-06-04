@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="851471414">
+<analyzerinfo checksum="3414482642">
   <FileInfo check="Class">
-<class name="PointLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.h" line="8" col="1" hash="13054745625506372531"/>
+<class name="PointLight" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/light/point_light/PointLight.h" line="8" col="1" hash="10971885479344074115"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="calculate_light_transform" lineNumber="39"/>
     <functiondecl functionName="set_position" lineNumber="65"/>
     <functiondecl functionName="get_far_plane" lineNumber="70"/>
     <functiondecl functionName="get_position" lineNumber="75"/>
-    <functioncall functionName="GLuint"/>
     <functioncall functionName="Light"/>
     <functioncall functionName="OmniDirShadowMap"/>
     <functioncall functionName="PointLight"/>

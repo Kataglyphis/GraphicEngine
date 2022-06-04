@@ -29,7 +29,7 @@ public:
 	SkyBox();
 
 	void draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, 
-						GLfloat window_width, GLfloat window_height, 
+						GLuint window_width, GLuint window_height, 
 						GLfloat delta_time);
 
 	void reload();

@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3275323002">
+<analyzerinfo checksum="1999475488">
   <FileInfo check="Class">
-<class name="ShaderIncludes" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.h" line="6" col="1" hash="11798672720913440431"/>
+<class name="ShaderIncludes" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.h" line="6" col="1" hash="1189291776797312725"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functioncall functionName="GL_SHADER_INCLUDE_ARB"/>
+    <functioncall functionName="GLint"/>
     <functioncall functionName="ShaderIncludes"/>
     <functioncall functionName="assert"/>
     <functioncall functionName="c_str"/>
@@ -16,10 +17,12 @@
     <functioncall functionName="push_back"/>
     <functioncall functionName="read"/>
     <functioncall functionName="size"/>
-    <functioncall functionName="sprintf"/>
+    <functioncall functionName="sprintf_s"/>
+    <functioncall functionName="static_cast"/>
     <functioncall functionName="str"/>
     <functioncall functionName="string"/>
     <functioncall functionName="strlen"/>
     <functioncall functionName="tmpstr"/>
+    <functioncall functionName="uint32_t"/>
   </FileInfo>
 </analyzerinfo>

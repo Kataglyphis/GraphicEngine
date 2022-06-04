@@ -27,7 +27,9 @@ SkyBox::SkyBox()
 
 	}
 
-	srand(time(NULL));
+	//time_t timer;
+	//srand(time(&timer));
+	srand(0);
 	shader_playback_time = 1;
 
 	shader_program = std::make_shared<ShaderProgram>();
@@ -47,8 +49,8 @@ SkyBox::SkyBox()
 			return;
 		}
 
-		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, width, height, 0, GL_RGBA,
-			GL_UNSIGNED_BYTE, texture_data);
+		glTexImage2D(	static_cast<GLenum>(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i), 0, GL_RGBA, width, height, 0, GL_RGBA,
+						GL_UNSIGNED_BYTE, texture_data);
 
 		stbi_image_free(texture_data);
 	}
@@ -113,13 +115,13 @@ SkyBox::SkyBox()
 	sky_mesh = std::make_shared<Mesh>(sky_box_vertices, sky_box_indices);
 }
 
-void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, GLfloat window_width,
-							GLfloat window_height, GLfloat delta_time)
+void SkyBox::draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, GLuint window_width,
+							GLuint window_height, GLfloat delta_time)
 {
 
 	// https://learnopengl.com/Advanced-OpenGL/Cubemaps
  	GLfloat velocity = movement_speed * delta_time;
-	shader_playback_time = fmod(shader_playback_time + velocity, 10000);
+	shader_playback_time = static_cast<GLfloat>(fmod(shader_playback_time + velocity, 10000));
 
 	glm::mat4 new_view_matrix = glm::mat4(glm::mat3(view_matrix));
 

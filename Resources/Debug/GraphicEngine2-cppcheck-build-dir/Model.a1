@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1467526723">
+<analyzerinfo checksum="1053880617">
   <FileInfo check="Class">
 <class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
-<class name="Model" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h" line="18" col="1" hash="8688564133719038208"/>
+<class name="Model" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h" line="18" col="1" hash="12133897189089595410"/>
   </FileInfo>
   <FileInfo check="Null pointer">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.h:24:10" my-argnr="1" my-argname="model_path" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Model.cpp" line="26" col="17" value="0"/>

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3186463501">
-        <error id="stlFindInsert" severity="performance" msg="Searching before insertion is not necessary. Instead of &apos;vertices_map[vert]=vertices.size()&apos; consider using &apos;vertices_map.try_emplace(vert, vertices.size());&apos;." verbose="Searching before insertion is not necessary. Instead of &apos;vertices_map[vert]=vertices.size()&apos; consider using &apos;vertices_map.try_emplace(vert, vertices.size());&apos;." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.cpp">
-            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\ObjLoader.cpp" line="152" column="55"/>
+<analyzerinfo checksum="1936206364">
+        <error id="stlFindInsert" severity="performance" msg="Searching before insertion is not necessary. Instead of &apos;vertices_map[vert]=static_cast&lt;uint32_t&gt;(vertices.size())&apos; consider using &apos;vertices_map.try_emplace(vert, static_cast&lt;uint32_t&gt;(vertices.size()));&apos;." verbose="Searching before insertion is not necessary. Instead of &apos;vertices_map[vert]=static_cast&lt;uint32_t&gt;(vertices.size())&apos; consider using &apos;vertices_map.try_emplace(vert, static_cast&lt;uint32_t&gt;(vertices.size()));&apos;." cwe="398" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.cpp">
+            <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\scene\ObjLoader.cpp" line="152" column="63"/>
         </error>
   <FileInfo check="Class">
 <class name="Vertex" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="5" col="1" hash="6339487672310731740"/>
-<class name="ObjLoader" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="11" col="1" hash="4226704324098086444"/>
+<class name="ObjLoader" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/ObjLoader.h" line="11" col="1" hash="15563828847678319845"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h:49:7" my-argnr="1" my-argname="other" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/Vertex.h" line="51" col="22" value="0"/>

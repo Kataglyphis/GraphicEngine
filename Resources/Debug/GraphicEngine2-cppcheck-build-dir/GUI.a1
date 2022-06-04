@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3308059312">
+<analyzerinfo checksum="2542175436">
         <error id="functionStatic" severity="performance" msg="Technically the member function &apos;GUI::init&apos; can be static (but you may consider moving to unnamed namespace)." verbose="The member function &apos;GUI::init&apos; can be made a static function. Making a function static can bring a performance benefit since no &apos;this&apos; instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace." cwe="398" inconclusive="true" file0="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.cpp">
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\gui\GUI.h" line="18" column="7"/>
             <location file="C:\Users\jonas_l6e3q\Desktop\GraphicEngine\Src\gui\GUI.cpp" line="68" column="11"/>
             <symbol>GUI::init</symbol>
         </error>
   <FileInfo check="Class">
-<class name="GUI" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.h" line="12" col="1" hash="2893509950156280223"/>
+<class name="GUI" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/gui/GUI.h" line="12" col="1" hash="2373577469934758076"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="init" lineNumber="68"/>
@@ -86,6 +86,7 @@
     <functioncall functionName="directional_light_color"/>
     <functioncall functionName="directional_light_direction"/>
     <functioncall functionName="false"/>
+    <functioncall functionName="float"/>
     <functioncall functionName="get_clouds"/>
     <functioncall functionName="get_id"/>
     <functioncall functionName="get_shadow_map"/>
@@ -118,6 +119,7 @@
     <functioncall functionName="shadow_map_res_index"/>
     <functioncall functionName="shadow_map_resolution"/>
     <functioncall functionName="shadow_resolution_changed"/>
+    <functioncall functionName="static_cast"/>
     <functioncall functionName="str"/>
     <functioncall functionName="switch"/>
     <functioncall functionName="true"/>

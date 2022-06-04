@@ -13,7 +13,7 @@ public:
 	Clouds();
 
 	void		render(	glm::mat4 projection_matrix, glm::mat4 view_matrix, 
-						GLfloat window_width, GLfloat window_height);
+						GLuint window_width, GLuint window_height);
 
 	void		read();
 

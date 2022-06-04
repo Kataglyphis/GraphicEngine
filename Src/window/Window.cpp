@@ -2,8 +2,8 @@
 #include <iostream>
 
 Window::Window() : 
-            window_width(800.f),
-            window_height(600.f),
+            window_width(800),
+            window_height(600),
             x_change(0.0f),
             y_change(0.0f)
 {
@@ -112,11 +112,6 @@ void Window::update_viewport() {
     // setup viewport size
     glViewport(0, 0, window_buffer_width, window_buffer_height);
 
-}
-
-void Window::set_buffer_size(GLfloat window_buffer_width, GLfloat window_buffer_height) {
-    this->window_buffer_width = window_buffer_width;
-    this->window_buffer_height = window_buffer_height;
 }
 
 GLfloat Window::get_x_change()

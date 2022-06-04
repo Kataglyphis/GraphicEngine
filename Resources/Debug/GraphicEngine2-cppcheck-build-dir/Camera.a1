@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="3268691876">
+<analyzerinfo checksum="1374147995">
   <FileInfo check="Class">
-<class name="Camera" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h" line="8" col="1" hash="3533508685444342994"/>
+<class name="Camera" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h" line="8" col="1" hash="14825457958015715358"/>
   </FileInfo>
   <FileInfo check="Null pointer">
     <unsafe-usage my-id="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.h:20:7" my-argnr="1" my-argname="keys" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/camera/Camera.cpp" line="49" col="6" value="0"/>
@@ -12,20 +12,12 @@
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="key_control" lineNumber="45"/>
     <functiondecl functionName="mouse_control" lineNumber="86"/>
-    <functiondecl functionName="get_camera_position" lineNumber="111"/>
-    <functiondecl functionName="get_camera_direction" lineNumber="116"/>
-    <functiondecl functionName="get_up_axis" lineNumber="121"/>
-    <functiondecl functionName="get_right_axis" lineNumber="126"/>
-    <functiondecl functionName="get_near_plane" lineNumber="131"/>
-    <functiondecl functionName="get_far_plane" lineNumber="136"/>
-    <functiondecl functionName="get_fov" lineNumber="141"/>
-    <functiondecl functionName="get_yaw" lineNumber="146"/>
-    <functiondecl functionName="set_near_plane" lineNumber="151"/>
-    <functiondecl functionName="set_far_plane" lineNumber="156"/>
-    <functiondecl functionName="set_fov" lineNumber="161"/>
-    <functiondecl functionName="set_camera_position" lineNumber="166"/>
-    <functiondecl functionName="get_viewmatrix" lineNumber="171"/>
-    <functiondecl functionName="update" lineNumber="181"/>
+    <functiondecl functionName="set_near_plane" lineNumber="111"/>
+    <functiondecl functionName="set_far_plane" lineNumber="116"/>
+    <functiondecl functionName="set_fov" lineNumber="121"/>
+    <functiondecl functionName="set_camera_position" lineNumber="126"/>
+    <functiondecl functionName="get_viewmatrix" lineNumber="131"/>
+    <functiondecl functionName="update" lineNumber="141"/>
     <functioncall functionName="Camera"/>
     <functioncall functionName="GLFW_KEY_A"/>
     <functioncall functionName="GLFW_KEY_D"/>

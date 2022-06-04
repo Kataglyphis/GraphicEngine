@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="592168019">
+<analyzerinfo checksum="2294085503">
   <FileInfo check="Class">
-<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="4651007670101472899"/>
+<class name="LightingPass" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h" line="24" col="1" hash="7228397827334899656"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="execute" lineNumber="14"/>
@@ -55,7 +55,6 @@
     <functioncall functionName="get_far_plane"/>
     <functioncall functionName="get_illum"/>
     <functioncall functionName="get_ior"/>
-    <functioncall functionName="get_light_view_matrix"/>
     <functioncall functionName="get_linear_factor"/>
     <functioncall functionName="get_materials"/>
     <functioncall functionName="get_model"/>
@@ -66,7 +65,6 @@
     <functioncall functionName="get_omni_shadow_map"/>
     <functioncall functionName="get_pcf_radius"/>
     <functioncall functionName="get_pillowness"/>
-    <functioncall functionName="get_point_light_count"/>
     <functioncall functionName="get_point_lights"/>
     <functioncall functionName="get_position"/>
     <functioncall functionName="get_powder_effect"/>

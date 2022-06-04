@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="142841358">
+<analyzerinfo checksum="635235699">
   <FileInfo check="Class">
-<class name="SkyBox" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/sky_box/SkyBox.h" line="25" col="1" hash="3332216996296257231"/>
+<class name="SkyBox" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/scene/sky_box/SkyBox.h" line="25" col="1" hash="611702214207965255"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="draw_sky_box" lineNumber="116"/>
-    <functiondecl functionName="reload" lineNumber="150"/>
+    <functiondecl functionName="draw_sky_box" lineNumber="118"/>
+    <functiondecl functionName="reload" lineNumber="152"/>
     <functioncall functionName="GL_CLAMP_TO_EDGE"/>
     <functioncall functionName="GL_FALSE"/>
     <functioncall functionName="GL_LEQUAL"/>
@@ -20,10 +20,11 @@
     <functioncall functionName="GL_TEXTURE_WRAP_T"/>
     <functioncall functionName="GL_TRUE"/>
     <functioncall functionName="GL_UNSIGNED_BYTE"/>
+    <functioncall functionName="GLenum"/>
+    <functioncall functionName="GLfloat"/>
     <functioncall functionName="MAX_MATERIALS"/>
     <functioncall functionName="MAX_TEXTURE_COUNT"/>
     <functioncall functionName="Mesh"/>
-    <functioncall functionName="NULL"/>
     <functioncall functionName="ShaderProgram"/>
     <functioncall functionName="SkyBox"/>
     <functioncall functionName="Vertex"/>
@@ -59,13 +60,14 @@
     <functioncall functionName="sky_box_indices"/>
     <functioncall functionName="sky_box_vertices"/>
     <functioncall functionName="srand"/>
+    <functioncall functionName="static_cast"/>
     <functioncall functionName="stbi_image_free"/>
     <functioncall functionName="stbi_load"/>
     <functioncall functionName="str"/>
     <functioncall functionName="string"/>
     <functioncall functionName="texture_data"/>
     <functioncall functionName="texture_id"/>
-    <functioncall functionName="time"/>
+    <functioncall functionName="uint32_t"/>
     <functioncall functionName="use_shader_program"/>
     <functioncall functionName="validate_program"/>
     <functioncall functionName="vec2"/>

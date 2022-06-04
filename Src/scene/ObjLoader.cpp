@@ -149,7 +149,7 @@ void ObjLoader::load(   std::string                             modelFile,
 
                 if (vertices_map.count(vert) == 0) {
 
-                    vertices_map[vert] = vertices.size();
+                    vertices_map[vert] = static_cast<uint32_t>(vertices.size());
                     vertices.push_back(vert);
 
                 }

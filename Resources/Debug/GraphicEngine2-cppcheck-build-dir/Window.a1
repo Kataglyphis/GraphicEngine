@@ -1,32 +1,30 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="1242794127">
+<analyzerinfo checksum="1220723269">
   <FileInfo check="Class">
-<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="8642980378447334245"/>
+<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="12356960917033071226"/>
   </FileInfo>
   <FileInfo check="Class">
-<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="5940889811121031104"/>
+<class name="Window" file="C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Src/window/Window.h" line="7" col="1" hash="4783715715154159465"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="initialize" lineNumber="38"/>
     <functiondecl functionName="update_viewport" lineNumber="109"/>
-    <functiondecl functionName="set_buffer_size" lineNumber="117"/>
-    <functiondecl functionName="get_x_change" lineNumber="122"/>
-    <functiondecl functionName="get_y_change" lineNumber="129"/>
-    <functiondecl functionName="init_callbacks" lineNumber="142"/>
-    <functiondecl functionName="framebuffer_size_callback" lineNumber="152"/>
-    <functiondecl functionName="key_callback" lineNumber="156"/>
-    <functiondecl functionName="mouse_callback" lineNumber="176"/>
-    <functiondecl functionName="mouse_button_callback" lineNumber="196"/>
+    <functiondecl functionName="get_x_change" lineNumber="117"/>
+    <functiondecl functionName="get_y_change" lineNumber="124"/>
+    <functiondecl functionName="init_callbacks" lineNumber="137"/>
+    <functiondecl functionName="framebuffer_size_callback" lineNumber="147"/>
+    <functiondecl functionName="key_callback" lineNumber="151"/>
+    <functiondecl functionName="mouse_callback" lineNumber="171"/>
+    <functiondecl functionName="mouse_button_callback" lineNumber="191"/>
     <functiondecl functionName="initialize" lineNumber="38"/>
     <functiondecl functionName="update_viewport" lineNumber="109"/>
-    <functiondecl functionName="set_buffer_size" lineNumber="117"/>
-    <functiondecl functionName="get_x_change" lineNumber="122"/>
-    <functiondecl functionName="get_y_change" lineNumber="129"/>
-    <functiondecl functionName="init_callbacks" lineNumber="142"/>
-    <functiondecl functionName="framebuffer_size_callback" lineNumber="152"/>
-    <functiondecl functionName="key_callback" lineNumber="156"/>
-    <functiondecl functionName="mouse_callback" lineNumber="176"/>
-    <functiondecl functionName="mouse_button_callback" lineNumber="196"/>
+    <functiondecl functionName="get_x_change" lineNumber="117"/>
+    <functiondecl functionName="get_y_change" lineNumber="124"/>
+    <functiondecl functionName="init_callbacks" lineNumber="137"/>
+    <functiondecl functionName="framebuffer_size_callback" lineNumber="147"/>
+    <functiondecl functionName="key_callback" lineNumber="151"/>
+    <functiondecl functionName="mouse_callback" lineNumber="171"/>
+    <functiondecl functionName="mouse_button_callback" lineNumber="191"/>
     <functioncall functionName="GLADloadproc"/>
     <functioncall functionName="GLFW_CONTEXT_VERSION_MAJOR"/>
     <functioncall functionName="GLFW_CONTEXT_VERSION_MINOR"/>
@@ -40,7 +38,6 @@
     <functioncall functionName="GLFW_TRUE"/>
     <functioncall functionName="GL_DEPTH_TEST"/>
     <functioncall functionName="GL_TRUE"/>
-    <functioncall functionName="GLfloat"/>
     <functioncall functionName="NULL"/>
     <functioncall functionName="Window"/>
     <functioncall functionName="false"/>
@@ -81,7 +78,6 @@
     <functioncall functionName="mouse_callback"/>
     <functioncall functionName="mouse_first_moved"/>
     <functioncall functionName="printf"/>
-    <functioncall functionName="return"/>
     <functioncall functionName="static_cast"/>
     <functioncall functionName="this"/>
     <functioncall functionName="true"/>

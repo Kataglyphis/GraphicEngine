@@ -1,14 +1,13 @@
 get_should_close call:[glfwWindowShouldClose] noreturn:[glfwWindowShouldClose]
 swap_buffers call:[glfwSwapBuffers] noreturn:[glfwSwapBuffers]
-get_buffer_width call:[return]
-get_buffer_height call:[return]
+get_buffer_width
+get_buffer_height
 get_window
 get_keys
 Window call:[initialize] noreturn:[initialize]
 Window call:[initialize] noreturn:[initialize]
 initialize call:[glEnable,glViewport,gladLoadGLLoader,glfwCreateWindow,glfwGetFramebufferSize,glfwInit,glfwMakeContextCurrent,glfwSetInputMode,glfwSetWindowUserPointer,glfwSwapInterval,glfwTerminate,glfwWindowHint,init_callbacks,printf]
 update_viewport call:[glViewport,glfwGetFramebufferSize] noreturn:[glViewport]
-set_buffer_size
 get_x_change
 get_y_change
 Window call:[glfwDestroyWindow,glfwTerminate] noreturn:[glfwTerminate]

@@ -15,7 +15,7 @@ Noise::Noise() :
 	// creating different worley frequencies 
 	for (int i = 0; i < NUM_CELL_POSITIONS; i++) {
 
-		num_cells_per_axis[i] = pow(2, i + 1);
+		num_cells_per_axis[i] = static_cast<GLuint>(pow(2, i + 1));
 		generate_cells(num_cells_per_axis[i], i);
 
 	}

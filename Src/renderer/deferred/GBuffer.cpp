@@ -92,7 +92,7 @@ void GBuffer::read(std::shared_ptr<ShaderProgram> shader_program)
 
 }
 
-void GBuffer::update_window_params(GLfloat window_width, GLfloat window_height)
+void GBuffer::update_window_params(GLuint window_width, GLuint window_height)
 {
     this->window_width = window_width;
     this->window_height = window_height;

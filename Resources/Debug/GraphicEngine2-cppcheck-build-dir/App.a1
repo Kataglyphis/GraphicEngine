@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo checksum="2428746608">
+<analyzerinfo checksum="422318761">
   <FileInfo check="CheckUnusedFunctions">
     <functiondecl functionName="main" lineNumber="27"/>
     <functioncall functionName="Camera"/>

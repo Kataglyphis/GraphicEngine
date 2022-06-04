@@ -234,7 +234,7 @@ void GUI::update_user_input(std::shared_ptr<Scene> scene)
     std::shared_ptr<Clouds> clouds = scene->get_clouds();
 
     clouds->set_movement_direction(cloud_move);
-    clouds->set_movement_speed(cloud_speed);
+    clouds->set_movement_speed(static_cast<float>(cloud_speed));
     clouds->set_density(cloud_density);
     clouds->set_scale(cloud_scale);
     clouds->set_pillowness(cloud_pillowness);
@@ -249,7 +249,7 @@ void GUI::update_user_input(std::shared_ptr<Scene> scene)
                                         cloud_mesh_offset[1], 
                                         cloud_mesh_offset[2]));
 
-    GLuint shadow_map_resolution = 4096;
+    GLfloat shadow_map_resolution = 4096.f;
 
     if (shadow_resolution_changed) {
 

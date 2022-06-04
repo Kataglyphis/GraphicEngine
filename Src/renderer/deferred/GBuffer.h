@@ -17,7 +17,7 @@ public:
 	void create();
 	void read(std::shared_ptr<ShaderProgram> shader_program);
 	
-	void update_window_params(GLfloat window_width, GLfloat window_height);
+	void update_window_params(GLuint window_width, GLuint window_height);
 
 	GLuint get_id() const { return g_buffer; };
 
@@ -33,7 +33,7 @@ private:
 					{	GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1,
 						GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3};
 
-	GLint window_width, window_height;
+	GLuint window_width, window_height;
 
 };
 
