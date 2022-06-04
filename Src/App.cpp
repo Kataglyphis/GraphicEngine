@@ -116,7 +116,8 @@ int main()
         GLuint new_window_width = main_window->get_buffer_width();
         GLuint new_window_height = main_window->get_buffer_height();
 
-        if ((new_window_width == window_width && window_height == new_window_height) == false) {
+        if ((static_cast<GLint>(new_window_width) == window_width && 
+            static_cast<GLint>(new_window_height) == window_height) == false) {
 
             window_height = new_window_height;
             window_width = new_window_width;
