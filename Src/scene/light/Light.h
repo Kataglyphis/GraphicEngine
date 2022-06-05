@@ -5,25 +5,20 @@
 
 #include "CascadedShadowMap.h"
 
-class Light
-{
-public:
+class Light {
+  public:
+  Light();
 
-	Light();
+  Light(GLfloat red, GLfloat green, GLfloat blue, GLfloat radiance);
 
-	Light(	GLfloat red, GLfloat green, GLfloat blue,
-			GLfloat radiance);
-	
-	glm::vec3 get_color() const { return color; };
-	float get_radiance() const { return radiance; };
+  glm::vec3 get_color() const { return color; };
+  float get_radiance() const { return radiance; };
 
-	~Light();
+  ~Light();
 
-protected:
+  protected:
+  glm::vec3 color;
+  float radiance;
 
-	glm::vec3	color;
-	float		radiance;
-
-	glm::mat4	light_proj;
+  glm::mat4 light_proj;
 };
-

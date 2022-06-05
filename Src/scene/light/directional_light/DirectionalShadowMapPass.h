@@ -6,27 +6,18 @@
 #include "ViewFrustumCulling.h"
 #include "Scene.h"
 
-class DirectionalShadowMapPass :
-    public RenderPassSceneDependend
-{
-public:
+class DirectionalShadowMapPass : public RenderPassSceneDependend {
+  public:
+  DirectionalShadowMapPass();
 
-    DirectionalShadowMapPass();
+  void execute(glm::mat4 projection, std::shared_ptr<Camera> main_camera, GLuint window_width, GLuint window_height, std::shared_ptr<Scene> scene);
 
-    void execute(   glm::mat4 projection,
-                    std::shared_ptr<Camera> main_camera,
-                    GLuint window_width, GLuint window_height,
-                    std::shared_ptr<Scene> scene);
+  void create_shader_program();
 
-    void create_shader_program();
+  void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
 
-    void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model);
+  ~DirectionalShadowMapPass();
 
-    ~DirectionalShadowMapPass();
-
-private:
-
-    std::shared_ptr<ShaderProgram> shader_program;
-
+  private:
+  std::shared_ptr<ShaderProgram> shader_program;
 };
-

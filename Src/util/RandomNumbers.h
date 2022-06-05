@@ -6,22 +6,18 @@
 
 #include "GlobalValues.h"
 
-class RandomNumbers
-{
+class RandomNumbers {
 
-public:
+  public:
+  RandomNumbers();
 
-	RandomNumbers();
+  void read();
 
-	void read();
+  ~RandomNumbers();
 
-	~RandomNumbers();
+  private:
+  GLuint random_number_id;
+  std::shared_ptr<GLfloat[]> random_number_data;
 
-private:
-
-	GLuint						random_number_id;
-	std::shared_ptr<GLfloat[]>	random_number_data;
-
-	void generate_random_numbers();
+  void generate_random_numbers();
 };
-

@@ -9,14 +9,14 @@
 //    return t * t * t * (t * (t * 6 - 15) + 10);
 //};
 //
-//// linear interpolation between a and b: For polishing 
+//// linear interpolation between a and b: For polishing
 //// t = [0,1] is the persentage of the distance bewteen a and b
 //double PERLIN_H::lerp(double t, double a, double b) {
 //    return a + (b - a) * t;
 //}
 //
 //
-//// 
+////
 //double PERLIN_H::grad(int hash, double x, double y, double z) {
 //    int h = hash & 15;                      // CONVERT LO 4 BITS OF HASH CODE
 //    double u = h < 8 ? x : y,                 // INTO 12 GRADIENT DIRECTIONS.
@@ -25,8 +25,8 @@
 //}
 //
 //
-//// generate Perlin noise    
-//// Parameter: 
+//// generate Perlin noise
+//// Parameter:
 //// p is (psyodo) "random" value
 //double PERLIN_H::perlin_noise(float x, float y, std::vector<int>& p) {
 //    int z = 0.5;
@@ -48,7 +48,7 @@
 //    int A = p[X] + Y, AA = p[A] + Z, AB = p[A + 1] + Z,      // HASH COORDINATES OF
 //        B = p[X + 1] + Y, BA = p[B] + Z, BB = p[B + 1] + Z;      // THE 8 CUBE CORNERS,
 //
-//    // return perlin noise of x and y 
+//    // return perlin noise of x and y
 //    return lerp(w,
 //        lerp(v, lerp(u, grad(p[AA], x, y, z),  // AND ADD
 //            grad(p[BA], x - 1, y, z)), // BLENDED
@@ -88,7 +88,7 @@
 //std::vector<int> PERLIN_H::my
 //// initialise 2x permutation of a hard coded 256 int vector
 ////std::vector<int> PERLIN_H::kansei() {
-//// 
+////
 ///*
 //std::vector<int> PERLIN_H::myFunction() {
 //    std::vector<int> p;

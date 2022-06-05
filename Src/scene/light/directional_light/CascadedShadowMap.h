@@ -8,42 +8,37 @@
 #include "GlobalValues.h"
 #include "host_device_shared.h"
 
-class CascadedShadowMap
-{
-public:
+class CascadedShadowMap {
+  public:
+  CascadedShadowMap();
 
-	CascadedShadowMap();
+  bool init(GLuint width, GLuint height, GLuint num_cascades);
+  void write();
+  void read(GLenum texture_unit);
 
-	bool			init(GLuint width, GLuint height, GLuint num_cascades);
-	void			write();
-	void			read(GLenum texture_unit);
+  void write_light_matrices(std::vector<glm::mat4x4>& lightMatrices);
+  void set_pcf_radius(GLuint radius);
+  void set_intensity(GLfloat intensity);
 
-	void			write_light_matrices(std::vector<glm::mat4x4>& lightMatrices);
-	void			set_pcf_radius(GLuint radius);
-	void			set_intensity(GLfloat intensity);
+  GLfloat get_intensity() const { return intensity; };
+  GLuint get_shadow_width() const { return shadow_width; };
+  GLuint get_shadow_height() const { return shadow_height; }
+  GLuint get_id() const { return shadow_maps; };
+  GLuint get_num_active_cascades() const { return num_active_cascades; };
+  GLuint get_pcf_radius() const { return pcf_radius; };
 
-	GLfloat			get_intensity() const { return intensity; };
-	GLuint			get_shadow_width() const { return shadow_width; } ;
-	GLuint			get_shadow_height() const { return shadow_height; }
-	GLuint			get_id() const { return shadow_maps; };
-	GLuint			get_num_active_cascades() const { return num_active_cascades; };
-	GLuint			get_pcf_radius() const { return pcf_radius; };
+  ~CascadedShadowMap();
 
-	~CascadedShadowMap();
+  protected:
+  GLuint FBO, shadow_maps;
 
-protected:
+  GLuint shadow_width, shadow_height;
 
-	GLuint	FBO, shadow_maps;
+  GLuint matrices_UBO;
 
-	GLuint	shadow_width, shadow_height;
+  GLuint num_active_cascades;
 
-	GLuint	matrices_UBO;
+  GLuint pcf_radius;
 
-	GLuint	num_active_cascades;
-
-	GLuint	pcf_radius;
-
-	GLfloat intensity;
-
+  GLfloat intensity;
 };
-

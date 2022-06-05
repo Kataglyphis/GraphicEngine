@@ -1,18 +1,13 @@
 #pragma once
 #include "TextureWrappingMode.h"
 
-class MirroredRepeatMode :
-    public TextureWrappingMode
-{
-public:
+class MirroredRepeatMode : public TextureWrappingMode {
+  public:
+  MirroredRepeatMode();
 
-    MirroredRepeatMode();
+  void activate() override;
 
-    void activate() override;
+  ~MirroredRepeatMode();
 
-    ~MirroredRepeatMode();
-
-private:
-
+  private:
 };
-

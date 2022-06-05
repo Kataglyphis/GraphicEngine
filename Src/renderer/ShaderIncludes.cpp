@@ -14,30 +14,25 @@
 ShaderIncludes::ShaderIncludes()
 {
 
-    assert(includeNames.size() == file_locations_relative.size());
+  assert(includeNames.size() == file_locations_relative.size());
 
-    std::vector<std::string> file_locations_abs;
-    for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
+  std::vector<std::string> file_locations_abs;
+  for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
 
-        std::stringstream aux;
-        aux << CMAKELISTS_DIR;
-        aux << file_locations_relative[i];
-        file_locations_abs.push_back(aux.str());
-    }
+    std::stringstream aux;
+    aux << CMAKELISTS_DIR;
+    aux << file_locations_relative[i];
+    file_locations_abs.push_back(aux.str());
+  }
 
-    for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
+  for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
 
-        File file(file_locations_abs[i]);
-        std::string file_content = file.read();
-        char tmpstr[200];
-        snprintf(tmpstr,200, "/%s", includeNames[i]);
-        glNamedStringARB(GL_SHADER_INCLUDE_ARB, static_cast<GLint>(strlen(tmpstr)), tmpstr,
-            static_cast<GLint>(strlen(file_content.c_str())), file_content.c_str());
-
-    }
-
+    File file(file_locations_abs[i]);
+    std::string file_content = file.read();
+    char tmpstr[200];
+    snprintf(tmpstr, 200, "/%s", includeNames[i]);
+    glNamedStringARB(GL_SHADER_INCLUDE_ARB, static_cast<GLint>(strlen(tmpstr)), tmpstr, static_cast<GLint>(strlen(file_content.c_str())), file_content.c_str());
+  }
 }
 
-ShaderIncludes::~ShaderIncludes()
-{
-}
+ShaderIncludes::~ShaderIncludes() { }

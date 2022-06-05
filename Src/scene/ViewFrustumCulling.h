@@ -12,65 +12,54 @@
 #include "AABB.h"
 #include "GlobalValues.h"
 
-class ViewFrustumCulling
-{
-public:
+class ViewFrustumCulling {
+  public:
+  ViewFrustumCulling();
 
-	ViewFrustumCulling();
+  bool is_inside(GLfloat ratio, std::shared_ptr<Camera> main_camera, std::shared_ptr<AABB> bounding_box, glm::mat4 model);
 
-	bool is_inside(	GLfloat ratio, std::shared_ptr<Camera> main_camera,
-					std::shared_ptr<AABB> bounding_box,
-					glm::mat4 model);
+  void render_view_frustum();
 
-	void render_view_frustum();
+  ~ViewFrustumCulling();
 
-	~ViewFrustumCulling();
+  private:
+  //render view frustum
+  unsigned int VBO, VAO, EBO;
 
-private:
+  unsigned int m_drawCount;
 
-	//render view frustum
-	unsigned int VBO, VAO, EBO;
+  //we get that as input
+  GLfloat near_plane, far_plane, fov, ratio;
 
-	unsigned int m_drawCount;
+  //calculate as soon as we become params
+  GLfloat tan, near_height, near_width, far_height, far_width;
 
-	//we get that as input
-	GLfloat near_plane, far_plane, fov, ratio;
+  std::shared_ptr<Camera> main_camera;
 
-	//calculate as soon as we become params
-	GLfloat tan, near_height, near_width, far_height, far_width;
+  glm::vec3 dir, near_center, far_center;
 
-	std::shared_ptr<Camera> main_camera;
+  //all corners of the frustum
+  //near plane
+  glm::vec3 near_top_left, near_top_right, near_bottom_left, near_bottom_right;
+  //far plane
+  glm::vec3 far_top_left, far_top_right, far_bottom_left, far_bottom_right;
 
-	glm::vec3 dir, near_center, far_center;
+  //planes in Hesse normal form
+  //layout: [0]: near plane, [1] far plane, [2] front, [3] bottom, [4]: left, [5]: right
+  struct frustum_plane {
 
-	//all corners of the frustum
-	//near plane
-	glm::vec3 near_top_left, near_top_right, near_bottom_left, near_bottom_right;
-	//far plane
-	glm::vec3 far_top_left, far_top_right, far_bottom_left, far_bottom_right;
+    glm::vec3 normal;
+    glm::vec3 position;
+  };
 
-	//planes in Hesse normal form
-	//layout: [0]: near plane, [1] far plane, [2] front, [3] bottom, [4]: left, [5]: right
-	struct frustum_plane {
+  frustum_plane frustum_planes[NUM_FRUSTUM_PLANES];
 
-		glm::vec3 normal;
-		glm::vec3 position;
-
-	};
-
-	frustum_plane frustum_planes[NUM_FRUSTUM_PLANES];
-	
-	void init(std::vector<glm::vec3> frustum_corner);
+  void init(std::vector<glm::vec3> frustum_corner);
 
 
-	bool corners_outside_plane(	std::vector<glm::vec3> aabb_corners,
-								frustum_plane plane, GLuint outcode_pattern);
+  bool corners_outside_plane(std::vector<glm::vec3> aabb_corners, frustum_plane plane, GLuint outcode_pattern);
 
-	GLfloat plane_point_distance(frustum_plane plane, glm::vec3 corner);
+  GLfloat plane_point_distance(frustum_plane plane, glm::vec3 corner);
 
-	void update_frustum_param(	GLfloat near_plane, GLfloat far_plane, 
-								GLfloat fov, GLfloat ratio, 
-								std::shared_ptr<Camera> main_camera);
-
+  void update_frustum_param(GLfloat near_plane, GLfloat far_plane, GLfloat fov, GLfloat ratio, std::shared_ptr<Camera> main_camera);
 };
-

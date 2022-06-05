@@ -3,17 +3,11 @@
 #include "PointLight.h"
 #include "host_device_shared.h"
 
-class LightingPassShaderProgram :
-    public ShaderProgram
-{
-public:
+class LightingPassShaderProgram : public ShaderProgram {
+  public:
+  LightingPassShaderProgram();
 
-	LightingPassShaderProgram();
+  ~LightingPassShaderProgram();
 
-	~LightingPassShaderProgram();
-
-private:
-	
-
+  private:
 };
-

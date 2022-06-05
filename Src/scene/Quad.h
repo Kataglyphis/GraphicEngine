@@ -5,29 +5,40 @@
 
 #include "GlobalValues.h"
 
-class Quad
-{
-public:
+class Quad {
+  public:
+  Quad();
 
-	Quad();
+  void render();
 
-	void render();
+  ~Quad();
 
-	~Quad();
+  private:
+  GLuint q_vao, q_vbo;
 
-private:
+  float vertices[20] = {
 
-	GLuint q_vao, q_vbo;
+    //positions		           //tex coords
+    -1.0f,
+    1.0f,
+    0.0f,
+    0.0f,
+    1.0f,
+    -1.0f,
+    -1.0f,
+    0.0f,
+    0.0f,
+    0.0f,
+    1.0f,
+    1.0f,
+    0.0f,
+    1.0f,
+    1.0f,
+    1.0f,
+    -1.0f,
+    0.0f,
+    1.0f,
+    0.0f
 
-	float vertices[20] = {
-
-		//positions		           //tex coords
-		-1.0f,  1.0f, 0.0f,       0.0f, 1.0f,
-		-1.0f, -1.0f, 0.0f,       0.0f, 0.0f,
-		 1.0f,  1.0f, 0.0f,       1.0f, 1.0f,
-		 1.0f, -1.0f, 0.0f,       1.0f, 0.0f
-
-	};
-
+  };
 };
-

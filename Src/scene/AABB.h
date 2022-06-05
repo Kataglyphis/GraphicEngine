@@ -10,34 +10,27 @@
 
 #include "Mesh.h"
 
-class AABB
-{
-public: 
+class AABB {
+  public:
+  AABB();
 
-	AABB();
+  std::vector<glm::vec3> get_corners(glm::mat4 model);
 
-	std::vector<glm::vec3> get_corners(glm::mat4 model);
+  void init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat minZ, GLfloat maxZ);
 
-	void init(	GLfloat minX, GLfloat maxX, 
-				GLfloat minY,GLfloat maxY,
-				GLfloat minZ,GLfloat maxZ);
+  glm::vec3 get_radius();
 
-	glm::vec3	get_radius();
+  void render();
 
-	void render();
+  ~AABB();
 
-	~AABB();
+  private:
+  std::vector<Vertex> vertices;
+  std::vector<unsigned int> indices;
 
-private:
+  std::shared_ptr<Mesh> mesh;
 
-	std::vector<Vertex>			vertices; 
-	std::vector<unsigned int>	indices;
+  std::vector<glm::vec3> corners;
 
-	std::shared_ptr<Mesh> mesh;
-
-	std::vector<glm::vec3> corners;
-
-	GLfloat minX, maxX, minY, maxY, minZ, maxZ;
-
+  GLfloat minX, maxX, minY, maxY, minZ, maxZ;
 };
-

@@ -10,7 +10,7 @@
 #include <chrono>
 #include <random>
 #include <cassert>
-#include <time.h>  
+#include <time.h>
 
 #include "GlobalValues.h"
 #include "Mesh.h"
@@ -18,31 +18,24 @@
 #include "ShaderProgram.h"
 #include "bindings.h"
 
-class SkyBox
-{
-public:
+class SkyBox {
+  public:
+  SkyBox();
 
-	SkyBox();
+  void draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLuint window_width, GLuint window_height, GLfloat delta_time);
 
-	void draw_sky_box(	glm::mat4 projection_matrix, glm::mat4 view_matrix, 
-						GLuint window_width, GLuint window_height, 
-						GLfloat delta_time);
+  void reload();
 
-	void reload();
+  ~SkyBox();
 
-	~SkyBox();
+  private:
+  GLfloat movement_speed = 0.1f;
 
-private:
+  GLfloat shader_playback_time;
 
-	GLfloat movement_speed = 0.1f;
+  std::shared_ptr<Mesh> sky_mesh;
+  std::shared_ptr<ShaderProgram> shader_program;
 
-	GLfloat shader_playback_time;
-
-	std::shared_ptr<Mesh> sky_mesh;
-	std::shared_ptr<ShaderProgram> shader_program;
-
-	GLuint texture_id;
-	GLuint uniform_projection, uniform_view;
-
+  GLuint texture_id;
+  GLuint uniform_projection, uniform_view;
 };
-

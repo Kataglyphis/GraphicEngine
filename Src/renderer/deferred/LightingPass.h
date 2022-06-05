@@ -6,7 +6,7 @@
 #include <ctime>
 #include <chrono>
 #include <cassert>
-#include <time.h>  
+#include <time.h>
 #include <memory>
 
 #include "LightingPassShaderProgram.h"
@@ -20,35 +20,23 @@
 #include "Scene.h"
 #include "RandomNumbers.h"
 
-class LightingPass : public RenderPass
-{
-public:
+class LightingPass : public RenderPass {
+  public:
+  LightingPass();
 
-    LightingPass();
+  void execute(glm::mat4 projection_matrix, std::shared_ptr<Camera>, std::shared_ptr<Scene> scene, std::shared_ptr<GBuffer> gbuffer, float delta_time);
 
-    void execute(   glm::mat4 projection_matrix, 
-                    std::shared_ptr<Camera>,
-                    std::shared_ptr<Scene> scene,
-                    std::shared_ptr<GBuffer> gbuffer, 
-                    float delta_time);
+  void create_shader_program();
 
-    void create_shader_program();
+  ~LightingPass();
 
-    ~LightingPass();
+  private:
+  glm::vec3 current_offset;
 
-private:
+  void set_uniforms(
+    glm::mat4 projection_matrix, std::shared_ptr<Camera> main_camera, std::shared_ptr<Scene> scene, std::shared_ptr<GBuffer> gbuffer, float delta_time);
 
-    glm::vec3 current_offset;
+  std::shared_ptr<LightingPassShaderProgram> shader_program;
 
-    void set_uniforms(  glm::mat4 projection_matrix,
-                        std::shared_ptr<Camera> main_camera,
-                        std::shared_ptr<Scene> scene,
-                        std::shared_ptr<GBuffer> gbuffer,
-                        float delta_time);
-
-    std::shared_ptr<LightingPassShaderProgram> shader_program;
-
-    Quad quad;
-
+  Quad quad;
 };
-

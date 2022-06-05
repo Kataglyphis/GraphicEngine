@@ -2,12 +2,9 @@
 //lets mimic and c++-style interface :)
 #include <glad/glad.h>
 
-class TextureWrappingMode
-{
-public:
+class TextureWrappingMode {
+  public:
+  virtual void activate() = 0;
 
-	virtual void activate() = 0;
-
-private:
+  private:
 };
-

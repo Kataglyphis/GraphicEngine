@@ -8,33 +8,26 @@
 #include "GlobalValues.h"
 #include "bindings.h"
 
-class GBuffer
-{
-public:
+class GBuffer {
+  public:
+  GBuffer();
+  GBuffer(GLint window_width, GLint window_height);
 
-	GBuffer();
-	GBuffer(GLint window_width, GLint window_height);
+  void create();
+  void read(std::shared_ptr<ShaderProgram> shader_program);
 
-	void create();
-	void read(std::shared_ptr<ShaderProgram> shader_program);
-	
-	void update_window_params(GLuint window_width, GLuint window_height);
+  void update_window_params(GLuint window_width, GLuint window_height);
 
-	GLuint get_id() const { return g_buffer; };
+  GLuint get_id() const { return g_buffer; };
 
-	~GBuffer();
+  ~GBuffer();
 
-private: 
+  private:
+  GLuint g_buffer;
 
-	GLuint g_buffer;
+  GLuint g_position, g_normal, g_albedo, g_material_id, g_depth;
 
-	GLuint g_position, g_normal, g_albedo, g_material_id, g_depth;
+  GLuint g_buffer_attachment[G_BUFFER_SIZE] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
 
-	GLuint g_buffer_attachment[G_BUFFER_SIZE] = 
-					{	GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1,
-						GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3};
-
-	GLuint window_width, window_height;
-
+  GLuint window_width, window_height;
 };
-

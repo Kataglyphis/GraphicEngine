@@ -4,7 +4,6 @@
 
 struct Rotation {
 
-	GLfloat degrees;
-	glm::vec3 axis;
-
+  GLfloat degrees;
+  glm::vec3 axis;
 };

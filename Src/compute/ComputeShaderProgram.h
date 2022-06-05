@@ -4,18 +4,13 @@
 
 #include <glad/glad.h>
 
-class ComputeShaderProgram :
-    public ShaderProgram
-{
-public:
+class ComputeShaderProgram : public ShaderProgram {
+  public:
+  ComputeShaderProgram();
 
-    ComputeShaderProgram();
+  void reload();
 
-    void reload();
+  ~ComputeShaderProgram();
 
-    ~ComputeShaderProgram();
-
-private:
-
+  private:
 };
-
