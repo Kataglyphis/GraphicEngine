@@ -208,6 +208,9 @@ Some very helpful literature, tutorials, etc.
 
 * [View Frustum Culling](http://www.lighthouse3d.com/tutorials/view-frustum-culling/geometric-approach-extracting-the-planes/)
 
+CMake/C++
+* [Cpp best practices](https://github.com/cpp-best-practices/cppbestpractices)
+
 OpenGL 
 * [learnopengl.com](https://learnopengl.com/)
 * [ogldev.org](https://ogldev.org/)
