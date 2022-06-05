@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <memory>
+
 #include "ShaderProgram.h"
 #include "GlobalValues.h"
 #include "bindings.h"

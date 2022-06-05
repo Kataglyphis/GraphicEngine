@@ -2,13 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <memory>
 
 #include "Mesh.h"
 #include "Vertex.h"
 #include "AABB.h"
-
-#include <memory>
-
 #include "GlobalValues.h"
 #include "ObjMaterial.h"
 #include "ObjLoader.h"

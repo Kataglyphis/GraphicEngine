@@ -1,18 +1,16 @@
 #pragma once
-#include <glad/glad.h>
 
+#include <glad/glad.h>
 #include <stb_image.h>
 #include <string.h>
+#include <memory>
+#include <string>
+
 #include "TextureWrappingMode.h"
 #include "RepeatMode.h"
 #include "MirroredRepeatMode.h"
 #include "ClampToEdgeMode.h"
-
-#include <memory>
-#include <string>
-
 #include "GlobalValues.h"
-
 
 class Texture
 {

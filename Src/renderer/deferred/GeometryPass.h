@@ -8,8 +8,8 @@
 #include "Clouds.h"
 #include "Scene.h"
 #include "SkyBox.h"
-#include <array>
 
+#include <array>
 
 class GeometryPass :
     public RenderPassSceneDependend

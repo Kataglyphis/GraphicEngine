@@ -1,8 +1,9 @@
 #pragma once
-#include "Light.h"
 #include <vector>
-#include "OmniDirShadowMap.h"
 #include <memory>
+
+#include "Light.h"
+#include "OmniDirShadowMap.h"
 #include "ShaderProgram.h"
 
 class PointLight :

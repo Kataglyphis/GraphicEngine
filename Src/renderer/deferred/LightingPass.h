@@ -2,6 +2,13 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include <ctime>
+#include <chrono>
+#include <cassert>
+#include <time.h>  
+#include <memory>
+
 #include "LightingPassShaderProgram.h"
 #include "Quad.h"
 #include "GBuffer.h"
@@ -11,15 +18,7 @@
 #include "Quad.h"
 #include "Camera.h"
 #include "Scene.h"
-
-#include <ctime>
-#include <chrono>
-#include <cassert>
-#include <time.h>  
-#include <memory>
-
 #include "RandomNumbers.h"
-
 
 class LightingPass : public RenderPass
 {

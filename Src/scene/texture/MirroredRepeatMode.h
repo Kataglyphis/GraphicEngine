@@ -1,5 +1,6 @@
 #pragma once
 #include "TextureWrappingMode.h"
+
 class MirroredRepeatMode :
     public TextureWrappingMode
 {

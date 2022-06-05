@@ -1,10 +1,11 @@
 #pragma once
-#include "Light.h"
 #include <memory>
 #include <limits>
-#include "host_device_shared.h"
 #include <vector>
 #include <array>
+
+#include "Light.h"
+#include "host_device_shared.h"
 
 class DirectionalLight : public Light
 {

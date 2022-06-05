@@ -1,11 +1,11 @@
 #pragma once
 #include <stdio.h>
 #include <glad/glad.h>
-#include "GlobalValues.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
+#include "GlobalValues.h"
 #include "host_device_shared.h"
 
 class CascadedShadowMap

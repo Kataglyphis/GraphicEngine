@@ -120,12 +120,16 @@ and Windows. I do not provide support for MacOS. Be aware of the dependencies:
 * [doxygen](https://www.doxygen.nl/index.html)
 * [gtest](https://github.com/google/googletest)
 * [cmake](https://cmake.org/)
+* [gsl](https://github.com/Microsoft/GSL)
 
 ### Useful tools (you might also considering :) )
 
 * [cppcheck](https://cppcheck.sourceforge.io/)
 * [renderdoc](https://renderdoc.org/)
 * [nsightgraphics](https://developer.nvidia.com/nsight-graphics)
+* [valgrind](https://valgrind.org/)
+* [clangtidy](https://github.com/llvm/llvm-project)
+* [visualstudio](https://visualstudio.microsoft.com/de/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -135,7 +139,8 @@ You might only clone the repo and get to go immediately :)
 ### Prerequisites
 
 You will need OpenGL. If you want to build documantaries you will need [DOXYGEN] (https://www.doxygen.nl/index.html).
-
+C++17 or higher required.
+Check for prerequisites from the used libraries.
 
 ### Installation
 

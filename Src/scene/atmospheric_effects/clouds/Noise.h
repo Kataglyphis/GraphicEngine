@@ -3,14 +3,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
-#include "ComputeShaderProgram.h"
-
-#include "bindings.h"
 #include <random>
 #include <memory>
 #include <array>
 #include <vector>
 
+#include "ComputeShaderProgram.h"
+#include "bindings.h"
 
 // inspired by: http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf
 class Noise

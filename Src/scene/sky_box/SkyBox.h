@@ -5,21 +5,17 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
-#include "GlobalValues.h"
-
-#include "Mesh.h"
-#include "Vertex.h"
-#include "ShaderProgram.h"
-
 #include <sstream>
-
 #include <ctime>
 #include <chrono>
 #include <random>
 #include <cassert>
 #include <time.h>  
 
+#include "GlobalValues.h"
+#include "Mesh.h"
+#include "Vertex.h"
+#include "ShaderProgram.h"
 #include "bindings.h"
 
 class SkyBox

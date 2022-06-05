@@ -9,8 +9,9 @@ project(GraphicsEngine VERSION 1.9
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# include google test to project
 include(FetchContent)
+
+# include google test to project
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
@@ -18,6 +19,15 @@ FetchContent_Declare(
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
+
+#include gsl
+# In this example we are picking a specific tag.
+# You can also pick a specific commit, if you need to.
+FetchContent_Declare(GSL
+    GIT_REPOSITORY "https://github.com/microsoft/GSL"
+    GIT_TAG "v4.0.0"
+)
+FetchContent_MakeAvailable(GSL)
 
 # for removing dirty file directories in the cpp-code
 add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
@@ -48,39 +58,36 @@ set(OpenGL_GL_PREFERENCE GLVND)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-FILE(GLOB GUI_FILTER            "ExternalLib/IMGUI/*.h" 
-                                "ExternalLib/IMGUI/backends/imgui_impl_glfw.h"
-                                "ExternalLib/IMGUI/backends/imgui_impl_opengl3.h"
-                                "ExternalLib/IMGUI/*.cpp"
-                                "ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp"
-                                "ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp"
-                                "Src/gui/*.h"                               "Src/gui/*.cpp")
+FILE(GLOB GUI_FILTER                    "Src/gui/*.h"                                           "Src/gui/*.cpp")
+FILE(GLOB IMGUI_FILTER                  "ExternalLib/IMGUI/*.h"                                 "ExternalLib/IMGUI/*.cpp"
+                                        "ExternalLib/IMGUI/backends/imgui_impl_glfw.h"          "ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp"
+                                        "ExternalLib/IMGUI/backends/imgui_impl_opengl3.h"       "ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp")
 
-FILE(GLOB COMPUTE_FILTER                "Src/compute/*.h"                               "Src/compute/*.cpp")
+FILE(GLOB COMPUTE_FILTER                "Src/compute/*.h"                                       "Src/compute/*.cpp")
 
-FILE(GLOB CAMERA_FILTER                 "Src/camera/*.h"                                "Src/camera/*.cpp")
+FILE(GLOB CAMERA_FILTER                 "Src/camera/*.h"                                        "Src/camera/*.cpp")
 
-FILE(GLOB RENDERER_FILTER               "Src/renderer/*.h"                              "Src/renderer/*.cpp")
-FILE(GLOB DEFERRED_FILTER               "Src/renderer/deferred/*.h"                     "Src/renderer/deferred/*.cpp")
-FILE(GLOB LOAD_SCREEN_FILTER            "Src/renderer/loading_screen/*.h"               "Src/renderer/loading_screen/*.cpp")
+FILE(GLOB RENDERER_FILTER               "Src/renderer/*.h"                                      "Src/renderer/*.cpp")
+FILE(GLOB DEFERRED_FILTER               "Src/renderer/deferred/*.h"                             "Src/renderer/deferred/*.cpp")
+FILE(GLOB LOAD_SCREEN_FILTER            "Src/renderer/loading_screen/*.h"                       "Src/renderer/loading_screen/*.cpp")
 
-FILE(GLOB CLOUD_FILTER                  "Src/scene/atmospheric_effects/clouds/*.h"      "Src/scene/atmospheric_effects/clouds/*.cpp")
+FILE(GLOB CLOUD_FILTER                  "Src/scene/atmospheric_effects/clouds/*.h"              "Src/scene/atmospheric_effects/clouds/*.cpp")
 
-FILE(GLOB LIGHT_FILTER                  "Src/scene/light/*.h"                           "Src/scene/light/*.cpp")
-FILE(GLOB D_LIGHT_FILTER                "Src/scene/light/directional_light/*.h"         "Src/scene/light/directional_light/*.cpp")
-FILE(GLOB P_LIGHT_FILTER                "Src/scene/light/point_light/*.h"               "Src/scene/light/point_light/*.cpp")
+FILE(GLOB LIGHT_FILTER                  "Src/scene/light/*.h"                                   "Src/scene/light/*.cpp")
+FILE(GLOB D_LIGHT_FILTER                "Src/scene/light/directional_light/*.h"                 "Src/scene/light/directional_light/*.cpp")
+FILE(GLOB P_LIGHT_FILTER                "Src/scene/light/point_light/*.h"                       "Src/scene/light/point_light/*.cpp")
 
-FILE(GLOB SHADOWS_FILTER                "Src/scene/shadows/*.h"                         "Src/scene/shadows/*.cpp")
-FILE(GLOB SKY_BOX_FILTER                "Src/scene/sky_box/*.h"                         "Src/scene/sky_box/*.cpp")
-FILE(GLOB TEXTURE_FILTER                "Src/scene/texture/*.h"                         "Src/scene/texture/*.cpp")
-FILE(GLOB SCENE_FILTER                  "Src/scene/*.h"                                 "Src/scene/*.cpp")
+FILE(GLOB SHADOWS_FILTER                "Src/scene/shadows/*.h"                                 "Src/scene/shadows/*.cpp")
+FILE(GLOB SKY_BOX_FILTER                "Src/scene/sky_box/*.h"                                 "Src/scene/sky_box/*.cpp")
+FILE(GLOB TEXTURE_FILTER                "Src/scene/texture/*.h"                                 "Src/scene/texture/*.cpp")
+FILE(GLOB SCENE_FILTER                  "Src/scene/*.h"                                         "Src/scene/*.cpp")
 
-FILE(GLOB WINDOW_FILTER                 "Src/window/*.h"                                "Src/window/*.cpp")
-FILE(GLOB DEBUG_FILTER                  "Src/debug/*.h"                                 "Src/debug/*.cpp")
-FILE(GLOB UTIL_FILTER                   "Src/util/*.h"                                  "Src/util/*.cpp")
-FILE(GLOB MAIN_FILTER                   "Src/*.h"                                       "Src/*.cpp")
+FILE(GLOB WINDOW_FILTER                 "Src/window/*.h"                                        "Src/window/*.cpp")
+FILE(GLOB DEBUG_FILTER                  "Src/debug/*.h"                                         "Src/debug/*.cpp")
+FILE(GLOB UTIL_FILTER                   "Src/util/*.h"                                          "Src/util/*.cpp")
+FILE(GLOB MAIN_FILTER                   "Src/*.h"                                               "Src/*.cpp")
 
-FILE(GLOB GLAD_FILTER                   "ExternalLib/GLAD/include/glad/*.h"             "ExternalLib/GLAD/src/*.c"
+FILE(GLOB GLAD_FILTER                   "ExternalLib/GLAD/include/glad/*.h"                     "ExternalLib/GLAD/src/*.c"
                                         "ExternalLib/GLAD/include/KHR/*.h")
 
 # add filters to the solution explorer for the shaders :))
@@ -157,6 +164,7 @@ file(GLOB SKYBOX_SHADER_FILTER
 )
 
 source_group("gui"                                      FILES ${GUI_FILTER})
+source_group("gui/imgui"                                FILES ${IMGUI_FILTER})
 
 source_group("shaders"                                  FILES ${SHADER_FILTER})
 source_group("shaders/pbr"                              FILES ${PBR_SHADER_FILTER})
@@ -223,6 +231,7 @@ add_executable( ${PROJECT_NAME}
                 ${RASTERIZER_SHADOWS_SHADER_FILTER}
                 ${SKYBOX_SHADER_FILTER}
                 ${GUI_FILTER}
+                ${IMGUI_FILTER}
                 ${GLAD_FILTER}
                 ${WINDOW_FILTER}
                 ${DEBUG_FILTER}
@@ -273,6 +282,8 @@ target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
                                                 glm 
                                                 tinyobjloader)
 
+
+target_link_libraries(${PROJECT_NAME}   PRIVATE GSL)
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")

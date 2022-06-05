@@ -1,9 +1,10 @@
 #pragma once
 #include <glm/glm.hpp>
-#include "Texture.h"
-#include "Vertex.h"
 #include <vector>
 #include <glad/glad.h>
+
+#include "Texture.h"
+#include "Vertex.h"
 #include "GlobalValues.h"
 
 // this a simple Mesh without mesh generation

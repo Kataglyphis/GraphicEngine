@@ -1,9 +1,11 @@
 #pragma once
+
 #include "RenderPassSceneDependend.h"
 #include "DirectionalLight.h"
 #include "ShaderProgram.h"
 #include "ViewFrustumCulling.h"
 #include "Scene.h"
+
 class DirectionalShadowMapPass :
     public RenderPassSceneDependend
 {

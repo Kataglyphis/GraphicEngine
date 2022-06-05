@@ -1,7 +1,6 @@
 // include ability to execute threads
 #include <thread>
 #include <mutex>
-
 #include <memory>
 #include <vector>
 #include <string>
