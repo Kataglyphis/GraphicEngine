@@ -62,7 +62,8 @@ set(CLANG_WARNINGS
           -Wlifetime #(only special branch of Clang currently) shows object lifetime issues
 )
 
-if(TRUE)
+option(TREAT_WARNINGS_AS_ERRORS "Treat warnings as errors" ON)
+if(TREAT_WARNINGS_AS_ERRORS)
   set(CLANG_WARNINGS ${CLANG_WARNINGS} -Werror)
   set(MSVC_WARNINGS ${MSVC_WARNINGS} /WX)
 endif()
@@ -375,31 +376,39 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
 option(BUILD_DOC "Build documentation" ON)
 
 # check if Doxygen is installed
-find_package(Doxygen)
-if (DOXYGEN_FOUND)
-    # set input and output files
-    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
-    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)    # request to configure the file
-    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-    message("Doxygen build started")    # note the option ALL which allows to build the docs together with the application
-    add_custom_target( doc_doxygen ALL
-        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        COMMENT "Generating API documentation with Doxygen"
-        VERBATIM )
-else (DOXYGEN_FOUND)
-  message("Doxygen need to be installed to generate the doxygen documentation")
-endif (DOXYGEN_FOUND)
+if(BUILD_DOC)
+        find_package(Doxygen)
+        if (DOXYGEN_FOUND)
+        # set input and output files
+        set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
+        set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)    # request to configure the file
+        configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+        message("Doxygen build started")    # note the option ALL which allows to build the docs together with the application
+        add_custom_target( doc_doxygen ALL
+                COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+                COMMENT "Generating API documentation with Doxygen"
+                VERBATIM )
+        else (DOXYGEN_FOUND)
+        message("Doxygen need to be installed to generate the doxygen documentation")
+        endif (DOXYGEN_FOUND)
+endif()
 
-find_program(CPPCHECK cppcheck)
-if(CPPCHECK)
-  set(CMAKE_CXX_CPPCHECK ${CPPCHECK} --suppress=missingInclude --enable=all --suppressions-list=Documents/cppcheck/suppressions.txt)
-endif(CPPCHECK)
+option(ENABLE_CPPCHECK "Enable cppcheck" OFF)#ON
+if(ENABLE_CPPCHECK)
+        find_program(CPPCHECK cppcheck)
+        if(CPPCHECK)
+        set(CMAKE_CXX_CPPCHECK ${CPPCHECK} --suppress=missingInclude --enable=all --suppressions-list=Documents/cppcheck/suppressions.txt)
+        endif(CPPCHECK)
+endif()
 
-find_program(CLANGTIDY clang-tidy)
-if(CLANGTIDY)
-  set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
-endif(CLANGTIDY)
+option(ENABLE_CLANGTIDY "Enable clangtidy" OFF)#ON
+if(ENABLE_CLANGTIDY)
+        find_program(CLANGTIDY clang-tidy)
+        if(CLANGTIDY)
+        set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
+        endif(CLANGTIDY)
+endif()
 
 # all testing related stuff
 enable_testing()
@@ -411,7 +420,9 @@ source_group("TEST_FILES"                                   FILES ${RENDERER_TES
 
 add_executable(
         openGLRendererTester
+        # all test specific files -- start
         ${RENDERER_TEST_FILTER}
+        # all test specific files -- end
         ${SHADER_FILTER}
         ${PBR_SHADER_FILTER}
         ${BRDF_SHADER_FILTER} 
