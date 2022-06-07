@@ -1,0 +1,923 @@
+\hypertarget{class_shader_program}{}\doxysection{Shader\+Program Class Reference}
+\label{class_shader_program}\index{ShaderProgram@{ShaderProgram}}
+
+
+{\ttfamily \#include $<$Shader\+Program.\+h$>$}
+
+
+
+Inheritance diagram for Shader\+Program\+:
+% FIG 0
+
+
+Collaboration diagram for Shader\+Program\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shader_program_add585b75cb78f4afa865ea7b27c9651e}{Shader\+Program}} ()
+\item 
+\mbox{\hyperlink{class_shader_program_a7ab74a0312a0862fa2fe6ffeba9f7d80}{Shader\+Program}} (const \mbox{\hyperlink{class_shader_program}{Shader\+Program}} \&)=default
+\item 
+void \mbox{\hyperlink{class_shader_program_a48a0e4ccb3bf50c5b756d07d5dfe9704}{create\+\_\+from\+\_\+files}} (const char $\ast$\mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\+\_\+location}}, const char $\ast$\mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\+\_\+location}})
+\item 
+void \mbox{\hyperlink{class_shader_program_af80f2fb394d032d6e7f3cf4d8f5711da}{create\+\_\+from\+\_\+files}} (const char $\ast$\mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\+\_\+location}}, const char $\ast$\mbox{\hyperlink{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}{geometry\+\_\+location}}, const char $\ast$\mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\+\_\+location}})
+\item 
+void \mbox{\hyperlink{class_shader_program_a1a76354621669b50085ae911d84cfb0b}{create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file}} (const char $\ast$\mbox{\hyperlink{class_shader_program_a70e5e838a730caf3305e1101404316e9}{compute\+\_\+location}})
+\item 
+bool \mbox{\hyperlink{class_shader_program_a048a4f5b95b0ee92d854c81440f71295}{set\+Uniform\+Vec3}} (glm\+::vec3 uniform, const std\+::string \&shader\+Uniform\+Name)
+\item 
+bool \mbox{\hyperlink{class_shader_program_a8eb02cad5cf01470018881d85e0ba726}{set\+Uniform\+Float}} (GLfloat uniform, const std\+::string \&shader\+Uniform\+Name)
+\item 
+bool \mbox{\hyperlink{class_shader_program_a20455c25e6482499745a915f8dfacb69}{set\+Uniform\+Int}} (GLint uniform, const std\+::string \&shader\+Uniform\+Name)
+\item 
+bool \mbox{\hyperlink{class_shader_program_a3187754c546e322728a9545288ac80b0}{set\+Uniform\+Matrix4fv}} (glm\+::mat4 matrix, const std\+::string \&shader\+Uniform\+Name)
+\item 
+bool \mbox{\hyperlink{class_shader_program_a92e346e0a175e5e1abde9271acf8300b}{set\+Uniform\+Block\+Binding}} (GLuint block\+\_\+binding, const std\+::string \&shader\+Uniform\+Name)
+\item 
+GLuint \mbox{\hyperlink{class_shader_program_a52af76e82313c916e9730cbcb4ba6d5b}{get\+\_\+id}} () const
+\item 
+void \mbox{\hyperlink{class_shader_program_aa963584be51f4544c8e375859bf00730}{use\+\_\+shader\+\_\+program}} ()
+\item 
+void \mbox{\hyperlink{class_shader_program_a6cadcf193ab6170f965a466b183ebc94}{validate\+\_\+program}} ()
+\item 
+\mbox{\hyperlink{class_shader_program_a2d2eadcfc48cc2e2ddb82aba70553a9f}{$\sim$\+Shader\+Program}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\+\_\+shader}} (GLuint program, const char $\ast$shader\+\_\+code, GLenum shader\+\_\+type)
+\item 
+void \mbox{\hyperlink{class_shader_program_a2d67cddbba2b72438f02cf193462c704}{compile\+\_\+shader\+\_\+program}} (const char $\ast$vertex\+\_\+code, const char $\ast$fragment\+\_\+code)
+\item 
+void \mbox{\hyperlink{class_shader_program_a2266e542289aa0c717cc21e61675b9cc}{compile\+\_\+shader\+\_\+program}} (const char $\ast$vertex\+\_\+code, const char $\ast$geometry\+\_\+code, const char $\ast$fragment\+\_\+code)
+\item 
+void \mbox{\hyperlink{class_shader_program_adb1b0a45cb57683613b1d8e8740bc4c2}{compile\+\_\+compute\+\_\+shader\+\_\+program}} (const char $\ast$compute\+\_\+code)
+\item 
+void \mbox{\hyperlink{class_shader_program_a7b921b13eb3190848960a9347148c5f5}{compile\+\_\+program}} ()
+\item 
+bool \mbox{\hyperlink{class_shader_program_a1e026f19a0fb0bc32f169f21be9d8c1b}{validate\+Uniform\+Location}} (GLint uniform\+Location)
+\item 
+GLuint \mbox{\hyperlink{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}{get\+Uniform\+Location}} (const std\+::string \&shader\+Uniform\+Name, bool \&validity)
+\item 
+void \mbox{\hyperlink{class_shader_program_aff69198ca0274b4e4d9b9f0e28c44c3e}{clear\+\_\+shader\+\_\+program}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\+\_\+base\+\_\+dir}}
+\item 
+GLuint \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\+\_\+id}}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\+\_\+location}}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\+\_\+location}}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}{geometry\+\_\+location}}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_shader_program_a70e5e838a730caf3305e1101404316e9}{compute\+\_\+location}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00013}{13}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shader_program_add585b75cb78f4afa865ea7b27c9651e}\label{class_shader_program_add585b75cb78f4afa865ea7b27c9651e}} 
+\index{ShaderProgram@{ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006                              :}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008     \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}(0), \mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\_location}}(\textcolor{stringliteral}{"{}"{}}), \mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\_location}}(\textcolor{stringliteral}{"{}"{}}), \mbox{\hyperlink{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}{geometry\_location}}(\textcolor{stringliteral}{"{}"{}}), \mbox{\hyperlink{class_shader_program_a70e5e838a730caf3305e1101404316e9}{compute\_location}}(\textcolor{stringliteral}{"{}fragment\_location"{}})}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012   std::stringstream aux;}
+\DoxyCodeLine{00013   aux << CMAKELISTS\_DIR;}
+\DoxyCodeLine{00014   aux << \textcolor{stringliteral}{"{}/Resources/Shaders/"{}};}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016   \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} = aux.str();}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00039}{shader\+\_\+base\+\_\+dir}}.
+
+\mbox{\Hypertarget{class_shader_program_a7ab74a0312a0862fa2fe6ffeba9f7d80}\label{class_shader_program_a7ab74a0312a0862fa2fe6ffeba9f7d80}} 
+\index{ShaderProgram@{ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shader_program}{Shader\+Program}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_shader_program_a2d2eadcfc48cc2e2ddb82aba70553a9f}\label{class_shader_program_a2d2eadcfc48cc2e2ddb82aba70553a9f}} 
+\index{ShaderProgram@{ShaderProgram}!````~ShaderProgram@{$\sim$ShaderProgram}}
+\index{````~ShaderProgram@{$\sim$ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{$\sim$ShaderProgram()}{~ShaderProgram()}}
+{\footnotesize\ttfamily Shader\+Program\+::$\sim$\+Shader\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00318}{318}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00318 \{ \mbox{\hyperlink{class_shader_program_aff69198ca0274b4e4d9b9f0e28c44c3e}{clear\_shader\_program}}(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00308}{clear\+\_\+shader\+\_\+program()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}\label{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}} 
+\index{ShaderProgram@{ShaderProgram}!add\_shader@{add\_shader}}
+\index{add\_shader@{add\_shader}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{add\_shader()}{add\_shader()}}
+{\footnotesize\ttfamily void Shader\+Program\+::add\+\_\+shader (\begin{DoxyParamCaption}\item[{GLuint}]{program,  }\item[{const char $\ast$}]{shader\+\_\+code,  }\item[{GLenum}]{shader\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109 \{}
+\DoxyCodeLine{00110   GLuint shader = glCreateShader(shader\_type);}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   \textcolor{comment}{// the opengl function wants c -\/style char array of code and the length in an array ... so we do it}}
+\DoxyCodeLine{00113   \textcolor{keyword}{const} GLchar* code[1];}
+\DoxyCodeLine{00114   code[0] = shader\_code;}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00116   GLint code\_length[1];}
+\DoxyCodeLine{00117   code\_length[0] = (GLint)strlen(shader\_code);}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119   glShaderSource(shader, 1, code, code\_length);}
+\DoxyCodeLine{00120   glCompileShader(shader);}
+\DoxyCodeLine{00121   \textcolor{comment}{//glCompileShaderIncludeARB(shader);}}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123   GLint result = 0;}
+\DoxyCodeLine{00124   GLchar eLog[1024] = \{ 0 \};}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126   \textcolor{comment}{//retrieve status of the shader and print if any error occured}}
+\DoxyCodeLine{00127   glGetShaderiv(shader, GL\_COMPILE\_STATUS, \&result);}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129   \textcolor{keywordflow}{if} (!result) \{}
+\DoxyCodeLine{00130     glGetShaderInfoLog(shader, \textcolor{keyword}{sizeof}(eLog), NULL, eLog);}
+\DoxyCodeLine{00131     printf(\textcolor{stringliteral}{"{}Error compiling the \%d shader:  '\%s'\(\backslash\)n"{}}, shader\_type, eLog);}
+\DoxyCodeLine{00132     printf(\textcolor{stringliteral}{"{}\%s"{}}, shader\_code);}
+\DoxyCodeLine{00133     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00134   \}}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{00136   \textcolor{comment}{// we are happy, everything went well so attach shader to program}}
+\DoxyCodeLine{00137   glAttachShader(program, shader);}
+\DoxyCodeLine{00138 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00175}{compile\+\_\+compute\+\_\+shader\+\_\+program()}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00140}{compile\+\_\+shader\+\_\+program()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_shader_program_aff69198ca0274b4e4d9b9f0e28c44c3e}\label{class_shader_program_aff69198ca0274b4e4d9b9f0e28c44c3e}} 
+\index{ShaderProgram@{ShaderProgram}!clear\_shader\_program@{clear\_shader\_program}}
+\index{clear\_shader\_program@{clear\_shader\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{clear\_shader\_program()}{clear\_shader\_program()}}
+{\footnotesize\ttfamily void Shader\+Program\+::clear\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00308}{308}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00309 \{}
+\DoxyCodeLine{00310   \textcolor{comment}{//don't trash the id's!!}}
+\DoxyCodeLine{00311   \textcolor{comment}{//delete it from memory!!}}
+\DoxyCodeLine{00312   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}} != 0) \{}
+\DoxyCodeLine{00313     glDeleteProgram(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}});}
+\DoxyCodeLine{00314     \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}} = 0;}
+\DoxyCodeLine{00315   \}}
+\DoxyCodeLine{00316 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00318}{$\sim$\+Shader\+Program()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_shader_program_adb1b0a45cb57683613b1d8e8740bc4c2}\label{class_shader_program_adb1b0a45cb57683613b1d8e8740bc4c2}} 
+\index{ShaderProgram@{ShaderProgram}!compile\_compute\_shader\_program@{compile\_compute\_shader\_program}}
+\index{compile\_compute\_shader\_program@{compile\_compute\_shader\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{compile\_compute\_shader\_program()}{compile\_compute\_shader\_program()}}
+{\footnotesize\ttfamily void Shader\+Program\+::compile\+\_\+compute\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}\item[{const char $\ast$}]{compute\+\_\+code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00175}{175}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176 \{}
+\DoxyCodeLine{00177   \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}} = glCreateProgram();}
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{00179   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}) \{}
+\DoxyCodeLine{00180     printf(\textcolor{stringliteral}{"{}Error creating shader program!\(\backslash\)n"{}});}
+\DoxyCodeLine{00181     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00182   \}}
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{00184   \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\_shader}}(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, compute\_code, GL\_COMPUTE\_SHADER);}
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00186   \mbox{\hyperlink{class_shader_program_a7b921b13eb3190848960a9347148c5f5}{compile\_program}}();}
+\DoxyCodeLine{00187 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00108}{add\+\_\+shader()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00189}{compile\+\_\+program()}}, and \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00072}{create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_shader_program_a7b921b13eb3190848960a9347148c5f5}\label{class_shader_program_a7b921b13eb3190848960a9347148c5f5}} 
+\index{ShaderProgram@{ShaderProgram}!compile\_program@{compile\_program}}
+\index{compile\_program@{compile\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{compile\_program()}{compile\_program()}}
+{\footnotesize\ttfamily void Shader\+Program\+::compile\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190 \{}
+\DoxyCodeLine{00191   \textcolor{comment}{//as simple as that; opengl will link it for us :)}}
+\DoxyCodeLine{00192   glLinkProgram(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}});}
+\DoxyCodeLine{00193   GLint result = 0;}
+\DoxyCodeLine{00194   GLchar eLog[1024] = \{ 0 \};}
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{00196   glGetProgramiv(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, GL\_LINK\_STATUS, \&result);}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00198   \textcolor{keywordflow}{if} (!result) \{}
+\DoxyCodeLine{00199     glGetProgramInfoLog(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, \textcolor{keyword}{sizeof}(eLog), NULL, eLog);}
+\DoxyCodeLine{00200     printf(\textcolor{stringliteral}{"{}Error linking program: '\%s'\(\backslash\)n"{}}, eLog);}
+\DoxyCodeLine{00201     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00202   \}}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204   \mbox{\hyperlink{class_shader_program_a6cadcf193ab6170f965a466b183ebc94}{validate\_program}}();}
+\DoxyCodeLine{00205 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00089}{validate\+\_\+program()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00175}{compile\+\_\+compute\+\_\+shader\+\_\+program()}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00140}{compile\+\_\+shader\+\_\+program()}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_shader_program_a2d67cddbba2b72438f02cf193462c704}\label{class_shader_program_a2d67cddbba2b72438f02cf193462c704}} 
+\index{ShaderProgram@{ShaderProgram}!compile\_shader\_program@{compile\_shader\_program}}
+\index{compile\_shader\_program@{compile\_shader\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{compile\_shader\_program()}{compile\_shader\_program()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Shader\+Program\+::compile\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}\item[{const char $\ast$}]{vertex\+\_\+code,  }\item[{const char $\ast$}]{fragment\+\_\+code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141 \{}
+\DoxyCodeLine{00142   \textcolor{comment}{// retrieve the id; we need to reference it later on}}
+\DoxyCodeLine{00143   \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}} = glCreateProgram();}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}) \{}
+\DoxyCodeLine{00146     printf(\textcolor{stringliteral}{"{}Error creating shader program !\(\backslash\)n"{}});}
+\DoxyCodeLine{00147     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00148   \}}
+\DoxyCodeLine{00149   \textcolor{comment}{// we will always need one vertex ShaderProgram}}
+\DoxyCodeLine{00150   \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\_shader}}(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, vertex\_code, GL\_VERTEX\_SHADER);}
+\DoxyCodeLine{00151   \textcolor{comment}{// and one fragment ShaderProgram}}
+\DoxyCodeLine{00152   \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\_shader}}(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, fragment\_code, GL\_FRAGMENT\_SHADER);}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154   \textcolor{comment}{//we attached all shaders}}
+\DoxyCodeLine{00155   \textcolor{comment}{//so compile program}}
+\DoxyCodeLine{00156   \mbox{\hyperlink{class_shader_program_a7b921b13eb3190848960a9347148c5f5}{compile\_program}}();}
+\DoxyCodeLine{00157 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00108}{add\+\_\+shader()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00189}{compile\+\_\+program()}}, and \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00019}{create\+\_\+from\+\_\+files()}}.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_shader_program_a2266e542289aa0c717cc21e61675b9cc}\label{class_shader_program_a2266e542289aa0c717cc21e61675b9cc}} 
+\index{ShaderProgram@{ShaderProgram}!compile\_shader\_program@{compile\_shader\_program}}
+\index{compile\_shader\_program@{compile\_shader\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{compile\_shader\_program()}{compile\_shader\_program()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Shader\+Program\+::compile\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}\item[{const char $\ast$}]{vertex\+\_\+code,  }\item[{const char $\ast$}]{geometry\+\_\+code,  }\item[{const char $\ast$}]{fragment\+\_\+code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160 \{}
+\DoxyCodeLine{00161   \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}} = glCreateProgram();}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}) \{}
+\DoxyCodeLine{00164     printf(\textcolor{stringliteral}{"{}Error creating shader program!\(\backslash\)n"{}});}
+\DoxyCodeLine{00165     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00166   \}}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168   \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\_shader}}(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, vertex\_code, GL\_VERTEX\_SHADER);}
+\DoxyCodeLine{00169   \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\_shader}}(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, geometry\_code, GL\_GEOMETRY\_SHADER);}
+\DoxyCodeLine{00170   \mbox{\hyperlink{class_shader_program_a9f24b6b1c89247c51506cae4fc7d6086}{add\_shader}}(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, fragment\_code, GL\_FRAGMENT\_SHADER);}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172   \mbox{\hyperlink{class_shader_program_a7b921b13eb3190848960a9347148c5f5}{compile\_program}}();}
+\DoxyCodeLine{00173 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00108}{add\+\_\+shader()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00189}{compile\+\_\+program()}}, and \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+Here is the call graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{class_shader_program_a1a76354621669b50085ae911d84cfb0b}\label{class_shader_program_a1a76354621669b50085ae911d84cfb0b}} 
+\index{ShaderProgram@{ShaderProgram}!create\_computer\_shader\_program\_from\_file@{create\_computer\_shader\_program\_from\_file}}
+\index{create\_computer\_shader\_program\_from\_file@{create\_computer\_shader\_program\_from\_file}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{create\_computer\_shader\_program\_from\_file()}{create\_computer\_shader\_program\_from\_file()}}
+{\footnotesize\ttfamily void Shader\+Program\+::create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{compute\+\_\+location }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073 \{}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075   std::stringstream comp\_shader;}
+\DoxyCodeLine{00076   comp\_shader << \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} << \mbox{\hyperlink{class_shader_program_a70e5e838a730caf3305e1101404316e9}{compute\_location}};}
+\DoxyCodeLine{00077   \mbox{\hyperlink{class_file}{File}} compute\_shader\_file(comp\_shader.str());}
+\DoxyCodeLine{00078   std::string file = compute\_shader\_file.read();}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* compute\_code = file.c\_str();}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082   this-\/>compute\_location = \mbox{\hyperlink{class_shader_program_a70e5e838a730caf3305e1101404316e9}{compute\_location}};}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   \mbox{\hyperlink{class_shader_program_adb1b0a45cb57683613b1d8e8740bc4c2}{compile\_compute\_shader\_program}}(compute\_code);}
+\DoxyCodeLine{00085 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00175}{compile\+\_\+compute\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8h_source_l00046}{compute\+\_\+location}}, \mbox{\hyperlink{_file_8cpp_source_l00007}{File\+::read()}}, and \mbox{\hyperlink{_shader_program_8h_source_l00039}{shader\+\_\+base\+\_\+dir}}.
+
+
+
+Referenced by \mbox{\hyperlink{_compute_shader_program_8cpp_source_l00005}{Compute\+Shader\+Program\+::reload()}}.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{class_shader_program_a48a0e4ccb3bf50c5b756d07d5dfe9704}\label{class_shader_program_a48a0e4ccb3bf50c5b756d07d5dfe9704}} 
+\index{ShaderProgram@{ShaderProgram}!create\_from\_files@{create\_from\_files}}
+\index{create\_from\_files@{create\_from\_files}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{create\_from\_files()}{create\_from\_files()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Shader\+Program\+::create\+\_\+from\+\_\+files (\begin{DoxyParamCaption}\item[{const char $\ast$}]{vertex\+\_\+location,  }\item[{const char $\ast$}]{fragment\+\_\+location }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022   std::stringstream vertex\_shader;}
+\DoxyCodeLine{00023   std::stringstream fragment\_shader;}
+\DoxyCodeLine{00024   vertex\_shader << \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} << \mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\_location}};}
+\DoxyCodeLine{00025   fragment\_shader << \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} << \mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\_location}};}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027   \mbox{\hyperlink{class_file}{File}} vertex\_shader\_file(vertex\_shader.str());}
+\DoxyCodeLine{00028   \mbox{\hyperlink{class_file}{File}} fragment\_shader\_file(fragment\_shader.str());}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030   std::string vertex\_string = vertex\_shader\_file.read();}
+\DoxyCodeLine{00031   std::string fragment\_string = fragment\_shader\_file.read();}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033   \textcolor{comment}{//we need c-\/like strings ....}}
+\DoxyCodeLine{00034   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* vertex\_code = vertex\_string.c\_str();}
+\DoxyCodeLine{00035   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* fragment\_code = fragment\_string.c\_str();}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037   this-\/>vertex\_location = (\mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\_location}});}
+\DoxyCodeLine{00038   this-\/>fragment\_location = (\mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\_location}});}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040   \mbox{\hyperlink{class_shader_program_a2d67cddbba2b72438f02cf193462c704}{compile\_shader\_program}}(vertex\_code, fragment\_code);}
+\DoxyCodeLine{00041 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00140}{compile\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8h_source_l00044}{fragment\+\_\+location}}, \mbox{\hyperlink{_file_8cpp_source_l00007}{File\+::read()}}, \mbox{\hyperlink{_shader_program_8h_source_l00039}{shader\+\_\+base\+\_\+dir}}, and \mbox{\hyperlink{_shader_program_8h_source_l00043}{vertex\+\_\+location}}.
+
+
+
+Referenced by \mbox{\hyperlink{_omni_dir_shadow_shader_program_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Shader\+Program\+::reload()}}.
+
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+\mbox{\Hypertarget{class_shader_program_af80f2fb394d032d6e7f3cf4d8f5711da}\label{class_shader_program_af80f2fb394d032d6e7f3cf4d8f5711da}} 
+\index{ShaderProgram@{ShaderProgram}!create\_from\_files@{create\_from\_files}}
+\index{create\_from\_files@{create\_from\_files}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{create\_from\_files()}{create\_from\_files()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Shader\+Program\+::create\+\_\+from\+\_\+files (\begin{DoxyParamCaption}\item[{const char $\ast$}]{vertex\+\_\+location,  }\item[{const char $\ast$}]{geometry\+\_\+location,  }\item[{const char $\ast$}]{fragment\+\_\+location }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044 \{}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046   std::stringstream vertex\_shader;}
+\DoxyCodeLine{00047   std::stringstream geometry\_shader;}
+\DoxyCodeLine{00048   std::stringstream fragment\_shader;}
+\DoxyCodeLine{00049   vertex\_shader << \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} << \mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\_location}};}
+\DoxyCodeLine{00050   geometry\_shader << \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} << \mbox{\hyperlink{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}{geometry\_location}};}
+\DoxyCodeLine{00051   fragment\_shader << \mbox{\hyperlink{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}{shader\_base\_dir}} << \mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\_location}};}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   \mbox{\hyperlink{class_file}{File}} vertex\_shader\_file(vertex\_shader.str());}
+\DoxyCodeLine{00054   \mbox{\hyperlink{class_file}{File}} geometry\_shader\_file(geometry\_shader.str());}
+\DoxyCodeLine{00055   \mbox{\hyperlink{class_file}{File}} fragment\_shader\_file(fragment\_shader.str());}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057   std::string vertex\_string = vertex\_shader\_file.read();}
+\DoxyCodeLine{00058   std::string geometry\_string = geometry\_shader\_file.read();}
+\DoxyCodeLine{00059   std::string fragment\_string = fragment\_shader\_file.read();}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* vertex\_code = vertex\_string.c\_str();}
+\DoxyCodeLine{00062   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* geometry\_code = geometry\_string.c\_str();}
+\DoxyCodeLine{00063   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* fragment\_code = fragment\_string.c\_str();}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065   this-\/>vertex\_location = \mbox{\hyperlink{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}{vertex\_location}};}
+\DoxyCodeLine{00066   this-\/>fragment\_location = \mbox{\hyperlink{class_shader_program_a310d8cc97c3ddd2301b294008138a892}{fragment\_location}};}
+\DoxyCodeLine{00067   this-\/>geometry\_location = \mbox{\hyperlink{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}{geometry\_location}};}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069   \mbox{\hyperlink{class_shader_program_a2d67cddbba2b72438f02cf193462c704}{compile\_shader\_program}}(vertex\_code, geometry\_code, fragment\_code);}
+\DoxyCodeLine{00070 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00140}{compile\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8h_source_l00044}{fragment\+\_\+location}}, \mbox{\hyperlink{_shader_program_8h_source_l00045}{geometry\+\_\+location}}, \mbox{\hyperlink{_file_8cpp_source_l00007}{File\+::read()}}, \mbox{\hyperlink{_shader_program_8h_source_l00039}{shader\+\_\+base\+\_\+dir}}, and \mbox{\hyperlink{_shader_program_8h_source_l00043}{vertex\+\_\+location}}.
+
+Here is the call graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{class_shader_program_a52af76e82313c916e9730cbcb4ba6d5b}\label{class_shader_program_a52af76e82313c916e9730cbcb4ba6d5b}} 
+\index{ShaderProgram@{ShaderProgram}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily GLuint Shader\+Program\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+\mbox{\Hypertarget{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}\label{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}} 
+\index{ShaderProgram@{ShaderProgram}!getUniformLocation@{getUniformLocation}}
+\index{getUniformLocation@{getUniformLocation}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{getUniformLocation()}{getUniformLocation()}}
+{\footnotesize\ttfamily GLuint Shader\+Program\+::get\+Uniform\+Location (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shader\+Uniform\+Name,  }\item[{bool \&}]{validity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{285}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00286 \{}
+\DoxyCodeLine{00287   GLuint uniform\_location = glGetUniformLocation(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, shaderUniformName.c\_str());}
+\DoxyCodeLine{00288   validity = \mbox{\hyperlink{class_shader_program_a1e026f19a0fb0bc32f169f21be9d8c1b}{validateUniformLocation}}(uniform\_location);}
+\DoxyCodeLine{00289 }
+\DoxyCodeLine{00290 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{00291   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{00292 }
+\DoxyCodeLine{00293 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00294 }
+\DoxyCodeLine{00295   \textcolor{keywordflow}{if} (!validity) \{}
+\DoxyCodeLine{00296     \textcolor{comment}{/*std::stringstream ss;}}
+\DoxyCodeLine{00297 \textcolor{comment}{            ss << "{}You have set a wrong uniform! "{}}}
+\DoxyCodeLine{00298 \textcolor{comment}{                << "{}Name: "{} << shaderUniformName << "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00299 \textcolor{comment}{}}
+\DoxyCodeLine{00300 \textcolor{comment}{            std::cout << ss.str();*/}}
+\DoxyCodeLine{00301   \}}
+\DoxyCodeLine{00302 }
+\DoxyCodeLine{00303 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00304 }
+\DoxyCodeLine{00305   \textcolor{keywordflow}{return} uniform\_location;}
+\DoxyCodeLine{00306 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00279}{validate\+Uniform\+Location()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00219}{set\+Uniform\+Float()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00232}{set\+Uniform\+Int()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00244}{set\+Uniform\+Matrix4fv()}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00207}{set\+Uniform\+Vec3()}}.
+
+Here is the call graph for this function\+:
+% FIG 17
+Here is the caller graph for this function\+:
+% FIG 18
+\mbox{\Hypertarget{class_shader_program_a92e346e0a175e5e1abde9271acf8300b}\label{class_shader_program_a92e346e0a175e5e1abde9271acf8300b}} 
+\index{ShaderProgram@{ShaderProgram}!setUniformBlockBinding@{setUniformBlockBinding}}
+\index{setUniformBlockBinding@{setUniformBlockBinding}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setUniformBlockBinding()}{setUniformBlockBinding()}}
+{\footnotesize\ttfamily bool Shader\+Program\+::set\+Uniform\+Block\+Binding (\begin{DoxyParamCaption}\item[{GLuint}]{block\+\_\+binding,  }\item[{const std\+::string \&}]{shader\+Uniform\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00257}{257}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00258 \{}
+\DoxyCodeLine{00259 }
+\DoxyCodeLine{00260   \textcolor{keywordtype}{bool} validity = \textcolor{keyword}{true};}
+\DoxyCodeLine{00261   GLint uniform\_location = glGetUniformBlockIndex(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, shaderUniformName.c\_str());}
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263   (uniform\_location < 0) ? validity = \textcolor{keyword}{false} : validity = \textcolor{keyword}{true};}
+\DoxyCodeLine{00264 }
+\DoxyCodeLine{00265   \textcolor{keywordflow}{if} (validity) \{}
+\DoxyCodeLine{00266     glUniformBlockBinding(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, uniform\_location, block\_binding);}
+\DoxyCodeLine{00267   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00268 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{00269     \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{00270 }
+\DoxyCodeLine{00271 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00272     \textcolor{comment}{//printf("{}Error at setting uniform block binding!"{});}}
+\DoxyCodeLine{00273 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00274   \}}
+\DoxyCodeLine{00275 }
+\DoxyCodeLine{00276   \textcolor{keywordflow}{return} validity;}
+\DoxyCodeLine{00277 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+\mbox{\Hypertarget{class_shader_program_a8eb02cad5cf01470018881d85e0ba726}\label{class_shader_program_a8eb02cad5cf01470018881d85e0ba726}} 
+\index{ShaderProgram@{ShaderProgram}!setUniformFloat@{setUniformFloat}}
+\index{setUniformFloat@{setUniformFloat}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setUniformFloat()}{setUniformFloat()}}
+{\footnotesize\ttfamily bool Shader\+Program\+::set\+Uniform\+Float (\begin{DoxyParamCaption}\item[{GLfloat}]{uniform,  }\item[{const std\+::string \&}]{shader\+Uniform\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00219}{219}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220 \{}
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00222   \textcolor{keywordtype}{bool} validity = \textcolor{keyword}{true};}
+\DoxyCodeLine{00223   GLuint uniform\_location = \mbox{\hyperlink{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}{getUniformLocation}}(shaderUniformName, validity);}
+\DoxyCodeLine{00224 }
+\DoxyCodeLine{00225   \textcolor{keywordflow}{if} (validity) \{}
+\DoxyCodeLine{00226     glUniform1f(uniform\_location, uniform);}
+\DoxyCodeLine{00227   \}}
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229   \textcolor{keywordflow}{return} validity;}
+\DoxyCodeLine{00230 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{get\+Uniform\+Location()}}.
+
+Here is the call graph for this function\+:
+% FIG 19
+\mbox{\Hypertarget{class_shader_program_a20455c25e6482499745a915f8dfacb69}\label{class_shader_program_a20455c25e6482499745a915f8dfacb69}} 
+\index{ShaderProgram@{ShaderProgram}!setUniformInt@{setUniformInt}}
+\index{setUniformInt@{setUniformInt}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setUniformInt()}{setUniformInt()}}
+{\footnotesize\ttfamily bool Shader\+Program\+::set\+Uniform\+Int (\begin{DoxyParamCaption}\item[{GLint}]{uniform,  }\item[{const std\+::string \&}]{shader\+Uniform\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00232}{232}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00233 \{}
+\DoxyCodeLine{00234   \textcolor{keywordtype}{bool} validity = \textcolor{keyword}{true};}
+\DoxyCodeLine{00235   GLuint uniform\_location = \mbox{\hyperlink{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}{getUniformLocation}}(shaderUniformName, validity);}
+\DoxyCodeLine{00236 }
+\DoxyCodeLine{00237   \textcolor{keywordflow}{if} (validity) \{}
+\DoxyCodeLine{00238     glUniform1i(uniform\_location, uniform);}
+\DoxyCodeLine{00239   \}}
+\DoxyCodeLine{00240 }
+\DoxyCodeLine{00241   \textcolor{keywordflow}{return} validity;}
+\DoxyCodeLine{00242 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{get\+Uniform\+Location()}}.
+
+Here is the call graph for this function\+:
+% FIG 20
+\mbox{\Hypertarget{class_shader_program_a3187754c546e322728a9545288ac80b0}\label{class_shader_program_a3187754c546e322728a9545288ac80b0}} 
+\index{ShaderProgram@{ShaderProgram}!setUniformMatrix4fv@{setUniformMatrix4fv}}
+\index{setUniformMatrix4fv@{setUniformMatrix4fv}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setUniformMatrix4fv()}{setUniformMatrix4fv()}}
+{\footnotesize\ttfamily bool Shader\+Program\+::set\+Uniform\+Matrix4fv (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{matrix,  }\item[{const std\+::string \&}]{shader\+Uniform\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00244}{244}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00245 \{}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00247   \textcolor{keywordtype}{bool} validity = \textcolor{keyword}{true};}
+\DoxyCodeLine{00248   GLuint uniform\_location = \mbox{\hyperlink{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}{getUniformLocation}}(shaderUniformName, validity);}
+\DoxyCodeLine{00249 }
+\DoxyCodeLine{00250   \textcolor{keywordflow}{if} (validity) \{}
+\DoxyCodeLine{00251     glUniformMatrix4fv(uniform\_location, 1, GL\_FALSE, glm::value\_ptr(matrix));}
+\DoxyCodeLine{00252   \}}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254   \textcolor{keywordflow}{return} validity;}
+\DoxyCodeLine{00255 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{get\+Uniform\+Location()}}.
+
+Here is the call graph for this function\+:
+% FIG 21
+\mbox{\Hypertarget{class_shader_program_a048a4f5b95b0ee92d854c81440f71295}\label{class_shader_program_a048a4f5b95b0ee92d854c81440f71295}} 
+\index{ShaderProgram@{ShaderProgram}!setUniformVec3@{setUniformVec3}}
+\index{setUniformVec3@{setUniformVec3}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{setUniformVec3()}{setUniformVec3()}}
+{\footnotesize\ttfamily bool Shader\+Program\+::set\+Uniform\+Vec3 (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{uniform,  }\item[{const std\+::string \&}]{shader\+Uniform\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00207}{207}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00208 \{}
+\DoxyCodeLine{00209   \textcolor{keywordtype}{bool} validity = \textcolor{keyword}{true};}
+\DoxyCodeLine{00210   GLuint uniform\_location = \mbox{\hyperlink{class_shader_program_ae70d50cf98331a30dddb1f7183fc5b08}{getUniformLocation}}(shaderUniformName, validity);}
+\DoxyCodeLine{00211 }
+\DoxyCodeLine{00212   \textcolor{keywordflow}{if} (validity) \{}
+\DoxyCodeLine{00213     glUniform3f(uniform\_location, uniform.x, uniform.y, uniform.z);}
+\DoxyCodeLine{00214   \}}
+\DoxyCodeLine{00215 }
+\DoxyCodeLine{00216   \textcolor{keywordflow}{return} validity;}
+\DoxyCodeLine{00217 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{get\+Uniform\+Location()}}.
+
+Here is the call graph for this function\+:
+% FIG 22
+\mbox{\Hypertarget{class_shader_program_aa963584be51f4544c8e375859bf00730}\label{class_shader_program_aa963584be51f4544c8e375859bf00730}} 
+\index{ShaderProgram@{ShaderProgram}!use\_shader\_program@{use\_shader\_program}}
+\index{use\_shader\_program@{use\_shader\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{use\_shader\_program()}{use\_shader\_program()}}
+{\footnotesize\ttfamily void Shader\+Program\+::use\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106 \{ glUseProgram(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+\mbox{\Hypertarget{class_shader_program_a6cadcf193ab6170f965a466b183ebc94}\label{class_shader_program_a6cadcf193ab6170f965a466b183ebc94}} 
+\index{ShaderProgram@{ShaderProgram}!validate\_program@{validate\_program}}
+\index{validate\_program@{validate\_program}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{validate\_program()}{validate\_program()}}
+{\footnotesize\ttfamily void Shader\+Program\+::validate\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090 \{}
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00092   GLint result = 0;}
+\DoxyCodeLine{00093   GLchar eLog[1024] = \{ 0 \};}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095   glValidateProgram(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}});}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097   glGetProgramiv(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, GL\_VALIDATE\_STATUS, \&result);}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099   \textcolor{keywordflow}{if} (!result) \{}
+\DoxyCodeLine{00100     glGetProgramInfoLog(\mbox{\hyperlink{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}{program\_id}}, \textcolor{keyword}{sizeof}(eLog), NULL, eLog);}
+\DoxyCodeLine{00101     printf(\textcolor{stringliteral}{"{}Error validating program: '\%s'\(\backslash\)n"{}}, eLog);}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00103   \}}
+\DoxyCodeLine{00104 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_program_8h_source_l00040}{program\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00189}{compile\+\_\+program()}}.
+
+Here is the caller graph for this function\+:
+% FIG 23
+\mbox{\Hypertarget{class_shader_program_a1e026f19a0fb0bc32f169f21be9d8c1b}\label{class_shader_program_a1e026f19a0fb0bc32f169f21be9d8c1b}} 
+\index{ShaderProgram@{ShaderProgram}!validateUniformLocation@{validateUniformLocation}}
+\index{validateUniformLocation@{validateUniformLocation}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{validateUniformLocation()}{validateUniformLocation()}}
+{\footnotesize\ttfamily bool Shader\+Program\+::validate\+Uniform\+Location (\begin{DoxyParamCaption}\item[{GLint}]{uniform\+Location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8cpp_source_l00279}{279}} of file \mbox{\hyperlink{_shader_program_8cpp_source}{Shader\+Program.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280 \{}
+\DoxyCodeLine{00281   \textcolor{comment}{// if uniform location is invalid (f.e. var disappears because of optimizing of unused vars)}}
+\DoxyCodeLine{00282   \textcolor{keywordflow}{return} (uniformLocation == -\/1) ? false : \textcolor{keyword}{true};}
+\DoxyCodeLine{00283 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{get\+Uniform\+Location()}}.
+
+Here is the caller graph for this function\+:
+% FIG 24
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_shader_program_a70e5e838a730caf3305e1101404316e9}\label{class_shader_program_a70e5e838a730caf3305e1101404316e9}} 
+\index{ShaderProgram@{ShaderProgram}!compute\_location@{compute\_location}}
+\index{compute\_location@{compute\_location}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{compute\_location}{compute\_location}}
+{\footnotesize\ttfamily const char$\ast$ Shader\+Program\+::compute\+\_\+location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00046}{46}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00072}{create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file()}}, and \mbox{\hyperlink{_compute_shader_program_8cpp_source_l00005}{Compute\+Shader\+Program\+::reload()}}.
+
+\mbox{\Hypertarget{class_shader_program_a310d8cc97c3ddd2301b294008138a892}\label{class_shader_program_a310d8cc97c3ddd2301b294008138a892}} 
+\index{ShaderProgram@{ShaderProgram}!fragment\_location@{fragment\_location}}
+\index{fragment\_location@{fragment\_location}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{fragment\_location}{fragment\_location}}
+{\footnotesize\ttfamily const char$\ast$ Shader\+Program\+::fragment\+\_\+location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00044}{44}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00019}{create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_omni_dir_shadow_shader_program_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Shader\+Program\+::reload()}}.
+
+\mbox{\Hypertarget{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}\label{class_shader_program_ac38456d75b1ea9a74179f8c7b4689ffa}} 
+\index{ShaderProgram@{ShaderProgram}!geometry\_location@{geometry\_location}}
+\index{geometry\_location@{geometry\_location}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{geometry\_location}{geometry\_location}}
+{\footnotesize\ttfamily const char$\ast$ Shader\+Program\+::geometry\+\_\+location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00045}{45}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00043}{create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_omni_dir_shadow_shader_program_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Shader\+Program\+::reload()}}.
+
+\mbox{\Hypertarget{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}\label{class_shader_program_afa7fee08fcbf9ddc90a2d56385a7bf31}} 
+\index{ShaderProgram@{ShaderProgram}!program\_id@{program\_id}}
+\index{program\_id@{program\_id}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{program\_id}{program\_id}}
+{\footnotesize\ttfamily GLuint Shader\+Program\+::program\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00040}{40}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00308}{clear\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00175}{compile\+\_\+compute\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00189}{compile\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00140}{compile\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00087}{get\+\_\+id()}}, \mbox{\hyperlink{_geometry_pass_shader_program_8h_source_l00010}{Geometry\+Pass\+Shader\+Program\+::get\+\_\+program\+\_\+id()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00285}{get\+Uniform\+Location()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00257}{set\+Uniform\+Block\+Binding()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00106}{use\+\_\+shader\+\_\+program()}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00089}{validate\+\_\+program()}}.
+
+\mbox{\Hypertarget{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}\label{class_shader_program_a725e0d8b9ce79eabf21c62c32110507d}} 
+\index{ShaderProgram@{ShaderProgram}!shader\_base\_dir@{shader\_base\_dir}}
+\index{shader\_base\_dir@{shader\_base\_dir}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{shader\_base\_dir}{shader\_base\_dir}}
+{\footnotesize\ttfamily std\+::string Shader\+Program\+::shader\+\_\+base\+\_\+dir\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00039}{39}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00072}{create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00019}{create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_shader_program_8cpp_source_l00006}{Shader\+Program()}}.
+
+\mbox{\Hypertarget{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}\label{class_shader_program_aca5dfb99f018ef05883c01c478fdd3f5}} 
+\index{ShaderProgram@{ShaderProgram}!vertex\_location@{vertex\_location}}
+\index{vertex\_location@{vertex\_location}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{vertex\_location}{vertex\_location}}
+{\footnotesize\ttfamily const char$\ast$ Shader\+Program\+::vertex\+\_\+location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_program_8h_source_l00043}{43}} of file \mbox{\hyperlink{_shader_program_8h_source}{Shader\+Program.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00019}{create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_omni_dir_shadow_shader_program_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Shader\+Program\+::reload()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/\mbox{\hyperlink{_shader_program_8h}{Shader\+Program.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/\mbox{\hyperlink{_shader_program_8cpp}{Shader\+Program.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,15 @@
+digraph "ShaderProgram"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{ShaderProgram\n||+  ShaderProgram()\l+  ShaderProgram(const\l ShaderProgram &)=default\l+ void create_from_files\l(const char *vertex_location,\l const char *fragment_location)\l+ void create_from_files\l(const char *vertex_location,\l const char *geometry_location,\l const char *fragment_location)\l+ void create_computer\l_shader_program_from\l_file(const char *compute\l_location)\l+ bool setUniformVec3\l(glm::vec3 uniform,\l const std::string &shaderUniform\lName)\l+ bool setUniformFloat\l(GLfloat uniform, const\l std::string &shaderUniformName)\l+ bool setUniformInt\l(GLint uniform, const\l std::string &shaderUniformName)\l+ bool setUniformMatrix4fv\l(glm::mat4 matrix, const\l std::string &shaderUniformName)\l+ bool setUniformBlockBinding\l(GLuint block_binding, const\l std::string &shaderUniformName)\l+ GLuint get_id() const\l+ void use_shader_program()\l+ void validate_program()\l+  ~ShaderProgram()\l# void add_shader(GLuint\l program, const char *shader\l_code, GLenum shader_type)\l# void compile_shader\l_program(const char\l *vertex_code, const\l char *fragment_code)\l# void compile_shader\l_program(const char\l *vertex_code, const\l char *geometry_code,\l const char *fragment_code)\l# void compile_compute\l_shader_program(const\l char *compute_code)\l# void compile_program()\l# bool validateUniformLocation\l(GLint uniformLocation)\l# GLuint getUniformLocation\l(const std::string &shaderUniform\lName, bool &validity)\l# void clear_shader_program()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #shader_base_dir" ,arrowhead="odiamond"];
+  Node2 [label="{string\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #program_id" ,arrowhead="odiamond"];
+  Node3 [label="{GLuint\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #compute_location\n#fragment_location\n#geometry_location\n#vertex_location" ,arrowhead="odiamond"];
+  Node4 [label="{const char *\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+}

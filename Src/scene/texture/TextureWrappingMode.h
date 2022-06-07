@@ -1,10 +1,10 @@
 #pragma once
-//lets mimic and c++-style interface :)
+// lets mimic and c++-style interface :)
 #include <glad/glad.h>
 
 class TextureWrappingMode {
-  public:
+ public:
   virtual void activate() = 0;
 
-  private:
+ private:
 };

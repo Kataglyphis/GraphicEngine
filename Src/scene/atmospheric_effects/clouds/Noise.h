@@ -2,18 +2,20 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <random>
-#include <memory>
+
 #include <array>
+#include <glm/glm.hpp>
+#include <memory>
+#include <random>
 #include <vector>
 
 #include "ComputeShaderProgram.h"
 #include "bindings.h"
 
-// inspired by: http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf
+// inspired by:
+// http://advances.realtimerendering.com/s2015/The%20Real-time%20Volumetric%20Cloudscapes%20of%20Horizon%20-%20Zero%20Dawn%20-%20ARTR.pdf
 class Noise {
-  public:
+ public:
   Noise();
 
   void create_res128_noise();
@@ -28,7 +30,7 @@ class Noise {
 
   ~Noise();
 
-  private:
+ private:
   void create_shader_programs();
   void generate_cells(GLuint num_cells_per_axis, GLuint cell_index);
 

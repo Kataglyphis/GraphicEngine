@@ -1,0 +1,388 @@
+\hypertarget{_perlin_8h_source}{}\doxysection{Perlin.\+h}
+\label{_perlin_8h_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Perlin.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Perlin.h}}
+\mbox{\hyperlink{_perlin_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <vector>}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00003}00003 \textcolor{comment}{////}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00004}00004 \textcolor{comment}{////\#ifndef PERLIN\_H}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00005}00005 \textcolor{comment}{////\#define PERLIN\_H}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00006}00006 \textcolor{comment}{}\textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00007}00007 \textcolor{comment}{//double fade(double t);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00008}00008 \textcolor{comment}{//double lerp(double t, double a, double b);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00009}00009 \textcolor{comment}{//double grad(int hash, double x, double y, double z);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00010}00010 \textcolor{comment}{//double perlin\_noise(float x, float y, std::vector<int>\& p);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00011}00011 \textcolor{comment}{//}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00012}00012 \textcolor{comment}{//// tests}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00013}00013 \textcolor{comment}{////// something is wrong with this vector return value}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00014}00014 \textcolor{comment}{}\textcolor{comment}{//std::vector<int> myFunction(int value, double bullshit) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00015}00015 \textcolor{comment}{//      std::vector<int> r\{ 2,3,4,4 \};}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00016}00016 \textcolor{comment}{//      return r;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00017}00017 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00018}00018 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00019}00019 \textcolor{comment}{//void get\_Permutation\_Vector(std::vector<int>* pVectorPointer);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00020}00020 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00021}00021 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00022}00022 \textcolor{comment}{//}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00023}00023 \textcolor{comment}{////\#endif // end PERLIN\_H if}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00024}00024 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00026}00026 \textcolor{comment}{// fade(t)= t\string^3 (10 + t* (t* 6 -\/ 15))}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00027}\mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{00027}} \textcolor{keywordtype}{double} \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(\textcolor{keywordtype}{double} t) \{ \textcolor{keywordflow}{return} t * t * t * (t * (t * 6 -\/ 15) + 10); \};}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00029}00029 \textcolor{comment}{// linear interpolation between a and b: For polishing}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00030}00030 \textcolor{comment}{// t = [0,1] is the persentage of the distance bewteen a and b}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00031}\mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{00031}} \textcolor{keywordtype}{double} \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(\textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{ \textcolor{keywordflow}{return} a + (b -\/ a) * t; \}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00034}00034 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00035}\mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{00035}} \textcolor{keywordtype}{double} \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(\textcolor{keywordtype}{int} hash, \textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z)}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00036}00036 \{}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00037}00037   \textcolor{keywordtype}{int} h = hash \& 15; \textcolor{comment}{// CONVERT LO 4 BITS OF HASH CODE}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00038}00038   \textcolor{keywordtype}{double} u = h < 8 ? x : y, \textcolor{comment}{// INTO 12 GRADIENT DIRECTIONS.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00039}00039     v = h < 4            ? y}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00040}00040     : h == 12 || h == 14 ? x}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00041}00041                          : z;}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00042}00042   \textcolor{keywordflow}{return} ((h \& 1) == 0 ? u : -\/u) + ((h \& 2) == 0 ? v : -\/v);}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00043}00043 \}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00046}00046 \textcolor{comment}{// generate Perlin noise}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00047}00047 \textcolor{comment}{// Parameter:}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00048}00048 \textcolor{comment}{// p is (psyodo) "{}random"{} value}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00049}\mbox{\hyperlink{_perlin_8h_a35157b8efa76162c016a3298f54f43b5}{00049}} \textcolor{keywordtype}{double} \mbox{\hyperlink{_perlin_8h_a35157b8efa76162c016a3298f54f43b5}{perlin\_noise}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, std::vector<int>\& p)}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00050}00050 \{}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00051}00051   \textcolor{keywordtype}{int} z = 0.5;}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00053}00053   \textcolor{comment}{// x,y,z abrunden und mit 1111 1111 verunden == modulo 255}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00054}00054   \textcolor{keywordtype}{int} X = (int)floor(x) \& 255, \textcolor{comment}{// FIND UNIT CUBE THAT}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00055}00055     Y = (int)floor(y) \& 255, \textcolor{comment}{// CONTAINS POINT.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00056}00056     Z = (int)floor(z) \& 255;}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00058}00058   \textcolor{comment}{// Kommastellen}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00059}00059   x -\/= floor(x); \textcolor{comment}{// FIND RELATIVE X,Y,Z}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00060}00060   y -\/= floor(y); \textcolor{comment}{// OF POINT IN CUBE.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00061}00061   z -\/= floor(z);}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00063}00063   \textcolor{keywordtype}{double} u = \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(x), \textcolor{comment}{// COMPUTE FADE CURVES}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00064}00064     v = \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(y), \textcolor{comment}{// FOR EACH OF X,Y,Z.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00065}00065     w = \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(z);}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00067}00067   \textcolor{keywordtype}{int} A = p[X] + Y, AA = p[A] + Z, AB = p[A + 1] + Z, \textcolor{comment}{// HASH COORDINATES OF}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00068}00068     B = p[X + 1] + Y, BA = p[B] + Z, BB = p[B + 1] + Z; \textcolor{comment}{// THE 8 CUBE CORNERS,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00070}00070   \textcolor{comment}{// return perlin noise of x and y}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00071}00071   \textcolor{keywordflow}{return} \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(w,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00072}00072     \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(v,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00073}00073       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00074}00074         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AA], x, y, z), \textcolor{comment}{// AND ADD}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00075}00075         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BA], x -\/ 1, y, z)), \textcolor{comment}{// BLENDED}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00076}00076       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00077}00077         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AB], x, y -\/ 1, z), \textcolor{comment}{// RESULTS}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00078}00078         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BB], x -\/ 1, y -\/ 1, z))), \textcolor{comment}{// FROM  8}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00079}00079     \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(v,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00080}00080       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00081}00081         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AA + 1], x, y, z -\/ 1), \textcolor{comment}{// CORNERS}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00082}00082         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BA + 1], x -\/ 1, y, z -\/ 1)), \textcolor{comment}{// OF CUBE}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00083}00083       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u, \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AB + 1], x, y -\/ 1, z -\/ 1), \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BB + 1], x -\/ 1, y -\/ 1, z -\/ 1))));}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00084}00084 \}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00085}00085 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00086}00086 \textcolor{comment}{//void get\_Permutation\_Vector(std::vector<int>* permVectorPointer) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00087}00087 \textcolor{comment}{//    permVectorPointer-\/>clear();}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00088}00088 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00089}00089 \textcolor{comment}{//    std::vector<int> permutation = \{ 151,160,137,91,90,15,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00090}00090 \textcolor{comment}{//    131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00091}00091 \textcolor{comment}{//    190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00092}00092 \textcolor{comment}{//    88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00093}00093 \textcolor{comment}{//    77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00094}00094 \textcolor{comment}{//    102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00095}00095 \textcolor{comment}{//    135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00096}00096 \textcolor{comment}{//    5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00097}00097 \textcolor{comment}{//    223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00098}00098 \textcolor{comment}{//    129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00099}00099 \textcolor{comment}{//    251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00100}00100 \textcolor{comment}{//    49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00101}00101 \textcolor{comment}{//    138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00102}00102 \textcolor{comment}{//    \};}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00103}00103 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00104}00104 \textcolor{comment}{//    for (int j = 0; j < 2; j++)}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00105}00105 \textcolor{comment}{//        for (int i = 0; i < 256; i++) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00106}00106 \textcolor{comment}{//            permVectorPointer-\/>push\_back(permutation[i]);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00107}00107 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00108}00108 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00111}00111 \textcolor{comment}{//initialise 2x permutation of a hard coded 256 int vector}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00112}00112 \textcolor{comment}{//std::vector<int> PERLIN\_H::kansei() \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00115}\mbox{\hyperlink{_perlin_8h_acb5e656b468026dbdc0c0baa307c49b3}{00115}} std::vector<int> \mbox{\hyperlink{_perlin_8h_acb5e656b468026dbdc0c0baa307c49b3}{getPermutationVector}}()}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00116}00116 \{}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00117}00117   std::vector<int> p;}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00119}00119   std::vector<int> permutation = \{ 151,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00120}00120     160,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00121}00121     137,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00122}00122     91,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00123}00123     90,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00124}00124     15,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00125}00125     131,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00126}00126     13,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00127}00127     201,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00128}00128     95,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00129}00129     96,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00130}00130     53,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00131}00131     194,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00132}00132     233,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00133}00133     7,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00134}00134     225,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00135}00135     140,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00136}00136     36,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00137}00137     103,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00138}00138     30,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00139}00139     69,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00140}00140     142,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00141}00141     8,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00142}00142     99,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00143}00143     37,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00144}00144     240,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00145}00145     21,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00146}00146     10,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00147}00147     23,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00148}00148     190,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00149}00149     6,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00150}00150     148,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00151}00151     247,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00152}00152     120,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00153}00153     234,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00154}00154     75,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00155}00155     0,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00156}00156     26,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00157}00157     197,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00158}00158     62,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00159}00159     94,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00160}00160     252,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00161}00161     219,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00162}00162     203,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00163}00163     117,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00164}00164     35,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00165}00165     11,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00166}00166     32,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00167}00167     57,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00168}00168     177,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00169}00169     33,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00170}00170     88,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00171}00171     237,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00172}00172     149,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00173}00173     56,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00174}00174     87,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00175}00175     174,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00176}00176     20,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00177}00177     125,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00178}00178     136,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00179}00179     171,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00180}00180     168,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00181}00181     68,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00182}00182     175,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00183}00183     74,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00184}00184     165,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00185}00185     71,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00186}00186     134,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00187}00187     139,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00188}00188     48,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00189}00189     27,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00190}00190     166,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00191}00191     77,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00192}00192     146,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00193}00193     158,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00194}00194     231,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00195}00195     83,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00196}00196     111,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00197}00197     229,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00198}00198     122,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00199}00199     60,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00200}00200     211,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00201}00201     133,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00202}00202     230,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00203}00203     220,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00204}00204     105,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00205}00205     92,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00206}00206     41,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00207}00207     55,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00208}00208     46,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00209}00209     245,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00210}00210     40,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00211}00211     244,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00212}00212     102,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00213}00213     143,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00214}00214     54,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00215}00215     65,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00216}00216     25,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00217}00217     63,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00218}00218     161,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00219}00219     1,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00220}00220     216,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00221}00221     80,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00222}00222     73,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00223}00223     209,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00224}00224     76,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00225}00225     132,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00226}00226     187,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00227}00227     208,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00228}00228     89,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00229}00229     18,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00230}00230     169,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00231}00231     200,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00232}00232     196,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00233}00233     135,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00234}00234     130,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00235}00235     116,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00236}00236     188,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00237}00237     159,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00238}00238     86,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00239}00239     164,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00240}00240     100,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00241}00241     109,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00242}00242     198,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00243}00243     173,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00244}00244     186,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00245}00245     3,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00246}00246     64,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00247}00247     52,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00248}00248     217,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00249}00249     226,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00250}00250     250,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00251}00251     124,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00252}00252     123,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00253}00253     5,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00254}00254     202,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00255}00255     38,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00256}00256     147,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00257}00257     118,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00258}00258     126,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00259}00259     255,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00260}00260     82,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00261}00261     85,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00262}00262     212,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00263}00263     207,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00264}00264     206,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00265}00265     59,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00266}00266     227,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00267}00267     47,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00268}00268     16,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00269}00269     58,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00270}00270     17,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00271}00271     182,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00272}00272     189,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00273}00273     28,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00274}00274     42,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00275}00275     223,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00276}00276     183,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00277}00277     170,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00278}00278     213,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00279}00279     119,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00280}00280     248,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00281}00281     152,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00282}00282     2,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00283}00283     44,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00284}00284     154,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00285}00285     163,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00286}00286     70,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00287}00287     221,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00288}00288     153,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00289}00289     101,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00290}00290     155,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00291}00291     167,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00292}00292     43,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00293}00293     172,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00294}00294     9,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00295}00295     129,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00296}00296     22,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00297}00297     39,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00298}00298     253,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00299}00299     19,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00300}00300     98,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00301}00301     108,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00302}00302     110,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00303}00303     79,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00304}00304     113,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00305}00305     224,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00306}00306     232,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00307}00307     178,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00308}00308     185,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00309}00309     112,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00310}00310     104,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00311}00311     218,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00312}00312     246,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00313}00313     97,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00314}00314     228,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00315}00315     251,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00316}00316     34,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00317}00317     242,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00318}00318     193,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00319}00319     238,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00320}00320     210,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00321}00321     144,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00322}00322     12,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00323}00323     191,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00324}00324     179,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00325}00325     162,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00326}00326     241,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00327}00327     81,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00328}00328     51,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00329}00329     145,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00330}00330     235,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00331}00331     249,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00332}00332     14,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00333}00333     239,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00334}00334     107,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00335}00335     49,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00336}00336     192,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00337}00337     214,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00338}00338     31,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00339}00339     181,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00340}00340     199,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00341}00341     106,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00342}00342     157,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00343}00343     184,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00344}00344     84,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00345}00345     204,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00346}00346     176,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00347}00347     115,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00348}00348     121,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00349}00349     50,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00350}00350     45,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00351}00351     127,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00352}00352     4,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00353}00353     150,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00354}00354     254,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00355}00355     138,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00356}00356     236,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00357}00357     205,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00358}00358     93,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00359}00359     222,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00360}00360     114,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00361}00361     67,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00362}00362     29,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00363}00363     24,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00364}00364     72,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00365}00365     243,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00366}00366     141,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00367}00367     128,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00368}00368     195,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00369}00369     78,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00370}00370     66,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00371}00371     215,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00372}00372     61,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00373}00373     156,}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00374}00374     180 \};}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00375}00375 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00376}00376   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 2; j++)}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00377}00377     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 256; i++) \{}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00378}00378       p.push\_back(permutation[i]);}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00379}00379     \}}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00380}00380 }
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00381}00381   \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{\Hypertarget{_perlin_8h_source_l00382}00382 \}}
+
+\end{DoxyCode}

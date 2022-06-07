@@ -1,0 +1,15 @@
+digraph "C:/Users/jonas/Desktop/GraphicEngine/Src/compute"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_413f4e031a85da0d68269c6fd2f76e1c {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", style="filled,dashed,", label="Src", fontname="Helvetica", fontsize="10", URL="dir_413f4e031a85da0d68269c6fd2f76e1c.html"]
+  dir_110bf15beb781d7cd423359a55b6cfac [shape=box, label="renderer", style="filled,", fillcolor="#a2b4d6", color="red", URL="dir_110bf15beb781d7cd423359a55b6cfac.html"];
+  dir_2d749d84044300592695f3e304c446b2 [shape=box, label="compute", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_2d749d84044300592695f3e304c446b2.html"];
+  }
+  dir_2d749d84044300592695f3e304c446b2->dir_110bf15beb781d7cd423359a55b6cfac [headlabel="1", labeldistance=1.5 headhref="dir_000004_000012.html"];
+}

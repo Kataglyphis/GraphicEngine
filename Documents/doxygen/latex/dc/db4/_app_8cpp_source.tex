@@ -1,0 +1,128 @@
+\hypertarget{_app_8cpp_source}{}\doxysection{App.\+cpp}
+\label{_app_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/app/App.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/app/App.cpp}}
+\mbox{\hyperlink{_app_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00001}00001 \textcolor{comment}{// include ability to execute threads}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00010}00010 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_file_8h}{File.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_g_u_i_8h}{GUI.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_loading_screen_8h}{LoadingScreen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_renderer_8h}{Renderer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00017}00017 \textcolor{comment}{//all scene/game logic/ game object related stuff}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_8h}{Scene.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_window_8h}{Window.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_global_values_8h}{GlobalValues.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{host__device__shared_8h}{host\_device\_shared.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00024}00024 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_debug_app_8h}{DebugApp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00026}\mbox{\hyperlink{_app_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00026}} \textcolor{keywordtype}{int} \mbox{\hyperlink{_app_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00029}00029   \textcolor{keywordtype}{bool} loading\_screen\_finished = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00031}00031   GLint window\_width = 1200;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00032}00032   GLint window\_height = 800;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00034}00034   \textcolor{comment}{// make sure ti initialize window first}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00035}00035   \textcolor{comment}{// this will create opengl context!}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00036}00036   std::shared\_ptr<Window> main\_window = std::make\_shared<Window>(window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00038}00038   \mbox{\hyperlink{class_debug_app}{DebugApp}} debugCallbacks;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00040}00040   \mbox{\hyperlink{class_renderer}{Renderer}} renderer(window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00042}00042   \mbox{\hyperlink{class_g_u_i}{GUI}} gui;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00043}00043   gui.\mbox{\hyperlink{class_g_u_i_abe01c4db97be141742d52be2e1f19b15}{init}}(main\_window);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00045}00045   \mbox{\hyperlink{class_loading_screen}{LoadingScreen}} loading\_screen;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00046}00046   loading\_screen.\mbox{\hyperlink{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}{init}}();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00048}00048   std::shared\_ptr<Camera> main\_camera = std::make\_shared<Camera>();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00050}00050   std::shared\_ptr<Scene> scene = std::make\_shared<Scene>(main\_camera, main\_window);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00052}00052   \textcolor{comment}{// load scene in an other thread than the rendering thread; would block otherwise}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00053}00053   std::thread t1 = scene-\/>spwan();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00054}00054   t1.detach();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00056}00056   GLfloat delta\_time = 0.0f;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00057}00057   GLfloat last\_time = 0.0f;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00059}00059   \textcolor{comment}{//enable depth testing}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00060}00060   glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00063}00063   \textcolor{keywordflow}{while} (!main\_window-\/>get\_should\_close()) \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00065}00065     glViewport(0, 0, window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00067}00067     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00068}00068     glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00070}00070     \textcolor{comment}{//we need the projection matrix, just use glm::perspective function}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00071}00071     glm::mat4 projection\_matrix = glm::perspectiveFov(}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00072}00072       glm::radians(main\_camera-\/>get\_fov()), (GLfloat)window\_width, (GLfloat)window\_height, main\_camera-\/>get\_near\_plane(), main\_camera-\/>get\_far\_plane());}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00074}00074     \textcolor{comment}{//we should make the application independet of processor speed :)}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00075}00075     \textcolor{comment}{// take time into account is crucial}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00076}00076     \textcolor{comment}{// concept of delta time: https://bell0bytes.eu/keeping-\/track-\/of-\/time/}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00077}00077     GLfloat now = (float)glfwGetTime();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00078}00078     delta\_time = now -\/ last\_time;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00079}00079     last\_time = now;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00081}00081     \textcolor{comment}{//poll all events incoming from user}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00082}00082     glfwPollEvents();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00084}00084     \textcolor{comment}{// handle events for the camera}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00085}00085     main\_camera-\/>key\_control(main\_window-\/>get\_keys(), delta\_time);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00086}00086     main\_camera-\/>mouse\_control(main\_window-\/>get\_x\_change(), main\_window-\/>get\_y\_change());}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00088}00088     \textcolor{keywordflow}{if} (scene-\/>is\_loaded()) \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00090}00090       \textcolor{keywordflow}{if} (!loading\_screen\_finished) loading\_screen\_finished = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00092}00092       \textcolor{keywordflow}{if} (!scene-\/>get\_context\_setup()) scene-\/>setup\_game\_object\_context();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00094}00094       renderer.\mbox{\hyperlink{class_renderer_a70f159ac4e813c01e355273b53f6b51b}{drawFrame}}(main\_camera, scene, projection\_matrix, delta\_time);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00096}00096     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00097}00097       \textcolor{comment}{// play the audio}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00098}00098       \textcolor{comment}{//SoundEngine-\/>play2D("{}Audio/Red\_Dead\_Redemption\_2 \_Loading\_Screen.mp3"{}, true); //}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00099}00099       loading\_screen.\mbox{\hyperlink{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}{render}}();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00100}00100     \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00102}00102     \textcolor{keywordtype}{bool} shader\_hot\_reload\_triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00103}00103     gui.\mbox{\hyperlink{class_g_u_i_a560db89fa6ec13445c91ce73f3c6f2e0}{render}}(!scene-\/>is\_loaded(), scene-\/>get\_progress(), shader\_hot\_reload\_triggered);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00105}00105     \textcolor{keywordflow}{if} (shader\_hot\_reload\_triggered) renderer.\mbox{\hyperlink{class_renderer_abc9b64430ae1189acd17b34543c23e55}{reload\_shader\_programs}}();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00107}00107     gui.\mbox{\hyperlink{class_g_u_i_a8567aa88b4d6a2a14e7951dd74401c6b}{update\_user\_input}}(scene);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00109}00109     main\_window-\/>update\_viewport();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00110}00110     GLuint new\_window\_width = main\_window-\/>get\_buffer\_width();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00111}00111     GLuint new\_window\_height = main\_window-\/>get\_buffer\_height();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00113}00113     \textcolor{keywordflow}{if} ((\textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(new\_window\_width) == window\_width \&\& \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(new\_window\_height) == window\_height) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00115}00115       window\_height = new\_window\_height;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00116}00116       window\_width = new\_window\_width;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00117}00117       renderer.\mbox{\hyperlink{class_renderer_a015ede509aab9b53a19f5dcee76b1824}{update\_window\_params}}(window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00118}00118     \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00120}00120     main\_window-\/>swap\_buffers();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00121}00121   \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_source_l00122}00122 \}}
+
+\end{DoxyCode}

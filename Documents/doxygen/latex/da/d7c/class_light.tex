@@ -1,0 +1,193 @@
+\hypertarget{class_light}{}\doxysection{Light Class Reference}
+\label{class_light}\index{Light@{Light}}
+
+
+{\ttfamily \#include $<$Light.\+h$>$}
+
+
+
+Inheritance diagram for Light\+:
+% FIG 0
+
+
+Collaboration diagram for Light\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}} ()
+\item 
+\mbox{\hyperlink{class_light_a44c8b2e48f1e7cd6473a82fbd12aa1ec}{Light}} (GLfloat red, GLfloat green, GLfloat blue, GLfloat \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}})
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_light_a84a9c8081398be8b5ba2cf23f151cca0}{get\+\_\+color}} () const
+\item 
+float \mbox{\hyperlink{class_light_a867a0b360bbb396c5f00afbee6dd090c}{get\+\_\+radiance}} () const
+\item 
+\mbox{\hyperlink{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}{$\sim$\+Light}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}
+\item 
+float \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\+\_\+proj}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_light_8h_source_l00008}{8}} of file \mbox{\hyperlink{_light_8h_source}{Light.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_light_aeb5df09a25a32f19fdffa761268ba24f}\label{class_light_aeb5df09a25a32f19fdffa761268ba24f}} 
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{Light()}{Light()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Light\+::\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_light_8cpp_source}{Light.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003              :}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005     \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}(glm::vec3(1.0f)), \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}(1.0f)}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_light_a44c8b2e48f1e7cd6473a82fbd12aa1ec}\label{class_light_a44c8b2e48f1e7cd6473a82fbd12aa1ec}} 
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{Light()}{Light()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Light\+::\+Light (\begin{DoxyParamCaption}\item[{GLfloat}]{red,  }\item[{GLfloat}]{green,  }\item[{GLfloat}]{blue,  }\item[{GLfloat}]{radiance }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_light_8cpp_source}{Light.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010                                                                        :}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012     \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}(glm::vec3(red, green, blue)), \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}(\mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}})}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}\label{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}} 
+\index{Light@{Light}!````~Light@{$\sim$Light}}
+\index{````~Light@{$\sim$Light}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{$\sim$Light()}{~Light()}}
+{\footnotesize\ttfamily Light\+::$\sim$\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_light_8cpp_source}{Light.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_light_a84a9c8081398be8b5ba2cf23f151cca0}\label{class_light_a84a9c8081398be8b5ba2cf23f151cca0}} 
+\index{Light@{Light}!get\_color@{get\_color}}
+\index{get\_color@{get\_color}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{get\_color()}{get\_color()}}
+{\footnotesize\ttfamily glm\+::vec3 Light\+::get\+\_\+color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8h_source_l00014}{14}} of file \mbox{\hyperlink{_light_8h_source}{Light.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_light_8h_source_l00020}{color}}.
+
+\mbox{\Hypertarget{class_light_a867a0b360bbb396c5f00afbee6dd090c}\label{class_light_a867a0b360bbb396c5f00afbee6dd090c}} 
+\index{Light@{Light}!get\_radiance@{get\_radiance}}
+\index{get\_radiance@{get\_radiance}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{get\_radiance()}{get\_radiance()}}
+{\footnotesize\ttfamily float Light\+::get\+\_\+radiance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8h_source_l00015}{15}} of file \mbox{\hyperlink{_light_8h_source}{Light.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_light_8h_source_l00021}{radiance}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_light_a91d73d70b4bd4beb402c0f16dab19a25}\label{class_light_a91d73d70b4bd4beb402c0f16dab19a25}} 
+\index{Light@{Light}!color@{color}}
+\index{color@{color}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily glm\+::vec3 Light\+::color\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8h_source_l00020}{20}} of file \mbox{\hyperlink{_light_8h_source}{Light.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00040}{Directional\+Light\+::get\+\_\+color()}}, \mbox{\hyperlink{_light_8h_source_l00014}{get\+\_\+color()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00176}{Directional\+Light\+::set\+\_\+color()}}.
+
+\mbox{\Hypertarget{class_light_a5b6fe7345006aace1eefdcf134b4a538}\label{class_light_a5b6fe7345006aace1eefdcf134b4a538}} 
+\index{Light@{Light}!light\_proj@{light\_proj}}
+\index{light\_proj@{light\_proj}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{light\_proj}{light\_proj}}
+{\footnotesize\ttfamily glm\+::mat4 Light\+::light\+\_\+proj\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8h_source_l00023}{23}} of file \mbox{\hyperlink{_light_8h_source}{Light.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00170}{Directional\+Light\+::calculate\+\_\+light\+\_\+transform()}}, \mbox{\hyperlink{_point_light_8cpp_source_l00024}{Point\+Light\+::calculate\+\_\+light\+\_\+transform()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00003}{Directional\+Light\+::\+Directional\+Light()}}, and \mbox{\hyperlink{_point_light_8cpp_source_l00010}{Point\+Light\+::\+Point\+Light()}}.
+
+\mbox{\Hypertarget{class_light_af4f02df94cfac77c152ecf26495e39bf}\label{class_light_af4f02df94cfac77c152ecf26495e39bf}} 
+\index{Light@{Light}!radiance@{radiance}}
+\index{radiance@{radiance}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{radiance}{radiance}}
+{\footnotesize\ttfamily float Light\+::radiance\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_light_8h_source_l00021}{21}} of file \mbox{\hyperlink{_light_8h_source}{Light.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00042}{Directional\+Light\+::get\+\_\+radiance()}}, \mbox{\hyperlink{_light_8h_source_l00015}{get\+\_\+radiance()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00174}{Directional\+Light\+::set\+\_\+radiance()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/\mbox{\hyperlink{_light_8h}{Light.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/\mbox{\hyperlink{_light_8cpp}{Light.\+cpp}}\end{DoxyCompactItemize}

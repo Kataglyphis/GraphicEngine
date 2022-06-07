@@ -1,15 +1,16 @@
 #pragma once
-#include <glm/glm.hpp>
-#include <vector>
 #include <glad/glad.h>
 
+#include <glm/glm.hpp>
+#include <vector>
+
+#include "GlobalValues.h"
 #include "Texture.h"
 #include "Vertex.h"
-#include "GlobalValues.h"
 
 // this a simple Mesh without mesh generation
 class Mesh {
-  public:
+ public:
   Mesh(std::vector<Vertex>& vertices, std::vector<unsigned int>& indices);
 
   Mesh();
@@ -21,7 +22,7 @@ class Mesh {
 
   ~Mesh();
 
-  private:
+ private:
   //  render data
   // unsigned int VAO, VBO, EBO;
   enum {

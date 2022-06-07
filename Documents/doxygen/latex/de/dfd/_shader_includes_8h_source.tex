@@ -1,0 +1,57 @@
+\hypertarget{_shader_includes_8h_source}{}\doxysection{Shader\+Includes.\+h}
+\label{_shader_includes_8h_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.h}}
+\mbox{\hyperlink{_shader_includes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00005}00005 \textcolor{comment}{// https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB\_shading\_language\_include.txt}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00006}\mbox{\hyperlink{class_shader_includes}{00006}} \textcolor{keyword}{class }\mbox{\hyperlink{class_shader_includes}{ShaderIncludes}} \{}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00008}00008   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00009}00009   \mbox{\hyperlink{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}{ShaderIncludes}}();}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00011}00011   \mbox{\hyperlink{class_shader_includes_a39cde13eaaf507862593a575e6045a54}{\string~ShaderIncludes}}();}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00013}00013   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00014}\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{00014}}   std::vector<const char*> \mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}} = \{ \textcolor{stringliteral}{"{}host\_device\_shared.h"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00015}00015     \textcolor{stringliteral}{"{}Matlib.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00016}00016     \textcolor{stringliteral}{"{}microfacet.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00017}00017     \textcolor{stringliteral}{"{}ShadingLibrary.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00018}00018     \textcolor{stringliteral}{"{}disney.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00019}00019     \textcolor{stringliteral}{"{}frostbite.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00020}00020     \textcolor{stringliteral}{"{}pbrBook.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00021}00021     \textcolor{stringliteral}{"{}phong.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00022}00022     \textcolor{stringliteral}{"{}unreal4.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00023}00023     \textcolor{stringliteral}{"{}clouds.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00024}00024     \textcolor{stringliteral}{"{}grad\_noise.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00025}00025     \textcolor{stringliteral}{"{}worley\_noise.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00026}00026     \textcolor{stringliteral}{"{}bindings.h"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00027}00027     \textcolor{stringliteral}{"{}GlobalValues.h"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00028}00028     \textcolor{stringliteral}{"{}directional\_light.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00029}00029     \textcolor{stringliteral}{"{}light.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00030}00030     \textcolor{stringliteral}{"{}material.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00031}00031     \textcolor{stringliteral}{"{}point\_light.glsl"{}} \};}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00033}\mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{00033}}   std::vector<const char*> \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}} = \{ \textcolor{stringliteral}{"{}/Src/host\_device\_shared.h"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00034}00034     \textcolor{stringliteral}{"{}/Resources/Shaders/common/Matlib.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00035}00035     \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/microfacet.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00036}00036     \textcolor{stringliteral}{"{}/Resources/Shaders/common/ShadingLibrary.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00037}00037     \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/disney.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00038}00038     \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/frostbite.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00039}00039     \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/pbrBook.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00040}00040     \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/phong.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00041}00041     \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/unreal4.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00042}00042     \textcolor{stringliteral}{"{}/Resources/Shaders/clouds/clouds.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00043}00043     \textcolor{stringliteral}{"{}/Resources/Shaders/common/grad\_noise.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00044}00044     \textcolor{stringliteral}{"{}/Resources/Shaders/common/worley\_noise.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00045}00045     \textcolor{stringliteral}{"{}/Src/bindings.h"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00046}00046     \textcolor{stringliteral}{"{}/Src/GlobalValues.h"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00047}00047     \textcolor{stringliteral}{"{}/Resources/Shaders/common/directional\_light.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00048}00048     \textcolor{stringliteral}{"{}/Resources/Shaders/common/light.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00049}00049     \textcolor{stringliteral}{"{}/Resources/Shaders/common/material.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00050}00050     \textcolor{stringliteral}{"{}/Resources/Shaders/common/point\_light.glsl"{}} \};}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8h_source_l00051}00051 \};}
+
+\end{DoxyCode}

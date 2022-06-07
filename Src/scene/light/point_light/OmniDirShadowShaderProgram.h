@@ -2,13 +2,12 @@
 #include "ShaderProgram.h"
 
 class OmniDirShadowShaderProgram : public ShaderProgram {
-
-  public:
+ public:
   OmniDirShadowShaderProgram();
 
   void reload();
 
   ~OmniDirShadowShaderProgram();
 
-  private:
+ private:
 };

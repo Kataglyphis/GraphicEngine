@@ -1,0 +1,342 @@
+\hypertarget{class_renderer}{}\doxysection{Renderer Class Reference}
+\label{class_renderer}\index{Renderer@{Renderer}}
+
+
+{\ttfamily \#include $<$Renderer.\+h$>$}
+
+
+
+Collaboration diagram for Renderer\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_renderer_a29dce303eb13e612b7231ff9fa50bfbf}{Renderer}} (GLuint \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\+\_\+width}}, GLuint \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\+\_\+height}})
+\item 
+void \mbox{\hyperlink{class_renderer_a70f159ac4e813c01e355273b53f6b51b}{draw\+Frame}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ main\+\_\+camera, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, glm\+::mat4 projection\+\_\+matrix, GLfloat delta\+\_\+time)
+\item 
+void \mbox{\hyperlink{class_renderer_a015ede509aab9b53a19f5dcee76b1824}{update\+\_\+window\+\_\+params}} (GLuint \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\+\_\+width}}, GLuint \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\+\_\+height}})
+\item 
+void \mbox{\hyperlink{class_renderer_abc9b64430ae1189acd17b34543c23e55}{reload\+\_\+shader\+\_\+programs}} ()
+\item 
+\mbox{\hyperlink{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}{$\sim$\+Renderer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\+\_\+width}}
+\item 
+GLuint \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\+\_\+height}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_g_buffer}{GBuffer}} $>$ \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}
+\item 
+\mbox{\hyperlink{class_shader_includes}{Shader\+Includes}} \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\+\_\+includes}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_render_pass}{Render\+Pass}} $>$ $>$ \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\+\_\+passes}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_omni_shadow_map_pass}{Omni\+Shadow\+Map\+Pass}} $>$ \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_directional_shadow_map_pass}{Directional\+Shadow\+Map\+Pass}} $>$ \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_geometry_pass}{Geometry\+Pass}} $>$ \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\+\_\+pass}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_lighting_pass}{Lighting\+Pass}} $>$ \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\+\_\+pass}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00012}{12}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_renderer_a29dce303eb13e612b7231ff9fa50bfbf}\label{class_renderer_a29dce303eb13e612b7231ff9fa50bfbf}} 
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
+{\footnotesize\ttfamily Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{GLuint}]{window\+\_\+width,  }\item[{GLuint}]{window\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004                                                             :}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006     \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}), \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}(\mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}), \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}(std::make\_shared<GBuffer>(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}})), \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\_includes}}(),}
+\DoxyCodeLine{00007     \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}}(std::make\_shared<OmniShadowMapPass>()), \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}}(std::make\_shared<DirectionalShadowMapPass>()),}
+\DoxyCodeLine{00008     \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}}(std::make\_shared<GeometryPass>()), \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}}(std::make\_shared<LightingPass>())}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \{}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}});}
+\DoxyCodeLine{00013   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}});}
+\DoxyCodeLine{00014   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}});}
+\DoxyCodeLine{00015   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}});}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>create();}
+\DoxyCodeLine{00018 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_renderer_8h_source_l00034}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00026}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00035}{geometry\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00036}{lighting\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00033}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}, and \mbox{\hyperlink{_renderer_8h_source_l00031}{render\+\_\+passes}}.
+
+\mbox{\Hypertarget{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}\label{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}} 
+\index{Renderer@{Renderer}!````~Renderer@{$\sim$Renderer}}
+\index{````~Renderer@{$\sim$Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Renderer()}{~Renderer()}}
+{\footnotesize\ttfamily Renderer\+::$\sim$\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_renderer_a70f159ac4e813c01e355273b53f6b51b}\label{class_renderer_a70f159ac4e813c01e355273b53f6b51b}} 
+\index{Renderer@{Renderer}!drawFrame@{drawFrame}}
+\index{drawFrame@{drawFrame}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{drawFrame()}{drawFrame()}}
+{\footnotesize\ttfamily void Renderer\+::draw\+Frame (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{main\+\_\+camera,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{glm\+::mat4}]{projection\+\_\+matrix,  }\item[{GLfloat}]{delta\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023   \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}}-\/>execute(projection\_matrix, main\_camera, \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}, scene);}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025   \textcolor{comment}{// omni shadow map passes for our point lights}}
+\DoxyCodeLine{00026   std::vector<std::shared\_ptr<PointLight>> p\_lights = scene-\/>get\_point\_lights();}
+\DoxyCodeLine{00027   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} p\_light\_count = 0; p\_light\_count < scene-\/>get\_point\_light\_count(); p\_light\_count++) \{}
+\DoxyCodeLine{00028     \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}}-\/>execute(p\_lights[p\_light\_count], scene);}
+\DoxyCodeLine{00029   \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031   \textcolor{comment}{//we will now start the geometry pass}}
+\DoxyCodeLine{00032   \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}}-\/>execute(projection\_matrix, main\_camera, \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}, \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>get\_id(), delta\_time, scene);}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034   \textcolor{comment}{// after geometry pass we can now do the lighting}}
+\DoxyCodeLine{00035   \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}}-\/>execute(projection\_matrix, main\_camera, scene, \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}, delta\_time);}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_renderer_8h_source_l00034}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00026}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00035}{geometry\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00036}{lighting\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00033}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+height}}, and \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+width}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_renderer_abc9b64430ae1189acd17b34543c23e55}\label{class_renderer_abc9b64430ae1189acd17b34543c23e55}} 
+\index{Renderer@{Renderer}!reload\_shader\_programs@{reload\_shader\_programs}}
+\index{reload\_shader\_programs@{reload\_shader\_programs}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{reload\_shader\_programs()}{reload\_shader\_programs()}}
+{\footnotesize\ttfamily void Renderer\+::reload\+\_\+shader\+\_\+programs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047 \{}
+\DoxyCodeLine{00048   \textcolor{comment}{// also reload all shader include files}}
+\DoxyCodeLine{00049   \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\_includes}} = \mbox{\hyperlink{class_shader_includes}{ShaderIncludes}}();}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051   \textcolor{keywordflow}{for} (std::shared\_ptr<RenderPass> render\_pass : \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}) \{}
+\DoxyCodeLine{00052     render\_pass-\/>create\_shader\_program();}
+\DoxyCodeLine{00053   \}}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_renderer_8h_source_l00031}{render\+\_\+passes}}, and \mbox{\hyperlink{_renderer_8h_source_l00028}{shader\+\_\+includes}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_renderer_a015ede509aab9b53a19f5dcee76b1824}\label{class_renderer_a015ede509aab9b53a19f5dcee76b1824}} 
+\index{Renderer@{Renderer}!update\_window\_params@{update\_window\_params}}
+\index{update\_window\_params@{update\_window\_params}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{update\_window\_params()}{update\_window\_params()}}
+{\footnotesize\ttfamily void Renderer\+::update\+\_\+window\+\_\+params (\begin{DoxyParamCaption}\item[{GLuint}]{window\+\_\+width,  }\item[{GLuint}]{window\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00040   this-\/>\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}} = \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}};}
+\DoxyCodeLine{00041   this-\/>\mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}} = \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}};}
+\DoxyCodeLine{00042   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>update\_window\_params(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}});}
+\DoxyCodeLine{00043   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>create();}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_renderer_8h_source_l00026}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+height}}, and \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+width}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}\label{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}} 
+\index{Renderer@{Renderer}!directional\_shadow\_map\_pass@{directional\_shadow\_map\_pass}}
+\index{directional\_shadow\_map\_pass@{directional\_shadow\_map\_pass}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{directional\_shadow\_map\_pass}{directional\_shadow\_map\_pass}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_directional_shadow_map_pass}{Directional\+Shadow\+Map\+Pass}}$>$ Renderer\+::directional\+\_\+shadow\+\_\+map\+\_\+pass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00034}{34}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+
+\mbox{\Hypertarget{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}\label{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}} 
+\index{Renderer@{Renderer}!gbuffer@{gbuffer}}
+\index{gbuffer@{gbuffer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{gbuffer}{gbuffer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_g_buffer}{GBuffer}}$>$ Renderer\+::gbuffer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00026}{26}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00038}{update\+\_\+window\+\_\+params()}}.
+
+\mbox{\Hypertarget{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}\label{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}} 
+\index{Renderer@{Renderer}!geometry\_pass@{geometry\_pass}}
+\index{geometry\_pass@{geometry\_pass}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{geometry\_pass}{geometry\_pass}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_geometry_pass}{Geometry\+Pass}}$>$ Renderer\+::geometry\+\_\+pass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00035}{35}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+
+\mbox{\Hypertarget{class_renderer_acd9d967474764cc717ef05adebc09007}\label{class_renderer_acd9d967474764cc717ef05adebc09007}} 
+\index{Renderer@{Renderer}!lighting\_pass@{lighting\_pass}}
+\index{lighting\_pass@{lighting\_pass}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{lighting\_pass}{lighting\_pass}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_lighting_pass}{Lighting\+Pass}}$>$ Renderer\+::lighting\+\_\+pass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00036}{36}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+
+\mbox{\Hypertarget{class_renderer_accb21b1b89d1f421208522aa79d45faf}\label{class_renderer_accb21b1b89d1f421208522aa79d45faf}} 
+\index{Renderer@{Renderer}!omni\_shadow\_map\_pass@{omni\_shadow\_map\_pass}}
+\index{omni\_shadow\_map\_pass@{omni\_shadow\_map\_pass}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{omni\_shadow\_map\_pass}{omni\_shadow\_map\_pass}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_omni_shadow_map_pass}{Omni\+Shadow\+Map\+Pass}}$>$ Renderer\+::omni\+\_\+shadow\+\_\+map\+\_\+pass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00033}{33}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+
+\mbox{\Hypertarget{class_renderer_ae7180882bbfec2188ed17889d00843c2}\label{class_renderer_ae7180882bbfec2188ed17889d00843c2}} 
+\index{Renderer@{Renderer}!render\_passes@{render\_passes}}
+\index{render\_passes@{render\_passes}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{render\_passes}{render\_passes}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_render_pass}{Render\+Pass}}$>$ $>$ Renderer\+::render\+\_\+passes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00031}{31}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00046}{reload\+\_\+shader\+\_\+programs()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+
+\mbox{\Hypertarget{class_renderer_a6636e56142aa40fb9602219aa69185d8}\label{class_renderer_a6636e56142aa40fb9602219aa69185d8}} 
+\index{Renderer@{Renderer}!shader\_includes@{shader\_includes}}
+\index{shader\_includes@{shader\_includes}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{shader\_includes}{shader\_includes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shader_includes}{Shader\+Includes}} Renderer\+::shader\+\_\+includes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00028}{28}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00046}{reload\+\_\+shader\+\_\+programs()}}.
+
+\mbox{\Hypertarget{class_renderer_a31c6c96178b115a0a023b838862d5c76}\label{class_renderer_a31c6c96178b115a0a023b838862d5c76}} 
+\index{Renderer@{Renderer}!window\_height@{window\_height}}
+\index{window\_height@{window\_height}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{window\_height}{window\_height}}
+{\footnotesize\ttfamily GLuint Renderer\+::window\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00024}{24}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00038}{update\+\_\+window\+\_\+params()}}.
+
+\mbox{\Hypertarget{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}\label{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}} 
+\index{Renderer@{Renderer}!window\_width@{window\_width}}
+\index{window\_width@{window\_width}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{window\_width}{window\_width}}
+{\footnotesize\ttfamily GLuint Renderer\+::window\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00024}{24}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00038}{update\+\_\+window\+\_\+params()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/\mbox{\hyperlink{_renderer_8h}{Renderer.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/\mbox{\hyperlink{_renderer_8cpp}{Renderer.\+cpp}}\end{DoxyCompactItemize}

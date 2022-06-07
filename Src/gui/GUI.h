@@ -1,29 +1,29 @@
 #pragma once
-#include <memory>
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "Window.h"
-#include "Texture.h"
+#include <memory>
+
 #include "Clouds.h"
+#include "Scene.h"
+#include "Texture.h"
+#include "Window.h"
 #include "host_device_shared.h"
 
-#include "Scene.h"
-
 class GUI {
-  public:
+ public:
   GUI();
 
   void init(std::shared_ptr<Window> main_window);
 
-  void render(bool loading_in_progress, float progress, bool& shader_hot_reload_triggered);
+  void render(bool loading_in_progress, float progress,
+              bool& shader_hot_reload_triggered);
 
   void update_user_input(std::shared_ptr<Scene> scene);
 
   ~GUI();
 
-  private:
+ private:
   Texture logo_tex;
 
   float direcional_light_radiance;

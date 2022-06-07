@@ -1,0 +1,26 @@
+var class_obj_material =
+[
+    [ "ObjMaterial", "d9/d65/class_obj_material.html#a7b5c6b52942ae0eb0af243b3b09805df", null ],
+    [ "ObjMaterial", "d9/d65/class_obj_material.html#a83adcb69c7b5b92abcd03543d5ef7047", null ],
+    [ "~ObjMaterial", "d9/d65/class_obj_material.html#a0cd1ed3b0ce599ef90bf6a10d7455223", null ],
+    [ "get_ambient", "d9/d65/class_obj_material.html#a8dac3a7e5f31d9bbce364187304d82fb", null ],
+    [ "get_diffuse", "d9/d65/class_obj_material.html#a7d5f5215927c7aa9eb0f3ddee58b04c7", null ],
+    [ "get_dissolve", "d9/d65/class_obj_material.html#a3e4a860f476680546bebd0f3885c09d6", null ],
+    [ "get_emission", "d9/d65/class_obj_material.html#aaf23cd43b973e72827a10f7a948e3cdb", null ],
+    [ "get_illum", "d9/d65/class_obj_material.html#a9edf2cdc833eeeb50208f9f97d3f6ecb", null ],
+    [ "get_ior", "d9/d65/class_obj_material.html#a7b9d413d5075ab058d14977e9a443c0d", null ],
+    [ "get_shininess", "d9/d65/class_obj_material.html#a1aa9a50d2f94195f1597f3f314b73fa0", null ],
+    [ "get_specular", "d9/d65/class_obj_material.html#ac8cfb20238f6ca988bee7cab5ea3da3b", null ],
+    [ "get_textureID", "d9/d65/class_obj_material.html#a0681c4b3a522d2fb29974168ac2c7687", null ],
+    [ "get_transmittance", "d9/d65/class_obj_material.html#a66436c188734c0f093f7d56b9b0122ec", null ],
+    [ "ambient", "d9/d65/class_obj_material.html#a9c65773a38a0e4dee86795a4bed09ddb", null ],
+    [ "diffuse", "d9/d65/class_obj_material.html#a0bee7a876d20446f6bbe06663fbfbf5a", null ],
+    [ "dissolve", "d9/d65/class_obj_material.html#acb312a519a725c63b482bfae1e799dcf", null ],
+    [ "emission", "d9/d65/class_obj_material.html#ab71365730eaba969554c9a6ae8227f69", null ],
+    [ "illum", "d9/d65/class_obj_material.html#a73f1632007214c150002b12dec5ab3b1", null ],
+    [ "ior", "d9/d65/class_obj_material.html#ac9f474f5e03af56b5ad6ea9ff25738c0", null ],
+    [ "shininess", "d9/d65/class_obj_material.html#a3f5d797a2549dddac031ad61c94c9b5e", null ],
+    [ "specular", "d9/d65/class_obj_material.html#a8b47d0173f7e765cf6773e9f89b114c8", null ],
+    [ "textureID", "d9/d65/class_obj_material.html#a834a3b3a19aeab4db26d0603df7a7a99", null ],
+    [ "transmittance", "d9/d65/class_obj_material.html#ab0f246116851ebbaac5ed368520fdacf", null ]
+];

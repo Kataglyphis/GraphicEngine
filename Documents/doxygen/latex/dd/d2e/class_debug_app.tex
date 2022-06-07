@@ -1,0 +1,204 @@
+\hypertarget{class_debug_app}{}\doxysection{Debug\+App Class Reference}
+\label{class_debug_app}\index{DebugApp@{DebugApp}}
+
+
+{\ttfamily \#include $<$Debug\+App.\+h$>$}
+
+
+
+Collaboration diagram for Debug\+App\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_debug_app_af91166f4d64a86824781c30d8aa59889}{Debug\+App}} ()
+\item 
+bool \mbox{\hyperlink{class_debug_app_ad5d0a65d60b65abe52e4b62cb9b282f6}{are\+Error\+Print\+All}} (const std\+::string \&Additional\+Array\+Message=\char`\"{}Empty\char`\"{}, const char $\ast$file=\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, int line=\+\_\+\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+bool \mbox{\hyperlink{class_debug_app_a4f58776281280a3575b0352af9bbe5fc}{are\+Pre\+Error}} (const std\+::string \&Additional\+Array\+Message=\char`\"{}Empty\char`\"{}, const char $\ast$file=\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, int line=\+\_\+\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+\mbox{\hyperlink{class_debug_app_a6d8e4e756b96de051d3a0c7be02b7306}{$\sim$\+Debug\+App}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_debug_app_8h_source_l00008}{8}} of file \mbox{\hyperlink{_debug_app_8h_source}{Debug\+App.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_debug_app_af91166f4d64a86824781c30d8aa59889}\label{class_debug_app_af91166f4d64a86824781c30d8aa59889}} 
+\index{DebugApp@{DebugApp}!DebugApp@{DebugApp}}
+\index{DebugApp@{DebugApp}!DebugApp@{DebugApp}}
+\doxysubsubsection{\texorpdfstring{DebugApp()}{DebugApp()}}
+{\footnotesize\ttfamily Debug\+App\+::\+Debug\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_debug_app_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{_debug_app_8cpp_source}{Debug\+App.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083 \{}
+\DoxyCodeLine{00084 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{00085   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{00086 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00087   \textcolor{keywordtype}{int} flags;}
+\DoxyCodeLine{00088   glGetIntegerv(GL\_CONTEXT\_FLAGS, \&flags);}
+\DoxyCodeLine{00089   \textcolor{keywordflow}{if} (flags \& GL\_CONTEXT\_FLAG\_DEBUG\_BIT) \{}
+\DoxyCodeLine{00090     \textcolor{comment}{// initialize debug output}}
+\DoxyCodeLine{00091     glEnable(GL\_DEBUG\_OUTPUT);}
+\DoxyCodeLine{00092     glEnable(GL\_DEBUG\_OUTPUT\_SYNCHRONOUS);}
+\DoxyCodeLine{00093     glDebugMessageCallback(\mbox{\hyperlink{_debug_app_8cpp_af833243b97061a22e702b3b11a7b647c}{glDebugOutput}}, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00094     glDebugMessageControl(GL\_DONT\_CARE, GL\_DONT\_CARE, GL\_DONT\_CARE, 0, \textcolor{keyword}{nullptr}, GL\_TRUE);}
+\DoxyCodeLine{00095   \}}
+\DoxyCodeLine{00096 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00097 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_debug_app_8cpp_source_l00004}{gl\+Debug\+Output()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_debug_app_a6d8e4e756b96de051d3a0c7be02b7306}\label{class_debug_app_a6d8e4e756b96de051d3a0c7be02b7306}} 
+\index{DebugApp@{DebugApp}!````~DebugApp@{$\sim$DebugApp}}
+\index{````~DebugApp@{$\sim$DebugApp}!DebugApp@{DebugApp}}
+\doxysubsubsection{\texorpdfstring{$\sim$DebugApp()}{~DebugApp()}}
+{\footnotesize\ttfamily Debug\+App\+::$\sim$\+Debug\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_debug_app_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{_debug_app_8cpp_source}{Debug\+App.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00189 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_debug_app_ad5d0a65d60b65abe52e4b62cb9b282f6}\label{class_debug_app_ad5d0a65d60b65abe52e4b62cb9b282f6}} 
+\index{DebugApp@{DebugApp}!areErrorPrintAll@{areErrorPrintAll}}
+\index{areErrorPrintAll@{areErrorPrintAll}!DebugApp@{DebugApp}}
+\doxysubsubsection{\texorpdfstring{areErrorPrintAll()}{areErrorPrintAll()}}
+{\footnotesize\ttfamily bool Debug\+App\+::are\+Error\+Print\+All (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Additional\+Array\+Message = {\ttfamily \char`\"{}Empty\char`\"{}},  }\item[{const char $\ast$}]{file = {\ttfamily \+\_\+\+\_\+FILE\+\_\+\+\_\+},  }\item[{int}]{line = {\ttfamily \+\_\+\+\_\+LINE\+\_\+\+\_\+} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_debug_app_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_debug_app_8cpp_source}{Debug\+App.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100 \{}
+\DoxyCodeLine{00101 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{00102   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{00103   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00104 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00105   GLenum err;}
+\DoxyCodeLine{00106   \textcolor{keywordtype}{bool} isError = \textcolor{keyword}{false};}
+\DoxyCodeLine{00107   \textcolor{keywordflow}{while} ((err = glGetError()) != GL\_NO\_ERROR) \{}
+\DoxyCodeLine{00108     std::string errorCode;}
+\DoxyCodeLine{00109     \textcolor{keywordflow}{switch} (err) \{}
+\DoxyCodeLine{00110     \textcolor{keywordflow}{case} GL\_INVALID\_ENUM:}
+\DoxyCodeLine{00111       errorCode = \textcolor{stringliteral}{"{}INVALID\_ENUM"{}};}
+\DoxyCodeLine{00112       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00113     \textcolor{keywordflow}{case} GL\_INVALID\_VALUE:}
+\DoxyCodeLine{00114       errorCode = \textcolor{stringliteral}{"{}INVALID\_VALUE"{}};}
+\DoxyCodeLine{00115       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116     \textcolor{keywordflow}{case} GL\_INVALID\_OPERATION:}
+\DoxyCodeLine{00117       errorCode = \textcolor{stringliteral}{"{}INVALID\_OPERATION"{}};}
+\DoxyCodeLine{00118       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{case} GL\_STACK\_OVERFLOW:}
+\DoxyCodeLine{00120       errorCode = \textcolor{stringliteral}{"{}STACK\_OVERFLOW"{}};}
+\DoxyCodeLine{00121       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00122     \textcolor{keywordflow}{case} GL\_STACK\_UNDERFLOW:}
+\DoxyCodeLine{00123       errorCode = \textcolor{stringliteral}{"{}STACK\_UNDERFLOW"{}};}
+\DoxyCodeLine{00124       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00125     \textcolor{keywordflow}{case} GL\_OUT\_OF\_MEMORY:}
+\DoxyCodeLine{00126       errorCode = \textcolor{stringliteral}{"{}OUT\_OF\_MEMORY"{}};}
+\DoxyCodeLine{00127       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00128     \textcolor{keywordflow}{case} GL\_INVALID\_FRAMEBUFFER\_OPERATION:}
+\DoxyCodeLine{00129       errorCode = \textcolor{stringliteral}{"{}INVALID\_FRAMEBUFFER\_OPERATION"{}};}
+\DoxyCodeLine{00130       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00131     \}}
+\DoxyCodeLine{00132     std::cout << \textcolor{stringliteral}{"{}Error, "{}} << errorCode << \textcolor{stringliteral}{"{} | "{}}}
+\DoxyCodeLine{00133               << \textcolor{stringliteral}{"{}\(\backslash\)nAdditional Error Message: "{}} << AdditionalArrayMessage << \textcolor{stringliteral}{"{} "{}}}
+\DoxyCodeLine{00134               << \textcolor{stringliteral}{"{}In File: "{}} << file << \textcolor{stringliteral}{"{}, Line: "{}} << line << std::endl;}
+\DoxyCodeLine{00135     isError = \textcolor{keyword}{true};}
+\DoxyCodeLine{00136   \}}
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00138   \textcolor{keywordflow}{return} isError;}
+\DoxyCodeLine{00139   \textcolor{comment}{// debug code}}
+\DoxyCodeLine{00140 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00141 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_debug_app_a4f58776281280a3575b0352af9bbe5fc}\label{class_debug_app_a4f58776281280a3575b0352af9bbe5fc}} 
+\index{DebugApp@{DebugApp}!arePreError@{arePreError}}
+\index{arePreError@{arePreError}!DebugApp@{DebugApp}}
+\doxysubsubsection{\texorpdfstring{arePreError()}{arePreError()}}
+{\footnotesize\ttfamily bool Debug\+App\+::are\+Pre\+Error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Additional\+Array\+Message = {\ttfamily \char`\"{}Empty\char`\"{}},  }\item[{const char $\ast$}]{file = {\ttfamily \+\_\+\+\_\+FILE\+\_\+\+\_\+},  }\item[{int}]{line = {\ttfamily \+\_\+\+\_\+LINE\+\_\+\+\_\+} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_debug_app_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_debug_app_8cpp_source}{Debug\+App.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144 \{}
+\DoxyCodeLine{00145 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{00146   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{00147   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00148 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00149   \textcolor{comment}{// debug code}}
+\DoxyCodeLine{00150   GLenum err;}
+\DoxyCodeLine{00151   \textcolor{keywordtype}{bool} isError = \textcolor{keyword}{false};}
+\DoxyCodeLine{00152   \textcolor{keywordflow}{while} ((err = glGetError()) != GL\_NO\_ERROR) \{}
+\DoxyCodeLine{00153     std::string errorCode;}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{switch} (err) \{}
+\DoxyCodeLine{00155     \textcolor{keywordflow}{case} GL\_INVALID\_ENUM:}
+\DoxyCodeLine{00156       errorCode = \textcolor{stringliteral}{"{}INVALID\_ENUM"{}};}
+\DoxyCodeLine{00157       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158     \textcolor{keywordflow}{case} GL\_INVALID\_VALUE:}
+\DoxyCodeLine{00159       errorCode = \textcolor{stringliteral}{"{}INVALID\_VALUE"{}};}
+\DoxyCodeLine{00160       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00161     \textcolor{keywordflow}{case} GL\_INVALID\_OPERATION:}
+\DoxyCodeLine{00162       errorCode = \textcolor{stringliteral}{"{}INVALID\_OPERATION"{}};}
+\DoxyCodeLine{00163       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00164     \textcolor{keywordflow}{case} GL\_STACK\_OVERFLOW:}
+\DoxyCodeLine{00165       errorCode = \textcolor{stringliteral}{"{}STACK\_OVERFLOW"{}};}
+\DoxyCodeLine{00166       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00167     \textcolor{keywordflow}{case} GL\_STACK\_UNDERFLOW:}
+\DoxyCodeLine{00168       errorCode = \textcolor{stringliteral}{"{}STACK\_UNDERFLOW"{}};}
+\DoxyCodeLine{00169       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00170     \textcolor{keywordflow}{case} GL\_OUT\_OF\_MEMORY:}
+\DoxyCodeLine{00171       errorCode = \textcolor{stringliteral}{"{}OUT\_OF\_MEMORY"{}};}
+\DoxyCodeLine{00172       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00173     \textcolor{keywordflow}{case} GL\_INVALID\_FRAMEBUFFER\_OPERATION:}
+\DoxyCodeLine{00174       errorCode = \textcolor{stringliteral}{"{}INVALID\_FRAMEBUFFER\_OPERATION"{}};}
+\DoxyCodeLine{00175       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00176     \}}
+\DoxyCodeLine{00177     std::cout << errorCode << \textcolor{stringliteral}{"{} Error appears befor executing the function, "{}}}
+\DoxyCodeLine{00178               << \textcolor{stringliteral}{"{} | "{}}}
+\DoxyCodeLine{00179               << \textcolor{stringliteral}{"{}\(\backslash\)nAdditional Error Message: "{}} << AdditionalArrayMessage << \textcolor{stringliteral}{"{} "{}}}
+\DoxyCodeLine{00180               << \textcolor{stringliteral}{"{}In File: "{}} << file << \textcolor{stringliteral}{"{}, Line: "{}} << line << std::endl;}
+\DoxyCodeLine{00181     isError = \textcolor{keyword}{true};}
+\DoxyCodeLine{00182   \}}
+\DoxyCodeLine{00183 }
+\DoxyCodeLine{00184   \textcolor{keywordflow}{return} isError;}
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00186 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00187 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/debug/\mbox{\hyperlink{_debug_app_8h}{Debug\+App.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/debug/\mbox{\hyperlink{_debug_app_8cpp}{Debug\+App.\+cpp}}\end{DoxyCompactItemize}

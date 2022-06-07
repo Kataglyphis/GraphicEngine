@@ -1,0 +1,11 @@
+digraph "DirectionalLight"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{DirectionalLight\n|- std::shared_ptr\< Cascaded\lShadowMap \> shadow_map\l- glm::vec3 direction\l- GLfloat shadow_near\l_plane\l- GLfloat shadow_far\l_plane\l- std::array\< GLfloat,\l NUM_CASCADES+1 \> cascade_slots\l- std::vector\< glm::mat4\l \> cascade_light_matrices\l|+  DirectionalLight()\l+  DirectionalLight(GLuint\l shadow_width, GLuint shadow\l_height, GLfloat red, GLfloat\l green, GLfloat blue, GLfloat\l radiance, GLfloat x_dir, GLfloat\l y_dir, GLfloat z_dir, GLfloat near\l_plane, GLfloat far_plane, int num_cascades)\l+ glm::mat4 calculate\l_light_transform()\l+ std::shared_ptr\< Cascaded\lShadowMap \> get_shadow\l_map() const\l+ glm::vec3 get_direction\l() const\l+ glm::vec3 get_color\l() const\l+ float get_radiance\l() const\l+ glm::mat4 get_light\l_view_matrix() const\l+ std::vector\< GLfloat\l \> get_cascaded_slots\l() const\l+ std::vector\< glm::mat4\l \> & get_cascaded_light\l_matrices()\l+ void set_direction\l(glm::vec3 direction)\l+ void set_radiance(float\l radiance)\l+ void set_color(glm\l::vec3 color)\l+ void update_shadow\l_map(GLfloat shadow\l_width, GLfloat shadow\l_height, GLuint num_cascades)\l+ void calc_orthogonal\l_projections(glm::mat4\l camera_view_matrix, GLfloat\l fov, GLuint window_width,\l GLuint window_height, GLuint\l current_num_cascades)\l+  ~DirectionalLight()\l- std::vector\< glm::vec4\l \> get_frustum_corners\l_world_space(const glm\l::mat4 &proj, const glm\l::mat4 &view)\l- void calc_cascaded\l_slots()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{Light\n|# glm::vec3 color\l# float radiance\l# glm::mat4 light_proj\l|+  Light()\l+  Light(GLfloat red,\l GLfloat green, GLfloat\l blue, GLfloat radiance)\l+ glm::vec3 get_color\l() const\l+ float get_radiance\l() const\l+  ~Light()\l}",height=0.2,width=0.4,color="black",URL="$da/d7c/class_light.html",tooltip=" "];
+}

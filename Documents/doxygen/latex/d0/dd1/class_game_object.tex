@@ -1,0 +1,394 @@
+\hypertarget{class_game_object}{}\doxysection{Game\+Object Class Reference}
+\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+
+
+Collaboration diagram for Game\+Object\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{Game\+Object}} ()
+\item 
+\mbox{\hyperlink{class_game_object_ac0cb3993a5f3e6fad08007e51c7a8116}{Game\+Object}} (const std\+::string \&model\+\_\+path, glm\+::vec3 \mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}}, GLfloat \mbox{\hyperlink{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}{scale}}, \mbox{\hyperlink{struct_rotation}{Rotation}} \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}})
+\item 
+void \mbox{\hyperlink{class_game_object_aa43eedb1b049cba3ebe6831dff6a9b2f}{init}} (const std\+::string \&model\+\_\+path, glm\+::vec3 \mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}}, GLfloat \mbox{\hyperlink{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}{scale}}, \mbox{\hyperlink{struct_rotation}{Rotation}} \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}})
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_game_object_af563a04e47793f62c23fc6ca4a799cc5}{get\+\_\+world\+\_\+trafo}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_game_object_ad5c118d72acdd638b1ec0d18eff43248}{get\+\_\+normal\+\_\+world\+\_\+trafo}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_a_a_b_b}{AABB}} $>$ \mbox{\hyperlink{class_game_object_a3c34c8a906846addd3dae9b2c483c6a5}{get\+\_\+aabb}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ \mbox{\hyperlink{class_game_object_a32dfa19027f980dab2448e25a261f9dc}{get\+\_\+model}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a57fa149a395df271ed82296fe7a9e8d7}{translate}} (glm\+::vec3 translate)
+\item 
+void \mbox{\hyperlink{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}{scale}} (GLfloat \mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\+\_\+factor}})
+\item 
+void \mbox{\hyperlink{class_game_object_af84161eac92f4bdb1241c5ce4525acd7}{rotate}} (\mbox{\hyperlink{struct_rotation}{Rotation}} \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}})
+\item 
+void \mbox{\hyperlink{class_game_object_a371c9d8d79ba2f0a61ab979a51aed38b}{render}} ()
+\item 
+\mbox{\hyperlink{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}{$\sim$\+Game\+Object}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}
+\item 
+GLfloat \mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\+\_\+factor}}
+\item 
+\mbox{\hyperlink{struct_rotation}{Rotation}} \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_game_object_8h_source_l00006}{6}} of file \mbox{\hyperlink{_game_object_8h_source}{Game\+Object.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}\label{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003 : \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}(std::make\_shared<Model>(\mbox{\hyperlink{class_model}{Model}}())) \{ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_object_ac0cb3993a5f3e6fad08007e51c7a8116}\label{class_game_object_ac0cb3993a5f3e6fad08007e51c7a8116}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{model\+\_\+path,  }\item[{glm\+::vec3}]{translation,  }\item[{GLfloat}]{scale,  }\item[{\mbox{\hyperlink{struct_rotation}{Rotation}}}]{rot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005                                                                                                     : \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}(std::make\_shared<Model>())}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007   \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}-\/>load\_model\_in\_ram(model\_path);}
+\DoxyCodeLine{00008   this-\/>\mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}} = \mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}};}
+\DoxyCodeLine{00009   this-\/>\mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\_factor}} = \mbox{\hyperlink{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}{scale}};}
+\DoxyCodeLine{00010   this-\/>rot = \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}};}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00030}{model}}, \mbox{\hyperlink{_game_object_8h_source_l00033}{rot}}, \mbox{\hyperlink{_game_object_8cpp_source_l00048}{scale()}}, \mbox{\hyperlink{_game_object_8h_source_l00032}{scale\+\_\+factor}}, and \mbox{\hyperlink{_game_object_8h_source_l00034}{translation}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}\label{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}} 
+\index{GameObject@{GameObject}!````~GameObject@{$\sim$GameObject}}
+\index{````~GameObject@{$\sim$GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{$\sim$GameObject()}{~GameObject()}}
+{\footnotesize\ttfamily Game\+Object\+::$\sim$\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_object_a3c34c8a906846addd3dae9b2c483c6a5}\label{class_game_object_a3c34c8a906846addd3dae9b2c483c6a5}} 
+\index{GameObject@{GameObject}!get\_aabb@{get\_aabb}}
+\index{get\_aabb@{get\_aabb}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_aabb()}{get\_aabb()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_a_a_b_b}{AABB}} $>$ Game\+Object\+::get\+\_\+aabb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}-\/>get\_aabb(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00030}{model}}.
+
+\mbox{\Hypertarget{class_game_object_a32dfa19027f980dab2448e25a261f9dc}\label{class_game_object_a32dfa19027f980dab2448e25a261f9dc}} 
+\index{GameObject@{GameObject}!get\_model@{get\_model}}
+\index{get\_model@{get\_model}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_model()}{get\_model()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ Game\+Object\+::get\+\_\+model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00030}{model}}.
+
+\mbox{\Hypertarget{class_game_object_ad5c118d72acdd638b1ec0d18eff43248}\label{class_game_object_ad5c118d72acdd638b1ec0d18eff43248}} 
+\index{GameObject@{GameObject}!get\_normal\_world\_trafo@{get\_normal\_world\_trafo}}
+\index{get\_normal\_world\_trafo@{get\_normal\_world\_trafo}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_normal\_world\_trafo()}{get\_normal\_world\_trafo()}}
+{\footnotesize\ttfamily glm\+::mat4 Game\+Object\+::get\+\_\+normal\+\_\+world\+\_\+trafo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{}
+\DoxyCodeLine{00034   glm::mat4 world\_trafo = \mbox{\hyperlink{class_game_object_af563a04e47793f62c23fc6ca4a799cc5}{get\_world\_trafo}}();}
+\DoxyCodeLine{00035   \textcolor{keywordflow}{return} glm::transpose(glm::inverse(world\_trafo));}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8cpp_source_l00022}{get\+\_\+world\+\_\+trafo()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_game_object_af563a04e47793f62c23fc6ca4a799cc5}\label{class_game_object_af563a04e47793f62c23fc6ca4a799cc5}} 
+\index{GameObject@{GameObject}!get\_world\_trafo@{get\_world\_trafo}}
+\index{get\_world\_trafo@{get\_world\_trafo}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_world\_trafo()}{get\_world\_trafo()}}
+{\footnotesize\ttfamily glm\+::mat4 Game\+Object\+::get\+\_\+world\+\_\+trafo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{}
+\DoxyCodeLine{00024   glm::mat4 model\_to\_world = glm::mat4(1.0);}
+\DoxyCodeLine{00025   model\_to\_world = glm::translate(model\_to\_world, \mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}});}
+\DoxyCodeLine{00026   model\_to\_world = glm::scale(model\_to\_world, glm::vec3(\mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\_factor}}));}
+\DoxyCodeLine{00027   model\_to\_world = glm::rotate(model\_to\_world, glm::radians(\mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}}.\mbox{\hyperlink{struct_rotation_a1b82681bc615f7abf1f23fef9ae14557}{degrees}}), \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}}.\mbox{\hyperlink{struct_rotation_a3c93cc4d62ed376570b460d246fa801c}{axis}});}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029   \textcolor{keywordflow}{return} model\_to\_world;}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_rotation_8h_source_l00008}{Rotation\+::axis}}, \mbox{\hyperlink{_rotation_8h_source_l00007}{Rotation\+::degrees}}, \mbox{\hyperlink{_game_object_8h_source_l00033}{rot}}, \mbox{\hyperlink{_game_object_8h_source_l00032}{scale\+\_\+factor}}, and \mbox{\hyperlink{_game_object_8h_source_l00034}{translation}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00032}{get\+\_\+normal\+\_\+world\+\_\+trafo()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_game_object_aa43eedb1b049cba3ebe6831dff6a9b2f}\label{class_game_object_aa43eedb1b049cba3ebe6831dff6a9b2f}} 
+\index{GameObject@{GameObject}!init@{init}}
+\index{init@{init}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Game\+Object\+::init (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{model\+\_\+path,  }\item[{glm\+::vec3}]{translation,  }\item[{GLfloat}]{scale,  }\item[{\mbox{\hyperlink{struct_rotation}{Rotation}}}]{rot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00015   \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}} = std::make\_shared<Model>(\mbox{\hyperlink{class_model}{Model}}());}
+\DoxyCodeLine{00016   \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}-\/>load\_model\_in\_ram(model\_path);}
+\DoxyCodeLine{00017   this-\/>\mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}} = \mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}};}
+\DoxyCodeLine{00018   this-\/>\mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\_factor}} = \mbox{\hyperlink{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}{scale}};}
+\DoxyCodeLine{00019   this-\/>rot = \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}};}
+\DoxyCodeLine{00020 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00030}{model}}, \mbox{\hyperlink{_game_object_8h_source_l00033}{rot}}, \mbox{\hyperlink{_game_object_8cpp_source_l00048}{scale()}}, \mbox{\hyperlink{_game_object_8h_source_l00032}{scale\+\_\+factor}}, and \mbox{\hyperlink{_game_object_8h_source_l00034}{translation}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_game_object_a371c9d8d79ba2f0a61ab979a51aed38b}\label{class_game_object_a371c9d8d79ba2f0a61ab979a51aed38b}} 
+\index{GameObject@{GameObject}!render@{render}}
+\index{render@{render}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+Object\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038 \{ \mbox{\hyperlink{class_game_object_adad96ca15171c9da1a463777c48b7f0d}{model}}-\/>render(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00030}{model}}.
+
+\mbox{\Hypertarget{class_game_object_af84161eac92f4bdb1241c5ce4525acd7}\label{class_game_object_af84161eac92f4bdb1241c5ce4525acd7}} 
+\index{GameObject@{GameObject}!rotate@{rotate}}
+\index{rotate@{rotate}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void Game\+Object\+::rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_rotation}{Rotation}}}]{rot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046 \{ this-\/>rot = \mbox{\hyperlink{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}{rot}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00033}{rot}}.
+
+\mbox{\Hypertarget{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}\label{class_game_object_a39bcf020350e43ad5d43eecbbfa89773}} 
+\index{GameObject@{GameObject}!scale@{scale}}
+\index{scale@{scale}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily void Game\+Object\+::scale (\begin{DoxyParamCaption}\item[{GLfloat}]{scale\+\_\+factor }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{ this-\/>\mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\_factor}} = \mbox{\hyperlink{class_game_object_a48692cd032e66698e0fde490594bc221}{scale\_factor}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8h_source_l00032}{scale\+\_\+factor}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00005}{Game\+Object()}}, and \mbox{\hyperlink{_game_object_8cpp_source_l00013}{init()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_game_object_a57fa149a395df271ed82296fe7a9e8d7}\label{class_game_object_a57fa149a395df271ed82296fe7a9e8d7}} 
+\index{GameObject@{GameObject}!translate@{translate}}
+\index{translate@{translate}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily void Game\+Object\+::translate (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{translate }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_game_object_8cpp_source}{Game\+Object.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044 \{ this-\/>\mbox{\hyperlink{class_game_object_a541c2e714cda604f81b930b46c113f90}{translation}} = \mbox{\hyperlink{class_game_object_a57fa149a395df271ed82296fe7a9e8d7}{translate}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_game_object_8cpp_source_l00044}{translate()}}, and \mbox{\hyperlink{_game_object_8h_source_l00034}{translation}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00044}{translate()}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_game_object_adad96ca15171c9da1a463777c48b7f0d}\label{class_game_object_adad96ca15171c9da1a463777c48b7f0d}} 
+\index{GameObject@{GameObject}!model@{model}}
+\index{model@{model}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_model}{Model}}$>$ Game\+Object\+::model\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8h_source_l00030}{30}} of file \mbox{\hyperlink{_game_object_8h_source}{Game\+Object.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00005}{Game\+Object()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00040}{get\+\_\+aabb()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00042}{get\+\_\+model()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00013}{init()}}, and \mbox{\hyperlink{_game_object_8cpp_source_l00038}{render()}}.
+
+\mbox{\Hypertarget{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}\label{class_game_object_a8a7947ce9d65849f9058e1d6713cec16}} 
+\index{GameObject@{GameObject}!rot@{rot}}
+\index{rot@{rot}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{rot}{rot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_rotation}{Rotation}} Game\+Object\+::rot\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8h_source_l00033}{33}} of file \mbox{\hyperlink{_game_object_8h_source}{Game\+Object.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00005}{Game\+Object()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00022}{get\+\_\+world\+\_\+trafo()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00013}{init()}}, and \mbox{\hyperlink{_game_object_8cpp_source_l00046}{rotate()}}.
+
+\mbox{\Hypertarget{class_game_object_a48692cd032e66698e0fde490594bc221}\label{class_game_object_a48692cd032e66698e0fde490594bc221}} 
+\index{GameObject@{GameObject}!scale\_factor@{scale\_factor}}
+\index{scale\_factor@{scale\_factor}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{scale\_factor}{scale\_factor}}
+{\footnotesize\ttfamily GLfloat Game\+Object\+::scale\+\_\+factor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8h_source_l00032}{32}} of file \mbox{\hyperlink{_game_object_8h_source}{Game\+Object.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00005}{Game\+Object()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00022}{get\+\_\+world\+\_\+trafo()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00013}{init()}}, and \mbox{\hyperlink{_game_object_8cpp_source_l00048}{scale()}}.
+
+\mbox{\Hypertarget{class_game_object_a541c2e714cda604f81b930b46c113f90}\label{class_game_object_a541c2e714cda604f81b930b46c113f90}} 
+\index{GameObject@{GameObject}!translation@{translation}}
+\index{translation@{translation}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{translation}{translation}}
+{\footnotesize\ttfamily glm\+::vec3 Game\+Object\+::translation\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_game_object_8h_source_l00034}{34}} of file \mbox{\hyperlink{_game_object_8h_source}{Game\+Object.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_game_object_8cpp_source_l00005}{Game\+Object()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00022}{get\+\_\+world\+\_\+trafo()}}, \mbox{\hyperlink{_game_object_8cpp_source_l00013}{init()}}, and \mbox{\hyperlink{_game_object_8cpp_source_l00044}{translate()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_game_object_8h}{Game\+Object.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_game_object_8cpp}{Game\+Object.\+cpp}}\end{DoxyCompactItemize}

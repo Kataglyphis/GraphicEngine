@@ -1,5 +1,0 @@
-glDebugOutput
-DebugApp call:[glDebugMessageCallback,glDebugMessageControl,glEnable,glGetIntegerv] noreturn:[glDebugMessageControl]
-areErrorPrintAll call:[glGetError]
-arePreError call:[glGetError]
-DebugApp

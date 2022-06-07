@@ -1,10 +1,10 @@
 #pragma once
 
-#include <stdio.h>
 #include <glad/glad.h>
+#include <stdio.h>
 
 class ShadowMap {
-  public:
+ public:
   ShadowMap();
 
   virtual bool init(GLuint width, GLuint height);
@@ -17,7 +17,7 @@ class ShadowMap {
 
   virtual ~ShadowMap();
 
-  protected:
+ protected:
   GLuint FBO, shadow_map;
   GLuint shadow_width, shadow_height;
 };

@@ -1,6 +1,0 @@
-ShadowMapShaderProgram
-get_model_location
-get_light_matrics_id_location
-get_VP_location
-ShadowMapShaderProgram
-retrieve_uniform_locations call:[glGetUniformBlockIndex,glGetUniformLocation] noreturn:[glGetUniformLocation]

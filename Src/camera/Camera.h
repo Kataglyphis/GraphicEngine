@@ -1,17 +1,18 @@
 #pragma once
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-class Camera {
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
-  public:
+class Camera {
+ public:
   Camera();
 
-  Camera(glm::vec3 start_position, glm::vec3 start_up, GLfloat start_yaw, GLfloat start_pitch, GLfloat start_move_speed, GLfloat start_turn_speed,
-    GLfloat near_plane, GLfloat far_plane, GLfloat fov);
+  Camera(glm::vec3 start_position, glm::vec3 start_up, GLfloat start_yaw,
+         GLfloat start_pitch, GLfloat start_move_speed,
+         GLfloat start_turn_speed, GLfloat near_plane, GLfloat far_plane,
+         GLfloat fov);
 
   void key_control(bool* keys, GLfloat delta_time);
   void mouse_control(GLfloat x_change, GLfloat y_change);
@@ -31,10 +32,9 @@ class Camera {
   void set_fov(GLfloat fov);
   void set_camera_position(glm::vec3 new_camera_position);
 
-
   ~Camera();
 
-  private:
+ private:
   glm::vec3 position;
   glm::vec3 front;
   glm::vec3 world_up;

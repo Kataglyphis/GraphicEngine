@@ -1,0 +1,1079 @@
+\hypertarget{class_clouds}{}\doxysection{Clouds Class Reference}
+\label{class_clouds}\index{Clouds@{Clouds}}
+
+
+{\ttfamily \#include $<$Clouds.\+h$>$}
+
+
+
+Collaboration diagram for Clouds\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_clouds_a542921cde6f80e976d3a11569b10b2d3}{Clouds}} ()
+\item 
+void \mbox{\hyperlink{class_clouds_adc93a373c6890700300fb63f9155c12b}{render}} (glm\+::mat4 projection\+\_\+matrix, glm\+::mat4 view\+\_\+matrix, GLuint window\+\_\+width, GLuint window\+\_\+height)
+\item 
+void \mbox{\hyperlink{class_clouds_a2568b53395be6b6de3cc2a57210059af}{read}} ()
+\item 
+void \mbox{\hyperlink{class_clouds_acf8ebf390d2ef0a436d31496d877817a}{create\+\_\+noise\+\_\+textures}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_clouds_a5934b242efdd9dc5b7e86fcac09d6a57}{get\+\_\+model}} () const
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_clouds_a610a68893419146483c10a0d76b77280}{get\+\_\+movement\+\_\+direction}} () const
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_clouds_a7c3e660495cacece1e4751f25245640a}{get\+\_\+radius}} () const
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_clouds_a9606497281b2ccba864eb830162b946c}{get\+\_\+normal\+\_\+model}} () const
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_clouds_af4de89cb6fa79e67270ea5ad459673b8}{get\+\_\+mesh\+\_\+scale}} () const
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_aea2551f49b26760b2af25f240875e50b}{get\+\_\+movement\+\_\+speed}} () const
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a089cd275fdad3bedeebec2e00c245d84}{get\+\_\+density}} () const
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_aab2a153cec1d3144f42e3aab1a1e3d9d}{get\+\_\+scale}} () const
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a1ca101078649153593ded0a3fb859baa}{get\+\_\+pillowness}} () const
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a22d16d67f7009ad78c559883a21a1abf}{get\+\_\+cirrus\+\_\+effect}} () const
+\item 
+GLuint \mbox{\hyperlink{class_clouds_a7d37f551cb6d20e89c5e43e8f6f6d194}{get\+\_\+num\+\_\+march\+\_\+steps}} () const
+\item 
+GLuint \mbox{\hyperlink{class_clouds_a90e898f7baf3bb5b93bd7bec421838d5}{get\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}} () const
+\item 
+bool \mbox{\hyperlink{class_clouds_a2a783d177eb57ee1a3f50c1dc0890afd}{get\+\_\+powder\+\_\+effect}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{class_clouds_a72b61dafa90325601024dc9133b54c4e}{get\+\_\+shader\+\_\+program}} () const
+\item 
+void \mbox{\hyperlink{class_clouds_a3b3acb9a93fa4c29aa50c5cec818d78d}{set\+\_\+powder\+\_\+effect}} (bool cloud\+\_\+powder\+\_\+effect)
+\item 
+void \mbox{\hyperlink{class_clouds_aa64b9aba6a98a04135fa390afa33f262}{set\+\_\+cirrus\+\_\+effect}} (GLfloat \mbox{\hyperlink{class_clouds_a762a93fcdafd5e488fda5779f37f6817}{cirrus\+\_\+effect}})
+\item 
+void \mbox{\hyperlink{class_clouds_a533b3889f59936cdb2f66bfa3b254660}{set\+\_\+pillowness}} (GLfloat cloud\+\_\+pillowness)
+\item 
+void \mbox{\hyperlink{class_clouds_a5d76691e400bd6528527f57f2d6e8af6}{set\+\_\+scale}} (GLfloat \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}})
+\item 
+void \mbox{\hyperlink{class_clouds_aea15bfc34cd6d7134fd442a7c25a7755}{set\+\_\+density}} (GLfloat \mbox{\hyperlink{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}{density}})
+\item 
+void \mbox{\hyperlink{class_clouds_a620c7a19319e167a4cb8d7a1a59fb38d}{set\+\_\+movement\+\_\+speed}} (GLfloat speed)
+\item 
+void \mbox{\hyperlink{class_clouds_a765a903169c533071cd4b2d5ecffc8e3}{set\+\_\+scale}} (glm\+::vec3 \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}})
+\item 
+void \mbox{\hyperlink{class_clouds_ab3121da91fc70a6fac4f006e57a8412c}{set\+\_\+translation}} (glm\+::vec3 \mbox{\hyperlink{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}{translation}})
+\item 
+void \mbox{\hyperlink{class_clouds_aa04e6323e8cd30b214f2f2688602e9ca}{set\+\_\+movement\+\_\+direction}} (glm\+::vec3 movement\+\_\+dir)
+\item 
+void \mbox{\hyperlink{class_clouds_acde2bb126e7a81a84dca7a5fb94e4378}{set\+\_\+num\+\_\+march\+\_\+steps}} (GLuint \mbox{\hyperlink{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}{num\+\_\+march\+\_\+steps}})
+\item 
+void \mbox{\hyperlink{class_clouds_aba6c6ded9e92aa12bf7b052964184a12}{set\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}} (GLuint \mbox{\hyperlink{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}{num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}})
+\item 
+\mbox{\hyperlink{class_clouds_aa3b84e5517ae47ea2205927b7a0e4199}{$\sim$\+Clouds}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\+\_\+program}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_noise}{Noise}} $>$ \mbox{\hyperlink{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}{noise}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_random_numbers}{Random\+Numbers}} $>$ \mbox{\hyperlink{class_clouds_a316d9dc9fe93f94b90c17605538ffd40}{random\+\_\+numbers}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}}
+\item 
+\mbox{\hyperlink{class_a_a_b_b}{AABB}} \mbox{\hyperlink{class_clouds_a7d55e990449a3a00d2a1e2f0b9d85e29}{aabb}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a7f02d0e23bc7403879d3f5b27094287c}{minX}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_af0a8f74bdd42579b5559f68a0db3e0c5}{maxX}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a9c9307bff01354b41f00e409a8ddcc34}{minY}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a701f57923f13ccb48ad509800318f5e7}{maxY}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a94cc7e7e677f76323f8d631f0e8466e9}{minZ}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_ae6f4f066b6ea89cc6cd4c025c7029111}{maxZ}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_clouds_a71962e1f05fbeb296de084add4c45f17}{movement\+\_\+direction}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_clouds_a2fbcf13024a8aac54fb130863a525da8}{scale\+\_\+factor}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}{translation}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a49377e4170f02fa14ad8099e7fea7f88}{movement\+\_\+speed}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}{density}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_aa1a1003ffebef4965867eb3b7637cb82}{pillowness}}
+\item 
+GLfloat \mbox{\hyperlink{class_clouds_a762a93fcdafd5e488fda5779f37f6817}{cirrus\+\_\+effect}}
+\item 
+GLuint \mbox{\hyperlink{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}{num\+\_\+march\+\_\+steps}}
+\item 
+GLuint \mbox{\hyperlink{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}{num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}}
+\item 
+bool \mbox{\hyperlink{class_clouds_af2b1e688b7757bdf7f3e74de7d4cd6b3}{powder\+\_\+effect}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00009}{9}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_clouds_a542921cde6f80e976d3a11569b10b2d3}\label{class_clouds_a542921cde6f80e976d3a11569b10b2d3}} 
+\index{Clouds@{Clouds}!Clouds@{Clouds}}
+\index{Clouds@{Clouds}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{Clouds()}{Clouds()}}
+{\footnotesize\ttfamily Clouds\+::\+Clouds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003                :}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005     \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}(std::make\_shared<ShaderProgram>(\mbox{\hyperlink{class_shader_program}{ShaderProgram}}\{\})), \mbox{\hyperlink{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}{noise}}(std::make\_shared<Noise>()), \mbox{\hyperlink{class_clouds_a316d9dc9fe93f94b90c17605538ffd40}{random\_numbers}}(std::make\_shared<RandomNumbers>()),}
+\DoxyCodeLine{00006     \mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}}(glm::mat4(1.f)), \mbox{\hyperlink{class_clouds_a7d55e990449a3a00d2a1e2f0b9d85e29}{aabb}}(\mbox{\hyperlink{class_a_a_b_b}{AABB}}()),}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008     \mbox{\hyperlink{class_clouds_a7f02d0e23bc7403879d3f5b27094287c}{minX}}(-\/1.f), \mbox{\hyperlink{class_clouds_af0a8f74bdd42579b5559f68a0db3e0c5}{maxX}}(1.f), \mbox{\hyperlink{class_clouds_a9c9307bff01354b41f00e409a8ddcc34}{minY}}(-\/1.f), \mbox{\hyperlink{class_clouds_a701f57923f13ccb48ad509800318f5e7}{maxY}}(1.f), \mbox{\hyperlink{class_clouds_a94cc7e7e677f76323f8d631f0e8466e9}{minZ}}(-\/1.f), \mbox{\hyperlink{class_clouds_ae6f4f066b6ea89cc6cd4c025c7029111}{maxZ}}(1.f),}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010     \mbox{\hyperlink{class_clouds_a71962e1f05fbeb296de084add4c45f17}{movement\_direction}}(glm::vec3(0.0f, 0.0f, 1.0f)), \mbox{\hyperlink{class_clouds_a2fbcf13024a8aac54fb130863a525da8}{scale\_factor}}(glm::vec3(1.f)), \mbox{\hyperlink{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}{translation}}(glm::vec3(0.0f)),}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012     \mbox{\hyperlink{class_clouds_a49377e4170f02fa14ad8099e7fea7f88}{movement\_speed}}(0.65f), \mbox{\hyperlink{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}{density}}(0.7f), \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}}(0.63f), \mbox{\hyperlink{class_clouds_aa1a1003ffebef4965867eb3b7637cb82}{pillowness}}(1.0f), \mbox{\hyperlink{class_clouds_a762a93fcdafd5e488fda5779f37f6817}{cirrus\_effect}}(0.0f),}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014     \mbox{\hyperlink{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}{num\_march\_steps}}(8), \mbox{\hyperlink{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}{num\_march\_steps\_to\_light}}(3),}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     \mbox{\hyperlink{class_clouds_af2b1e688b7757bdf7f3e74de7d4cd6b3}{powder\_effect}}(\textcolor{keyword}{true})}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020   \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}clouds/CloudsRectangle.vert"{}}, \textcolor{stringliteral}{"{}clouds/CloudsRectangle.frag"{}});}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022   \mbox{\hyperlink{class_clouds_acf8ebf390d2ef0a436d31496d877817a}{create\_noise\_textures}}();}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   \mbox{\hyperlink{class_clouds_a7d55e990449a3a00d2a1e2f0b9d85e29}{aabb}}.\mbox{\hyperlink{class_a_a_b_b_ac889fe5a3a32175d57ddf45539e81231}{init}}(\mbox{\hyperlink{class_clouds_a7f02d0e23bc7403879d3f5b27094287c}{minX}}, \mbox{\hyperlink{class_clouds_af0a8f74bdd42579b5559f68a0db3e0c5}{maxX}}, \mbox{\hyperlink{class_clouds_a9c9307bff01354b41f00e409a8ddcc34}{minY}}, \mbox{\hyperlink{class_clouds_a701f57923f13ccb48ad509800318f5e7}{maxY}}, \mbox{\hyperlink{class_clouds_a94cc7e7e677f76323f8d631f0e8466e9}{minZ}}, \mbox{\hyperlink{class_clouds_ae6f4f066b6ea89cc6cd4c025c7029111}{maxZ}});}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00055}{aabb}}, \mbox{\hyperlink{_clouds_8cpp_source_l00050}{create\+\_\+noise\+\_\+textures()}}, \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00018}{AABB\+::init()}}, \mbox{\hyperlink{_clouds_8h_source_l00057}{maxX}}, \mbox{\hyperlink{_clouds_8h_source_l00057}{maxY}}, \mbox{\hyperlink{_clouds_8h_source_l00057}{maxZ}}, \mbox{\hyperlink{_clouds_8h_source_l00057}{minX}}, \mbox{\hyperlink{_clouds_8h_source_l00057}{minY}}, \mbox{\hyperlink{_clouds_8h_source_l00057}{minZ}}, and \mbox{\hyperlink{_clouds_8h_source_l00050}{shader\+\_\+program}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_clouds_aa3b84e5517ae47ea2205927b7a0e4199}\label{class_clouds_aa3b84e5517ae47ea2205927b7a0e4199}} 
+\index{Clouds@{Clouds}!````~Clouds@{$\sim$Clouds}}
+\index{````~Clouds@{$\sim$Clouds}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{$\sim$Clouds()}{~Clouds()}}
+{\footnotesize\ttfamily Clouds\+::$\sim$\+Clouds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_clouds_acf8ebf390d2ef0a436d31496d877817a}\label{class_clouds_acf8ebf390d2ef0a436d31496d877817a}} 
+\index{Clouds@{Clouds}!create\_noise\_textures@{create\_noise\_textures}}
+\index{create\_noise\_textures@{create\_noise\_textures}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{create\_noise\_textures()}{create\_noise\_textures()}}
+{\footnotesize\ttfamily void Clouds\+::create\+\_\+noise\+\_\+textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051 \{}
+\DoxyCodeLine{00052   \mbox{\hyperlink{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}{noise}}-\/>create\_res128\_noise();}
+\DoxyCodeLine{00053   \mbox{\hyperlink{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}{noise}}-\/>create\_res32\_noise();}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00051}{noise}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_clouds_a22d16d67f7009ad78c559883a21a1abf}\label{class_clouds_a22d16d67f7009ad78c559883a21a1abf}} 
+\index{Clouds@{Clouds}!get\_cirrus\_effect@{get\_cirrus\_effect}}
+\index{get\_cirrus\_effect@{get\_cirrus\_effect}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_cirrus\_effect()}{get\_cirrus\_effect()}}
+{\footnotesize\ttfamily GLfloat Clouds\+::get\+\_\+cirrus\+\_\+effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00028}{28}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_a762a93fcdafd5e488fda5779f37f6817}{cirrus\_effect}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{cirrus\+\_\+effect}}.
+
+\mbox{\Hypertarget{class_clouds_a089cd275fdad3bedeebec2e00c245d84}\label{class_clouds_a089cd275fdad3bedeebec2e00c245d84}} 
+\index{Clouds@{Clouds}!get\_density@{get\_density}}
+\index{get\_density@{get\_density}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_density()}{get\_density()}}
+{\footnotesize\ttfamily GLfloat Clouds\+::get\+\_\+density (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00025}{25}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}{density}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{density}}.
+
+\mbox{\Hypertarget{class_clouds_af4de89cb6fa79e67270ea5ad459673b8}\label{class_clouds_af4de89cb6fa79e67270ea5ad459673b8}} 
+\index{Clouds@{Clouds}!get\_mesh\_scale@{get\_mesh\_scale}}
+\index{get\_mesh\_scale@{get\_mesh\_scale}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_mesh\_scale()}{get\_mesh\_scale()}}
+{\footnotesize\ttfamily glm\+::vec3 Clouds\+::get\+\_\+mesh\+\_\+scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00023}{23}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_a2fbcf13024a8aac54fb130863a525da8}{scale\_factor}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00060}{scale\+\_\+factor}}.
+
+\mbox{\Hypertarget{class_clouds_a5934b242efdd9dc5b7e86fcac09d6a57}\label{class_clouds_a5934b242efdd9dc5b7e86fcac09d6a57}} 
+\index{Clouds@{Clouds}!get\_model@{get\_model}}
+\index{get\_model@{get\_model}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_model()}{get\_model()}}
+{\footnotesize\ttfamily glm\+::mat4 Clouds\+::get\+\_\+model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073 \{}
+\DoxyCodeLine{00074   glm::mat4 \mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}} = glm::mat4(1.f);}
+\DoxyCodeLine{00075   \mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}} = glm::translate(\mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}}, \mbox{\hyperlink{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}{translation}});}
+\DoxyCodeLine{00076   \mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}} = glm::scale(\mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}}, \mbox{\hyperlink{class_clouds_a2fbcf13024a8aac54fb130863a525da8}{scale\_factor}});}
+\DoxyCodeLine{00077   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}};}
+\DoxyCodeLine{00078 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00054}{model}}, \mbox{\hyperlink{_clouds_8h_source_l00060}{scale\+\_\+factor}}, and \mbox{\hyperlink{_clouds_8h_source_l00060}{translation}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00027}{render()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_clouds_a610a68893419146483c10a0d76b77280}\label{class_clouds_a610a68893419146483c10a0d76b77280}} 
+\index{Clouds@{Clouds}!get\_movement\_direction@{get\_movement\_direction}}
+\index{get\_movement\_direction@{get\_movement\_direction}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_movement\_direction()}{get\_movement\_direction()}}
+{\footnotesize\ttfamily glm\+::vec3 Clouds\+::get\+\_\+movement\+\_\+direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00020}{20}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_a71962e1f05fbeb296de084add4c45f17}{movement\_direction}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00059}{movement\+\_\+direction}}.
+
+\mbox{\Hypertarget{class_clouds_aea2551f49b26760b2af25f240875e50b}\label{class_clouds_aea2551f49b26760b2af25f240875e50b}} 
+\index{Clouds@{Clouds}!get\_movement\_speed@{get\_movement\_speed}}
+\index{get\_movement\_speed@{get\_movement\_speed}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_movement\_speed()}{get\_movement\_speed()}}
+{\footnotesize\ttfamily GLfloat Clouds\+::get\+\_\+movement\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00024}{24}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_a49377e4170f02fa14ad8099e7fea7f88}{movement\_speed}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{movement\+\_\+speed}}.
+
+\mbox{\Hypertarget{class_clouds_a9606497281b2ccba864eb830162b946c}\label{class_clouds_a9606497281b2ccba864eb830162b946c}} 
+\index{Clouds@{Clouds}!get\_normal\_model@{get\_normal\_model}}
+\index{get\_normal\_model@{get\_normal\_model}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_normal\_model()}{get\_normal\_model()}}
+{\footnotesize\ttfamily glm\+::mat4 Clouds\+::get\+\_\+normal\+\_\+model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00022}{22}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{ \textcolor{keywordflow}{return} glm::transpose(glm::inverse(\mbox{\hyperlink{class_clouds_aae622d87842febfe7f11c7049916186e}{model}})); \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00054}{model}}.
+
+\mbox{\Hypertarget{class_clouds_a7d37f551cb6d20e89c5e43e8f6f6d194}\label{class_clouds_a7d37f551cb6d20e89c5e43e8f6f6d194}} 
+\index{Clouds@{Clouds}!get\_num\_march\_steps@{get\_num\_march\_steps}}
+\index{get\_num\_march\_steps@{get\_num\_march\_steps}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_num\_march\_steps()}{get\_num\_march\_steps()}}
+{\footnotesize\ttfamily GLuint Clouds\+::get\+\_\+num\+\_\+march\+\_\+steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00029}{29}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}{num\_march\_steps}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00064}{num\+\_\+march\+\_\+steps}}.
+
+\mbox{\Hypertarget{class_clouds_a90e898f7baf3bb5b93bd7bec421838d5}\label{class_clouds_a90e898f7baf3bb5b93bd7bec421838d5}} 
+\index{Clouds@{Clouds}!get\_num\_march\_steps\_to\_light@{get\_num\_march\_steps\_to\_light}}
+\index{get\_num\_march\_steps\_to\_light@{get\_num\_march\_steps\_to\_light}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_num\_march\_steps\_to\_light()}{get\_num\_march\_steps\_to\_light()}}
+{\footnotesize\ttfamily GLuint Clouds\+::get\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00030}{30}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}{num\_march\_steps\_to\_light}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00064}{num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}}.
+
+\mbox{\Hypertarget{class_clouds_a1ca101078649153593ded0a3fb859baa}\label{class_clouds_a1ca101078649153593ded0a3fb859baa}} 
+\index{Clouds@{Clouds}!get\_pillowness@{get\_pillowness}}
+\index{get\_pillowness@{get\_pillowness}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_pillowness()}{get\_pillowness()}}
+{\footnotesize\ttfamily GLfloat Clouds\+::get\+\_\+pillowness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00027}{27}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_aa1a1003ffebef4965867eb3b7637cb82}{pillowness}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{pillowness}}.
+
+\mbox{\Hypertarget{class_clouds_a2a783d177eb57ee1a3f50c1dc0890afd}\label{class_clouds_a2a783d177eb57ee1a3f50c1dc0890afd}} 
+\index{Clouds@{Clouds}!get\_powder\_effect@{get\_powder\_effect}}
+\index{get\_powder\_effect@{get\_powder\_effect}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_powder\_effect()}{get\_powder\_effect()}}
+{\footnotesize\ttfamily bool Clouds\+::get\+\_\+powder\+\_\+effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00031}{31}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_af2b1e688b7757bdf7f3e74de7d4cd6b3}{powder\_effect}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00066}{powder\+\_\+effect}}.
+
+\mbox{\Hypertarget{class_clouds_a7c3e660495cacece1e4751f25245640a}\label{class_clouds_a7c3e660495cacece1e4751f25245640a}} 
+\index{Clouds@{Clouds}!get\_radius@{get\_radius}}
+\index{get\_radius@{get\_radius}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_radius()}{get\_radius()}}
+{\footnotesize\ttfamily glm\+::vec3 Clouds\+::get\+\_\+radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00021}{21}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_a2fbcf13024a8aac54fb130863a525da8}{scale\_factor}} / 2.f; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00060}{scale\+\_\+factor}}.
+
+\mbox{\Hypertarget{class_clouds_aab2a153cec1d3144f42e3aab1a1e3d9d}\label{class_clouds_aab2a153cec1d3144f42e3aab1a1e3d9d}} 
+\index{Clouds@{Clouds}!get\_scale@{get\_scale}}
+\index{get\_scale@{get\_scale}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_scale()}{get\_scale()}}
+{\footnotesize\ttfamily GLfloat Clouds\+::get\+\_\+scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00026}{26}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{scale}}.
+
+\mbox{\Hypertarget{class_clouds_a72b61dafa90325601024dc9133b54c4e}\label{class_clouds_a72b61dafa90325601024dc9133b54c4e}} 
+\index{Clouds@{Clouds}!get\_shader\_program@{get\_shader\_program}}
+\index{get\_shader\_program@{get\_shader\_program}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{get\_shader\_program()}{get\_shader\_program()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader_program}{Shader\+Program}} $>$ Clouds\+::get\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00033}{33}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}; \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00050}{shader\+\_\+program}}.
+
+\mbox{\Hypertarget{class_clouds_a2568b53395be6b6de3cc2a57210059af}\label{class_clouds_a2568b53395be6b6de3cc2a57210059af}} 
+\index{Clouds@{Clouds}!read@{read}}
+\index{read@{read}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void Clouds\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043 \{}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045   \mbox{\hyperlink{class_clouds_a316d9dc9fe93f94b90c17605538ffd40}{random\_numbers}}-\/>read();}
+\DoxyCodeLine{00046   \mbox{\hyperlink{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}{noise}}-\/>read\_res128\_noise();}
+\DoxyCodeLine{00047   \mbox{\hyperlink{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}{noise}}-\/>read\_res32\_noise();}
+\DoxyCodeLine{00048 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00051}{noise}}, and \mbox{\hyperlink{_clouds_8h_source_l00052}{random\+\_\+numbers}}.
+
+\mbox{\Hypertarget{class_clouds_adc93a373c6890700300fb63f9155c12b}\label{class_clouds_adc93a373c6890700300fb63f9155c12b}} 
+\index{Clouds@{Clouds}!render@{render}}
+\index{render@{render}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Clouds\+::render (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{projection\+\_\+matrix,  }\item[{glm\+::mat4}]{view\+\_\+matrix,  }\item[{GLuint}]{window\+\_\+width,  }\item[{GLuint}]{window\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030   \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{00031   \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}-\/>setUniformMatrix4fv(projection\_matrix, \textcolor{stringliteral}{"{}projection"{}});}
+\DoxyCodeLine{00032   \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}-\/>setUniformMatrix4fv(view\_matrix, \textcolor{stringliteral}{"{}view"{}});}
+\DoxyCodeLine{00033   \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}-\/>setUniformMatrix4fv(\mbox{\hyperlink{class_clouds_a5934b242efdd9dc5b7e86fcac09d6a57}{get\_model}}(), \textcolor{stringliteral}{"{}model"{}});}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035   \mbox{\hyperlink{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}{shader\_program}}-\/>validate\_program();}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037   \textcolor{comment}{//glPolygonMode(GL\_FRONT\_AND\_BACK, GL\_LINE);}}
+\DoxyCodeLine{00038   \mbox{\hyperlink{class_clouds_a7d55e990449a3a00d2a1e2f0b9d85e29}{aabb}}.\mbox{\hyperlink{class_a_a_b_b_a50cd5cfb2b3436d88225d00c57d18ce4}{render}}();}
+\DoxyCodeLine{00039   \textcolor{comment}{//glPolygonMode(GL\_FRONT\_AND\_BACK, GL\_FILL);}}
+\DoxyCodeLine{00040 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00055}{aabb}}, \mbox{\hyperlink{_clouds_8cpp_source_l00072}{get\+\_\+model()}}, \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00112}{AABB\+::render()}}, and \mbox{\hyperlink{_clouds_8h_source_l00050}{shader\+\_\+program}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_clouds_aa64b9aba6a98a04135fa390afa33f262}\label{class_clouds_aa64b9aba6a98a04135fa390afa33f262}} 
+\index{Clouds@{Clouds}!set\_cirrus\_effect@{set\_cirrus\_effect}}
+\index{set\_cirrus\_effect@{set\_cirrus\_effect}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_cirrus\_effect()}{set\_cirrus\_effect()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+cirrus\+\_\+effect (\begin{DoxyParamCaption}\item[{GLfloat}]{cirrus\+\_\+effect }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058 \{ this-\/>\mbox{\hyperlink{class_clouds_a762a93fcdafd5e488fda5779f37f6817}{cirrus\_effect}} = \mbox{\hyperlink{class_clouds_a762a93fcdafd5e488fda5779f37f6817}{cirrus\_effect}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{cirrus\+\_\+effect}}.
+
+\mbox{\Hypertarget{class_clouds_aea15bfc34cd6d7134fd442a7c25a7755}\label{class_clouds_aea15bfc34cd6d7134fd442a7c25a7755}} 
+\index{Clouds@{Clouds}!set\_density@{set\_density}}
+\index{set\_density@{set\_density}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_density()}{set\_density()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+density (\begin{DoxyParamCaption}\item[{GLfloat}]{density }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064 \{ this-\/>\mbox{\hyperlink{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}{density}} = \mbox{\hyperlink{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}{density}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{density}}.
+
+\mbox{\Hypertarget{class_clouds_aa04e6323e8cd30b214f2f2688602e9ca}\label{class_clouds_aa04e6323e8cd30b214f2f2688602e9ca}} 
+\index{Clouds@{Clouds}!set\_movement\_direction@{set\_movement\_direction}}
+\index{set\_movement\_direction@{set\_movement\_direction}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_movement\_direction()}{set\_movement\_direction()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+movement\+\_\+direction (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{movement\+\_\+dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080 \{ this-\/>\mbox{\hyperlink{class_clouds_a71962e1f05fbeb296de084add4c45f17}{movement\_direction}} = movement\_dir; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00059}{movement\+\_\+direction}}.
+
+\mbox{\Hypertarget{class_clouds_a620c7a19319e167a4cb8d7a1a59fb38d}\label{class_clouds_a620c7a19319e167a4cb8d7a1a59fb38d}} 
+\index{Clouds@{Clouds}!set\_movement\_speed@{set\_movement\_speed}}
+\index{set\_movement\_speed@{set\_movement\_speed}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_movement\_speed()}{set\_movement\_speed()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+movement\+\_\+speed (\begin{DoxyParamCaption}\item[{GLfloat}]{speed }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066 \{ \mbox{\hyperlink{class_clouds_a49377e4170f02fa14ad8099e7fea7f88}{movement\_speed}} = speed; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{movement\+\_\+speed}}.
+
+\mbox{\Hypertarget{class_clouds_acde2bb126e7a81a84dca7a5fb94e4378}\label{class_clouds_acde2bb126e7a81a84dca7a5fb94e4378}} 
+\index{Clouds@{Clouds}!set\_num\_march\_steps@{set\_num\_march\_steps}}
+\index{set\_num\_march\_steps@{set\_num\_march\_steps}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_num\_march\_steps()}{set\_num\_march\_steps()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+num\+\_\+march\+\_\+steps (\begin{DoxyParamCaption}\item[{GLuint}]{num\+\_\+march\+\_\+steps }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082 \{ this-\/>\mbox{\hyperlink{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}{num\_march\_steps}} = \mbox{\hyperlink{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}{num\_march\_steps}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00064}{num\+\_\+march\+\_\+steps}}.
+
+\mbox{\Hypertarget{class_clouds_aba6c6ded9e92aa12bf7b052964184a12}\label{class_clouds_aba6c6ded9e92aa12bf7b052964184a12}} 
+\index{Clouds@{Clouds}!set\_num\_march\_steps\_to\_light@{set\_num\_march\_steps\_to\_light}}
+\index{set\_num\_march\_steps\_to\_light@{set\_num\_march\_steps\_to\_light}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_num\_march\_steps\_to\_light()}{set\_num\_march\_steps\_to\_light()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light (\begin{DoxyParamCaption}\item[{GLuint}]{num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084 \{ this-\/>\mbox{\hyperlink{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}{num\_march\_steps\_to\_light}} = \mbox{\hyperlink{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}{num\_march\_steps\_to\_light}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00064}{num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}}.
+
+\mbox{\Hypertarget{class_clouds_a533b3889f59936cdb2f66bfa3b254660}\label{class_clouds_a533b3889f59936cdb2f66bfa3b254660}} 
+\index{Clouds@{Clouds}!set\_pillowness@{set\_pillowness}}
+\index{set\_pillowness@{set\_pillowness}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_pillowness()}{set\_pillowness()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+pillowness (\begin{DoxyParamCaption}\item[{GLfloat}]{cloud\+\_\+pillowness }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060 \{ this-\/>\mbox{\hyperlink{class_clouds_aa1a1003ffebef4965867eb3b7637cb82}{pillowness}} = cloud\_pillowness; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{pillowness}}.
+
+\mbox{\Hypertarget{class_clouds_a3b3acb9a93fa4c29aa50c5cec818d78d}\label{class_clouds_a3b3acb9a93fa4c29aa50c5cec818d78d}} 
+\index{Clouds@{Clouds}!set\_powder\_effect@{set\_powder\_effect}}
+\index{set\_powder\_effect@{set\_powder\_effect}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_powder\_effect()}{set\_powder\_effect()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+powder\+\_\+effect (\begin{DoxyParamCaption}\item[{bool}]{cloud\+\_\+powder\+\_\+effect }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056 \{ this-\/>\mbox{\hyperlink{class_clouds_af2b1e688b7757bdf7f3e74de7d4cd6b3}{powder\_effect}} = cloud\_powder\_effect; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00066}{powder\+\_\+effect}}.
+
+\mbox{\Hypertarget{class_clouds_a5d76691e400bd6528527f57f2d6e8af6}\label{class_clouds_a5d76691e400bd6528527f57f2d6e8af6}} 
+\index{Clouds@{Clouds}!set\_scale@{set\_scale}}
+\index{set\_scale@{set\_scale}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_scale()}{set\_scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{GLfloat}]{scale }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062 \{ this-\/>\mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}} = \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{scale}}.
+
+\mbox{\Hypertarget{class_clouds_a765a903169c533071cd4b2d5ecffc8e3}\label{class_clouds_a765a903169c533071cd4b2d5ecffc8e3}} 
+\index{Clouds@{Clouds}!set\_scale@{set\_scale}}
+\index{set\_scale@{set\_scale}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_scale()}{set\_scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{scale }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{ \mbox{\hyperlink{class_clouds_a2fbcf13024a8aac54fb130863a525da8}{scale\_factor}} = \mbox{\hyperlink{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}{scale}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00062}{scale}}, and \mbox{\hyperlink{_clouds_8h_source_l00060}{scale\+\_\+factor}}.
+
+\mbox{\Hypertarget{class_clouds_ab3121da91fc70a6fac4f006e57a8412c}\label{class_clouds_ab3121da91fc70a6fac4f006e57a8412c}} 
+\index{Clouds@{Clouds}!set\_translation@{set\_translation}}
+\index{set\_translation@{set\_translation}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{set\_translation()}{set\_translation()}}
+{\footnotesize\ttfamily void Clouds\+::set\+\_\+translation (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{translation }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{_clouds_8cpp_source}{Clouds.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070 \{ this-\/>\mbox{\hyperlink{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}{translation}} = \mbox{\hyperlink{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}{translation}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_clouds_8h_source_l00060}{translation}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_clouds_a7d55e990449a3a00d2a1e2f0b9d85e29}\label{class_clouds_a7d55e990449a3a00d2a1e2f0b9d85e29}} 
+\index{Clouds@{Clouds}!aabb@{aabb}}
+\index{aabb@{aabb}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{aabb}{aabb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_a_b_b}{AABB}} Clouds\+::aabb\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00055}{55}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00027}{render()}}.
+
+\mbox{\Hypertarget{class_clouds_a762a93fcdafd5e488fda5779f37f6817}\label{class_clouds_a762a93fcdafd5e488fda5779f37f6817}} 
+\index{Clouds@{Clouds}!cirrus\_effect@{cirrus\_effect}}
+\index{cirrus\_effect@{cirrus\_effect}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{cirrus\_effect}{cirrus\_effect}}
+{\footnotesize\ttfamily GLfloat Clouds\+::cirrus\+\_\+effect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00062}{62}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00028}{get\+\_\+cirrus\+\_\+effect()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00058}{set\+\_\+cirrus\+\_\+effect()}}.
+
+\mbox{\Hypertarget{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}\label{class_clouds_aa634fbf15915365f9bb06b7bd036e9b0}} 
+\index{Clouds@{Clouds}!density@{density}}
+\index{density@{density}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{density}{density}}
+{\footnotesize\ttfamily GLfloat Clouds\+::density\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00062}{62}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00025}{get\+\_\+density()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00064}{set\+\_\+density()}}.
+
+\mbox{\Hypertarget{class_clouds_af0a8f74bdd42579b5559f68a0db3e0c5}\label{class_clouds_af0a8f74bdd42579b5559f68a0db3e0c5}} 
+\index{Clouds@{Clouds}!maxX@{maxX}}
+\index{maxX@{maxX}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{maxX}{maxX}}
+{\footnotesize\ttfamily GLfloat Clouds\+::maxX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00057}{57}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+\mbox{\Hypertarget{class_clouds_a701f57923f13ccb48ad509800318f5e7}\label{class_clouds_a701f57923f13ccb48ad509800318f5e7}} 
+\index{Clouds@{Clouds}!maxY@{maxY}}
+\index{maxY@{maxY}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{maxY}{maxY}}
+{\footnotesize\ttfamily GLfloat Clouds\+::maxY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00057}{57}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+\mbox{\Hypertarget{class_clouds_ae6f4f066b6ea89cc6cd4c025c7029111}\label{class_clouds_ae6f4f066b6ea89cc6cd4c025c7029111}} 
+\index{Clouds@{Clouds}!maxZ@{maxZ}}
+\index{maxZ@{maxZ}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{maxZ}{maxZ}}
+{\footnotesize\ttfamily GLfloat Clouds\+::maxZ\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00057}{57}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+\mbox{\Hypertarget{class_clouds_a7f02d0e23bc7403879d3f5b27094287c}\label{class_clouds_a7f02d0e23bc7403879d3f5b27094287c}} 
+\index{Clouds@{Clouds}!minX@{minX}}
+\index{minX@{minX}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{minX}{minX}}
+{\footnotesize\ttfamily GLfloat Clouds\+::minX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00057}{57}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+\mbox{\Hypertarget{class_clouds_a9c9307bff01354b41f00e409a8ddcc34}\label{class_clouds_a9c9307bff01354b41f00e409a8ddcc34}} 
+\index{Clouds@{Clouds}!minY@{minY}}
+\index{minY@{minY}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{minY}{minY}}
+{\footnotesize\ttfamily GLfloat Clouds\+::minY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00057}{57}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+\mbox{\Hypertarget{class_clouds_a94cc7e7e677f76323f8d631f0e8466e9}\label{class_clouds_a94cc7e7e677f76323f8d631f0e8466e9}} 
+\index{Clouds@{Clouds}!minZ@{minZ}}
+\index{minZ@{minZ}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{minZ}{minZ}}
+{\footnotesize\ttfamily GLfloat Clouds\+::minZ\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00057}{57}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}.
+
+\mbox{\Hypertarget{class_clouds_aae622d87842febfe7f11c7049916186e}\label{class_clouds_aae622d87842febfe7f11c7049916186e}} 
+\index{Clouds@{Clouds}!model@{model}}
+\index{model@{model}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily glm\+::mat4 Clouds\+::model\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00054}{54}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00072}{get\+\_\+model()}}, and \mbox{\hyperlink{_clouds_8h_source_l00022}{get\+\_\+normal\+\_\+model()}}.
+
+\mbox{\Hypertarget{class_clouds_a71962e1f05fbeb296de084add4c45f17}\label{class_clouds_a71962e1f05fbeb296de084add4c45f17}} 
+\index{Clouds@{Clouds}!movement\_direction@{movement\_direction}}
+\index{movement\_direction@{movement\_direction}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{movement\_direction}{movement\_direction}}
+{\footnotesize\ttfamily glm\+::vec3 Clouds\+::movement\+\_\+direction\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00059}{59}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00020}{get\+\_\+movement\+\_\+direction()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00080}{set\+\_\+movement\+\_\+direction()}}.
+
+\mbox{\Hypertarget{class_clouds_a49377e4170f02fa14ad8099e7fea7f88}\label{class_clouds_a49377e4170f02fa14ad8099e7fea7f88}} 
+\index{Clouds@{Clouds}!movement\_speed@{movement\_speed}}
+\index{movement\_speed@{movement\_speed}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{movement\_speed}{movement\_speed}}
+{\footnotesize\ttfamily GLfloat Clouds\+::movement\+\_\+speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00062}{62}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00024}{get\+\_\+movement\+\_\+speed()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00066}{set\+\_\+movement\+\_\+speed()}}.
+
+\mbox{\Hypertarget{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}\label{class_clouds_ab1556db3b3ac1a7e2852085cfce8489e}} 
+\index{Clouds@{Clouds}!noise@{noise}}
+\index{noise@{noise}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{noise}{noise}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_noise}{Noise}}$>$ Clouds\+::noise\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00051}{51}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00050}{create\+\_\+noise\+\_\+textures()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00042}{read()}}.
+
+\mbox{\Hypertarget{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}\label{class_clouds_aa1c7ecde8611ea348f26fb148499fe82}} 
+\index{Clouds@{Clouds}!num\_march\_steps@{num\_march\_steps}}
+\index{num\_march\_steps@{num\_march\_steps}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{num\_march\_steps}{num\_march\_steps}}
+{\footnotesize\ttfamily GLuint Clouds\+::num\+\_\+march\+\_\+steps\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00064}{64}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00029}{get\+\_\+num\+\_\+march\+\_\+steps()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00082}{set\+\_\+num\+\_\+march\+\_\+steps()}}.
+
+\mbox{\Hypertarget{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}\label{class_clouds_aaaf08863324dd72ab17d375d9cd6e905}} 
+\index{Clouds@{Clouds}!num\_march\_steps\_to\_light@{num\_march\_steps\_to\_light}}
+\index{num\_march\_steps\_to\_light@{num\_march\_steps\_to\_light}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{num\_march\_steps\_to\_light}{num\_march\_steps\_to\_light}}
+{\footnotesize\ttfamily GLuint Clouds\+::num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00064}{64}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00030}{get\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00084}{set\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light()}}.
+
+\mbox{\Hypertarget{class_clouds_aa1a1003ffebef4965867eb3b7637cb82}\label{class_clouds_aa1a1003ffebef4965867eb3b7637cb82}} 
+\index{Clouds@{Clouds}!pillowness@{pillowness}}
+\index{pillowness@{pillowness}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{pillowness}{pillowness}}
+{\footnotesize\ttfamily GLfloat Clouds\+::pillowness\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00062}{62}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00027}{get\+\_\+pillowness()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00060}{set\+\_\+pillowness()}}.
+
+\mbox{\Hypertarget{class_clouds_af2b1e688b7757bdf7f3e74de7d4cd6b3}\label{class_clouds_af2b1e688b7757bdf7f3e74de7d4cd6b3}} 
+\index{Clouds@{Clouds}!powder\_effect@{powder\_effect}}
+\index{powder\_effect@{powder\_effect}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{powder\_effect}{powder\_effect}}
+{\footnotesize\ttfamily bool Clouds\+::powder\+\_\+effect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00066}{66}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00031}{get\+\_\+powder\+\_\+effect()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00056}{set\+\_\+powder\+\_\+effect()}}.
+
+\mbox{\Hypertarget{class_clouds_a316d9dc9fe93f94b90c17605538ffd40}\label{class_clouds_a316d9dc9fe93f94b90c17605538ffd40}} 
+\index{Clouds@{Clouds}!random\_numbers@{random\_numbers}}
+\index{random\_numbers@{random\_numbers}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{random\_numbers}{random\_numbers}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_random_numbers}{Random\+Numbers}}$>$ Clouds\+::random\+\_\+numbers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00052}{52}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00042}{read()}}.
+
+\mbox{\Hypertarget{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}\label{class_clouds_ac0ecbd0f1f88312d92c8d3073ad0ae65}} 
+\index{Clouds@{Clouds}!scale@{scale}}
+\index{scale@{scale}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily GLfloat Clouds\+::scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00062}{62}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00026}{get\+\_\+scale()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00062}{set\+\_\+scale()}}.
+
+\mbox{\Hypertarget{class_clouds_a2fbcf13024a8aac54fb130863a525da8}\label{class_clouds_a2fbcf13024a8aac54fb130863a525da8}} 
+\index{Clouds@{Clouds}!scale\_factor@{scale\_factor}}
+\index{scale\_factor@{scale\_factor}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{scale\_factor}{scale\_factor}}
+{\footnotesize\ttfamily glm\+::vec3 Clouds\+::scale\+\_\+factor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00060}{60}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8h_source_l00023}{get\+\_\+mesh\+\_\+scale()}}, \mbox{\hyperlink{_clouds_8cpp_source_l00072}{get\+\_\+model()}}, \mbox{\hyperlink{_clouds_8h_source_l00021}{get\+\_\+radius()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00068}{set\+\_\+scale()}}.
+
+\mbox{\Hypertarget{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}\label{class_clouds_a383c7b49c11b8e36c23dc44105e594b9}} 
+\index{Clouds@{Clouds}!shader\_program@{shader\_program}}
+\index{shader\_program@{shader\_program}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{shader\_program}{shader\_program}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_shader_program}{Shader\+Program}}$>$ Clouds\+::shader\+\_\+program\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00050}{50}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds()}}, \mbox{\hyperlink{_clouds_8h_source_l00033}{get\+\_\+shader\+\_\+program()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00027}{render()}}.
+
+\mbox{\Hypertarget{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}\label{class_clouds_adf7ae42fa6486a1a793feacbdc0c0de1}} 
+\index{Clouds@{Clouds}!translation@{translation}}
+\index{translation@{translation}!Clouds@{Clouds}}
+\doxysubsubsection{\texorpdfstring{translation}{translation}}
+{\footnotesize\ttfamily glm\+::vec3 Clouds\+::translation\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_clouds_8h_source_l00060}{60}} of file \mbox{\hyperlink{_clouds_8h_source}{Clouds.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00072}{get\+\_\+model()}}, and \mbox{\hyperlink{_clouds_8cpp_source_l00070}{set\+\_\+translation()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/atmospheric\+\_\+effects/clouds/\mbox{\hyperlink{_clouds_8h}{Clouds.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/atmospheric\+\_\+effects/clouds/\mbox{\hyperlink{_clouds_8cpp}{Clouds.\+cpp}}\end{DoxyCompactItemize}

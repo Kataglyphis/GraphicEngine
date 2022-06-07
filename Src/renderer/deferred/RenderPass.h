@@ -1,7 +1,7 @@
 #pragma once
 class RenderPass {
-  public:
+ public:
   virtual void create_shader_program() = 0;
 
-  private:
+ private:
 };

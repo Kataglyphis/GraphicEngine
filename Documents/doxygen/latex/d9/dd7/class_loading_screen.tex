@@ -1,0 +1,262 @@
+\hypertarget{class_loading_screen}{}\doxysection{Loading\+Screen Class Reference}
+\label{class_loading_screen}\index{LoadingScreen@{LoadingScreen}}
+
+
+{\ttfamily \#include $<$Loading\+Screen.\+h$>$}
+
+
+
+Collaboration diagram for Loading\+Screen\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_loading_screen_ad280e1a8f065e9a1efa9e308479ee12d}{Loading\+Screen}} ()
+\item 
+void \mbox{\hyperlink{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}{init}} ()
+\item 
+void \mbox{\hyperlink{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}{render}} ()
+\item 
+\mbox{\hyperlink{class_loading_screen_ac4d8e1e47650f66e2260506fa5a1bd7e}{$\sim$\+Loading\+Screen}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}{create\+\_\+shader\+\_\+program}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quad}{Quad}} \mbox{\hyperlink{class_loading_screen_a0b19027851fdf54ff10c9c4e4cbf84b1}{loading\+\_\+screen\+\_\+quad}}
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\+\_\+screen\+\_\+tex}}
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} \mbox{\hyperlink{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}{logo\+\_\+tex}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\+\_\+screen\+\_\+shader\+\_\+program}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8h_source_l00006}{6}} of file \mbox{\hyperlink{_loading_screen_8h_source}{Loading\+Screen.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_loading_screen_ad280e1a8f065e9a1efa9e308479ee12d}\label{class_loading_screen_ad280e1a8f065e9a1efa9e308479ee12d}} 
+\index{LoadingScreen@{LoadingScreen}!LoadingScreen@{LoadingScreen}}
+\index{LoadingScreen@{LoadingScreen}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{LoadingScreen()}{LoadingScreen()}}
+{\footnotesize\ttfamily Loading\+Screen\+::\+Loading\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_loading_screen_8cpp_source}{Loading\+Screen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{ \mbox{\hyperlink{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}{create\_shader\_program}}(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_loading_screen_8cpp_source_l00040}{create\+\_\+shader\+\_\+program()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_loading_screen_ac4d8e1e47650f66e2260506fa5a1bd7e}\label{class_loading_screen_ac4d8e1e47650f66e2260506fa5a1bd7e}} 
+\index{LoadingScreen@{LoadingScreen}!````~LoadingScreen@{$\sim$LoadingScreen}}
+\index{````~LoadingScreen@{$\sim$LoadingScreen}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{$\sim$LoadingScreen()}{~LoadingScreen()}}
+{\footnotesize\ttfamily Loading\+Screen\+::$\sim$\+Loading\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_loading_screen_8cpp_source}{Loading\+Screen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}\label{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}} 
+\index{LoadingScreen@{LoadingScreen}!create\_shader\_program@{create\_shader\_program}}
+\index{create\_shader\_program@{create\_shader\_program}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{create\_shader\_program()}{create\_shader\_program()}}
+{\footnotesize\ttfamily void Loading\+Screen\+::create\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_loading_screen_8cpp_source}{Loading\+Screen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041 \{}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043   \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\_screen\_shader\_program}} = std::make\_shared<ShaderProgram>(\mbox{\hyperlink{class_shader_program}{ShaderProgram}}\{\});}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045   \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\_screen\_shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}loading\_screen/loading\_screen.vert"{}}, \textcolor{stringliteral}{"{}loading\_screen/loading\_screen.frag"{}});}
+\DoxyCodeLine{00046 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_loading_screen_8h_source_l00021}{loading\+\_\+screen\+\_\+shader\+\_\+program}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00005}{Loading\+Screen()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}\label{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}} 
+\index{LoadingScreen@{LoadingScreen}!init@{init}}
+\index{init@{init}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Loading\+Screen\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_loading_screen_8cpp_source}{Loading\+Screen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010   std::stringstream texture\_base\_dir;}
+\DoxyCodeLine{00011   texture\_base\_dir << CMAKELISTS\_DIR;}
+\DoxyCodeLine{00012   texture\_base\_dir << \textcolor{stringliteral}{"{}/Resources/Textures/"{}};}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014   std::stringstream texture\_loading\_screen;}
+\DoxyCodeLine{00015   texture\_loading\_screen << texture\_base\_dir.str() << \textcolor{stringliteral}{"{}Loading\_Screen/ukraine.jpg"{}};}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\_screen\_tex}} = \mbox{\hyperlink{class_texture}{Texture}}(texture\_loading\_screen.str().c\_str(), std::make\_shared<RepeatMode>());}
+\DoxyCodeLine{00018   \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\_screen\_tex}}.\mbox{\hyperlink{class_texture_a39518e6212f94918b566d01630d1a749}{load\_texture\_without\_alpha\_channel}}();}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020   std::stringstream texture\_logo;}
+\DoxyCodeLine{00021   texture\_logo << texture\_base\_dir.str() << \textcolor{stringliteral}{"{}Loading\_Screen/Engine\_logo.png"{}};}
+\DoxyCodeLine{00022   \mbox{\hyperlink{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}{logo\_tex}} = \mbox{\hyperlink{class_texture}{Texture}}(texture\_logo.str().c\_str(), std::make\_shared<RepeatMode>());}
+\DoxyCodeLine{00023   \mbox{\hyperlink{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}{logo\_tex}}.\mbox{\hyperlink{class_texture_aac8edf700b4323b86a7bfa322d186ca5}{load\_texture\_with\_alpha\_channel}}();}
+\DoxyCodeLine{00024 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8cpp_source_l00056}{Texture\+::load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00024}{Texture\+::load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_loading_screen_8h_source_l00018}{loading\+\_\+screen\+\_\+tex}}, and \mbox{\hyperlink{_loading_screen_8h_source_l00019}{logo\+\_\+tex}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}\label{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}} 
+\index{LoadingScreen@{LoadingScreen}!render@{render}}
+\index{render@{render}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Loading\+Screen\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_loading_screen_8cpp_source}{Loading\+Screen.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029   glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031   \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\_screen\_tex}}.\mbox{\hyperlink{class_texture_a52e79975124df40c3e294ad2e0791ba5}{use\_texture}}(0);}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033   \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\_screen\_shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035   \mbox{\hyperlink{class_loading_screen_a0b19027851fdf54ff10c9c4e4cbf84b1}{loading\_screen\_quad}}.\mbox{\hyperlink{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}{render}}();}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_loading_screen_8h_source_l00017}{loading\+\_\+screen\+\_\+quad}}, \mbox{\hyperlink{_loading_screen_8h_source_l00021}{loading\+\_\+screen\+\_\+shader\+\_\+program}}, \mbox{\hyperlink{_loading_screen_8h_source_l00018}{loading\+\_\+screen\+\_\+tex}}, \mbox{\hyperlink{_quad_8cpp_source_l00017}{Quad\+::render()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00159}{Texture\+::use\+\_\+texture()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_loading_screen_a0b19027851fdf54ff10c9c4e4cbf84b1}\label{class_loading_screen_a0b19027851fdf54ff10c9c4e4cbf84b1}} 
+\index{LoadingScreen@{LoadingScreen}!loading\_screen\_quad@{loading\_screen\_quad}}
+\index{loading\_screen\_quad@{loading\_screen\_quad}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{loading\_screen\_quad}{loading\_screen\_quad}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_quad}{Quad}} Loading\+Screen\+::loading\+\_\+screen\+\_\+quad\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8h_source_l00017}{17}} of file \mbox{\hyperlink{_loading_screen_8h_source}{Loading\+Screen.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00026}{render()}}.
+
+\mbox{\Hypertarget{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}\label{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}} 
+\index{LoadingScreen@{LoadingScreen}!loading\_screen\_shader\_program@{loading\_screen\_shader\_program}}
+\index{loading\_screen\_shader\_program@{loading\_screen\_shader\_program}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{loading\_screen\_shader\_program}{loading\_screen\_shader\_program}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_shader_program}{Shader\+Program}}$>$ Loading\+Screen\+::loading\+\_\+screen\+\_\+shader\+\_\+program\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8h_source_l00021}{21}} of file \mbox{\hyperlink{_loading_screen_8h_source}{Loading\+Screen.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00040}{create\+\_\+shader\+\_\+program()}}, and \mbox{\hyperlink{_loading_screen_8cpp_source_l00026}{render()}}.
+
+\mbox{\Hypertarget{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}\label{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}} 
+\index{LoadingScreen@{LoadingScreen}!loading\_screen\_tex@{loading\_screen\_tex}}
+\index{loading\_screen\_tex@{loading\_screen\_tex}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{loading\_screen\_tex}{loading\_screen\_tex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} Loading\+Screen\+::loading\+\_\+screen\+\_\+tex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8h_source_l00018}{18}} of file \mbox{\hyperlink{_loading_screen_8h_source}{Loading\+Screen.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00007}{init()}}, and \mbox{\hyperlink{_loading_screen_8cpp_source_l00026}{render()}}.
+
+\mbox{\Hypertarget{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}\label{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}} 
+\index{LoadingScreen@{LoadingScreen}!logo\_tex@{logo\_tex}}
+\index{logo\_tex@{logo\_tex}!LoadingScreen@{LoadingScreen}}
+\doxysubsubsection{\texorpdfstring{logo\_tex}{logo\_tex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} Loading\+Screen\+::logo\+\_\+tex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_loading_screen_8h_source_l00019}{19}} of file \mbox{\hyperlink{_loading_screen_8h_source}{Loading\+Screen.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00007}{init()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/loading\+\_\+screen/\mbox{\hyperlink{_loading_screen_8h}{Loading\+Screen.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/loading\+\_\+screen/\mbox{\hyperlink{_loading_screen_8cpp}{Loading\+Screen.\+cpp}}\end{DoxyCompactItemize}

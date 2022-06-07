@@ -1,6 +1,0 @@
-get_shadow_map
-DirectionalShadowMapPass call:[create_shader_program] noreturn:[create_shader_program]
-execute global:[NUM_CASCADES] call:[calc_orthogonal_projections,get_cascaded_light_matrices,get_fov,get_game_objects,get_normal_world_trafo,get_shadow_height,get_shadow_map,get_shadow_width,get_sun,get_viewmatrix,get_world_trafo,glBindFramebuffer,glClear,glCullFace,glEnable,glFrontFace,glViewport,render,setUniformBlockBinding,set_game_object_uniforms,use_shader_program,validate_program,write,write_light_matrices] noreturn:[render,validate_program]
-create_shader_program call:[create_from_files] noreturn:[create_from_files]
-set_game_object_uniforms call:[setUniformMatrix4fv] noreturn:[setUniformMatrix4fv]
-DirectionalShadowMapPass

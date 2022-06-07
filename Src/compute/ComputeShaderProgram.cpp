@@ -1,7 +1,9 @@
 #include "ComputeShaderProgram.h"
 
-ComputeShaderProgram::ComputeShaderProgram() { }
+ComputeShaderProgram::ComputeShaderProgram() {}
 
-void ComputeShaderProgram::reload() { create_computer_shader_program_from_file(compute_location); }
+void ComputeShaderProgram::reload() {
+  create_computer_shader_program_from_file(compute_location);
+}
 
-ComputeShaderProgram::~ComputeShaderProgram() { }
+ComputeShaderProgram::~ComputeShaderProgram() {}

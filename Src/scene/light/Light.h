@@ -1,12 +1,13 @@
 #pragma once
 #include <glad/glad.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "CascadedShadowMap.h"
 
 class Light {
-  public:
+ public:
   Light();
 
   Light(GLfloat red, GLfloat green, GLfloat blue, GLfloat radiance);
@@ -16,7 +17,7 @@ class Light {
 
   ~Light();
 
-  protected:
+ protected:
   glm::vec3 color;
   float radiance;
 

@@ -1,16 +1,18 @@
 #pragma once
 
-#include "RenderPassSceneDependend.h"
 #include "DirectionalLight.h"
+#include "RenderPassSceneDependend.h"
+#include "Scene.h"
 #include "ShaderProgram.h"
 #include "ViewFrustumCulling.h"
-#include "Scene.h"
 
 class DirectionalShadowMapPass : public RenderPassSceneDependend {
-  public:
+ public:
   DirectionalShadowMapPass();
 
-  void execute(glm::mat4 projection, std::shared_ptr<Camera> main_camera, GLuint window_width, GLuint window_height, std::shared_ptr<Scene> scene);
+  void execute(glm::mat4 projection, std::shared_ptr<Camera> main_camera,
+               GLuint window_width, GLuint window_height,
+               std::shared_ptr<Scene> scene);
 
   void create_shader_program();
 
@@ -18,6 +20,6 @@ class DirectionalShadowMapPass : public RenderPassSceneDependend {
 
   ~DirectionalShadowMapPass();
 
-  private:
+ private:
   std::shared_ptr<ShaderProgram> shader_program;
 };

@@ -1,0 +1,418 @@
+\hypertarget{class_lighting_pass}{}\doxysection{Lighting\+Pass Class Reference}
+\label{class_lighting_pass}\index{LightingPass@{LightingPass}}
+
+
+{\ttfamily \#include $<$Lighting\+Pass.\+h$>$}
+
+
+
+Inheritance diagram for Lighting\+Pass\+:
+% FIG 0
+
+
+Collaboration diagram for Lighting\+Pass\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lighting_pass_a44cbef27f146c639f8d574b7cc82f6d5}{Lighting\+Pass}} ()
+\item 
+void \mbox{\hyperlink{class_lighting_pass_a62b526ad19bb62753b3e598df1fbc6ce}{execute}} (glm\+::mat4 projection\+\_\+matrix, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_g_buffer}{GBuffer}} $>$ gbuffer, float delta\+\_\+time)
+\item 
+void \mbox{\hyperlink{class_lighting_pass_a498ec9aa79d837fc4862f01350c00666}{create\+\_\+shader\+\_\+program}} ()
+\item 
+\mbox{\hyperlink{class_lighting_pass_acc8705103504992416f349f7942d1d57}{$\sim$\+Lighting\+Pass}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_lighting_pass_a12585149bdf1ad761a906651dfd3c4ee}{set\+\_\+uniforms}} (glm\+::mat4 projection\+\_\+matrix, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ main\+\_\+camera, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_g_buffer}{GBuffer}} $>$ gbuffer, float delta\+\_\+time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{current\+\_\+offset}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_lighting_pass_shader_program}{Lighting\+Pass\+Shader\+Program}} $>$ \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\+\_\+program}}
+\item 
+\mbox{\hyperlink{class_quad}{Quad}} \mbox{\hyperlink{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}{quad}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8h_source_l00023}{23}} of file \mbox{\hyperlink{_lighting_pass_8h_source}{Lighting\+Pass.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lighting_pass_a44cbef27f146c639f8d574b7cc82f6d5}\label{class_lighting_pass_a44cbef27f146c639f8d574b7cc82f6d5}} 
+\index{LightingPass@{LightingPass}!LightingPass@{LightingPass}}
+\index{LightingPass@{LightingPass}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{LightingPass()}{LightingPass()}}
+{\footnotesize\ttfamily Lighting\+Pass\+::\+Lighting\+Pass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_lighting_pass_8cpp_source}{Lighting\+Pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003                            :}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005     \mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{current\_offset}}(glm::vec3(0.0f)), \mbox{\hyperlink{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}{quad}}()}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009   \mbox{\hyperlink{class_lighting_pass_a498ec9aa79d837fc4862f01350c00666}{create\_shader\_program}}();}
+\DoxyCodeLine{00010 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_lighting_pass_8cpp_source_l00040}{create\+\_\+shader\+\_\+program()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_lighting_pass_acc8705103504992416f349f7942d1d57}\label{class_lighting_pass_acc8705103504992416f349f7942d1d57}} 
+\index{LightingPass@{LightingPass}!````~LightingPass@{$\sim$LightingPass}}
+\index{````~LightingPass@{$\sim$LightingPass}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{$\sim$LightingPass()}{~LightingPass()}}
+{\footnotesize\ttfamily Lighting\+Pass\+::$\sim$\+Lighting\+Pass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8cpp_source_l00220}{220}} of file \mbox{\hyperlink{_lighting_pass_8cpp_source}{Lighting\+Pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lighting_pass_a498ec9aa79d837fc4862f01350c00666}\label{class_lighting_pass_a498ec9aa79d837fc4862f01350c00666}} 
+\index{LightingPass@{LightingPass}!create\_shader\_program@{create\_shader\_program}}
+\index{create\_shader\_program@{create\_shader\_program}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{create\_shader\_program()}{create\_shader\_program()}}
+{\footnotesize\ttfamily void Lighting\+Pass\+::create\+\_\+shader\+\_\+program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_render_pass_a39a2b6dc0a41c6ada5ba1337d4035273}{Render\+Pass}}.
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_lighting_pass_8cpp_source}{Lighting\+Pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041 \{}
+\DoxyCodeLine{00042   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}} = std::make\_shared<LightingPassShaderProgram>(\mbox{\hyperlink{class_lighting_pass_shader_program}{LightingPassShaderProgram}}\{\});}
+\DoxyCodeLine{00043   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}rasterizer/g\_buffer\_lighting\_pass.vert"{}}, \textcolor{stringliteral}{"{}rasterizer/g\_buffer\_lighting\_pass.frag"{}});}
+\DoxyCodeLine{00044 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_lighting_pass_8h_source_l00039}{shader\+\_\+program}}.
+
+
+
+Referenced by \mbox{\hyperlink{_lighting_pass_8cpp_source_l00003}{Lighting\+Pass()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_lighting_pass_a62b526ad19bb62753b3e598df1fbc6ce}\label{class_lighting_pass_a62b526ad19bb62753b3e598df1fbc6ce}} 
+\index{LightingPass@{LightingPass}!execute@{execute}}
+\index{execute@{execute}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Lighting\+Pass\+::execute (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{projection\+\_\+matrix,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{main\+\_\+camera,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_g_buffer}{GBuffer}} $>$}]{gbuffer,  }\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_lighting_pass_8cpp_source}{Lighting\+Pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014 \{}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016   glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018   std::shared\_ptr<DirectionalLight> main\_light = scene-\/>get\_sun();}
+\DoxyCodeLine{00019   std::shared\_ptr<Clouds> cloud = scene-\/>get\_clouds();}
+\DoxyCodeLine{00020   std::vector<std::shared\_ptr<PointLight>> point\_lights = scene-\/>get\_point\_lights();}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   \mbox{\hyperlink{class_lighting_pass_a12585149bdf1ad761a906651dfd3c4ee}{set\_uniforms}}(projection\_matrix, main\_camera, scene, gbuffer, delta\_time);}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026   \textcolor{comment}{//bind textures to their units}}
+\DoxyCodeLine{00027   main\_light-\/>get\_shadow\_map()-\/>read(\mbox{\hyperlink{bindings_8h_ac36ba418d7f8ae5c2087a6adde404302}{D\_LIGHT\_SHADOW\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{00028   cloud-\/>read();}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<GLuint>(point\_lights.size()); i++) \{}
+\DoxyCodeLine{00031     point\_lights[i]-\/>get\_omni\_shadow\_map()-\/>read(\mbox{\hyperlink{bindings_8h_aebcea6f2b0037163df5486ea47118eff}{P\_LIGHT\_SHADOW\_TEXTURES\_SLOT}} + i);}
+\DoxyCodeLine{00032   \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034   \textcolor{comment}{// render screen filling quad}}
+\DoxyCodeLine{00035   \mbox{\hyperlink{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}{quad}}.\mbox{\hyperlink{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}{render}}();}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00009}{D\+\_\+\+LIGHT\+\_\+\+SHADOW\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00011}{P\+\_\+\+LIGHT\+\_\+\+SHADOW\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{_lighting_pass_8h_source_l00041}{quad}}, \mbox{\hyperlink{_quad_8cpp_source_l00017}{Quad\+::render()}}, \mbox{\hyperlink{_lighting_pass_8cpp_source_l00046}{set\+\_\+uniforms()}}, and \mbox{\hyperlink{_lighting_pass_8h_source_l00039}{shader\+\_\+program}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_lighting_pass_a12585149bdf1ad761a906651dfd3c4ee}\label{class_lighting_pass_a12585149bdf1ad761a906651dfd3c4ee}} 
+\index{LightingPass@{LightingPass}!set\_uniforms@{set\_uniforms}}
+\index{set\_uniforms@{set\_uniforms}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{set\_uniforms()}{set\_uniforms()}}
+{\footnotesize\ttfamily void Lighting\+Pass\+::set\+\_\+uniforms (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{projection\+\_\+matrix,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{main\+\_\+camera,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_g_buffer}{GBuffer}} $>$}]{gbuffer,  }\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_lighting_pass_8cpp_source}{Lighting\+Pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050   \textcolor{comment}{// VP}}
+\DoxyCodeLine{00051   glm::mat4 view\_matrix = main\_camera-\/>get\_viewmatrix();}
+\DoxyCodeLine{00052   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformMatrix4fv(view\_matrix, \textcolor{stringliteral}{"{}view"{}});}
+\DoxyCodeLine{00053   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformMatrix4fv(projection\_matrix, \textcolor{stringliteral}{"{}projection"{}});}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055   \textcolor{comment}{// SUN UNIFORMS}}
+\DoxyCodeLine{00056   std::shared\_ptr<DirectionalLight> main\_light = scene-\/>get\_sun();}
+\DoxyCodeLine{00057   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(main\_light-\/>get\_radiance(), \textcolor{stringliteral}{"{}directional\_light.base.radiance"{}});}
+\DoxyCodeLine{00058   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(main\_light-\/>get\_color(), \textcolor{stringliteral}{"{}directional\_light.base.color"{}});}
+\DoxyCodeLine{00059   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(main\_light-\/>get\_direction(), \textcolor{stringliteral}{"{}directional\_light.direction"{}});}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   \textcolor{comment}{// EVERYTHING REGARDING THE SHADOW CASCADE}}
+\DoxyCodeLine{00062   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_ac36ba418d7f8ae5c2087a6adde404302}{D\_LIGHT\_SHADOW\_TEXTURES\_SLOT}}, \textcolor{stringliteral}{"{}directional\_shadow\_maps"{}});}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064   std::vector<GLfloat> cascade\_slots = main\_light-\/>get\_cascaded\_slots();}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066   std::stringstream ss;}
+\DoxyCodeLine{00067   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}; i++) \{}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069     glm::vec4 clip\_end\_slot = projection\_matrix * glm::vec4(0.0f, 0.0f, -\/cascade\_slots[i + 1], 1.0f);}
+\DoxyCodeLine{00070     ss << \textcolor{stringliteral}{"{}cascade\_endpoints["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00071     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(clip\_end\_slot.z, ss.str());}
+\DoxyCodeLine{00072     ss.clear();}
+\DoxyCodeLine{00073     ss.str(std::string());}
+\DoxyCodeLine{00074   \}}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00076   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(main\_light-\/>get\_shadow\_map()-\/>get\_pcf\_radius(), \textcolor{stringliteral}{"{}pcf\_radius"{}});}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078   \textcolor{comment}{// READ GBUFFER}}
+\DoxyCodeLine{00079   gbuffer-\/>read(\mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}});}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081   \textcolor{comment}{// POINT LIGHTS}}
+\DoxyCodeLine{00082   std::vector<std::shared\_ptr<PointLight>> point\_lights = scene-\/>get\_point\_lights();}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(point\_lights.size()), \textcolor{stringliteral}{"{}point\_light\_count"{}});}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(point\_lights.size()); i++) \{}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088     ss << \textcolor{stringliteral}{"{}point\_lights["{}} << i << \textcolor{stringliteral}{"{}].base.color"{}};}
+\DoxyCodeLine{00089     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(point\_lights[i]-\/>get\_color(), ss.str());}
+\DoxyCodeLine{00090     ss.clear();}
+\DoxyCodeLine{00091     ss.str(std::string());}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093     ss << \textcolor{stringliteral}{"{}point\_lights["{}} << i << \textcolor{stringliteral}{"{}].base.radiance"{}};}
+\DoxyCodeLine{00094     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(point\_lights[i]-\/>get\_radiance(), ss.str());}
+\DoxyCodeLine{00095     ss.clear();}
+\DoxyCodeLine{00096     ss.str(std::string());}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098     ss << \textcolor{stringliteral}{"{}point\_lights["{}} << i << \textcolor{stringliteral}{"{}].position"{}};}
+\DoxyCodeLine{00099     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(point\_lights[i]-\/>get\_position(), ss.str());}
+\DoxyCodeLine{00100     ss.clear();}
+\DoxyCodeLine{00101     ss.str(std::string());}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103     ss << \textcolor{stringliteral}{"{}point\_lights["{}} << i << \textcolor{stringliteral}{"{}].base.constant"{}};}
+\DoxyCodeLine{00104     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(point\_lights[i]-\/>get\_constant\_factor(), ss.str());}
+\DoxyCodeLine{00105     ss.clear();}
+\DoxyCodeLine{00106     ss.str(std::string());}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108     ss << \textcolor{stringliteral}{"{}point\_lights["{}} << i << \textcolor{stringliteral}{"{}].linear"{}};}
+\DoxyCodeLine{00109     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(point\_lights[i]-\/>get\_linear\_factor(), ss.str());}
+\DoxyCodeLine{00110     ss.clear();}
+\DoxyCodeLine{00111     ss.str(std::string());}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113     ss << \textcolor{stringliteral}{"{}point\_lights["{}} << i << \textcolor{stringliteral}{"{}].exponent"{}};}
+\DoxyCodeLine{00114     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(point\_lights[i]-\/>get\_exponent\_factor(), ss.str());}
+\DoxyCodeLine{00115     ss.clear();}
+\DoxyCodeLine{00116     ss.str(std::string());}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118     ss << \textcolor{stringliteral}{"{}omni\_shadow\_maps["{}} << i << \textcolor{stringliteral}{"{}].shadow\_map"{}};}
+\DoxyCodeLine{00119     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt((GLint)(\mbox{\hyperlink{bindings_8h_aebcea6f2b0037163df5486ea47118eff}{P\_LIGHT\_SHADOW\_TEXTURES\_SLOT}} + i), ss.str());}
+\DoxyCodeLine{00120     ss.clear();}
+\DoxyCodeLine{00121     ss.str(std::string());}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123     ss << \textcolor{stringliteral}{"{}omni\_shadow\_maps["{}} << i << \textcolor{stringliteral}{"{}]far\_plane"{}};}
+\DoxyCodeLine{00124     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(point\_lights[i]-\/>get\_far\_plane(), ss.str());}
+\DoxyCodeLine{00125     ss.clear();}
+\DoxyCodeLine{00126     ss.str(std::string());}
+\DoxyCodeLine{00127   \}}
+\DoxyCodeLine{00128 }
+\DoxyCodeLine{00129   \textcolor{comment}{// CAMERA}}
+\DoxyCodeLine{00130   glm::vec3 camera\_position = main\_camera-\/>get\_camera\_position();}
+\DoxyCodeLine{00131   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(camera\_position, \textcolor{stringliteral}{"{}eye\_position"{}});}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133   \textcolor{comment}{// MATERIALS}}
+\DoxyCodeLine{00134   std::vector<ObjMaterial> materials = scene-\/>get\_materials();}
+\DoxyCodeLine{00135   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(materials.size()); i++) \{}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].ambient"{}};}
+\DoxyCodeLine{00138     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(materials[i].get\_ambient(), ss.str());}
+\DoxyCodeLine{00139     ss.clear();}
+\DoxyCodeLine{00140     ss.str(std::string());}
+\DoxyCodeLine{00141 }
+\DoxyCodeLine{00142     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].diffuse"{}};}
+\DoxyCodeLine{00143     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(materials[i].get\_diffuse(), ss.str());}
+\DoxyCodeLine{00144     ss.clear();}
+\DoxyCodeLine{00145     ss.str(std::string());}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].specular"{}};}
+\DoxyCodeLine{00148     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(materials[i].get\_specular(), ss.str());}
+\DoxyCodeLine{00149     ss.clear();}
+\DoxyCodeLine{00150     ss.str(std::string());}
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00152     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].transmittance"{}};}
+\DoxyCodeLine{00153     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(materials[i].get\_transmittance(), ss.str());}
+\DoxyCodeLine{00154     ss.clear();}
+\DoxyCodeLine{00155     ss.str(std::string());}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].emission"{}};}
+\DoxyCodeLine{00158     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(materials[i].get\_emission(), ss.str());}
+\DoxyCodeLine{00159     ss.clear();}
+\DoxyCodeLine{00160     ss.str(std::string());}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].shininess"{}};}
+\DoxyCodeLine{00163     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(materials[i].get\_shininess(), ss.str());}
+\DoxyCodeLine{00164     ss.clear();}
+\DoxyCodeLine{00165     ss.str(std::string());}
+\DoxyCodeLine{00166 }
+\DoxyCodeLine{00167     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].ior"{}};}
+\DoxyCodeLine{00168     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(materials[i].get\_ior(), ss.str());}
+\DoxyCodeLine{00169     ss.clear();}
+\DoxyCodeLine{00170     ss.str(std::string());}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].dissolve"{}};}
+\DoxyCodeLine{00173     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(materials[i].get\_dissolve(), ss.str());}
+\DoxyCodeLine{00174     ss.clear();}
+\DoxyCodeLine{00175     ss.str(std::string());}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].illum"{}};}
+\DoxyCodeLine{00178     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(materials[i].get\_illum(), ss.str());}
+\DoxyCodeLine{00179     ss.clear();}
+\DoxyCodeLine{00180     ss.str(std::string());}
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{00182     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].textureID"{}};}
+\DoxyCodeLine{00183     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(materials[i].get\_textureID(), ss.str());}
+\DoxyCodeLine{00184     ss.clear();}
+\DoxyCodeLine{00185     ss.str(std::string());}
+\DoxyCodeLine{00186   \}}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00188   \textcolor{comment}{// CLOUDS}}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190   std::shared\_ptr<Clouds> cloud = scene-\/>get\_clouds();}
+\DoxyCodeLine{00191 }
+\DoxyCodeLine{00192   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(cloud-\/>get\_radius(), \textcolor{stringliteral}{"{}cloud.radius"{}});}
+\DoxyCodeLine{00193   GLfloat velocity = cloud-\/>get\_movement\_speed() * delta\_time;}
+\DoxyCodeLine{00194   \mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{current\_offset}} = \mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{current\_offset}} + cloud-\/>get\_movement\_direction() * velocity;}
+\DoxyCodeLine{00195   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformVec3(\mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{current\_offset}}, \textcolor{stringliteral}{"{}cloud.offset"{}});}
+\DoxyCodeLine{00196   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformMatrix4fv(cloud-\/>get\_model(), \textcolor{stringliteral}{"{}cloud.model\_to\_world"{}});}
+\DoxyCodeLine{00197   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(cloud-\/>get\_scale(), \textcolor{stringliteral}{"{}cloud.scale"{}});}
+\DoxyCodeLine{00198   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(1.f -\/ cloud-\/>get\_density(), \textcolor{stringliteral}{"{}cloud.threshold"{}});}
+\DoxyCodeLine{00199   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(cloud-\/>get\_pillowness(), \textcolor{stringliteral}{"{}cloud.pillowness"{}});}
+\DoxyCodeLine{00200   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformFloat(cloud-\/>get\_cirrus\_effect(), \textcolor{stringliteral}{"{}cloud.cirrus\_effect"{}});}
+\DoxyCodeLine{00201   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(cloud-\/>get\_num\_march\_steps(), \textcolor{stringliteral}{"{}cloud.num\_march\_steps"{}});}
+\DoxyCodeLine{00202   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(cloud-\/>get\_num\_march\_steps\_to\_light(), \textcolor{stringliteral}{"{}cloud.num\_march\_steps\_to\_light"{}});}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204   \textcolor{keywordflow}{if} (cloud-\/>get\_powder\_effect()) \{}
+\DoxyCodeLine{00205     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\textcolor{keyword}{true}, \textcolor{stringliteral}{"{}cloud.powder\_effect"{}});}
+\DoxyCodeLine{00206   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00207     \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\textcolor{keyword}{false}, \textcolor{stringliteral}{"{}cloud.powder\_effect"{}});}
+\DoxyCodeLine{00208   \}}
+\DoxyCodeLine{00209 }
+\DoxyCodeLine{00210   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformBlockBinding(\mbox{\hyperlink{bindings_8h_a6cffb6c61d3a48bb1b5b5afe62b6331d}{UNIFORM\_LIGHT\_MATRICES\_BINDING}}, \textcolor{stringliteral}{"{}LightSpaceMatrices"{}});}
+\DoxyCodeLine{00211 }
+\DoxyCodeLine{00212   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a05989250a93ec0f9dfe63bad8ae1d95c}{RANDOM\_NUMBERS\_SLOT}}, \textcolor{stringliteral}{"{}random\_number"{}});}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a68c720249fec89156cfd1a1eeb356c25}{NOISE\_128D\_TEXTURES\_SLOT}}, \textcolor{stringliteral}{"{}noise\_texture\_1"{}});}
+\DoxyCodeLine{00215   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a94ab45fae493b604905baff7c57d9745}{NOISE\_32D\_TEXTURES\_SLOT}}, \textcolor{stringliteral}{"{}noise\_texture\_2"{}});}
+\DoxyCodeLine{00216 }
+\DoxyCodeLine{00217   \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}}-\/>validate\_program();}
+\DoxyCodeLine{00218 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_lighting_pass_8h_source_l00034}{current\+\_\+offset}}, \mbox{\hyperlink{bindings_8h_source_l00009}{D\+\_\+\+LIGHT\+\_\+\+SHADOW\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00012}{NOISE\+\_\+128\+D\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00013}{NOISE\+\_\+32\+D\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{bindings_8h_source_l00011}{P\+\_\+\+LIGHT\+\_\+\+SHADOW\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00015}{RANDOM\+\_\+\+NUMBERS\+\_\+\+SLOT}}, \mbox{\hyperlink{_lighting_pass_8h_source_l00039}{shader\+\_\+program}}, and \mbox{\hyperlink{bindings_8h_source_l00023}{UNIFORM\+\_\+\+LIGHT\+\_\+\+MATRICES\+\_\+\+BINDING}}.
+
+
+
+Referenced by \mbox{\hyperlink{_lighting_pass_8cpp_source_l00012}{execute()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}\label{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}} 
+\index{LightingPass@{LightingPass}!current\_offset@{current\_offset}}
+\index{current\_offset@{current\_offset}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{current\_offset}{current\_offset}}
+{\footnotesize\ttfamily glm\+::vec3 Lighting\+Pass\+::current\+\_\+offset\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8h_source_l00034}{34}} of file \mbox{\hyperlink{_lighting_pass_8h_source}{Lighting\+Pass.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_lighting_pass_8cpp_source_l00046}{set\+\_\+uniforms()}}.
+
+\mbox{\Hypertarget{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}\label{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}} 
+\index{LightingPass@{LightingPass}!quad@{quad}}
+\index{quad@{quad}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{quad}{quad}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_quad}{Quad}} Lighting\+Pass\+::quad\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8h_source_l00041}{41}} of file \mbox{\hyperlink{_lighting_pass_8h_source}{Lighting\+Pass.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_lighting_pass_8cpp_source_l00012}{execute()}}.
+
+\mbox{\Hypertarget{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}\label{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}} 
+\index{LightingPass@{LightingPass}!shader\_program@{shader\_program}}
+\index{shader\_program@{shader\_program}!LightingPass@{LightingPass}}
+\doxysubsubsection{\texorpdfstring{shader\_program}{shader\_program}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_lighting_pass_shader_program}{Lighting\+Pass\+Shader\+Program}}$>$ Lighting\+Pass\+::shader\+\_\+program\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_lighting_pass_8h_source_l00039}{39}} of file \mbox{\hyperlink{_lighting_pass_8h_source}{Lighting\+Pass.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_lighting_pass_8cpp_source_l00040}{create\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_lighting_pass_8cpp_source_l00012}{execute()}}, and \mbox{\hyperlink{_lighting_pass_8cpp_source_l00046}{set\+\_\+uniforms()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/deferred/\mbox{\hyperlink{_lighting_pass_8h}{Lighting\+Pass.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/deferred/\mbox{\hyperlink{_lighting_pass_8cpp}{Lighting\+Pass.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,815 @@
+\hypertarget{class_noise}{}\doxysection{Noise Class Reference}
+\label{class_noise}\index{Noise@{Noise}}
+
+
+{\ttfamily \#include $<$Noise.\+h$>$}
+
+
+
+Collaboration diagram for Noise\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_noise_a875a47574d1c86c793296b542e7de9f3}{Noise}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}{create\+\_\+res128\+\_\+noise}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a683dc7958db6d4b85c5ab94455a8941a}{create\+\_\+res32\+\_\+noise}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a311c839d04c91a0775693e920ff2d419}{read\+\_\+res128\+\_\+noise}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a694662bf6db28aefb965f97c4812fd29}{read\+\_\+res32\+\_\+noise}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a4a2ad26f4b32545f26f0e0ab6044e414}{update}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a521b2cbd42bb64142548253d7aa66580}{set\+\_\+num\+\_\+cells}} (GLuint \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\+\_\+cells\+\_\+per\+\_\+axis}}, GLuint index)
+\item 
+\mbox{\hyperlink{class_noise_a751f1c229c801b0abd4a84f8bf08d810}{$\sim$\+Noise}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_noise_a36df44a63e4de846aa99ce76178f0499}{create\+\_\+shader\+\_\+programs}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{generate\+\_\+cells}} (GLuint \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\+\_\+cells\+\_\+per\+\_\+axis}}, GLuint cell\+\_\+index)
+\begin{DoxyCompactList}\small\item\em @ num\+\_\+cells\+\_\+per\+\_\+axis\+: current voxel grid dimension @ cell\+\_\+index\+: index into global array for all voxel grids \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{generate\+\_\+textures}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a30e72a5a59f3764c7c4b461514981a06}{generate\+\_\+num\+\_\+cells\+\_\+textures}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a3ab95abfa0550705d535156cf16a9933}{generate\+\_\+res128\+\_\+noise\+\_\+texture}} ()
+\item 
+void \mbox{\hyperlink{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}{generate\+\_\+res32\+\_\+noise\+\_\+texture}} ()
+\item 
+void \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{delete\+\_\+textures}} ()
+\item 
+void \mbox{\hyperlink{class_noise_adca58ab9cb510ccc8da38417fb99fe46}{print\+\_\+comp\+\_\+shader\+\_\+capabilities}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\+\_\+1\+\_\+id}}
+\item 
+GLuint \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\+\_\+dim\+\_\+1}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_compute_shader_program}{Compute\+Shader\+Program}} $>$ \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\+\_\+1\+\_\+shader\+\_\+program}}
+\item 
+GLuint \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\+\_\+2\+\_\+id}}
+\item 
+GLuint \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\+\_\+dim\+\_\+2}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_compute_shader_program}{Compute\+Shader\+Program}} $>$ \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\+\_\+2\+\_\+shader\+\_\+program}}
+\item 
+GLuint \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\+\_\+ids}} \mbox{[}\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}\mbox{]}
+\item 
+GLuint \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\+\_\+cells\+\_\+per\+\_\+axis}} \mbox{[}\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}\mbox{]}
+\item 
+std\+::array$<$ std\+::vector$<$ GLfloat $>$, \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}} $>$ \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00015}{15}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_noise_a875a47574d1c86c793296b542e7de9f3}\label{class_noise_a875a47574d1c86c793296b542e7de9f3}} 
+\index{Noise@{Noise}!Noise@{Noise}}
+\index{Noise@{Noise}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{Noise()}{Noise()}}
+{\footnotesize\ttfamily Noise\+::\+Noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005              :}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007     \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}(128), \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}(32)}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011   \mbox{\hyperlink{class_noise_a36df44a63e4de846aa99ce76178f0499}{create\_shader\_programs}}();}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013   \textcolor{comment}{// we need 3d-\/voxel grids with different sizes for}}
+\DoxyCodeLine{00014   \textcolor{comment}{// creating different worley frequencies}}
+\DoxyCodeLine{00015   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i] = \textcolor{keyword}{static\_cast<}GLuint\textcolor{keyword}{>}(pow(2, i + 1));}
+\DoxyCodeLine{00018     \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{generate\_cells}}(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], i);}
+\DoxyCodeLine{00019   \}}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021   \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{generate\_textures}}();}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8cpp_source_l00024}{create\+\_\+shader\+\_\+programs()}}, \mbox{\hyperlink{_noise_8cpp_source_l00150}{generate\+\_\+cells()}}, \mbox{\hyperlink{_noise_8cpp_source_l00033}{generate\+\_\+textures()}}, \mbox{\hyperlink{host__device__shared_8h_source_l00020}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}, and \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_noise_a751f1c229c801b0abd4a84f8bf08d810}\label{class_noise_a751f1c229c801b0abd4a84f8bf08d810}} 
+\index{Noise@{Noise}!````~Noise@{$\sim$Noise}}
+\index{````~Noise@{$\sim$Noise}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{$\sim$Noise()}{~Noise()}}
+{\footnotesize\ttfamily Noise\+::$\sim$\+Noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00287}{287}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00287 \{ \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{delete\_textures}}(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8cpp_source_l00278}{delete\+\_\+textures()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}\label{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}} 
+\index{Noise@{Noise}!create\_res128\_noise@{create\_res128\_noise}}
+\index{create\_res128\_noise@{create\_res128\_noise}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{create\_res128\_noise()}{create\_res128\_noise()}}
+{\footnotesize\ttfamily void Noise\+::create\+\_\+res128\+\_\+noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198 \{}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{00201 }
+\DoxyCodeLine{00202   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_ab33e9e629597c653feccb86cd28e138e}{NOISE\_128D\_IMAGE\_SLOT}}, \textcolor{stringliteral}{"{}noise"{}});}
+\DoxyCodeLine{00203 }
+\DoxyCodeLine{00204   std::stringstream ss;}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{00207 }
+\DoxyCodeLine{00208     ss << \textcolor{stringliteral}{"{}cell\_positions["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00209     \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i, ss.str());}
+\DoxyCodeLine{00210     ss.clear();}
+\DoxyCodeLine{00211     ss.str(std::string());}
+\DoxyCodeLine{00212 }
+\DoxyCodeLine{00213     ss << \textcolor{stringliteral}{"{}num\_cells["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00214     \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], ss.str());}
+\DoxyCodeLine{00215     ss.clear();}
+\DoxyCodeLine{00216     ss.str(std::string());}
+\DoxyCodeLine{00217 }
+\DoxyCodeLine{00218     glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i);}
+\DoxyCodeLine{00219     glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[i]);}
+\DoxyCodeLine{00220   \}}
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00222   glDispatchCompute((GLuint)\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, (GLuint)\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, (GLuint)\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}});}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00224   \textcolor{comment}{// make sure writing to image has finished before read}}
+\DoxyCodeLine{00225   glMemoryBarrier(GL\_SHADER\_IMAGE\_ACCESS\_BARRIER\_BIT);}
+\DoxyCodeLine{00226   \textcolor{comment}{//glMemoryBarrier(GL\_ALL\_BARRIER\_BITS);}}
+\DoxyCodeLine{00227 }
+\DoxyCodeLine{00228   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{00229 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00054}{cell\+\_\+ids}}, \mbox{\hyperlink{bindings_8h_source_l00018}{NOISE\+\_\+128\+D\+\_\+\+IMAGE\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00014}{NOISE\+\_\+\+CELL\+\_\+\+POSITIONS\+\_\+\+SLOT}}, \mbox{\hyperlink{host__device__shared_8h_source_l00020}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}, \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}, \mbox{\hyperlink{_noise_8h_source_l00047}{texture\+\_\+1\+\_\+shader\+\_\+program}}, and \mbox{\hyperlink{_noise_8h_source_l00046}{texture\+\_\+dim\+\_\+1}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_noise_a683dc7958db6d4b85c5ab94455a8941a}\label{class_noise_a683dc7958db6d4b85c5ab94455a8941a}} 
+\index{Noise@{Noise}!create\_res32\_noise@{create\_res32\_noise}}
+\index{create\_res32\_noise@{create\_res32\_noise}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{create\_res32\_noise()}{create\_res32\_noise()}}
+{\footnotesize\ttfamily void Noise\+::create\+\_\+res32\+\_\+noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00231}{231}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00232 \{}
+\DoxyCodeLine{00233 }
+\DoxyCodeLine{00234   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_ae102fd04de1e0f7e67114690a8191da4}{NOISE\_32D\_IMAGE\_SLOT}}, \textcolor{stringliteral}{"{}noise"{}});}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238   std::stringstream ss;}
+\DoxyCodeLine{00239 }
+\DoxyCodeLine{00240   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00242     ss << \textcolor{stringliteral}{"{}cell\_positions["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00243     \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i, ss.str());}
+\DoxyCodeLine{00244     ss.clear();}
+\DoxyCodeLine{00245     ss.str(std::string());}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00247     ss << \textcolor{stringliteral}{"{}num\_cells["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00248     \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], ss.str());}
+\DoxyCodeLine{00249     ss.clear();}
+\DoxyCodeLine{00250     ss.str(std::string());}
+\DoxyCodeLine{00251 }
+\DoxyCodeLine{00252     glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i);}
+\DoxyCodeLine{00253     glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[i]);}
+\DoxyCodeLine{00254   \}}
+\DoxyCodeLine{00255 }
+\DoxyCodeLine{00256   glDispatchCompute((GLuint)\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, (GLuint)\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, (GLuint)\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}});}
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258   \textcolor{comment}{// make sure writing to image has finished before read}}
+\DoxyCodeLine{00259   glMemoryBarrier(GL\_SHADER\_IMAGE\_ACCESS\_BARRIER\_BIT);}
+\DoxyCodeLine{00260   \textcolor{comment}{//glMemoryBarrier(GL\_ALL\_BARRIER\_BITS);}}
+\DoxyCodeLine{00261   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{00262 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00054}{cell\+\_\+ids}}, \mbox{\hyperlink{bindings_8h_source_l00019}{NOISE\+\_\+32\+D\+\_\+\+IMAGE\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00014}{NOISE\+\_\+\+CELL\+\_\+\+POSITIONS\+\_\+\+SLOT}}, \mbox{\hyperlink{host__device__shared_8h_source_l00020}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}, \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}, \mbox{\hyperlink{_noise_8h_source_l00052}{texture\+\_\+2\+\_\+shader\+\_\+program}}, and \mbox{\hyperlink{_noise_8h_source_l00051}{texture\+\_\+dim\+\_\+2}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_noise_a36df44a63e4de846aa99ce76178f0499}\label{class_noise_a36df44a63e4de846aa99ce76178f0499}} 
+\index{Noise@{Noise}!create\_shader\_programs@{create\_shader\_programs}}
+\index{create\_shader\_programs@{create\_shader\_programs}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{create\_shader\_programs()}{create\_shader\_programs()}}
+{\footnotesize\ttfamily void Noise\+::create\+\_\+shader\+\_\+programs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}} = std::make\_shared<ComputeShaderProgram>();}
+\DoxyCodeLine{00027   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}} = std::make\_shared<ComputeShaderProgram>();}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>create\_computer\_shader\_program\_from\_file(\textcolor{stringliteral}{"{}clouds/noise\_texture\_128\_res.comp"{}});}
+\DoxyCodeLine{00030   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>create\_computer\_shader\_program\_from\_file(\textcolor{stringliteral}{"{}clouds/noise\_texture\_32\_res.comp"{}});}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00047}{texture\+\_\+1\+\_\+shader\+\_\+program}}, and \mbox{\hyperlink{_noise_8h_source_l00052}{texture\+\_\+2\+\_\+shader\+\_\+program}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00005}{Noise()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_noise_a8e7a8f983d022dad4994e6df6f69d935}\label{class_noise_a8e7a8f983d022dad4994e6df6f69d935}} 
+\index{Noise@{Noise}!delete\_textures@{delete\_textures}}
+\index{delete\_textures@{delete\_textures}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{delete\_textures()}{delete\_textures()}}
+{\footnotesize\ttfamily void Noise\+::delete\+\_\+textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00278}{278}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00279 \{}
+\DoxyCodeLine{00280 }
+\DoxyCodeLine{00281   glDeleteTextures(1, \&\mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{00282   glDeleteTextures(1, \&\mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{00283 }
+\DoxyCodeLine{00284   glDeleteTextures(\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}});}
+\DoxyCodeLine{00285 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00054}{cell\+\_\+ids}}, \mbox{\hyperlink{host__device__shared_8h_source_l00020}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}, \mbox{\hyperlink{_noise_8h_source_l00045}{texture\+\_\+1\+\_\+id}}, and \mbox{\hyperlink{_noise_8h_source_l00050}{texture\+\_\+2\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00287}{$\sim$\+Noise()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_noise_a0cc57872513b97af71ec08b226705ab4}\label{class_noise_a0cc57872513b97af71ec08b226705ab4}} 
+\index{Noise@{Noise}!generate\_cells@{generate\_cells}}
+\index{generate\_cells@{generate\_cells}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{generate\_cells()}{generate\_cells()}}
+{\footnotesize\ttfamily void Noise\+::generate\+\_\+cells (\begin{DoxyParamCaption}\item[{GLuint}]{num\+\_\+cells\+\_\+per\+\_\+axis,  }\item[{GLuint}]{cell\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+@ num\+\_\+cells\+\_\+per\+\_\+axis\+: current voxel grid dimension @ cell\+\_\+index\+: index into global array for all voxel grids 
+
+needed for generating different worley frequencies later on 
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151 \{}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153   \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].reserve(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}} * \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}} * \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}} * 4);}
+\DoxyCodeLine{00154 }
+\DoxyCodeLine{00155   \textcolor{comment}{// guess which birthday this is ;)}}
+\DoxyCodeLine{00156   std::mt19937\_64 gen64(25121995);}
+\DoxyCodeLine{00157   std::uniform\_real\_distribution<float> dis(0, 1);}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159   \textcolor{comment}{//depth}}
+\DoxyCodeLine{00160   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}); i++) \{}
+\DoxyCodeLine{00161     \textcolor{comment}{//height}}
+\DoxyCodeLine{00162     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < static\_cast<int>(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}); k++) \{}
+\DoxyCodeLine{00163       \textcolor{comment}{//width}}
+\DoxyCodeLine{00164       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} m = 0; m < static\_cast<int>(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}); m++) \{}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166         \textcolor{comment}{// from: https://www.khronos.org/registry/OpenGL-\/Refpages/gl4/html/glTexImage3D.xhtml}}
+\DoxyCodeLine{00167         \textcolor{comment}{// "{}The first element corresponds to the lower left corner of the texture image.}}
+\DoxyCodeLine{00168         \textcolor{comment}{// Subsequent elements progress left-\/to-\/right through the remaining texels in the lowest row}}
+\DoxyCodeLine{00169         \textcolor{comment}{// of the texture image, and then in successively higher rows of the texture image.}}
+\DoxyCodeLine{00170         \textcolor{comment}{// The final element corresponds to the upper right corner of the texture image."{}}}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172         \textcolor{keyword}{const} GLfloat random\_offset[3] = \{ dis(gen64), dis(gen64), dis(gen64) \};}
+\DoxyCodeLine{00173 }
+\DoxyCodeLine{00174         GLfloat position[3] = \{ (m + random\_offset[0]), (k + random\_offset[1]), (i + random\_offset[2]) \};}
+\DoxyCodeLine{00175 }
+\DoxyCodeLine{00176         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(position[0]);}
+\DoxyCodeLine{00177         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(position[1]);}
+\DoxyCodeLine{00178         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(position[2]);}
+\DoxyCodeLine{00179         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(1.0f);}
+\DoxyCodeLine{00180 }
+\DoxyCodeLine{00181         \textcolor{comment}{// i leave this more c-\/style approach for my further me}}
+\DoxyCodeLine{00182         \textcolor{comment}{// to clearify things :)}}
+\DoxyCodeLine{00183         \textcolor{comment}{//GLuint index = (i + num\_cells\_per\_axis * (k + m * num\_cells\_per\_axis)) * 4;}}
+\DoxyCodeLine{00184         \textcolor{comment}{/*GLfloat position[3] = \{       (i + random\_offset[0]), }}
+\DoxyCodeLine{00185 \textcolor{comment}{                                                                                (k + random\_offset[1]), }}
+\DoxyCodeLine{00186 \textcolor{comment}{                                                                                (m + random\_offset[2])\};*/}}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00188         \textcolor{comment}{/*cell\_data[cell\_index][index]          = position[0];}}
+\DoxyCodeLine{00189 \textcolor{comment}{                                cell\_data[cell\_index][index + 1]        = position[1];}}
+\DoxyCodeLine{00190 \textcolor{comment}{                                cell\_data[cell\_index][index + 2]        = position[2];}}
+\DoxyCodeLine{00191 \textcolor{comment}{                                cell\_data[cell\_index][index + 3]        = 1.0f;*/}}
+\DoxyCodeLine{00192       \}}
+\DoxyCodeLine{00193     \}}
+\DoxyCodeLine{00194   \}}
+\DoxyCodeLine{00195 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00056}{cell\+\_\+data}}, and \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00005}{Noise()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_noise_a30e72a5a59f3764c7c4b461514981a06}\label{class_noise_a30e72a5a59f3764c7c4b461514981a06}} 
+\index{Noise@{Noise}!generate\_num\_cells\_textures@{generate\_num\_cells\_textures}}
+\index{generate\_num\_cells\_textures@{generate\_num\_cells\_textures}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{generate\_num\_cells\_textures()}{generate\_num\_cells\_textures()}}
+{\footnotesize\ttfamily void Noise\+::generate\+\_\+num\+\_\+cells\+\_\+textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{}
+\DoxyCodeLine{00043   glGenTextures(\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}});}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047     glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[i]);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049     glTexImage3D(GL\_TEXTURE\_3D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], 0, GL\_RGBA, GL\_FLOAT, \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[i].data());}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00052     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00053     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_R, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00054     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00055     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057     glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00056}{cell\+\_\+data}}, \mbox{\hyperlink{_noise_8h_source_l00054}{cell\+\_\+ids}}, \mbox{\hyperlink{host__device__shared_8h_source_l00020}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}, and \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00033}{generate\+\_\+textures()}}.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_noise_a3ab95abfa0550705d535156cf16a9933}\label{class_noise_a3ab95abfa0550705d535156cf16a9933}} 
+\index{Noise@{Noise}!generate\_res128\_noise\_texture@{generate\_res128\_noise\_texture}}
+\index{generate\_res128\_noise\_texture@{generate\_res128\_noise\_texture}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{generate\_res128\_noise\_texture()}{generate\_res128\_noise\_texture()}}
+{\footnotesize\ttfamily void Noise\+::generate\+\_\+res128\+\_\+noise\+\_\+texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062 \{}
+\DoxyCodeLine{00063   glGenTextures(1, \&\mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065   glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a68c720249fec89156cfd1a1eeb356c25}{NOISE\_128D\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{00066   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   glTexImage3D(GL\_TEXTURE\_3D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, 0, GL\_RGBA, GL\_FLOAT, NULL);}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070   glBindImageTexture(\mbox{\hyperlink{bindings_8h_ab33e9e629597c653feccb86cd28e138e}{NOISE\_128D\_IMAGE\_SLOT}}, \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}}, 0, GL\_FALSE, 0, GL\_READ\_WRITE, GL\_RGBA32F);}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_S, GL\_REPEAT);}
+\DoxyCodeLine{00073   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_T, GL\_REPEAT);}
+\DoxyCodeLine{00074   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_R, GL\_REPEAT);}
+\DoxyCodeLine{00075   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00076   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{00079 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00018}{NOISE\+\_\+128\+D\+\_\+\+IMAGE\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00012}{NOISE\+\_\+128\+D\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{_noise_8h_source_l00045}{texture\+\_\+1\+\_\+id}}, and \mbox{\hyperlink{_noise_8h_source_l00046}{texture\+\_\+dim\+\_\+1}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00033}{generate\+\_\+textures()}}.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}\label{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}} 
+\index{Noise@{Noise}!generate\_res32\_noise\_texture@{generate\_res32\_noise\_texture}}
+\index{generate\_res32\_noise\_texture@{generate\_res32\_noise\_texture}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{generate\_res32\_noise\_texture()}{generate\_res32\_noise\_texture()}}
+{\footnotesize\ttfamily void Noise\+::generate\+\_\+res32\+\_\+noise\+\_\+texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082 \{}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   glGenTextures(1, \&\mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086   glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a94ab45fae493b604905baff7c57d9745}{NOISE\_32D\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{00087   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089   glTexImage3D(GL\_TEXTURE\_3D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, 0, GL\_RGBA, GL\_FLOAT, NULL);}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091   glBindImageTexture(\mbox{\hyperlink{bindings_8h_ae102fd04de1e0f7e67114690a8191da4}{NOISE\_32D\_IMAGE\_SLOT}}, \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}}, 0, GL\_FALSE, 0, GL\_READ\_WRITE, GL\_RGBA32F);}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_S, GL\_REPEAT);}
+\DoxyCodeLine{00094   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_T, GL\_REPEAT);}
+\DoxyCodeLine{00095   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_R, GL\_REPEAT);}
+\DoxyCodeLine{00096   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00097   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{00100 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00019}{NOISE\+\_\+32\+D\+\_\+\+IMAGE\+\_\+\+SLOT}}, \mbox{\hyperlink{bindings_8h_source_l00013}{NOISE\+\_\+32\+D\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{_noise_8h_source_l00050}{texture\+\_\+2\+\_\+id}}, and \mbox{\hyperlink{_noise_8h_source_l00051}{texture\+\_\+dim\+\_\+2}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00033}{generate\+\_\+textures()}}.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}\label{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}} 
+\index{Noise@{Noise}!generate\_textures@{generate\_textures}}
+\index{generate\_textures@{generate\_textures}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{generate\_textures()}{generate\_textures()}}
+{\footnotesize\ttfamily void Noise\+::generate\+\_\+textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034 \{}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036   \mbox{\hyperlink{class_noise_a30e72a5a59f3764c7c4b461514981a06}{generate\_num\_cells\_textures}}();}
+\DoxyCodeLine{00037   \mbox{\hyperlink{class_noise_a3ab95abfa0550705d535156cf16a9933}{generate\_res128\_noise\_texture}}();}
+\DoxyCodeLine{00038   \mbox{\hyperlink{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}{generate\_res32\_noise\_texture}}();}
+\DoxyCodeLine{00039 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8cpp_source_l00041}{generate\+\_\+num\+\_\+cells\+\_\+textures()}}, \mbox{\hyperlink{_noise_8cpp_source_l00061}{generate\+\_\+res128\+\_\+noise\+\_\+texture()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00081}{generate\+\_\+res32\+\_\+noise\+\_\+texture()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00005}{Noise()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{class_noise_adca58ab9cb510ccc8da38417fb99fe46}\label{class_noise_adca58ab9cb510ccc8da38417fb99fe46}} 
+\index{Noise@{Noise}!print\_comp\_shader\_capabilities@{print\_comp\_shader\_capabilities}}
+\index{print\_comp\_shader\_capabilities@{print\_comp\_shader\_capabilities}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{print\_comp\_shader\_capabilities()}{print\_comp\_shader\_capabilities()}}
+{\footnotesize\ttfamily void Noise\+::print\+\_\+comp\+\_\+shader\+\_\+capabilities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103 \{}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105   \textcolor{keywordtype}{int} work\_grp\_cnt[3];}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_COUNT, 0, \&work\_grp\_cnt[0]);}
+\DoxyCodeLine{00108   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_COUNT, 1, \&work\_grp\_cnt[1]);}
+\DoxyCodeLine{00109   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_COUNT, 2, \&work\_grp\_cnt[2]);}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111   printf(\textcolor{stringliteral}{"{}max global (total) work group counts x:\%i y:\%i z:\%i\(\backslash\)n"{}}, work\_grp\_cnt[0], work\_grp\_cnt[1], work\_grp\_cnt[2]);}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113   \textcolor{keywordtype}{int} work\_grp\_size[3];}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_SIZE, 0, \&work\_grp\_size[0]);}
+\DoxyCodeLine{00116   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_SIZE, 1, \&work\_grp\_size[1]);}
+\DoxyCodeLine{00117   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_SIZE, 2, \&work\_grp\_size[2]);}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119   printf(\textcolor{stringliteral}{"{}max local (in one shader) work group sizes x:\%i y:\%i z:\%i\(\backslash\)n"{}}, work\_grp\_size[0], work\_grp\_size[1], work\_grp\_size[2]);}
+\DoxyCodeLine{00120 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_noise_a311c839d04c91a0775693e920ff2d419}\label{class_noise_a311c839d04c91a0775693e920ff2d419}} 
+\index{Noise@{Noise}!read\_res128\_noise@{read\_res128\_noise}}
+\index{read\_res128\_noise@{read\_res128\_noise}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{read\_res128\_noise()}{read\_res128\_noise()}}
+{\footnotesize\ttfamily void Noise\+::read\+\_\+res128\+\_\+noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00264}{264}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00265 \{}
+\DoxyCodeLine{00266   GLuint texture\_index = GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a68c720249fec89156cfd1a1eeb356c25}{NOISE\_128D\_TEXTURES\_SLOT}};}
+\DoxyCodeLine{00267   glActiveTexture((GLenum)texture\_index);}
+\DoxyCodeLine{00268   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{00269 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00012}{NOISE\+\_\+128\+D\+\_\+\+TEXTURES\+\_\+\+SLOT}}, and \mbox{\hyperlink{_noise_8h_source_l00045}{texture\+\_\+1\+\_\+id}}.
+
+\mbox{\Hypertarget{class_noise_a694662bf6db28aefb965f97c4812fd29}\label{class_noise_a694662bf6db28aefb965f97c4812fd29}} 
+\index{Noise@{Noise}!read\_res32\_noise@{read\_res32\_noise}}
+\index{read\_res32\_noise@{read\_res32\_noise}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{read\_res32\_noise()}{read\_res32\_noise()}}
+{\footnotesize\ttfamily void Noise\+::read\+\_\+res32\+\_\+noise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00271}{271}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00272 \{}
+\DoxyCodeLine{00273   GLuint texture\_index = GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a94ab45fae493b604905baff7c57d9745}{NOISE\_32D\_TEXTURES\_SLOT}};}
+\DoxyCodeLine{00274   glActiveTexture((GLenum)texture\_index);}
+\DoxyCodeLine{00275   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{00276 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00013}{NOISE\+\_\+32\+D\+\_\+\+TEXTURES\+\_\+\+SLOT}}, and \mbox{\hyperlink{_noise_8h_source_l00050}{texture\+\_\+2\+\_\+id}}.
+
+\mbox{\Hypertarget{class_noise_a521b2cbd42bb64142548253d7aa66580}\label{class_noise_a521b2cbd42bb64142548253d7aa66580}} 
+\index{Noise@{Noise}!set\_num\_cells@{set\_num\_cells}}
+\index{set\_num\_cells@{set\_num\_cells}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{set\_num\_cells()}{set\_num\_cells()}}
+{\footnotesize\ttfamily void Noise\+::set\+\_\+num\+\_\+cells (\begin{DoxyParamCaption}\item[{GLuint}]{num\+\_\+cells\+\_\+per\+\_\+axis,  }\item[{GLuint}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141 \{ this-\/>\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[index] = \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}.
+
+\mbox{\Hypertarget{class_noise_a4a2ad26f4b32545f26f0e0ab6044e414}\label{class_noise_a4a2ad26f4b32545f26f0e0ab6044e414}} 
+\index{Noise@{Noise}!update@{update}}
+\index{update@{update}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Noise\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_noise_8cpp_source}{Noise.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123 \{}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125   \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{delete\_textures}}();}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>reload();}
+\DoxyCodeLine{00128   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>reload();}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132     \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{generate\_cells}}(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], i);}
+\DoxyCodeLine{00133   \}}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135   \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{generate\_textures}}();}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137   \mbox{\hyperlink{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}{create\_res128\_noise}}();}
+\DoxyCodeLine{00138   \mbox{\hyperlink{class_noise_a683dc7958db6d4b85c5ab94455a8941a}{create\_res32\_noise}}();}
+\DoxyCodeLine{00139 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_noise_8cpp_source_l00197}{create\+\_\+res128\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00231}{create\+\_\+res32\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00278}{delete\+\_\+textures()}}, \mbox{\hyperlink{_noise_8cpp_source_l00150}{generate\+\_\+cells()}}, \mbox{\hyperlink{_noise_8cpp_source_l00033}{generate\+\_\+textures()}}, \mbox{\hyperlink{host__device__shared_8h_source_l00020}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}, \mbox{\hyperlink{_noise_8h_source_l00055}{num\+\_\+cells\+\_\+per\+\_\+axis}}, \mbox{\hyperlink{_noise_8h_source_l00047}{texture\+\_\+1\+\_\+shader\+\_\+program}}, and \mbox{\hyperlink{_noise_8h_source_l00052}{texture\+\_\+2\+\_\+shader\+\_\+program}}.
+
+Here is the call graph for this function\+:
+% FIG 13
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}\label{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}} 
+\index{Noise@{Noise}!cell\_data@{cell\_data}}
+\index{cell\_data@{cell\_data}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{cell\_data}{cell\_data}}
+{\footnotesize\ttfamily std\+::array$<$std\+::vector$<$GLfloat$>$, \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}$>$ Noise\+::cell\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00056}{56}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00150}{generate\+\_\+cells()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00041}{generate\+\_\+num\+\_\+cells\+\_\+textures()}}.
+
+\mbox{\Hypertarget{class_noise_a50e7cff652627d970f992e253bbf51c9}\label{class_noise_a50e7cff652627d970f992e253bbf51c9}} 
+\index{Noise@{Noise}!cell\_ids@{cell\_ids}}
+\index{cell\_ids@{cell\_ids}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{cell\_ids}{cell\_ids}}
+{\footnotesize\ttfamily GLuint Noise\+::cell\+\_\+ids\mbox{[}\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00054}{54}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00197}{create\+\_\+res128\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00231}{create\+\_\+res32\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00278}{delete\+\_\+textures()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00041}{generate\+\_\+num\+\_\+cells\+\_\+textures()}}.
+
+\mbox{\Hypertarget{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}\label{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}} 
+\index{Noise@{Noise}!num\_cells\_per\_axis@{num\_cells\_per\_axis}}
+\index{num\_cells\_per\_axis@{num\_cells\_per\_axis}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{num\_cells\_per\_axis}{num\_cells\_per\_axis}}
+{\footnotesize\ttfamily GLuint Noise\+::num\+\_\+cells\+\_\+per\+\_\+axis\mbox{[}\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\+\_\+\+CELL\+\_\+\+POSITIONS}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00055}{55}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00197}{create\+\_\+res128\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00231}{create\+\_\+res32\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00150}{generate\+\_\+cells()}}, \mbox{\hyperlink{_noise_8cpp_source_l00041}{generate\+\_\+num\+\_\+cells\+\_\+textures()}}, \mbox{\hyperlink{_noise_8cpp_source_l00005}{Noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00141}{set\+\_\+num\+\_\+cells()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+\mbox{\Hypertarget{class_noise_aee277b74e7f8df33b924692ea625bea9}\label{class_noise_aee277b74e7f8df33b924692ea625bea9}} 
+\index{Noise@{Noise}!texture\_1\_id@{texture\_1\_id}}
+\index{texture\_1\_id@{texture\_1\_id}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{texture\_1\_id}{texture\_1\_id}}
+{\footnotesize\ttfamily GLuint Noise\+::texture\+\_\+1\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00045}{45}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00278}{delete\+\_\+textures()}}, \mbox{\hyperlink{_noise_8cpp_source_l00061}{generate\+\_\+res128\+\_\+noise\+\_\+texture()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00264}{read\+\_\+res128\+\_\+noise()}}.
+
+\mbox{\Hypertarget{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}\label{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}} 
+\index{Noise@{Noise}!texture\_1\_shader\_program@{texture\_1\_shader\_program}}
+\index{texture\_1\_shader\_program@{texture\_1\_shader\_program}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{texture\_1\_shader\_program}{texture\_1\_shader\_program}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_compute_shader_program}{Compute\+Shader\+Program}}$>$ Noise\+::texture\+\_\+1\+\_\+shader\+\_\+program\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00047}{47}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00197}{create\+\_\+res128\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00024}{create\+\_\+shader\+\_\+programs()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+\mbox{\Hypertarget{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}\label{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}} 
+\index{Noise@{Noise}!texture\_2\_id@{texture\_2\_id}}
+\index{texture\_2\_id@{texture\_2\_id}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{texture\_2\_id}{texture\_2\_id}}
+{\footnotesize\ttfamily GLuint Noise\+::texture\+\_\+2\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00050}{50}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00278}{delete\+\_\+textures()}}, \mbox{\hyperlink{_noise_8cpp_source_l00081}{generate\+\_\+res32\+\_\+noise\+\_\+texture()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00271}{read\+\_\+res32\+\_\+noise()}}.
+
+\mbox{\Hypertarget{class_noise_a7a9dab01dff486532297277b037e0d9a}\label{class_noise_a7a9dab01dff486532297277b037e0d9a}} 
+\index{Noise@{Noise}!texture\_2\_shader\_program@{texture\_2\_shader\_program}}
+\index{texture\_2\_shader\_program@{texture\_2\_shader\_program}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{texture\_2\_shader\_program}{texture\_2\_shader\_program}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_compute_shader_program}{Compute\+Shader\+Program}}$>$ Noise\+::texture\+\_\+2\+\_\+shader\+\_\+program\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00052}{52}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00231}{create\+\_\+res32\+\_\+noise()}}, \mbox{\hyperlink{_noise_8cpp_source_l00024}{create\+\_\+shader\+\_\+programs()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00122}{update()}}.
+
+\mbox{\Hypertarget{class_noise_a768c1caf0db9bf0633e7b228a0354755}\label{class_noise_a768c1caf0db9bf0633e7b228a0354755}} 
+\index{Noise@{Noise}!texture\_dim\_1@{texture\_dim\_1}}
+\index{texture\_dim\_1@{texture\_dim\_1}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{texture\_dim\_1}{texture\_dim\_1}}
+{\footnotesize\ttfamily GLuint Noise\+::texture\+\_\+dim\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00046}{46}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00197}{create\+\_\+res128\+\_\+noise()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00061}{generate\+\_\+res128\+\_\+noise\+\_\+texture()}}.
+
+\mbox{\Hypertarget{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}\label{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}} 
+\index{Noise@{Noise}!texture\_dim\_2@{texture\_dim\_2}}
+\index{texture\_dim\_2@{texture\_dim\_2}!Noise@{Noise}}
+\doxysubsubsection{\texorpdfstring{texture\_dim\_2}{texture\_dim\_2}}
+{\footnotesize\ttfamily GLuint Noise\+::texture\+\_\+dim\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_noise_8h_source_l00051}{51}} of file \mbox{\hyperlink{_noise_8h_source}{Noise.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_noise_8cpp_source_l00231}{create\+\_\+res32\+\_\+noise()}}, and \mbox{\hyperlink{_noise_8cpp_source_l00081}{generate\+\_\+res32\+\_\+noise\+\_\+texture()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/atmospheric\+\_\+effects/clouds/\mbox{\hyperlink{_noise_8h}{Noise.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/atmospheric\+\_\+effects/clouds/\mbox{\hyperlink{_noise_8cpp}{Noise.\+cpp}}\end{DoxyCompactItemize}

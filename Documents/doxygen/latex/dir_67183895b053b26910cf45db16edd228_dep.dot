@@ -1,0 +1,15 @@
+digraph "C:/Users/jonas/Desktop/GraphicEngine/Src/scene/sky_box"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_bd4132eaf25bc91ffa6e489ae31851f6 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", style="filled,dashed,", label="scene", fontname="Helvetica", fontsize="10", URL="dir_bd4132eaf25bc91ffa6e489ae31851f6.html"]
+  dir_67183895b053b26910cf45db16edd228 [shape=box, label="sky_box", style="filled,bold,", fillcolor="#edf0f7", color="grey25", URL="dir_67183895b053b26910cf45db16edd228.html"];
+  }
+  dir_110bf15beb781d7cd423359a55b6cfac [shape=box, label="renderer", style="dashed,", fillcolor="#edf0f7", color="red", URL="dir_110bf15beb781d7cd423359a55b6cfac.html"];
+  dir_67183895b053b26910cf45db16edd228->dir_110bf15beb781d7cd423359a55b6cfac [headlabel="1", labeldistance=1.5 headhref="dir_000015_000012.html"];
+}

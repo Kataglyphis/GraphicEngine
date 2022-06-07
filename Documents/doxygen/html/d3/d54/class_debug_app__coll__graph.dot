@@ -1,0 +1,9 @@
+digraph "DebugApp"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{DebugApp\n||+  DebugApp()\l+ bool areErrorPrintAll\l(const std::string &Additional\lArrayMessage=\"Empty\", const\l char *file=__FILE__, int line\l=__LINE__)\l+ bool arePreError(const\l std::string &AdditionalArray\lMessage=\"Empty\", const char\l *file=__FILE__, int line=__LINE__)\l+  ~DebugApp()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+}

@@ -1,0 +1,195 @@
+\hypertarget{_debug_app_8cpp_source}{}\doxysection{Debug\+App.\+cpp}
+\label{_debug_app_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/debug/DebugApp.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/debug/DebugApp.cpp}}
+\mbox{\hyperlink{_debug_app_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_debug_app_8h}{DebugApp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00003}00003 \textcolor{comment}{// stolen from: https://learnopengl.com/In-\/Practice/Debugging}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00004}\mbox{\hyperlink{_debug_app_8cpp_af833243b97061a22e702b3b11a7b647c}{00004}} \textcolor{keywordtype}{void} APIENTRY \mbox{\hyperlink{_debug_app_8cpp_af833243b97061a22e702b3b11a7b647c}{glDebugOutput}}(GLenum source, GLenum type, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, GLenum severity, GLsizei length, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* message, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* userParam)}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00006}00006   \textcolor{comment}{// ignore non-\/significant error/warning codes}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00007}00007   \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == 131169 || \textcolor{keywordtype}{id} == 131185 || \textcolor{keywordtype}{id} == 131218 || \textcolor{keywordtype}{id} == 131204) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00009}00009   std::cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00010}00010   std::cout << \textcolor{stringliteral}{"{}Debug message ("{}} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{"{}): "{}} << message << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00012}00012   \textcolor{keywordflow}{switch} (source) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00013}00013   \textcolor{keywordflow}{case} GL\_DEBUG\_SOURCE\_API:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00014}00014     std::cout << \textcolor{stringliteral}{"{}Source: API"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00015}00015     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00016}00016   \textcolor{keywordflow}{case} GL\_DEBUG\_SOURCE\_WINDOW\_SYSTEM:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00017}00017     std::cout << \textcolor{stringliteral}{"{}Source: Window System"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00018}00018     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00019}00019   \textcolor{keywordflow}{case} GL\_DEBUG\_SOURCE\_SHADER\_COMPILER:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00020}00020     std::cout << \textcolor{stringliteral}{"{}Source: Shader Compiler"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00021}00021     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00022}00022   \textcolor{keywordflow}{case} GL\_DEBUG\_SOURCE\_THIRD\_PARTY:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00023}00023     std::cout << \textcolor{stringliteral}{"{}Source: Third Party"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00024}00024     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00025}00025   \textcolor{keywordflow}{case} GL\_DEBUG\_SOURCE\_APPLICATION:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00026}00026     std::cout << \textcolor{stringliteral}{"{}Source: Application"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00027}00027     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00028}00028   \textcolor{keywordflow}{case} GL\_DEBUG\_SOURCE\_OTHER:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00029}00029     std::cout << \textcolor{stringliteral}{"{}Source: Other"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00030}00030     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00031}00031   \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00032}00032   std::cout << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00034}00034   \textcolor{keywordflow}{switch} (type) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00035}00035   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_ERROR:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00036}00036     std::cout << \textcolor{stringliteral}{"{}Type: Error"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00037}00037     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00038}00038   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_DEPRECATED\_BEHAVIOR:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00039}00039     std::cout << \textcolor{stringliteral}{"{}Type: Deprecated Behaviour"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00040}00040     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00041}00041   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_UNDEFINED\_BEHAVIOR:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00042}00042     std::cout << \textcolor{stringliteral}{"{}Type: Undefined Behaviour"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00043}00043     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00044}00044   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_PORTABILITY:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00045}00045     std::cout << \textcolor{stringliteral}{"{}Type: Portability"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00046}00046     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00047}00047   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_PERFORMANCE:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00048}00048     std::cout << \textcolor{stringliteral}{"{}Type: Performance"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00049}00049     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00050}00050   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_MARKER:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00051}00051     std::cout << \textcolor{stringliteral}{"{}Type: Marker"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00052}00052     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00053}00053   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_PUSH\_GROUP:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00054}00054     std::cout << \textcolor{stringliteral}{"{}Type: Push Group"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00055}00055     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00056}00056   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_POP\_GROUP:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00057}00057     std::cout << \textcolor{stringliteral}{"{}Type: Pop Group"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00058}00058     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00059}00059   \textcolor{keywordflow}{case} GL\_DEBUG\_TYPE\_OTHER:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00060}00060     std::cout << \textcolor{stringliteral}{"{}Type: Other"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00061}00061     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00062}00062   \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00063}00063   std::cout << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00065}00065   \textcolor{keywordflow}{switch} (severity) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00066}00066   \textcolor{keywordflow}{case} GL\_DEBUG\_SEVERITY\_HIGH:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00067}00067     std::cout << \textcolor{stringliteral}{"{}Severity: high"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00068}00068     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00069}00069   \textcolor{keywordflow}{case} GL\_DEBUG\_SEVERITY\_MEDIUM:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00070}00070     std::cout << \textcolor{stringliteral}{"{}Severity: medium"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00071}00071     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00072}00072   \textcolor{keywordflow}{case} GL\_DEBUG\_SEVERITY\_LOW:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00073}00073     std::cout << \textcolor{stringliteral}{"{}Severity: low"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00074}00074     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00075}00075   \textcolor{keywordflow}{case} GL\_DEBUG\_SEVERITY\_NOTIFICATION:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00076}00076     std::cout << \textcolor{stringliteral}{"{}Severity: notification"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00077}00077     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00078}00078   \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00079}00079   std::cout << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00080}00080   std::cout << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00081}00081 \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00082}\mbox{\hyperlink{class_debug_app_af91166f4d64a86824781c30d8aa59889}{00082}} \mbox{\hyperlink{class_debug_app_af91166f4d64a86824781c30d8aa59889}{DebugApp::DebugApp}}()}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00083}00083 \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00084}00084 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00085}00085   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00086}00086 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00087}00087   \textcolor{keywordtype}{int} flags;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00088}00088   glGetIntegerv(GL\_CONTEXT\_FLAGS, \&flags);}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00089}00089   \textcolor{keywordflow}{if} (flags \& GL\_CONTEXT\_FLAG\_DEBUG\_BIT) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00090}00090     \textcolor{comment}{// initialize debug output}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00091}00091     glEnable(GL\_DEBUG\_OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00092}00092     glEnable(GL\_DEBUG\_OUTPUT\_SYNCHRONOUS);}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00093}00093     glDebugMessageCallback(\mbox{\hyperlink{_debug_app_8cpp_af833243b97061a22e702b3b11a7b647c}{glDebugOutput}}, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00094}00094     glDebugMessageControl(GL\_DONT\_CARE, GL\_DONT\_CARE, GL\_DONT\_CARE, 0, \textcolor{keyword}{nullptr}, GL\_TRUE);}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00095}00095   \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00096}00096 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00097}00097 \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00099}\mbox{\hyperlink{class_debug_app_ad5d0a65d60b65abe52e4b62cb9b282f6}{00099}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_debug_app_ad5d0a65d60b65abe52e4b62cb9b282f6}{DebugApp::areErrorPrintAll}}(\textcolor{keyword}{const} std::string\& AdditionalArrayMessage, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file, \textcolor{keywordtype}{int} line)}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00100}00100 \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00101}00101 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00102}00102   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00103}00103   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00104}00104 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00105}00105   GLenum err;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00106}00106   \textcolor{keywordtype}{bool} isError = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00107}00107   \textcolor{keywordflow}{while} ((err = glGetError()) != GL\_NO\_ERROR) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00108}00108     std::string errorCode;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00109}00109     \textcolor{keywordflow}{switch} (err) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00110}00110     \textcolor{keywordflow}{case} GL\_INVALID\_ENUM:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00111}00111       errorCode = \textcolor{stringliteral}{"{}INVALID\_ENUM"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00112}00112       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00113}00113     \textcolor{keywordflow}{case} GL\_INVALID\_VALUE:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00114}00114       errorCode = \textcolor{stringliteral}{"{}INVALID\_VALUE"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00115}00115       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00116}00116     \textcolor{keywordflow}{case} GL\_INVALID\_OPERATION:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00117}00117       errorCode = \textcolor{stringliteral}{"{}INVALID\_OPERATION"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00118}00118       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00119}00119     \textcolor{keywordflow}{case} GL\_STACK\_OVERFLOW:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00120}00120       errorCode = \textcolor{stringliteral}{"{}STACK\_OVERFLOW"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00121}00121       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00122}00122     \textcolor{keywordflow}{case} GL\_STACK\_UNDERFLOW:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00123}00123       errorCode = \textcolor{stringliteral}{"{}STACK\_UNDERFLOW"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00124}00124       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00125}00125     \textcolor{keywordflow}{case} GL\_OUT\_OF\_MEMORY:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00126}00126       errorCode = \textcolor{stringliteral}{"{}OUT\_OF\_MEMORY"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00127}00127       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00128}00128     \textcolor{keywordflow}{case} GL\_INVALID\_FRAMEBUFFER\_OPERATION:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00129}00129       errorCode = \textcolor{stringliteral}{"{}INVALID\_FRAMEBUFFER\_OPERATION"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00130}00130       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00132}00132     std::cout << \textcolor{stringliteral}{"{}Error, "{}} << errorCode << \textcolor{stringliteral}{"{} | "{}}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00133}00133               << \textcolor{stringliteral}{"{}\(\backslash\)nAdditional Error Message: "{}} << AdditionalArrayMessage << \textcolor{stringliteral}{"{} "{}}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00134}00134               << \textcolor{stringliteral}{"{}In File: "{}} << file << \textcolor{stringliteral}{"{}, Line: "{}} << line << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00135}00135     isError = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00136}00136   \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00138}00138   \textcolor{keywordflow}{return} isError;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00139}00139   \textcolor{comment}{// debug code}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00140}00140 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00141}00141 \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00142}00142 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00143}\mbox{\hyperlink{class_debug_app_a4f58776281280a3575b0352af9bbe5fc}{00143}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_debug_app_a4f58776281280a3575b0352af9bbe5fc}{DebugApp::arePreError}}(\textcolor{keyword}{const} std::string\& AdditionalArrayMessage, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file, \textcolor{keywordtype}{int} line)}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00144}00144 \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00145}00145 \textcolor{preprocessor}{\#ifdef NDEBUG}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00146}00146   \textcolor{comment}{// nondebug}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00147}00147   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00148}00148 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00149}00149   \textcolor{comment}{// debug code}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00150}00150   GLenum err;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00151}00151   \textcolor{keywordtype}{bool} isError = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00152}00152   \textcolor{keywordflow}{while} ((err = glGetError()) != GL\_NO\_ERROR) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00153}00153     std::string errorCode;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00154}00154     \textcolor{keywordflow}{switch} (err) \{}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00155}00155     \textcolor{keywordflow}{case} GL\_INVALID\_ENUM:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00156}00156       errorCode = \textcolor{stringliteral}{"{}INVALID\_ENUM"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00157}00157       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00158}00158     \textcolor{keywordflow}{case} GL\_INVALID\_VALUE:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00159}00159       errorCode = \textcolor{stringliteral}{"{}INVALID\_VALUE"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00160}00160       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00161}00161     \textcolor{keywordflow}{case} GL\_INVALID\_OPERATION:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00162}00162       errorCode = \textcolor{stringliteral}{"{}INVALID\_OPERATION"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00163}00163       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00164}00164     \textcolor{keywordflow}{case} GL\_STACK\_OVERFLOW:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00165}00165       errorCode = \textcolor{stringliteral}{"{}STACK\_OVERFLOW"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00166}00166       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00167}00167     \textcolor{keywordflow}{case} GL\_STACK\_UNDERFLOW:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00168}00168       errorCode = \textcolor{stringliteral}{"{}STACK\_UNDERFLOW"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00169}00169       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00170}00170     \textcolor{keywordflow}{case} GL\_OUT\_OF\_MEMORY:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00171}00171       errorCode = \textcolor{stringliteral}{"{}OUT\_OF\_MEMORY"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00172}00172       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00173}00173     \textcolor{keywordflow}{case} GL\_INVALID\_FRAMEBUFFER\_OPERATION:}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00174}00174       errorCode = \textcolor{stringliteral}{"{}INVALID\_FRAMEBUFFER\_OPERATION"{}};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00175}00175       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00176}00176     \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00177}00177     std::cout << errorCode << \textcolor{stringliteral}{"{} Error appears befor executing the function, "{}}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00178}00178               << \textcolor{stringliteral}{"{} | "{}}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00179}00179               << \textcolor{stringliteral}{"{}\(\backslash\)nAdditional Error Message: "{}} << AdditionalArrayMessage << \textcolor{stringliteral}{"{} "{}}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00180}00180               << \textcolor{stringliteral}{"{}In File: "{}} << file << \textcolor{stringliteral}{"{}, Line: "{}} << line << std::endl;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00181}00181     isError = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00182}00182   \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00184}00184   \textcolor{keywordflow}{return} isError;}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00185}00185 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00186}00186 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00187}00187 \}}
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{_debug_app_8cpp_source_l00189}\mbox{\hyperlink{class_debug_app_a6d8e4e756b96de051d3a0c7be02b7306}{00189}} \mbox{\hyperlink{class_debug_app_a6d8e4e756b96de051d3a0c7be02b7306}{DebugApp::\string~DebugApp}}() \{ \}}
+
+\end{DoxyCode}

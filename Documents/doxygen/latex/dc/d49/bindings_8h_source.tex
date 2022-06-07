@@ -1,0 +1,29 @@
+\hypertarget{bindings_8h_source}{}\doxysection{bindings.\+h}
+\label{bindings_8h_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/bindings.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/bindings.h}}
+\mbox{\hyperlink{bindings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{host__device__shared_8h}{host\_device\_shared.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_global_values_8h}{GlobalValues.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00005}00005 \textcolor{comment}{// define all texture unit offsets to all textures}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00006}\mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{00006}} \textcolor{preprocessor}{\#define MODEL\_TEXTURES\_SLOT 0}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00007}\mbox{\hyperlink{bindings_8h_a2309a50ca4d83b91328dea7a1a52284a}{00007}} \textcolor{preprocessor}{\#define SKYBOX\_TEXTURES\_SLOT MODEL\_TEXTURES\_SLOT + MAX\_TEXTURE\_COUNT}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00008}\mbox{\hyperlink{bindings_8h_a31363a524a58bb08ee547d9827c12c52}{00008}} \textcolor{preprocessor}{\#define GBUFFER\_TEXTURES\_SLOT SKYBOX\_TEXTURES\_SLOT + 1 }\textcolor{comment}{// we have 1 skybox 3D texture}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00009}\mbox{\hyperlink{bindings_8h_ac36ba418d7f8ae5c2087a6adde404302}{00009}} \textcolor{preprocessor}{\#define D\_LIGHT\_SHADOW\_TEXTURES\_SLOT GBUFFER\_TEXTURES\_SLOT + G\_BUFFER\_SIZE}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00010}00010 \textcolor{comment}{// for the CSM now using 1 sampler array layer -\/-\/> only one texture unit needed}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00011}\mbox{\hyperlink{bindings_8h_aebcea6f2b0037163df5486ea47118eff}{00011}} \textcolor{preprocessor}{\#define P\_LIGHT\_SHADOW\_TEXTURES\_SLOT D\_LIGHT\_SHADOW\_TEXTURES\_SLOT + 1}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00012}\mbox{\hyperlink{bindings_8h_a68c720249fec89156cfd1a1eeb356c25}{00012}} \textcolor{preprocessor}{\#define NOISE\_128D\_TEXTURES\_SLOT P\_LIGHT\_SHADOW\_TEXTURES\_SLOT + MAX\_POINT\_LIGHTS}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00013}\mbox{\hyperlink{bindings_8h_a94ab45fae493b604905baff7c57d9745}{00013}} \textcolor{preprocessor}{\#define NOISE\_32D\_TEXTURES\_SLOT NOISE\_128D\_TEXTURES\_SLOT + 1}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00014}\mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{00014}} \textcolor{preprocessor}{\#define NOISE\_CELL\_POSITIONS\_SLOT NOISE\_32D\_TEXTURES\_SLOT + 1}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00015}\mbox{\hyperlink{bindings_8h_a05989250a93ec0f9dfe63bad8ae1d95c}{00015}} \textcolor{preprocessor}{\#define RANDOM\_NUMBERS\_SLOT NOISE\_CELL\_POSITIONS\_SLOT + NUM\_CELL\_POSITIONS}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00017}00017 \textcolor{comment}{// all image slots}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00018}\mbox{\hyperlink{bindings_8h_ab33e9e629597c653feccb86cd28e138e}{00018}} \textcolor{preprocessor}{\#define NOISE\_128D\_IMAGE\_SLOT 0}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00019}\mbox{\hyperlink{bindings_8h_ae102fd04de1e0f7e67114690a8191da4}{00019}} \textcolor{preprocessor}{\#define NOISE\_32D\_IMAGE\_SLOT 1}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00021}00021 \textcolor{comment}{// storage buffer bindings}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00022}\mbox{\hyperlink{bindings_8h_a934aa1a1a657e97b7ce0af0aaf957d9d}{00022}} \textcolor{preprocessor}{\#define STORAGE\_BUFFER\_MATERIAL\_ID\_BINDING 0}}
+\DoxyCodeLine{\Hypertarget{bindings_8h_source_l00023}\mbox{\hyperlink{bindings_8h_a6cffb6c61d3a48bb1b5b5afe62b6331d}{00023}} \textcolor{preprocessor}{\#define UNIFORM\_LIGHT\_MATRICES\_BINDING 1}}
+
+\end{DoxyCode}

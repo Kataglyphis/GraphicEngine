@@ -1,5 +1,0 @@
-OmniDirShadowMap
-init call:[glBindFramebuffer,glBindTexture,glCheckFramebufferStatus,glDrawBuffer,glFramebufferTexture,glGenFramebuffers,glGenTextures,glReadBuffer,glTexImage2D,glTexParameteri,printf] noreturn:[glTexImage2D]
-write call:[glBindFramebuffer] noreturn:[glBindFramebuffer]
-read call:[glActiveTexture,glBindTexture] noreturn:[glBindTexture]
-OmniDirShadowMap

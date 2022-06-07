@@ -1,0 +1,551 @@
+\hypertarget{class_texture}{}\doxysection{Texture Class Reference}
+\label{class_texture}\index{Texture@{Texture}}
+
+
+{\ttfamily \#include $<$Texture.\+h$>$}
+
+
+
+Collaboration diagram for Texture\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}} ()
+\item 
+\mbox{\hyperlink{class_texture_a6f56af3d4f169b786af46f8e2b6facd8}{Texture}} (const char $\ast$file\+\_\+loc, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_wrapping_mode}{Texture\+Wrapping\+Mode}} $>$ \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\+\_\+mode}})
+\item 
+bool \mbox{\hyperlink{class_texture_a39518e6212f94918b566d01630d1a749}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel}} ()
+\item 
+bool \mbox{\hyperlink{class_texture_aac8edf700b4323b86a7bfa322d186ca5}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel}} ()
+\item 
+bool \mbox{\hyperlink{class_texture_a9809b10db413a7e326f7ba40bfaf54fd}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel}} ()
+\item 
+bool \mbox{\hyperlink{class_texture_a3ea4c8107ca349bb223c2cb6e169136c}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_texture_aa62a61d9cf51a9235eb5f129ef208015}{get\+\_\+filename}} () const
+\item 
+GLuint \mbox{\hyperlink{class_texture_a53aa350bde0fc93271c74e2bd2b391fa}{get\+\_\+id}} () const
+\item 
+void \mbox{\hyperlink{class_texture_a52e79975124df40c3e294ad2e0791ba5}{use\+\_\+texture}} (unsigned int index)
+\item 
+void \mbox{\hyperlink{class_texture_ab708ed6a50ec7941e751e1d4245cd9ac}{unbind\+\_\+texture}} (unsigned int index)
+\item 
+void \mbox{\hyperlink{class_texture_a6305116f1bc00d0fc09cb3c9fe9a4db0}{clear\+\_\+texture\+\_\+context}} ()
+\item 
+\mbox{\hyperlink{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{$\sim$\+Texture}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{texture\+ID}}
+\item 
+int \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}
+\item 
+int \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}
+\item 
+int \mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\+\_\+depth}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_wrapping_mode}{Texture\+Wrapping\+Mode}} $>$ \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\+\_\+mode}}
+\item 
+std\+::string \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\+\_\+location}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00015}{15}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_a6c275e3f186675ff6ed73ccf970e552f}\label{class_texture_a6c275e3f186675ff6ed73ccf970e552f}} 
+\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Texture\+::\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006                  :}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008     \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}}(0), \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}(0), \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}(0), \mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}}(0),}
+\DoxyCodeLine{00009     \textcolor{comment}{//go with reapeat as standard ...}}
+\DoxyCodeLine{00010     \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}(std::make\_shared<RepeatMode>()), \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}(std::string(\textcolor{stringliteral}{"{}"{}}))}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_texture_a6f56af3d4f169b786af46f8e2b6facd8}\label{class_texture_a6f56af3d4f169b786af46f8e2b6facd8}} 
+\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+loc,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture_wrapping_mode}{Texture\+Wrapping\+Mode}} $>$}]{wrapping\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                                                                        :}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}}(0), \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}(0), \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}(0), \mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}}(0),}
+\DoxyCodeLine{00018     \textcolor{comment}{//go with reapeat as standard ...}}
+\DoxyCodeLine{00019     \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}(\mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}), \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}(std::string(file\_loc))}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}\label{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}} 
+\index{Texture@{Texture}!````~Texture@{$\sim$Texture}}
+\index{````~Texture@{$\sim$Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{$\sim$Texture()}{~Texture()}}
+{\footnotesize\ttfamily Texture\+::$\sim$\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00179}{179}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00179 \{ \mbox{\hyperlink{class_texture_a6305116f1bc00d0fc09cb3c9fe9a4db0}{clear\_texture\_context}}(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8cpp_source_l00167}{clear\+\_\+texture\+\_\+context()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_a6305116f1bc00d0fc09cb3c9fe9a4db0}\label{class_texture_a6305116f1bc00d0fc09cb3c9fe9a4db0}} 
+\index{Texture@{Texture}!clear\_texture\_context@{clear\_texture\_context}}
+\index{clear\_texture\_context@{clear\_texture\_context}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{clear\_texture\_context()}{clear\_texture\_context()}}
+{\footnotesize\ttfamily void Texture\+::clear\+\_\+texture\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00167}{167}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168 \{}
+\DoxyCodeLine{00169   glDeleteTextures(1, \&\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00170   \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}} = 0;}
+\DoxyCodeLine{00171   \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}} = 0;}
+\DoxyCodeLine{00172   \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}} = 0;}
+\DoxyCodeLine{00173   \mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}} = 0;}
+\DoxyCodeLine{00174   \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}} = std::string(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00175 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00039}{bit\+\_\+depth}}, \mbox{\hyperlink{_texture_8h_source_l00043}{file\+\_\+location}}, \mbox{\hyperlink{_texture_8h_source_l00039}{height}}, \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}, and \mbox{\hyperlink{_texture_8h_source_l00039}{width}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00179}{$\sim$\+Texture()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_texture_aa62a61d9cf51a9235eb5f129ef208015}\label{class_texture_aa62a61d9cf51a9235eb5f129ef208015}} 
+\index{Texture@{Texture}!get\_filename@{get\_filename}}
+\index{get\_filename@{get\_filename}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{get\_filename()}{get\_filename()}}
+{\footnotesize\ttfamily std\+::string Texture\+::get\+\_\+filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00157}{157}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00043}{file\+\_\+location}}.
+
+\mbox{\Hypertarget{class_texture_a53aa350bde0fc93271c74e2bd2b391fa}\label{class_texture_a53aa350bde0fc93271c74e2bd2b391fa}} 
+\index{Texture@{Texture}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily GLuint Texture\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00177}{177}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00177 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{GUI\+::render()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_texture_a3ea4c8107ca349bb223c2cb6e169136c}\label{class_texture_a3ea4c8107ca349bb223c2cb6e169136c}} 
+\index{Texture@{Texture}!load\_SRGB\_texture\_with\_alpha\_channel@{load\_SRGB\_texture\_with\_alpha\_channel}}
+\index{load\_SRGB\_texture\_with\_alpha\_channel@{load\_SRGB\_texture\_with\_alpha\_channel}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{load\_SRGB\_texture\_with\_alpha\_channel()}{load\_SRGB\_texture\_with\_alpha\_channel()}}
+{\footnotesize\ttfamily bool Texture\+::load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123 \{}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125   stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{00126   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* texture\_data = stbi\_load(\mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str(), \&\mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \&\mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, \&\mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}}, 0);}
+\DoxyCodeLine{00127   \textcolor{keywordflow}{if} (!texture\_data) \{}
+\DoxyCodeLine{00128     printf(\textcolor{stringliteral}{"{}Failed to find: \%s\(\backslash\)n"{}}, \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str());}
+\DoxyCodeLine{00129     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00130   \}}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132   glGenTextures(1, \&\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00133   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135   \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}-\/>activate();}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137 }
+\DoxyCodeLine{00138   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_SRGB\_ALPHA, \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, 0, GL\_RGBA, GL\_UNSIGNED\_BYTE, texture\_data);}
+\DoxyCodeLine{00139   glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{00140 }
+\DoxyCodeLine{00141   \textcolor{comment}{// to not interpolate between transparent and not trans coloars}}
+\DoxyCodeLine{00142   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00143   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{00146   \textcolor{comment}{//glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR\_MIPMAP\_LINEAR);}}
+\DoxyCodeLine{00147   \textcolor{comment}{// INVALID ENUM changed to GL\_LINEAR}}
+\DoxyCodeLine{00148   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150   glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00152   stbi\_image\_free(texture\_data);}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00155 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00039}{bit\+\_\+depth}}, \mbox{\hyperlink{_texture_8h_source_l00043}{file\+\_\+location}}, \mbox{\hyperlink{_texture_8h_source_l00039}{height}}, \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}, \mbox{\hyperlink{_texture_8h_source_l00039}{width}}, and \mbox{\hyperlink{_texture_8h_source_l00041}{wrapping\+\_\+mode}}.
+
+\mbox{\Hypertarget{class_texture_a9809b10db413a7e326f7ba40bfaf54fd}\label{class_texture_a9809b10db413a7e326f7ba40bfaf54fd}} 
+\index{Texture@{Texture}!load\_SRGB\_texture\_without\_alpha\_channel@{load\_SRGB\_texture\_without\_alpha\_channel}}
+\index{load\_SRGB\_texture\_without\_alpha\_channel@{load\_SRGB\_texture\_without\_alpha\_channel}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{load\_SRGB\_texture\_without\_alpha\_channel()}{load\_SRGB\_texture\_without\_alpha\_channel()}}
+{\footnotesize\ttfamily bool Texture\+::load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091 \{}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093   stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{00094   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* texture\_data = stbi\_load(\mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str(), \&\mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \&\mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, \&\mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}}, 0);}
+\DoxyCodeLine{00095   \textcolor{keywordflow}{if} (!texture\_data) \{}
+\DoxyCodeLine{00096     printf(\textcolor{stringliteral}{"{}Failed to find: \%s\(\backslash\)n"{}}, \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str());}
+\DoxyCodeLine{00097     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00098   \}}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100   glGenTextures(1, \&\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00101   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103   \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}-\/>activate();}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105   \textcolor{comment}{// i think we won't need nearest option; so stick to linear}}
+\DoxyCodeLine{00106   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108   \textcolor{comment}{//glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}}
+\DoxyCodeLine{00109   \textcolor{comment}{// INVALID ENUM changed to GL\_LINEAR}}
+\DoxyCodeLine{00110   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_SRGB, \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, 0, GL\_RGB, GL\_UNSIGNED\_BYTE, texture\_data);}
+\DoxyCodeLine{00113   glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115   glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117   stbi\_image\_free(texture\_data);}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00120 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00039}{bit\+\_\+depth}}, \mbox{\hyperlink{_texture_8h_source_l00043}{file\+\_\+location}}, \mbox{\hyperlink{_texture_8h_source_l00039}{height}}, \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}, \mbox{\hyperlink{_texture_8h_source_l00039}{width}}, and \mbox{\hyperlink{_texture_8h_source_l00041}{wrapping\+\_\+mode}}.
+
+\mbox{\Hypertarget{class_texture_aac8edf700b4323b86a7bfa322d186ca5}\label{class_texture_aac8edf700b4323b86a7bfa322d186ca5}} 
+\index{Texture@{Texture}!load\_texture\_with\_alpha\_channel@{load\_texture\_with\_alpha\_channel}}
+\index{load\_texture\_with\_alpha\_channel@{load\_texture\_with\_alpha\_channel}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{load\_texture\_with\_alpha\_channel()}{load\_texture\_with\_alpha\_channel()}}
+{\footnotesize\ttfamily bool Texture\+::load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057 \{}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059   stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{00060   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* texture\_data = stbi\_load(\mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str(), \&\mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \&\mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, \&\mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}}, 0);}
+\DoxyCodeLine{00061   \textcolor{keywordflow}{if} (!texture\_data) \{}
+\DoxyCodeLine{00062     printf(\textcolor{stringliteral}{"{}Failed to find: \%s\(\backslash\)n"{}}, \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str());}
+\DoxyCodeLine{00063     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00064   \}}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066   glGenTextures(1, \&\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00067   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069   \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}-\/>activate();}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA, \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, 0, GL\_RGBA, GL\_UNSIGNED\_BYTE, texture\_data);}
+\DoxyCodeLine{00072   glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074   \textcolor{comment}{// to not interpolate between transparent and not trans coloars}}
+\DoxyCodeLine{00075   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00076   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{00079   \textcolor{comment}{//glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR\_MIPMAP\_LINEAR);}}
+\DoxyCodeLine{00080   \textcolor{comment}{// INVALID ENUM changed to GL\_LINEAR}}
+\DoxyCodeLine{00081   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083   glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085   stbi\_image\_free(texture\_data);}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00088 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00039}{bit\+\_\+depth}}, \mbox{\hyperlink{_texture_8h_source_l00043}{file\+\_\+location}}, \mbox{\hyperlink{_texture_8h_source_l00039}{height}}, \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}, \mbox{\hyperlink{_texture_8h_source_l00039}{width}}, and \mbox{\hyperlink{_texture_8h_source_l00041}{wrapping\+\_\+mode}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI\+::\+GUI()}}, and \mbox{\hyperlink{_loading_screen_8cpp_source_l00007}{Loading\+Screen\+::init()}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_texture_a39518e6212f94918b566d01630d1a749}\label{class_texture_a39518e6212f94918b566d01630d1a749}} 
+\index{Texture@{Texture}!load\_texture\_without\_alpha\_channel@{load\_texture\_without\_alpha\_channel}}
+\index{load\_texture\_without\_alpha\_channel@{load\_texture\_without\_alpha\_channel}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{load\_texture\_without\_alpha\_channel()}{load\_texture\_without\_alpha\_channel()}}
+{\footnotesize\ttfamily bool Texture\+::load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027   stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{00028   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* texture\_data = stbi\_load(\mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str(), \&\mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \&\mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, \&\mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}}, 0);}
+\DoxyCodeLine{00029   \textcolor{keywordflow}{if} (!texture\_data) \{}
+\DoxyCodeLine{00030     printf(\textcolor{stringliteral}{"{}Failed to find: \%s\(\backslash\)n"{}}, \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}}.c\_str());}
+\DoxyCodeLine{00031     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00032   \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034   glGenTextures(1, \&\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00035   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037   \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}}-\/>activate();}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039   \textcolor{comment}{// i think we won't need nearest option; so stick to linear}}
+\DoxyCodeLine{00040   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042   \textcolor{comment}{//glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}}
+\DoxyCodeLine{00043   \textcolor{comment}{// INVALID ENUM changed to GL\_LINEAR}}
+\DoxyCodeLine{00044   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGB, \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, 0, GL\_RGB, GL\_UNSIGNED\_BYTE, texture\_data);}
+\DoxyCodeLine{00047   glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049   glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051   stbi\_image\_free(texture\_data);}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00039}{bit\+\_\+depth}}, \mbox{\hyperlink{_texture_8h_source_l00043}{file\+\_\+location}}, \mbox{\hyperlink{_texture_8h_source_l00039}{height}}, \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}, \mbox{\hyperlink{_texture_8h_source_l00039}{width}}, and \mbox{\hyperlink{_texture_8h_source_l00041}{wrapping\+\_\+mode}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00007}{Loading\+Screen\+::init()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_texture_ab708ed6a50ec7941e751e1d4245cd9ac}\label{class_texture_ab708ed6a50ec7941e751e1d4245cd9ac}} 
+\index{Texture@{Texture}!unbind\_texture@{unbind\_texture}}
+\index{unbind\_texture@{unbind\_texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{unbind\_texture()}{unbind\_texture()}}
+{\footnotesize\ttfamily void Texture\+::unbind\+\_\+texture (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165 \{ glBindTexture(GL\_TEXTURE\_2D, GL\_TEXTURE0 + index); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_texture_a52e79975124df40c3e294ad2e0791ba5}\label{class_texture_a52e79975124df40c3e294ad2e0791ba5}} 
+\index{Texture@{Texture}!use\_texture@{use\_texture}}
+\index{use\_texture@{use\_texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{use\_texture()}{use\_texture()}}
+{\footnotesize\ttfamily void Texture\+::use\+\_\+texture (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{_texture_8cpp_source}{Texture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160 \{}
+\DoxyCodeLine{00161   glActiveTexture(GL\_TEXTURE0 + index);}
+\DoxyCodeLine{00162   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}});}
+\DoxyCodeLine{00163 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_texture_8h_source_l00038}{texture\+ID}}.
+
+
+
+Referenced by \mbox{\hyperlink{_loading_screen_8cpp_source_l00026}{Loading\+Screen\+::render()}}.
+
+Here is the caller graph for this function\+:
+% FIG 6
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_texture_aab023744f53272866bfca27233c88415}\label{class_texture_aab023744f53272866bfca27233c88415}} 
+\index{Texture@{Texture}!bit\_depth@{bit\_depth}}
+\index{bit\_depth@{bit\_depth}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{bit\_depth}{bit\_depth}}
+{\footnotesize\ttfamily int Texture\+::bit\+\_\+depth\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00039}{39}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00167}{clear\+\_\+texture\+\_\+context()}}, \mbox{\hyperlink{_texture_8cpp_source_l00122}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00090}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00024}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}.
+
+\mbox{\Hypertarget{class_texture_aa8b4a96136169f9a13ddd67cda043465}\label{class_texture_aa8b4a96136169f9a13ddd67cda043465}} 
+\index{Texture@{Texture}!file\_location@{file\_location}}
+\index{file\_location@{file\_location}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{file\_location}{file\_location}}
+{\footnotesize\ttfamily std\+::string Texture\+::file\+\_\+location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00043}{43}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00167}{clear\+\_\+texture\+\_\+context()}}, \mbox{\hyperlink{_texture_8cpp_source_l00157}{get\+\_\+filename()}}, \mbox{\hyperlink{_texture_8cpp_source_l00122}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00090}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00024}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}.
+
+\mbox{\Hypertarget{class_texture_ad37c395c65ff8bde86230908027a6fcd}\label{class_texture_ad37c395c65ff8bde86230908027a6fcd}} 
+\index{Texture@{Texture}!height@{height}}
+\index{height@{height}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily int Texture\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00039}{39}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00167}{clear\+\_\+texture\+\_\+context()}}, \mbox{\hyperlink{_texture_8cpp_source_l00122}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00090}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00024}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}.
+
+\mbox{\Hypertarget{class_texture_ab61a414e1ed356a30c48952d65227691}\label{class_texture_ab61a414e1ed356a30c48952d65227691}} 
+\index{Texture@{Texture}!textureID@{textureID}}
+\index{textureID@{textureID}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{textureID}{textureID}}
+{\footnotesize\ttfamily GLuint Texture\+::texture\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00038}{38}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00167}{clear\+\_\+texture\+\_\+context()}}, \mbox{\hyperlink{_texture_8cpp_source_l00177}{get\+\_\+id()}}, \mbox{\hyperlink{_texture_8cpp_source_l00122}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00090}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00024}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00159}{use\+\_\+texture()}}.
+
+\mbox{\Hypertarget{class_texture_a06a0246cb31343557c3441c5733349cd}\label{class_texture_a06a0246cb31343557c3441c5733349cd}} 
+\index{Texture@{Texture}!width@{width}}
+\index{width@{width}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int Texture\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00039}{39}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00167}{clear\+\_\+texture\+\_\+context()}}, \mbox{\hyperlink{_texture_8cpp_source_l00122}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00090}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00024}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}.
+
+\mbox{\Hypertarget{class_texture_ae918456cfb8003cceb0036a4857eea28}\label{class_texture_ae918456cfb8003cceb0036a4857eea28}} 
+\index{Texture@{Texture}!wrapping\_mode@{wrapping\_mode}}
+\index{wrapping\_mode@{wrapping\_mode}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{wrapping\_mode}{wrapping\_mode}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_texture_wrapping_mode}{Texture\+Wrapping\+Mode}}$>$ Texture\+::wrapping\+\_\+mode\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00041}{41}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_texture_8cpp_source_l00122}{load\+\_\+\+SRGB\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00090}{load\+\_\+\+SRGB\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, and \mbox{\hyperlink{_texture_8cpp_source_l00024}{load\+\_\+texture\+\_\+without\+\_\+alpha\+\_\+channel()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/texture/\mbox{\hyperlink{_texture_8h}{Texture.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/texture/\mbox{\hyperlink{_texture_8cpp}{Texture.\+cpp}}\end{DoxyCompactItemize}

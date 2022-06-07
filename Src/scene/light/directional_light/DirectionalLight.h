@@ -1,22 +1,26 @@
 #pragma once
-#include <memory>
-#include <limits>
-#include <vector>
 #include <array>
+#include <limits>
+#include <memory>
+#include <vector>
 
 #include "Light.h"
 #include "host_device_shared.h"
 
 class DirectionalLight : public Light {
-  public:
+ public:
   DirectionalLight();
 
-  DirectionalLight(GLuint shadow_width, GLuint shadow_height, GLfloat red, GLfloat green, GLfloat blue, GLfloat radiance, GLfloat x_dir, GLfloat y_dir,
-    GLfloat z_dir, GLfloat near_plane, GLfloat far_plane, int num_cascades);
+  DirectionalLight(GLuint shadow_width, GLuint shadow_height, GLfloat red,
+                   GLfloat green, GLfloat blue, GLfloat radiance, GLfloat x_dir,
+                   GLfloat y_dir, GLfloat z_dir, GLfloat near_plane,
+                   GLfloat far_plane, int num_cascades);
 
   glm::mat4 calculate_light_transform();
 
-  std::shared_ptr<CascadedShadowMap> get_shadow_map() const { return shadow_map; }
+  std::shared_ptr<CascadedShadowMap> get_shadow_map() const {
+    return shadow_map;
+  }
 
   glm::vec3 get_direction() const;
   glm::vec3 get_color() const;
@@ -29,15 +33,18 @@ class DirectionalLight : public Light {
   void set_radiance(float radiance);
   void set_color(glm::vec3 color);
 
-  void update_shadow_map(GLfloat shadow_width, GLfloat shadow_height, GLuint num_cascades);
+  void update_shadow_map(GLfloat shadow_width, GLfloat shadow_height,
+                         GLuint num_cascades);
 
-  void calc_orthogonal_projections(glm::mat4 camera_view_matrix, GLfloat fov, GLuint window_width, GLuint window_height, GLuint current_num_cascades);
-
+  void calc_orthogonal_projections(glm::mat4 camera_view_matrix, GLfloat fov,
+                                   GLuint window_width, GLuint window_height,
+                                   GLuint current_num_cascades);
 
   ~DirectionalLight();
 
-  private:
-  std::vector<glm::vec4> get_frustum_corners_world_space(const glm::mat4& proj, const glm::mat4& view);
+ private:
+  std::vector<glm::vec4> get_frustum_corners_world_space(const glm::mat4& proj,
+                                                         const glm::mat4& view);
   void calc_cascaded_slots();
 
   std::shared_ptr<CascadedShadowMap> shadow_map;

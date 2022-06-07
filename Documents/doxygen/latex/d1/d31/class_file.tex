@@ -1,0 +1,136 @@
+\hypertarget{class_file}{}\doxysection{File Class Reference}
+\label{class_file}\index{File@{File}}
+
+
+{\ttfamily \#include $<$File.\+h$>$}
+
+
+
+Collaboration diagram for File\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_a1215e3e04d37e51b042552efb4939d43}{File}} (const std\+::string \&\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\+\_\+location}})
+\item 
+std\+::string \mbox{\hyperlink{class_file_a45badf982efdf5f4b3a74053948e342e}{read}} ()
+\item 
+\mbox{\hyperlink{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}{$\sim$\+File}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\+\_\+location}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_file_8h_source_l00004}{4}} of file \mbox{\hyperlink{_file_8h_source}{File.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_file_a1215e3e04d37e51b042552efb4939d43}\label{class_file_a1215e3e04d37e51b042552efb4939d43}} 
+\index{File@{File}!File@{File}}
+\index{File@{File}!File@{File}}
+\doxysubsubsection{\texorpdfstring{File()}{File()}}
+{\footnotesize\ttfamily File\+::\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_file_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_file_8cpp_source}{File.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{ this-\/>\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}} = \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_file_8h_source_l00014}{file\+\_\+location}}.
+
+\mbox{\Hypertarget{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}\label{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}} 
+\index{File@{File}!````~File@{$\sim$File}}
+\index{````~File@{$\sim$File}!File@{File}}
+\doxysubsubsection{\texorpdfstring{$\sim$File()}{~File()}}
+{\footnotesize\ttfamily File\+::$\sim$\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_file_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_file_8cpp_source}{File.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_a45badf982efdf5f4b3a74053948e342e}\label{class_file_a45badf982efdf5f4b3a74053948e342e}} 
+\index{File@{File}!read@{read}}
+\index{read@{read}!File@{File}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily std\+::string File\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_file_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_file_8cpp_source}{File.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009   std::string content;}
+\DoxyCodeLine{00010   std::ifstream file\_stream(\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}, std::ios::in);}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012   \textcolor{keywordflow}{if} (!file\_stream.is\_open()) \{}
+\DoxyCodeLine{00013     printf(\textcolor{stringliteral}{"{}Failed to read \%s. File does not exist."{}}, \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}.c\_str());}
+\DoxyCodeLine{00014     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00015   \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   std::string line = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00018   \textcolor{keywordflow}{while} (!file\_stream.eof()) \{}
+\DoxyCodeLine{00019     std::getline(file\_stream, line);}
+\DoxyCodeLine{00020     content.append(line + \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00021   \}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023   file\_stream.close();}
+\DoxyCodeLine{00024   \textcolor{keywordflow}{return} content;}
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_file_8h_source_l00014}{file\+\_\+location}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00072}{Shader\+Program\+::create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00019}{Shader\+Program\+::create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_shader_includes_8cpp_source_l00014}{Shader\+Includes\+::\+Shader\+Includes()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_file_aaee11df48454fa5ddc266db5bdaf77ca}\label{class_file_aaee11df48454fa5ddc266db5bdaf77ca}} 
+\index{File@{File}!file\_location@{file\_location}}
+\index{file\_location@{file\_location}!File@{File}}
+\doxysubsubsection{\texorpdfstring{file\_location}{file\_location}}
+{\footnotesize\ttfamily std\+::string File\+::file\+\_\+location\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_file_8h_source_l00014}{14}} of file \mbox{\hyperlink{_file_8h_source}{File.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_file_8cpp_source_l00005}{File()}}, and \mbox{\hyperlink{_file_8cpp_source_l00007}{read()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/util/\mbox{\hyperlink{_file_8h}{File.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/util/\mbox{\hyperlink{_file_8cpp}{File.\+cpp}}\end{DoxyCompactItemize}

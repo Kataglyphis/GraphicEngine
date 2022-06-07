@@ -1,4 +1,0 @@
-SkyBox call:[Vertex,c_str,create_from_files,glBindTexture,glGenTextures,glTexImage2D,glTexParameteri,printf,push_back,size,srand,stbi_image_free,stbi_load,str,string,vec2,vec3] noreturn:[stbi_image_free,str]
-draw_sky_box global:[MAX_TEXTURE_COUNT] call:[fmod,glActiveTexture,glBindTexture,glDepthFunc,glDepthMask,mat3,mat4,render,setUniformInt,setUniformMatrix4fv,use_shader_program,validate_program] noreturn:[glBindTexture]
-reload call:[create_from_files] noreturn:[create_from_files]
-SkyBox call:[glDeleteTextures] noreturn:[glDeleteTextures]

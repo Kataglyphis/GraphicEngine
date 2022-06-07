@@ -1,0 +1,202 @@
+\hypertarget{class_quad}{}\doxysection{Quad Class Reference}
+\label{class_quad}\index{Quad@{Quad}}
+
+
+{\ttfamily \#include $<$Quad.\+h$>$}
+
+
+
+Collaboration diagram for Quad\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quad_ae446d188d645cc5c512336f25d1a697a}{Quad}} ()
+\item 
+void \mbox{\hyperlink{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}{render}} ()
+\item 
+\mbox{\hyperlink{class_quad_a5db77c0481b30c0b7c1014cc535284ad}{$\sim$\+Quad}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\+\_\+vao}}
+\item 
+GLuint \mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\+\_\+vbo}}
+\item 
+float \mbox{\hyperlink{class_quad_a3cc5b3adc4a394880f13564480798eff}{vertices}} \mbox{[}20\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_quad_8h_source_l00008}{8}} of file \mbox{\hyperlink{_quad_8h_source}{Quad.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_quad_ae446d188d645cc5c512336f25d1a697a}\label{class_quad_ae446d188d645cc5c512336f25d1a697a}} 
+\index{Quad@{Quad}!Quad@{Quad}}
+\index{Quad@{Quad}!Quad@{Quad}}
+\doxysubsubsection{\texorpdfstring{Quad()}{Quad()}}
+{\footnotesize\ttfamily Quad\+::\+Quad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_quad_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_quad_8cpp_source}{Quad.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00005   glGenVertexArrays(1, \&\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{00006   glGenBuffers(1, \&\mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\_vbo}});}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008   glBindVertexArray(\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{00009   glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\_vbo}});}
+\DoxyCodeLine{00010   glBufferData(GL\_ARRAY\_BUFFER, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_quad_a3cc5b3adc4a394880f13564480798eff}{vertices}}), \&\mbox{\hyperlink{class_quad_a3cc5b3adc4a394880f13564480798eff}{vertices}}, GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00011   glEnableVertexAttribArray(0);}
+\DoxyCodeLine{00012   glVertexAttribPointer(0, 3, GL\_FLOAT, GL\_FALSE, 5 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00013   glEnableVertexAttribArray(1);}
+\DoxyCodeLine{00014   glVertexAttribPointer(1, 2, GL\_FLOAT, GL\_FALSE, 5 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), (\textcolor{keywordtype}{void}*)(3 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_quad_8h_source_l00017}{q\+\_\+vao}}, \mbox{\hyperlink{_quad_8h_source_l00017}{q\+\_\+vbo}}, and \mbox{\hyperlink{_quad_8h_source_l00019}{vertices}}.
+
+\mbox{\Hypertarget{class_quad_a5db77c0481b30c0b7c1014cc535284ad}\label{class_quad_a5db77c0481b30c0b7c1014cc535284ad}} 
+\index{Quad@{Quad}!````~Quad@{$\sim$Quad}}
+\index{````~Quad@{$\sim$Quad}!Quad@{Quad}}
+\doxysubsubsection{\texorpdfstring{$\sim$Quad()}{~Quad()}}
+{\footnotesize\ttfamily Quad\+::$\sim$\+Quad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_quad_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{_quad_8cpp_source}{Quad.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026   glDeleteVertexArrays(1, \&\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{00027   glDeleteBuffers(1, \&\mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\_vbo}});}
+\DoxyCodeLine{00028 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_quad_8h_source_l00017}{q\+\_\+vao}}, and \mbox{\hyperlink{_quad_8h_source_l00017}{q\+\_\+vbo}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}\label{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}} 
+\index{Quad@{Quad}!render@{render}}
+\index{render@{render}!Quad@{Quad}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Quad\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_quad_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_quad_8cpp_source}{Quad.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \{}
+\DoxyCodeLine{00019   glBindVertexArray(\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{00020   glDrawArrays(GL\_TRIANGLE\_STRIP, 0, 4);}
+\DoxyCodeLine{00021   glBindVertexArray(0);}
+\DoxyCodeLine{00022 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_quad_8h_source_l00017}{q\+\_\+vao}}.
+
+
+
+Referenced by \mbox{\hyperlink{_lighting_pass_8cpp_source_l00012}{Lighting\+Pass\+::execute()}}, and \mbox{\hyperlink{_loading_screen_8cpp_source_l00026}{Loading\+Screen\+::render()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}\label{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}} 
+\index{Quad@{Quad}!q\_vao@{q\_vao}}
+\index{q\_vao@{q\_vao}!Quad@{Quad}}
+\doxysubsubsection{\texorpdfstring{q\_vao}{q\_vao}}
+{\footnotesize\ttfamily GLuint Quad\+::q\+\_\+vao\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_quad_8h_source_l00017}{17}} of file \mbox{\hyperlink{_quad_8h_source}{Quad.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_quad_8cpp_source_l00003}{Quad()}}, \mbox{\hyperlink{_quad_8cpp_source_l00017}{render()}}, and \mbox{\hyperlink{_quad_8cpp_source_l00024}{$\sim$\+Quad()}}.
+
+\mbox{\Hypertarget{class_quad_a0f57bfbf50640db8453c17858dbb17e0}\label{class_quad_a0f57bfbf50640db8453c17858dbb17e0}} 
+\index{Quad@{Quad}!q\_vbo@{q\_vbo}}
+\index{q\_vbo@{q\_vbo}!Quad@{Quad}}
+\doxysubsubsection{\texorpdfstring{q\_vbo}{q\_vbo}}
+{\footnotesize\ttfamily GLuint Quad\+::q\+\_\+vbo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_quad_8h_source_l00017}{17}} of file \mbox{\hyperlink{_quad_8h_source}{Quad.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_quad_8cpp_source_l00003}{Quad()}}, and \mbox{\hyperlink{_quad_8cpp_source_l00024}{$\sim$\+Quad()}}.
+
+\mbox{\Hypertarget{class_quad_a3cc5b3adc4a394880f13564480798eff}\label{class_quad_a3cc5b3adc4a394880f13564480798eff}} 
+\index{Quad@{Quad}!vertices@{vertices}}
+\index{vertices@{vertices}!Quad@{Quad}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily float Quad\+::vertices\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    -\/1.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    -\/1.0f,}
+\DoxyCodeLine{    -\/1.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    -\/1.0f,}
+\DoxyCodeLine{    0.0f,}
+\DoxyCodeLine{    1.0f,}
+\DoxyCodeLine{    0.0f}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_quad_8h_source_l00019}{19}} of file \mbox{\hyperlink{_quad_8h_source}{Quad.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_quad_8cpp_source_l00003}{Quad()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_quad_8h}{Quad.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_quad_8cpp}{Quad.\+cpp}}\end{DoxyCompactItemize}

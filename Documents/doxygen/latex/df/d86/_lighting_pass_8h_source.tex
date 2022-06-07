@@ -1,0 +1,48 @@
+\hypertarget{_lighting_pass_8h_source}{}\doxysection{Lighting\+Pass.\+h}
+\label{_lighting_pass_8h_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/deferred/LightingPass.h}}
+\mbox{\hyperlink{_lighting_pass_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_lighting_pass_shader_program_8h}{LightingPassShaderProgram.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_quad_8h}{Quad.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_g_buffer_8h}{GBuffer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_obj_material_8h}{ObjMaterial.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_noise_8h}{Noise.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clouds_8h}{Clouds.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_quad_8h}{Quad.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00020}00020 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_8h}{Scene.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_random_numbers_8h}{RandomNumbers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00023}\mbox{\hyperlink{class_lighting_pass}{00023}} \textcolor{keyword}{class }\mbox{\hyperlink{class_lighting_pass}{LightingPass}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_render_pass}{RenderPass}} \{}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00024}00024   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00025}00025   \mbox{\hyperlink{class_lighting_pass_a44cbef27f146c639f8d574b7cc82f6d5}{LightingPass}}();}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00027}00027   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lighting_pass_a62b526ad19bb62753b3e598df1fbc6ce}{execute}}(glm::mat4 projection\_matrix, std::shared\_ptr<Camera>, std::shared\_ptr<Scene> scene, std::shared\_ptr<GBuffer> gbuffer, \textcolor{keywordtype}{float} delta\_time);}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00029}00029   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lighting_pass_a498ec9aa79d837fc4862f01350c00666}{create\_shader\_program}}();}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00031}00031   \mbox{\hyperlink{class_lighting_pass_acc8705103504992416f349f7942d1d57}{\string~LightingPass}}();}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00033}00033   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00034}\mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{00034}}   glm::vec3 \mbox{\hyperlink{class_lighting_pass_a8f94b8ef771b697f5918aa4903f85bc8}{current\_offset}};}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00036}00036   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lighting_pass_a12585149bdf1ad761a906651dfd3c4ee}{set\_uniforms}}(}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00037}00037     glm::mat4 projection\_matrix, std::shared\_ptr<Camera> main\_camera, std::shared\_ptr<Scene> scene, std::shared\_ptr<GBuffer> gbuffer, \textcolor{keywordtype}{float} delta\_time);}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00039}\mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{00039}}   std::shared\_ptr<LightingPassShaderProgram> \mbox{\hyperlink{class_lighting_pass_a6db2281b7635c8d2bd40eb03e3a794d8}{shader\_program}};}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00041}\mbox{\hyperlink{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}{00041}}   \mbox{\hyperlink{class_quad}{Quad}} \mbox{\hyperlink{class_lighting_pass_aa48734d1730a9bb4fd43e614ba7fffab}{quad}};}
+\DoxyCodeLine{\Hypertarget{_lighting_pass_8h_source_l00042}00042 \};}
+
+\end{DoxyCode}

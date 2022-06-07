@@ -1,6 +1,9 @@
 #pragma once
-#include <stdio.h>
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include <stdio.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <vector>
@@ -9,7 +12,7 @@
 #include "host_device_shared.h"
 
 class CascadedShadowMap {
-  public:
+ public:
   CascadedShadowMap();
 
   bool init(GLuint width, GLuint height, GLuint num_cascades);
@@ -29,7 +32,7 @@ class CascadedShadowMap {
 
   ~CascadedShadowMap();
 
-  protected:
+ protected:
   GLuint FBO, shadow_maps;
 
   GLuint shadow_width, shadow_height;

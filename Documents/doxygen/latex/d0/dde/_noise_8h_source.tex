@@ -1,0 +1,63 @@
+\hypertarget{_noise_8h_source}{}\doxysection{Noise.\+h}
+\label{_noise_8h_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Noise.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Noise.h}}
+\mbox{\hyperlink{_noise_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_compute_shader_program_8h}{ComputeShaderProgram.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bindings_8h}{bindings.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00014}00014 \textcolor{comment}{// inspired by: http://advances.realtimerendering.com/s2015/The\%20Real-\/time\%20Volumetric\%20Cloudscapes\%20of\%20Horizon\%20-\/\%20Zero\%20Dawn\%20-\/\%20ARTR.pdf}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00015}\mbox{\hyperlink{class_noise}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{class_noise}{Noise}} \{}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00016}00016   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00017}00017   \mbox{\hyperlink{class_noise_a875a47574d1c86c793296b542e7de9f3}{Noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00019}00019   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}{create\_res128\_noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00020}00020   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a683dc7958db6d4b85c5ab94455a8941a}{create\_res32\_noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00022}00022   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a311c839d04c91a0775693e920ff2d419}{read\_res128\_noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00023}00023   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a694662bf6db28aefb965f97c4812fd29}{read\_res32\_noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00025}00025   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a4a2ad26f4b32545f26f0e0ab6044e414}{update}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00027}00027   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a521b2cbd42bb64142548253d7aa66580}{set\_num\_cells}}(GLuint \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}, GLuint index);}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00029}00029   \mbox{\hyperlink{class_noise_a751f1c229c801b0abd4a84f8bf08d810}{\string~Noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00031}00031   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00032}00032   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a36df44a63e4de846aa99ce76178f0499}{create\_shader\_programs}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00033}00033   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{generate\_cells}}(GLuint \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}, GLuint cell\_index);}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00035}00035   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{generate\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00036}00036   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a30e72a5a59f3764c7c4b461514981a06}{generate\_num\_cells\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00037}00037   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a3ab95abfa0550705d535156cf16a9933}{generate\_res128\_noise\_texture}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00038}00038   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}{generate\_res32\_noise\_texture}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00040}00040   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{delete\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00042}00042   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_adca58ab9cb510ccc8da38417fb99fe46}{print\_comp\_shader\_capabilities}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00044}00044   \textcolor{comment}{// first texture dim = 128\string^3}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00045}\mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{00045}}   GLuint \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00046}\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{00046}}   GLuint \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00047}\mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{00047}}   std::shared\_ptr<ComputeShaderProgram> \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00049}00049   \textcolor{comment}{// 2nd texture dim = 32\string^3}}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00050}\mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{00050}}   GLuint \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00051}\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{00051}}   GLuint \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00052}\mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{00052}}   std::shared\_ptr<ComputeShaderProgram> \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00054}\mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{00054}}   GLuint \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}];}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00055}\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{00055}}   GLuint \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}];}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00056}\mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{00056}}   std::array<std::vector<GLfloat>, \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}> \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}};}
+\DoxyCodeLine{\Hypertarget{_noise_8h_source_l00057}00057 \};}
+
+\end{DoxyCode}

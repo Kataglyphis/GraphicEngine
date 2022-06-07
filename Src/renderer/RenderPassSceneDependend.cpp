@@ -1,5 +1,5 @@
 #include "RenderPassSceneDependend.h"
 
-RenderPassSceneDependend::RenderPassSceneDependend() : RenderPass() { }
+RenderPassSceneDependend::RenderPassSceneDependend() : RenderPass() {}
 
-RenderPassSceneDependend::~RenderPassSceneDependend() { }
+RenderPassSceneDependend::~RenderPassSceneDependend() {}

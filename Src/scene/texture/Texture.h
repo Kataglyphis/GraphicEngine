@@ -3,19 +3,21 @@
 #include <glad/glad.h>
 #include <stb_image.h>
 #include <string.h>
+
 #include <memory>
 #include <string>
 
-#include "TextureWrappingMode.h"
-#include "RepeatMode.h"
-#include "MirroredRepeatMode.h"
 #include "ClampToEdgeMode.h"
 #include "GlobalValues.h"
+#include "MirroredRepeatMode.h"
+#include "RepeatMode.h"
+#include "TextureWrappingMode.h"
 
 class Texture {
-  public:
+ public:
   Texture();
-  Texture(const char* file_loc, std::shared_ptr<TextureWrappingMode> wrapping_mode);
+  Texture(const char* file_loc,
+          std::shared_ptr<TextureWrappingMode> wrapping_mode);
 
   bool load_texture_without_alpha_channel();
   bool load_texture_with_alpha_channel();
@@ -31,10 +33,9 @@ class Texture {
 
   void clear_texture_context();
 
-
   ~Texture();
 
-  private:
+ private:
   GLuint textureID;
   int width, height, bit_depth;
 

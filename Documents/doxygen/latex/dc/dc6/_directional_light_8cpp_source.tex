@@ -1,0 +1,184 @@
+\hypertarget{_directional_light_8cpp_source}{}\doxysection{Directional\+Light.\+cpp}
+\label{_directional_light_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/directional\_light/DirectionalLight.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/directional\_light/DirectionalLight.cpp}}
+\mbox{\hyperlink{_directional_light_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_directional_light_8h}{DirectionalLight.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00003}\mbox{\hyperlink{class_directional_light_a949b877ae041b9818f47eb812d80fa1b}{00003}} \mbox{\hyperlink{class_directional_light_a949b877ae041b9818f47eb812d80fa1b}{DirectionalLight::DirectionalLight}}() :}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00005}00005     \mbox{\hyperlink{class_light}{Light}}(), shadow\_map(\mbox{\hyperlink{namespacestd}{std}}::make\_shared<\mbox{\hyperlink{class_cascaded_shadow_map}{CascadedShadowMap}}>()),}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00007}00007     direction(glm::vec3\{ 0, 0, 0 \}),}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00009}00009     shadow\_near\_plane(0.f), shadow\_far\_plane(0.f),}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00011}00011     cascade\_light\_matrices(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00015}00015   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00016}00016 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00019}\mbox{\hyperlink{class_directional_light_a96cafa7297b0d162b530eb6630e87154}{00019}} \mbox{\hyperlink{class_directional_light_a949b877ae041b9818f47eb812d80fa1b}{DirectionalLight::DirectionalLight}}(GLuint shadow\_width, GLuint shadow\_height, GLfloat red, GLfloat green, GLfloat blue, GLfloat radiance, GLfloat x\_dir,}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00020}00020   GLfloat y\_dir, GLfloat z\_dir, GLfloat near\_plane, GLfloat far\_plane, \textcolor{keywordtype}{int} num\_cascades) :}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00022}00022     \mbox{\hyperlink{class_light}{Light}}(red, green, blue, radiance),}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00023}00023     shadow\_map(\mbox{\hyperlink{namespacestd}{std}}::make\_shared<\mbox{\hyperlink{class_cascaded_shadow_map}{CascadedShadowMap}}>()), direction(glm::vec3\{ x\_dir, y\_dir, z\_dir \}),}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00025}00025     shadow\_near\_plane(near\_plane), shadow\_far\_plane(far\_plane),}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00027}00027     cascade\_light\_matrices(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00029}00029 \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00031}00031   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00033}00033   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>init(shadow\_width, shadow\_height, num\_cascades);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00034}00034 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00036}\mbox{\hyperlink{class_directional_light_a557c365dfdd157d67e110f7a060e3d07}{00036}} glm::mat4 \mbox{\hyperlink{class_directional_light_a557c365dfdd157d67e110f7a060e3d07}{DirectionalLight::get\_light\_view\_matrix}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} glm::lookAt(\mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00038}\mbox{\hyperlink{class_directional_light_a7a3e577a1d4693a784963325bf39de94}{00038}} glm::vec3 \mbox{\hyperlink{class_directional_light_a7a3e577a1d4693a784963325bf39de94}{DirectionalLight::get\_direction}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00040}\mbox{\hyperlink{class_directional_light_ae8319a37ffe026faa8d2b82a5b8f324a}{00040}} glm::vec3 \mbox{\hyperlink{class_directional_light_ae8319a37ffe026faa8d2b82a5b8f324a}{DirectionalLight::get\_color}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00042}\mbox{\hyperlink{class_directional_light_aa2bceaa1f9dd1e4fb5555b605dac2f32}{00042}} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_directional_light_aa2bceaa1f9dd1e4fb5555b605dac2f32}{DirectionalLight::get\_radiance}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00044}\mbox{\hyperlink{class_directional_light_af4fcc2d54d4ab313684a9c72367692d9}{00044}} std::vector<GLfloat> \mbox{\hyperlink{class_directional_light_af4fcc2d54d4ab313684a9c72367692d9}{DirectionalLight::get\_cascaded\_slots}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00045}00045 \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00046}00046   std::vector<GLfloat> result;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00048}00048   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00050}00050     result.push\_back(\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i]);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00051}00051   \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00053}00053   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00056}\mbox{\hyperlink{class_directional_light_ab687a1500a42212d04c9cb8299ceb671}{00056}} std::vector<glm::mat4>\& \mbox{\hyperlink{class_directional_light_ab687a1500a42212d04c9cb8299ceb671}{DirectionalLight::get\_cascaded\_light\_matrices}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00058}\mbox{\hyperlink{class_directional_light_a4cd04fb65847e8579be25c405b5643ef}{00058}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_a4cd04fb65847e8579be25c405b5643ef}{DirectionalLight::update\_shadow\_map}}(GLfloat shadow\_width, GLfloat shadow\_height, GLuint num\_cascades)}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00059}00059 \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00060}00060   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}.reset(\textcolor{keyword}{new} \mbox{\hyperlink{class_cascaded_shadow_map}{CascadedShadowMap}});}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00061}00061   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>init((GLuint)shadow\_width, (GLuint)shadow\_height, num\_cascades);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00062}00062 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00064}\mbox{\hyperlink{class_directional_light_afbd16177e322c47830b6fad5f3c445ec}{00064}} std::vector<glm::vec4> \mbox{\hyperlink{class_directional_light_afbd16177e322c47830b6fad5f3c445ec}{DirectionalLight::get\_frustum\_corners\_world\_space}}(\textcolor{keyword}{const} glm::mat4\& proj, \textcolor{keyword}{const} glm::mat4\& view)}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00065}00065 \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00066}00066   \textcolor{keyword}{const} \textcolor{keyword}{auto} inv = glm::inverse(proj * view);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00068}00068   std::vector<glm::vec4> frustumCorners;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00069}00069   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x = 0; x < 2; ++x) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00070}00070     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y = 0; y < 2; ++y) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00071}00071       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} z = 0; z < 2; ++z) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00072}00072         \textcolor{keyword}{const} glm::vec4 pt = inv * glm::vec4(2.0f * x -\/ 1.0f, 2.0f * y -\/ 1.0f, 2.0f * z -\/ 1.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00073}00073         frustumCorners.push\_back(pt / pt.w);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00074}00074       \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00075}00075     \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00076}00076   \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00078}00078   \textcolor{keywordflow}{return} frustumCorners;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00079}00079 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00081}\mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{00081}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{DirectionalLight::calc\_cascaded\_slots}}()}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00082}00082 \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00083}00083   GLuint number\_of\_elements = \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>get\_num\_active\_cascades();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00085}00085   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00087}00087     \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i] = 100000.f;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00088}00088   \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00090}00090   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(number\_of\_elements + 1); i++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00091}00091     \textcolor{keywordflow}{if} (i == 0) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00093}00093       (\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}})[i] = \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}};}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00095}00095     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00097}00097       (\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}})[i] = (\mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}) * ((GLfloat)i / (GLfloat)(number\_of\_elements));}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00098}00098     \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00099}00099   \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00101}00101   \textcolor{comment}{//cascade\_slots = \{ shadow\_near\_plane, shadow\_far\_plane / 50.f, shadow\_far\_plane / 25.f, shadow\_far\_plane \};}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00103}00103   \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00106}\mbox{\hyperlink{class_directional_light_a833c13bb653d0a8dd5abe0f54deeec4c}{00106}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_a833c13bb653d0a8dd5abe0f54deeec4c}{DirectionalLight::calc\_orthogonal\_projections}}(}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00107}00107   glm::mat4 camera\_view\_matrix, GLfloat fov, GLuint window\_width, GLuint window\_height, GLuint current\_num\_cascades)}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00108}00108 \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00109}00109   \textcolor{comment}{//calc the start and end point for our cascaded shadow maps}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00110}00110   \mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{calc\_cascaded\_slots}}();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00113}00113   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(current\_num\_cascades); i++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00115}00115     glm::mat4 curr\_cascade\_proj = glm::perspective(glm::radians(fov), (\textcolor{keywordtype}{float})window\_width / (\textcolor{keywordtype}{float})window\_height, \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i], \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i + 1]);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00117}00117     std::vector<glm::vec4> frustumCornerWorldSpace = \mbox{\hyperlink{class_directional_light_afbd16177e322c47830b6fad5f3c445ec}{get\_frustum\_corners\_world\_space}}(curr\_cascade\_proj, camera\_view\_matrix);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00119}00119     glm::vec3 center = glm::vec3(0, 0, 0);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00120}00120     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& v : frustumCornerWorldSpace) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00121}00121       center += glm::vec3(v);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00124}00124     center /= frustumCornerWorldSpace.size();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00126}00126     glm::mat4 light\_view\_matrix = glm::lookAt(center -\/ \mbox{\hyperlink{class_directional_light_a7a3e577a1d4693a784963325bf39de94}{get\_direction}}(), center, glm::vec3(0.0f, 1.0f, 0.0f));}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00128}00128     \textcolor{comment}{// the \# of frustum corners = 8}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00129}00129     GLfloat minX = std::numeric\_limits<float>::max();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00130}00130     GLfloat maxX = std::numeric\_limits<float>::min();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00131}00131     GLfloat minY = std::numeric\_limits<float>::max();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00132}00132     GLfloat maxY = std::numeric\_limits<float>::min();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00133}00133     GLfloat minZ = std::numeric\_limits<float>::max();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00134}00134     GLfloat maxZ = std::numeric\_limits<float>::min();}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00136}00136     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m = 0; m < frustumCornerWorldSpace.size(); m++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00137}00137       \textcolor{comment}{//transform each corner from view to world space}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00138}00138       glm::vec4 v\_light\_view = light\_view\_matrix * frustumCornerWorldSpace[m];}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00139}00139       \textcolor{comment}{//now go to light space}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00140}00140       minX = std::min(minX, v\_light\_view.x);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00141}00141       maxX = std::max(maxX, v\_light\_view.x);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00142}00142       \textcolor{comment}{// we always have negativ y values}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00143}00143       minY = std::min(minY, v\_light\_view.y);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00144}00144       maxY = std::max(maxY, v\_light\_view.y);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00146}00146       minZ = std::min(minZ, v\_light\_view.z);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00147}00147       maxZ = std::max(maxZ, v\_light\_view.z);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00148}00148     \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00149}00149 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00150}00150     \textcolor{comment}{// Tune this parameter according to the scene}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00151}00151     \textcolor{comment}{// for having objects casting shadows that are actually not in the frustum :)}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00152}00152     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{float} zMult = 10.0f;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00153}00153     \textcolor{keywordflow}{if} (minZ < 0) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00154}00154       minZ *= zMult;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00155}00155     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00156}00156       minZ /= zMult;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00158}00158     \textcolor{keywordflow}{if} (maxZ < 0) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00159}00159       maxZ /= zMult;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00160}00160     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00161}00161       maxZ *= zMult;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00162}00162     \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00164}00164     glm::mat4 light\_projection = glm::ortho(minX, maxX, minY, maxY, minZ, maxZ);}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00166}00166     \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}[i] = light\_projection * light\_view\_matrix;}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00167}00167   \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00168}00168 \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00169}00169 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00170}\mbox{\hyperlink{class_directional_light_a2ca74473f4dd3bd91a9396669c167b3d}{00170}} glm::mat4 \mbox{\hyperlink{class_directional_light_a2ca74473f4dd3bd91a9396669c167b3d}{DirectionalLight::calculate\_light\_transform}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * \mbox{\hyperlink{class_directional_light_a557c365dfdd157d67e110f7a060e3d07}{get\_light\_view\_matrix}}(); \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00172}\mbox{\hyperlink{class_directional_light_a78923fbf655c53f364490eb230dac661}{00172}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_a78923fbf655c53f364490eb230dac661}{DirectionalLight::set\_direction}}(glm::vec3 direction) \{ this-\/>direction = \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00174}\mbox{\hyperlink{class_directional_light_ae376bbf7334e447ffba84bc349847460}{00174}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_ae376bbf7334e447ffba84bc349847460}{DirectionalLight::set\_radiance}}(\textcolor{keywordtype}{float} radiance) \{ this-\/>radiance = \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00176}\mbox{\hyperlink{class_directional_light_aa13e07a40ee9762e52d24b755c0d464f}{00176}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_aa13e07a40ee9762e52d24b755c0d464f}{DirectionalLight::set\_color}}(glm::vec3 color) \{ this-\/>color = \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \}}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00178}\mbox{\hyperlink{class_directional_light_ac4aca6c806e752c65ffea9b2f237b245}{00178}} \mbox{\hyperlink{class_directional_light_ac4aca6c806e752c65ffea9b2f237b245}{DirectionalLight::\string~DirectionalLight}}() \{ \}}
+
+\end{DoxyCode}

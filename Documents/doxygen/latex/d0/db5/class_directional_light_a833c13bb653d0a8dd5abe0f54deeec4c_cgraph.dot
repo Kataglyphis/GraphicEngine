@@ -1,0 +1,16 @@
+digraph "DirectionalLight::calc_orthogonal_projections"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="DirectionalLight::calc\l_orthogonal_projections",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="DirectionalLight::calc\l_cascaded_slots",height=0.2,width=0.4,color="black",URL="$d0/db5/class_directional_light.html#ad426fcfde5a1003dd6772d36420db665",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="DirectionalLight::get\l_direction",height=0.2,width=0.4,color="black",URL="$d0/db5/class_directional_light.html#a7a3e577a1d4693a784963325bf39de94",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="DirectionalLight::get\l_frustum_corners_world_space",height=0.2,width=0.4,color="black",URL="$d0/db5/class_directional_light.html#afbd16177e322c47830b6fad5f3c445ec",tooltip=" "];
+}

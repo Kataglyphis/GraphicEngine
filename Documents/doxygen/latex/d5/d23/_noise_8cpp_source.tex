@@ -1,0 +1,293 @@
+\hypertarget{_noise_8cpp_source}{}\doxysection{Noise.\+cpp}
+\label{_noise_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Noise.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Noise.cpp}}
+\mbox{\hyperlink{_noise_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_noise_8h}{Noise.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00005}\mbox{\hyperlink{class_noise_a875a47574d1c86c793296b542e7de9f3}{00005}} \mbox{\hyperlink{class_noise_a875a47574d1c86c793296b542e7de9f3}{Noise::Noise}}() :}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00007}00007     texture\_dim\_1(128), texture\_dim\_2(32)}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00011}00011   \mbox{\hyperlink{class_noise_a36df44a63e4de846aa99ce76178f0499}{create\_shader\_programs}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00013}00013   \textcolor{comment}{// we need 3d-\/voxel grids with different sizes for}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00014}00014   \textcolor{comment}{// creating different worley frequencies}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00015}00015   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00017}00017     \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i] = \textcolor{keyword}{static\_cast<}GLuint\textcolor{keyword}{>}(pow(2, i + 1));}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00018}00018     \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{generate\_cells}}(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], i);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00019}00019   \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00021}00021   \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{generate\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00024}\mbox{\hyperlink{class_noise_a36df44a63e4de846aa99ce76178f0499}{00024}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a36df44a63e4de846aa99ce76178f0499}{Noise::create\_shader\_programs}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00026}00026   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}} = std::make\_shared<ComputeShaderProgram>();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00027}00027   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}} = std::make\_shared<ComputeShaderProgram>();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00029}00029   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>create\_computer\_shader\_program\_from\_file(\textcolor{stringliteral}{"{}clouds/noise\_texture\_128\_res.comp"{}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00030}00030   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>create\_computer\_shader\_program\_from\_file(\textcolor{stringliteral}{"{}clouds/noise\_texture\_32\_res.comp"{}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00031}00031 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00033}\mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{00033}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{Noise::generate\_textures}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00034}00034 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00036}00036   \mbox{\hyperlink{class_noise_a30e72a5a59f3764c7c4b461514981a06}{generate\_num\_cells\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00037}00037   \mbox{\hyperlink{class_noise_a3ab95abfa0550705d535156cf16a9933}{generate\_res128\_noise\_texture}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00038}00038   \mbox{\hyperlink{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}{generate\_res32\_noise\_texture}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00039}00039 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00041}\mbox{\hyperlink{class_noise_a30e72a5a59f3764c7c4b461514981a06}{00041}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a30e72a5a59f3764c7c4b461514981a06}{Noise::generate\_num\_cells\_textures}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00042}00042 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00043}00043   glGenTextures(\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00045}00045   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00047}00047     glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[i]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00049}00049     glTexImage3D(GL\_TEXTURE\_3D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], 0, GL\_RGBA, GL\_FLOAT, \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[i].data());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00051}00051     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00052}00052     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00053}00053     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_R, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00054}00054     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00055}00055     glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00057}00057     glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00058}00058   \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00059}00059 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00061}\mbox{\hyperlink{class_noise_a3ab95abfa0550705d535156cf16a9933}{00061}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a3ab95abfa0550705d535156cf16a9933}{Noise::generate\_res128\_noise\_texture}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00062}00062 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00063}00063   glGenTextures(1, \&\mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00065}00065   glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a68c720249fec89156cfd1a1eeb356c25}{NOISE\_128D\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00066}00066   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00068}00068   glTexImage3D(GL\_TEXTURE\_3D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, \mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, 0, GL\_RGBA, GL\_FLOAT, NULL);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00070}00070   glBindImageTexture(\mbox{\hyperlink{bindings_8h_ab33e9e629597c653feccb86cd28e138e}{NOISE\_128D\_IMAGE\_SLOT}}, \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}}, 0, GL\_FALSE, 0, GL\_READ\_WRITE, GL\_RGBA32F);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00072}00072   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_S, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00073}00073   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_T, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00074}00074   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_R, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00075}00075   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00076}00076   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00078}00078   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00079}00079 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00081}\mbox{\hyperlink{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}{00081}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_abca8dcad9ab9752441bdcc9325a0d4de}{Noise::generate\_res32\_noise\_texture}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00082}00082 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00084}00084   glGenTextures(1, \&\mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00086}00086   glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a94ab45fae493b604905baff7c57d9745}{NOISE\_32D\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00087}00087   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00089}00089   glTexImage3D(GL\_TEXTURE\_3D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, \mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, 0, GL\_RGBA, GL\_FLOAT, NULL);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00091}00091   glBindImageTexture(\mbox{\hyperlink{bindings_8h_ae102fd04de1e0f7e67114690a8191da4}{NOISE\_32D\_IMAGE\_SLOT}}, \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}}, 0, GL\_FALSE, 0, GL\_READ\_WRITE, GL\_RGBA32F);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00093}00093   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_S, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00094}00094   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_T, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00095}00095   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_WRAP\_R, GL\_REPEAT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00096}00096   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00097}00097   glTexParameteri(GL\_TEXTURE\_3D, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00099}00099   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00100}00100 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00102}\mbox{\hyperlink{class_noise_adca58ab9cb510ccc8da38417fb99fe46}{00102}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_adca58ab9cb510ccc8da38417fb99fe46}{Noise::print\_comp\_shader\_capabilities}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00103}00103 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00105}00105   \textcolor{keywordtype}{int} work\_grp\_cnt[3];}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00107}00107   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_COUNT, 0, \&work\_grp\_cnt[0]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00108}00108   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_COUNT, 1, \&work\_grp\_cnt[1]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00109}00109   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_COUNT, 2, \&work\_grp\_cnt[2]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00111}00111   printf(\textcolor{stringliteral}{"{}max global (total) work group counts x:\%i y:\%i z:\%i\(\backslash\)n"{}}, work\_grp\_cnt[0], work\_grp\_cnt[1], work\_grp\_cnt[2]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00113}00113   \textcolor{keywordtype}{int} work\_grp\_size[3];}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00115}00115   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_SIZE, 0, \&work\_grp\_size[0]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00116}00116   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_SIZE, 1, \&work\_grp\_size[1]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00117}00117   glGetIntegeri\_v(GL\_MAX\_COMPUTE\_WORK\_GROUP\_SIZE, 2, \&work\_grp\_size[2]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00119}00119   printf(\textcolor{stringliteral}{"{}max local (in one shader) work group sizes x:\%i y:\%i z:\%i\(\backslash\)n"{}}, work\_grp\_size[0], work\_grp\_size[1], work\_grp\_size[2]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00120}00120 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00122}\mbox{\hyperlink{class_noise_a4a2ad26f4b32545f26f0e0ab6044e414}{00122}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a4a2ad26f4b32545f26f0e0ab6044e414}{Noise::update}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00123}00123 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00125}00125   \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{delete\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00127}00127   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>reload();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00128}00128   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>reload();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00130}00130   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00132}00132     \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{generate\_cells}}(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], i);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00133}00133   \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00135}00135   \mbox{\hyperlink{class_noise_a2a73f6a6ac1b92a93be098babb1073f0}{generate\_textures}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00137}00137   \mbox{\hyperlink{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}{create\_res128\_noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00138}00138   \mbox{\hyperlink{class_noise_a683dc7958db6d4b85c5ab94455a8941a}{create\_res32\_noise}}();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00139}00139 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00141}\mbox{\hyperlink{class_noise_a521b2cbd42bb64142548253d7aa66580}{00141}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a521b2cbd42bb64142548253d7aa66580}{Noise::set\_num\_cells}}(GLuint num\_cells\_per\_axis, GLuint index) \{ this-\/>num\_cells\_per\_axis[index] = \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00142}00142 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00143}00143 \textcolor{comment}{        }}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00144}00144 \textcolor{comment}{        @ num\_cells\_per\_axis:   current voxel grid dimension}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00145}00145 \textcolor{comment}{        @ cell\_index:                   index into global array for all voxel grids}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00146}00146 \textcolor{comment}{        }}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00147}00147 \textcolor{comment}{        needed for generating different worley frequencies later on}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00148}00148 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00149}00149 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00150}\mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{00150}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a0cc57872513b97af71ec08b226705ab4}{Noise::generate\_cells}}(GLuint num\_cells\_per\_axis, GLuint cell\_index)}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00151}00151 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00152}00152 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00153}00153   \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].reserve(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}} * \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}} * \mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}} * 4);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00155}00155   \textcolor{comment}{// guess which birthday this is ;)}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00156}00156   std::mt19937\_64 gen64(25121995);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00157}00157   std::uniform\_real\_distribution<float> dis(0, 1);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00159}00159   \textcolor{comment}{//depth}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00160}00160   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}); i++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00161}00161     \textcolor{comment}{//height}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00162}00162     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < static\_cast<int>(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}); k++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00163}00163       \textcolor{comment}{//width}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00164}00164       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} m = 0; m < static\_cast<int>(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}); m++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00166}00166         \textcolor{comment}{// from: https://www.khronos.org/registry/OpenGL-\/Refpages/gl4/html/glTexImage3D.xhtml}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00167}00167         \textcolor{comment}{// "{}The first element corresponds to the lower left corner of the texture image.}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00168}00168         \textcolor{comment}{// Subsequent elements progress left-\/to-\/right through the remaining texels in the lowest row}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00169}00169         \textcolor{comment}{// of the texture image, and then in successively higher rows of the texture image.}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00170}00170         \textcolor{comment}{// The final element corresponds to the upper right corner of the texture image."{}}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00172}00172         \textcolor{keyword}{const} GLfloat random\_offset[3] = \{ dis(gen64), dis(gen64), dis(gen64) \};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00174}00174         GLfloat position[3] = \{ (m + random\_offset[0]), (k + random\_offset[1]), (i + random\_offset[2]) \};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00176}00176         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(position[0]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00177}00177         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(position[1]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00178}00178         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(position[2]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00179}00179         \mbox{\hyperlink{class_noise_a53606dbb0aa37b44150d7ab641aa9c93}{cell\_data}}[cell\_index].push\_back(1.0f);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00181}00181         \textcolor{comment}{// i leave this more c-\/style approach for my further me}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00182}00182         \textcolor{comment}{// to clearify things :)}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00183}00183         \textcolor{comment}{//GLuint index = (i + num\_cells\_per\_axis * (k + m * num\_cells\_per\_axis)) * 4;}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00184}00184         \textcolor{comment}{/*GLfloat position[3] = \{       (i + random\_offset[0]), }}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00185}00185 \textcolor{comment}{                                                                                (k + random\_offset[1]), }}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00186}00186 \textcolor{comment}{                                                                                (m + random\_offset[2])\};*/}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00187}00187 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00188}00188         \textcolor{comment}{/*cell\_data[cell\_index][index]          = position[0];}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00189}00189 \textcolor{comment}{                                cell\_data[cell\_index][index + 1]        = position[1];}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00190}00190 \textcolor{comment}{                                cell\_data[cell\_index][index + 2]        = position[2];}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00191}00191 \textcolor{comment}{                                cell\_data[cell\_index][index + 3]        = 1.0f;*/}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00192}00192       \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00193}00193     \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00194}00194   \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00195}00195 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00197}\mbox{\hyperlink{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}{00197}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a8b2e2a67333910ca9f5b032e5f71964d}{Noise::create\_res128\_noise}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00198}00198 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00199}00199 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00200}00200   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00201}00201 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00202}00202   \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_ab33e9e629597c653feccb86cd28e138e}{NOISE\_128D\_IMAGE\_SLOT}}, \textcolor{stringliteral}{"{}noise"{}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00203}00203 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00204}00204   std::stringstream ss;}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00206}00206   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00207}00207 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00208}00208     ss << \textcolor{stringliteral}{"{}cell\_positions["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00209}00209     \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i, ss.str());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00210}00210     ss.clear();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00211}00211     ss.str(std::string());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00212}00212 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00213}00213     ss << \textcolor{stringliteral}{"{}num\_cells["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00214}00214     \mbox{\hyperlink{class_noise_a49dbdafa9225b7a39ef9aa11bbb55f62}{texture\_1\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], ss.str());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00215}00215     ss.clear();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00216}00216     ss.str(std::string());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00218}00218     glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00219}00219     glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[i]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00220}00220   \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00221}00221 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00222}00222   glDispatchCompute((GLuint)\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, (GLuint)\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}}, (GLuint)\mbox{\hyperlink{class_noise_a768c1caf0db9bf0633e7b228a0354755}{texture\_dim\_1}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00223}00223 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00224}00224   \textcolor{comment}{// make sure writing to image has finished before read}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00225}00225   glMemoryBarrier(GL\_SHADER\_IMAGE\_ACCESS\_BARRIER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00226}00226   \textcolor{comment}{//glMemoryBarrier(GL\_ALL\_BARRIER\_BITS);}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00227}00227 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00228}00228   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00229}00229 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00230}00230 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00231}\mbox{\hyperlink{class_noise_a683dc7958db6d4b85c5ab94455a8941a}{00231}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a683dc7958db6d4b85c5ab94455a8941a}{Noise::create\_res32\_noise}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00232}00232 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00233}00233 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00234}00234   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00235}00235 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00236}00236   \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_ae102fd04de1e0f7e67114690a8191da4}{NOISE\_32D\_IMAGE\_SLOT}}, \textcolor{stringliteral}{"{}noise"{}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00238}00238   std::stringstream ss;}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00239}00239 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00240}00240   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < \mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00241}00241 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00242}00242     ss << \textcolor{stringliteral}{"{}cell\_positions["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00243}00243     \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i, ss.str());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00244}00244     ss.clear();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00245}00245     ss.str(std::string());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00246}00246 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00247}00247     ss << \textcolor{stringliteral}{"{}num\_cells["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00248}00248     \mbox{\hyperlink{class_noise_a7a9dab01dff486532297277b037e0d9a}{texture\_2\_shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{class_noise_a1a8dad3e2a7f1bf03932f5628c03d65e}{num\_cells\_per\_axis}}[i], ss.str());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00249}00249     ss.clear();}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00250}00250     ss.str(std::string());}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00251}00251 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00252}00252     glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a6180bc0c05d7bf1f7ac7ab028fbd9bd7}{NOISE\_CELL\_POSITIONS\_SLOT}} + i);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00253}00253     glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}}[i]);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00254}00254   \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00255}00255 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00256}00256   glDispatchCompute((GLuint)\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, (GLuint)\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}}, (GLuint)\mbox{\hyperlink{class_noise_a1d561ba97a11610c79b6210eaaf3d05a}{texture\_dim\_2}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00257}00257 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00258}00258   \textcolor{comment}{// make sure writing to image has finished before read}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00259}00259   glMemoryBarrier(GL\_SHADER\_IMAGE\_ACCESS\_BARRIER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00260}00260   \textcolor{comment}{//glMemoryBarrier(GL\_ALL\_BARRIER\_BITS);}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00261}00261   glBindTexture(GL\_TEXTURE\_3D, 0);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00262}00262 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00263}00263 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00264}\mbox{\hyperlink{class_noise_a311c839d04c91a0775693e920ff2d419}{00264}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a311c839d04c91a0775693e920ff2d419}{Noise::read\_res128\_noise}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00265}00265 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00266}00266   GLuint texture\_index = GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a68c720249fec89156cfd1a1eeb356c25}{NOISE\_128D\_TEXTURES\_SLOT}};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00267}00267   glActiveTexture((GLenum)texture\_index);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00268}00268   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00269}00269 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00270}00270 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00271}\mbox{\hyperlink{class_noise_a694662bf6db28aefb965f97c4812fd29}{00271}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a694662bf6db28aefb965f97c4812fd29}{Noise::read\_res32\_noise}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00272}00272 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00273}00273   GLuint texture\_index = GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a94ab45fae493b604905baff7c57d9745}{NOISE\_32D\_TEXTURES\_SLOT}};}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00274}00274   glActiveTexture((GLenum)texture\_index);}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00275}00275   glBindTexture(GL\_TEXTURE\_3D, \mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00276}00276 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00277}00277 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00278}\mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{00278}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{Noise::delete\_textures}}()}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00279}00279 \{}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00280}00280 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00281}00281   glDeleteTextures(1, \&\mbox{\hyperlink{class_noise_aee277b74e7f8df33b924692ea625bea9}{texture\_1\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00282}00282   glDeleteTextures(1, \&\mbox{\hyperlink{class_noise_ab9ee6c24efb3e2b02661cb75b051fb26}{texture\_2\_id}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00283}00283 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00284}00284   glDeleteTextures(\mbox{\hyperlink{host__device__shared_8h_adacca7d242edb71b53adfbbee34f9147}{NUM\_CELL\_POSITIONS}}, \mbox{\hyperlink{class_noise_a50e7cff652627d970f992e253bbf51c9}{cell\_ids}});}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00285}00285 \}}
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00286}00286 }
+\DoxyCodeLine{\Hypertarget{_noise_8cpp_source_l00287}\mbox{\hyperlink{class_noise_a751f1c229c801b0abd4a84f8bf08d810}{00287}} \mbox{\hyperlink{class_noise_a751f1c229c801b0abd4a84f8bf08d810}{Noise::\string~Noise}}() \{ \mbox{\hyperlink{class_noise_a8e7a8f983d022dad4994e6df6f69d935}{delete\_textures}}(); \}}
+
+\end{DoxyCode}

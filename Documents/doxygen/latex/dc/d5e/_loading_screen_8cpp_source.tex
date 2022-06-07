@@ -1,0 +1,54 @@
+\hypertarget{_loading_screen_8cpp_source}{}\doxysection{Loading\+Screen.\+cpp}
+\label{_loading_screen_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/loading\_screen/LoadingScreen.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/loading\_screen/LoadingScreen.cpp}}
+\mbox{\hyperlink{_loading_screen_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_loading_screen_8h}{LoadingScreen.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00005}\mbox{\hyperlink{class_loading_screen_ad280e1a8f065e9a1efa9e308479ee12d}{00005}} \mbox{\hyperlink{class_loading_screen_ad280e1a8f065e9a1efa9e308479ee12d}{LoadingScreen::LoadingScreen}}() \{ \mbox{\hyperlink{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}{create\_shader\_program}}(); \}}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00007}\mbox{\hyperlink{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}{00007}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}{LoadingScreen::init}}()}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00008}00008 \{}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00010}00010   std::stringstream texture\_base\_dir;}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00011}00011   texture\_base\_dir << CMAKELISTS\_DIR;}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00012}00012   texture\_base\_dir << \textcolor{stringliteral}{"{}/Resources/Textures/"{}};}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00014}00014   std::stringstream texture\_loading\_screen;}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00015}00015   texture\_loading\_screen << texture\_base\_dir.str() << \textcolor{stringliteral}{"{}Loading\_Screen/ukraine.jpg"{}};}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00017}00017   \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\_screen\_tex}} = \mbox{\hyperlink{class_texture}{Texture}}(texture\_loading\_screen.str().c\_str(), std::make\_shared<RepeatMode>());}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00018}00018   \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\_screen\_tex}}.\mbox{\hyperlink{class_texture_a39518e6212f94918b566d01630d1a749}{load\_texture\_without\_alpha\_channel}}();}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00020}00020   std::stringstream texture\_logo;}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00021}00021   texture\_logo << texture\_base\_dir.str() << \textcolor{stringliteral}{"{}Loading\_Screen/Engine\_logo.png"{}};}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00022}00022   \mbox{\hyperlink{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}{logo\_tex}} = \mbox{\hyperlink{class_texture}{Texture}}(texture\_logo.str().c\_str(), std::make\_shared<RepeatMode>());}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00023}00023   \mbox{\hyperlink{class_loading_screen_abe3ad10b6d5cb867f81405b2e460e03f}{logo\_tex}}.\mbox{\hyperlink{class_texture_aac8edf700b4323b86a7bfa322d186ca5}{load\_texture\_with\_alpha\_channel}}();}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00026}\mbox{\hyperlink{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}{00026}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}{LoadingScreen::render}}()}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00029}00029   glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00031}00031   \mbox{\hyperlink{class_loading_screen_a8adcb17825a0025d036890a7ed38bf1d}{loading\_screen\_tex}}.\mbox{\hyperlink{class_texture_a52e79975124df40c3e294ad2e0791ba5}{use\_texture}}(0);}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00033}00033   \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\_screen\_shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00035}00035   \mbox{\hyperlink{class_loading_screen_a0b19027851fdf54ff10c9c4e4cbf84b1}{loading\_screen\_quad}}.\mbox{\hyperlink{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}{render}}();}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00037}00037   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00038}00038 \}}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00040}\mbox{\hyperlink{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}{00040}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_loading_screen_ae8bb8c6593a034539f73970dc5341ea1}{LoadingScreen::create\_shader\_program}}()}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00041}00041 \{}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00043}00043   \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\_screen\_shader\_program}} = std::make\_shared<ShaderProgram>(\mbox{\hyperlink{class_shader_program}{ShaderProgram}}\{\});}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00045}00045   \mbox{\hyperlink{class_loading_screen_a5176e3c73898c245f7522b428c8f399c}{loading\_screen\_shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}loading\_screen/loading\_screen.vert"{}}, \textcolor{stringliteral}{"{}loading\_screen/loading\_screen.frag"{}});}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_loading_screen_8cpp_source_l00048}\mbox{\hyperlink{class_loading_screen_ac4d8e1e47650f66e2260506fa5a1bd7e}{00048}} \mbox{\hyperlink{class_loading_screen_ac4d8e1e47650f66e2260506fa5a1bd7e}{LoadingScreen::\string~LoadingScreen}}() \{ \}}
+
+\end{DoxyCode}

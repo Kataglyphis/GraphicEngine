@@ -1,20 +1,19 @@
 #pragma once
 #include <iostream>
-#include <vector>
-#include <unordered_map>
 #include <memory>
+#include <unordered_map>
+#include <vector>
 
-#include "Mesh.h"
-#include "Vertex.h"
 #include "AABB.h"
 #include "GlobalValues.h"
-#include "ObjMaterial.h"
+#include "Mesh.h"
 #include "ObjLoader.h"
-
+#include "ObjMaterial.h"
+#include "Vertex.h"
 #include "bindings.h"
 
 class Model {
-  public:
+ public:
   Model();
 
   void load_model_in_ram(const std::string& model_path);
@@ -33,7 +32,7 @@ class Model {
 
   ~Model();
 
-  private:
+ private:
   // buffer for material id's
   GLuint ssbo;
 

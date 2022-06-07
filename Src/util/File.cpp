@@ -1,11 +1,13 @@
 #include "File.h"
-#include <iostream>
+
 #include <fstream>
+#include <iostream>
 
-File::File(const std::string& file_location) { this->file_location = file_location; }
+File::File(const std::string& file_location) {
+  this->file_location = file_location;
+}
 
-std::string File::read()
-{
+std::string File::read() {
   std::string content;
   std::ifstream file_stream(file_location, std::ios::in);
 
@@ -24,4 +26,4 @@ std::string File::read()
   return content;
 }
 
-File::~File() { }
+File::~File() {}

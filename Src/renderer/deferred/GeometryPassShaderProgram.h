@@ -3,13 +3,12 @@
 #include "host_device_shared.h"
 
 class GeometryPassShaderProgram : public ShaderProgram {
-
-  public:
+ public:
   GeometryPassShaderProgram();
 
   GLuint get_program_id() { return program_id; }
 
   ~GeometryPassShaderProgram();
 
-  protected:
+ protected:
 };

@@ -1,0 +1,440 @@
+\hypertarget{class_model}{}\doxysection{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+
+
+{\ttfamily \#include $<$Model.\+h$>$}
+
+
+
+Collaboration diagram for Model\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_model_ae3b375de5f6df4faf74a95d64748e048}{Model}} ()
+\item 
+void \mbox{\hyperlink{class_model_a73635a4127d2843e7ee392a78beed3ac}{load\+\_\+model\+\_\+in\+\_\+ram}} (const std\+::string \&model\+\_\+path)
+\item 
+void \mbox{\hyperlink{class_model_aa3be236470952c01bb9f3dccc68650b3}{create\+\_\+render\+\_\+context}} ()
+\item 
+void \mbox{\hyperlink{class_model_abea22e8123549c261cc80a366a2ed93b}{bind\+\_\+ressources}} ()
+\item 
+void \mbox{\hyperlink{class_model_acf8689f9ce360896172eafb2ab896039}{unbind\+\_\+resources}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_a_a_b_b}{AABB}} $>$ \mbox{\hyperlink{class_model_ad08db76f4672ceeb57766be6b92a1223}{get\+\_\+aabb}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_obj_material}{Obj\+Material}} $>$ \mbox{\hyperlink{class_model_a3d4cf0e1dce8bfc4aedcfbd11e3abb97}{get\+\_\+materials}} () const
+\item 
+int \mbox{\hyperlink{class_model_aea91d7b0d0ecc40bf21359bf6b5146cd}{get\+\_\+texture\+\_\+count}} () const
+\item 
+void \mbox{\hyperlink{class_model_a89ebd61864089abe5b0c5a1df6479970}{render}} ()
+\item 
+\mbox{\hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}{ssbo}}
+\item 
+\mbox{\hyperlink{class_obj_loader}{Obj\+Loader}} \mbox{\hyperlink{class_model_acca54d89c856dfdd0be645912d8786dd}{loader}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_a_a_b_b}{AABB}} $>$ \mbox{\hyperlink{class_model_a033e87c24e4e58c8bdfadb4a02dbf2a9}{aabb}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_mesh}{Mesh}} $>$ \mbox{\hyperlink{class_model_ae28a557329ebec3aaf91f8012f6c0c02}{mesh}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_model_ae69c72e4776b916f3ffd2e18a70ba605}{vertices}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_model_a52bf7d84e4bd938767f41565f898d5dc}{indices}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ $>$ \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\+\_\+list}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_obj_material}{Obj\+Material}} $>$ \mbox{\hyperlink{class_model_a7cba4923a9806fc94cdb1d245e701113}{materials}}
+\item 
+std\+::vector$<$ glm\+::vec4 $>$ \mbox{\hyperlink{class_model_ac25a39c318a2295730dff9115f5d6797}{material\+Index}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_model_a82c4b4618a960db5eed5602a7c138ab8}{textures}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00016}{16}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_ae3b375de5f6df4faf74a95d64748e048}\label{class_model_ae3b375de5f6df4faf74a95d64748e048}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003 : \mbox{\hyperlink{class_model_a033e87c24e4e58c8bdfadb4a02dbf2a9}{aabb}}(std::make\_shared<AABB>()) \{ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_model_ad6ebd2062a0b823db841a0b88baac4c0}\label{class_model_ad6ebd2062a0b823db841a0b88baac4c0}} 
+\index{Model@{Model}!````~Model@{$\sim$Model}}
+\index{````~Model@{$\sim$Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{$\sim$Model()}{~Model()}}
+{\footnotesize\ttfamily Model\+::$\sim$\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064 \{}
+\DoxyCodeLine{00065   \textcolor{comment}{// unbind material index buffer}}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_abea22e8123549c261cc80a366a2ed93b}\label{class_model_abea22e8123549c261cc80a366a2ed93b}} 
+\index{Model@{Model}!bind\_ressources@{bind\_ressources}}
+\index{bind\_ressources@{bind\_ressources}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{bind\_ressources()}{bind\_ressources()}}
+{\footnotesize\ttfamily void Model\+::bind\+\_\+ressources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046 \{}
+\DoxyCodeLine{00047   glBindBufferBase(GL\_SHADER\_STORAGE\_BUFFER, \mbox{\hyperlink{bindings_8h_a934aa1a1a657e97b7ce0af0aaf957d9d}{STORAGE\_BUFFER\_MATERIAL\_ID\_BINDING}}, \mbox{\hyperlink{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}{ssbo}});}
+\DoxyCodeLine{00048   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(\mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}.size()); i++) \{}
+\DoxyCodeLine{00049     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>use\_texture(i + \mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{MODEL\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{00050   \}}
+\DoxyCodeLine{00051 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00006}{MODEL\+\_\+\+TEXTURES\+\_\+\+SLOT}}, \mbox{\hyperlink{_model_8h_source_l00038}{ssbo}}, \mbox{\hyperlink{bindings_8h_source_l00022}{STORAGE\+\_\+\+BUFFER\+\_\+\+MATERIAL\+\_\+\+ID\+\_\+\+BINDING}}, and \mbox{\hyperlink{_model_8h_source_l00047}{texture\+\_\+list}}.
+
+\mbox{\Hypertarget{class_model_aa3be236470952c01bb9f3dccc68650b3}\label{class_model_aa3be236470952c01bb9f3dccc68650b3}} 
+\index{Model@{Model}!create\_render\_context@{create\_render\_context}}
+\index{create\_render\_context@{create\_render\_context}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{create\_render\_context()}{create\_render\_context()}}
+{\footnotesize\ttfamily void Model\+::create\+\_\+render\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021 \{}
+\DoxyCodeLine{00022   \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}.resize(\mbox{\hyperlink{class_model_a82c4b4618a960db5eed5602a7c138ab8}{textures}}.size());}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_model_a82c4b4618a960db5eed5602a7c138ab8}{textures}}.size()); i++) \{}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i] = std::make\_shared<Texture>(\mbox{\hyperlink{class_model_a82c4b4618a960db5eed5602a7c138ab8}{textures}}[i].c\_str(), std::make\_shared<RepeatMode>());}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>load\_SRGB\_texture\_without\_alpha\_channel()) \{}
+\DoxyCodeLine{00029       printf(\textcolor{stringliteral}{"{}Failed to load texture at: \%s\(\backslash\)n"{}}, \mbox{\hyperlink{class_model_a82c4b4618a960db5eed5602a7c138ab8}{textures}}[i].c\_str());}
+\DoxyCodeLine{00030       \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i].reset();}
+\DoxyCodeLine{00031     \}}
+\DoxyCodeLine{00032   \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034   \mbox{\hyperlink{class_model_ae28a557329ebec3aaf91f8012f6c0c02}{mesh}} = std::make\_shared<Mesh>(\mbox{\hyperlink{class_model_ae69c72e4776b916f3ffd2e18a70ba605}{vertices}}, \mbox{\hyperlink{class_model_a52bf7d84e4bd938767f41565f898d5dc}{indices}});}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036   \textcolor{comment}{// https://www.khronos.org/opengl/wiki/Shader\_Storage\_Buffer\_Object}}
+\DoxyCodeLine{00037   glGenBuffers(1, \&\mbox{\hyperlink{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}{ssbo}});}
+\DoxyCodeLine{00038   glBindBuffer(GL\_SHADER\_STORAGE\_BUFFER, \mbox{\hyperlink{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}{ssbo}});}
+\DoxyCodeLine{00039   glBufferData(GL\_SHADER\_STORAGE\_BUFFER,}
+\DoxyCodeLine{00040     \mbox{\hyperlink{class_model_ac25a39c318a2295730dff9115f5d6797}{materialIndex}}.size() * \textcolor{keyword}{sizeof}(glm::vec4),}
+\DoxyCodeLine{00041     \mbox{\hyperlink{class_model_ac25a39c318a2295730dff9115f5d6797}{materialIndex}}.data(),}
+\DoxyCodeLine{00042     GL\_STREAM\_READ); \textcolor{comment}{//sizeof(data) only works for statically sized C/C++ arrays.}}
+\DoxyCodeLine{00043 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_model_8h_source_l00046}{indices}}, \mbox{\hyperlink{_model_8h_source_l00049}{material\+Index}}, \mbox{\hyperlink{_model_8h_source_l00044}{mesh}}, \mbox{\hyperlink{_model_8h_source_l00038}{ssbo}}, \mbox{\hyperlink{_model_8h_source_l00047}{texture\+\_\+list}}, \mbox{\hyperlink{_model_8h_source_l00050}{textures}}, and \mbox{\hyperlink{_model_8h_source_l00045}{vertices}}.
+
+\mbox{\Hypertarget{class_model_ad08db76f4672ceeb57766be6b92a1223}\label{class_model_ad08db76f4672ceeb57766be6b92a1223}} 
+\index{Model@{Model}!get\_aabb@{get\_aabb}}
+\index{get\_aabb@{get\_aabb}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{get\_aabb()}{get\_aabb()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_a_a_b_b}{AABB}} $>$ Model\+::get\+\_\+aabb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_model_a033e87c24e4e58c8bdfadb4a02dbf2a9}{aabb}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_model_8h_source_l00042}{aabb}}.
+
+\mbox{\Hypertarget{class_model_a3d4cf0e1dce8bfc4aedcfbd11e3abb97}\label{class_model_a3d4cf0e1dce8bfc4aedcfbd11e3abb97}} 
+\index{Model@{Model}!get\_materials@{get\_materials}}
+\index{get\_materials@{get\_materials}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{get\_materials()}{get\_materials()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_obj_material}{Obj\+Material}} $>$ Model\+::get\+\_\+materials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_model_a7cba4923a9806fc94cdb1d245e701113}{materials}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_model_8h_source_l00048}{materials}}.
+
+\mbox{\Hypertarget{class_model_aea91d7b0d0ecc40bf21359bf6b5146cd}\label{class_model_aea91d7b0d0ecc40bf21359bf6b5146cd}} 
+\index{Model@{Model}!get\_texture\_count@{get\_texture\_count}}
+\index{get\_texture\_count@{get\_texture\_count}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{get\_texture\_count()}{get\_texture\_count()}}
+{\footnotesize\ttfamily int Model\+::get\+\_\+texture\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}.size()); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_model_8h_source_l00047}{texture\+\_\+list}}.
+
+\mbox{\Hypertarget{class_model_a73635a4127d2843e7ee392a78beed3ac}\label{class_model_a73635a4127d2843e7ee392a78beed3ac}} 
+\index{Model@{Model}!load\_model\_in\_ram@{load\_model\_in\_ram}}
+\index{load\_model\_in\_ram@{load\_model\_in\_ram}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{load\_model\_in\_ram()}{load\_model\_in\_ram()}}
+{\footnotesize\ttfamily void Model\+::load\+\_\+model\+\_\+in\+\_\+ram (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{model\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012 \{}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014   \mbox{\hyperlink{class_model_acca54d89c856dfdd0be645912d8786dd}{loader}} = \mbox{\hyperlink{class_obj_loader}{ObjLoader}}();}
+\DoxyCodeLine{00015   \mbox{\hyperlink{class_model_acca54d89c856dfdd0be645912d8786dd}{loader}}.\mbox{\hyperlink{class_obj_loader_a41db1c0ada11d10ae9a60c5aa78b0920}{load}}(model\_path, \mbox{\hyperlink{class_model_ae69c72e4776b916f3ffd2e18a70ba605}{vertices}}, \mbox{\hyperlink{class_model_a52bf7d84e4bd938767f41565f898d5dc}{indices}}, \mbox{\hyperlink{class_model_a82c4b4618a960db5eed5602a7c138ab8}{textures}}, \mbox{\hyperlink{class_model_a7cba4923a9806fc94cdb1d245e701113}{materials}}, \mbox{\hyperlink{class_model_ac25a39c318a2295730dff9115f5d6797}{materialIndex}});}
+\DoxyCodeLine{00016 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_model_8h_source_l00046}{indices}}, \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{Obj\+Loader\+::load()}}, \mbox{\hyperlink{_model_8h_source_l00040}{loader}}, \mbox{\hyperlink{_model_8h_source_l00049}{material\+Index}}, \mbox{\hyperlink{_model_8h_source_l00048}{materials}}, \mbox{\hyperlink{_model_8h_source_l00050}{textures}}, and \mbox{\hyperlink{_model_8h_source_l00045}{vertices}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_model_a89ebd61864089abe5b0c5a1df6479970}\label{class_model_a89ebd61864089abe5b0c5a1df6479970}} 
+\index{Model@{Model}!render@{render}}
+\index{render@{render}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Model\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061 \{ \mbox{\hyperlink{class_model_ae28a557329ebec3aaf91f8012f6c0c02}{mesh}}-\/>render(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_model_8h_source_l00044}{mesh}}.
+
+\mbox{\Hypertarget{class_model_acf8689f9ce360896172eafb2ab896039}\label{class_model_acf8689f9ce360896172eafb2ab896039}} 
+\index{Model@{Model}!unbind\_resources@{unbind\_resources}}
+\index{unbind\_resources@{unbind\_resources}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{unbind\_resources()}{unbind\_resources()}}
+{\footnotesize\ttfamily void Model\+::unbind\+\_\+resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_model_8cpp_source}{Model.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054 \{}
+\DoxyCodeLine{00055   glBindBuffer(GL\_SHADER\_STORAGE\_BUFFER, 0);}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(\mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}.size()); i++) \{}
+\DoxyCodeLine{00057     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>unbind\_texture(i + \mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{MODEL\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bindings_8h_source_l00006}{MODEL\+\_\+\+TEXTURES\+\_\+\+SLOT}}, and \mbox{\hyperlink{_model_8h_source_l00047}{texture\+\_\+list}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_model_a033e87c24e4e58c8bdfadb4a02dbf2a9}\label{class_model_a033e87c24e4e58c8bdfadb4a02dbf2a9}} 
+\index{Model@{Model}!aabb@{aabb}}
+\index{aabb@{aabb}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{aabb}{aabb}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_a_a_b_b}{AABB}}$>$ Model\+::aabb\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00042}{42}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00005}{get\+\_\+aabb()}}.
+
+\mbox{\Hypertarget{class_model_a52bf7d84e4bd938767f41565f898d5dc}\label{class_model_a52bf7d84e4bd938767f41565f898d5dc}} 
+\index{Model@{Model}!indices@{indices}}
+\index{indices@{indices}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned int$>$ Model\+::indices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00046}{46}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}, and \mbox{\hyperlink{_model_8cpp_source_l00011}{load\+\_\+model\+\_\+in\+\_\+ram()}}.
+
+\mbox{\Hypertarget{class_model_acca54d89c856dfdd0be645912d8786dd}\label{class_model_acca54d89c856dfdd0be645912d8786dd}} 
+\index{Model@{Model}!loader@{loader}}
+\index{loader@{loader}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{loader}{loader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_obj_loader}{Obj\+Loader}} Model\+::loader\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00040}{40}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00011}{load\+\_\+model\+\_\+in\+\_\+ram()}}.
+
+\mbox{\Hypertarget{class_model_ac25a39c318a2295730dff9115f5d6797}\label{class_model_ac25a39c318a2295730dff9115f5d6797}} 
+\index{Model@{Model}!materialIndex@{materialIndex}}
+\index{materialIndex@{materialIndex}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{materialIndex}{materialIndex}}
+{\footnotesize\ttfamily std\+::vector$<$glm\+::vec4$>$ Model\+::material\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00049}{49}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}, and \mbox{\hyperlink{_model_8cpp_source_l00011}{load\+\_\+model\+\_\+in\+\_\+ram()}}.
+
+\mbox{\Hypertarget{class_model_a7cba4923a9806fc94cdb1d245e701113}\label{class_model_a7cba4923a9806fc94cdb1d245e701113}} 
+\index{Model@{Model}!materials@{materials}}
+\index{materials@{materials}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{materials}{materials}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_obj_material}{Obj\+Material}}$>$ Model\+::materials\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00048}{48}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00007}{get\+\_\+materials()}}, and \mbox{\hyperlink{_model_8cpp_source_l00011}{load\+\_\+model\+\_\+in\+\_\+ram()}}.
+
+\mbox{\Hypertarget{class_model_ae28a557329ebec3aaf91f8012f6c0c02}\label{class_model_ae28a557329ebec3aaf91f8012f6c0c02}} 
+\index{Model@{Model}!mesh@{mesh}}
+\index{mesh@{mesh}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{mesh}{mesh}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_mesh}{Mesh}}$>$ Model\+::mesh\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00044}{44}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}, and \mbox{\hyperlink{_model_8cpp_source_l00061}{render()}}.
+
+\mbox{\Hypertarget{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}\label{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}} 
+\index{Model@{Model}!ssbo@{ssbo}}
+\index{ssbo@{ssbo}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{ssbo}{ssbo}}
+{\footnotesize\ttfamily GLuint Model\+::ssbo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00038}{38}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00045}{bind\+\_\+ressources()}}, and \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}.
+
+\mbox{\Hypertarget{class_model_a94b3624baee6038c0c568d63671ef718}\label{class_model_a94b3624baee6038c0c568d63671ef718}} 
+\index{Model@{Model}!texture\_list@{texture\_list}}
+\index{texture\_list@{texture\_list}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{texture\_list}{texture\_list}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_texture}{Texture}}$>$ $>$ Model\+::texture\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00047}{47}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00045}{bind\+\_\+ressources()}}, \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}, \mbox{\hyperlink{_model_8cpp_source_l00009}{get\+\_\+texture\+\_\+count()}}, and \mbox{\hyperlink{_model_8cpp_source_l00053}{unbind\+\_\+resources()}}.
+
+\mbox{\Hypertarget{class_model_a82c4b4618a960db5eed5602a7c138ab8}\label{class_model_a82c4b4618a960db5eed5602a7c138ab8}} 
+\index{Model@{Model}!textures@{textures}}
+\index{textures@{textures}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Model\+::textures\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00050}{50}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}, and \mbox{\hyperlink{_model_8cpp_source_l00011}{load\+\_\+model\+\_\+in\+\_\+ram()}}.
+
+\mbox{\Hypertarget{class_model_ae69c72e4776b916f3ffd2e18a70ba605}\label{class_model_ae69c72e4776b916f3ffd2e18a70ba605}} 
+\index{Model@{Model}!vertices@{vertices}}
+\index{vertices@{vertices}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_vertex}{Vertex}}$>$ Model\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_model_8h_source_l00045}{45}} of file \mbox{\hyperlink{_model_8h_source}{Model.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_model_8cpp_source_l00020}{create\+\_\+render\+\_\+context()}}, and \mbox{\hyperlink{_model_8cpp_source_l00011}{load\+\_\+model\+\_\+in\+\_\+ram()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_model_8h}{Model.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_model_8cpp}{Model.\+cpp}}\end{DoxyCompactItemize}

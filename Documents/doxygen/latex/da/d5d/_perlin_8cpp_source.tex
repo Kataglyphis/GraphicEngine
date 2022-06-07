@@ -1,0 +1,124 @@
+\hypertarget{_perlin_8cpp_source}{}\doxysection{Perlin.\+cpp}
+\label{_perlin_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Perlin.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Perlin.cpp}}
+\mbox{\hyperlink{_perlin_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00001}00001 \textcolor{comment}{//\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00002}00002 \textcolor{comment}{//\#include "{}perlin.h"{}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00005}00005 \textcolor{comment}{//}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00006}00006 \textcolor{comment}{//// fade(t)= t\string^3 (10 + t* (t* 6 -\/ 15))}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00007}00007 \textcolor{comment}{}\textcolor{comment}{//double PERLIN\_H::fade(double t) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00008}00008 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00009}00009 \textcolor{comment}{//    return t * t * t * (t * (t * 6 -\/ 15) + 10);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00010}00010 \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00011}00011 \textcolor{comment}{//}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00012}00012 \textcolor{comment}{//// linear interpolation between a and b: For polishing}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00013}00013 \textcolor{comment}{//// t = [0,1] is the persentage of the distance bewteen a and b}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00014}00014 \textcolor{comment}{}\textcolor{comment}{//double PERLIN\_H::lerp(double t, double a, double b) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00015}00015 \textcolor{comment}{//    return a + (b -\/ a) * t;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00016}00016 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00018}00018 \textcolor{comment}{//}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00019}00019 \textcolor{comment}{////}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00020}00020 \textcolor{comment}{}\textcolor{comment}{//double PERLIN\_H::grad(int hash, double x, double y, double z) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00021}00021 \textcolor{comment}{//    int h = hash \& 15;                      // CONVERT LO 4 BITS OF HASH CODE}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00022}00022 \textcolor{comment}{//    double u = h < 8 ? x : y,                 // INTO 12 GRADIENT DIRECTIONS.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00023}00023 \textcolor{comment}{//        v = h < 4 ? y : h == 12 || h == 14 ? x : z;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00024}00024 \textcolor{comment}{//    return ((h \& 1) == 0 ? u : -\/u) + ((h \& 2) == 0 ? v : -\/v);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00025}00025 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00026}00026 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00027}00027 \textcolor{comment}{//}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00028}00028 \textcolor{comment}{//// generate Perlin noise}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00029}00029 \textcolor{comment}{//// Parameter:}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00030}00030 \textcolor{comment}{//// p is (psyodo) "{}random"{} value}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00031}00031 \textcolor{comment}{}\textcolor{comment}{//double PERLIN\_H::perlin\_noise(float x, float y, std::vector<int>\& p) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00032}00032 \textcolor{comment}{//    int z = 0.5;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00033}00033 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00034}00034 \textcolor{comment}{//    // x,y,z abrunden und mit 1111 1111 verunden == modulo 255}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00035}00035 \textcolor{comment}{//    int X = (int)floor(x) \& 255,                  // FIND UNIT CUBE THAT}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00036}00036 \textcolor{comment}{//        Y = (int)floor(y) \& 255,                  // CONTAINS POINT.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00037}00037 \textcolor{comment}{//        Z = (int)floor(z) \& 255;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00038}00038 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00039}00039 \textcolor{comment}{//    // Kommastellen}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00040}00040 \textcolor{comment}{//    x -\/= floor(x);                                // FIND RELATIVE X,Y,Z}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00041}00041 \textcolor{comment}{//    y -\/= floor(y);                                // OF POINT IN CUBE.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00042}00042 \textcolor{comment}{//    z -\/= floor(z);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00043}00043 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00044}00044 \textcolor{comment}{//    double u = fade(x),                             // COMPUTE FADE CURVES}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00045}00045 \textcolor{comment}{//        v = fade(y),                                // FOR EACH OF X,Y,Z.}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00046}00046 \textcolor{comment}{//        w = fade(z);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00047}00047 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00048}00048 \textcolor{comment}{//    int A = p[X] + Y, AA = p[A] + Z, AB = p[A + 1] + Z,      // HASH COORDINATES OF}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00049}00049 \textcolor{comment}{//        B = p[X + 1] + Y, BA = p[B] + Z, BB = p[B + 1] + Z;      // THE 8 CUBE CORNERS,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00050}00050 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00051}00051 \textcolor{comment}{//    // return perlin noise of x and y}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00052}00052 \textcolor{comment}{//    return lerp(w,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00053}00053 \textcolor{comment}{//        lerp(v, lerp(u, grad(p[AA], x, y, z),  // AND ADD}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00054}00054 \textcolor{comment}{//            grad(p[BA], x -\/ 1, y, z)), // BLENDED}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00055}00055 \textcolor{comment}{//            lerp(u, grad(p[AB], x, y -\/ 1, z),  // RESULTS}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00056}00056 \textcolor{comment}{//                grad(p[BB], x -\/ 1, y -\/ 1, z))),// FROM  8}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00057}00057 \textcolor{comment}{//        lerp(v, lerp(u, grad(p[AA + 1], x, y, z -\/ 1),  // CORNERS}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00058}00058 \textcolor{comment}{//            grad(p[BA + 1], x -\/ 1, y, z -\/ 1)), // OF CUBE}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00059}00059 \textcolor{comment}{//            lerp(u, grad(p[AB + 1], x, y -\/ 1, z -\/ 1),}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00060}00060 \textcolor{comment}{//                grad(p[BB + 1], x -\/ 1, y -\/ 1, z -\/ 1))));}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00061}00061 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00062}00062 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00063}00063 \textcolor{comment}{//void PERLIN\_H::get\_Permutation\_Vector(std::vector<int>* permVectorPointer) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00064}00064 \textcolor{comment}{//    permVectorPointer-\/>clear();}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00065}00065 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00066}00066 \textcolor{comment}{//    std::vector<int> permutation = \{ 151,160,137,91,90,15,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00067}00067 \textcolor{comment}{//    131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00068}00068 \textcolor{comment}{//    190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00069}00069 \textcolor{comment}{//    88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00070}00070 \textcolor{comment}{//    77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00071}00071 \textcolor{comment}{//    102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00072}00072 \textcolor{comment}{//    135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00073}00073 \textcolor{comment}{//    5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00074}00074 \textcolor{comment}{//    223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00075}00075 \textcolor{comment}{//    129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00076}00076 \textcolor{comment}{//    251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00077}00077 \textcolor{comment}{//    49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00078}00078 \textcolor{comment}{//    138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00079}00079 \textcolor{comment}{//    \};}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00080}00080 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00081}00081 \textcolor{comment}{//    for (int j = 0; j < 2; j++)}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00082}00082 \textcolor{comment}{//        for (int i = 0; i < 256; i++) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00083}00083 \textcolor{comment}{//            permVectorPointer -\/> push\_back(permutation[i]);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00084}00084 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00085}00085 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00086}00086 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00087}00087 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00088}00088 \textcolor{comment}{//std::vector<int> PERLIN\_H::my}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00089}00089 \textcolor{comment}{//// initialise 2x permutation of a hard coded 256 int vector}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00090}00090 \textcolor{comment}{////std::vector<int> PERLIN\_H::kansei() \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00091}00091 \textcolor{comment}{////}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00092}00092 \textcolor{comment}{///*}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00093}00093 \textcolor{comment}{}\textcolor{comment}{//std::vector<int> PERLIN\_H::myFunction() \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00094}00094 \textcolor{comment}{//    std::vector<int> p;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00095}00095 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00096}00096 \textcolor{comment}{//    std::vector<int> permutation = \{ 151,160,137,91,90,15,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00097}00097 \textcolor{comment}{//    131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00098}00098 \textcolor{comment}{//    190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00099}00099 \textcolor{comment}{//    88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00100}00100 \textcolor{comment}{//    77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00101}00101 \textcolor{comment}{//    102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00102}00102 \textcolor{comment}{//    135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00103}00103 \textcolor{comment}{//    5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00104}00104 \textcolor{comment}{//    223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00105}00105 \textcolor{comment}{//    129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00106}00106 \textcolor{comment}{//    251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00107}00107 \textcolor{comment}{//    49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00108}00108 \textcolor{comment}{//    138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00109}00109 \textcolor{comment}{//    \};}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00110}00110 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00111}00111 \textcolor{comment}{//    for (int j = 0; j < 2; j++)}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00112}00112 \textcolor{comment}{//        for (int i = 0; i < 256; i++) \{}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00113}00113 \textcolor{comment}{//            p.push\_back(permutation[i]);}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00114}00114 \textcolor{comment}{//        \}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00115}00115 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00116}00116 \textcolor{comment}{//    return p;}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00117}00117 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_perlin_8cpp_source_l00118}00118 \textcolor{comment}{//*/}}
+
+\end{DoxyCode}

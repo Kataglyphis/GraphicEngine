@@ -1,14 +1,19 @@
 #include "ShaderProgram.h"
-#include "File.h"
 
 #include <sstream>
 
-ShaderProgram::ShaderProgram() :
+#include "File.h"
 
-    program_id(0), vertex_location(""), fragment_location(""), geometry_location(""), compute_location("fragment_location")
+ShaderProgram::ShaderProgram()
+    :
+
+      program_id(0),
+      vertex_location(""),
+      fragment_location(""),
+      geometry_location(""),
+      compute_location("fragment_location")
 
 {
-
   std::stringstream aux;
   aux << CMAKELISTS_DIR;
   aux << "/Resources/Shaders/";
@@ -16,9 +21,8 @@ ShaderProgram::ShaderProgram() :
   shader_base_dir = aux.str();
 }
 
-void ShaderProgram::create_from_files(const char* vertex_location, const char* fragment_location)
-{
-
+void ShaderProgram::create_from_files(const char* vertex_location,
+                                      const char* fragment_location) {
   std::stringstream vertex_shader;
   std::stringstream fragment_shader;
   vertex_shader << shader_base_dir << vertex_location;
@@ -30,7 +34,7 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* f
   std::string vertex_string = vertex_shader_file.read();
   std::string fragment_string = fragment_shader_file.read();
 
-  //we need c-like strings ....
+  // we need c-like strings ....
   const char* vertex_code = vertex_string.c_str();
   const char* fragment_code = fragment_string.c_str();
 
@@ -40,9 +44,9 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* f
   compile_shader_program(vertex_code, fragment_code);
 }
 
-void ShaderProgram::create_from_files(const char* vertex_location, const char* geometry_location, const char* fragment_location)
-{
-
+void ShaderProgram::create_from_files(const char* vertex_location,
+                                      const char* geometry_location,
+                                      const char* fragment_location) {
   std::stringstream vertex_shader;
   std::stringstream geometry_shader;
   std::stringstream fragment_shader;
@@ -69,9 +73,8 @@ void ShaderProgram::create_from_files(const char* vertex_location, const char* g
   compile_shader_program(vertex_code, geometry_code, fragment_code);
 }
 
-void ShaderProgram::create_computer_shader_program_from_file(const char* compute_location)
-{
-
+void ShaderProgram::create_computer_shader_program_from_file(
+    const char* compute_location) {
   std::stringstream comp_shader;
   comp_shader << shader_base_dir << compute_location;
   File compute_shader_file(comp_shader.str());
@@ -86,11 +89,9 @@ void ShaderProgram::create_computer_shader_program_from_file(const char* compute
 
 GLuint ShaderProgram::get_id() const { return program_id; }
 
-void ShaderProgram::validate_program()
-{
-
+void ShaderProgram::validate_program() {
   GLint result = 0;
-  GLchar eLog[1024] = { 0 };
+  GLchar eLog[1024] = {0};
 
   glValidateProgram(program_id);
 
@@ -105,11 +106,12 @@ void ShaderProgram::validate_program()
 
 void ShaderProgram::use_shader_program() { glUseProgram(program_id); }
 
-void ShaderProgram::add_shader(GLuint program, const char* shader_code, GLenum shader_type)
-{
+void ShaderProgram::add_shader(GLuint program, const char* shader_code,
+                               GLenum shader_type) {
   GLuint shader = glCreateShader(shader_type);
 
-  // the opengl function wants c -style char array of code and the length in an array ... so we do it
+  // the opengl function wants c -style char array of code and the length in an
+  // array ... so we do it
   const GLchar* code[1];
   code[0] = shader_code;
 
@@ -118,12 +120,12 @@ void ShaderProgram::add_shader(GLuint program, const char* shader_code, GLenum s
 
   glShaderSource(shader, 1, code, code_length);
   glCompileShader(shader);
-  //glCompileShaderIncludeARB(shader);
+  // glCompileShaderIncludeARB(shader);
 
   GLint result = 0;
-  GLchar eLog[1024] = { 0 };
+  GLchar eLog[1024] = {0};
 
-  //retrieve status of the shader and print if any error occured
+  // retrieve status of the shader and print if any error occured
   glGetShaderiv(shader, GL_COMPILE_STATUS, &result);
 
   if (!result) {
@@ -137,8 +139,8 @@ void ShaderProgram::add_shader(GLuint program, const char* shader_code, GLenum s
   glAttachShader(program, shader);
 }
 
-void ShaderProgram::compile_shader_program(const char* vertex_code, const char* fragment_code)
-{
+void ShaderProgram::compile_shader_program(const char* vertex_code,
+                                           const char* fragment_code) {
   // retrieve the id; we need to reference it later on
   program_id = glCreateProgram();
 
@@ -151,13 +153,14 @@ void ShaderProgram::compile_shader_program(const char* vertex_code, const char* 
   // and one fragment ShaderProgram
   add_shader(program_id, fragment_code, GL_FRAGMENT_SHADER);
 
-  //we attached all shaders
-  //so compile program
+  // we attached all shaders
+  // so compile program
   compile_program();
 }
 
-void ShaderProgram::compile_shader_program(const char* vertex_code, const char* geometry_code, const char* fragment_code)
-{
+void ShaderProgram::compile_shader_program(const char* vertex_code,
+                                           const char* geometry_code,
+                                           const char* fragment_code) {
   program_id = glCreateProgram();
 
   if (!program_id) {
@@ -172,8 +175,7 @@ void ShaderProgram::compile_shader_program(const char* vertex_code, const char* 
   compile_program();
 }
 
-void ShaderProgram::compile_compute_shader_program(const char* compute_code)
-{
+void ShaderProgram::compile_compute_shader_program(const char* compute_code) {
   program_id = glCreateProgram();
 
   if (!program_id) {
@@ -186,12 +188,11 @@ void ShaderProgram::compile_compute_shader_program(const char* compute_code)
   compile_program();
 }
 
-void ShaderProgram::compile_program()
-{
-  //as simple as that; opengl will link it for us :)
+void ShaderProgram::compile_program() {
+  // as simple as that; opengl will link it for us :)
   glLinkProgram(program_id);
   GLint result = 0;
-  GLchar eLog[1024] = { 0 };
+  GLchar eLog[1024] = {0};
 
   glGetProgramiv(program_id, GL_LINK_STATUS, &result);
 
@@ -204,8 +205,8 @@ void ShaderProgram::compile_program()
   validate_program();
 }
 
-bool ShaderProgram::setUniformVec3(glm::vec3 uniform, const std::string& shaderUniformName)
-{
+bool ShaderProgram::setUniformVec3(glm::vec3 uniform,
+                                   const std::string& shaderUniformName) {
   bool validity = true;
   GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
 
@@ -216,9 +217,8 @@ bool ShaderProgram::setUniformVec3(glm::vec3 uniform, const std::string& shaderU
   return validity;
 }
 
-bool ShaderProgram::setUniformFloat(GLfloat uniform, const std::string& shaderUniformName)
-{
-
+bool ShaderProgram::setUniformFloat(GLfloat uniform,
+                                    const std::string& shaderUniformName) {
   bool validity = true;
   GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
 
@@ -229,8 +229,8 @@ bool ShaderProgram::setUniformFloat(GLfloat uniform, const std::string& shaderUn
   return validity;
 }
 
-bool ShaderProgram::setUniformInt(GLint uniform, const std::string& shaderUniformName)
-{
+bool ShaderProgram::setUniformInt(GLint uniform,
+                                  const std::string& shaderUniformName) {
   bool validity = true;
   GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
 
@@ -241,9 +241,8 @@ bool ShaderProgram::setUniformInt(GLint uniform, const std::string& shaderUnifor
   return validity;
 }
 
-bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix, const std::string& shaderUniformName)
-{
-
+bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix,
+                                        const std::string& shaderUniformName) {
   bool validity = true;
   GLuint uniform_location = getUniformLocation(shaderUniformName, validity);
 
@@ -254,11 +253,11 @@ bool ShaderProgram::setUniformMatrix4fv(glm::mat4 matrix, const std::string& sha
   return validity;
 }
 
-bool ShaderProgram::setUniformBlockBinding(GLuint block_binding, const std::string& shaderUniformName)
-{
-
+bool ShaderProgram::setUniformBlockBinding(
+    GLuint block_binding, const std::string& shaderUniformName) {
   bool validity = true;
-  GLint uniform_location = glGetUniformBlockIndex(program_id, shaderUniformName.c_str());
+  GLint uniform_location =
+      glGetUniformBlockIndex(program_id, shaderUniformName.c_str());
 
   (uniform_location < 0) ? validity = false : validity = true;
 
@@ -269,22 +268,23 @@ bool ShaderProgram::setUniformBlockBinding(GLuint block_binding, const std::stri
     // nondebug
 
 #else
-    //printf("Error at setting uniform block binding!");
+    // printf("Error at setting uniform block binding!");
 #endif
   }
 
   return validity;
 }
 
-bool ShaderProgram::validateUniformLocation(GLint uniformLocation)
-{
-  // if uniform location is invalid (f.e. var disappears because of optimizing of unused vars)
+bool ShaderProgram::validateUniformLocation(GLint uniformLocation) {
+  // if uniform location is invalid (f.e. var disappears because of optimizing
+  // of unused vars)
   return (uniformLocation == -1) ? false : true;
 }
 
-GLuint ShaderProgram::getUniformLocation(const std::string& shaderUniformName, bool& validity)
-{
-  GLuint uniform_location = glGetUniformLocation(program_id, shaderUniformName.c_str());
+GLuint ShaderProgram::getUniformLocation(const std::string& shaderUniformName,
+                                         bool& validity) {
+  GLuint uniform_location =
+      glGetUniformLocation(program_id, shaderUniformName.c_str());
   validity = validateUniformLocation(uniform_location);
 
 #ifdef NDEBUG
@@ -305,10 +305,9 @@ GLuint ShaderProgram::getUniformLocation(const std::string& shaderUniformName, b
   return uniform_location;
 }
 
-void ShaderProgram::clear_shader_program()
-{
-  //don't trash the id's!!
-  //delete it from memory!!
+void ShaderProgram::clear_shader_program() {
+  // don't trash the id's!!
+  // delete it from memory!!
   if (program_id != 0) {
     glDeleteProgram(program_id);
     program_id = 0;

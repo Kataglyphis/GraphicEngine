@@ -1,0 +1,36 @@
+digraph "main"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Renderer::drawFrame",height=0.2,width=0.4,color="black",URL="$d4/d44/class_renderer.html#a70f159ac4e813c01e355273b53f6b51b",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="LoadingScreen::init",height=0.2,width=0.4,color="black",URL="$d9/dd7/class_loading_screen.html#a72cc9b197a54aab590ebf062971626b2",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Texture::load_texture\l_with_alpha_channel",height=0.2,width=0.4,color="black",URL="$d2/d7f/class_texture.html#aac8edf700b4323b86a7bfa322d186ca5",tooltip=" "];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Texture::load_texture\l_without_alpha_channel",height=0.2,width=0.4,color="black",URL="$d2/d7f/class_texture.html#a39518e6212f94918b566d01630d1a749",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="GUI::init",height=0.2,width=0.4,color="black",URL="$d3/d57/class_g_u_i.html#abe01c4db97be141742d52be2e1f19b15",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Renderer::reload_shader\l_programs",height=0.2,width=0.4,color="black",URL="$d4/d44/class_renderer.html#abc9b64430ae1189acd17b34543c23e55",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="LoadingScreen::render",height=0.2,width=0.4,color="black",URL="$d9/dd7/class_loading_screen.html#a840499311847eb8d02a4d1a162506ccf",tooltip=" "];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Quad::render",height=0.2,width=0.4,color="black",URL="$d3/df8/class_quad.html#aa154d8f02a63139b2d2d9e772f5ee142",tooltip=" "];
+  Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Texture::use_texture",height=0.2,width=0.4,color="black",URL="$d2/d7f/class_texture.html#a52e79975124df40c3e294ad2e0791ba5",tooltip=" "];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="GUI::render",height=0.2,width=0.4,color="black",URL="$d3/d57/class_g_u_i.html#a560db89fa6ec13445c91ce73f3c6f2e0",tooltip=" "];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Texture::get_id",height=0.2,width=0.4,color="black",URL="$d2/d7f/class_texture.html#a53aa350bde0fc93271c74e2bd2b391fa",tooltip=" "];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="GUI::update_user_input",height=0.2,width=0.4,color="black",URL="$d3/d57/class_g_u_i.html#a8567aa88b4d6a2a14e7951dd74401c6b",tooltip=" "];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="Renderer::update_window\l_params",height=0.2,width=0.4,color="black",URL="$d4/d44/class_renderer.html#a015ede509aab9b53a19f5dcee76b1824",tooltip=" "];
+}

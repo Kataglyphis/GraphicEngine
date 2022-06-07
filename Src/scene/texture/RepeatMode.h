@@ -1,12 +1,12 @@
 #pragma once
 #include "TextureWrappingMode.h"
 class RepeatMode : public TextureWrappingMode {
-  public:
+ public:
   RepeatMode();
 
   void activate() override;
 
   ~RepeatMode();
 
-  private:
+ private:
 };

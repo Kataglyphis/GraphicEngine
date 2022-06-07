@@ -1,0 +1,57 @@
+\hypertarget{structstd_1_1hash_3_01_vertex_01_4}{}\doxysection{std\+::hash\texorpdfstring{$<$}{<} Vertex \texorpdfstring{$>$}{>} Struct Reference}
+\label{structstd_1_1hash_3_01_vertex_01_4}\index{std::hash$<$ Vertex $>$@{std::hash$<$ Vertex $>$}}
+
+
+{\ttfamily \#include $<$Vertex.\+h$>$}
+
+
+
+Collaboration diagram for std\+::hash\texorpdfstring{$<$}{<} Vertex \texorpdfstring{$>$}{>}\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}{operator()}} (\mbox{\hyperlink{struct_vertex}{Vertex}} const \&vert) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00048}{48}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}\label{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}} 
+\index{std::hash$<$ Vertex $>$@{std::hash$<$ Vertex $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!std::hash$<$ Vertex $>$@{std::hash$<$ Vertex $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily size\+\_\+t std\+::hash$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertex}{Vertex}} const \&}]{vert }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00050}{50}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051   \{}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053     \textcolor{keywordtype}{size\_t} h1 = hash<glm::vec3>()(vert.position);}
+\DoxyCodeLine{00054     \textcolor{keywordtype}{size\_t} h2 = hash<glm::vec3>()(vert.normal);}
+\DoxyCodeLine{00055     \textcolor{keywordtype}{size\_t} h3 = hash<glm::vec2>()(vert.texture\_coords);}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057     \textcolor{comment}{// combine hashed wonderfully :))))}}
+\DoxyCodeLine{00058     \textcolor{keywordflow}{return} ((h1 \string^ (h2 << 1)) >> 1) \string^ h3;}
+\DoxyCodeLine{00059   \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00009}{Vertex\+::normal}}, \mbox{\hyperlink{_vertex_8h_source_l00008}{Vertex\+::position}}, and \mbox{\hyperlink{_vertex_8h_source_l00011}{Vertex\+::texture\+\_\+coords}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_vertex_8h}{Vertex.\+h}}\end{DoxyCompactItemize}

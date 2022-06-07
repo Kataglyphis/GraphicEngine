@@ -1,8 +1,6 @@
 #include "ObjMaterial.h"
 
-ObjMaterial::ObjMaterial()
-{
-
+ObjMaterial::ObjMaterial() {
   this->ambient = glm::vec3(0.1f, 0.1f, 0.1f);
   this->diffuse = glm::vec3(0.7f, 0.7f, 0.7f);
   this->specular = glm::vec3(1.0f, 1.0f, 1.0f);
@@ -15,9 +13,10 @@ ObjMaterial::ObjMaterial()
   this->textureID = -1;
 }
 
-ObjMaterial::ObjMaterial(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, glm::vec3 transmittance, glm::vec3 emission, float shininess, float ior,
-  float dissolve, int illum, int textureID)
-{
+ObjMaterial::ObjMaterial(glm::vec3 ambient, glm::vec3 diffuse,
+                         glm::vec3 specular, glm::vec3 transmittance,
+                         glm::vec3 emission, float shininess, float ior,
+                         float dissolve, int illum, int textureID) {
   this->ambient = ambient;
   this->diffuse = diffuse;
   this->specular = specular;
@@ -30,4 +29,4 @@ ObjMaterial::ObjMaterial(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specula
   this->textureID = textureID;
 }
 
-ObjMaterial::~ObjMaterial() { }
+ObjMaterial::~ObjMaterial() {}

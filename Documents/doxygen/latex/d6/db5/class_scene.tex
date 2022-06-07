@@ -1,0 +1,753 @@
+\hypertarget{class_scene}{}\doxysection{Scene Class Reference}
+\label{class_scene}\index{Scene@{Scene}}
+
+
+{\ttfamily \#include $<$Scene.\+h$>$}
+
+
+
+Collaboration diagram for Scene\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
+\item 
+\mbox{\hyperlink{class_scene_a48dfc8c381d7267009df1c6c15a82574}{Scene}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\+\_\+camera}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_window}{Window}} $>$ \mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\+\_\+window}})
+\item 
+std\+::thread \mbox{\hyperlink{class_scene_a7f98cbd90a5fa7d579699a84cd60ae57}{spwan}} ()
+\item 
+GLuint \mbox{\hyperlink{class_scene_a94f6fe27226a94b7f013aa9623576590}{get\+\_\+point\+\_\+light\+\_\+count}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_directional_light}{Directional\+Light}} $>$ \mbox{\hyperlink{class_scene_a479504ad5b1a50531834459940830f67}{get\+\_\+sun}} ()
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_point_light}{Point\+Light}} $>$ $>$ \mbox{\hyperlink{class_scene_aaa7a9455335a0b6e97655aabbbdecd4f}{get\+\_\+point\+\_\+lights}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_obj_material}{Obj\+Material}} $>$ \mbox{\hyperlink{class_scene_a43352a49d0f6ac69b8aaeadf3564bfca}{get\+\_\+materials}} ()
+\item 
+GLfloat \mbox{\hyperlink{class_scene_a2488304b9a8c44b26993bd9274c52297}{get\+\_\+progress}} ()
+\item 
+int \mbox{\hyperlink{class_scene_ae6440dee63cf77e9dc80bbb9ed546eaa}{get\+\_\+texture\+\_\+count}} (int index)
+\item 
+bool \mbox{\hyperlink{class_scene_ac2b83a50fa6745108cf45b28dbfbf9d1}{get\+\_\+context\+\_\+setup}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_clouds}{Clouds}} $>$ \mbox{\hyperlink{class_scene_a5c16618b52c2867bb08667a2c3c8be76}{get\+\_\+clouds}} ()
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{class_scene_a64aeac92404cd2db8f541a3b5af56731}{get\+\_\+game\+\_\+objects}} () const
+\item 
+void \mbox{\hyperlink{class_scene_aeb1a7c826edc6216865fbc445c2c64c8}{add\+\_\+game\+\_\+object}} (const std\+::string \&model\+\_\+path, glm\+::vec3 translation, GLfloat scale, \mbox{\hyperlink{struct_rotation}{Rotation}} rot)
+\item 
+void \mbox{\hyperlink{class_scene_a9cdaadd3a3b30e4361aa7173b556e06c}{load\+\_\+models}} ()
+\item 
+bool \mbox{\hyperlink{class_scene_a7926131edf7e94c64c803e0eb43e28c6}{is\+\_\+loaded}} ()
+\item 
+void \mbox{\hyperlink{class_scene_a4c9f16fc63fe168992b83e42bc688893}{setup\+\_\+game\+\_\+object\+\_\+context}} ()
+\item 
+void \mbox{\hyperlink{class_scene_adfbe3e8c0351ee50d0bfba8949aa2c5a}{bind\+\_\+textures\+\_\+and\+\_\+buffer}} ()
+\item 
+void \mbox{\hyperlink{class_scene_a8d5112b1015ce11848c24c9a19bf1b53}{unbind\+\_\+textures\+\_\+and\+\_\+buffer}} ()
+\item 
+void \mbox{\hyperlink{class_scene_ad0c13f6c9170284efb27e1c2dd619452}{set\+\_\+context\+\_\+setup}} (bool \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\+\_\+setup}})
+\item 
+\mbox{\hyperlink{class_scene_a3b8cec2e32546713915f8c6303c951f1}{$\sim$\+Scene}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_scene_ac342bf82c8a3b0342c099d26460b1c80}{object\+\_\+is\+\_\+visible}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ game\+\_\+object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\+\_\+camera}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_directional_light}{Directional\+Light}} $>$ \mbox{\hyperlink{class_scene_ada94b6d7d304e27feadb68d4c5cf8d26}{sun}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_point_light}{Point\+Light}} $>$ $>$ \mbox{\hyperlink{class_scene_adc5402f2898efd3554edeea7f42cfc7d}{point\+\_\+lights}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_clouds}{Clouds}} $>$ \mbox{\hyperlink{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}{clouds}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_window}{Window}} $>$ \mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\+\_\+window}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_view_frustum_culling}{View\+Frustum\+Culling}} $>$ \mbox{\hyperlink{class_scene_aeb9a8e5ced493c405ef0dba610c08032}{view\+\_\+frustum\+\_\+culling}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\+\_\+objects}}
+\item 
+GLfloat \mbox{\hyperlink{class_scene_adb4517db7a091497503641f09bcc448f}{progress}}
+\item 
+bool \mbox{\hyperlink{class_scene_a54dd2409f952f879995e07bb0bcdc322}{loaded\+\_\+scene}}
+\item 
+std\+::mutex \mbox{\hyperlink{class_scene_a6e630456cc4809272b043150de75af96}{mx\+\_\+progress}}
+\item 
+std\+::mutex \mbox{\hyperlink{class_scene_a3916dea5f06d85ff57ad2fafdd6f1973}{mx\+\_\+is\+Loaded}}
+\item 
+std\+::mutex \mbox{\hyperlink{class_scene_ab4f572095d6b3f963fd889fa585527fc}{mx\+\_\+space\+\_\+ship}}
+\item 
+bool \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\+\_\+setup}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00016}{16}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}\label{class_scene_ad10176d75a9cc0da56626f682d083507}} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005              :}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007     \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}(), \mbox{\hyperlink{class_scene_ada94b6d7d304e27feadb68d4c5cf8d26}{sun}}(std::make\_shared<DirectionalLight>(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(4096), \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(4096), 1.f, 1.f, 1.f, 1.f, -\/0.1f, -\/0.8f, -\/0.1f,}
+\DoxyCodeLine{00008                      \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}-\/>get\_near\_plane(), \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}-\/>get\_far\_plane(), \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}})),}
+\DoxyCodeLine{00009     \mbox{\hyperlink{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}{clouds}}(std::make\_shared<Clouds>()), \mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\_window}}(), \mbox{\hyperlink{class_scene_aeb9a8e5ced493c405ef0dba610c08032}{view\_frustum\_culling}}(std::make\_shared<ViewFrustumCulling>(\mbox{\hyperlink{class_view_frustum_culling}{ViewFrustumCulling}}\{\})), \mbox{\hyperlink{class_scene_adb4517db7a091497503641f09bcc448f}{progress}}(0.f),}
+\DoxyCodeLine{00010     \mbox{\hyperlink{class_scene_a54dd2409f952f879995e07bb0bcdc322}{loaded\_scene}}(\textcolor{keyword}{false}), \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\_setup}}(\textcolor{keyword}{false})}
+\DoxyCodeLine{00011 \{}
+\DoxyCodeLine{00012 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_scene_a48dfc8c381d7267009df1c6c15a82574}\label{class_scene_a48dfc8c381d7267009df1c6c15a82574}} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{main\+\_\+camera,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_window}{Window}} $>$}]{main\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014                                                                                  :}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}(\mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}), \mbox{\hyperlink{class_scene_ada94b6d7d304e27feadb68d4c5cf8d26}{sun}}(std::make\_shared<DirectionalLight>(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(4096), \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(4096), 1.f, 1.f, 1.f, 1.f, -\/0.1f, -\/0.8f,}
+\DoxyCodeLine{00017                                 -\/0.1f, \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}-\/>get\_near\_plane(), \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}}-\/>get\_far\_plane(), \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}})),}
+\DoxyCodeLine{00018     \mbox{\hyperlink{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}{clouds}}(std::make\_shared<Clouds>()), \mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\_window}}(\mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\_window}}), \mbox{\hyperlink{class_scene_aeb9a8e5ced493c405ef0dba610c08032}{view\_frustum\_culling}}(std::make\_shared<ViewFrustumCulling>(\mbox{\hyperlink{class_view_frustum_culling}{ViewFrustumCulling}}\{\})),}
+\DoxyCodeLine{00019     \mbox{\hyperlink{class_scene_adb4517db7a091497503641f09bcc448f}{progress}}(0.f), \mbox{\hyperlink{class_scene_a54dd2409f952f879995e07bb0bcdc322}{loaded\_scene}}(\textcolor{keyword}{false}), \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\_setup}}(\textcolor{keyword}{false})}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   \mbox{\hyperlink{class_scene_adc5402f2898efd3554edeea7f42cfc7d}{point\_lights}}.reserve(\mbox{\hyperlink{host__device__shared_8h_a991a0bb648e97839d1392618e8e7340d}{MAX\_POINT\_LIGHTS}});}
+\DoxyCodeLine{00025   \mbox{\hyperlink{class_scene_adc5402f2898efd3554edeea7f42cfc7d}{point\_lights}}.push\_back(std::make\_shared<PointLight>(}
+\DoxyCodeLine{00026     \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(1024), \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(1024), 0.01f, 100.f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.1f, 0.1f, 0.1f));}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028   \mbox{\hyperlink{class_scene_adc5402f2898efd3554edeea7f42cfc7d}{point\_lights}}[0]-\/>set\_position(glm::vec3(0.0, -\/24.f, -\/24.0));}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{host__device__shared_8h_source_l00006}{MAX\+\_\+\+POINT\+\_\+\+LIGHTS}}, and \mbox{\hyperlink{_scene_8h_source_l00059}{point\+\_\+lights}}.
+
+\mbox{\Hypertarget{class_scene_a3b8cec2e32546713915f8c6303c951f1}\label{class_scene_a3b8cec2e32546713915f8c6303c951f1}} 
+\index{Scene@{Scene}!````~Scene@{$\sim$Scene}}
+\index{````~Scene@{$\sim$Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{$\sim$Scene()}{~Scene()}}
+{\footnotesize\ttfamily Scene\+::$\sim$\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scene_aeb1a7c826edc6216865fbc445c2c64c8}\label{class_scene_aeb1a7c826edc6216865fbc445c2c64c8}} 
+\index{Scene@{Scene}!add\_game\_object@{add\_game\_object}}
+\index{add\_game\_object@{add\_game\_object}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{add\_game\_object()}{add\_game\_object()}}
+{\footnotesize\ttfamily void Scene\+::add\+\_\+game\+\_\+object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{model\+\_\+path,  }\item[{glm\+::vec3}]{translation,  }\item[{GLfloat}]{scale,  }\item[{\mbox{\hyperlink{struct_rotation}{Rotation}}}]{rot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097 \{}
+\DoxyCodeLine{00098   \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}.push\_back(std::make\_shared<GameObject>(\mbox{\hyperlink{class_game_object}{GameObject}}()));}
+\DoxyCodeLine{00099   \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}.back()-\/>init(model\_path, translation, scale, rot);}
+\DoxyCodeLine{00100 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+\mbox{\Hypertarget{class_scene_adfbe3e8c0351ee50d0bfba8949aa2c5a}\label{class_scene_adfbe3e8c0351ee50d0bfba8949aa2c5a}} 
+\index{Scene@{Scene}!bind\_textures\_and\_buffer@{bind\_textures\_and\_buffer}}
+\index{bind\_textures\_and\_buffer@{bind\_textures\_and\_buffer}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{bind\_textures\_and\_buffer()}{bind\_textures\_and\_buffer()}}
+{\footnotesize\ttfamily void Scene\+::bind\+\_\+textures\+\_\+and\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086 \{ \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}[0]-\/>get\_model()-\/>bind\_ressources(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+\mbox{\Hypertarget{class_scene_a5c16618b52c2867bb08667a2c3c8be76}\label{class_scene_a5c16618b52c2867bb08667a2c3c8be76}} 
+\index{Scene@{Scene}!get\_clouds@{get\_clouds}}
+\index{get\_clouds@{get\_clouds}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_clouds()}{get\_clouds()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_clouds}{Clouds}} $>$ Scene\+::get\+\_\+clouds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}{clouds}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00060}{clouds}}.
+
+\mbox{\Hypertarget{class_scene_ac2b83a50fa6745108cf45b28dbfbf9d1}\label{class_scene_ac2b83a50fa6745108cf45b28dbfbf9d1}} 
+\index{Scene@{Scene}!get\_context\_setup@{get\_context\_setup}}
+\index{get\_context\_setup@{get\_context\_setup}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_context\_setup()}{get\_context\_setup()}}
+{\footnotesize\ttfamily bool Scene\+::get\+\_\+context\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\_setup}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00074}{context\+\_\+setup}}.
+
+\mbox{\Hypertarget{class_scene_a64aeac92404cd2db8f541a3b5af56731}\label{class_scene_a64aeac92404cd2db8f541a3b5af56731}} 
+\index{Scene@{Scene}!get\_game\_objects@{get\_game\_objects}}
+\index{get\_game\_objects@{get\_game\_objects}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_game\_objects()}{get\_game\_objects()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ Scene\+::get\+\_\+game\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+\mbox{\Hypertarget{class_scene_a43352a49d0f6ac69b8aaeadf3564bfca}\label{class_scene_a43352a49d0f6ac69b8aaeadf3564bfca}} 
+\index{Scene@{Scene}!get\_materials@{get\_materials}}
+\index{get\_materials@{get\_materials}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_materials()}{get\_materials()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_obj_material}{Obj\+Material}} $>$ Scene\+::get\+\_\+materials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}[0]-\/>get\_model()-\/>get\_materials(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+\mbox{\Hypertarget{class_scene_a94f6fe27226a94b7f013aa9623576590}\label{class_scene_a94f6fe27226a94b7f013aa9623576590}} 
+\index{Scene@{Scene}!get\_point\_light\_count@{get\_point\_light\_count}}
+\index{get\_point\_light\_count@{get\_point\_light\_count}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_point\_light\_count()}{get\_point\_light\_count()}}
+{\footnotesize\ttfamily GLuint Scene\+::get\+\_\+point\+\_\+light\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{class_scene_adc5402f2898efd3554edeea7f42cfc7d}{point\_lights}}.size()); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00059}{point\+\_\+lights}}.
+
+\mbox{\Hypertarget{class_scene_aaa7a9455335a0b6e97655aabbbdecd4f}\label{class_scene_aaa7a9455335a0b6e97655aabbbdecd4f}} 
+\index{Scene@{Scene}!get\_point\_lights@{get\_point\_lights}}
+\index{get\_point\_lights@{get\_point\_lights}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_point\_lights()}{get\_point\_lights()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_point_light}{Point\+Light}} $>$ $>$ Scene\+::get\+\_\+point\+\_\+lights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_adc5402f2898efd3554edeea7f42cfc7d}{point\_lights}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00059}{point\+\_\+lights}}.
+
+\mbox{\Hypertarget{class_scene_a2488304b9a8c44b26993bd9274c52297}\label{class_scene_a2488304b9a8c44b26993bd9274c52297}} 
+\index{Scene@{Scene}!get\_progress@{get\_progress}}
+\index{get\_progress@{get\_progress}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_progress()}{get\_progress()}}
+{\footnotesize\ttfamily GLfloat Scene\+::get\+\_\+progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075 \{}
+\DoxyCodeLine{00076   std::lock\_guard<std::mutex> guard\{ \mbox{\hyperlink{class_scene_a6e630456cc4809272b043150de75af96}{mx\_progress}} \};}
+\DoxyCodeLine{00077   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_adb4517db7a091497503641f09bcc448f}{progress}};}
+\DoxyCodeLine{00078 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00070}{mx\+\_\+progress}}, and \mbox{\hyperlink{_scene_8h_source_l00067}{progress}}.
+
+\mbox{\Hypertarget{class_scene_a479504ad5b1a50531834459940830f67}\label{class_scene_a479504ad5b1a50531834459940830f67}} 
+\index{Scene@{Scene}!get\_sun@{get\_sun}}
+\index{get\_sun@{get\_sun}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_sun()}{get\_sun()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_directional_light}{Directional\+Light}} $>$ Scene\+::get\+\_\+sun (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_ada94b6d7d304e27feadb68d4c5cf8d26}{sun}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00058}{sun}}.
+
+\mbox{\Hypertarget{class_scene_ae6440dee63cf77e9dc80bbb9ed546eaa}\label{class_scene_ae6440dee63cf77e9dc80bbb9ed546eaa}} 
+\index{Scene@{Scene}!get\_texture\_count@{get\_texture\_count}}
+\index{get\_texture\_count@{get\_texture\_count}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{get\_texture\_count()}{get\_texture\_count()}}
+{\footnotesize\ttfamily int Scene\+::get\+\_\+texture\+\_\+count (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}[0]-\/>get\_model()-\/>get\_texture\_count(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+\mbox{\Hypertarget{class_scene_a7926131edf7e94c64c803e0eb43e28c6}\label{class_scene_a7926131edf7e94c64c803e0eb43e28c6}} 
+\index{Scene@{Scene}!is\_loaded@{is\_loaded}}
+\index{is\_loaded@{is\_loaded}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{is\_loaded()}{is\_loaded()}}
+{\footnotesize\ttfamily bool Scene\+::is\+\_\+loaded (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069 \{}
+\DoxyCodeLine{00070   std::lock\_guard<std::mutex> guard\{ \mbox{\hyperlink{class_scene_a3916dea5f06d85ff57ad2fafdd6f1973}{mx\_isLoaded}} \};}
+\DoxyCodeLine{00071   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_a54dd2409f952f879995e07bb0bcdc322}{loaded\_scene}};}
+\DoxyCodeLine{00072 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00068}{loaded\+\_\+scene}}, and \mbox{\hyperlink{_scene_8h_source_l00071}{mx\+\_\+is\+Loaded}}.
+
+\mbox{\Hypertarget{class_scene_a9cdaadd3a3b30e4361aa7173b556e06c}\label{class_scene_a9cdaadd3a3b30e4361aa7173b556e06c}} 
+\index{Scene@{Scene}!load\_models@{load\_models}}
+\index{load\_models@{load\_models}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{load\_models()}{load\_models()}}
+{\footnotesize\ttfamily void Scene\+::load\+\_\+models (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038 \{}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040   glm::vec3 sponza\_offset = glm::vec3(0.f, 0.0f, 0.0f);}
+\DoxyCodeLine{00041   GLfloat sponza\_scale = 10.f;}
+\DoxyCodeLine{00042   \mbox{\hyperlink{struct_rotation}{Rotation}} sponza\_rot;}
+\DoxyCodeLine{00043   sponza\_rot.\mbox{\hyperlink{struct_rotation_a1b82681bc615f7abf1f23fef9ae14557}{degrees}} = 0.0f;}
+\DoxyCodeLine{00044   sponza\_rot.\mbox{\hyperlink{struct_rotation_a3c93cc4d62ed376570b460d246fa801c}{axis}} = glm::vec3(0.0f, 1.0f, 0.0f);}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046   glm::vec3 clouds\_offset = glm::vec3(-\/3.f, 20.0f, -\/3.0f);}
+\DoxyCodeLine{00047   glm::vec3 clouds\_scale = glm::vec3(1.f, 1.f, 1.f);}
+\DoxyCodeLine{00048   \mbox{\hyperlink{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}{clouds}}-\/>set\_scale(clouds\_scale);}
+\DoxyCodeLine{00049   \mbox{\hyperlink{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}{clouds}}-\/>set\_translation(clouds\_offset);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051   std::stringstream modelFile;}
+\DoxyCodeLine{00052   modelFile << CMAKELISTS\_DIR << \textcolor{stringliteral}{"{}/Resources/Models/dinosaurs.obj"{}};}
+\DoxyCodeLine{00053   \textcolor{comment}{/*"{}../Resources/Models/Pillum/PilumPainting\_Export.obj"{},*/}}
+\DoxyCodeLine{00054   \textcolor{comment}{/*"{}../Resources/Models/crytek-\/sponza/sponza\_triag.obj"{},*/}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056   std::shared\_ptr<GameObject> sponza = std::make\_shared<GameObject>(modelFile.str(), sponza\_offset, sponza\_scale, sponza\_rot);}
+\DoxyCodeLine{00057   \mbox{\hyperlink{class_scene_adb4517db7a091497503641f09bcc448f}{progress}} += 1.f;}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059   \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}.push\_back(sponza);}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   \mbox{\hyperlink{class_scene_a3916dea5f06d85ff57ad2fafdd6f1973}{mx\_isLoaded}}.lock();}
+\DoxyCodeLine{00062   \mbox{\hyperlink{class_scene_a54dd2409f952f879995e07bb0bcdc322}{loaded\_scene}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00063   \mbox{\hyperlink{class_scene_a3916dea5f06d85ff57ad2fafdd6f1973}{mx\_isLoaded}}.unlock();}
+\DoxyCodeLine{00064 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_rotation_8h_source_l00008}{Rotation\+::axis}}, \mbox{\hyperlink{_scene_8h_source_l00060}{clouds}}, \mbox{\hyperlink{_rotation_8h_source_l00007}{Rotation\+::degrees}}, \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}, \mbox{\hyperlink{_scene_8h_source_l00068}{loaded\+\_\+scene}}, \mbox{\hyperlink{_scene_8h_source_l00071}{mx\+\_\+is\+Loaded}}, and \mbox{\hyperlink{_scene_8h_source_l00067}{progress}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8h_source_l00022}{spwan()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_scene_ac342bf82c8a3b0342c099d26460b1c80}\label{class_scene_ac342bf82c8a3b0342c099d26460b1c80}} 
+\index{Scene@{Scene}!object\_is\_visible@{object\_is\_visible}}
+\index{object\_is\_visible@{object\_is\_visible}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{object\_is\_visible()}{object\_is\_visible()}}
+{\footnotesize\ttfamily bool Scene\+::object\+\_\+is\+\_\+visible (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$}]{game\+\_\+object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107 \{}
+\DoxyCodeLine{00108   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_scene_aeb9a8e5ced493c405ef0dba610c08032}{view\_frustum\_culling}}-\/>is\_inside(\textcolor{keyword}{static\_cast<}GLfloat\textcolor{keyword}{>}(\mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\_window}}-\/>get\_buffer\_width()) / \textcolor{keyword}{static\_cast<}GLfloat\textcolor{keyword}{>}(\mbox{\hyperlink{class_scene_accf6ec0287055942d6c2ce6c39db85a5}{main\_window}}-\/>get\_buffer\_height()),}
+\DoxyCodeLine{00109     \mbox{\hyperlink{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}{main\_camera}},}
+\DoxyCodeLine{00110     game\_object-\/>get\_aabb(),}
+\DoxyCodeLine{00111     game\_object-\/>get\_world\_trafo());}
+\DoxyCodeLine{00112 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00055}{main\+\_\+camera}}, \mbox{\hyperlink{_scene_8h_source_l00062}{main\+\_\+window}}, and \mbox{\hyperlink{_scene_8h_source_l00063}{view\+\_\+frustum\+\_\+culling}}.
+
+\mbox{\Hypertarget{class_scene_ad0c13f6c9170284efb27e1c2dd619452}\label{class_scene_ad0c13f6c9170284efb27e1c2dd619452}} 
+\index{Scene@{Scene}!set\_context\_setup@{set\_context\_setup}}
+\index{set\_context\_setup@{set\_context\_setup}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{set\_context\_setup()}{set\_context\_setup()}}
+{\footnotesize\ttfamily void Scene\+::set\+\_\+context\+\_\+setup (\begin{DoxyParamCaption}\item[{bool}]{context\+\_\+setup }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092 \{ this-\/>\mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\_setup}} = \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\_setup}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00074}{context\+\_\+setup}}.
+
+\mbox{\Hypertarget{class_scene_a4c9f16fc63fe168992b83e42bc688893}\label{class_scene_a4c9f16fc63fe168992b83e42bc688893}} 
+\index{Scene@{Scene}!setup\_game\_object\_context@{setup\_game\_object\_context}}
+\index{setup\_game\_object\_context@{setup\_game\_object\_context}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{setup\_game\_object\_context()}{setup\_game\_object\_context()}}
+{\footnotesize\ttfamily void Scene\+::setup\+\_\+game\+\_\+object\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081 \{}
+\DoxyCodeLine{00082   \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}[0]-\/>get\_model()-\/>create\_render\_context();}
+\DoxyCodeLine{00083   \mbox{\hyperlink{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}{context\_setup}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00074}{context\+\_\+setup}}, and \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+\mbox{\Hypertarget{class_scene_a7f98cbd90a5fa7d579699a84cd60ae57}\label{class_scene_a7f98cbd90a5fa7d579699a84cd60ae57}} 
+\index{Scene@{Scene}!spwan@{spwan}}
+\index{spwan@{spwan}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{spwan()}{spwan()}}
+{\footnotesize\ttfamily std\+::thread Scene\+::spwan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00022}{22}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023   \{}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{return} std::thread([=] \{ \mbox{\hyperlink{class_scene_a9cdaadd3a3b30e4361aa7173b556e06c}{load\_models}}(); \});}
+\DoxyCodeLine{00025   \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8cpp_source_l00037}{load\+\_\+models()}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_scene_a8d5112b1015ce11848c24c9a19bf1b53}\label{class_scene_a8d5112b1015ce11848c24c9a19bf1b53}} 
+\index{Scene@{Scene}!unbind\_textures\_and\_buffer@{unbind\_textures\_and\_buffer}}
+\index{unbind\_textures\_and\_buffer@{unbind\_textures\_and\_buffer}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{unbind\_textures\_and\_buffer()}{unbind\_textures\_and\_buffer()}}
+{\footnotesize\ttfamily void Scene\+::unbind\+\_\+textures\+\_\+and\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{_scene_8cpp_source}{Scene.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088 \{ \mbox{\hyperlink{class_scene_a238a3ddd4d24540f53d41018e6728595}{game\_objects}}[0]-\/>get\_model()-\/>unbind\_resources(); \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_scene_8h_source_l00065}{game\+\_\+objects}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}\label{class_scene_a92ecd6516bb3c26a6942a0ca981b0eb4}} 
+\index{Scene@{Scene}!clouds@{clouds}}
+\index{clouds@{clouds}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{clouds}{clouds}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_clouds}{Clouds}}$>$ Scene\+::clouds\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00060}{60}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00102}{get\+\_\+clouds()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00037}{load\+\_\+models()}}.
+
+\mbox{\Hypertarget{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}\label{class_scene_a5bb48636b9aa2e0c83157f8e3e7352d8}} 
+\index{Scene@{Scene}!context\_setup@{context\_setup}}
+\index{context\_setup@{context\_setup}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{context\_setup}{context\_setup}}
+{\footnotesize\ttfamily bool Scene\+::context\+\_\+setup\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00074}{74}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00094}{get\+\_\+context\+\_\+setup()}}, \mbox{\hyperlink{_scene_8cpp_source_l00092}{set\+\_\+context\+\_\+setup()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00080}{setup\+\_\+game\+\_\+object\+\_\+context()}}.
+
+\mbox{\Hypertarget{class_scene_a238a3ddd4d24540f53d41018e6728595}\label{class_scene_a238a3ddd4d24540f53d41018e6728595}} 
+\index{Scene@{Scene}!game\_objects@{game\_objects}}
+\index{game\_objects@{game\_objects}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{game\_objects}{game\_objects}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$>$ $>$ Scene\+::game\+\_\+objects\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00065}{65}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00096}{add\+\_\+game\+\_\+object()}}, \mbox{\hyperlink{_scene_8cpp_source_l00086}{bind\+\_\+textures\+\_\+and\+\_\+buffer()}}, \mbox{\hyperlink{_scene_8cpp_source_l00104}{get\+\_\+game\+\_\+objects()}}, \mbox{\hyperlink{_scene_8cpp_source_l00066}{get\+\_\+materials()}}, \mbox{\hyperlink{_scene_8cpp_source_l00090}{get\+\_\+texture\+\_\+count()}}, \mbox{\hyperlink{_scene_8cpp_source_l00037}{load\+\_\+models()}}, \mbox{\hyperlink{_scene_8cpp_source_l00080}{setup\+\_\+game\+\_\+object\+\_\+context()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00088}{unbind\+\_\+textures\+\_\+and\+\_\+buffer()}}.
+
+\mbox{\Hypertarget{class_scene_a54dd2409f952f879995e07bb0bcdc322}\label{class_scene_a54dd2409f952f879995e07bb0bcdc322}} 
+\index{Scene@{Scene}!loaded\_scene@{loaded\_scene}}
+\index{loaded\_scene@{loaded\_scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{loaded\_scene}{loaded\_scene}}
+{\footnotesize\ttfamily bool Scene\+::loaded\+\_\+scene\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00068}{68}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00068}{is\+\_\+loaded()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00037}{load\+\_\+models()}}.
+
+\mbox{\Hypertarget{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}\label{class_scene_abc76f0f64a1494c8e194dc2fa2d1f5fb}} 
+\index{Scene@{Scene}!main\_camera@{main\_camera}}
+\index{main\_camera@{main\_camera}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{main\_camera}{main\_camera}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_camera}{Camera}}$>$ Scene\+::main\+\_\+camera\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00055}{55}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00106}{object\+\_\+is\+\_\+visible()}}.
+
+\mbox{\Hypertarget{class_scene_accf6ec0287055942d6c2ce6c39db85a5}\label{class_scene_accf6ec0287055942d6c2ce6c39db85a5}} 
+\index{Scene@{Scene}!main\_window@{main\_window}}
+\index{main\_window@{main\_window}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{main\_window}{main\_window}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_window}{Window}}$>$ Scene\+::main\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00062}{62}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00106}{object\+\_\+is\+\_\+visible()}}.
+
+\mbox{\Hypertarget{class_scene_a3916dea5f06d85ff57ad2fafdd6f1973}\label{class_scene_a3916dea5f06d85ff57ad2fafdd6f1973}} 
+\index{Scene@{Scene}!mx\_isLoaded@{mx\_isLoaded}}
+\index{mx\_isLoaded@{mx\_isLoaded}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{mx\_isLoaded}{mx\_isLoaded}}
+{\footnotesize\ttfamily std\+::mutex Scene\+::mx\+\_\+is\+Loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00071}{71}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00068}{is\+\_\+loaded()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00037}{load\+\_\+models()}}.
+
+\mbox{\Hypertarget{class_scene_a6e630456cc4809272b043150de75af96}\label{class_scene_a6e630456cc4809272b043150de75af96}} 
+\index{Scene@{Scene}!mx\_progress@{mx\_progress}}
+\index{mx\_progress@{mx\_progress}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{mx\_progress}{mx\_progress}}
+{\footnotesize\ttfamily std\+::mutex Scene\+::mx\+\_\+progress\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00070}{70}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00074}{get\+\_\+progress()}}.
+
+\mbox{\Hypertarget{class_scene_ab4f572095d6b3f963fd889fa585527fc}\label{class_scene_ab4f572095d6b3f963fd889fa585527fc}} 
+\index{Scene@{Scene}!mx\_space\_ship@{mx\_space\_ship}}
+\index{mx\_space\_ship@{mx\_space\_ship}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{mx\_space\_ship}{mx\_space\_ship}}
+{\footnotesize\ttfamily std\+::mutex Scene\+::mx\+\_\+space\+\_\+ship\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00072}{72}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+\mbox{\Hypertarget{class_scene_adc5402f2898efd3554edeea7f42cfc7d}\label{class_scene_adc5402f2898efd3554edeea7f42cfc7d}} 
+\index{Scene@{Scene}!point\_lights@{point\_lights}}
+\index{point\_lights@{point\_lights}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{point\_lights}{point\_lights}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_point_light}{Point\+Light}}$>$ $>$ Scene\+::point\+\_\+lights\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00059}{59}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00031}{get\+\_\+point\+\_\+light\+\_\+count()}}, \mbox{\hyperlink{_scene_8cpp_source_l00035}{get\+\_\+point\+\_\+lights()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00014}{Scene()}}.
+
+\mbox{\Hypertarget{class_scene_adb4517db7a091497503641f09bcc448f}\label{class_scene_adb4517db7a091497503641f09bcc448f}} 
+\index{Scene@{Scene}!progress@{progress}}
+\index{progress@{progress}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{progress}{progress}}
+{\footnotesize\ttfamily GLfloat Scene\+::progress\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00067}{67}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00074}{get\+\_\+progress()}}, and \mbox{\hyperlink{_scene_8cpp_source_l00037}{load\+\_\+models()}}.
+
+\mbox{\Hypertarget{class_scene_ada94b6d7d304e27feadb68d4c5cf8d26}\label{class_scene_ada94b6d7d304e27feadb68d4c5cf8d26}} 
+\index{Scene@{Scene}!sun@{sun}}
+\index{sun@{sun}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{sun}{sun}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_directional_light}{Directional\+Light}}$>$ Scene\+::sun\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00058}{58}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00033}{get\+\_\+sun()}}.
+
+\mbox{\Hypertarget{class_scene_aeb9a8e5ced493c405ef0dba610c08032}\label{class_scene_aeb9a8e5ced493c405ef0dba610c08032}} 
+\index{Scene@{Scene}!view\_frustum\_culling@{view\_frustum\_culling}}
+\index{view\_frustum\_culling@{view\_frustum\_culling}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{view\_frustum\_culling}{view\_frustum\_culling}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_view_frustum_culling}{View\+Frustum\+Culling}}$>$ Scene\+::view\+\_\+frustum\+\_\+culling\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_scene_8h_source_l00063}{63}} of file \mbox{\hyperlink{_scene_8h_source}{Scene.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_scene_8cpp_source_l00106}{object\+\_\+is\+\_\+visible()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_scene_8cpp}{Scene.\+cpp}}\end{DoxyCompactItemize}

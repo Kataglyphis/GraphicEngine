@@ -4,7 +4,7 @@
 #include "Texture.h"
 
 class LoadingScreen {
-  public:
+ public:
   LoadingScreen();
 
   void init();
@@ -12,8 +12,8 @@ class LoadingScreen {
 
   ~LoadingScreen();
 
-  private:
-  //everything necessary for the loading screen
+ private:
+  // everything necessary for the loading screen
   Quad loading_screen_quad;
   Texture loading_screen_tex;
   Texture logo_tex;

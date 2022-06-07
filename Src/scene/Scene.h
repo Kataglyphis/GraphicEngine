@@ -1,26 +1,25 @@
 #pragma once
-#include <vector>
 #include <mutex>
 #include <thread>
+#include <vector>
 
-#include "GameObject.h"
-#include "ViewFrustumCulling.h"
-#include "RenderPassSceneDependend.h"
-#include "Window.h"
 #include "Clouds.h"
+#include "DirectionalLight.h"
+#include "GameObject.h"
 #include "ObjMaterial.h"
 #include "PointLight.h"
+#include "RenderPassSceneDependend.h"
 #include "Rotation.h"
-#include "DirectionalLight.h"
+#include "ViewFrustumCulling.h"
+#include "Window.h"
 
 class Scene {
-
-  public:
+ public:
   Scene();
-  Scene(std::shared_ptr<Camera> main_camera, std::shared_ptr<Window> main_window);
+  Scene(std::shared_ptr<Camera> main_camera,
+        std::shared_ptr<Window> main_window);
 
-  std::thread spwan()
-  {
+  std::thread spwan() {
     return std::thread([=] { load_models(); });
   }
 
@@ -34,8 +33,8 @@ class Scene {
   std::shared_ptr<Clouds> get_clouds();
   std::vector<std::shared_ptr<GameObject>> get_game_objects() const;
 
-
-  void add_game_object(const std::string& model_path, glm::vec3 translation, GLfloat scale, Rotation rot);
+  void add_game_object(const std::string& model_path, glm::vec3 translation,
+                       GLfloat scale, Rotation rot);
   void load_models();
 
   bool is_loaded();
@@ -46,15 +45,14 @@ class Scene {
 
   void set_context_setup(bool context_setup);
 
-
   ~Scene();
 
-  private:
+ private:
   bool object_is_visible(std::shared_ptr<GameObject> game_object);
 
   std::shared_ptr<Camera> main_camera;
 
-  //lights
+  // lights
   std::shared_ptr<DirectionalLight> sun;
   std::vector<std::shared_ptr<PointLight>> point_lights;
   std::shared_ptr<Clouds> clouds;

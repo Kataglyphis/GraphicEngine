@@ -1,0 +1,59 @@
+\hypertarget{_omni_shadow_map_pass_8cpp_source}{}\doxysection{Omni\+Shadow\+Map\+Pass.\+cpp}
+\label{_omni_shadow_map_pass_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/point\_light/OmniShadowMapPass.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/point\_light/OmniShadowMapPass.cpp}}
+\mbox{\hyperlink{_omni_shadow_map_pass_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_omni_shadow_map_pass_8h}{OmniShadowMapPass.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00004}\mbox{\hyperlink{class_omni_shadow_map_pass_a83738d8cc01e93d34f4cd9ef2cb5d420}{00004}} \mbox{\hyperlink{class_omni_shadow_map_pass_a83738d8cc01e93d34f4cd9ef2cb5d420}{OmniShadowMapPass::OmniShadowMapPass}}() \{ \mbox{\hyperlink{class_omni_shadow_map_pass_aca137cc519e683b64ac643eb362c255e}{create\_shader\_program}}(); \}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00006}\mbox{\hyperlink{class_omni_shadow_map_pass_acab0107dfa0a81426d4835f02d2243e6}{00006}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_shadow_map_pass_acab0107dfa0a81426d4835f02d2243e6}{OmniShadowMapPass::execute}}(std::shared\_ptr<PointLight> p\_light, std::shared\_ptr<Scene> scene)}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00007}00007 \{}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00009}00009   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00011}00011   glViewport(0, 0, p\_light-\/>get\_omni\_shadow\_map()-\/>get\_shadow\_width(), p\_light-\/>get\_omni\_shadow\_map()-\/>get\_shadow\_height());}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00013}00013   p\_light-\/>get\_omni\_shadow\_map()-\/>write();}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00014}00014   glClear(GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00016}00016   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformVec3(p\_light-\/>get\_position(), \textcolor{stringliteral}{"{}light\_pos"{}});}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00017}00017   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformFloat(p\_light-\/>get\_far\_plane(), \textcolor{stringliteral}{"{}far\_plane"{}});}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00019}00019   std::vector<glm::mat4> light\_matrices = p\_light-\/>calculate\_light\_transform();}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00021}00021   std::stringstream ss;}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00022}00022   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < 6; i++) \{}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00024}00024     ss << \textcolor{stringliteral}{"{}light\_matrices["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00025}00025     \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformMatrix4fv(light\_matrices[i], ss.str());}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00026}00026   \}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00028}00028   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>validate\_program();}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00030}00030   std::vector<std::shared\_ptr<GameObject>> game\_objects = scene-\/>get\_game\_objects();}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00032}00032   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00034}00034     \textcolor{comment}{/* if (object\_is\_visible(object)) \{*/}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00035}00035     \mbox{\hyperlink{class_omni_shadow_map_pass_a5a6942df1c3288b6238d1b2a3ebccabf}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(), object-\/>get\_normal\_world\_trafo());}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00037}00037     \textcolor{keywordtype}{object}-\/>render();}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00038}00038     \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00039}00039   \}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00041}00041   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00044}\mbox{\hyperlink{class_omni_shadow_map_pass_a5a6942df1c3288b6238d1b2a3ebccabf}{00044}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_shadow_map_pass_a5a6942df1c3288b6238d1b2a3ebccabf}{OmniShadowMapPass::set\_game\_object\_uniforms}}(glm::mat4 model, glm::mat4 normal\_model) \{ \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}}); \}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00046}\mbox{\hyperlink{class_omni_shadow_map_pass_aca137cc519e683b64ac643eb362c255e}{00046}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_shadow_map_pass_aca137cc519e683b64ac643eb362c255e}{OmniShadowMapPass::create\_shader\_program}}()}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00048}00048   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}} = std::make\_shared<OmniDirShadowShaderProgram>(\mbox{\hyperlink{class_omni_dir_shadow_shader_program}{OmniDirShadowShaderProgram}}\{\});}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00049}00049   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>create\_from\_files(}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00050}00050     \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.vert"{}}, \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.geom"{}}, \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.frag"{}});}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00051}00051 \}}
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_omni_shadow_map_pass_8cpp_source_l00053}\mbox{\hyperlink{class_omni_shadow_map_pass_a19939c7d74547768deed24d5e31511df}{00053}} \mbox{\hyperlink{class_omni_shadow_map_pass_a19939c7d74547768deed24d5e31511df}{OmniShadowMapPass::\string~OmniShadowMapPass}}() \{ \}}
+
+\end{DoxyCode}

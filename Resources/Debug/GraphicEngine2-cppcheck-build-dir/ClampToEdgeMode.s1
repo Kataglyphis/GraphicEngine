@@ -1,3 +1,0 @@
-ClampToEdgeMode
-activate call:[glTexParameteri] noreturn:[glTexParameteri]
-ClampToEdgeMode

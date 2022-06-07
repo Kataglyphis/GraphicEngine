@@ -1,0 +1,259 @@
+\hypertarget{struct_vertex}{}\doxysection{Vertex Struct Reference}
+\label{struct_vertex}\index{Vertex@{Vertex}}
+
+
+{\ttfamily \#include $<$Vertex.\+h$>$}
+
+
+
+Collaboration diagram for Vertex\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_vertex_a97488994a2482d70da74e1b91d40e169}{Vertex}} ()
+\item 
+\mbox{\hyperlink{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}{Vertex}} (glm\+::vec3 pos, glm\+::vec3 \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}, glm\+::vec3 \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}}, glm\+::vec2 \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\+\_\+coords}})
+\item 
+glm\+::vec3 \mbox{\hyperlink{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}{get\+\_\+position}} () const
+\item 
+glm\+::vec3 \mbox{\hyperlink{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}{get\+\_\+normal}} () const
+\item 
+glm\+::vec3 \mbox{\hyperlink{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}{get\+\_\+color}} () const
+\item 
+glm\+::vec2 \mbox{\hyperlink{struct_vertex_a3cf900933d214e6b8c18c940a413eece}{get\+\_\+tex\+\_\+coors}} () const
+\item 
+bool \mbox{\hyperlink{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}{operator==}} (const \mbox{\hyperlink{struct_vertex}{Vertex}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}}
+\item 
+glm\+::vec2 \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\+\_\+coords}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00005}{5}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_vertex_a97488994a2482d70da74e1b91d40e169}\label{struct_vertex_a97488994a2482d70da74e1b91d40e169}} 
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{Vertex()}{Vertex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00013}{13}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014   \{}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     this-\/>\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} = glm::vec3(0);}
+\DoxyCodeLine{00017     this-\/>\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = glm::vec3(0);}
+\DoxyCodeLine{00018     this-\/>\mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}} = glm::vec3(0);}
+\DoxyCodeLine{00019     this-\/>\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} = glm::vec2(0);}
+\DoxyCodeLine{00020   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}\label{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}} 
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{Vertex()}{Vertex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{pos,  }\item[{glm\+::vec3}]{normal,  }\item[{glm\+::vec3}]{color,  }\item[{glm\+::vec2}]{texture\+\_\+coords }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00022}{22}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023   \{}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025     this-\/>\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} = pos;}
+\DoxyCodeLine{00026     this-\/>\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}};}
+\DoxyCodeLine{00027     this-\/>\mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}} = \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
+\DoxyCodeLine{00028     this-\/>\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} = \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}};}
+\DoxyCodeLine{00029   \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00010}{color}}, \mbox{\hyperlink{_vertex_8h_source_l00009}{normal}}, and \mbox{\hyperlink{_vertex_8h_source_l00011}{texture\+\_\+coords}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}\label{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}} 
+\index{Vertex@{Vertex}!get\_color@{get\_color}}
+\index{get\_color@{get\_color}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{get\_color()}{get\_color()}}
+{\footnotesize\ttfamily glm\+::vec3 Vertex\+::get\+\_\+color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00035}{35}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00010}{color}}.
+
+\mbox{\Hypertarget{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}\label{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}} 
+\index{Vertex@{Vertex}!get\_normal@{get\_normal}}
+\index{get\_normal@{get\_normal}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{get\_normal()}{get\_normal()}}
+{\footnotesize\ttfamily glm\+::vec3 Vertex\+::get\+\_\+normal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00033}{33}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00009}{normal}}.
+
+\mbox{\Hypertarget{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}\label{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}} 
+\index{Vertex@{Vertex}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily glm\+::vec3 Vertex\+::get\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00031}{31}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00008}{position}}.
+
+\mbox{\Hypertarget{struct_vertex_a3cf900933d214e6b8c18c940a413eece}\label{struct_vertex_a3cf900933d214e6b8c18c940a413eece}} 
+\index{Vertex@{Vertex}!get\_tex\_coors@{get\_tex\_coors}}
+\index{get\_tex\_coors@{get\_tex\_coors}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{get\_tex\_coors()}{get\_tex\_coors()}}
+{\footnotesize\ttfamily glm\+::vec2 Vertex\+::get\+\_\+tex\+\_\+coors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00037}{37}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00011}{texture\+\_\+coords}}.
+
+\mbox{\Hypertarget{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}\label{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}} 
+\index{Vertex@{Vertex}!operator==@{operator==}}
+\index{operator==@{operator==}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Vertex\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_vertex}{Vertex}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00039}{39}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040   \{}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} == other.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} \&\& \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} == other.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} \&\& \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} == other.\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} \&\& \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}} == other.\mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
+\DoxyCodeLine{00043   \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_vertex_8h_source_l00010}{color}}, \mbox{\hyperlink{_vertex_8h_source_l00009}{normal}}, \mbox{\hyperlink{_vertex_8h_source_l00008}{position}}, and \mbox{\hyperlink{_vertex_8h_source_l00011}{texture\+\_\+coords}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}\label{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}} 
+\index{Vertex@{Vertex}!color@{color}}
+\index{color@{color}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily glm\+::vec3 Vertex\+::color}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00010}{10}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_vertex_8h_source_l00035}{get\+\_\+color()}}, \mbox{\hyperlink{_vertex_8h_source_l00039}{operator==()}}, and \mbox{\hyperlink{_vertex_8h_source_l00022}{Vertex()}}.
+
+\mbox{\Hypertarget{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}\label{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}} 
+\index{Vertex@{Vertex}!normal@{normal}}
+\index{normal@{normal}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{normal}{normal}}
+{\footnotesize\ttfamily glm\+::vec3 Vertex\+::normal}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00009}{9}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_vertex_8h_source_l00033}{get\+\_\+normal()}}, \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{Obj\+Loader\+::load()}}, \mbox{\hyperlink{_vertex_8h_source_l00050}{std\+::hash$<$ Vertex $>$\+::operator()()}}, \mbox{\hyperlink{_vertex_8h_source_l00039}{operator==()}}, and \mbox{\hyperlink{_vertex_8h_source_l00022}{Vertex()}}.
+
+\mbox{\Hypertarget{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}\label{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}} 
+\index{Vertex@{Vertex}!position@{position}}
+\index{position@{position}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 Vertex\+::position}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00008}{8}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_vertex_8h_source_l00031}{get\+\_\+position()}}, \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{Obj\+Loader\+::load()}}, \mbox{\hyperlink{_vertex_8h_source_l00050}{std\+::hash$<$ Vertex $>$\+::operator()()}}, and \mbox{\hyperlink{_vertex_8h_source_l00039}{operator==()}}.
+
+\mbox{\Hypertarget{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}\label{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}} 
+\index{Vertex@{Vertex}!texture\_coords@{texture\_coords}}
+\index{texture\_coords@{texture\_coords}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{texture\_coords}{texture\_coords}}
+{\footnotesize\ttfamily glm\+::vec2 Vertex\+::texture\+\_\+coords}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00011}{11}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_vertex_8h_source_l00037}{get\+\_\+tex\+\_\+coors()}}, \mbox{\hyperlink{_vertex_8h_source_l00050}{std\+::hash$<$ Vertex $>$\+::operator()()}}, \mbox{\hyperlink{_vertex_8h_source_l00039}{operator==()}}, and \mbox{\hyperlink{_vertex_8h_source_l00022}{Vertex()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_vertex_8h}{Vertex.\+h}}\end{DoxyCompactItemize}

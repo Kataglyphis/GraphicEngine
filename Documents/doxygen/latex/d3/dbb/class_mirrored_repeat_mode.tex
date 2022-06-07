@@ -1,0 +1,94 @@
+\hypertarget{class_mirrored_repeat_mode}{}\doxysection{Mirrored\+Repeat\+Mode Class Reference}
+\label{class_mirrored_repeat_mode}\index{MirroredRepeatMode@{MirroredRepeatMode}}
+
+
+{\ttfamily \#include $<$Mirrored\+Repeat\+Mode.\+h$>$}
+
+
+
+Inheritance diagram for Mirrored\+Repeat\+Mode\+:
+% FIG 0
+
+
+Collaboration diagram for Mirrored\+Repeat\+Mode\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mirrored_repeat_mode_abd63acc59bd0b66ab85e444724f66220}{Mirrored\+Repeat\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_mirrored_repeat_mode_a72aacb23fe986bfb81db5fb939dc60f6}{activate}} () override
+\item 
+\mbox{\hyperlink{class_mirrored_repeat_mode_a02f2bceae42ad489afb63c13057e3683}{$\sim$\+Mirrored\+Repeat\+Mode}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_mirrored_repeat_mode_8h_source_l00004}{4}} of file \mbox{\hyperlink{_mirrored_repeat_mode_8h_source}{Mirrored\+Repeat\+Mode.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mirrored_repeat_mode_abd63acc59bd0b66ab85e444724f66220}\label{class_mirrored_repeat_mode_abd63acc59bd0b66ab85e444724f66220}} 
+\index{MirroredRepeatMode@{MirroredRepeatMode}!MirroredRepeatMode@{MirroredRepeatMode}}
+\index{MirroredRepeatMode@{MirroredRepeatMode}!MirroredRepeatMode@{MirroredRepeatMode}}
+\doxysubsubsection{\texorpdfstring{MirroredRepeatMode()}{MirroredRepeatMode()}}
+{\footnotesize\ttfamily Mirrored\+Repeat\+Mode\+::\+Mirrored\+Repeat\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_mirrored_repeat_mode_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_mirrored_repeat_mode_8cpp_source}{Mirrored\+Repeat\+Mode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003 \{ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_mirrored_repeat_mode_a02f2bceae42ad489afb63c13057e3683}\label{class_mirrored_repeat_mode_a02f2bceae42ad489afb63c13057e3683}} 
+\index{MirroredRepeatMode@{MirroredRepeatMode}!````~MirroredRepeatMode@{$\sim$MirroredRepeatMode}}
+\index{````~MirroredRepeatMode@{$\sim$MirroredRepeatMode}!MirroredRepeatMode@{MirroredRepeatMode}}
+\doxysubsubsection{\texorpdfstring{$\sim$MirroredRepeatMode()}{~MirroredRepeatMode()}}
+{\footnotesize\ttfamily Mirrored\+Repeat\+Mode\+::$\sim$\+Mirrored\+Repeat\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_mirrored_repeat_mode_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_mirrored_repeat_mode_8cpp_source}{Mirrored\+Repeat\+Mode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mirrored_repeat_mode_a72aacb23fe986bfb81db5fb939dc60f6}\label{class_mirrored_repeat_mode_a72aacb23fe986bfb81db5fb939dc60f6}} 
+\index{MirroredRepeatMode@{MirroredRepeatMode}!activate@{activate}}
+\index{activate@{activate}!MirroredRepeatMode@{MirroredRepeatMode}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily void Mirrored\+Repeat\+Mode\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_texture_wrapping_mode_ae715af5a440b276e5b048e791979b955}{Texture\+Wrapping\+Mode}}.
+
+
+
+Definition at line \mbox{\hyperlink{_mirrored_repeat_mode_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_mirrored_repeat_mode_8cpp_source}{Mirrored\+Repeat\+Mode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_MIRRORED\_REPEAT);}
+\DoxyCodeLine{00008   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_MIRRORED\_REPEAT);}
+\DoxyCodeLine{00009 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/texture/\mbox{\hyperlink{_mirrored_repeat_mode_8h}{Mirrored\+Repeat\+Mode.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/texture/\mbox{\hyperlink{_mirrored_repeat_mode_8cpp}{Mirrored\+Repeat\+Mode.\+cpp}}\end{DoxyCompactItemize}

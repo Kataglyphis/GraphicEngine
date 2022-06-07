@@ -1,0 +1,34 @@
+\hypertarget{_quad_8cpp_source}{}\doxysection{Quad.\+cpp}
+\label{_quad_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/Quad.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/Quad.cpp}}
+\mbox{\hyperlink{_quad_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_quad_8h}{Quad.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00003}\mbox{\hyperlink{class_quad_ae446d188d645cc5c512336f25d1a697a}{00003}} \mbox{\hyperlink{class_quad_ae446d188d645cc5c512336f25d1a697a}{Quad::Quad}}()}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00005}00005   glGenVertexArrays(1, \&\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00006}00006   glGenBuffers(1, \&\mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\_vbo}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00008}00008   glBindVertexArray(\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00009}00009   glBindBuffer(GL\_ARRAY\_BUFFER, \mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\_vbo}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00010}00010   glBufferData(GL\_ARRAY\_BUFFER, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_quad_a3cc5b3adc4a394880f13564480798eff}{vertices}}), \&\mbox{\hyperlink{class_quad_a3cc5b3adc4a394880f13564480798eff}{vertices}}, GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00011}00011   glEnableVertexAttribArray(0);}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00012}00012   glVertexAttribPointer(0, 3, GL\_FLOAT, GL\_FALSE, 5 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00013}00013   glEnableVertexAttribArray(1);}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00014}00014   glVertexAttribPointer(1, 2, GL\_FLOAT, GL\_FALSE, 5 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), (\textcolor{keywordtype}{void}*)(3 * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00015}00015 \}}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00017}\mbox{\hyperlink{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}{00017}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_quad_aa154d8f02a63139b2d2d9e772f5ee142}{Quad::render}}()}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00018}00018 \{}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00019}00019   glBindVertexArray(\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00020}00020   glDrawArrays(GL\_TRIANGLE\_STRIP, 0, 4);}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00021}00021   glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00024}\mbox{\hyperlink{class_quad_a5db77c0481b30c0b7c1014cc535284ad}{00024}} \mbox{\hyperlink{class_quad_a5db77c0481b30c0b7c1014cc535284ad}{Quad::\string~Quad}}()}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00026}00026   glDeleteVertexArrays(1, \&\mbox{\hyperlink{class_quad_a3f54c3cb78d10bc2ec9ff982c583b4a6}{q\_vao}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00027}00027   glDeleteBuffers(1, \&\mbox{\hyperlink{class_quad_a0f57bfbf50640db8453c17858dbb17e0}{q\_vbo}});}
+\DoxyCodeLine{\Hypertarget{_quad_8cpp_source_l00028}00028 \}}
+
+\end{DoxyCode}

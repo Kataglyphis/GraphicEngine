@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.18)
 
 # set the project name
 project(GraphicsEngine VERSION 1.9
@@ -70,11 +70,19 @@ endif()
 # GCC 
 set(GCC_WARNINGS ${CLANG_WARNINGS})
 
+if(MSVC)
+  set(PROJECT_WARNINGS ${MSVC_WARNINGS})
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  set(PROJECT_WARNINGS ${CLANG_WARNINGS})
+else()
+  set(PROJECT_WARNINGS ${GCC_WARNINGS})
+endif()
+
 include(FetchContent)
 # include google test to project
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+  URL https://github.com/google/googletest/archive/e2239ee6043f73722e7aa812a459f54a28552929.zip
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -115,7 +123,6 @@ find_package( OpenGL REQUIRED COMPONENTS OpenGL)
 set(OpenGL_GL_PREFERENCE GLVND)
 
 # for faster building
-set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 FILE(GLOB GUI_FILTER                    "Src/gui/*.h"                                           "Src/gui/*.cpp")
@@ -145,82 +152,85 @@ FILE(GLOB SCENE_FILTER                  "Src/scene/*.h"                         
 FILE(GLOB WINDOW_FILTER                 "Src/window/*.h"                                        "Src/window/*.cpp")
 FILE(GLOB DEBUG_FILTER                  "Src/debug/*.h"                                         "Src/debug/*.cpp")
 FILE(GLOB UTIL_FILTER                   "Src/util/*.h"                                          "Src/util/*.cpp")
-FILE(GLOB MAIN_FILTER                   "Src/*.h"                                               "Src/*.cpp")
+
+FILE(GLOB APP_FILTER                    "Src/app/*.h"                                           "Src/app/*.cpp")
+
+FILE(GLOB COMMON_FILTER                 "Src/*.h"                                               "Src/*.cpp")
 
 FILE(GLOB GLAD_FILTER                   "ExternalLib/GLAD/include/glad/*.h"                     "ExternalLib/GLAD/src/*.c"
                                         "ExternalLib/GLAD/include/KHR/*.h")
 
 # add filters to the solution explorer for the shaders :))
 file(GLOB SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/*.geom
 )
 
 file(GLOB PBR_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/*.geom
 )
 
 file(GLOB BRDF_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/pbr/brdf/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/brdf/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/brdf/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/brdf/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/brdf/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/pbr/brdf/*.geom
 )
 
 file(GLOB COMMON_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/common/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/common/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/common/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/common/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/common/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/common/*.geom
 )
 
 file(GLOB CLOUDS_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/clouds/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/clouds/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/clouds/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/clouds/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/clouds/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/clouds/*.geom
 )
 
 file(GLOB LOADING_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/loading_screen/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/loading_screen/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/loading_screen/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/loading_screen/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/loading_screen/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/loading_screen/*.geom
 )
 
 file(GLOB RASTERIZER_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.geom
 )
 
 file(GLOB RASTERIZER_SHADOWS_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/rasterizer/shadows/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.geom
 )
 
 file(GLOB SKYBOX_SHADER_FILTER   
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.vert
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.frag
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.glsl
-        ${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.comp
-	${PROJECT_BINARY_DIR}/../Resources/Shaders/skybox/*.geom
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.vert
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.frag
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.glsl
+        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.comp
+	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.geom
 )
 
 source_group("gui"                                      FILES ${GUI_FILTER})
@@ -261,22 +271,23 @@ source_group("scene/sky_box"                            FILES ${SKY_BOX_FILTER})
 source_group("scene/texture"                            FILES ${TEXTURE_FILTER})
 source_group("scene"                                    FILES ${SCENE_FILTER})
 
-source_group("app"                                      FILES ${MAIN_FILTER})
+source_group("app"                                      FILES ${APP_FILTER})
+source_group("common"                                   FILES ${COMMON_FILTER})
 
 #set all your sources accordingly
 file(GLOB_RECURSE SOURCES "Src/*.cpp"
                           "Src/*.c"
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/GLAD/*.c
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.cpp
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/GLAD/*.c
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/*.cpp
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
 
 file(GLOB_RECURSE HEADERS "Src/*.h"
                           "Src/*.hpp"
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/GLAD/*.h
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/*.h
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_glfw.h
-                          ${PROJECT_BINARY_DIR}/../ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/GLAD/*.h
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/*.h
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_glfw.h
+                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
 
 # add the executable
 add_executable( ${PROJECT_NAME} 
@@ -309,8 +320,11 @@ add_executable( ${PROJECT_NAME}
                 ${SKY_BOX_FILTER}
                 ${TEXTURE_FILTER}
                 ${SCENE_FILTER}
-                ${MAIN_FILTER})
+                ${COMMON_FILTER}
+                ${APP_FILTER})
 
+target_compile_options(${PROJECT_NAME} INTERFACE ${PROJECT_WARNINGS})
+        
 target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/camera"
                                                 PUBLIC "./Src/compute"
@@ -357,47 +371,112 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
                        ${PROJECT_BINARY_DIR})
 
-# let us print all errors when on UNIX
-if(UNIX)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g")
-else()
-endif()
+# first we can indicate the documentation build as an option and set it to ON by default
+option(BUILD_DOC "Build documentation" ON)
+
+# check if Doxygen is installed
+find_package(Doxygen)
+if (DOXYGEN_FOUND)
+    # set input and output files
+    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
+    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)    # request to configure the file
+    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+    message("Doxygen build started")    # note the option ALL which allows to build the docs together with the application
+    add_custom_target( doc_doxygen ALL
+        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        COMMENT "Generating API documentation with Doxygen"
+        VERBATIM )
+else (DOXYGEN_FOUND)
+  message("Doxygen need to be installed to generate the doxygen documentation")
+endif (DOXYGEN_FOUND)
+
+find_program(CPPCHECK cppcheck)
+if(CPPCHECK)
+  set(CMAKE_CXX_CPPCHECK ${CPPCHECK} --suppress=missingInclude --enable=all --suppressions-list=Documents/cppcheck/suppressions.txt)
+endif(CPPCHECK)
+
+find_program(CLANGTIDY clang-tidy)
+if(CLANGTIDY)
+  set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
+endif(CLANGTIDY)
 
 # all testing related stuff
 enable_testing()
 
+FILE(GLOB RENDERER_TEST_FILTER                  "Test/*.h"                                               "Test/*.cpp"
+                                                "Test/*.hpp")
+
+source_group("TEST_FILES"                                   FILES ${RENDERER_TEST_FILTER})
+
 add_executable(
-  hello_test
-  Test/hello_test.cc
+        openGLRendererTester
+        ${RENDERER_TEST_FILTER}
+        ${SHADER_FILTER}
+        ${PBR_SHADER_FILTER}
+        ${BRDF_SHADER_FILTER} 
+        ${CAMERA_FILTER} 
+        ${COMMON_SHADER_FILTER}  
+        ${CLOUDS_SHADER_FILTER}
+        ${LOADING_SHADER_FILTER}
+        ${RASTERIZER_SHADER_FILTER}
+        ${RASTERIZER_SHADOWS_SHADER_FILTER}
+        ${SKYBOX_SHADER_FILTER}
+        ${GUI_FILTER}
+        ${IMGUI_FILTER}
+        ${GLAD_FILTER}
+        ${WINDOW_FILTER}
+        ${DEBUG_FILTER}
+        ${UTIL_FILTER}
+        ${COMPUTE_FILTER}
+        ${RENDERER_FILTER}
+        ${DEFERRED_FILTER}
+        ${LOAD_SCREEN_FILTER}
+        ${ATMOSPHERE_EFFECTS_FILTER}
+        ${LIGHT_FILTER}
+        ${D_LIGHT_FILTER}
+        ${P_LIGHT_FILTER}
+        ${CLOUD_FILTER}
+        ${SHADOWS_FILTER}
+        ${SKY_BOX_FILTER}
+        ${TEXTURE_FILTER}
+        ${SCENE_FILTER}
+        ${COMMON_FILTER}
 )
-target_link_libraries(
-  hello_test
-  gtest_main
-)
+
+target_include_directories(openGLRendererTester         PUBLIC "./Src"
+                                                        PUBLIC "./Src/camera"
+                                                        PUBLIC "./Src/compute"
+                                                        PUBLIC "./Src/renderer"
+                                                        PUBLIC "./Src/renderer/loading_screen"
+                                                        PUBLIC "./Src/renderer/deferred"
+                                                        PUBLIC "./Src/debug"
+                                                        PUBLIC "./Src/window"
+                                                        PUBLIC "./Src/scene"
+                                                        PUBLIC "./Src/scene/atmospheric_effects/clouds"
+                                                        PUBLIC "./Src/scene/light"
+                                                        PUBLIC "./Src/scene/light/directional_light"
+                                                        PUBLIC "./Src/scene/light/point_light"
+                                                        PUBLIC "./Src/scene/shadows"
+                                                        PUBLIC "./Src/scene/sky_box"
+                                                        PUBLIC "./Src/scene/texture"
+                                                        PUBLIC "./Src/gui"
+                                                        PUBLIC "./Src/util"  
+                                                        PUBLIC "./ExternalLib/GLAD/include"
+                                                        ${OPENGL_INCLUDE_DIRS})
+
+
+target_link_libraries(openGLRendererTester      PUBLIC  gtest_main
+                                                        ${CMAKE_DL_LIBS} # for imgui
+                                                        Threads::Threads
+                                                        ${OPENGL_LIBRARIES}
+                                                        glfw
+                                                        imgui
+                                                        stb 
+                                                        glm 
+                                                        tinyobjloader)
+
+target_link_libraries(openGLRendererTester      PRIVATE GSL)
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
-
-# first we can indicate the documentation build as an option and set it to ON by default
-# option(BUILD_DOC "Build documentation" ON)
-
-# check if Doxygen is installed
-#find_package(Doxygen)
-#if (DOXYGEN_FOUND)
-    # set input and output files
- #   set(DOXYGEN_IN ${CMAKE_CURRENT_BINARY_DIR}/../Documents/Doxyfile.in)
-  #  set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-
-    # request to configure the file
-   # configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-   # message("Doxygen build started")
-
-    # note the option ALL which allows to build the docs together with the application
-   # add_custom_target( doc_doxygen ALL
-    #    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-     #   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-      #  COMMENT "Generating API documentation with Doxygen"
-       # VERBATIM )
-#else (DOXYGEN_FOUND)
- # message("Doxygen need to be installed to generate the doxygen documentation")
-#endif (DOXYGEN_FOUND)
+gtest_discover_tests(openGLRendererTester)

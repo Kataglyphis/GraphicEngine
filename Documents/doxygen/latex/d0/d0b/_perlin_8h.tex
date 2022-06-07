@@ -1,0 +1,427 @@
+\hypertarget{_perlin_8h}{}\doxysection{C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/atmospheric\+\_\+effects/clouds/\+Perlin.h File Reference}
+\label{_perlin_8h}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Perlin.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/atmospheric\_effects/clouds/Perlin.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for Perlin.\+h\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}} (double t)
+\item 
+double \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}} (double t, double a, double b)
+\item 
+double \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}} (int hash, double x, double y, double z)
+\item 
+double \mbox{\hyperlink{_perlin_8h_a35157b8efa76162c016a3298f54f43b5}{perlin\+\_\+noise}} (float x, float y, std\+::vector$<$ int $>$ \&p)
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{_perlin_8h_acb5e656b468026dbdc0c0baa307c49b3}{get\+Permutation\+Vector}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}\label{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}} 
+\index{Perlin.h@{Perlin.h}!fade@{fade}}
+\index{fade@{fade}!Perlin.h@{Perlin.h}}
+\doxysubsubsection{\texorpdfstring{fade()}{fade()}}
+{\footnotesize\ttfamily double fade (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_perlin_8h_source_l00027}{27}} of file \mbox{\hyperlink{_perlin_8h_source}{Perlin.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{ \textcolor{keywordflow}{return} t * t * t * (t * (t * 6 -\/ 15) + 10); \};}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_perlin_8h_source_l00049}{perlin\+\_\+noise()}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_perlin_8h_acb5e656b468026dbdc0c0baa307c49b3}\label{_perlin_8h_acb5e656b468026dbdc0c0baa307c49b3}} 
+\index{Perlin.h@{Perlin.h}!getPermutationVector@{getPermutationVector}}
+\index{getPermutationVector@{getPermutationVector}!Perlin.h@{Perlin.h}}
+\doxysubsubsection{\texorpdfstring{getPermutationVector()}{getPermutationVector()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ get\+Permutation\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_perlin_8h_source_l00115}{115}} of file \mbox{\hyperlink{_perlin_8h_source}{Perlin.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116 \{}
+\DoxyCodeLine{00117   std::vector<int> p;}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119   std::vector<int> permutation = \{ 151,}
+\DoxyCodeLine{00120     160,}
+\DoxyCodeLine{00121     137,}
+\DoxyCodeLine{00122     91,}
+\DoxyCodeLine{00123     90,}
+\DoxyCodeLine{00124     15,}
+\DoxyCodeLine{00125     131,}
+\DoxyCodeLine{00126     13,}
+\DoxyCodeLine{00127     201,}
+\DoxyCodeLine{00128     95,}
+\DoxyCodeLine{00129     96,}
+\DoxyCodeLine{00130     53,}
+\DoxyCodeLine{00131     194,}
+\DoxyCodeLine{00132     233,}
+\DoxyCodeLine{00133     7,}
+\DoxyCodeLine{00134     225,}
+\DoxyCodeLine{00135     140,}
+\DoxyCodeLine{00136     36,}
+\DoxyCodeLine{00137     103,}
+\DoxyCodeLine{00138     30,}
+\DoxyCodeLine{00139     69,}
+\DoxyCodeLine{00140     142,}
+\DoxyCodeLine{00141     8,}
+\DoxyCodeLine{00142     99,}
+\DoxyCodeLine{00143     37,}
+\DoxyCodeLine{00144     240,}
+\DoxyCodeLine{00145     21,}
+\DoxyCodeLine{00146     10,}
+\DoxyCodeLine{00147     23,}
+\DoxyCodeLine{00148     190,}
+\DoxyCodeLine{00149     6,}
+\DoxyCodeLine{00150     148,}
+\DoxyCodeLine{00151     247,}
+\DoxyCodeLine{00152     120,}
+\DoxyCodeLine{00153     234,}
+\DoxyCodeLine{00154     75,}
+\DoxyCodeLine{00155     0,}
+\DoxyCodeLine{00156     26,}
+\DoxyCodeLine{00157     197,}
+\DoxyCodeLine{00158     62,}
+\DoxyCodeLine{00159     94,}
+\DoxyCodeLine{00160     252,}
+\DoxyCodeLine{00161     219,}
+\DoxyCodeLine{00162     203,}
+\DoxyCodeLine{00163     117,}
+\DoxyCodeLine{00164     35,}
+\DoxyCodeLine{00165     11,}
+\DoxyCodeLine{00166     32,}
+\DoxyCodeLine{00167     57,}
+\DoxyCodeLine{00168     177,}
+\DoxyCodeLine{00169     33,}
+\DoxyCodeLine{00170     88,}
+\DoxyCodeLine{00171     237,}
+\DoxyCodeLine{00172     149,}
+\DoxyCodeLine{00173     56,}
+\DoxyCodeLine{00174     87,}
+\DoxyCodeLine{00175     174,}
+\DoxyCodeLine{00176     20,}
+\DoxyCodeLine{00177     125,}
+\DoxyCodeLine{00178     136,}
+\DoxyCodeLine{00179     171,}
+\DoxyCodeLine{00180     168,}
+\DoxyCodeLine{00181     68,}
+\DoxyCodeLine{00182     175,}
+\DoxyCodeLine{00183     74,}
+\DoxyCodeLine{00184     165,}
+\DoxyCodeLine{00185     71,}
+\DoxyCodeLine{00186     134,}
+\DoxyCodeLine{00187     139,}
+\DoxyCodeLine{00188     48,}
+\DoxyCodeLine{00189     27,}
+\DoxyCodeLine{00190     166,}
+\DoxyCodeLine{00191     77,}
+\DoxyCodeLine{00192     146,}
+\DoxyCodeLine{00193     158,}
+\DoxyCodeLine{00194     231,}
+\DoxyCodeLine{00195     83,}
+\DoxyCodeLine{00196     111,}
+\DoxyCodeLine{00197     229,}
+\DoxyCodeLine{00198     122,}
+\DoxyCodeLine{00199     60,}
+\DoxyCodeLine{00200     211,}
+\DoxyCodeLine{00201     133,}
+\DoxyCodeLine{00202     230,}
+\DoxyCodeLine{00203     220,}
+\DoxyCodeLine{00204     105,}
+\DoxyCodeLine{00205     92,}
+\DoxyCodeLine{00206     41,}
+\DoxyCodeLine{00207     55,}
+\DoxyCodeLine{00208     46,}
+\DoxyCodeLine{00209     245,}
+\DoxyCodeLine{00210     40,}
+\DoxyCodeLine{00211     244,}
+\DoxyCodeLine{00212     102,}
+\DoxyCodeLine{00213     143,}
+\DoxyCodeLine{00214     54,}
+\DoxyCodeLine{00215     65,}
+\DoxyCodeLine{00216     25,}
+\DoxyCodeLine{00217     63,}
+\DoxyCodeLine{00218     161,}
+\DoxyCodeLine{00219     1,}
+\DoxyCodeLine{00220     216,}
+\DoxyCodeLine{00221     80,}
+\DoxyCodeLine{00222     73,}
+\DoxyCodeLine{00223     209,}
+\DoxyCodeLine{00224     76,}
+\DoxyCodeLine{00225     132,}
+\DoxyCodeLine{00226     187,}
+\DoxyCodeLine{00227     208,}
+\DoxyCodeLine{00228     89,}
+\DoxyCodeLine{00229     18,}
+\DoxyCodeLine{00230     169,}
+\DoxyCodeLine{00231     200,}
+\DoxyCodeLine{00232     196,}
+\DoxyCodeLine{00233     135,}
+\DoxyCodeLine{00234     130,}
+\DoxyCodeLine{00235     116,}
+\DoxyCodeLine{00236     188,}
+\DoxyCodeLine{00237     159,}
+\DoxyCodeLine{00238     86,}
+\DoxyCodeLine{00239     164,}
+\DoxyCodeLine{00240     100,}
+\DoxyCodeLine{00241     109,}
+\DoxyCodeLine{00242     198,}
+\DoxyCodeLine{00243     173,}
+\DoxyCodeLine{00244     186,}
+\DoxyCodeLine{00245     3,}
+\DoxyCodeLine{00246     64,}
+\DoxyCodeLine{00247     52,}
+\DoxyCodeLine{00248     217,}
+\DoxyCodeLine{00249     226,}
+\DoxyCodeLine{00250     250,}
+\DoxyCodeLine{00251     124,}
+\DoxyCodeLine{00252     123,}
+\DoxyCodeLine{00253     5,}
+\DoxyCodeLine{00254     202,}
+\DoxyCodeLine{00255     38,}
+\DoxyCodeLine{00256     147,}
+\DoxyCodeLine{00257     118,}
+\DoxyCodeLine{00258     126,}
+\DoxyCodeLine{00259     255,}
+\DoxyCodeLine{00260     82,}
+\DoxyCodeLine{00261     85,}
+\DoxyCodeLine{00262     212,}
+\DoxyCodeLine{00263     207,}
+\DoxyCodeLine{00264     206,}
+\DoxyCodeLine{00265     59,}
+\DoxyCodeLine{00266     227,}
+\DoxyCodeLine{00267     47,}
+\DoxyCodeLine{00268     16,}
+\DoxyCodeLine{00269     58,}
+\DoxyCodeLine{00270     17,}
+\DoxyCodeLine{00271     182,}
+\DoxyCodeLine{00272     189,}
+\DoxyCodeLine{00273     28,}
+\DoxyCodeLine{00274     42,}
+\DoxyCodeLine{00275     223,}
+\DoxyCodeLine{00276     183,}
+\DoxyCodeLine{00277     170,}
+\DoxyCodeLine{00278     213,}
+\DoxyCodeLine{00279     119,}
+\DoxyCodeLine{00280     248,}
+\DoxyCodeLine{00281     152,}
+\DoxyCodeLine{00282     2,}
+\DoxyCodeLine{00283     44,}
+\DoxyCodeLine{00284     154,}
+\DoxyCodeLine{00285     163,}
+\DoxyCodeLine{00286     70,}
+\DoxyCodeLine{00287     221,}
+\DoxyCodeLine{00288     153,}
+\DoxyCodeLine{00289     101,}
+\DoxyCodeLine{00290     155,}
+\DoxyCodeLine{00291     167,}
+\DoxyCodeLine{00292     43,}
+\DoxyCodeLine{00293     172,}
+\DoxyCodeLine{00294     9,}
+\DoxyCodeLine{00295     129,}
+\DoxyCodeLine{00296     22,}
+\DoxyCodeLine{00297     39,}
+\DoxyCodeLine{00298     253,}
+\DoxyCodeLine{00299     19,}
+\DoxyCodeLine{00300     98,}
+\DoxyCodeLine{00301     108,}
+\DoxyCodeLine{00302     110,}
+\DoxyCodeLine{00303     79,}
+\DoxyCodeLine{00304     113,}
+\DoxyCodeLine{00305     224,}
+\DoxyCodeLine{00306     232,}
+\DoxyCodeLine{00307     178,}
+\DoxyCodeLine{00308     185,}
+\DoxyCodeLine{00309     112,}
+\DoxyCodeLine{00310     104,}
+\DoxyCodeLine{00311     218,}
+\DoxyCodeLine{00312     246,}
+\DoxyCodeLine{00313     97,}
+\DoxyCodeLine{00314     228,}
+\DoxyCodeLine{00315     251,}
+\DoxyCodeLine{00316     34,}
+\DoxyCodeLine{00317     242,}
+\DoxyCodeLine{00318     193,}
+\DoxyCodeLine{00319     238,}
+\DoxyCodeLine{00320     210,}
+\DoxyCodeLine{00321     144,}
+\DoxyCodeLine{00322     12,}
+\DoxyCodeLine{00323     191,}
+\DoxyCodeLine{00324     179,}
+\DoxyCodeLine{00325     162,}
+\DoxyCodeLine{00326     241,}
+\DoxyCodeLine{00327     81,}
+\DoxyCodeLine{00328     51,}
+\DoxyCodeLine{00329     145,}
+\DoxyCodeLine{00330     235,}
+\DoxyCodeLine{00331     249,}
+\DoxyCodeLine{00332     14,}
+\DoxyCodeLine{00333     239,}
+\DoxyCodeLine{00334     107,}
+\DoxyCodeLine{00335     49,}
+\DoxyCodeLine{00336     192,}
+\DoxyCodeLine{00337     214,}
+\DoxyCodeLine{00338     31,}
+\DoxyCodeLine{00339     181,}
+\DoxyCodeLine{00340     199,}
+\DoxyCodeLine{00341     106,}
+\DoxyCodeLine{00342     157,}
+\DoxyCodeLine{00343     184,}
+\DoxyCodeLine{00344     84,}
+\DoxyCodeLine{00345     204,}
+\DoxyCodeLine{00346     176,}
+\DoxyCodeLine{00347     115,}
+\DoxyCodeLine{00348     121,}
+\DoxyCodeLine{00349     50,}
+\DoxyCodeLine{00350     45,}
+\DoxyCodeLine{00351     127,}
+\DoxyCodeLine{00352     4,}
+\DoxyCodeLine{00353     150,}
+\DoxyCodeLine{00354     254,}
+\DoxyCodeLine{00355     138,}
+\DoxyCodeLine{00356     236,}
+\DoxyCodeLine{00357     205,}
+\DoxyCodeLine{00358     93,}
+\DoxyCodeLine{00359     222,}
+\DoxyCodeLine{00360     114,}
+\DoxyCodeLine{00361     67,}
+\DoxyCodeLine{00362     29,}
+\DoxyCodeLine{00363     24,}
+\DoxyCodeLine{00364     72,}
+\DoxyCodeLine{00365     243,}
+\DoxyCodeLine{00366     141,}
+\DoxyCodeLine{00367     128,}
+\DoxyCodeLine{00368     195,}
+\DoxyCodeLine{00369     78,}
+\DoxyCodeLine{00370     66,}
+\DoxyCodeLine{00371     215,}
+\DoxyCodeLine{00372     61,}
+\DoxyCodeLine{00373     156,}
+\DoxyCodeLine{00374     180 \};}
+\DoxyCodeLine{00375 }
+\DoxyCodeLine{00376   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 2; j++)}
+\DoxyCodeLine{00377     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 256; i++) \{}
+\DoxyCodeLine{00378       p.push\_back(permutation[i]);}
+\DoxyCodeLine{00379     \}}
+\DoxyCodeLine{00380 }
+\DoxyCodeLine{00381   \textcolor{keywordflow}{return} p;}
+\DoxyCodeLine{00382 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}\label{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}} 
+\index{Perlin.h@{Perlin.h}!grad@{grad}}
+\index{grad@{grad}!Perlin.h@{Perlin.h}}
+\doxysubsubsection{\texorpdfstring{grad()}{grad()}}
+{\footnotesize\ttfamily double grad (\begin{DoxyParamCaption}\item[{int}]{hash,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_perlin_8h_source_l00035}{35}} of file \mbox{\hyperlink{_perlin_8h_source}{Perlin.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036 \{}
+\DoxyCodeLine{00037   \textcolor{keywordtype}{int} h = hash \& 15; \textcolor{comment}{// CONVERT LO 4 BITS OF HASH CODE}}
+\DoxyCodeLine{00038   \textcolor{keywordtype}{double} u = h < 8 ? x : y, \textcolor{comment}{// INTO 12 GRADIENT DIRECTIONS.}}
+\DoxyCodeLine{00039     v = h < 4            ? y}
+\DoxyCodeLine{00040     : h == 12 || h == 14 ? x}
+\DoxyCodeLine{00041                          : z;}
+\DoxyCodeLine{00042   \textcolor{keywordflow}{return} ((h \& 1) == 0 ? u : -\/u) + ((h \& 2) == 0 ? v : -\/v);}
+\DoxyCodeLine{00043 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_perlin_8h_source_l00049}{perlin\+\_\+noise()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_perlin_8h_ad969873f63a702a5965a68b6082a0897}\label{_perlin_8h_ad969873f63a702a5965a68b6082a0897}} 
+\index{Perlin.h@{Perlin.h}!lerp@{lerp}}
+\index{lerp@{lerp}!Perlin.h@{Perlin.h}}
+\doxysubsubsection{\texorpdfstring{lerp()}{lerp()}}
+{\footnotesize\ttfamily double lerp (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_perlin_8h_source_l00031}{31}} of file \mbox{\hyperlink{_perlin_8h_source}{Perlin.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031 \{ \textcolor{keywordflow}{return} a + (b -\/ a) * t; \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_perlin_8h_source_l00049}{perlin\+\_\+noise()}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_perlin_8h_a35157b8efa76162c016a3298f54f43b5}\label{_perlin_8h_a35157b8efa76162c016a3298f54f43b5}} 
+\index{Perlin.h@{Perlin.h}!perlin\_noise@{perlin\_noise}}
+\index{perlin\_noise@{perlin\_noise}!Perlin.h@{Perlin.h}}
+\doxysubsubsection{\texorpdfstring{perlin\_noise()}{perlin\_noise()}}
+{\footnotesize\ttfamily double perlin\+\_\+noise (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{std\+::vector$<$ int $>$ \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_perlin_8h_source_l00049}{49}} of file \mbox{\hyperlink{_perlin_8h_source}{Perlin.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050 \{}
+\DoxyCodeLine{00051   \textcolor{keywordtype}{int} z = 0.5;}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   \textcolor{comment}{// x,y,z abrunden und mit 1111 1111 verunden == modulo 255}}
+\DoxyCodeLine{00054   \textcolor{keywordtype}{int} X = (int)floor(x) \& 255, \textcolor{comment}{// FIND UNIT CUBE THAT}}
+\DoxyCodeLine{00055     Y = (int)floor(y) \& 255, \textcolor{comment}{// CONTAINS POINT.}}
+\DoxyCodeLine{00056     Z = (int)floor(z) \& 255;}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00058   \textcolor{comment}{// Kommastellen}}
+\DoxyCodeLine{00059   x -\/= floor(x); \textcolor{comment}{// FIND RELATIVE X,Y,Z}}
+\DoxyCodeLine{00060   y -\/= floor(y); \textcolor{comment}{// OF POINT IN CUBE.}}
+\DoxyCodeLine{00061   z -\/= floor(z);}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063   \textcolor{keywordtype}{double} u = \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(x), \textcolor{comment}{// COMPUTE FADE CURVES}}
+\DoxyCodeLine{00064     v = \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(y), \textcolor{comment}{// FOR EACH OF X,Y,Z.}}
+\DoxyCodeLine{00065     w = \mbox{\hyperlink{_perlin_8h_ad4090fa1e3d75426afb7da7ef303017e}{fade}}(z);}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067   \textcolor{keywordtype}{int} A = p[X] + Y, AA = p[A] + Z, AB = p[A + 1] + Z, \textcolor{comment}{// HASH COORDINATES OF}}
+\DoxyCodeLine{00068     B = p[X + 1] + Y, BA = p[B] + Z, BB = p[B + 1] + Z; \textcolor{comment}{// THE 8 CUBE CORNERS,}}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070   \textcolor{comment}{// return perlin noise of x and y}}
+\DoxyCodeLine{00071   \textcolor{keywordflow}{return} \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(w,}
+\DoxyCodeLine{00072     \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(v,}
+\DoxyCodeLine{00073       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u,}
+\DoxyCodeLine{00074         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AA], x, y, z), \textcolor{comment}{// AND ADD}}
+\DoxyCodeLine{00075         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BA], x -\/ 1, y, z)), \textcolor{comment}{// BLENDED}}
+\DoxyCodeLine{00076       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u,}
+\DoxyCodeLine{00077         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AB], x, y -\/ 1, z), \textcolor{comment}{// RESULTS}}
+\DoxyCodeLine{00078         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BB], x -\/ 1, y -\/ 1, z))), \textcolor{comment}{// FROM  8}}
+\DoxyCodeLine{00079     \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(v,}
+\DoxyCodeLine{00080       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u,}
+\DoxyCodeLine{00081         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AA + 1], x, y, z -\/ 1), \textcolor{comment}{// CORNERS}}
+\DoxyCodeLine{00082         \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BA + 1], x -\/ 1, y, z -\/ 1)), \textcolor{comment}{// OF CUBE}}
+\DoxyCodeLine{00083       \mbox{\hyperlink{_perlin_8h_ad969873f63a702a5965a68b6082a0897}{lerp}}(u, \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[AB + 1], x, y -\/ 1, z -\/ 1), \mbox{\hyperlink{_perlin_8h_ad9fdc97a49d7564ca65b307b9a5e1b35}{grad}}(p[BB + 1], x -\/ 1, y -\/ 1, z -\/ 1))));}
+\DoxyCodeLine{00084 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_perlin_8h_source_l00027}{fade()}}, \mbox{\hyperlink{_perlin_8h_source_l00035}{grad()}}, and \mbox{\hyperlink{_perlin_8h_source_l00031}{lerp()}}.
+
+Here is the call graph for this function\+:
+% FIG 4

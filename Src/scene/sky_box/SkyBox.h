@@ -1,34 +1,36 @@
 #pragma once
-#include <vector>
-
 #include <glad/glad.h>
+#include <time.h>
+
+#include <cassert>
+#include <chrono>
+#include <ctime>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <sstream>
-#include <ctime>
-#include <chrono>
 #include <random>
-#include <cassert>
-#include <time.h>
+#include <sstream>
+#include <vector>
 
 #include "GlobalValues.h"
 #include "Mesh.h"
-#include "Vertex.h"
 #include "ShaderProgram.h"
+#include "Vertex.h"
 #include "bindings.h"
 
 class SkyBox {
-  public:
+ public:
   SkyBox();
 
-  void draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLuint window_width, GLuint window_height, GLfloat delta_time);
+  void draw_sky_box(glm::mat4 projection_matrix, glm::mat4 view_matrix,
+                    GLuint window_width, GLuint window_height,
+                    GLfloat delta_time);
 
   void reload();
 
   ~SkyBox();
 
-  private:
+ private:
   GLfloat movement_speed = 0.1f;
 
   GLfloat shader_playback_time;

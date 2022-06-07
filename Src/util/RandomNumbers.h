@@ -1,21 +1,21 @@
 #pragma once
-#include <memory>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+#include <memory>
 #include <random>
 
 #include "GlobalValues.h"
 
 class RandomNumbers {
-
-  public:
+ public:
   RandomNumbers();
 
   void read();
 
   ~RandomNumbers();
 
-  private:
+ private:
   GLuint random_number_id;
   std::shared_ptr<GLfloat[]> random_number_data;
 

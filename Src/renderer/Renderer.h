@@ -1,26 +1,29 @@
 #pragma once
 
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "DirectionalShadowMapPass.h"
-#include "OmniShadowMapPass.h"
-#include "LightingPass.h"
-#include "GeometryPass.h"
 #include "GBuffer.h"
+#include "GeometryPass.h"
+#include "LightingPass.h"
+#include "OmniShadowMapPass.h"
 #include "ShaderIncludes.h"
 
 class Renderer {
-  public:
+ public:
   Renderer(GLuint window_width, GLuint window_height);
 
-  void drawFrame(std::shared_ptr<Camera> main_camera, std::shared_ptr<Scene> scene, glm::mat4 projection_matrix, GLfloat delta_time);
+  void drawFrame(std::shared_ptr<Camera> main_camera,
+                 std::shared_ptr<Scene> scene, glm::mat4 projection_matrix,
+                 GLfloat delta_time);
 
   void update_window_params(GLuint window_width, GLuint window_height);
   void reload_shader_programs();
 
   ~Renderer();
 
-  private:
+ private:
   GLuint window_width, window_height;
 
   std::shared_ptr<GBuffer> gbuffer;

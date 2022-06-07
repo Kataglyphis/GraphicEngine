@@ -1,0 +1,172 @@
+\hypertarget{class_shader_includes}{}\doxysection{Shader\+Includes Class Reference}
+\label{class_shader_includes}\index{ShaderIncludes@{ShaderIncludes}}
+
+
+{\ttfamily \#include $<$Shader\+Includes.\+h$>$}
+
+
+
+Collaboration diagram for Shader\+Includes\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}{Shader\+Includes}} ()
+\item 
+\mbox{\hyperlink{class_shader_includes_a39cde13eaaf507862593a575e6045a54}{$\sim$\+Shader\+Includes}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ const char $\ast$ $>$ \mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{include\+Names}}
+\item 
+std\+::vector$<$ const char $\ast$ $>$ \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\+\_\+locations\+\_\+relative}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_shader_includes_8h_source_l00006}{6}} of file \mbox{\hyperlink{_shader_includes_8h_source}{Shader\+Includes.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}\label{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}} 
+\index{ShaderIncludes@{ShaderIncludes}!ShaderIncludes@{ShaderIncludes}}
+\index{ShaderIncludes@{ShaderIncludes}!ShaderIncludes@{ShaderIncludes}}
+\doxysubsubsection{\texorpdfstring{ShaderIncludes()}{ShaderIncludes()}}
+{\footnotesize\ttfamily Shader\+Includes\+::\+Shader\+Includes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_includes_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_shader_includes_8cpp_source}{Shader\+Includes.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   assert(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size() == \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}}.size());}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019   std::vector<std::string> file\_locations\_abs;}
+\DoxyCodeLine{00020   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size()); i++) \{}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022     std::stringstream aux;}
+\DoxyCodeLine{00023     aux << CMAKELISTS\_DIR;}
+\DoxyCodeLine{00024     aux << \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}}[i];}
+\DoxyCodeLine{00025     file\_locations\_abs.push\_back(aux.str());}
+\DoxyCodeLine{00026   \}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size()); i++) \{}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030     \mbox{\hyperlink{class_file}{File}} file(file\_locations\_abs[i]);}
+\DoxyCodeLine{00031     std::string file\_content = file.read();}
+\DoxyCodeLine{00032     \textcolor{keywordtype}{char} tmpstr[200];}
+\DoxyCodeLine{00033     snprintf(tmpstr, 200, \textcolor{stringliteral}{"{}/\%s"{}}, \mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}[i]);}
+\DoxyCodeLine{00034     glNamedStringARB(GL\_SHADER\_INCLUDE\_ARB, \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(strlen(tmpstr)), tmpstr, \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(strlen(file\_content.c\_str())), file\_content.c\_str());}
+\DoxyCodeLine{00035   \}}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_shader_includes_8h_source_l00033}{file\+\_\+locations\+\_\+relative}}, \mbox{\hyperlink{_shader_includes_8h_source_l00014}{include\+Names}}, and \mbox{\hyperlink{_file_8cpp_source_l00007}{File\+::read()}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_shader_includes_a39cde13eaaf507862593a575e6045a54}\label{class_shader_includes_a39cde13eaaf507862593a575e6045a54}} 
+\index{ShaderIncludes@{ShaderIncludes}!````~ShaderIncludes@{$\sim$ShaderIncludes}}
+\index{````~ShaderIncludes@{$\sim$ShaderIncludes}!ShaderIncludes@{ShaderIncludes}}
+\doxysubsubsection{\texorpdfstring{$\sim$ShaderIncludes()}{~ShaderIncludes()}}
+{\footnotesize\ttfamily Shader\+Includes\+::$\sim$\+Shader\+Includes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_includes_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_shader_includes_8cpp_source}{Shader\+Includes.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}\label{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}} 
+\index{ShaderIncludes@{ShaderIncludes}!file\_locations\_relative@{file\_locations\_relative}}
+\index{file\_locations\_relative@{file\_locations\_relative}!ShaderIncludes@{ShaderIncludes}}
+\doxysubsubsection{\texorpdfstring{file\_locations\_relative}{file\_locations\_relative}}
+{\footnotesize\ttfamily std\+::vector$<$const char$\ast$$>$ Shader\+Includes\+::file\+\_\+locations\+\_\+relative\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \textcolor{stringliteral}{"{}/Src/host\_device\_shared.h"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/Matlib.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/microfacet.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/ShadingLibrary.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/disney.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/frostbite.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/pbrBook.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/phong.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/pbr/brdf/unreal4.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/clouds/clouds.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/grad\_noise.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/worley\_noise.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Src/bindings.h"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Src/GlobalValues.h"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/directional\_light.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/light.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/material.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/Resources/Shaders/common/point\_light.glsl"{}} \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_shader_includes_8h_source_l00033}{33}} of file \mbox{\hyperlink{_shader_includes_8h_source}{Shader\+Includes.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_includes_8cpp_source_l00014}{Shader\+Includes()}}.
+
+\mbox{\Hypertarget{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}\label{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}} 
+\index{ShaderIncludes@{ShaderIncludes}!includeNames@{includeNames}}
+\index{includeNames@{includeNames}!ShaderIncludes@{ShaderIncludes}}
+\doxysubsubsection{\texorpdfstring{includeNames}{includeNames}}
+{\footnotesize\ttfamily std\+::vector$<$const char$\ast$$>$ Shader\+Includes\+::include\+Names\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \textcolor{stringliteral}{"{}host\_device\_shared.h"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}Matlib.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}microfacet.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}ShadingLibrary.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}disney.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}frostbite.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}pbrBook.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}phong.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}unreal4.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}clouds.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}grad\_noise.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}worley\_noise.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}bindings.h"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}GlobalValues.h"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}directional\_light.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}light.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}material.glsl"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}point\_light.glsl"{}} \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_shader_includes_8h_source_l00014}{14}} of file \mbox{\hyperlink{_shader_includes_8h_source}{Shader\+Includes.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_shader_includes_8cpp_source_l00014}{Shader\+Includes()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/\mbox{\hyperlink{_shader_includes_8h}{Shader\+Includes.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/\mbox{\hyperlink{_shader_includes_8cpp}{Shader\+Includes.\+cpp}}\end{DoxyCompactItemize}

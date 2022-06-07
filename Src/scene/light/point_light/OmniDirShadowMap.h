@@ -2,7 +2,7 @@
 #include "ShadowMap.h"
 
 class OmniDirShadowMap : public ShadowMap {
-  public:
+ public:
   OmniDirShadowMap();
 
   bool init(GLuint width, GLuint height);

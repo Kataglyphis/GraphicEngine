@@ -1,0 +1,94 @@
+\hypertarget{class_clamp_to_edge_mode}{}\doxysection{Clamp\+To\+Edge\+Mode Class Reference}
+\label{class_clamp_to_edge_mode}\index{ClampToEdgeMode@{ClampToEdgeMode}}
+
+
+{\ttfamily \#include $<$Clamp\+To\+Edge\+Mode.\+h$>$}
+
+
+
+Inheritance diagram for Clamp\+To\+Edge\+Mode\+:
+% FIG 0
+
+
+Collaboration diagram for Clamp\+To\+Edge\+Mode\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_clamp_to_edge_mode_a18f69615639eae20b2c19c7586f48f87}{Clamp\+To\+Edge\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_clamp_to_edge_mode_a8d649dc39e3eb0e4780661e08d970f69}{activate}} () override
+\item 
+\mbox{\hyperlink{class_clamp_to_edge_mode_ae2073d00475831555285703eb97441b9}{$\sim$\+Clamp\+To\+Edge\+Mode}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_clamp_to_edge_mode_8h_source_l00004}{4}} of file \mbox{\hyperlink{_clamp_to_edge_mode_8h_source}{Clamp\+To\+Edge\+Mode.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_clamp_to_edge_mode_a18f69615639eae20b2c19c7586f48f87}\label{class_clamp_to_edge_mode_a18f69615639eae20b2c19c7586f48f87}} 
+\index{ClampToEdgeMode@{ClampToEdgeMode}!ClampToEdgeMode@{ClampToEdgeMode}}
+\index{ClampToEdgeMode@{ClampToEdgeMode}!ClampToEdgeMode@{ClampToEdgeMode}}
+\doxysubsubsection{\texorpdfstring{ClampToEdgeMode()}{ClampToEdgeMode()}}
+{\footnotesize\ttfamily Clamp\+To\+Edge\+Mode\+::\+Clamp\+To\+Edge\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clamp_to_edge_mode_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_clamp_to_edge_mode_8cpp_source}{Clamp\+To\+Edge\+Mode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003 \{ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_clamp_to_edge_mode_ae2073d00475831555285703eb97441b9}\label{class_clamp_to_edge_mode_ae2073d00475831555285703eb97441b9}} 
+\index{ClampToEdgeMode@{ClampToEdgeMode}!````~ClampToEdgeMode@{$\sim$ClampToEdgeMode}}
+\index{````~ClampToEdgeMode@{$\sim$ClampToEdgeMode}!ClampToEdgeMode@{ClampToEdgeMode}}
+\doxysubsubsection{\texorpdfstring{$\sim$ClampToEdgeMode()}{~ClampToEdgeMode()}}
+{\footnotesize\ttfamily Clamp\+To\+Edge\+Mode\+::$\sim$\+Clamp\+To\+Edge\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_clamp_to_edge_mode_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_clamp_to_edge_mode_8cpp_source}{Clamp\+To\+Edge\+Mode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_clamp_to_edge_mode_a8d649dc39e3eb0e4780661e08d970f69}\label{class_clamp_to_edge_mode_a8d649dc39e3eb0e4780661e08d970f69}} 
+\index{ClampToEdgeMode@{ClampToEdgeMode}!activate@{activate}}
+\index{activate@{activate}!ClampToEdgeMode@{ClampToEdgeMode}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily void Clamp\+To\+Edge\+Mode\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_texture_wrapping_mode_ae715af5a440b276e5b048e791979b955}{Texture\+Wrapping\+Mode}}.
+
+
+
+Definition at line \mbox{\hyperlink{_clamp_to_edge_mode_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_clamp_to_edge_mode_8cpp_source}{Clamp\+To\+Edge\+Mode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00008   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00009 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/texture/\mbox{\hyperlink{_clamp_to_edge_mode_8h}{Clamp\+To\+Edge\+Mode.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/texture/\mbox{\hyperlink{_clamp_to_edge_mode_8cpp}{Clamp\+To\+Edge\+Mode.\+cpp}}\end{DoxyCompactItemize}

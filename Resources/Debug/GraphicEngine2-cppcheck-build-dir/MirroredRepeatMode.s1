@@ -1,3 +1,0 @@
-MirroredRepeatMode
-activate call:[glTexParameteri] noreturn:[glTexParameteri]
-MirroredRepeatMode

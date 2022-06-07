@@ -1,0 +1,42 @@
+\hypertarget{_a_a_b_b_8h_source}{}\doxysection{AABB.\+h}
+\label{_a_a_b_b_8h_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/AABB.h@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/AABB.h}}
+\mbox{\hyperlink{_a_a_b_b_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_8h}{Mesh.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00013}\mbox{\hyperlink{class_a_a_b_b}{00013}} \textcolor{keyword}{class }\mbox{\hyperlink{class_a_a_b_b}{AABB}} \{}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00014}00014   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00015}00015   \mbox{\hyperlink{class_a_a_b_b_a5f5baf6c533905aa1456b3a3eb57bab2}{AABB}}();}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00017}00017   std::vector<glm::vec3> \mbox{\hyperlink{class_a_a_b_b_a548ee95d5b2feedb523d36eaa7639269}{get\_corners}}(glm::mat4 model);}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00019}00019   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_a_b_b_ac889fe5a3a32175d57ddf45539e81231}{init}}(GLfloat \mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, GLfloat \mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, GLfloat \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, GLfloat \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, GLfloat \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}, GLfloat \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}});}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00021}00021   glm::vec3 \mbox{\hyperlink{class_a_a_b_b_ab5d24661130ef4b6959ed1369b3894dd}{get\_radius}}();}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00023}00023   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_a_b_b_a50cd5cfb2b3436d88225d00c57d18ce4}{render}}();}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00025}00025   \mbox{\hyperlink{class_a_a_b_b_afd5f4956a2043597167ff66821f7b223}{\string~AABB}}();}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00027}00027   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00028}\mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{00028}}   std::vector<Vertex> \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}};}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00029}\mbox{\hyperlink{class_a_a_b_b_a3147da33a08a777bb3a4a4cd5c7c5ba3}{00029}}   std::vector<unsigned int> \mbox{\hyperlink{class_a_a_b_b_a3147da33a08a777bb3a4a4cd5c7c5ba3}{indices}};}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00031}\mbox{\hyperlink{class_a_a_b_b_a5b043619eabfdc39a7920b94e2f2ee0f}{00031}}   std::shared\_ptr<Mesh> \mbox{\hyperlink{class_a_a_b_b_a5b043619eabfdc39a7920b94e2f2ee0f}{mesh}};}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00033}\mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{00033}}   std::vector<glm::vec3> \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}};}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00035}\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{00035}}   GLfloat \mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}};}
+\DoxyCodeLine{\Hypertarget{_a_a_b_b_8h_source_l00036}00036 \};}
+
+\end{DoxyCode}

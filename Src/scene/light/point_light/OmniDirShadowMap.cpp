@@ -1,11 +1,8 @@
 #include "OmniDirShadowMap.h"
 
+OmniDirShadowMap::OmniDirShadowMap() : ShadowMap() {}
 
-OmniDirShadowMap::OmniDirShadowMap() : ShadowMap() { }
-
-bool OmniDirShadowMap::init(GLuint width, GLuint height)
-{
-
+bool OmniDirShadowMap::init(GLuint width, GLuint height) {
   shadow_width = width;
   shadow_height = height;
 
@@ -15,9 +12,11 @@ bool OmniDirShadowMap::init(GLuint width, GLuint height)
   glBindTexture(GL_TEXTURE_CUBE_MAP, shadow_map);
 
   for (size_t i = 0; i < 6; i++) {
-    // keep in mind that all following f.e. negative_x, positive_y,...etc. are reachable
-    // by simply increment positive_x stepwise
-    glTexImage2D((GLenum)(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i), 0, GL_DEPTH_COMPONENT, shadow_width, shadow_height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+    // keep in mind that all following f.e. negative_x, positive_y,...etc. are
+    // reachable by simply increment positive_x stepwise
+    glTexImage2D((GLenum)(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i), 0,
+                 GL_DEPTH_COMPONENT, shadow_width, shadow_height, 0,
+                 GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
   }
 
   glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -36,7 +35,6 @@ bool OmniDirShadowMap::init(GLuint width, GLuint height)
   GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 
   if (status != GL_FRAMEBUFFER_COMPLETE) {
-
     printf("Framebuffer error: %i\n", status);
     return false;
   }
@@ -48,10 +46,9 @@ bool OmniDirShadowMap::init(GLuint width, GLuint height)
 
 void OmniDirShadowMap::write() { glBindFramebuffer(GL_FRAMEBUFFER, FBO); }
 
-void OmniDirShadowMap::read(GLenum texture_unit)
-{
+void OmniDirShadowMap::read(GLenum texture_unit) {
   glActiveTexture(GL_TEXTURE0 + texture_unit);
   glBindTexture(GL_TEXTURE_CUBE_MAP, shadow_map);
 }
 
-OmniDirShadowMap::~OmniDirShadowMap() { }
+OmniDirShadowMap::~OmniDirShadowMap() {}

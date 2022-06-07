@@ -5,13 +5,14 @@
 #include "RenderPass.h"
 
 class RenderPassSceneDependend : public RenderPass {
-  public:
+ public:
   RenderPassSceneDependend();
 
-  virtual void set_game_object_uniforms(glm::mat4 model, glm::mat4 normal_model) = 0;
+  virtual void set_game_object_uniforms(glm::mat4 model,
+                                        glm::mat4 normal_model) = 0;
   virtual void create_shader_program() = 0;
 
   ~RenderPassSceneDependend();
 
-  private:
+ private:
 };

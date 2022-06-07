@@ -1,15 +1,16 @@
 #include "ShadowMap.h"
 
+ShadowMap::ShadowMap()
+    :
 
-ShadowMap::ShadowMap() :
+      FBO(0),
+      shadow_map(0),
+      shadow_width(0),
+      shadow_height(0)
 
-    FBO(0), shadow_map(0), shadow_width(0), shadow_height(0)
+{}
 
-{
-}
-
-bool ShadowMap::init(GLuint width, GLuint height)
-{
+bool ShadowMap::init(GLuint width, GLuint height) {
   shadow_width = width;
   shadow_height = height;
 
@@ -17,7 +18,8 @@ bool ShadowMap::init(GLuint width, GLuint height)
 
   glGenTextures(1, &shadow_map);
   glBindTexture(GL_TEXTURE_2D, shadow_map);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, shadow_width, shadow_height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, shadow_width,
+               shadow_height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -25,11 +27,12 @@ bool ShadowMap::init(GLuint width, GLuint height)
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 
-  float border_color[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+  float border_color[] = {1.0f, 1.0f, 1.0f, 1.0f};
   glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border_color);
 
   glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-  glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadow_map, 0);
+  glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D,
+                         shadow_map, 0);
 
   glDrawBuffer(GL_NONE);
   glReadBuffer(GL_NONE);
@@ -37,7 +40,6 @@ bool ShadowMap::init(GLuint width, GLuint height)
   GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 
   if (status != GL_FRAMEBUFFER_COMPLETE) {
-
     printf("Framebuffer error: %i\n", status);
     return false;
   }
@@ -49,15 +51,12 @@ bool ShadowMap::init(GLuint width, GLuint height)
 
 void ShadowMap::write() { glBindFramebuffer(GL_FRAMEBUFFER, FBO); }
 
-void ShadowMap::read(GLenum texture_unit)
-{
-
+void ShadowMap::read(GLenum texture_unit) {
   glActiveTexture(texture_unit);
   glBindTexture(GL_TEXTURE_2D, shadow_map);
 }
 
-ShadowMap::~ShadowMap()
-{
+ShadowMap::~ShadowMap() {
   if (FBO) {
     glDeleteFramebuffers(1, &FBO);
   }

@@ -1,9 +1,0 @@
-get_omni_shadow_map
-get_constant_factor
-get_linear_factor
-get_exponent_factor
-OmniShadowMapPass call:[create_shader_program] noreturn:[create_shader_program]
-execute call:[calculate_light_transform,get_far_plane,get_game_objects,get_normal_world_trafo,get_omni_shadow_map,get_position,get_shadow_height,get_shadow_width,get_world_trafo,glBindFramebuffer,glClear,glViewport,render,setUniformFloat,setUniformMatrix4fv,setUniformVec3,set_game_object_uniforms,str,use_shader_program,validate_program,write] noreturn:[glBindFramebuffer,render,setUniformMatrix4fv]
-set_game_object_uniforms call:[setUniformMatrix4fv] noreturn:[setUniformMatrix4fv]
-create_shader_program call:[create_from_files] noreturn:[create_from_files]
-OmniShadowMapPass

@@ -2,15 +2,16 @@
 #include <memory>
 
 #include "AABB.h"
-#include "ShaderProgram.h"
 #include "Noise.h"
 #include "RandomNumbers.h"
+#include "ShaderProgram.h"
 
 class Clouds {
-  public:
+ public:
   Clouds();
 
-  void render(glm::mat4 projection_matrix, glm::mat4 view_matrix, GLuint window_width, GLuint window_height);
+  void render(glm::mat4 projection_matrix, glm::mat4 view_matrix,
+              GLuint window_width, GLuint window_height);
 
   void read();
 
@@ -19,7 +20,9 @@ class Clouds {
   glm::mat4 get_model() const;
   glm::vec3 get_movement_direction() const { return movement_direction; };
   glm::vec3 get_radius() const { return scale_factor / 2.f; };
-  glm::mat4 get_normal_model() const { return glm::transpose(glm::inverse(model)); };
+  glm::mat4 get_normal_model() const {
+    return glm::transpose(glm::inverse(model));
+  };
   glm::vec3 get_mesh_scale() const { return scale_factor; };
   GLfloat get_movement_speed() const { return movement_speed; };
   GLfloat get_density() const { return density; };
@@ -27,10 +30,14 @@ class Clouds {
   GLfloat get_pillowness() const { return pillowness; };
   GLfloat get_cirrus_effect() const { return cirrus_effect; };
   GLuint get_num_march_steps() const { return num_march_steps; };
-  GLuint get_num_march_steps_to_light() const { return num_march_steps_to_light; };
+  GLuint get_num_march_steps_to_light() const {
+    return num_march_steps_to_light;
+  };
   bool get_powder_effect() const { return powder_effect; };
 
-  std::shared_ptr<ShaderProgram> get_shader_program() const { return shader_program; };
+  std::shared_ptr<ShaderProgram> get_shader_program() const {
+    return shader_program;
+  };
 
   void set_powder_effect(bool cloud_powder_effect);
   void set_cirrus_effect(GLfloat cirrus_effect);
@@ -46,7 +53,7 @@ class Clouds {
 
   ~Clouds();
 
-  private:
+ private:
   std::shared_ptr<ShaderProgram> shader_program;
   std::shared_ptr<Noise> noise;
   std::shared_ptr<RandomNumbers> random_numbers;

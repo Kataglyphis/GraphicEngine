@@ -1,7 +1,0 @@
-get_id
-GBuffer
-GBuffer
-create global:[G_BUFFER_SIZE] call:[glBindFramebuffer,glBindRenderbuffer,glBindTexture,glCheckFramebufferStatus,glDrawBuffers,glFramebufferRenderbuffer,glFramebufferTexture2D,glGenFramebuffers,glGenRenderbuffers,glGenTextures,glRenderbufferStorage,glTexImage2D,glTexParameteri,printf] noreturn:[glBindFramebuffer,printf]
-read global:[MAX_TEXTURE_COUNT] call:[glActiveTexture,glBindTexture,setUniformInt] noreturn:[glBindTexture]
-update_window_params
-GBuffer call:[glDeleteFramebuffers,glDeleteTextures] noreturn:[glDeleteTextures]

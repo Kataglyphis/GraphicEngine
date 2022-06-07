@@ -1,11 +1,11 @@
 #pragma once
-#include <stdio.h>
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <stdio.h>
+
 class Window {
-  public:
+ public:
   Window();
   Window(GLint window_width, GLint window_height);
 
@@ -29,7 +29,7 @@ class Window {
 
   ~Window();
 
-  private:
+ private:
   GLFWwindow* main_window;
 
   GLint window_width, window_height;
@@ -41,16 +41,19 @@ class Window {
   GLfloat y_change;
   bool mouse_first_moved;
 
-  //buffers to store our window data to
+  // buffers to store our window data to
   GLint window_buffer_width, window_buffer_height;
 
-  //we need to start our window callbacks for interaction
+  // we need to start our window callbacks for interaction
   void init_callbacks();
-  static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-  //after window resizing, update framebuffers
+  static void framebuffer_size_callback(GLFWwindow* window, int width,
+                                        int height);
+  // after window resizing, update framebuffers
 
-  //need to be static ...
-  static void key_callback(GLFWwindow* window, int key, int code, int action, int mode);
+  // need to be static ...
+  static void key_callback(GLFWwindow* window, int key, int code, int action,
+                           int mode);
   static void mouse_callback(GLFWwindow* window, double x_pos, double y_pos);
-  static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+  static void mouse_button_callback(GLFWwindow* window, int button, int action,
+                                    int mods);
 };

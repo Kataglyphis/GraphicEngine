@@ -1,6 +1,0 @@
-get_id
-LightingPass call:[create_shader_program] noreturn:[create_shader_program]
-execute global:[G_BUFFER_SIZE,MAX_TEXTURE_COUNT] call:[get_clouds,get_omni_shadow_map,get_point_lights,get_shadow_map,get_sun,glBindFramebuffer,glClear,read,render,set_uniforms,size,use_shader_program] noreturn:[glBindFramebuffer,read]
-create_shader_program call:[create_from_files] noreturn:[create_from_files]
-set_uniforms global:[G_BUFFER_SIZE,MAX_POINT_LIGHTS,MAX_TEXTURE_COUNT,NUM_CASCADES,NUM_CELL_POSITIONS] call:[clear,get_ambient,get_camera_position,get_cascaded_slots,get_cirrus_effect,get_clouds,get_color,get_constant_factor,get_density,get_diffuse,get_direction,get_dissolve,get_emission,get_exponent_factor,get_far_plane,get_illum,get_ior,get_linear_factor,get_materials,get_model,get_movement_direction,get_movement_speed,get_num_march_steps,get_num_march_steps_to_light,get_pcf_radius,get_pillowness,get_point_lights,get_position,get_powder_effect,get_radiance,get_radius,get_scale,get_shadow_map,get_shininess,get_specular,get_sun,get_textureID,get_transmittance,get_viewmatrix,read,setUniformBlockBinding,setUniformFloat,setUniformInt,setUniformMatrix4fv,setUniformVec3,size,str,string,validate_program,vec4] noreturn:[setUniformInt,str,validate_program]
-LightingPass

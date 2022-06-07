@@ -1,0 +1,739 @@
+\hypertarget{class_g_u_i}{}\doxysection{GUI Class Reference}
+\label{class_g_u_i}\index{GUI@{GUI}}
+
+
+{\ttfamily \#include $<$GUI.\+h$>$}
+
+
+
+Collaboration diagram for GUI\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_u_i_a8cbb3140b7d3c9d8e942d6ce6b60a0e8}{GUI}} ()
+\item 
+void \mbox{\hyperlink{class_g_u_i_abe01c4db97be141742d52be2e1f19b15}{init}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_window}{Window}} $>$ main\+\_\+window)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a560db89fa6ec13445c91ce73f3c6f2e0}{render}} (bool loading\+\_\+in\+\_\+progress, float progress, bool \&shader\+\_\+hot\+\_\+reload\+\_\+triggered)
+\item 
+void \mbox{\hyperlink{class_g_u_i_a8567aa88b4d6a2a14e7951dd74401c6b}{update\+\_\+user\+\_\+input}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ scene)
+\item 
+\mbox{\hyperlink{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}{$\sim$\+GUI}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} \mbox{\hyperlink{class_g_u_i_acf6faac123139da0adfc857f02524e24}{logo\+\_\+tex}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_af320b01219d9cf648f8fa9b93356b0cc}{direcional\+\_\+light\+\_\+radiance}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\+\_\+light\+\_\+color}} \mbox{[}3\mbox{]}
+\item 
+float \mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\+\_\+light\+\_\+direction}} \mbox{[}3\mbox{]}
+\item 
+int \mbox{\hyperlink{class_g_u_i_af747e13131424f5881b507c5bf8e8ea0}{cloud\+\_\+speed}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a01a5110670f0b8a067da117e0900d03b}{cloud\+\_\+scale}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a22299c626ade213ffdf666adabaff89d}{cloud\+\_\+density}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_acd93d6c7546825256c9e00062f8a6ee8}{cloud\+\_\+pillowness}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a7480810812e57b5bf662ce567836b642}{cloud\+\_\+cirrus\+\_\+effect}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\+\_\+mesh\+\_\+scale}} \mbox{[}3\mbox{]}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\+\_\+mesh\+\_\+offset}} \mbox{[}3\mbox{]}
+\item 
+bool \mbox{\hyperlink{class_g_u_i_a31e9c58cef2f5c298ef19ea4417b9831}{cloud\+\_\+powder\+\_\+effect}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\+\_\+movement\+\_\+direction}} \mbox{[}3\mbox{]}
+\item 
+int \mbox{\hyperlink{class_g_u_i_a620082c167a6a776fdba1a5c6fa5a1de}{cloud\+\_\+num\+\_\+march\+\_\+steps}}
+\item 
+int \mbox{\hyperlink{class_g_u_i_a34b080ebc838921010531caf6e4b99a0}{cloud\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}}
+\item 
+int \mbox{\hyperlink{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}{shadow\+\_\+map\+\_\+res\+\_\+index}}
+\item 
+bool \mbox{\hyperlink{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}{shadow\+\_\+resolution\+\_\+changed}}
+\item 
+int \mbox{\hyperlink{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}{num\+\_\+shadow\+\_\+cascades}}
+\item 
+int \mbox{\hyperlink{class_g_u_i_a1897ac6ac617fb944773c6b25b353bae}{pcf\+\_\+radius}}
+\item 
+float \mbox{\hyperlink{class_g_u_i_a0329dd6c22ccf4d9362a70268ae2bcdf}{cascaded\+\_\+shadow\+\_\+intensity}}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\+\_\+shadow\+\_\+map\+\_\+resolutions}} \mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00014}{14}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_u_i_a8cbb3140b7d3c9d8e942d6ce6b60a0e8}\label{class_g_u_i_a8cbb3140b7d3c9d8e942d6ce6b60a0e8}} 
+\index{GUI@{GUI}!GUI@{GUI}}
+\index{GUI@{GUI}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{GUI()}{GUI()}}
+{\footnotesize\ttfamily GUI\+::\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009 \{}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011   \textcolor{comment}{// give some arbitrary values; we will update these values after 1 frame :)}}
+\DoxyCodeLine{00012   this-\/>\mbox{\hyperlink{class_g_u_i_af320b01219d9cf648f8fa9b93356b0cc}{direcional\_light\_radiance}} = 4.0f;}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014   this-\/>\mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}}[0] = 1;}
+\DoxyCodeLine{00015   this-\/>\mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}}[1] = 1;}
+\DoxyCodeLine{00016   this-\/>\mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}}[2] = 1;}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018   this-\/>\mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}[0] = -\/0.1f;}
+\DoxyCodeLine{00019   this-\/>\mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}[1] = -\/1.f;}
+\DoxyCodeLine{00020   this-\/>\mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}[2] = -\/0.1f;}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022   this-\/>\mbox{\hyperlink{class_g_u_i_af747e13131424f5881b507c5bf8e8ea0}{cloud\_speed}} = 6;}
+\DoxyCodeLine{00023   this-\/>\mbox{\hyperlink{class_g_u_i_a01a5110670f0b8a067da117e0900d03b}{cloud\_scale}} = 0.63f;}
+\DoxyCodeLine{00024   this-\/>\mbox{\hyperlink{class_g_u_i_a22299c626ade213ffdf666adabaff89d}{cloud\_density}} = 0.493f;}
+\DoxyCodeLine{00025   this-\/>\mbox{\hyperlink{class_g_u_i_acd93d6c7546825256c9e00062f8a6ee8}{cloud\_pillowness}} = 0.966f;}
+\DoxyCodeLine{00026   this-\/>\mbox{\hyperlink{class_g_u_i_a7480810812e57b5bf662ce567836b642}{cloud\_cirrus\_effect}} = 0.034f;}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028   this-\/>\mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}[0] = 1000.f;}
+\DoxyCodeLine{00029   this-\/>\mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}[1] = 5.f;}
+\DoxyCodeLine{00030   this-\/>\mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}[2] = 1000.f;}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032   this-\/>\mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}[0] = -\/.364f;}
+\DoxyCodeLine{00033   this-\/>\mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}[1] = 367.f;}
+\DoxyCodeLine{00034   this-\/>\mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}[2] = -\/18.351f;}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036   this-\/>\mbox{\hyperlink{class_g_u_i_a31e9c58cef2f5c298ef19ea4417b9831}{cloud\_powder\_effect}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038   this-\/>\mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}[0] = 1.f;}
+\DoxyCodeLine{00039   this-\/>\mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}[1] = 1.f;}
+\DoxyCodeLine{00040   this-\/>\mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}[2] = 1.f;}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042   this-\/>\mbox{\hyperlink{class_g_u_i_a620082c167a6a776fdba1a5c6fa5a1de}{cloud\_num\_march\_steps}} = 8;}
+\DoxyCodeLine{00043   this-\/>\mbox{\hyperlink{class_g_u_i_a34b080ebc838921010531caf6e4b99a0}{cloud\_num\_march\_steps\_to\_light}} = 3;}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045   this-\/>\mbox{\hyperlink{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}{shadow\_map\_res\_index}} = 3;}
+\DoxyCodeLine{00046   this-\/>\mbox{\hyperlink{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}{shadow\_resolution\_changed}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00047   this-\/>\mbox{\hyperlink{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}{num\_shadow\_cascades}} = \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}};}
+\DoxyCodeLine{00048   this-\/>\mbox{\hyperlink{class_g_u_i_a1897ac6ac617fb944773c6b25b353bae}{pcf\_radius}} = 2;}
+\DoxyCodeLine{00049   this-\/>\mbox{\hyperlink{class_g_u_i_a0329dd6c22ccf4d9362a70268ae2bcdf}{cascaded\_shadow\_intensity}} = 0.65f;}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051   this-\/>\mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\_shadow\_map\_resolutions}}[0] = \textcolor{stringliteral}{"{}512"{}};}
+\DoxyCodeLine{00052   this-\/>\mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\_shadow\_map\_resolutions}}[1] = \textcolor{stringliteral}{"{}1024"{}};}
+\DoxyCodeLine{00053   this-\/>\mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\_shadow\_map\_resolutions}}[2] = \textcolor{stringliteral}{"{}2048"{}};}
+\DoxyCodeLine{00054   this-\/>\mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\_shadow\_map\_resolutions}}[3] = \textcolor{stringliteral}{"{}4096"{}};}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057   std::stringstream texture\_base\_dir;}
+\DoxyCodeLine{00058   texture\_base\_dir << CMAKELISTS\_DIR;}
+\DoxyCodeLine{00059   texture\_base\_dir << \textcolor{stringliteral}{"{}/Resources/Textures/"{}};}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   std::stringstream texture\_logo;}
+\DoxyCodeLine{00062   texture\_logo << texture\_base\_dir.str() << \textcolor{stringliteral}{"{}Loading\_Screen/Engine\_logo.png"{}};}
+\DoxyCodeLine{00063   \mbox{\hyperlink{class_g_u_i_acf6faac123139da0adfc857f02524e24}{logo\_tex}} = \mbox{\hyperlink{class_texture}{Texture}}(texture\_logo.str().c\_str(), std::make\_shared<RepeatMode>());}
+\DoxyCodeLine{00064   \mbox{\hyperlink{class_g_u_i_acf6faac123139da0adfc857f02524e24}{logo\_tex}}.\mbox{\hyperlink{class_texture_aac8edf700b4323b86a7bfa322d186ca5}{load\_texture\_with\_alpha\_channel}}();}
+\DoxyCodeLine{00065 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_g_u_i_8h_source_l00050}{available\+\_\+shadow\+\_\+map\+\_\+resolutions}}, \mbox{\hyperlink{_g_u_i_8h_source_l00049}{cascaded\+\_\+shadow\+\_\+intensity}}, \mbox{\hyperlink{_g_u_i_8h_source_l00037}{cloud\+\_\+cirrus\+\_\+effect}}, \mbox{\hyperlink{_g_u_i_8h_source_l00035}{cloud\+\_\+density}}, \mbox{\hyperlink{_g_u_i_8h_source_l00039}{cloud\+\_\+mesh\+\_\+offset}}, \mbox{\hyperlink{_g_u_i_8h_source_l00038}{cloud\+\_\+mesh\+\_\+scale}}, \mbox{\hyperlink{_g_u_i_8h_source_l00041}{cloud\+\_\+movement\+\_\+direction}}, \mbox{\hyperlink{_g_u_i_8h_source_l00042}{cloud\+\_\+num\+\_\+march\+\_\+steps}}, \mbox{\hyperlink{_g_u_i_8h_source_l00043}{cloud\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}}, \mbox{\hyperlink{_g_u_i_8h_source_l00036}{cloud\+\_\+pillowness}}, \mbox{\hyperlink{_g_u_i_8h_source_l00040}{cloud\+\_\+powder\+\_\+effect}}, \mbox{\hyperlink{_g_u_i_8h_source_l00034}{cloud\+\_\+scale}}, \mbox{\hyperlink{_g_u_i_8h_source_l00033}{cloud\+\_\+speed}}, \mbox{\hyperlink{_g_u_i_8h_source_l00029}{direcional\+\_\+light\+\_\+radiance}}, \mbox{\hyperlink{_g_u_i_8h_source_l00030}{directional\+\_\+light\+\_\+color}}, \mbox{\hyperlink{_g_u_i_8h_source_l00031}{directional\+\_\+light\+\_\+direction}}, \mbox{\hyperlink{_texture_8cpp_source_l00056}{Texture\+::load\+\_\+texture\+\_\+with\+\_\+alpha\+\_\+channel()}}, \mbox{\hyperlink{_g_u_i_8h_source_l00027}{logo\+\_\+tex}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_g_u_i_8h_source_l00047}{num\+\_\+shadow\+\_\+cascades}}, \mbox{\hyperlink{_g_u_i_8h_source_l00048}{pcf\+\_\+radius}}, \mbox{\hyperlink{_g_u_i_8h_source_l00045}{shadow\+\_\+map\+\_\+res\+\_\+index}}, and \mbox{\hyperlink{_g_u_i_8h_source_l00046}{shadow\+\_\+resolution\+\_\+changed}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}\label{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}} 
+\index{GUI@{GUI}!````~GUI@{$\sim$GUI}}
+\index{````~GUI@{$\sim$GUI}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{$\sim$GUI()}{~GUI()}}
+{\footnotesize\ttfamily GUI\+::$\sim$\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00262}{262}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00263 \{}
+\DoxyCodeLine{00264   ImGui\_ImplOpenGL3\_Shutdown();}
+\DoxyCodeLine{00265   ImGui\_ImplGlfw\_Shutdown();}
+\DoxyCodeLine{00266   ImGui::DestroyContext();}
+\DoxyCodeLine{00267 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_u_i_abe01c4db97be141742d52be2e1f19b15}\label{class_g_u_i_abe01c4db97be141742d52be2e1f19b15}} 
+\index{GUI@{GUI}!init@{init}}
+\index{init@{init}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void GUI\+::init (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_window}{Window}} $>$}]{main\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068 \{}
+\DoxyCodeLine{00069   \textcolor{comment}{// Setup Dear ImGui context}}
+\DoxyCodeLine{00070   IMGUI\_CHECKVERSION();}
+\DoxyCodeLine{00071   ImGui::CreateContext();}
+\DoxyCodeLine{00072   \textcolor{comment}{//ImGuiIO\& io = ImGui::GetIO();}}
+\DoxyCodeLine{00073   \textcolor{keyword}{const} ImGuiStyle\& style = ImGui::GetStyle();}
+\DoxyCodeLine{00074   \textcolor{comment}{// Setup Platform/Renderer bindings}}
+\DoxyCodeLine{00075   ImGui\_ImplGlfw\_InitForOpenGL(main\_window-\/>get\_window(), \textcolor{keyword}{true});}
+\DoxyCodeLine{00076   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* glsl\_version = \textcolor{stringliteral}{"{}\#version 460"{}};}
+\DoxyCodeLine{00077   ImGui\_ImplOpenGL3\_Init(glsl\_version);}
+\DoxyCodeLine{00078   \textcolor{comment}{// Setup Dear ImGui style}}
+\DoxyCodeLine{00079   ImGui::StyleColorsDark();}
+\DoxyCodeLine{00080   ImGui::PushStyleVar(ImGuiStyleVar\_WindowRounding, 10);}
+\DoxyCodeLine{00081   ImGui::PushStyleVar(ImGuiStyleVar\_FrameRounding, 10);}
+\DoxyCodeLine{00082   ImGui::PushStyleVar(ImGuiStyleVar\_FrameBorderSize, 1);}
+\DoxyCodeLine{00083 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_g_u_i_a560db89fa6ec13445c91ce73f3c6f2e0}\label{class_g_u_i_a560db89fa6ec13445c91ce73f3c6f2e0}} 
+\index{GUI@{GUI}!render@{render}}
+\index{render@{render}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void GUI\+::render (\begin{DoxyParamCaption}\item[{bool}]{loading\+\_\+in\+\_\+progress,  }\item[{float}]{progress,  }\item[{bool \&}]{shader\+\_\+hot\+\_\+reload\+\_\+triggered }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086 \{}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088   \textcolor{comment}{// feed inputs to dear imgui, start new frame}}
+\DoxyCodeLine{00089   \textcolor{comment}{//UI.start\_new\_frame();}}
+\DoxyCodeLine{00090   ImGui\_ImplOpenGL3\_NewFrame();}
+\DoxyCodeLine{00091   ImGui\_ImplGlfw\_NewFrame();}
+\DoxyCodeLine{00092   ImGui::NewFrame();}
+\DoxyCodeLine{00093   \textcolor{comment}{// render your GUI}}
+\DoxyCodeLine{00094   ImGui::Begin(\textcolor{stringliteral}{"{}GUI v1.3.3"{}});}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096   \textcolor{keywordflow}{if} (loading\_in\_progress) \{}
+\DoxyCodeLine{00097     ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));}
+\DoxyCodeLine{00098     ImGui::SameLine(0.0f, ImGui::GetStyle().ItemInnerSpacing.x);}
+\DoxyCodeLine{00099     ImGui::Text(\textcolor{stringliteral}{"{}Loading scene"{}});}
+\DoxyCodeLine{00100     ImGui::Separator();}
+\DoxyCodeLine{00101   \}}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104   \textcolor{keywordflow}{if} (ImGui::CollapsingHeader(\textcolor{stringliteral}{"{}Hot shader reload"{}})) \{}
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00106     \textcolor{keywordflow}{if} (ImGui::Button(\textcolor{stringliteral}{"{}Hot reload ALL shaders!"{}})) \{}
+\DoxyCodeLine{00107       shader\_hot\_reload\_triggered = \textcolor{keyword}{true};}
+\DoxyCodeLine{00108     \}}
+\DoxyCodeLine{00109   \}}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111   ImGui::Separator();}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113   \textcolor{keywordflow}{if} (ImGui::CollapsingHeader(\textcolor{stringliteral}{"{}Graphic Settings"{}})) \{}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115     \textcolor{keywordflow}{if} (ImGui::TreeNode(\textcolor{stringliteral}{"{}Directional Light"{}})) \{}
+\DoxyCodeLine{00116       ImGui::Separator();}
+\DoxyCodeLine{00117       ImGui::SliderFloat(\textcolor{stringliteral}{"{}Radiance"{}}, \&\mbox{\hyperlink{class_g_u_i_af320b01219d9cf648f8fa9b93356b0cc}{direcional\_light\_radiance}}, 0.0f, 50.0f);}
+\DoxyCodeLine{00118       ImGui::Separator();}
+\DoxyCodeLine{00119       \textcolor{comment}{// Edit a color (stored as \string~4 floats)}}
+\DoxyCodeLine{00120       ImGui::ColorEdit3(\textcolor{stringliteral}{"{}Directional Light Color"{}}, \mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}});}
+\DoxyCodeLine{00121       ImGui::Separator();}
+\DoxyCodeLine{00122       ImGui::SliderFloat3(\textcolor{stringliteral}{"{}Light Direction"{}}, \mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}, -\/1.f, 1.0f);}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124       \textcolor{keywordflow}{if} (ImGui::TreeNode(\textcolor{stringliteral}{"{}Shadows"{}})) \{}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126         \textcolor{keywordtype}{int} shadow\_map\_res\_index\_before = \mbox{\hyperlink{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}{shadow\_map\_res\_index}};}
+\DoxyCodeLine{00127         ImGui::Combo(\textcolor{stringliteral}{"{}Shadow Map Resolution"{}}, \&\mbox{\hyperlink{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}{shadow\_map\_res\_index}}, \mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\_shadow\_map\_resolutions}}, IM\_ARRAYSIZE(\mbox{\hyperlink{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}{available\_shadow\_map\_resolutions}}));}
+\DoxyCodeLine{00128         \textcolor{keywordflow}{if} (shadow\_map\_res\_index\_before != \mbox{\hyperlink{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}{shadow\_map\_res\_index}}) \mbox{\hyperlink{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}{shadow\_resolution\_changed}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130         \textcolor{keywordtype}{int} num\_cascades\_before = \mbox{\hyperlink{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}{num\_shadow\_cascades}};}
+\DoxyCodeLine{00131         ImGui::SliderInt(\textcolor{stringliteral}{"{}\# cascades"{}}, \&\mbox{\hyperlink{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}{num\_shadow\_cascades}}, \mbox{\hyperlink{_global_values_8h_a940e59fee68aa3e904e465e9c13b32a1}{NUM\_MIN\_CASCADES}}, \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}});}
+\DoxyCodeLine{00132         \textcolor{keywordflow}{if} (num\_cascades\_before != \mbox{\hyperlink{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}{num\_shadow\_cascades}}) \mbox{\hyperlink{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}{shadow\_resolution\_changed}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00133 }
+\DoxyCodeLine{00134         ImGui::SliderInt(\textcolor{stringliteral}{"{}PCF radius"{}}, \&\mbox{\hyperlink{class_g_u_i_a1897ac6ac617fb944773c6b25b353bae}{pcf\_radius}}, 1, 20);}
+\DoxyCodeLine{00135         ImGui::SliderFloat(\textcolor{stringliteral}{"{}Shadow intensity"{}}, \&\mbox{\hyperlink{class_g_u_i_a0329dd6c22ccf4d9362a70268ae2bcdf}{cascaded\_shadow\_intensity}}, 0.0f, 1.0f);}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137         ImGui::TreePop();}
+\DoxyCodeLine{00138       \}}
+\DoxyCodeLine{00139 }
+\DoxyCodeLine{00140       ImGui::TreePop();}
+\DoxyCodeLine{00141     \}}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143 }
+\DoxyCodeLine{00144     \textcolor{keywordflow}{if} (ImGui::TreeNode(\textcolor{stringliteral}{"{}Cloud Settings"{}})) \{}
+\DoxyCodeLine{00145 }
+\DoxyCodeLine{00146       ImGui::SliderInt(\textcolor{stringliteral}{"{}Speed"{}}, \&\mbox{\hyperlink{class_g_u_i_af747e13131424f5881b507c5bf8e8ea0}{cloud\_speed}}, 0, 30);}
+\DoxyCodeLine{00147       ImGui::SliderInt(\textcolor{stringliteral}{"{}\# march steps"{}}, \&\mbox{\hyperlink{class_g_u_i_a620082c167a6a776fdba1a5c6fa5a1de}{cloud\_num\_march\_steps}}, 1, 128);}
+\DoxyCodeLine{00148       ImGui::SliderInt(\textcolor{stringliteral}{"{}\# march steps to light"{}}, \&\mbox{\hyperlink{class_g_u_i_a34b080ebc838921010531caf6e4b99a0}{cloud\_num\_march\_steps\_to\_light}}, 1, 128);}
+\DoxyCodeLine{00149       ImGui::SliderFloat3(\textcolor{stringliteral}{"{}Movement Direction"{}}, \mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}, -\/10.f, 10.0f);}
+\DoxyCodeLine{00150       ImGui::SliderFloat(\textcolor{stringliteral}{"{}Illumination intensity"{}}, \&\mbox{\hyperlink{class_g_u_i_a01a5110670f0b8a067da117e0900d03b}{cloud\_scale}}, 0.f, 1.0f);}
+\DoxyCodeLine{00151       ImGui::SliderFloat(\textcolor{stringliteral}{"{}Density"{}}, \&\mbox{\hyperlink{class_g_u_i_a22299c626ade213ffdf666adabaff89d}{cloud\_density}}, 0.f, 1.0f);}
+\DoxyCodeLine{00152       ImGui::SliderFloat(\textcolor{stringliteral}{"{}Pillowness"{}}, \&\mbox{\hyperlink{class_g_u_i_acd93d6c7546825256c9e00062f8a6ee8}{cloud\_pillowness}}, 0.f, 1.0f);}
+\DoxyCodeLine{00153       ImGui::SliderFloat(\textcolor{stringliteral}{"{}Cirrus effect"{}}, \&\mbox{\hyperlink{class_g_u_i_a7480810812e57b5bf662ce567836b642}{cloud\_cirrus\_effect}}, 0.f, 1.0f);}
+\DoxyCodeLine{00154       ImGui::Checkbox(\textcolor{stringliteral}{"{}Powder effect"{}}, \&\mbox{\hyperlink{class_g_u_i_a31e9c58cef2f5c298ef19ea4417b9831}{cloud\_powder\_effect}});}
+\DoxyCodeLine{00155       ImGui::SliderFloat3(\textcolor{stringliteral}{"{}Scale"{}}, \mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}, 0.f, 1000.0f);}
+\DoxyCodeLine{00156       ImGui::SliderFloat3(\textcolor{stringliteral}{"{}Translation"{}}, \mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}, -\/200.f, 400.0f);}
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158       ImGui::TreePop();}
+\DoxyCodeLine{00159     \}}
+\DoxyCodeLine{00160   \}}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162   ImGui::Separator();}
+\DoxyCodeLine{00163 }
+\DoxyCodeLine{00164   \textcolor{comment}{/*if (ImGui::CollapsingHeader("{}Audio Settings"{})) \{}}
+\DoxyCodeLine{00165 \textcolor{comment}{}}
+\DoxyCodeLine{00166 \textcolor{comment}{        ImGui::SliderFloat("{}Volume"{}, \&sound\_volume, 0.0f, 1.0f);}}
+\DoxyCodeLine{00167 \textcolor{comment}{}}
+\DoxyCodeLine{00168 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00169 }
+\DoxyCodeLine{00170   ImGui::Separator();}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172   \textcolor{keywordflow}{if} (ImGui::CollapsingHeader(\textcolor{stringliteral}{"{}GUI Settings"{}})) \{}
+\DoxyCodeLine{00173     ImGuiStyle\& style = ImGui::GetStyle();}
+\DoxyCodeLine{00174     \textcolor{keywordflow}{if} (ImGui::SliderFloat(\textcolor{stringliteral}{"{}Frame Rounding"{}}, \&style.FrameRounding, 0.0f, 12.0f, \textcolor{stringliteral}{"{}\%.0f"{}})) \{}
+\DoxyCodeLine{00175       style.GrabRounding = style.FrameRounding; \textcolor{comment}{// Make GrabRounding always the same value as FrameRounding}}
+\DoxyCodeLine{00176     \}}
+\DoxyCodeLine{00177     \{}
+\DoxyCodeLine{00178       \textcolor{keywordtype}{bool} border = (style.FrameBorderSize > 0.0f);}
+\DoxyCodeLine{00179       \textcolor{keywordflow}{if} (ImGui::Checkbox(\textcolor{stringliteral}{"{}FrameBorder"{}}, \&border)) \{}
+\DoxyCodeLine{00180         style.FrameBorderSize = border ? 1.0f : 0.0f;}
+\DoxyCodeLine{00181       \}}
+\DoxyCodeLine{00182     \}}
+\DoxyCodeLine{00183     ImGui::SliderFloat(\textcolor{stringliteral}{"{}WindowRounding"{}}, \&style.WindowRounding, 0.0f, 12.0f, \textcolor{stringliteral}{"{}\%.0f"{}});}
+\DoxyCodeLine{00184   \}}
+\DoxyCodeLine{00185 }
+\DoxyCodeLine{00186   ImGui::Separator();}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00188   \textcolor{keywordflow}{if} (ImGui::CollapsingHeader(\textcolor{stringliteral}{"{}KEY Bindings"{}})) \{}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{00190     ImGui::Text(\textcolor{stringliteral}{"{}WASD for moving Forward, backward and to the side\(\backslash\)n QE for rotating "{}});}
+\DoxyCodeLine{00191   \}}
+\DoxyCodeLine{00192 }
+\DoxyCodeLine{00193   ImGui::Separator();}
+\DoxyCodeLine{00194 }
+\DoxyCodeLine{00195   ImGui::Text(\textcolor{stringliteral}{"{}Application average \%.3f ms/frame (\%.1f FPS)"{}}, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);}
+\DoxyCodeLine{00196   \textcolor{comment}{//ImGui::ShowDemoWindow();}}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00198   ImGui::Image((\textcolor{keywordtype}{void}*)(intptr\_t)\mbox{\hyperlink{class_g_u_i_acf6faac123139da0adfc857f02524e24}{logo\_tex}}.\mbox{\hyperlink{class_texture_a53aa350bde0fc93271c74e2bd2b391fa}{get\_id}}(), ImVec2(200, 200), ImVec2(0, 1), ImVec2(1, 0));}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200   ImGui::End();}
+\DoxyCodeLine{00201 }
+\DoxyCodeLine{00202   \textcolor{comment}{// feed inputs to dear imgui, start new frame}}
+\DoxyCodeLine{00203   ImGui::Render();}
+\DoxyCodeLine{00204   ImGui\_ImplOpenGL3\_RenderDrawData(ImGui::GetDrawData());}
+\DoxyCodeLine{00205 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_g_u_i_8h_source_l00050}{available\+\_\+shadow\+\_\+map\+\_\+resolutions}}, \mbox{\hyperlink{_g_u_i_8h_source_l00049}{cascaded\+\_\+shadow\+\_\+intensity}}, \mbox{\hyperlink{_g_u_i_8h_source_l00037}{cloud\+\_\+cirrus\+\_\+effect}}, \mbox{\hyperlink{_g_u_i_8h_source_l00035}{cloud\+\_\+density}}, \mbox{\hyperlink{_g_u_i_8h_source_l00039}{cloud\+\_\+mesh\+\_\+offset}}, \mbox{\hyperlink{_g_u_i_8h_source_l00038}{cloud\+\_\+mesh\+\_\+scale}}, \mbox{\hyperlink{_g_u_i_8h_source_l00041}{cloud\+\_\+movement\+\_\+direction}}, \mbox{\hyperlink{_g_u_i_8h_source_l00042}{cloud\+\_\+num\+\_\+march\+\_\+steps}}, \mbox{\hyperlink{_g_u_i_8h_source_l00043}{cloud\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light}}, \mbox{\hyperlink{_g_u_i_8h_source_l00036}{cloud\+\_\+pillowness}}, \mbox{\hyperlink{_g_u_i_8h_source_l00040}{cloud\+\_\+powder\+\_\+effect}}, \mbox{\hyperlink{_g_u_i_8h_source_l00034}{cloud\+\_\+scale}}, \mbox{\hyperlink{_g_u_i_8h_source_l00033}{cloud\+\_\+speed}}, \mbox{\hyperlink{_g_u_i_8h_source_l00029}{direcional\+\_\+light\+\_\+radiance}}, \mbox{\hyperlink{_g_u_i_8h_source_l00030}{directional\+\_\+light\+\_\+color}}, \mbox{\hyperlink{_g_u_i_8h_source_l00031}{directional\+\_\+light\+\_\+direction}}, \mbox{\hyperlink{_texture_8cpp_source_l00177}{Texture\+::get\+\_\+id()}}, \mbox{\hyperlink{_g_u_i_8h_source_l00027}{logo\+\_\+tex}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_global_values_8h_source_l00004}{NUM\+\_\+\+MIN\+\_\+\+CASCADES}}, \mbox{\hyperlink{_g_u_i_8h_source_l00047}{num\+\_\+shadow\+\_\+cascades}}, \mbox{\hyperlink{_g_u_i_8h_source_l00048}{pcf\+\_\+radius}}, \mbox{\hyperlink{_g_u_i_8h_source_l00045}{shadow\+\_\+map\+\_\+res\+\_\+index}}, and \mbox{\hyperlink{_g_u_i_8h_source_l00046}{shadow\+\_\+resolution\+\_\+changed}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_g_u_i_a8567aa88b4d6a2a14e7951dd74401c6b}\label{class_g_u_i_a8567aa88b4d6a2a14e7951dd74401c6b}} 
+\index{GUI@{GUI}!update\_user\_input@{update\_user\_input}}
+\index{update\_user\_input@{update\_user\_input}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{update\_user\_input()}{update\_user\_input()}}
+{\footnotesize\ttfamily void GUI\+::update\+\_\+user\+\_\+input (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$}]{scene }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{207}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00208 \{}
+\DoxyCodeLine{00209   std::shared\_ptr<DirectionalLight> main\_light = scene-\/>get\_sun();}
+\DoxyCodeLine{00210   main\_light-\/>set\_radiance(\mbox{\hyperlink{class_g_u_i_af320b01219d9cf648f8fa9b93356b0cc}{direcional\_light\_radiance}});}
+\DoxyCodeLine{00211   main\_light-\/>get\_shadow\_map()-\/>set\_intensity(\mbox{\hyperlink{class_g_u_i_a0329dd6c22ccf4d9362a70268ae2bcdf}{cascaded\_shadow\_intensity}});}
+\DoxyCodeLine{00212   main\_light-\/>get\_shadow\_map()-\/>set\_pcf\_radius(\mbox{\hyperlink{class_g_u_i_a1897ac6ac617fb944773c6b25b353bae}{pcf\_radius}});}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214   glm::vec3 new\_main\_light\_color(\mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}}[0], \mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}}[1], \mbox{\hyperlink{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}{directional\_light\_color}}[2]);}
+\DoxyCodeLine{00215 }
+\DoxyCodeLine{00216   main\_light-\/>set\_color(new\_main\_light\_color);}
+\DoxyCodeLine{00217 }
+\DoxyCodeLine{00218   glm::vec3 new\_main\_light\_pos(\mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}[0], \mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}[1], \mbox{\hyperlink{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}{directional\_light\_direction}}[2]);}
+\DoxyCodeLine{00219 }
+\DoxyCodeLine{00220   main\_light-\/>set\_direction(new\_main\_light\_pos);}
+\DoxyCodeLine{00221 }
+\DoxyCodeLine{00222   glm::vec3 cloud\_move(\mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}[0], \mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}[1], \mbox{\hyperlink{class_g_u_i_a25463880732cdea8af35f59674c79a39}{cloud\_movement\_direction}}[2]);}
+\DoxyCodeLine{00223 }
+\DoxyCodeLine{00224   std::shared\_ptr<Clouds> clouds = scene-\/>get\_clouds();}
+\DoxyCodeLine{00225 }
+\DoxyCodeLine{00226   clouds-\/>set\_movement\_direction(cloud\_move);}
+\DoxyCodeLine{00227   clouds-\/>set\_movement\_speed(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\mbox{\hyperlink{class_g_u_i_af747e13131424f5881b507c5bf8e8ea0}{cloud\_speed}}));}
+\DoxyCodeLine{00228   clouds-\/>set\_density(\mbox{\hyperlink{class_g_u_i_a22299c626ade213ffdf666adabaff89d}{cloud\_density}});}
+\DoxyCodeLine{00229   clouds-\/>set\_scale(\mbox{\hyperlink{class_g_u_i_a01a5110670f0b8a067da117e0900d03b}{cloud\_scale}});}
+\DoxyCodeLine{00230   clouds-\/>set\_pillowness(\mbox{\hyperlink{class_g_u_i_acd93d6c7546825256c9e00062f8a6ee8}{cloud\_pillowness}});}
+\DoxyCodeLine{00231   clouds-\/>set\_cirrus\_effect(\mbox{\hyperlink{class_g_u_i_a7480810812e57b5bf662ce567836b642}{cloud\_cirrus\_effect}});}
+\DoxyCodeLine{00232   clouds-\/>set\_powder\_effect(\mbox{\hyperlink{class_g_u_i_a31e9c58cef2f5c298ef19ea4417b9831}{cloud\_powder\_effect}});}
+\DoxyCodeLine{00233 }
+\DoxyCodeLine{00234   clouds-\/>set\_scale(glm::vec3(\mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}[0], \mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}[1], \mbox{\hyperlink{class_g_u_i_a611800f0b5d6f785145c27683127a182}{cloud\_mesh\_scale}}[2]));}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236   clouds-\/>set\_translation(glm::vec3(\mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}[0], \mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}[1], \mbox{\hyperlink{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}{cloud\_mesh\_offset}}[2]));}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238   GLfloat shadow\_map\_resolution = 4096.f;}
+\DoxyCodeLine{00239 }
+\DoxyCodeLine{00240   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}{shadow\_resolution\_changed}}) \{}
+\DoxyCodeLine{00241 }
+\DoxyCodeLine{00242     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}{shadow\_map\_res\_index}}) \{}
+\DoxyCodeLine{00243     \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00244       shadow\_map\_resolution = 512.f;}
+\DoxyCodeLine{00245       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00246     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00247       shadow\_map\_resolution = 1024.f;}
+\DoxyCodeLine{00248       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00249     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00250       shadow\_map\_resolution = 2048.f;}
+\DoxyCodeLine{00251       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00252     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00253       shadow\_map\_resolution = 4096.f;}
+\DoxyCodeLine{00254     \}}
+\DoxyCodeLine{00255 }
+\DoxyCodeLine{00256     main\_light-\/>update\_shadow\_map(shadow\_map\_resolution, shadow\_map\_resolution, \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}});}
+\DoxyCodeLine{00257 }
+\DoxyCodeLine{00258     \mbox{\hyperlink{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}{shadow\_resolution\_changed}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00259   \}}
+\DoxyCodeLine{00260 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_g_u_i_8h_source_l00049}{cascaded\+\_\+shadow\+\_\+intensity}}, \mbox{\hyperlink{_g_u_i_8h_source_l00037}{cloud\+\_\+cirrus\+\_\+effect}}, \mbox{\hyperlink{_g_u_i_8h_source_l00035}{cloud\+\_\+density}}, \mbox{\hyperlink{_g_u_i_8h_source_l00039}{cloud\+\_\+mesh\+\_\+offset}}, \mbox{\hyperlink{_g_u_i_8h_source_l00038}{cloud\+\_\+mesh\+\_\+scale}}, \mbox{\hyperlink{_g_u_i_8h_source_l00041}{cloud\+\_\+movement\+\_\+direction}}, \mbox{\hyperlink{_g_u_i_8h_source_l00036}{cloud\+\_\+pillowness}}, \mbox{\hyperlink{_g_u_i_8h_source_l00040}{cloud\+\_\+powder\+\_\+effect}}, \mbox{\hyperlink{_g_u_i_8h_source_l00034}{cloud\+\_\+scale}}, \mbox{\hyperlink{_g_u_i_8h_source_l00033}{cloud\+\_\+speed}}, \mbox{\hyperlink{_g_u_i_8h_source_l00029}{direcional\+\_\+light\+\_\+radiance}}, \mbox{\hyperlink{_g_u_i_8h_source_l00030}{directional\+\_\+light\+\_\+color}}, \mbox{\hyperlink{_g_u_i_8h_source_l00031}{directional\+\_\+light\+\_\+direction}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_g_u_i_8h_source_l00048}{pcf\+\_\+radius}}, \mbox{\hyperlink{_g_u_i_8h_source_l00045}{shadow\+\_\+map\+\_\+res\+\_\+index}}, and \mbox{\hyperlink{_g_u_i_8h_source_l00046}{shadow\+\_\+resolution\+\_\+changed}}.
+
+
+
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}\label{class_g_u_i_aa365b4496bdedbb74a849561afbd05a2}} 
+\index{GUI@{GUI}!available\_shadow\_map\_resolutions@{available\_shadow\_map\_resolutions}}
+\index{available\_shadow\_map\_resolutions@{available\_shadow\_map\_resolutions}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{available\_shadow\_map\_resolutions}{available\_shadow\_map\_resolutions}}
+{\footnotesize\ttfamily const char$\ast$ GUI\+::available\+\_\+shadow\+\_\+map\+\_\+resolutions\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00050}{50}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a0329dd6c22ccf4d9362a70268ae2bcdf}\label{class_g_u_i_a0329dd6c22ccf4d9362a70268ae2bcdf}} 
+\index{GUI@{GUI}!cascaded\_shadow\_intensity@{cascaded\_shadow\_intensity}}
+\index{cascaded\_shadow\_intensity@{cascaded\_shadow\_intensity}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cascaded\_shadow\_intensity}{cascaded\_shadow\_intensity}}
+{\footnotesize\ttfamily float GUI\+::cascaded\+\_\+shadow\+\_\+intensity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00049}{49}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a7480810812e57b5bf662ce567836b642}\label{class_g_u_i_a7480810812e57b5bf662ce567836b642}} 
+\index{GUI@{GUI}!cloud\_cirrus\_effect@{cloud\_cirrus\_effect}}
+\index{cloud\_cirrus\_effect@{cloud\_cirrus\_effect}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_cirrus\_effect}{cloud\_cirrus\_effect}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+cirrus\+\_\+effect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00037}{37}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a22299c626ade213ffdf666adabaff89d}\label{class_g_u_i_a22299c626ade213ffdf666adabaff89d}} 
+\index{GUI@{GUI}!cloud\_density@{cloud\_density}}
+\index{cloud\_density@{cloud\_density}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_density}{cloud\_density}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+density\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00035}{35}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}\label{class_g_u_i_a882545d562a6d970f53093b1e0aa2dbb}} 
+\index{GUI@{GUI}!cloud\_mesh\_offset@{cloud\_mesh\_offset}}
+\index{cloud\_mesh\_offset@{cloud\_mesh\_offset}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_mesh\_offset}{cloud\_mesh\_offset}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+mesh\+\_\+offset\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00039}{39}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a611800f0b5d6f785145c27683127a182}\label{class_g_u_i_a611800f0b5d6f785145c27683127a182}} 
+\index{GUI@{GUI}!cloud\_mesh\_scale@{cloud\_mesh\_scale}}
+\index{cloud\_mesh\_scale@{cloud\_mesh\_scale}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_mesh\_scale}{cloud\_mesh\_scale}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+mesh\+\_\+scale\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00038}{38}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a25463880732cdea8af35f59674c79a39}\label{class_g_u_i_a25463880732cdea8af35f59674c79a39}} 
+\index{GUI@{GUI}!cloud\_movement\_direction@{cloud\_movement\_direction}}
+\index{cloud\_movement\_direction@{cloud\_movement\_direction}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_movement\_direction}{cloud\_movement\_direction}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+movement\+\_\+direction\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00041}{41}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a620082c167a6a776fdba1a5c6fa5a1de}\label{class_g_u_i_a620082c167a6a776fdba1a5c6fa5a1de}} 
+\index{GUI@{GUI}!cloud\_num\_march\_steps@{cloud\_num\_march\_steps}}
+\index{cloud\_num\_march\_steps@{cloud\_num\_march\_steps}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_num\_march\_steps}{cloud\_num\_march\_steps}}
+{\footnotesize\ttfamily int GUI\+::cloud\+\_\+num\+\_\+march\+\_\+steps\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00042}{42}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a34b080ebc838921010531caf6e4b99a0}\label{class_g_u_i_a34b080ebc838921010531caf6e4b99a0}} 
+\index{GUI@{GUI}!cloud\_num\_march\_steps\_to\_light@{cloud\_num\_march\_steps\_to\_light}}
+\index{cloud\_num\_march\_steps\_to\_light@{cloud\_num\_march\_steps\_to\_light}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_num\_march\_steps\_to\_light}{cloud\_num\_march\_steps\_to\_light}}
+{\footnotesize\ttfamily int GUI\+::cloud\+\_\+num\+\_\+march\+\_\+steps\+\_\+to\+\_\+light\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00043}{43}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}.
+
+\mbox{\Hypertarget{class_g_u_i_acd93d6c7546825256c9e00062f8a6ee8}\label{class_g_u_i_acd93d6c7546825256c9e00062f8a6ee8}} 
+\index{GUI@{GUI}!cloud\_pillowness@{cloud\_pillowness}}
+\index{cloud\_pillowness@{cloud\_pillowness}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_pillowness}{cloud\_pillowness}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+pillowness\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00036}{36}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a31e9c58cef2f5c298ef19ea4417b9831}\label{class_g_u_i_a31e9c58cef2f5c298ef19ea4417b9831}} 
+\index{GUI@{GUI}!cloud\_powder\_effect@{cloud\_powder\_effect}}
+\index{cloud\_powder\_effect@{cloud\_powder\_effect}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_powder\_effect}{cloud\_powder\_effect}}
+{\footnotesize\ttfamily bool GUI\+::cloud\+\_\+powder\+\_\+effect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00040}{40}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a01a5110670f0b8a067da117e0900d03b}\label{class_g_u_i_a01a5110670f0b8a067da117e0900d03b}} 
+\index{GUI@{GUI}!cloud\_scale@{cloud\_scale}}
+\index{cloud\_scale@{cloud\_scale}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_scale}{cloud\_scale}}
+{\footnotesize\ttfamily float GUI\+::cloud\+\_\+scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00034}{34}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_af747e13131424f5881b507c5bf8e8ea0}\label{class_g_u_i_af747e13131424f5881b507c5bf8e8ea0}} 
+\index{GUI@{GUI}!cloud\_speed@{cloud\_speed}}
+\index{cloud\_speed@{cloud\_speed}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{cloud\_speed}{cloud\_speed}}
+{\footnotesize\ttfamily int GUI\+::cloud\+\_\+speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00033}{33}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_af320b01219d9cf648f8fa9b93356b0cc}\label{class_g_u_i_af320b01219d9cf648f8fa9b93356b0cc}} 
+\index{GUI@{GUI}!direcional\_light\_radiance@{direcional\_light\_radiance}}
+\index{direcional\_light\_radiance@{direcional\_light\_radiance}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{direcional\_light\_radiance}{direcional\_light\_radiance}}
+{\footnotesize\ttfamily float GUI\+::direcional\+\_\+light\+\_\+radiance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00029}{29}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}\label{class_g_u_i_ab9a7959e78c8fdedcea4b13e60b76afb}} 
+\index{GUI@{GUI}!directional\_light\_color@{directional\_light\_color}}
+\index{directional\_light\_color@{directional\_light\_color}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{directional\_light\_color}{directional\_light\_color}}
+{\footnotesize\ttfamily float GUI\+::directional\+\_\+light\+\_\+color\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00030}{30}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}\label{class_g_u_i_afdd4eceba83069d60cf193acf4b662aa}} 
+\index{GUI@{GUI}!directional\_light\_direction@{directional\_light\_direction}}
+\index{directional\_light\_direction@{directional\_light\_direction}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{directional\_light\_direction}{directional\_light\_direction}}
+{\footnotesize\ttfamily float GUI\+::directional\+\_\+light\+\_\+direction\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00031}{31}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_acf6faac123139da0adfc857f02524e24}\label{class_g_u_i_acf6faac123139da0adfc857f02524e24}} 
+\index{GUI@{GUI}!logo\_tex@{logo\_tex}}
+\index{logo\_tex@{logo\_tex}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{logo\_tex}{logo\_tex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} GUI\+::logo\+\_\+tex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00027}{27}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}\label{class_g_u_i_a1134046a490b5da7f9b99be561fb52cc}} 
+\index{GUI@{GUI}!num\_shadow\_cascades@{num\_shadow\_cascades}}
+\index{num\_shadow\_cascades@{num\_shadow\_cascades}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{num\_shadow\_cascades}{num\_shadow\_cascades}}
+{\footnotesize\ttfamily int GUI\+::num\+\_\+shadow\+\_\+cascades\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00047}{47}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a1897ac6ac617fb944773c6b25b353bae}\label{class_g_u_i_a1897ac6ac617fb944773c6b25b353bae}} 
+\index{GUI@{GUI}!pcf\_radius@{pcf\_radius}}
+\index{pcf\_radius@{pcf\_radius}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{pcf\_radius}{pcf\_radius}}
+{\footnotesize\ttfamily int GUI\+::pcf\+\_\+radius\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00048}{48}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}\label{class_g_u_i_afe82bfcc92afcf717d04f8c51b10139e}} 
+\index{GUI@{GUI}!shadow\_map\_res\_index@{shadow\_map\_res\_index}}
+\index{shadow\_map\_res\_index@{shadow\_map\_res\_index}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{shadow\_map\_res\_index}{shadow\_map\_res\_index}}
+{\footnotesize\ttfamily int GUI\+::shadow\+\_\+map\+\_\+res\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00045}{45}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+\mbox{\Hypertarget{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}\label{class_g_u_i_a54612de34b2ed15bec195a6187ac2dfd}} 
+\index{GUI@{GUI}!shadow\_resolution\_changed@{shadow\_resolution\_changed}}
+\index{shadow\_resolution\_changed@{shadow\_resolution\_changed}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{shadow\_resolution\_changed}{shadow\_resolution\_changed}}
+{\footnotesize\ttfamily bool GUI\+::shadow\+\_\+resolution\+\_\+changed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00046}{46}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{GUI()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00085}{render()}}, and \mbox{\hyperlink{_g_u_i_8cpp_source_l00207}{update\+\_\+user\+\_\+input()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/gui/\mbox{\hyperlink{_g_u_i_8h}{GUI.\+h}}\item 
+C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/gui/\mbox{\hyperlink{_g_u_i_8cpp}{GUI.\+cpp}}\end{DoxyCompactItemize}
