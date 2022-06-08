@@ -20,8 +20,9 @@
 
 [![Windows](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml)
 [![Linux](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml)
+[![Donate](https://img.shields.io/github/languages/top/Kataglyphis/GraphicEngine)]()
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=BX9AVVES2P9LN)
-[![Donate](https://img.shields.io/twitter/follow/Cataglyphis_?style=social)](https://twitter.com/Cataglyphis_)
+[![Twitter](https://img.shields.io/twitter/follow/Cataglyphis_?style=social)](https://twitter.com/Cataglyphis_)
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
