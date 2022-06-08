@@ -567,7 +567,7 @@ target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
 target_link_libraries(${COMPILE_TEST_SUITE}      PRIVATE GSL)
 
 include(GoogleTest)
-gtest_discover_tests(${COMMIT_TEST_SUITE} ${COMPILE_TEST_SUITE})
+gtest_discover_tests(   ${COMMIT_TEST_SUITE} ${COMPILE_TEST_SUITE})# ${CMAKE_CURRENT_SOURCE_DIR}/Tests
 
 # add test after each build
 # src: https://quickturnstudio.com/running-test-in-compile-time/

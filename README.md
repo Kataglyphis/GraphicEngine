@@ -12,12 +12,6 @@
 
 <h4 align="center">A graphics engine built on top of OpenGL <a href="https://jotrockenmitlocken.de" target="_blank"></a>.</h4>
 
-<!-- <p align="center">
-  <a href="https://paypal.me/JonasHeinle?locale.x=de_DE">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
-</p> -->
-
 [![Windows](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Windows.yml)
 [![Linux](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml/badge.svg)](https://github.com/Kataglyphis/GraphicEngine/actions/workflows/Linux.yml)
 [![Donate](https://img.shields.io/github/languages/top/Kataglyphis/GraphicEngine)]()
@@ -52,8 +46,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#testing">Tests</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -139,9 +132,12 @@ You might only clone the repo and get to go immediately :)
 
 ### Prerequisites
 
-You will need OpenGL. If you want to build documantaries you will need [DOXYGEN] (https://www.doxygen.nl/index.html).
-C++17 or higher required.
-Check for prerequisites from the used libraries.
+You will need OpenGL. <br />
+If you want to build documantaries you will need [DOXYGEN] (https://www.doxygen.nl/index.html).<br />
+C++17 or higher required.<br />
+Check for prerequisites from the used libraries.<br />
+If detailed test docs are wanted you will need to set GTEST_OUTPUT 
+environment variable.(see [gtest](https://github.com/google/googletest))<br />
 
 ### Installation
 
@@ -155,16 +151,9 @@ Check for prerequisites from the used libraries.
 2. Then build your solution with [CMAKE] (https://cmake.org/)
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-
-<!-- ROADMAP -->
-## Roadmap
-Upcoming :)
-<!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues). -->
-
-
+<!-- TESTS -->
+## Tests
+* [Watch test results here](Documents/googletest/test_detail.xml)
 
 <!-- CONTRIBUTING -->
 ## Contributing
