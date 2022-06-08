@@ -413,15 +413,23 @@ endif()
 # all testing related stuff
 enable_testing()
 
-FILE(GLOB RENDERER_TEST_FILTER                  "Test/*.h"                                               "Test/*.cpp"
-                                                "Test/*.hpp")
+FILE(GLOB RENDERER_COMPILE_TEST_FILTER          "Test/compile/*.h"                                               "Test/compile/*.cpp"
+                                                "Test/compile/*.hpp")
 
-source_group("TEST_FILES"                                   FILES ${RENDERER_TEST_FILTER})
+source_group("COMPILE_TEST_FILES"                                   FILES ${RENDERER_COMPILE_TEST_FILTER})
+
+FILE(GLOB RENDERER_COMMIT_TEST_FILTER           "Test/commit/*.h"                                               "Test/commit/*.cpp"
+                                                "Test/commit/*.hpp")
+
+source_group("COMMIT_TEST_FILES"                                   FILES ${RENDERER_COMMIT_TEST_FILTER})
+
+set (COMMIT_TEST_SUITE commitTestSuite)
+set (COMPILE_TEST_SUITE compileTestSuite)
 
 add_executable(
-        openGLRendererTester
+        ${COMMIT_TEST_SUITE}
         # all test specific files -- start
-        ${RENDERER_TEST_FILTER}
+        ${RENDERER_COMMIT_TEST_FILTER}
         # all test specific files -- end
         ${SHADER_FILTER}
         ${PBR_SHADER_FILTER}
@@ -455,7 +463,44 @@ add_executable(
         ${COMMON_FILTER}
 )
 
-target_include_directories(openGLRendererTester         PUBLIC "./Src"
+add_executable(
+        ${COMPILE_TEST_SUITE}
+        # all test specific files -- start
+        ${RENDERER_COMPILE_TEST_FILTER}
+        # all test specific files -- end
+        ${SHADER_FILTER}
+        ${PBR_SHADER_FILTER}
+        ${BRDF_SHADER_FILTER} 
+        ${CAMERA_FILTER} 
+        ${COMMON_SHADER_FILTER}  
+        ${CLOUDS_SHADER_FILTER}
+        ${LOADING_SHADER_FILTER}
+        ${RASTERIZER_SHADER_FILTER}
+        ${RASTERIZER_SHADOWS_SHADER_FILTER}
+        ${SKYBOX_SHADER_FILTER}
+        ${GUI_FILTER}
+        ${IMGUI_FILTER}
+        ${GLAD_FILTER}
+        ${WINDOW_FILTER}
+        ${DEBUG_FILTER}
+        ${UTIL_FILTER}
+        ${COMPUTE_FILTER}
+        ${RENDERER_FILTER}
+        ${DEFERRED_FILTER}
+        ${LOAD_SCREEN_FILTER}
+        ${ATMOSPHERE_EFFECTS_FILTER}
+        ${LIGHT_FILTER}
+        ${D_LIGHT_FILTER}
+        ${P_LIGHT_FILTER}
+        ${CLOUD_FILTER}
+        ${SHADOWS_FILTER}
+        ${SKY_BOX_FILTER}
+        ${TEXTURE_FILTER}
+        ${SCENE_FILTER}
+        ${COMMON_FILTER}
+)
+
+target_include_directories(${COMMIT_TEST_SUITE}         PUBLIC "./Src"
                                                         PUBLIC "./Src/camera"
                                                         PUBLIC "./Src/compute"
                                                         PUBLIC "./Src/renderer"
@@ -476,8 +521,28 @@ target_include_directories(openGLRendererTester         PUBLIC "./Src"
                                                         PUBLIC "./ExternalLib/GLAD/include"
                                                         ${OPENGL_INCLUDE_DIRS})
 
+target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC "./Src"
+                                                        PUBLIC "./Src/camera"
+                                                        PUBLIC "./Src/compute"
+                                                        PUBLIC "./Src/renderer"
+                                                        PUBLIC "./Src/renderer/loading_screen"
+                                                        PUBLIC "./Src/renderer/deferred"
+                                                        PUBLIC "./Src/debug"
+                                                        PUBLIC "./Src/window"
+                                                        PUBLIC "./Src/scene"
+                                                        PUBLIC "./Src/scene/atmospheric_effects/clouds"
+                                                        PUBLIC "./Src/scene/light"
+                                                        PUBLIC "./Src/scene/light/directional_light"
+                                                        PUBLIC "./Src/scene/light/point_light"
+                                                        PUBLIC "./Src/scene/shadows"
+                                                        PUBLIC "./Src/scene/sky_box"
+                                                        PUBLIC "./Src/scene/texture"
+                                                        PUBLIC "./Src/gui"
+                                                        PUBLIC "./Src/util"  
+                                                        PUBLIC "./ExternalLib/GLAD/include"
+                                                        ${OPENGL_INCLUDE_DIRS})
 
-target_link_libraries(openGLRendererTester      PUBLIC  gtest_main
+target_link_libraries(${COMMIT_TEST_SUITE}      PUBLIC  gtest_main
                                                         ${CMAKE_DL_LIBS} # for imgui
                                                         Threads::Threads
                                                         ${OPENGL_LIBRARIES}
@@ -487,7 +552,30 @@ target_link_libraries(openGLRendererTester      PUBLIC  gtest_main
                                                         glm 
                                                         tinyobjloader)
 
-target_link_libraries(openGLRendererTester      PRIVATE GSL)
+target_link_libraries(${COMMIT_TEST_SUITE}      PRIVATE GSL)
+
+target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
+                                                        ${CMAKE_DL_LIBS} # for imgui
+                                                        Threads::Threads
+                                                        ${OPENGL_LIBRARIES}
+                                                        glfw
+                                                        imgui
+                                                        stb 
+                                                        glm 
+                                                        tinyobjloader)
+
+target_link_libraries(${COMPILE_TEST_SUITE}      PRIVATE GSL)
 
 include(GoogleTest)
-gtest_discover_tests(openGLRendererTester)
+gtest_discover_tests(${COMMIT_TEST_SUITE} ${COMPILE_TEST_SUITE})
+
+# add test after each build
+# src: https://quickturnstudio.com/running-test-in-compile-time/
+add_custom_target(${COMPILE_TEST_SUITE}_Runner
+                  COMMAND ${COMPILE_TEST_SUITE}
+                  COMMENT "Running tests after each compilation.")
+
+add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
+
+
+include(CPack)
