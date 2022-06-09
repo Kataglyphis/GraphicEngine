@@ -47,7 +47,7 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_lighting_pass}{Lighting\+Pass}}
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00012}{12}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00013}{13}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
@@ -60,30 +60,34 @@ Definition at line \mbox{\hyperlink{_renderer_8h_source_l00012}{12}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00004                                                             :}
-\DoxyCodeLine{00005 }
-\DoxyCodeLine{00006     \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}), \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}(\mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}), \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}(std::make\_shared<GBuffer>(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}})), \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\_includes}}(),}
-\DoxyCodeLine{00007     \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}}(std::make\_shared<OmniShadowMapPass>()), \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}}(std::make\_shared<DirectionalShadowMapPass>()),}
-\DoxyCodeLine{00008     \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}}(std::make\_shared<GeometryPass>()), \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}}(std::make\_shared<LightingPass>())}
-\DoxyCodeLine{00009 }
-\DoxyCodeLine{00010 \{}
-\DoxyCodeLine{00011 }
-\DoxyCodeLine{00012   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}});}
-\DoxyCodeLine{00013   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}});}
-\DoxyCodeLine{00014   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}});}
-\DoxyCodeLine{00015   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}});}
+\DoxyCodeLine{00006     :}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008       \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}),}
+\DoxyCodeLine{00009       \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}(\mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}),}
+\DoxyCodeLine{00010       \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}(std::make\_shared<GBuffer>(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}})),}
+\DoxyCodeLine{00011       \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\_includes}}(),}
+\DoxyCodeLine{00012       \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}}(std::make\_shared<OmniShadowMapPass>()),}
+\DoxyCodeLine{00013       \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}}(std::make\_shared<DirectionalShadowMapPass>()),}
+\DoxyCodeLine{00014       \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}}(std::make\_shared<GeometryPass>()),}
+\DoxyCodeLine{00015       \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}}(std::make\_shared<LightingPass>())}
 \DoxyCodeLine{00016 }
-\DoxyCodeLine{00017   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>create();}
-\DoxyCodeLine{00018 \}}
+\DoxyCodeLine{00017 \{}
+\DoxyCodeLine{00018   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}});}
+\DoxyCodeLine{00019   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}});}
+\DoxyCodeLine{00020   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}});}
+\DoxyCodeLine{00021   \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}.push\_back(\mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}});}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>create();}
+\DoxyCodeLine{00024 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_renderer_8h_source_l00034}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00026}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00035}{geometry\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00036}{lighting\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00033}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}, and \mbox{\hyperlink{_renderer_8h_source_l00031}{render\+\_\+passes}}.
+References \mbox{\hyperlink{_renderer_8h_source_l00037}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00029}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00038}{geometry\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00039}{lighting\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00036}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}, and \mbox{\hyperlink{_renderer_8h_source_l00034}{render\+\_\+passes}}.
 
 \mbox{\Hypertarget{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}\label{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}} 
 \index{Renderer@{Renderer}!````~Renderer@{$\sim$Renderer}}
@@ -93,11 +97,11 @@ References \mbox{\hyperlink{_renderer_8h_source_l00034}{directional\+\_\+shadow\
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00056 \{ \}}
+\DoxyCodeLine{00064 \{\}}
 
 \end{DoxyCode}
 
@@ -111,35 +115,38 @@ Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00056}{56}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00021 \{}
-\DoxyCodeLine{00022 }
-\DoxyCodeLine{00023   \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}}-\/>execute(projection\_matrix, main\_camera, \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}, scene);}
-\DoxyCodeLine{00024 }
-\DoxyCodeLine{00025   \textcolor{comment}{// omni shadow map passes for our point lights}}
-\DoxyCodeLine{00026   std::vector<std::shared\_ptr<PointLight>> p\_lights = scene-\/>get\_point\_lights();}
-\DoxyCodeLine{00027   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} p\_light\_count = 0; p\_light\_count < scene-\/>get\_point\_light\_count(); p\_light\_count++) \{}
-\DoxyCodeLine{00028     \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}}-\/>execute(p\_lights[p\_light\_count], scene);}
-\DoxyCodeLine{00029   \}}
-\DoxyCodeLine{00030 }
-\DoxyCodeLine{00031   \textcolor{comment}{//we will now start the geometry pass}}
-\DoxyCodeLine{00032   \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}}-\/>execute(projection\_matrix, main\_camera, \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}, \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>get\_id(), delta\_time, scene);}
-\DoxyCodeLine{00033 }
-\DoxyCodeLine{00034   \textcolor{comment}{// after geometry pass we can now do the lighting}}
-\DoxyCodeLine{00035   \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}}-\/>execute(projection\_matrix, main\_camera, scene, \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}, delta\_time);}
-\DoxyCodeLine{00036 \}}
+\DoxyCodeLine{00028                                                                         \{}
+\DoxyCodeLine{00029   \mbox{\hyperlink{class_renderer_a4c473e0da4b79564500bf0893a3f9ca2}{directional\_shadow\_map\_pass}}-\/>execute(projection\_matrix, main\_camera,}
+\DoxyCodeLine{00030                                        \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}, scene);}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032   \textcolor{comment}{// omni shadow map passes for our point lights}}
+\DoxyCodeLine{00033   std::vector<std::shared\_ptr<PointLight>> p\_lights = scene-\/>get\_point\_lights();}
+\DoxyCodeLine{00034   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} p\_light\_count = 0; p\_light\_count < scene-\/>get\_point\_light\_count();}
+\DoxyCodeLine{00035        p\_light\_count++) \{}
+\DoxyCodeLine{00036     \mbox{\hyperlink{class_renderer_accb21b1b89d1f421208522aa79d45faf}{omni\_shadow\_map\_pass}}-\/>execute(p\_lights[p\_light\_count], scene);}
+\DoxyCodeLine{00037   \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039   \textcolor{comment}{// we will now start the geometry pass}}
+\DoxyCodeLine{00040   \mbox{\hyperlink{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}{geometry\_pass}}-\/>execute(projection\_matrix, main\_camera, \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}},}
+\DoxyCodeLine{00041                          \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}}, \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>get\_id(), delta\_time, scene);}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043   \textcolor{comment}{// after geometry pass we can now do the lighting}}
+\DoxyCodeLine{00044   \mbox{\hyperlink{class_renderer_acd9d967474764cc717ef05adebc09007}{lighting\_pass}}-\/>execute(projection\_matrix, main\_camera, scene, \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}},}
+\DoxyCodeLine{00045                          delta\_time);}
+\DoxyCodeLine{00046 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_renderer_8h_source_l00034}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00026}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00035}{geometry\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00036}{lighting\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00033}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+height}}, and \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+width}}.
+References \mbox{\hyperlink{_renderer_8h_source_l00037}{directional\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00029}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00038}{geometry\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00039}{lighting\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00036}{omni\+\_\+shadow\+\_\+map\+\_\+pass}}, \mbox{\hyperlink{_renderer_8h_source_l00027}{window\+\_\+height}}, and \mbox{\hyperlink{_renderer_8h_source_l00027}{window\+\_\+width}}.
 
 
 
-Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00025}{main()}}.
 
 Here is the caller graph for this function\+:
 % FIG 1
@@ -151,27 +158,27 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00047 \{}
-\DoxyCodeLine{00048   \textcolor{comment}{// also reload all shader include files}}
-\DoxyCodeLine{00049   \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\_includes}} = \mbox{\hyperlink{class_shader_includes}{ShaderIncludes}}();}
-\DoxyCodeLine{00050 }
-\DoxyCodeLine{00051   \textcolor{keywordflow}{for} (std::shared\_ptr<RenderPass> render\_pass : \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}) \{}
-\DoxyCodeLine{00052     render\_pass-\/>create\_shader\_program();}
-\DoxyCodeLine{00053   \}}
-\DoxyCodeLine{00054 \}}
+\DoxyCodeLine{00055                                       \{}
+\DoxyCodeLine{00056   \textcolor{comment}{// also reload all shader include files}}
+\DoxyCodeLine{00057   \mbox{\hyperlink{class_renderer_a6636e56142aa40fb9602219aa69185d8}{shader\_includes}} = \mbox{\hyperlink{class_shader_includes}{ShaderIncludes}}();}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059   \textcolor{keywordflow}{for} (std::shared\_ptr<RenderPass> render\_pass : \mbox{\hyperlink{class_renderer_ae7180882bbfec2188ed17889d00843c2}{render\_passes}}) \{}
+\DoxyCodeLine{00060     render\_pass-\/>create\_shader\_program();}
+\DoxyCodeLine{00061   \}}
+\DoxyCodeLine{00062 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_renderer_8h_source_l00031}{render\+\_\+passes}}, and \mbox{\hyperlink{_renderer_8h_source_l00028}{shader\+\_\+includes}}.
+References \mbox{\hyperlink{_renderer_8h_source_l00034}{render\+\_\+passes}}, and \mbox{\hyperlink{_renderer_8h_source_l00031}{shader\+\_\+includes}}.
 
 
 
-Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00025}{main()}}.
 
 Here is the caller graph for this function\+:
 % FIG 2
@@ -183,25 +190,25 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
+Definition at line \mbox{\hyperlink{_renderer_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_renderer_8cpp_source}{Renderer.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00039 \{}
-\DoxyCodeLine{00040   this-\/>\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}} = \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}};}
-\DoxyCodeLine{00041   this-\/>\mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}} = \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}};}
-\DoxyCodeLine{00042   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>update\_window\_params(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}});}
-\DoxyCodeLine{00043   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>create();}
-\DoxyCodeLine{00044 \}}
+\DoxyCodeLine{00048                                                                              \{}
+\DoxyCodeLine{00049   this-\/>\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}} = \mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}};}
+\DoxyCodeLine{00050   this-\/>\mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}} = \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}};}
+\DoxyCodeLine{00051   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>update\_window\_params(\mbox{\hyperlink{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}{window\_width}}, \mbox{\hyperlink{class_renderer_a31c6c96178b115a0a023b838862d5c76}{window\_height}});}
+\DoxyCodeLine{00052   \mbox{\hyperlink{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}{gbuffer}}-\/>create();}
+\DoxyCodeLine{00053 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_renderer_8h_source_l00026}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+height}}, and \mbox{\hyperlink{_renderer_8h_source_l00024}{window\+\_\+width}}.
+References \mbox{\hyperlink{_renderer_8h_source_l00029}{gbuffer}}, \mbox{\hyperlink{_renderer_8h_source_l00027}{window\+\_\+height}}, and \mbox{\hyperlink{_renderer_8h_source_l00027}{window\+\_\+width}}.
 
 
 
-Referenced by \mbox{\hyperlink{_app_8cpp_source_l00026}{main()}}.
+Referenced by \mbox{\hyperlink{_app_8cpp_source_l00025}{main()}}.
 
 Here is the caller graph for this function\+:
 % FIG 3
@@ -216,11 +223,11 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00034}{34}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00037}{37}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00005}{Renderer()}}.
 
 \mbox{\Hypertarget{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}\label{class_renderer_a54d47df4f28b040b2218d5b2b8fbab14}} 
 \index{Renderer@{Renderer}!gbuffer@{gbuffer}}
@@ -230,11 +237,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, an
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00026}{26}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00029}{29}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00038}{update\+\_\+window\+\_\+params()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, \mbox{\hyperlink{_renderer_8cpp_source_l00005}{Renderer()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00048}{update\+\_\+window\+\_\+params()}}.
 
 \mbox{\Hypertarget{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}\label{class_renderer_ae4fbf62dfefb50077c0c4ee0d4e30378}} 
 \index{Renderer@{Renderer}!geometry\_pass@{geometry\_pass}}
@@ -244,11 +251,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, \m
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00035}{35}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00038}{38}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00005}{Renderer()}}.
 
 \mbox{\Hypertarget{class_renderer_acd9d967474764cc717ef05adebc09007}\label{class_renderer_acd9d967474764cc717ef05adebc09007}} 
 \index{Renderer@{Renderer}!lighting\_pass@{lighting\_pass}}
@@ -258,11 +265,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, an
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00036}{36}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00039}{39}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00005}{Renderer()}}.
 
 \mbox{\Hypertarget{class_renderer_accb21b1b89d1f421208522aa79d45faf}\label{class_renderer_accb21b1b89d1f421208522aa79d45faf}} 
 \index{Renderer@{Renderer}!omni\_shadow\_map\_pass@{omni\_shadow\_map\_pass}}
@@ -272,11 +279,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, an
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00033}{33}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00036}{36}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00005}{Renderer()}}.
 
 \mbox{\Hypertarget{class_renderer_ae7180882bbfec2188ed17889d00843c2}\label{class_renderer_ae7180882bbfec2188ed17889d00843c2}} 
 \index{Renderer@{Renderer}!render\_passes@{render\_passes}}
@@ -286,11 +293,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, an
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00031}{31}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00034}{34}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00046}{reload\+\_\+shader\+\_\+programs()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00004}{Renderer()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00055}{reload\+\_\+shader\+\_\+programs()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00005}{Renderer()}}.
 
 \mbox{\Hypertarget{class_renderer_a6636e56142aa40fb9602219aa69185d8}\label{class_renderer_a6636e56142aa40fb9602219aa69185d8}} 
 \index{Renderer@{Renderer}!shader\_includes@{shader\_includes}}
@@ -300,11 +307,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00046}{reload\+\_\+shader\
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00028}{28}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00031}{31}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00046}{reload\+\_\+shader\+\_\+programs()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00055}{reload\+\_\+shader\+\_\+programs()}}.
 
 \mbox{\Hypertarget{class_renderer_a31c6c96178b115a0a023b838862d5c76}\label{class_renderer_a31c6c96178b115a0a023b838862d5c76}} 
 \index{Renderer@{Renderer}!window\_height@{window\_height}}
@@ -314,11 +321,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00046}{reload\+\_\+shader\
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00024}{24}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00027}{27}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00038}{update\+\_\+window\+\_\+params()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00048}{update\+\_\+window\+\_\+params()}}.
 
 \mbox{\Hypertarget{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}\label{class_renderer_a0fc93b1c46cc1adb6d76a1d74745b584}} 
 \index{Renderer@{Renderer}!window\_width@{window\_width}}
@@ -328,11 +335,11 @@ Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, an
 
 
 
-Definition at line \mbox{\hyperlink{_renderer_8h_source_l00024}{24}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
+Definition at line \mbox{\hyperlink{_renderer_8h_source_l00027}{27}} of file \mbox{\hyperlink{_renderer_8h_source}{Renderer.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00020}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00038}{update\+\_\+window\+\_\+params()}}.
+Referenced by \mbox{\hyperlink{_renderer_8cpp_source_l00026}{draw\+Frame()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00048}{update\+\_\+window\+\_\+params()}}.
 
 
 

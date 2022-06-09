@@ -130,11 +130,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00005">5</a> of file <a class="el" href="../../de/d7b/_file_8cpp_source.html">File.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>{ this-&gt;<a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a> = <a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a>; }</div>
-<div class="ttc" id="aclass_file_html_aaee11df48454fa5ddc266db5bdaf77ca"><div class="ttname"><a href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">File::file_location</a></div><div class="ttdeci">std::string file_location</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d0c/_file_8h_source.html#l00014">File.h:14</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00006">6</a> of file <a class="el" href="../../de/d7b/_file_8cpp_source.html">File.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>                                         {</div>
+<div class="line"><span class="lineno">    7</span>  this-&gt;<a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a> = <a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a>;</div>
+<div class="line"><span class="lineno">    8</span>}</div>
+<div class="ttc" id="aclass_file_html_aaee11df48454fa5ddc266db5bdaf77ca"><div class="ttname"><a href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">File::file_location</a></div><div class="ttdeci">std::string file_location</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d0c/_file_8h_source.html#l00013">File.h:13</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../df/d0c/_file_8h_source.html#l00014">file_location</a>.</p>
+<p class="reference">References <a class="el" href="../../df/d0c/_file_8h_source.html#l00013">file_location</a>.</p>
 
 </div>
 </div>
@@ -153,8 +155,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../de/d7b/_file_8cpp_source.html">File.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>{ }</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../de/d7b/_file_8cpp_source.html">File.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -174,29 +176,29 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00007">7</a> of file <a class="el" href="../../de/d7b/_file_8cpp_source.html">File.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
-<div class="line"><span class="lineno">    9</span>  std::string content;</div>
-<div class="line"><span class="lineno">   10</span>  std::ifstream file_stream(<a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a>, std::ios::in);</div>
-<div class="line"><span class="lineno">   11</span> </div>
-<div class="line"><span class="lineno">   12</span>  <span class="keywordflow">if</span> (!file_stream.is_open()) {</div>
-<div class="line"><span class="lineno">   13</span>    printf(<span class="stringliteral">&quot;Failed to read %s. File does not exist.&quot;</span>, <a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a>.c_str());</div>
-<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   15</span>  }</div>
-<div class="line"><span class="lineno">   16</span> </div>
-<div class="line"><span class="lineno">   17</span>  std::string line = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   18</span>  <span class="keywordflow">while</span> (!file_stream.eof()) {</div>
-<div class="line"><span class="lineno">   19</span>    std::getline(file_stream, line);</div>
-<div class="line"><span class="lineno">   20</span>    content.append(line + <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   21</span>  }</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>  file_stream.close();</div>
-<div class="line"><span class="lineno">   24</span>  <span class="keywordflow">return</span> content;</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00010">10</a> of file <a class="el" href="../../de/d7b/_file_8cpp_source.html">File.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>                     {</div>
+<div class="line"><span class="lineno">   11</span>  std::string content;</div>
+<div class="line"><span class="lineno">   12</span>  std::ifstream file_stream(<a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a>, std::ios::in);</div>
+<div class="line"><span class="lineno">   13</span> </div>
+<div class="line"><span class="lineno">   14</span>  <span class="keywordflow">if</span> (!file_stream.is_open()) {</div>
+<div class="line"><span class="lineno">   15</span>    printf(<span class="stringliteral">&quot;Failed to read %s. File does not exist.&quot;</span>, <a class="code hl_variable" href="../../d1/d31/class_file.html#aaee11df48454fa5ddc266db5bdaf77ca">file_location</a>.c_str());</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   17</span>  }</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>  std::string line = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   20</span>  <span class="keywordflow">while</span> (!file_stream.eof()) {</div>
+<div class="line"><span class="lineno">   21</span>    std::getline(file_stream, line);</div>
+<div class="line"><span class="lineno">   22</span>    content.append(line + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   23</span>  }</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>  file_stream.close();</div>
+<div class="line"><span class="lineno">   26</span>  <span class="keywordflow">return</span> content;</div>
+<div class="line"><span class="lineno">   27</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../df/d0c/_file_8h_source.html#l00014">file_location</a>.</p>
+<p class="reference">References <a class="el" href="../../df/d0c/_file_8h_source.html#l00013">file_location</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../db/dd5/_shader_program_8cpp_source.html#l00072">ShaderProgram::create_computer_shader_program_from_file()</a>, <a class="el" href="../../db/dd5/_shader_program_8cpp_source.html#l00019">ShaderProgram::create_from_files()</a>, and <a class="el" href="../../d8/d0b/_shader_includes_8cpp_source.html#l00014">ShaderIncludes::ShaderIncludes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../db/dd5/_shader_program_8cpp_source.html#l00076">ShaderProgram::create_computer_shader_program_from_file()</a>, <a class="el" href="../../db/dd5/_shader_program_8cpp_source.html#l00024">ShaderProgram::create_from_files()</a>, and <a class="el" href="../../d8/d0b/_shader_includes_8cpp_source.html#l00016">ShaderIncludes::ShaderIncludes()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -229,9 +231,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/d0c/_file_8h_source.html#l00014">14</a> of file <a class="el" href="../../df/d0c/_file_8h_source.html">File.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d0c/_file_8h_source.html#l00013">13</a> of file <a class="el" href="../../df/d0c/_file_8h_source.html">File.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00005">File()</a>, and <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00007">read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00006">File()</a>, and <a class="el" href="../../de/d7b/_file_8cpp_source.html#l00010">read()</a>.</p>
 
 </div>
 </div>
@@ -245,7 +247,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d1/d31/class_file.html">File</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:33 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

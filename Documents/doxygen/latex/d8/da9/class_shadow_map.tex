@@ -60,16 +60,18 @@ Definition at line \mbox{\hyperlink{_shadow_map_8h_source_l00006}{6}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
+Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00004                      :}
+\DoxyCodeLine{00004     :}
 \DoxyCodeLine{00005 }
-\DoxyCodeLine{00006     \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}(0), \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}(0), \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}}(0), \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}}(0)}
-\DoxyCodeLine{00007 }
-\DoxyCodeLine{00008 \{}
-\DoxyCodeLine{00009 \}}
+\DoxyCodeLine{00006       \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}(0),}
+\DoxyCodeLine{00007       \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}(0),}
+\DoxyCodeLine{00008       \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}}(0),}
+\DoxyCodeLine{00009       \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}}(0)}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_shadow_map_aade01d2dc3620a7015016ecd3aa3cab3}\label{class_shadow_map_aade01d2dc3620a7015016ecd3aa3cab3}} 
@@ -84,15 +86,15 @@ Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00059}{59}} of file
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00060 \{}
-\DoxyCodeLine{00061   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}) \{}
-\DoxyCodeLine{00062     glDeleteFramebuffers(1, \&\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
-\DoxyCodeLine{00063   \}}
-\DoxyCodeLine{00064 }
-\DoxyCodeLine{00065   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}) \{}
-\DoxyCodeLine{00066     glDeleteTextures(1, \&\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
-\DoxyCodeLine{00067   \}}
-\DoxyCodeLine{00068 \}}
+\DoxyCodeLine{00059                       \{}
+\DoxyCodeLine{00060   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}) \{}
+\DoxyCodeLine{00061     glDeleteFramebuffers(1, \&\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
+\DoxyCodeLine{00062   \}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}) \{}
+\DoxyCodeLine{00065     glDeleteTextures(1, \&\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
+\DoxyCodeLine{00066   \}}
+\DoxyCodeLine{00067 \}}
 
 \end{DoxyCode}
 
@@ -171,47 +173,48 @@ Reimplemented in \mbox{\hyperlink{class_omni_dir_shadow_map_a623040f2a8537ea53a5
 
 
 
-Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
+Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012 \{}
-\DoxyCodeLine{00013   \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}} = width;}
-\DoxyCodeLine{00014   \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}} = height;}
-\DoxyCodeLine{00015 }
-\DoxyCodeLine{00016   glGenFramebuffers(1, \&\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
-\DoxyCodeLine{00017 }
-\DoxyCodeLine{00018   glGenTextures(1, \&\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
-\DoxyCodeLine{00019   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
-\DoxyCodeLine{00020   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_DEPTH\_COMPONENT, \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}}, \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}}, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT, \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00021 }
-\DoxyCodeLine{00022   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00023   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00024 }
-\DoxyCodeLine{00025   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_BORDER);}
-\DoxyCodeLine{00026   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_BORDER);}
-\DoxyCodeLine{00027 }
-\DoxyCodeLine{00028   \textcolor{keywordtype}{float} border\_color[] = \{ 1.0f, 1.0f, 1.0f, 1.0f \};}
-\DoxyCodeLine{00029   glTexParameterfv(GL\_TEXTURE\_2D, GL\_TEXTURE\_BORDER\_COLOR, border\_color);}
-\DoxyCodeLine{00030 }
-\DoxyCodeLine{00031   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
-\DoxyCodeLine{00032   glFramebufferTexture2D(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, GL\_TEXTURE\_2D, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}, 0);}
-\DoxyCodeLine{00033 }
-\DoxyCodeLine{00034   glDrawBuffer(GL\_NONE);}
-\DoxyCodeLine{00035   glReadBuffer(GL\_NONE);}
+\DoxyCodeLine{00013                                                 \{}
+\DoxyCodeLine{00014   \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}} = width;}
+\DoxyCodeLine{00015   \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}} = height;}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   glGenFramebuffers(1, \&\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019   glGenTextures(1, \&\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
+\DoxyCodeLine{00020   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
+\DoxyCodeLine{00021   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_DEPTH\_COMPONENT, \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}},}
+\DoxyCodeLine{00022                \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}}, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00025   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_BORDER);}
+\DoxyCodeLine{00028   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_BORDER);}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030   \textcolor{keywordtype}{float} border\_color[] = \{1.0f, 1.0f, 1.0f, 1.0f\};}
+\DoxyCodeLine{00031   glTexParameterfv(GL\_TEXTURE\_2D, GL\_TEXTURE\_BORDER\_COLOR, border\_color);}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
+\DoxyCodeLine{00034   glFramebufferTexture2D(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, GL\_TEXTURE\_2D,}
+\DoxyCodeLine{00035                          \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}, 0);}
 \DoxyCodeLine{00036 }
-\DoxyCodeLine{00037   GLenum status = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
-\DoxyCodeLine{00038 }
-\DoxyCodeLine{00039   \textcolor{keywordflow}{if} (status != GL\_FRAMEBUFFER\_COMPLETE) \{}
-\DoxyCodeLine{00040 }
-\DoxyCodeLine{00041     printf(\textcolor{stringliteral}{"{}Framebuffer error: \%i\(\backslash\)n"{}}, status);}
-\DoxyCodeLine{00042     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{00043   \}}
-\DoxyCodeLine{00044 }
-\DoxyCodeLine{00045   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00037   glDrawBuffer(GL\_NONE);}
+\DoxyCodeLine{00038   glReadBuffer(GL\_NONE);}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040   GLenum status = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042   \textcolor{keywordflow}{if} (status != GL\_FRAMEBUFFER\_COMPLETE) \{}
+\DoxyCodeLine{00043     printf(\textcolor{stringliteral}{"{}Framebuffer error: \%i\(\backslash\)n"{}}, status);}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00045   \}}
 \DoxyCodeLine{00046 }
-\DoxyCodeLine{00047   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00047   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00050 \}}
 
 \end{DoxyCode}
 
@@ -230,12 +233,11 @@ Reimplemented in \mbox{\hyperlink{class_omni_dir_shadow_map_ae6fd2d463463b445cbd
 
 
 
-Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
+Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00053 \{}
-\DoxyCodeLine{00054 }
+\DoxyCodeLine{00054                                         \{}
 \DoxyCodeLine{00055   glActiveTexture(texture\_unit);}
 \DoxyCodeLine{00056   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
 \DoxyCodeLine{00057 \}}
@@ -257,11 +259,11 @@ Reimplemented in \mbox{\hyperlink{class_omni_dir_shadow_map_a51a55855b025d248e74
 
 
 
-Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
+Definition at line \mbox{\hyperlink{_shadow_map_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_shadow_map_8cpp_source}{Shadow\+Map.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00050 \{ glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}); \}}
+\DoxyCodeLine{00052 \{ glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}); \}}
 
 \end{DoxyCode}
 
@@ -283,7 +285,7 @@ Definition at line \mbox{\hyperlink{_shadow_map_8h_source_l00021}{21}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00006}{Omni\+Dir\+Shadow\+Map\+::init()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00011}{init()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00049}{Omni\+Dir\+Shadow\+Map\+::write()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00050}{write()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00059}{$\sim$\+Shadow\+Map()}}.
+Referenced by \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Map\+::init()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00013}{init()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00047}{Omni\+Dir\+Shadow\+Map\+::write()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00052}{write()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00059}{$\sim$\+Shadow\+Map()}}.
 
 \mbox{\Hypertarget{class_shadow_map_a67d10623cc44828c87303be015fddec6}\label{class_shadow_map_a67d10623cc44828c87303be015fddec6}} 
 \index{ShadowMap@{ShadowMap}!shadow\_height@{shadow\_height}}
@@ -297,7 +299,7 @@ Definition at line \mbox{\hyperlink{_shadow_map_8h_source_l00022}{22}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_shadow_map_8h_source_l00015}{get\+\_\+shadow\+\_\+height()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00006}{Omni\+Dir\+Shadow\+Map\+::init()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00011}{init()}}.
+Referenced by \mbox{\hyperlink{_shadow_map_8h_source_l00015}{get\+\_\+shadow\+\_\+height()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Map\+::init()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00013}{init()}}.
 
 \mbox{\Hypertarget{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}\label{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}} 
 \index{ShadowMap@{ShadowMap}!shadow\_map@{shadow\_map}}
@@ -311,7 +313,7 @@ Definition at line \mbox{\hyperlink{_shadow_map_8h_source_l00021}{21}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_shadow_map_8h_source_l00016}{get\+\_\+id()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00006}{Omni\+Dir\+Shadow\+Map\+::init()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00011}{init()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00051}{Omni\+Dir\+Shadow\+Map\+::read()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00052}{read()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00059}{$\sim$\+Shadow\+Map()}}.
+Referenced by \mbox{\hyperlink{_shadow_map_8h_source_l00016}{get\+\_\+id()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Map\+::init()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00013}{init()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00049}{Omni\+Dir\+Shadow\+Map\+::read()}}, \mbox{\hyperlink{_shadow_map_8cpp_source_l00054}{read()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00059}{$\sim$\+Shadow\+Map()}}.
 
 \mbox{\Hypertarget{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}\label{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}} 
 \index{ShadowMap@{ShadowMap}!shadow\_width@{shadow\_width}}
@@ -325,7 +327,7 @@ Definition at line \mbox{\hyperlink{_shadow_map_8h_source_l00022}{22}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_shadow_map_8h_source_l00014}{get\+\_\+shadow\+\_\+width()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00006}{Omni\+Dir\+Shadow\+Map\+::init()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00011}{init()}}.
+Referenced by \mbox{\hyperlink{_shadow_map_8h_source_l00014}{get\+\_\+shadow\+\_\+width()}}, \mbox{\hyperlink{_omni_dir_shadow_map_8cpp_source_l00005}{Omni\+Dir\+Shadow\+Map\+::init()}}, and \mbox{\hyperlink{_shadow_map_8cpp_source_l00013}{init()}}.
 
 
 

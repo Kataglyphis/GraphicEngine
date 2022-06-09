@@ -108,7 +108,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00008">8</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00009">9</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae446d188d645cc5c512336f25d1a697a" name="ae446d188d645cc5c512336f25d1a697a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae446d188d645cc5c512336f25d1a697a">&#9670;&nbsp;</a></span>Quad()</h2>
@@ -126,23 +126,24 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d6/d22/_quad_8cpp_source.html">Quad.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
-<div class="line"><span class="lineno">    5</span>  glGenVertexArrays(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
-<div class="line"><span class="lineno">    6</span>  glGenBuffers(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">q_vbo</a>);</div>
-<div class="line"><span class="lineno">    7</span> </div>
-<div class="line"><span class="lineno">    8</span>  glBindVertexArray(<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
-<div class="line"><span class="lineno">    9</span>  glBindBuffer(GL_ARRAY_BUFFER, <a class="code hl_variable" href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">q_vbo</a>);</div>
-<div class="line"><span class="lineno">   10</span>  glBufferData(GL_ARRAY_BUFFER, <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3cc5b3adc4a394880f13564480798eff">vertices</a>), &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3cc5b3adc4a394880f13564480798eff">vertices</a>, GL_STATIC_DRAW);</div>
-<div class="line"><span class="lineno">   11</span>  glEnableVertexAttribArray(0);</div>
-<div class="line"><span class="lineno">   12</span>  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>), (<span class="keywordtype">void</span>*)0);</div>
-<div class="line"><span class="lineno">   13</span>  glEnableVertexAttribArray(1);</div>
-<div class="line"><span class="lineno">   14</span>  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>), (<span class="keywordtype">void</span>*)(3 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>)));</div>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>           {</div>
+<div class="line"><span class="lineno">    4</span>  glGenVertexArrays(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
+<div class="line"><span class="lineno">    5</span>  glGenBuffers(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">q_vbo</a>);</div>
+<div class="line"><span class="lineno">    6</span> </div>
+<div class="line"><span class="lineno">    7</span>  glBindVertexArray(<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
+<div class="line"><span class="lineno">    8</span>  glBindBuffer(GL_ARRAY_BUFFER, <a class="code hl_variable" href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">q_vbo</a>);</div>
+<div class="line"><span class="lineno">    9</span>  glBufferData(GL_ARRAY_BUFFER, <span class="keyword">sizeof</span>(<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3cc5b3adc4a394880f13564480798eff">vertices</a>), &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3cc5b3adc4a394880f13564480798eff">vertices</a>, GL_STATIC_DRAW);</div>
+<div class="line"><span class="lineno">   10</span>  glEnableVertexAttribArray(0);</div>
+<div class="line"><span class="lineno">   11</span>  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>), (<span class="keywordtype">void</span>*)0);</div>
+<div class="line"><span class="lineno">   12</span>  glEnableVertexAttribArray(1);</div>
+<div class="line"><span class="lineno">   13</span>  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>),</div>
+<div class="line"><span class="lineno">   14</span>                        (<span class="keywordtype">void</span>*)(3 * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>)));</div>
 <div class="line"><span class="lineno">   15</span>}</div>
-<div class="ttc" id="aclass_quad_html_a0f57bfbf50640db8453c17858dbb17e0"><div class="ttname"><a href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">Quad::q_vbo</a></div><div class="ttdeci">GLuint q_vbo</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00017">Quad.h:17</a></div></div>
-<div class="ttc" id="aclass_quad_html_a3cc5b3adc4a394880f13564480798eff"><div class="ttname"><a href="../../d3/df8/class_quad.html#a3cc5b3adc4a394880f13564480798eff">Quad::vertices</a></div><div class="ttdeci">float vertices[20]</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00019">Quad.h:19</a></div></div>
-<div class="ttc" id="aclass_quad_html_a3f54c3cb78d10bc2ec9ff982c583b4a6"><div class="ttname"><a href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">Quad::q_vao</a></div><div class="ttdeci">GLuint q_vao</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00017">Quad.h:17</a></div></div>
+<div class="ttc" id="aclass_quad_html_a0f57bfbf50640db8453c17858dbb17e0"><div class="ttname"><a href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">Quad::q_vbo</a></div><div class="ttdeci">GLuint q_vbo</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00018">Quad.h:18</a></div></div>
+<div class="ttc" id="aclass_quad_html_a3cc5b3adc4a394880f13564480798eff"><div class="ttname"><a href="../../d3/df8/class_quad.html#a3cc5b3adc4a394880f13564480798eff">Quad::vertices</a></div><div class="ttdeci">float vertices[20]</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00020">Quad.h:20</a></div></div>
+<div class="ttc" id="aclass_quad_html_a3f54c3cb78d10bc2ec9ff982c583b4a6"><div class="ttname"><a href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">Quad::q_vao</a></div><div class="ttdeci">GLuint q_vao</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc0/_quad_8h_source.html#l00018">Quad.h:18</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">q_vao</a>, <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">q_vbo</a>, and <a class="el" href="../../db/dc0/_quad_8h_source.html#l00019">vertices</a>.</p>
+<p class="reference">References <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">q_vao</a>, <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">q_vbo</a>, and <a class="el" href="../../db/dc0/_quad_8h_source.html#l00020">vertices</a>.</p>
 
 </div>
 </div>
@@ -161,13 +162,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d6/d22/_quad_8cpp_source.html">Quad.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>  glDeleteVertexArrays(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
-<div class="line"><span class="lineno">   27</span>  glDeleteBuffers(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">q_vbo</a>);</div>
-<div class="line"><span class="lineno">   28</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d6/d22/_quad_8cpp_source.html">Quad.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>            {</div>
+<div class="line"><span class="lineno">   24</span>  glDeleteVertexArrays(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
+<div class="line"><span class="lineno">   25</span>  glDeleteBuffers(1, &amp;<a class="code hl_variable" href="../../d3/df8/class_quad.html#a0f57bfbf50640db8453c17858dbb17e0">q_vbo</a>);</div>
+<div class="line"><span class="lineno">   26</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">q_vao</a>, and <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">q_vbo</a>.</p>
+<p class="reference">References <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">q_vao</a>, and <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">q_vbo</a>.</p>
 
 </div>
 </div>
@@ -188,15 +189,15 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d6/d22/_quad_8cpp_source.html">Quad.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
-<div class="line"><span class="lineno">   19</span>  glBindVertexArray(<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
-<div class="line"><span class="lineno">   20</span>  glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);</div>
-<div class="line"><span class="lineno">   21</span>  glBindVertexArray(0);</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                  {</div>
+<div class="line"><span class="lineno">   18</span>  glBindVertexArray(<a class="code hl_variable" href="../../d3/df8/class_quad.html#a3f54c3cb78d10bc2ec9ff982c583b4a6">q_vao</a>);</div>
+<div class="line"><span class="lineno">   19</span>  glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);</div>
+<div class="line"><span class="lineno">   20</span>  glBindVertexArray(0);</div>
+<div class="line"><span class="lineno">   21</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">q_vao</a>.</p>
+<p class="reference">References <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">q_vao</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/dbf/_lighting_pass_8cpp_source.html#l00012">LightingPass::execute()</a>, and <a class="el" href="../../dc/d5e/_loading_screen_8cpp_source.html#l00026">LoadingScreen::render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/dbf/_lighting_pass_8cpp_source.html#l00013">LightingPass::execute()</a>, and <a class="el" href="../../dc/d5e/_loading_screen_8cpp_source.html#l00027">LoadingScreen::render()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -229,9 +230,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">17</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">18</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00003">Quad()</a>, <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00017">render()</a>, and <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00024">~Quad()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00003">Quad()</a>, <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00017">render()</a>, and <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00023">~Quad()</a>.</p>
 
 </div>
 </div>
@@ -255,9 +256,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00017">17</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00018">18</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00003">Quad()</a>, and <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00024">~Quad()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00003">Quad()</a>, and <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00023">~Quad()</a>.</p>
 
 </div>
 </div>
@@ -282,31 +283,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line"> </div>
-<div class="line">    </div>
-<div class="line">    -1.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    -1.0f,</div>
-<div class="line">    -1.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    -1.0f,</div>
-<div class="line">    0.0f,</div>
-<div class="line">    1.0f,</div>
-<div class="line">    0.0f</div>
+<div class="line">      </div>
+<div class="line">      -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, -1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,</div>
+<div class="line">      1.0f,  0.0f, 1.0f, 1.0f, 1.0f, -1.0f, 0.0f,  1.0f, 0.0f</div>
 <div class="line"> </div>
 <div class="line">  }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00019">19</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dc0/_quad_8h_source.html#l00020">20</a> of file <a class="el" href="../../db/dc0/_quad_8h_source.html">Quad.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d6/d22/_quad_8cpp_source.html#l00003">Quad()</a>.</p>
 
@@ -322,7 +305,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/df8/class_quad.html">Quad</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:34 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

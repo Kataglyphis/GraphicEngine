@@ -54,133 +54,112 @@ Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00021}{21}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
+Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00006                \{}
 \DoxyCodeLine{00007   std::stringstream skybox\_base\_dir;}
-\DoxyCodeLine{00008   skybox\_base\_dir << CMAKELISTS\_DIR;}
+\DoxyCodeLine{00008   skybox\_base\_dir << \mbox{\hyperlink{_open_g_l_renderer_config_8h_a06f3f84c6add75aba385bb130c129978}{CMAKELISTS\_DIR}};}
 \DoxyCodeLine{00009   skybox\_base\_dir << \textcolor{stringliteral}{"{}/Resources/Textures/Skybox/DOOM2016/"{}};}
 \DoxyCodeLine{00010 }
 \DoxyCodeLine{00011   std::stringstream texture\_loading;}
-\DoxyCodeLine{00012   std::array<std::string, 6> skybox\_textures = \{ \textcolor{stringliteral}{"{}DOOM16RT.png"{}}, \textcolor{stringliteral}{"{}DOOM16LF.png"{}}, \textcolor{stringliteral}{"{}DOOM16UP.png"{}}, \textcolor{stringliteral}{"{}DOOM16DN.png"{}}, \textcolor{stringliteral}{"{}DOOM16FT.png"{}}, \textcolor{stringliteral}{"{}DOOM16BK.png"{}} \};}
-\DoxyCodeLine{00013 }
-\DoxyCodeLine{00014   std::vector<std::string> skybox\_faces;}
+\DoxyCodeLine{00012   std::array<std::string, 6> skybox\_textures = \{\textcolor{stringliteral}{"{}DOOM16RT.png"{}}, \textcolor{stringliteral}{"{}DOOM16LF.png"{}},}
+\DoxyCodeLine{00013                                                 \textcolor{stringliteral}{"{}DOOM16UP.png"{}}, \textcolor{stringliteral}{"{}DOOM16DN.png"{}},}
+\DoxyCodeLine{00014                                                 \textcolor{stringliteral}{"{}DOOM16FT.png"{}}, \textcolor{stringliteral}{"{}DOOM16BK.png"{}}\};}
 \DoxyCodeLine{00015 }
-\DoxyCodeLine{00016   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(skybox\_textures.size()); i++) \{}
+\DoxyCodeLine{00016   std::vector<std::string> skybox\_faces;}
 \DoxyCodeLine{00017 }
-\DoxyCodeLine{00018     texture\_loading << skybox\_base\_dir.str() << skybox\_textures[i];}
-\DoxyCodeLine{00019     skybox\_faces.push\_back(texture\_loading.str());}
-\DoxyCodeLine{00020     texture\_loading.str(std::string());}
-\DoxyCodeLine{00021   \}}
-\DoxyCodeLine{00022 }
-\DoxyCodeLine{00023   \textcolor{comment}{//time\_t timer;}}
-\DoxyCodeLine{00024   \textcolor{comment}{//srand(time(\&timer));}}
-\DoxyCodeLine{00025   srand(0);}
-\DoxyCodeLine{00026   \mbox{\hyperlink{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}{shader\_playback\_time}} = 1;}
-\DoxyCodeLine{00027 }
-\DoxyCodeLine{00028   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}} = std::make\_shared<ShaderProgram>();}
-\DoxyCodeLine{00029   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}skybox/SkyBox.vert"{}}, \textcolor{stringliteral}{"{}skybox/SkyBox.frag"{}});}
-\DoxyCodeLine{00030 }
-\DoxyCodeLine{00031   \textcolor{comment}{//texture setup}}
-\DoxyCodeLine{00032   glGenTextures(1, \&\mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}});}
-\DoxyCodeLine{00033   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}});}
-\DoxyCodeLine{00034 }
-\DoxyCodeLine{00035   \textcolor{keywordtype}{int} width, height, bit\_depth;}
-\DoxyCodeLine{00036 }
-\DoxyCodeLine{00037   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < 6; i++) \{}
-\DoxyCodeLine{00038 }
-\DoxyCodeLine{00039     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* texture\_data = stbi\_load(skybox\_faces[i].c\_str(), \&width, \&height, \&bit\_depth, 0);}
-\DoxyCodeLine{00040     \textcolor{keywordflow}{if} (!texture\_data) \{}
-\DoxyCodeLine{00041       printf(\textcolor{stringliteral}{"{}Failed to find: \%s\(\backslash\)n"{}}, skybox\_faces[i].c\_str());}
-\DoxyCodeLine{00042       \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00043     \}}
-\DoxyCodeLine{00044 }
-\DoxyCodeLine{00045     glTexImage2D(\textcolor{keyword}{static\_cast<}GLenum\textcolor{keyword}{>}(GL\_TEXTURE\_CUBE\_MAP\_POSITIVE\_X + i), 0, GL\_RGBA, width, height, 0, GL\_RGBA, GL\_UNSIGNED\_BYTE, texture\_data);}
-\DoxyCodeLine{00046 }
-\DoxyCodeLine{00047     stbi\_image\_free(texture\_data);}
-\DoxyCodeLine{00048   \}}
+\DoxyCodeLine{00018   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(skybox\_textures.size()); i++) \{}
+\DoxyCodeLine{00019     texture\_loading << skybox\_base\_dir.str() << skybox\_textures[i];}
+\DoxyCodeLine{00020     skybox\_faces.push\_back(texture\_loading.str());}
+\DoxyCodeLine{00021     texture\_loading.str(std::string());}
+\DoxyCodeLine{00022   \}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   \textcolor{comment}{// time\_t timer;}}
+\DoxyCodeLine{00025   \textcolor{comment}{// srand(time(\&timer));}}
+\DoxyCodeLine{00026   srand(0);}
+\DoxyCodeLine{00027   \mbox{\hyperlink{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}{shader\_playback\_time}} = 1;}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}} = std::make\_shared<ShaderProgram>();}
+\DoxyCodeLine{00030   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}skybox/SkyBox.vert"{}}, \textcolor{stringliteral}{"{}skybox/SkyBox.frag"{}});}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032   \textcolor{comment}{// texture setup}}
+\DoxyCodeLine{00033   glGenTextures(1, \&\mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}});}
+\DoxyCodeLine{00034   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}});}
+\DoxyCodeLine{00035 }
+\DoxyCodeLine{00036   \textcolor{keywordtype}{int} width, height, bit\_depth;}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < 6; i++) \{}
+\DoxyCodeLine{00039     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* texture\_data =}
+\DoxyCodeLine{00040         stbi\_load(skybox\_faces[i].c\_str(), \&width, \&height, \&bit\_depth, 0);}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{if} (!texture\_data) \{}
+\DoxyCodeLine{00042       printf(\textcolor{stringliteral}{"{}Failed to find: \%s\(\backslash\)n"{}}, skybox\_faces[i].c\_str());}
+\DoxyCodeLine{00043       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046     glTexImage2D(\textcolor{keyword}{static\_cast<}GLenum\textcolor{keyword}{>}(GL\_TEXTURE\_CUBE\_MAP\_POSITIVE\_X + i), 0,}
+\DoxyCodeLine{00047                  GL\_RGBA, width, height, 0, GL\_RGBA, GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{00048                  texture\_data);}
 \DoxyCodeLine{00049 }
-\DoxyCodeLine{00050   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
-\DoxyCodeLine{00051   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
-\DoxyCodeLine{00052   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_R, GL\_CLAMP\_TO\_EDGE);}
-\DoxyCodeLine{00053   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
-\DoxyCodeLine{00054   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
-\DoxyCodeLine{00055 }
-\DoxyCodeLine{00056   \textcolor{comment}{// Mesh Setup}}
-\DoxyCodeLine{00057   std::vector<unsigned int> sky\_box\_indices = \{ \textcolor{comment}{//front}}
-\DoxyCodeLine{00058     0,}
-\DoxyCodeLine{00059     1,}
-\DoxyCodeLine{00060     2,}
-\DoxyCodeLine{00061     2,}
-\DoxyCodeLine{00062     1,}
-\DoxyCodeLine{00063     3,}
-\DoxyCodeLine{00064     \textcolor{comment}{//right}}
-\DoxyCodeLine{00065     2,}
-\DoxyCodeLine{00066     3,}
-\DoxyCodeLine{00067     5,}
-\DoxyCodeLine{00068     5,}
-\DoxyCodeLine{00069     3,}
-\DoxyCodeLine{00070     7,}
-\DoxyCodeLine{00071     \textcolor{comment}{//back}}
-\DoxyCodeLine{00072     5,}
-\DoxyCodeLine{00073     7,}
-\DoxyCodeLine{00074     4,}
-\DoxyCodeLine{00075     4,}
-\DoxyCodeLine{00076     7,}
-\DoxyCodeLine{00077     6,}
-\DoxyCodeLine{00078     \textcolor{comment}{//left}}
-\DoxyCodeLine{00079     4,}
-\DoxyCodeLine{00080     6,}
-\DoxyCodeLine{00081     0,}
-\DoxyCodeLine{00082     0,}
-\DoxyCodeLine{00083     6,}
-\DoxyCodeLine{00084     1,}
-\DoxyCodeLine{00085     \textcolor{comment}{//top}}
-\DoxyCodeLine{00086     4,}
-\DoxyCodeLine{00087     0,}
-\DoxyCodeLine{00088     5,}
-\DoxyCodeLine{00089     5,}
-\DoxyCodeLine{00090     0,}
-\DoxyCodeLine{00091     2,}
-\DoxyCodeLine{00092     \textcolor{comment}{//bottom}}
-\DoxyCodeLine{00093     1,}
-\DoxyCodeLine{00094     6,}
-\DoxyCodeLine{00095     3,}
-\DoxyCodeLine{00096     3,}
-\DoxyCodeLine{00097     6,}
-\DoxyCodeLine{00098     7}
+\DoxyCodeLine{00050     stbi\_image\_free(texture\_data);}
+\DoxyCodeLine{00051   \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00054   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00055   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_R, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00056   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MIN\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00057   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MAG\_FILTER, GL\_LINEAR);}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059   \textcolor{comment}{// Mesh Setup}}
+\DoxyCodeLine{00060   std::vector<unsigned int> sky\_box\_indices = \{\textcolor{comment}{// front}}
+\DoxyCodeLine{00061                                                0, 1, 2, 2, 1, 3,}
+\DoxyCodeLine{00062                                                \textcolor{comment}{// right}}
+\DoxyCodeLine{00063                                                2, 3, 5, 5, 3, 7,}
+\DoxyCodeLine{00064                                                \textcolor{comment}{// back}}
+\DoxyCodeLine{00065                                                5, 7, 4, 4, 7, 6,}
+\DoxyCodeLine{00066                                                \textcolor{comment}{// left}}
+\DoxyCodeLine{00067                                                4, 6, 0, 0, 6, 1,}
+\DoxyCodeLine{00068                                                \textcolor{comment}{// top}}
+\DoxyCodeLine{00069                                                4, 0, 5, 5, 0, 2,}
+\DoxyCodeLine{00070                                                \textcolor{comment}{// bottom}}
+\DoxyCodeLine{00071                                                1, 6, 3, 3, 6, 7\};}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073   std::vector<Vertex> sky\_box\_vertices = \{}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, 1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00076              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, -\/1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00079              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, 1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00082              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, -\/1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00085              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00088              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00091              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00092 }
+\DoxyCodeLine{00093       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, -\/1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00094              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096       \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, -\/1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00097              glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
+\DoxyCodeLine{00098 }
 \DoxyCodeLine{00099   \};}
 \DoxyCodeLine{00100 }
-\DoxyCodeLine{00101   std::vector<Vertex> sky\_box\_vertices = \{}
-\DoxyCodeLine{00102 }
-\DoxyCodeLine{00103     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, 1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00104 }
-\DoxyCodeLine{00105     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, -\/1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00106 }
-\DoxyCodeLine{00107     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, 1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00108 }
-\DoxyCodeLine{00109     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, -\/1.0f, -\/1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00110 }
-\DoxyCodeLine{00111 }
-\DoxyCodeLine{00112     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00113 }
-\DoxyCodeLine{00114     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00115 }
-\DoxyCodeLine{00116     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(-\/1.0f, -\/1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00117 }
-\DoxyCodeLine{00118     \mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(1.0f, -\/1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(0.0f, 0.0f)),}
-\DoxyCodeLine{00119 }
-\DoxyCodeLine{00120   \};}
-\DoxyCodeLine{00121 }
-\DoxyCodeLine{00122   \mbox{\hyperlink{class_sky_box_abc523dc6958a720b8ae91061fd89c846}{sky\_mesh}} = std::make\_shared<Mesh>(sky\_box\_vertices, sky\_box\_indices);}
-\DoxyCodeLine{00123 \}}
+\DoxyCodeLine{00101   \mbox{\hyperlink{class_sky_box_abc523dc6958a720b8ae91061fd89c846}{sky\_mesh}} = std::make\_shared<Mesh>(sky\_box\_vertices, sky\_box\_indices);}
+\DoxyCodeLine{00102 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_sky_box_8h_source_l00034}{shader\+\_\+playback\+\_\+time}}, \mbox{\hyperlink{_sky_box_8h_source_l00037}{shader\+\_\+program}}, \mbox{\hyperlink{_sky_box_8h_source_l00036}{sky\+\_\+mesh}}, and \mbox{\hyperlink{_sky_box_8h_source_l00039}{texture\+\_\+id}}.
+References \mbox{\hyperlink{_open_g_l_renderer_config_8h_source_l00012}{CMAKELISTS\+\_\+\+DIR}}, \mbox{\hyperlink{_sky_box_8h_source_l00036}{shader\+\_\+playback\+\_\+time}}, \mbox{\hyperlink{_sky_box_8h_source_l00039}{shader\+\_\+program}}, \mbox{\hyperlink{_sky_box_8h_source_l00038}{sky\+\_\+mesh}}, and \mbox{\hyperlink{_sky_box_8h_source_l00041}{texture\+\_\+id}}.
 
 \mbox{\Hypertarget{class_sky_box_aef6a9b7d384358fd2095d1e171d8a997}\label{class_sky_box_aef6a9b7d384358fd2095d1e171d8a997}} 
 \index{SkyBox@{SkyBox}!````~SkyBox@{$\sim$SkyBox}}
@@ -190,16 +169,16 @@ References \mbox{\hyperlink{_sky_box_8h_source_l00034}{shader\+\_\+playback\+\_\
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00163}{163}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
+Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00163 \{ glDeleteTextures(1, \&\mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}}); \}}
+\DoxyCodeLine{00144 \{ glDeleteTextures(1, \&\mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}}); \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_sky_box_8h_source_l00039}{texture\+\_\+id}}.
+References \mbox{\hyperlink{_sky_box_8h_source_l00041}{texture\+\_\+id}}.
 
 
 
@@ -212,45 +191,46 @@ References \mbox{\hyperlink{_sky_box_8h_source_l00039}{texture\+\_\+id}}.
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
+Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00126 \{}
+\DoxyCodeLine{00106                                               \{}
+\DoxyCodeLine{00107   \textcolor{comment}{// https://learnopengl.com/Advanced-\/OpenGL/Cubemaps}}
+\DoxyCodeLine{00108   GLfloat velocity = \mbox{\hyperlink{class_sky_box_adad733fee74d7000cabab0e9c6c29b94}{movement\_speed}} * delta\_time;}
+\DoxyCodeLine{00109   \mbox{\hyperlink{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}{shader\_playback\_time}} =}
+\DoxyCodeLine{00110       \textcolor{keyword}{static\_cast<}GLfloat\textcolor{keyword}{>}(fmod(\mbox{\hyperlink{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}{shader\_playback\_time}} + velocity, 10000));}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   glm::mat4 new\_view\_matrix = glm::mat4(glm::mat3(view\_matrix));}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114   glDepthMask(GL\_FALSE);}
+\DoxyCodeLine{00115   glDepthFunc(GL\_LEQUAL);}
+\DoxyCodeLine{00116   \textcolor{comment}{// std::time\_t now =}}
+\DoxyCodeLine{00117   \textcolor{comment}{// std::chrono::system\_clock::to\_time\_t(std::chrono::system\_clock::now());}}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>setUniformMatrix4fv(projection\_matrix, \textcolor{stringliteral}{"{}projection"{}});}
+\DoxyCodeLine{00122   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>setUniformMatrix4fv(new\_view\_matrix, \textcolor{stringliteral}{"{}view"{}});}
+\DoxyCodeLine{00123   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a2309a50ca4d83b91328dea7a1a52284a}{SKYBOX\_TEXTURES\_SLOT}}, \textcolor{stringliteral}{"{}skybox"{}});}
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125   glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a2309a50ca4d83b91328dea7a1a52284a}{SKYBOX\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{00126   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}});}
 \DoxyCodeLine{00127 }
-\DoxyCodeLine{00128   \textcolor{comment}{// https://learnopengl.com/Advanced-\/OpenGL/Cubemaps}}
-\DoxyCodeLine{00129   GLfloat velocity = \mbox{\hyperlink{class_sky_box_adad733fee74d7000cabab0e9c6c29b94}{movement\_speed}} * delta\_time;}
-\DoxyCodeLine{00130   \mbox{\hyperlink{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}{shader\_playback\_time}} = \textcolor{keyword}{static\_cast<}GLfloat\textcolor{keyword}{>}(fmod(\mbox{\hyperlink{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}{shader\_playback\_time}} + velocity, 10000));}
+\DoxyCodeLine{00128   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>validate\_program();}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130   \mbox{\hyperlink{class_sky_box_abc523dc6958a720b8ae91061fd89c846}{sky\_mesh}}-\/>render();}
 \DoxyCodeLine{00131 }
-\DoxyCodeLine{00132   glm::mat4 new\_view\_matrix = glm::mat4(glm::mat3(view\_matrix));}
-\DoxyCodeLine{00133 }
-\DoxyCodeLine{00134   glDepthMask(GL\_FALSE);}
-\DoxyCodeLine{00135   glDepthFunc(GL\_LEQUAL);}
-\DoxyCodeLine{00136   \textcolor{comment}{//std::time\_t now = std::chrono::system\_clock::to\_time\_t(std::chrono::system\_clock::now());}}
-\DoxyCodeLine{00137 }
-\DoxyCodeLine{00138   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>use\_shader\_program();}
-\DoxyCodeLine{00139 }
-\DoxyCodeLine{00140   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>setUniformMatrix4fv(projection\_matrix, \textcolor{stringliteral}{"{}projection"{}});}
-\DoxyCodeLine{00141   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>setUniformMatrix4fv(new\_view\_matrix, \textcolor{stringliteral}{"{}view"{}});}
-\DoxyCodeLine{00142   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a2309a50ca4d83b91328dea7a1a52284a}{SKYBOX\_TEXTURES\_SLOT}}, \textcolor{stringliteral}{"{}skybox"{}});}
-\DoxyCodeLine{00143 }
-\DoxyCodeLine{00144   glActiveTexture(GL\_TEXTURE0 + \mbox{\hyperlink{bindings_8h_a2309a50ca4d83b91328dea7a1a52284a}{SKYBOX\_TEXTURES\_SLOT}});}
-\DoxyCodeLine{00145   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}{texture\_id}});}
-\DoxyCodeLine{00146 }
-\DoxyCodeLine{00147   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>validate\_program();}
-\DoxyCodeLine{00148 }
-\DoxyCodeLine{00149   \mbox{\hyperlink{class_sky_box_abc523dc6958a720b8ae91061fd89c846}{sky\_mesh}}-\/>render();}
-\DoxyCodeLine{00150 }
-\DoxyCodeLine{00151   glDepthMask(GL\_TRUE);}
-\DoxyCodeLine{00152   glDepthFunc(GL\_LESS);}
-\DoxyCodeLine{00153 }
-\DoxyCodeLine{00154   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, 0);}
-\DoxyCodeLine{00155 \}}
+\DoxyCodeLine{00132   glDepthMask(GL\_TRUE);}
+\DoxyCodeLine{00133   glDepthFunc(GL\_LESS);}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, 0);}
+\DoxyCodeLine{00136 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_sky_box_8h_source_l00032}{movement\+\_\+speed}}, \mbox{\hyperlink{_sky_box_8h_source_l00034}{shader\+\_\+playback\+\_\+time}}, \mbox{\hyperlink{_sky_box_8h_source_l00037}{shader\+\_\+program}}, \mbox{\hyperlink{_sky_box_8h_source_l00036}{sky\+\_\+mesh}}, \mbox{\hyperlink{bindings_8h_source_l00007}{SKYBOX\+\_\+\+TEXTURES\+\_\+\+SLOT}}, and \mbox{\hyperlink{_sky_box_8h_source_l00039}{texture\+\_\+id}}.
+References \mbox{\hyperlink{_sky_box_8h_source_l00034}{movement\+\_\+speed}}, \mbox{\hyperlink{_sky_box_8h_source_l00036}{shader\+\_\+playback\+\_\+time}}, \mbox{\hyperlink{_sky_box_8h_source_l00039}{shader\+\_\+program}}, \mbox{\hyperlink{_sky_box_8h_source_l00038}{sky\+\_\+mesh}}, \mbox{\hyperlink{bindings_8h_source_l00007}{SKYBOX\+\_\+\+TEXTURES\+\_\+\+SLOT}}, and \mbox{\hyperlink{_sky_box_8h_source_l00041}{texture\+\_\+id}}.
 
 
 
@@ -266,19 +246,20 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00157}{157}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
+Definition at line \mbox{\hyperlink{_sky_box_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{_sky_box_8cpp_source}{Sky\+Box.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00158 \{}
-\DoxyCodeLine{00159   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}} = std::make\_shared<ShaderProgram>();}
-\DoxyCodeLine{00160   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}Shaders/SkyBox.vert"{}}, \textcolor{stringliteral}{"{}Shaders/SkyBox.frag"{}});}
-\DoxyCodeLine{00161 \}}
+\DoxyCodeLine{00138                     \{}
+\DoxyCodeLine{00139   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}} = std::make\_shared<ShaderProgram>();}
+\DoxyCodeLine{00140   \mbox{\hyperlink{class_sky_box_a5a57ac95720122170d89c407972a6423}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}Shaders/SkyBox.vert"{}},}
+\DoxyCodeLine{00141                                     \textcolor{stringliteral}{"{}Shaders/SkyBox.frag"{}});}
+\DoxyCodeLine{00142 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_sky_box_8h_source_l00037}{shader\+\_\+program}}.
+References \mbox{\hyperlink{_sky_box_8h_source_l00039}{shader\+\_\+program}}.
 
 
 
@@ -291,11 +272,11 @@ References \mbox{\hyperlink{_sky_box_8h_source_l00037}{shader\+\_\+program}}.
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00032}{32}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00034}{34}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+box()}}.
+Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00104}{draw\+\_\+sky\+\_\+box()}}.
 
 \mbox{\Hypertarget{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}\label{class_sky_box_a2bab7d3bf80f3f07ce8af573491885ea}} 
 \index{SkyBox@{SkyBox}!shader\_playback\_time@{shader\_playback\_time}}
@@ -305,11 +286,11 @@ Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+b
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00034}{34}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00036}{36}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+box()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00005}{Sky\+Box()}}.
+Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00104}{draw\+\_\+sky\+\_\+box()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00006}{Sky\+Box()}}.
 
 \mbox{\Hypertarget{class_sky_box_a5a57ac95720122170d89c407972a6423}\label{class_sky_box_a5a57ac95720122170d89c407972a6423}} 
 \index{SkyBox@{SkyBox}!shader\_program@{shader\_program}}
@@ -319,11 +300,11 @@ Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+b
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00037}{37}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00039}{39}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+box()}}, \mbox{\hyperlink{_sky_box_8cpp_source_l00157}{reload()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00005}{Sky\+Box()}}.
+Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00104}{draw\+\_\+sky\+\_\+box()}}, \mbox{\hyperlink{_sky_box_8cpp_source_l00138}{reload()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00006}{Sky\+Box()}}.
 
 \mbox{\Hypertarget{class_sky_box_abc523dc6958a720b8ae91061fd89c846}\label{class_sky_box_abc523dc6958a720b8ae91061fd89c846}} 
 \index{SkyBox@{SkyBox}!sky\_mesh@{sky\_mesh}}
@@ -333,11 +314,11 @@ Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+b
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00036}{36}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00038}{38}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+box()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00005}{Sky\+Box()}}.
+Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00104}{draw\+\_\+sky\+\_\+box()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00006}{Sky\+Box()}}.
 
 \mbox{\Hypertarget{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}\label{class_sky_box_a194e1d56ac3bc4841bb7c4538e1a6fd2}} 
 \index{SkyBox@{SkyBox}!texture\_id@{texture\_id}}
@@ -347,11 +328,11 @@ Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+b
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00039}{39}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00041}{41}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+box()}}, \mbox{\hyperlink{_sky_box_8cpp_source_l00005}{Sky\+Box()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00163}{$\sim$\+Sky\+Box()}}.
+Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00104}{draw\+\_\+sky\+\_\+box()}}, \mbox{\hyperlink{_sky_box_8cpp_source_l00006}{Sky\+Box()}}, and \mbox{\hyperlink{_sky_box_8cpp_source_l00144}{$\sim$\+Sky\+Box()}}.
 
 \mbox{\Hypertarget{class_sky_box_a2937c641bcdd58e156caa915987847c8}\label{class_sky_box_a2937c641bcdd58e156caa915987847c8}} 
 \index{SkyBox@{SkyBox}!uniform\_projection@{uniform\_projection}}
@@ -361,7 +342,7 @@ Referenced by \mbox{\hyperlink{_sky_box_8cpp_source_l00125}{draw\+\_\+sky\+\_\+b
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00040}{40}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00042}{42}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 \mbox{\Hypertarget{class_sky_box_af7cd3eb83ed78bb06bf40fb43c50f203}\label{class_sky_box_af7cd3eb83ed78bb06bf40fb43c50f203}} 
 \index{SkyBox@{SkyBox}!uniform\_view@{uniform\_view}}
@@ -371,7 +352,7 @@ Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00040}{40}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00040}{40}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
+Definition at line \mbox{\hyperlink{_sky_box_8h_source_l00042}{42}} of file \mbox{\hyperlink{_sky_box_8h_source}{Sky\+Box.\+h}}.
 
 
 

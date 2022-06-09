@@ -48,16 +48,18 @@ Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l0000
 
 
 
-Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00004 \{ \mbox{\hyperlink{class_directional_shadow_map_pass_ab2f157ea455d40b61060f831c6996ffd}{create\_shader\_program}}(); \}}
+\DoxyCodeLine{00005                                                    \{}
+\DoxyCodeLine{00006   \mbox{\hyperlink{class_directional_shadow_map_pass_ab2f157ea455d40b61060f831c6996ffd}{create\_shader\_program}}();}
+\DoxyCodeLine{00007 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00048}{create\+\_\+shader\+\_\+program()}}.
+References \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00058}{create\+\_\+shader\+\_\+program()}}.
 
 Here is the call graph for this function\+:
 % FIG 2
@@ -69,11 +71,11 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00061 \{ \}}
+\DoxyCodeLine{00072 \{\}}
 
 \end{DoxyCode}
 
@@ -91,24 +93,26 @@ Implements \mbox{\hyperlink{class_render_pass_scene_dependend_aecc84491efaa1e267
 
 
 
-Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00049 \{}
-\DoxyCodeLine{00050   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}} = std::make\_shared<ShaderProgram>(\mbox{\hyperlink{class_shader_program}{ShaderProgram}}\{\});}
-\DoxyCodeLine{00051   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>create\_from\_files(}
-\DoxyCodeLine{00052     \textcolor{stringliteral}{"{}rasterizer/shadows/directional\_shadow\_map.vert"{}}, \textcolor{stringliteral}{"{}rasterizer/shadows/directional\_shadow\_map.geom"{}}, \textcolor{stringliteral}{"{}rasterizer/shadows/directional\_shadow\_map.frag"{}});}
-\DoxyCodeLine{00053 \}}
+\DoxyCodeLine{00058                                                      \{}
+\DoxyCodeLine{00059   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}} = std::make\_shared<ShaderProgram>(\mbox{\hyperlink{class_shader_program}{ShaderProgram}}\{\});}
+\DoxyCodeLine{00060   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>create\_from\_files(}
+\DoxyCodeLine{00061       \textcolor{stringliteral}{"{}rasterizer/shadows/directional\_shadow\_map.vert"{}},}
+\DoxyCodeLine{00062       \textcolor{stringliteral}{"{}rasterizer/shadows/directional\_shadow\_map.geom"{}},}
+\DoxyCodeLine{00063       \textcolor{stringliteral}{"{}rasterizer/shadows/directional\_shadow\_map.frag"{}});}
+\DoxyCodeLine{00064 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00022}{shader\+\_\+program}}.
+References \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00024}{shader\+\_\+program}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00004}{Directional\+Shadow\+Map\+Pass()}}.
+Referenced by \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00005}{Directional\+Shadow\+Map\+Pass()}}.
 
 Here is the caller graph for this function\+:
 % FIG 3
@@ -120,54 +124,59 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00008 \{}
-\DoxyCodeLine{00009 }
-\DoxyCodeLine{00010   std::shared\_ptr<DirectionalLight> sun = scene-\/>get\_sun();}
-\DoxyCodeLine{00011   \textcolor{comment}{//retreive shadow map before our geometry pass}}
-\DoxyCodeLine{00012   sun-\/>calc\_orthogonal\_projections(main\_camera-\/>get\_viewmatrix(), main\_camera-\/>get\_fov(), window\_width, window\_height, \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}});}
-\DoxyCodeLine{00013 }
-\DoxyCodeLine{00014   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>use\_shader\_program();}
-\DoxyCodeLine{00015 }
-\DoxyCodeLine{00016   sun-\/>get\_shadow\_map()-\/>write();}
-\DoxyCodeLine{00017 }
-\DoxyCodeLine{00018   glViewport(0, 0, sun-\/>get\_shadow\_map()-\/>get\_shadow\_width(), sun-\/>get\_shadow\_map()-\/>get\_shadow\_height());}
+\DoxyCodeLine{00013                                                                    \{}
+\DoxyCodeLine{00014   std::shared\_ptr<DirectionalLight> sun = scene-\/>get\_sun();}
+\DoxyCodeLine{00015   \textcolor{comment}{// retreive shadow map before our geometry pass}}
+\DoxyCodeLine{00016   sun-\/>calc\_orthogonal\_projections(main\_camera-\/>get\_viewmatrix(),}
+\DoxyCodeLine{00017                                    main\_camera-\/>get\_fov(), window\_width,}
+\DoxyCodeLine{00018                                    window\_height, \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}});}
 \DoxyCodeLine{00019 }
-\DoxyCodeLine{00020   glClear(GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{00020   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>use\_shader\_program();}
 \DoxyCodeLine{00021 }
-\DoxyCodeLine{00022   glEnable(GL\_CULL\_FACE);}
-\DoxyCodeLine{00023   glCullFace(GL\_BACK);}
-\DoxyCodeLine{00024   glFrontFace(GL\_CCW);}
-\DoxyCodeLine{00025 }
-\DoxyCodeLine{00026   \textcolor{comment}{//glCullFace(GL\_FRONT); // avoid peter panning}}
-\DoxyCodeLine{00027   sun-\/>get\_shadow\_map()-\/>write\_light\_matrices(sun-\/>get\_cascaded\_light\_matrices());}
+\DoxyCodeLine{00022   sun-\/>get\_shadow\_map()-\/>write();}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024   glViewport(0, 0, sun-\/>get\_shadow\_map()-\/>get\_shadow\_width(),}
+\DoxyCodeLine{00025              sun-\/>get\_shadow\_map()-\/>get\_shadow\_height());}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027   glClear(GL\_DEPTH\_BUFFER\_BIT);}
 \DoxyCodeLine{00028 }
-\DoxyCodeLine{00029   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>setUniformBlockBinding(\mbox{\hyperlink{bindings_8h_a6cffb6c61d3a48bb1b5b5afe62b6331d}{UNIFORM\_LIGHT\_MATRICES\_BINDING}}, \textcolor{stringliteral}{"{}LightSpaceMatrices"{}});}
-\DoxyCodeLine{00030 }
-\DoxyCodeLine{00031   std::vector<std::shared\_ptr<GameObject>> game\_objects = scene-\/>get\_game\_objects();}
+\DoxyCodeLine{00029   glEnable(GL\_CULL\_FACE);}
+\DoxyCodeLine{00030   glCullFace(GL\_BACK);}
+\DoxyCodeLine{00031   glFrontFace(GL\_CCW);}
 \DoxyCodeLine{00032 }
-\DoxyCodeLine{00033   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
-\DoxyCodeLine{00034 }
-\DoxyCodeLine{00035     \textcolor{comment}{/* if (object\_is\_visible(object)) \{*/}}
+\DoxyCodeLine{00033   \textcolor{comment}{// glCullFace(GL\_FRONT); // avoid peter panning}}
+\DoxyCodeLine{00034   sun-\/>get\_shadow\_map()-\/>write\_light\_matrices(}
+\DoxyCodeLine{00035       sun-\/>get\_cascaded\_light\_matrices());}
 \DoxyCodeLine{00036 }
-\DoxyCodeLine{00037     \mbox{\hyperlink{class_directional_shadow_map_pass_a115ff6e250d57e615316892e30c79a55}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(), object-\/>get\_normal\_world\_trafo());}
-\DoxyCodeLine{00038 }
-\DoxyCodeLine{00039     \textcolor{keywordtype}{object}-\/>render();}
-\DoxyCodeLine{00040     \textcolor{comment}{//\}}}
-\DoxyCodeLine{00041   \}}
+\DoxyCodeLine{00037   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>setUniformBlockBinding(\mbox{\hyperlink{bindings_8h_a6cffb6c61d3a48bb1b5b5afe62b6331d}{UNIFORM\_LIGHT\_MATRICES\_BINDING}},}
+\DoxyCodeLine{00038                                          \textcolor{stringliteral}{"{}LightSpaceMatrices"{}});}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040   std::vector<std::shared\_ptr<GameObject>> game\_objects =}
+\DoxyCodeLine{00041       scene-\/>get\_game\_objects();}
 \DoxyCodeLine{00042 }
-\DoxyCodeLine{00043   \textcolor{comment}{//glCullFace(GL\_BACK);}}
-\DoxyCodeLine{00044   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
-\DoxyCodeLine{00045   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>validate\_program();}
-\DoxyCodeLine{00046 \}}
+\DoxyCodeLine{00043   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
+\DoxyCodeLine{00044     \textcolor{comment}{/* if (object\_is\_visible(object)) \{*/}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046     \mbox{\hyperlink{class_directional_shadow_map_pass_a115ff6e250d57e615316892e30c79a55}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(),}
+\DoxyCodeLine{00047                              object-\/>get\_normal\_world\_trafo());}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049     \textcolor{keywordtype}{object}-\/>render();}
+\DoxyCodeLine{00050     \textcolor{comment}{//\}}}
+\DoxyCodeLine{00051   \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   \textcolor{comment}{// glCullFace(GL\_BACK);}}
+\DoxyCodeLine{00054   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00055   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>validate\_program();}
+\DoxyCodeLine{00056 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00055}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}, \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00022}{shader\+\_\+program}}, and \mbox{\hyperlink{bindings_8h_source_l00023}{UNIFORM\+\_\+\+LIGHT\+\_\+\+MATRICES\+\_\+\+BINDING}}.
+References \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00066}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}, \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00024}{shader\+\_\+program}}, and \mbox{\hyperlink{bindings_8h_source_l00024}{UNIFORM\+\_\+\+LIGHT\+\_\+\+MATRICES\+\_\+\+BINDING}}.
 
 Here is the call graph for this function\+:
 % FIG 4
@@ -183,23 +192,23 @@ Implements \mbox{\hyperlink{class_render_pass_scene_dependend_adc8f66429e7f71eab
 
 
 
-Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source}{Directional\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00056 \{}
-\DoxyCodeLine{00057   \textcolor{comment}{// DO NOT set neither normal model nor material\_id hence we didn't need it}}
-\DoxyCodeLine{00058   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}});}
-\DoxyCodeLine{00059 \}}
+\DoxyCodeLine{00067                                          \{}
+\DoxyCodeLine{00068   \textcolor{comment}{// DO NOT set neither normal model nor material\_id hence we didn't need it}}
+\DoxyCodeLine{00069   \mbox{\hyperlink{class_directional_shadow_map_pass_a508a7caf7ac476c170eb152e773e3005}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}});}
+\DoxyCodeLine{00070 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00022}{shader\+\_\+program}}.
+References \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00024}{shader\+\_\+program}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00006}{execute()}}.
+Referenced by \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00009}{execute()}}.
 
 Here is the caller graph for this function\+:
 % FIG 5
@@ -214,11 +223,11 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00022}{22}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8h_source}{Directional\+Shadow\+Map\+Pass.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_shadow_map_pass_8h_source_l00024}{24}} of file \mbox{\hyperlink{_directional_shadow_map_pass_8h_source}{Directional\+Shadow\+Map\+Pass.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00048}{create\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00006}{execute()}}, and \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00055}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}.
+Referenced by \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00058}{create\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00009}{execute()}}, and \mbox{\hyperlink{_directional_shadow_map_pass_8cpp_source_l00066}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}.
 
 
 

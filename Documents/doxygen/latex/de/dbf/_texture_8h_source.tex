@@ -7,44 +7,45 @@
 \DoxyCodeLine{\Hypertarget{_texture_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glad/glad.h>}}
 \DoxyCodeLine{\Hypertarget{_texture_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <stb\_image.h>}}
 \DoxyCodeLine{\Hypertarget{_texture_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <string.h>}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_wrapping_mode_8h}{TextureWrappingMode.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_repeat_mode_8h}{RepeatMode.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mirrored_repeat_mode_8h}{MirroredRepeatMode.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clamp_to_edge_mode_8h}{ClampToEdgeMode.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_global_values_8h}{GlobalValues.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00015}\mbox{\hyperlink{class_texture}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}} \{}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00016}00016   \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00017}00017   \mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}}();}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00018}00018   \mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* file\_loc, std::shared\_ptr<TextureWrappingMode> \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}});}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00020}00020   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_a39518e6212f94918b566d01630d1a749}{load\_texture\_without\_alpha\_channel}}();}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00021}00021   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_aac8edf700b4323b86a7bfa322d186ca5}{load\_texture\_with\_alpha\_channel}}();}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00023}00023   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_a9809b10db413a7e326f7ba40bfaf54fd}{load\_SRGB\_texture\_without\_alpha\_channel}}();}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00024}00024   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_a3ea4c8107ca349bb223c2cb6e169136c}{load\_SRGB\_texture\_with\_alpha\_channel}}();}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00026}00026   std::string \mbox{\hyperlink{class_texture_aa62a61d9cf51a9235eb5f129ef208015}{get\_filename}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00027}00027   GLuint \mbox{\hyperlink{class_texture_a53aa350bde0fc93271c74e2bd2b391fa}{get\_id}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00029}00029   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a52e79975124df40c3e294ad2e0791ba5}{use\_texture}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index);}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00030}00030   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_ab708ed6a50ec7941e751e1d4245cd9ac}{unbind\_texture}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index);}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00032}00032   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a6305116f1bc00d0fc09cb3c9fe9a4db0}{clear\_texture\_context}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clamp_to_edge_mode_8h}{ClampToEdgeMode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_global_values_8h}{GlobalValues.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mirrored_repeat_mode_8h}{MirroredRepeatMode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_repeat_mode_8h}{RepeatMode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_wrapping_mode_8h}{TextureWrappingMode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00016}\mbox{\hyperlink{class_texture}{00016}} \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}} \{}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00017}00017  \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00018}00018   \mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00019}00019   \mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* file\_loc,}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00020}00020           std::shared\_ptr<TextureWrappingMode> \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}});}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00022}00022   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_a39518e6212f94918b566d01630d1a749}{load\_texture\_without\_alpha\_channel}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00023}00023   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_aac8edf700b4323b86a7bfa322d186ca5}{load\_texture\_with\_alpha\_channel}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00025}00025   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_a9809b10db413a7e326f7ba40bfaf54fd}{load\_SRGB\_texture\_without\_alpha\_channel}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00026}00026   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_a3ea4c8107ca349bb223c2cb6e169136c}{load\_SRGB\_texture\_with\_alpha\_channel}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00028}00028   std::string \mbox{\hyperlink{class_texture_aa62a61d9cf51a9235eb5f129ef208015}{get\_filename}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00029}00029   GLuint \mbox{\hyperlink{class_texture_a53aa350bde0fc93271c74e2bd2b391fa}{get\_id}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00031}00031   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a52e79975124df40c3e294ad2e0791ba5}{use\_texture}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00032}00032   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_ab708ed6a50ec7941e751e1d4245cd9ac}{unbind\_texture}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index);}
 \DoxyCodeLine{\Hypertarget{_texture_8h_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00035}00035   \mbox{\hyperlink{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{\string~Texture}}();}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00037}00037   \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00038}\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{00038}}   GLuint \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}};}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00039}\mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{00039}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, \mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}};}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00041}\mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{00041}}   std::shared\_ptr<TextureWrappingMode> \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}};}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00043}\mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{00043}}   std::string \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}};}
-\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00044}00044 \};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00034}00034   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a6305116f1bc00d0fc09cb3c9fe9a4db0}{clear\_texture\_context}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00036}00036   \mbox{\hyperlink{class_texture_a09c4bcb7462f64c1d20fa69dba3cee8a}{\string~Texture}}();}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00038}00038  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00039}\mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{00039}}   GLuint \mbox{\hyperlink{class_texture_ab61a414e1ed356a30c48952d65227691}{textureID}};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00040}\mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{00040}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}, \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}, \mbox{\hyperlink{class_texture_aab023744f53272866bfca27233c88415}{bit\_depth}};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00042}\mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{00042}}   std::shared\_ptr<TextureWrappingMode> \mbox{\hyperlink{class_texture_ae918456cfb8003cceb0036a4857eea28}{wrapping\_mode}};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00044}\mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{00044}}   std::string \mbox{\hyperlink{class_texture_aa8b4a96136169f9a13ddd67cda043465}{file\_location}};}
+\DoxyCodeLine{\Hypertarget{_texture_8h_source_l00045}00045 \};}
 
 \end{DoxyCode}

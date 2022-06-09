@@ -6964,6 +6964,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>CMAKELISTS_DIR</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+    <Anchor>a06f3f84c6add75aba385bb130c129978</Anchor>
+    <DeclaredIn>OpenGLRendererConfig.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>D_LIGHT_SHADOW_TEXTURES_SLOT</Name>
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
@@ -7214,6 +7224,26 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>OPENGL_VERSION_MAJOR</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+    <Anchor>af9f9cd3d34e4b510b2626e4cf9137b70</Anchor>
+    <DeclaredIn>OpenGLRendererConfig.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OPENGL_VERSION_MINOR</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+    <Anchor>a6845a5c7db4a30ada21a2ec30fe3dc80</Anchor>
+    <DeclaredIn>OpenGLRendererConfig.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>P_LIGHT_SHADOW_TEXTURES_SLOT</Name>
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
@@ -7311,5 +7341,25 @@
     <Path>dc/d49/bindings_8h.html</Path>
     <Anchor>a6cffb6c61d3a48bb1b5b5afe62b6331d</Anchor>
     <DeclaredIn>bindings.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>VulkanRenderer_VERSION_MAJOR</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+    <Anchor>a04547974aab6616742b970a38eb6999c</Anchor>
+    <DeclaredIn>OpenGLRendererConfig.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>VulkanRenderer_VERSION_MINOR</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+    <Anchor>aa98b688897d8e82a300ab44d239ee739</Anchor>
+    <DeclaredIn>OpenGLRendererConfig.h</DeclaredIn>
   </Token>
 </Tokens>

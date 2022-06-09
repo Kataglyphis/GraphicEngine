@@ -6,66 +6,69 @@
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00002}00002 }
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glad/glad.h>}}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <glm/gtc/type\_ptr.hpp>}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <glm/gtc/type\_ptr.hpp>}}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00011}00011 }
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_a_a_b_b_8h}{AABB.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_global_values_8h}{GlobalValues.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00015}\mbox{\hyperlink{class_view_frustum_culling}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{class_view_frustum_culling}{ViewFrustumCulling}} \{}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00016}00016   \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00017}00017   \mbox{\hyperlink{class_view_frustum_culling_aa7bc90354de91a555277bca378aab824}{ViewFrustumCulling}}();}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00019}00019   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_view_frustum_culling_a1ad3bbb334bed495eda21c5a02ebe446}{is\_inside}}(GLfloat \mbox{\hyperlink{class_view_frustum_culling_a27b5be8781b370af88cc4698d8bda7f4}{ratio}}, std::shared\_ptr<Camera> \mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{main\_camera}}, std::shared\_ptr<AABB> bounding\_box, glm::mat4 model);}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00021}00021   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_view_frustum_culling_a8bc58ecb81c1591575ab0ef143a93d63}{render\_view\_frustum}}();}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_global_values_8h}{GlobalValues.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00016}\mbox{\hyperlink{class_view_frustum_culling}{00016}} \textcolor{keyword}{class }\mbox{\hyperlink{class_view_frustum_culling}{ViewFrustumCulling}} \{}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00017}00017  \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00018}00018   \mbox{\hyperlink{class_view_frustum_culling_aa7bc90354de91a555277bca378aab824}{ViewFrustumCulling}}();}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00020}00020   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_view_frustum_culling_a1ad3bbb334bed495eda21c5a02ebe446}{is\_inside}}(GLfloat \mbox{\hyperlink{class_view_frustum_culling_a27b5be8781b370af88cc4698d8bda7f4}{ratio}}, std::shared\_ptr<Camera> \mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{main\_camera}},}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00021}00021                  std::shared\_ptr<AABB> bounding\_box, glm::mat4 model);}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00023}00023   \mbox{\hyperlink{class_view_frustum_culling_a17b7685d905cb8e2ec228ed1fce0d5e2}{\string~ViewFrustumCulling}}();}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00023}00023   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_view_frustum_culling_a8bc58ecb81c1591575ab0ef143a93d63}{render\_view\_frustum}}();}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00025}00025   \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00026}00026   \textcolor{comment}{//render view frustum}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00027}\mbox{\hyperlink{class_view_frustum_culling_a4ea060f997942ee13b6583ebb7f38913}{00027}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_view_frustum_culling_a22b3477bbf2bf68a99bf8e4b1102ac0d}{VBO}}, \mbox{\hyperlink{class_view_frustum_culling_ae010739bfb506b41308c8e8a7207278b}{VAO}}, \mbox{\hyperlink{class_view_frustum_culling_a4ea060f997942ee13b6583ebb7f38913}{EBO}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00029}\mbox{\hyperlink{class_view_frustum_culling_a48281b28e862affbc7140b62c88b641a}{00029}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_view_frustum_culling_a48281b28e862affbc7140b62c88b641a}{m\_drawCount}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00025}00025   \mbox{\hyperlink{class_view_frustum_culling_a17b7685d905cb8e2ec228ed1fce0d5e2}{\string~ViewFrustumCulling}}();}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00027}00027  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00028}00028   \textcolor{comment}{// render view frustum}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00029}\mbox{\hyperlink{class_view_frustum_culling_a4ea060f997942ee13b6583ebb7f38913}{00029}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_view_frustum_culling_a22b3477bbf2bf68a99bf8e4b1102ac0d}{VBO}}, \mbox{\hyperlink{class_view_frustum_culling_ae010739bfb506b41308c8e8a7207278b}{VAO}}, \mbox{\hyperlink{class_view_frustum_culling_a4ea060f997942ee13b6583ebb7f38913}{EBO}};}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00031}00031   \textcolor{comment}{//we get that as input}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00032}\mbox{\hyperlink{class_view_frustum_culling_afbc835e0cb446e34f72a01058225a763}{00032}}   GLfloat \mbox{\hyperlink{class_view_frustum_culling_a374699ee72959863e77e07e8ad1c17e1}{near\_plane}}, \mbox{\hyperlink{class_view_frustum_culling_afbc835e0cb446e34f72a01058225a763}{far\_plane}}, \mbox{\hyperlink{class_view_frustum_culling_a4e1d2895455cedea686a905e11985174}{fov}}, \mbox{\hyperlink{class_view_frustum_culling_a27b5be8781b370af88cc4698d8bda7f4}{ratio}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00034}00034   \textcolor{comment}{//calculate as soon as we become params}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00035}\mbox{\hyperlink{class_view_frustum_culling_aec27ddd2dae4367ad617e3d1cacaa6b1}{00035}}   GLfloat \mbox{\hyperlink{class_view_frustum_culling_a4062aec612e6eaff7023a63ee29e5cf1}{tan}}, \mbox{\hyperlink{class_view_frustum_culling_a6aeb02dbae6c17610b6332b80c1278f3}{near\_height}}, \mbox{\hyperlink{class_view_frustum_culling_a1af4e5324e22eb9cddd851a605434193}{near\_width}}, \mbox{\hyperlink{class_view_frustum_culling_aec27ddd2dae4367ad617e3d1cacaa6b1}{far\_height}}, \mbox{\hyperlink{class_view_frustum_culling_adf7ef2988b242f9c1a881e4a5cd4bc97}{far\_width}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00037}\mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{00037}}   std::shared\_ptr<Camera> \mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{main\_camera}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00031}\mbox{\hyperlink{class_view_frustum_culling_a48281b28e862affbc7140b62c88b641a}{00031}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_view_frustum_culling_a48281b28e862affbc7140b62c88b641a}{m\_drawCount}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00033}00033   \textcolor{comment}{// we get that as input}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00034}\mbox{\hyperlink{class_view_frustum_culling_afbc835e0cb446e34f72a01058225a763}{00034}}   GLfloat \mbox{\hyperlink{class_view_frustum_culling_a374699ee72959863e77e07e8ad1c17e1}{near\_plane}}, \mbox{\hyperlink{class_view_frustum_culling_afbc835e0cb446e34f72a01058225a763}{far\_plane}}, \mbox{\hyperlink{class_view_frustum_culling_a4e1d2895455cedea686a905e11985174}{fov}}, \mbox{\hyperlink{class_view_frustum_culling_a27b5be8781b370af88cc4698d8bda7f4}{ratio}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00036}00036   \textcolor{comment}{// calculate as soon as we become params}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00037}\mbox{\hyperlink{class_view_frustum_culling_aec27ddd2dae4367ad617e3d1cacaa6b1}{00037}}   GLfloat \mbox{\hyperlink{class_view_frustum_culling_a4062aec612e6eaff7023a63ee29e5cf1}{tan}}, \mbox{\hyperlink{class_view_frustum_culling_a6aeb02dbae6c17610b6332b80c1278f3}{near\_height}}, \mbox{\hyperlink{class_view_frustum_culling_a1af4e5324e22eb9cddd851a605434193}{near\_width}}, \mbox{\hyperlink{class_view_frustum_culling_aec27ddd2dae4367ad617e3d1cacaa6b1}{far\_height}}, \mbox{\hyperlink{class_view_frustum_culling_adf7ef2988b242f9c1a881e4a5cd4bc97}{far\_width}};}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00039}\mbox{\hyperlink{class_view_frustum_culling_abeb1f79db55707570165ec7ae21a3253}{00039}}   glm::vec3 \mbox{\hyperlink{class_view_frustum_culling_abeb1f79db55707570165ec7ae21a3253}{dir}}, \mbox{\hyperlink{class_view_frustum_culling_a3c2c390fe79a6123df72ab46cd358bff}{near\_center}}, \mbox{\hyperlink{class_view_frustum_culling_a9ea28072e755df7babb565cd3d56c057}{far\_center}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00039}\mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{00039}}   std::shared\_ptr<Camera> \mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{main\_camera}};}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00040}00040 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00041}00041   \textcolor{comment}{//all corners of the frustum}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00042}00042   \textcolor{comment}{//near plane}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00043}\mbox{\hyperlink{class_view_frustum_culling_ae84f9297eb6a145f503f1ea54fdbe0d4}{00043}}   glm::vec3 \mbox{\hyperlink{class_view_frustum_culling_af189bdc958c4c0a1425fe4880d42e6ee}{near\_top\_left}}, \mbox{\hyperlink{class_view_frustum_culling_a2e52a54724b122037937359009179e2e}{near\_top\_right}}, \mbox{\hyperlink{class_view_frustum_culling_ae84f9297eb6a145f503f1ea54fdbe0d4}{near\_bottom\_left}}, \mbox{\hyperlink{class_view_frustum_culling_ad0c029e8cd7c386fbdd40b0782962b1c}{near\_bottom\_right}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00044}00044   \textcolor{comment}{//far plane}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00045}\mbox{\hyperlink{class_view_frustum_culling_a188694c0f61a9d32172158e3992c3c13}{00045}}   glm::vec3 \mbox{\hyperlink{class_view_frustum_culling_a70f1453b965e0be1097baebec764d8f1}{far\_top\_left}}, \mbox{\hyperlink{class_view_frustum_culling_a0e2ad0c9def0eb7f899058432eec16a3}{far\_top\_right}}, \mbox{\hyperlink{class_view_frustum_culling_a188694c0f61a9d32172158e3992c3c13}{far\_bottom\_left}}, \mbox{\hyperlink{class_view_frustum_culling_a0450c5e6350710e47af997981b88453b}{far\_bottom\_right}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00047}00047   \textcolor{comment}{//planes in Hesse normal form}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00048}00048   \textcolor{comment}{//layout: [0]: near plane, [1] far plane, [2] front, [3] bottom, [4]: left, [5]: right}}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00049}\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{00049}}   \textcolor{keyword}{struct }\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} \{}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00050}00050 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00051}\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_ade6b622985b84d650e71f1c95c087110}{00051}}     glm::vec3 \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_ade6b622985b84d650e71f1c95c087110}{normal}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00052}\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_afe197bb45122b3d3c2ae6bbac3882b34}{00052}}     glm::vec3 \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_afe197bb45122b3d3c2ae6bbac3882b34}{position}};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00053}00053   \};}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00054}00054 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00055}\mbox{\hyperlink{class_view_frustum_culling_a27423a399d5e3c821d5baf6b0c042d5e}{00055}}   \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} \mbox{\hyperlink{class_view_frustum_culling_a27423a399d5e3c821d5baf6b0c042d5e}{frustum\_planes}}[\mbox{\hyperlink{_global_values_8h_ac8343ff8e7950ec5ad29488f3f66549a}{NUM\_FRUSTUM\_PLANES}}];}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00041}\mbox{\hyperlink{class_view_frustum_culling_abeb1f79db55707570165ec7ae21a3253}{00041}}   glm::vec3 \mbox{\hyperlink{class_view_frustum_culling_abeb1f79db55707570165ec7ae21a3253}{dir}}, \mbox{\hyperlink{class_view_frustum_culling_a3c2c390fe79a6123df72ab46cd358bff}{near\_center}}, \mbox{\hyperlink{class_view_frustum_culling_a9ea28072e755df7babb565cd3d56c057}{far\_center}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00043}00043   \textcolor{comment}{// all corners of the frustum}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00044}00044   \textcolor{comment}{// near plane}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00045}\mbox{\hyperlink{class_view_frustum_culling_ae84f9297eb6a145f503f1ea54fdbe0d4}{00045}}   glm::vec3 \mbox{\hyperlink{class_view_frustum_culling_af189bdc958c4c0a1425fe4880d42e6ee}{near\_top\_left}}, \mbox{\hyperlink{class_view_frustum_culling_a2e52a54724b122037937359009179e2e}{near\_top\_right}}, \mbox{\hyperlink{class_view_frustum_culling_ae84f9297eb6a145f503f1ea54fdbe0d4}{near\_bottom\_left}}, \mbox{\hyperlink{class_view_frustum_culling_ad0c029e8cd7c386fbdd40b0782962b1c}{near\_bottom\_right}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00046}00046   \textcolor{comment}{// far plane}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00047}\mbox{\hyperlink{class_view_frustum_culling_a188694c0f61a9d32172158e3992c3c13}{00047}}   glm::vec3 \mbox{\hyperlink{class_view_frustum_culling_a70f1453b965e0be1097baebec764d8f1}{far\_top\_left}}, \mbox{\hyperlink{class_view_frustum_culling_a0e2ad0c9def0eb7f899058432eec16a3}{far\_top\_right}}, \mbox{\hyperlink{class_view_frustum_culling_a188694c0f61a9d32172158e3992c3c13}{far\_bottom\_left}}, \mbox{\hyperlink{class_view_frustum_culling_a0450c5e6350710e47af997981b88453b}{far\_bottom\_right}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00049}00049   \textcolor{comment}{// planes in Hesse normal form}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00050}00050   \textcolor{comment}{// layout: [0]: near plane, [1] far plane, [2] front, [3] bottom, [4]: left,}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00051}00051   \textcolor{comment}{// [5]: right}}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00052}\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{00052}}   \textcolor{keyword}{struct }\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} \{}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00053}\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_ade6b622985b84d650e71f1c95c087110}{00053}}     glm::vec3 \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_ade6b622985b84d650e71f1c95c087110}{normal}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00054}\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_afe197bb45122b3d3c2ae6bbac3882b34}{00054}}     glm::vec3 \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane_afe197bb45122b3d3c2ae6bbac3882b34}{position}};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00055}00055   \};}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00057}00057   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_view_frustum_culling_a3b86efc040471b9428afe398da8d0f21}{init}}(std::vector<glm::vec3> frustum\_corner);}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00057}\mbox{\hyperlink{class_view_frustum_culling_a27423a399d5e3c821d5baf6b0c042d5e}{00057}}   \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} \mbox{\hyperlink{class_view_frustum_culling_a27423a399d5e3c821d5baf6b0c042d5e}{frustum\_planes}}[\mbox{\hyperlink{_global_values_8h_ac8343ff8e7950ec5ad29488f3f66549a}{NUM\_FRUSTUM\_PLANES}}];}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00058}00058 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00060}00060   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_view_frustum_culling_ae8ece7a3d69025bb175fe508f9a3d0df}{corners\_outside\_plane}}(std::vector<glm::vec3> aabb\_corners, \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} plane, GLuint outcode\_pattern);}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00062}00062   GLfloat \mbox{\hyperlink{class_view_frustum_culling_a00306d856be2af97863ebfe0f40ec888}{plane\_point\_distance}}(\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} plane, glm::vec3 corner);}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00059}00059   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_view_frustum_culling_a3b86efc040471b9428afe398da8d0f21}{init}}(std::vector<glm::vec3> frustum\_corner);}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00061}00061   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_view_frustum_culling_ae8ece7a3d69025bb175fe508f9a3d0df}{corners\_outside\_plane}}(std::vector<glm::vec3> aabb\_corners,}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00062}00062                              \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} plane, GLuint outcode\_pattern);}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00064}00064   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_view_frustum_culling_abc21b9adc507d56c9a315f409706ed1a}{update\_frustum\_param}}(GLfloat \mbox{\hyperlink{class_view_frustum_culling_a374699ee72959863e77e07e8ad1c17e1}{near\_plane}}, GLfloat \mbox{\hyperlink{class_view_frustum_culling_afbc835e0cb446e34f72a01058225a763}{far\_plane}}, GLfloat \mbox{\hyperlink{class_view_frustum_culling_a4e1d2895455cedea686a905e11985174}{fov}}, GLfloat \mbox{\hyperlink{class_view_frustum_culling_a27b5be8781b370af88cc4698d8bda7f4}{ratio}}, std::shared\_ptr<Camera> \mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{main\_camera}});}
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00065}00065 \};}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00064}00064   GLfloat \mbox{\hyperlink{class_view_frustum_culling_a00306d856be2af97863ebfe0f40ec888}{plane\_point\_distance}}(\mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} plane, glm::vec3 corner);}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00066}00066   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_view_frustum_culling_abc21b9adc507d56c9a315f409706ed1a}{update\_frustum\_param}}(GLfloat \mbox{\hyperlink{class_view_frustum_culling_a374699ee72959863e77e07e8ad1c17e1}{near\_plane}}, GLfloat \mbox{\hyperlink{class_view_frustum_culling_afbc835e0cb446e34f72a01058225a763}{far\_plane}}, GLfloat \mbox{\hyperlink{class_view_frustum_culling_a4e1d2895455cedea686a905e11985174}{fov}},}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00067}00067                             GLfloat \mbox{\hyperlink{class_view_frustum_culling_a27b5be8781b370af88cc4698d8bda7f4}{ratio}}, std::shared\_ptr<Camera> \mbox{\hyperlink{class_view_frustum_culling_a41b619c0ebf934e35ce83cc193c1be46}{main\_camera}});}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8h_source_l00068}00068 \};}
 
 \end{DoxyCode}

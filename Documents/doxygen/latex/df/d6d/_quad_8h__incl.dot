@@ -7,11 +7,11 @@ digraph "C:/Users/jonas/Desktop/GraphicEngine/Src/scene/Quad.h"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="C:/Users/jonas/Desktop\l/GraphicEngine/Src/scene\l/Quad.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
-  Node2 [label="glm/glm.hpp",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node2 [label="glad/glad.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
-  Node3 [label="vector",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node3 [label="glm/glm.hpp",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
-  Node4 [label="glad/glad.h",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node4 [label="vector",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
   Node5 [label="GlobalValues.h",height=0.2,width=0.4,color="black",URL="$d4/df9/_global_values_8h.html",tooltip=" "];
 }

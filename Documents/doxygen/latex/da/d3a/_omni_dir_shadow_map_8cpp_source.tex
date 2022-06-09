@@ -4,60 +4,57 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_omni_dir_shadow_map_8h}{OmniDirShadowMap.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00004}\mbox{\hyperlink{class_omni_dir_shadow_map_afa5f13782a11a6ea0852c527fb2723a2}{00004}} \mbox{\hyperlink{class_omni_dir_shadow_map_afa5f13782a11a6ea0852c527fb2723a2}{OmniDirShadowMap::OmniDirShadowMap}}() : \mbox{\hyperlink{class_shadow_map}{ShadowMap}}() \{ \}}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00005}00005 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00006}\mbox{\hyperlink{class_omni_dir_shadow_map_a623040f2a8537ea53a5e66fac8c5e341}{00006}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_omni_dir_shadow_map_a623040f2a8537ea53a5e66fac8c5e341}{OmniDirShadowMap::init}}(GLuint width, GLuint height)}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00007}00007 \{}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00003}\mbox{\hyperlink{class_omni_dir_shadow_map_afa5f13782a11a6ea0852c527fb2723a2}{00003}} \mbox{\hyperlink{class_omni_dir_shadow_map_afa5f13782a11a6ea0852c527fb2723a2}{OmniDirShadowMap::OmniDirShadowMap}}() : \mbox{\hyperlink{class_shadow_map}{ShadowMap}}() \{\}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00005}\mbox{\hyperlink{class_omni_dir_shadow_map_a623040f2a8537ea53a5e66fac8c5e341}{00005}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_omni_dir_shadow_map_a623040f2a8537ea53a5e66fac8c5e341}{OmniDirShadowMap::init}}(GLuint width, GLuint height) \{}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00006}00006   \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}} = width;}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00007}00007   \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}} = height;}
 \DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00009}00009   \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}} = width;}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00010}00010   \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}} = height;}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00012}00012   glGenFramebuffers(1, \&\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00009}00009   glGenFramebuffers(1, \&\mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00011}00011   glGenTextures(1, \&\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00012}00012   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
 \DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00014}00014   glGenTextures(1, \&\mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00015}00015   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00017}00017   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < 6; i++) \{}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00018}00018     \textcolor{comment}{// keep in mind that all following f.e. negative\_x, positive\_y,...etc. are reachable}}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00019}00019     \textcolor{comment}{// by simply increment positive\_x stepwise}}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00020}00020     glTexImage2D((GLenum)(GL\_TEXTURE\_CUBE\_MAP\_POSITIVE\_X + i), 0, GL\_DEPTH\_COMPONENT, \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}}, \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}}, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT, \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00021}00021   \}}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00023}00023   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00024}00024   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00026}00026   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00027}00027   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00028}00028   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_R, GL\_CLAMP\_TO\_EDGE);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00030}00030   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00031}00031   glFramebufferTexture(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}, 0);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00033}00033   glDrawBuffer(GL\_NONE);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00034}00034   glReadBuffer(GL\_NONE);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00036}00036   GLenum status = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00038}00038   \textcolor{keywordflow}{if} (status != GL\_FRAMEBUFFER\_COMPLETE) \{}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00039}00039 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00040}00040     printf(\textcolor{stringliteral}{"{}Framebuffer error: \%i\(\backslash\)n"{}}, status);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00041}00041     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00042}00042   \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00014}00014   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < 6; i++) \{}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00015}00015     \textcolor{comment}{// keep in mind that all following f.e. negative\_x, positive\_y,...etc. are}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00016}00016     \textcolor{comment}{// reachable by simply increment positive\_x stepwise}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00017}00017     glTexImage2D((GLenum)(GL\_TEXTURE\_CUBE\_MAP\_POSITIVE\_X + i), 0,}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00018}00018                  GL\_DEPTH\_COMPONENT, \mbox{\hyperlink{class_shadow_map_adf6650a74163c88b1a9f8b914cea5d85}{shadow\_width}}, \mbox{\hyperlink{class_shadow_map_a67d10623cc44828c87303be015fddec6}{shadow\_height}}, 0,}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00019}00019                  GL\_DEPTH\_COMPONENT, GL\_FLOAT, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00020}00020   \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00022}00022   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00023}00023   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00025}00025   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00026}00026   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00027}00027   glTexParameteri(GL\_TEXTURE\_CUBE\_MAP, GL\_TEXTURE\_WRAP\_R, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00029}00029   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}});}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00030}00030   glFramebufferTexture(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}}, 0);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00032}00032   glDrawBuffer(GL\_NONE);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00033}00033   glReadBuffer(GL\_NONE);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00035}00035   GLenum status = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00037}00037   \textcolor{keywordflow}{if} (status != GL\_FRAMEBUFFER\_COMPLETE) \{}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00038}00038     printf(\textcolor{stringliteral}{"{}Framebuffer error: \%i\(\backslash\)n"{}}, status);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00039}00039     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00040}00040   \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00042}00042   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
 \DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00044}00044   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00046}00046   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00047}00047 \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00044}00044   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00047}\mbox{\hyperlink{class_omni_dir_shadow_map_a51a55855b025d248e746fb4498865f19}{00047}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_dir_shadow_map_a51a55855b025d248e746fb4498865f19}{OmniDirShadowMap::write}}() \{ glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}); \}}
 \DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00049}\mbox{\hyperlink{class_omni_dir_shadow_map_a51a55855b025d248e746fb4498865f19}{00049}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_dir_shadow_map_a51a55855b025d248e746fb4498865f19}{OmniDirShadowMap::write}}() \{ glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_shadow_map_a476d2286842a8e95e6e8304fad82d8c4}{FBO}}); \}}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00050}00050 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00051}\mbox{\hyperlink{class_omni_dir_shadow_map_ae6fd2d463463b445cbd10d91c6f2abff}{00051}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_dir_shadow_map_ae6fd2d463463b445cbd10d91c6f2abff}{OmniDirShadowMap::read}}(GLenum texture\_unit)}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00052}00052 \{}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00053}00053   glActiveTexture(GL\_TEXTURE0 + texture\_unit);}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00054}00054   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00055}00055 \}}
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00057}\mbox{\hyperlink{class_omni_dir_shadow_map_a15bca9a6b3cdc2333e22f3f9c3308853}{00057}} \mbox{\hyperlink{class_omni_dir_shadow_map_a15bca9a6b3cdc2333e22f3f9c3308853}{OmniDirShadowMap::\string~OmniDirShadowMap}}() \{ \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00049}\mbox{\hyperlink{class_omni_dir_shadow_map_ae6fd2d463463b445cbd10d91c6f2abff}{00049}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_omni_dir_shadow_map_ae6fd2d463463b445cbd10d91c6f2abff}{OmniDirShadowMap::read}}(GLenum texture\_unit) \{}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00050}00050   glActiveTexture(GL\_TEXTURE0 + texture\_unit);}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00051}00051   glBindTexture(GL\_TEXTURE\_CUBE\_MAP, \mbox{\hyperlink{class_shadow_map_a7ddab4767c978d5f88c86e5588ce53d7}{shadow\_map}});}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00052}00052 \}}
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_omni_dir_shadow_map_8cpp_source_l00054}\mbox{\hyperlink{class_omni_dir_shadow_map_a15bca9a6b3cdc2333e22f3f9c3308853}{00054}} \mbox{\hyperlink{class_omni_dir_shadow_map_a15bca9a6b3cdc2333e22f3f9c3308853}{OmniDirShadowMap::\string~OmniDirShadowMap}}() \{\}}
 
 \end{DoxyCode}

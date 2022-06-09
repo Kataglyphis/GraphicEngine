@@ -94,7 +94,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00048">48</a> of file <a class="el" href="../../d8/dcb/_vertex_8h_source.html">Vertex.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00045">45</a> of file <a class="el" href="../../d8/dcb/_vertex_8h_source.html">Vertex.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a325edc9bd1ecd0f9b776d8fab93b3443" name="a325edc9bd1ecd0f9b776d8fab93b3443"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a325edc9bd1ecd0f9b776d8fab93b3443">&#9670;&nbsp;</a></span>operator()()</h2>
@@ -120,16 +120,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00050">50</a> of file <a class="el" href="../../d8/dcb/_vertex_8h_source.html">Vertex.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>  {</div>
-<div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordtype">size_t</span> h1 = hash&lt;glm::vec3&gt;()(vert.position);</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordtype">size_t</span> h2 = hash&lt;glm::vec3&gt;()(vert.normal);</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordtype">size_t</span> h3 = hash&lt;glm::vec2&gt;()(vert.texture_coords);</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    <span class="comment">// combine hashed wonderfully :))))</span></div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> ((h1 ^ (h2 &lt;&lt; 1)) &gt;&gt; 1) ^ h3;</div>
-<div class="line"><span class="lineno">   59</span>  }</div>
+<p class="definition">Definition at line <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00046">46</a> of file <a class="el" href="../../d8/dcb/_vertex_8h_source.html">Vertex.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                              {</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordtype">size_t</span> h1 = hash&lt;glm::vec3&gt;()(vert.position);</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordtype">size_t</span> h2 = hash&lt;glm::vec3&gt;()(vert.normal);</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordtype">size_t</span> h3 = hash&lt;glm::vec2&gt;()(vert.texture_coords);</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    <span class="comment">// combine hashed wonderfully :))))</span></div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> ((h1 ^ (h2 &lt;&lt; 1)) &gt;&gt; 1) ^ h3;</div>
+<div class="line"><span class="lineno">   53</span>  }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00009">Vertex::normal</a>, <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00008">Vertex::position</a>, and <a class="el" href="../../d8/dcb/_vertex_8h_source.html#l00011">Vertex::texture_coords</a>.</p>
 
@@ -144,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/dcc/namespacestd.html">std</a></li><li class="navelem"><a class="el" href="../../d3/d62/structstd_1_1hash_3_01_vertex_01_4.html">hash&lt; Vertex &gt;</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:34 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

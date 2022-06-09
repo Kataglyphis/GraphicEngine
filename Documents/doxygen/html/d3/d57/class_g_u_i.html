@@ -148,7 +148,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00014">14</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00013">13</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8cbb3140b7d3c9d8e942d6ce6b60a0e8" name="a8cbb3140b7d3c9d8e942d6ce6b60a0e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8cbb3140b7d3c9d8e942d6ce6b60a0e8">&#9670;&nbsp;</a></span>GUI()</h2>
@@ -165,64 +165,64 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{</div>
-<div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   11</span>  <span class="comment">// give some arbitrary values; we will update these values after 1 frame :)</span></div>
-<div class="line"><span class="lineno">   12</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af320b01219d9cf648f8fa9b93356b0cc">direcional_light_radiance</a> = 4.0f;</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[0] = 1;</div>
-<div class="line"><span class="lineno">   15</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[1] = 1;</div>
-<div class="line"><span class="lineno">   16</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[2] = 1;</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[0] = -0.1f;</div>
-<div class="line"><span class="lineno">   19</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[1] = -1.f;</div>
-<div class="line"><span class="lineno">   20</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[2] = -0.1f;</div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">cloud_speed</a> = 6;</div>
-<div class="line"><span class="lineno">   23</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a01a5110670f0b8a067da117e0900d03b">cloud_scale</a> = 0.63f;</div>
-<div class="line"><span class="lineno">   24</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a22299c626ade213ffdf666adabaff89d">cloud_density</a> = 0.493f;</div>
-<div class="line"><span class="lineno">   25</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acd93d6c7546825256c9e00062f8a6ee8">cloud_pillowness</a> = 0.966f;</div>
-<div class="line"><span class="lineno">   26</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a7480810812e57b5bf662ce567836b642">cloud_cirrus_effect</a> = 0.034f;</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[0] = 1000.f;</div>
-<div class="line"><span class="lineno">   29</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[1] = 5.f;</div>
-<div class="line"><span class="lineno">   30</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[2] = 1000.f;</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[0] = -.364f;</div>
-<div class="line"><span class="lineno">   33</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[1] = 367.f;</div>
-<div class="line"><span class="lineno">   34</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[2] = -18.351f;</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a31e9c58cef2f5c298ef19ea4417b9831">cloud_powder_effect</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[0] = 1.f;</div>
-<div class="line"><span class="lineno">   39</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[1] = 1.f;</div>
-<div class="line"><span class="lineno">   40</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[2] = 1.f;</div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a620082c167a6a776fdba1a5c6fa5a1de">cloud_num_march_steps</a> = 8;</div>
-<div class="line"><span class="lineno">   43</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a34b080ebc838921010531caf6e4b99a0">cloud_num_march_steps_to_light</a> = 3;</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a> = 3;</div>
-<div class="line"><span class="lineno">   46</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   47</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a> = <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a>;</div>
-<div class="line"><span class="lineno">   48</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1897ac6ac617fb944773c6b25b353bae">pcf_radius</a> = 2;</div>
-<div class="line"><span class="lineno">   49</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">cascaded_shadow_intensity</a> = 0.65f;</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[0] = <span class="stringliteral">&quot;512&quot;</span>;</div>
-<div class="line"><span class="lineno">   52</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[1] = <span class="stringliteral">&quot;1024&quot;</span>;</div>
-<div class="line"><span class="lineno">   53</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[2] = <span class="stringliteral">&quot;2048&quot;</span>;</div>
-<div class="line"><span class="lineno">   54</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[3] = <span class="stringliteral">&quot;4096&quot;</span>;</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>  std::stringstream texture_base_dir;</div>
-<div class="line"><span class="lineno">   58</span>  texture_base_dir &lt;&lt; CMAKELISTS_DIR;</div>
-<div class="line"><span class="lineno">   59</span>  texture_base_dir &lt;&lt; <span class="stringliteral">&quot;/Resources/Textures/&quot;</span>;</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>  std::stringstream texture_logo;</div>
-<div class="line"><span class="lineno">   62</span>  texture_logo &lt;&lt; texture_base_dir.str() &lt;&lt; <span class="stringliteral">&quot;Loading_Screen/Engine_logo.png&quot;</span>;</div>
-<div class="line"><span class="lineno">   63</span>  <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acf6faac123139da0adfc857f02524e24">logo_tex</a> = <a class="code hl_class" href="../../d2/d7f/class_texture.html">Texture</a>(texture_logo.str().c_str(), std::make_shared&lt;RepeatMode&gt;());</div>
-<div class="line"><span class="lineno">   64</span>  <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acf6faac123139da0adfc857f02524e24">logo_tex</a>.<a class="code hl_function" href="../../d2/d7f/class_texture.html#aac8edf700b4323b86a7bfa322d186ca5">load_texture_with_alpha_channel</a>();</div>
-<div class="line"><span class="lineno">   65</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">9</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>         {</div>
+<div class="line"><span class="lineno">   10</span>  <span class="comment">// give some arbitrary values; we will update these values after 1 frame :)</span></div>
+<div class="line"><span class="lineno">   11</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af320b01219d9cf648f8fa9b93356b0cc">direcional_light_radiance</a> = 4.0f;</div>
+<div class="line"><span class="lineno">   12</span> </div>
+<div class="line"><span class="lineno">   13</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[0] = 1;</div>
+<div class="line"><span class="lineno">   14</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[1] = 1;</div>
+<div class="line"><span class="lineno">   15</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[2] = 1;</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[0] = -0.1f;</div>
+<div class="line"><span class="lineno">   18</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[1] = -1.f;</div>
+<div class="line"><span class="lineno">   19</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[2] = -0.1f;</div>
+<div class="line"><span class="lineno">   20</span> </div>
+<div class="line"><span class="lineno">   21</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">cloud_speed</a> = 6;</div>
+<div class="line"><span class="lineno">   22</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a01a5110670f0b8a067da117e0900d03b">cloud_scale</a> = 0.63f;</div>
+<div class="line"><span class="lineno">   23</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a22299c626ade213ffdf666adabaff89d">cloud_density</a> = 0.493f;</div>
+<div class="line"><span class="lineno">   24</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acd93d6c7546825256c9e00062f8a6ee8">cloud_pillowness</a> = 0.966f;</div>
+<div class="line"><span class="lineno">   25</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a7480810812e57b5bf662ce567836b642">cloud_cirrus_effect</a> = 0.034f;</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[0] = 1000.f;</div>
+<div class="line"><span class="lineno">   28</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[1] = 5.f;</div>
+<div class="line"><span class="lineno">   29</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[2] = 1000.f;</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[0] = -.364f;</div>
+<div class="line"><span class="lineno">   32</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[1] = 367.f;</div>
+<div class="line"><span class="lineno">   33</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[2] = -18.351f;</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a31e9c58cef2f5c298ef19ea4417b9831">cloud_powder_effect</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[0] = 1.f;</div>
+<div class="line"><span class="lineno">   38</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[1] = 1.f;</div>
+<div class="line"><span class="lineno">   39</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[2] = 1.f;</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a620082c167a6a776fdba1a5c6fa5a1de">cloud_num_march_steps</a> = 8;</div>
+<div class="line"><span class="lineno">   42</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a34b080ebc838921010531caf6e4b99a0">cloud_num_march_steps_to_light</a> = 3;</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a> = 3;</div>
+<div class="line"><span class="lineno">   45</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   46</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a> = <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a>;</div>
+<div class="line"><span class="lineno">   47</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1897ac6ac617fb944773c6b25b353bae">pcf_radius</a> = 2;</div>
+<div class="line"><span class="lineno">   48</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">cascaded_shadow_intensity</a> = 0.65f;</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[0] = <span class="stringliteral">&quot;512&quot;</span>;</div>
+<div class="line"><span class="lineno">   51</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[1] = <span class="stringliteral">&quot;1024&quot;</span>;</div>
+<div class="line"><span class="lineno">   52</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[2] = <span class="stringliteral">&quot;2048&quot;</span>;</div>
+<div class="line"><span class="lineno">   53</span>  this-&gt;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>[3] = <span class="stringliteral">&quot;4096&quot;</span>;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>  std::stringstream texture_base_dir;</div>
+<div class="line"><span class="lineno">   56</span>  texture_base_dir &lt;&lt; <a class="code hl_define" href="../../d3/d0f/_open_g_l_renderer_config_8h.html#a06f3f84c6add75aba385bb130c129978">CMAKELISTS_DIR</a>;</div>
+<div class="line"><span class="lineno">   57</span>  texture_base_dir &lt;&lt; <span class="stringliteral">&quot;/Resources/Textures/&quot;</span>;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>  std::stringstream texture_logo;</div>
+<div class="line"><span class="lineno">   60</span>  texture_logo &lt;&lt; texture_base_dir.str() &lt;&lt; <span class="stringliteral">&quot;Loading_Screen/Engine_logo.png&quot;</span>;</div>
+<div class="line"><span class="lineno">   61</span>  <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acf6faac123139da0adfc857f02524e24">logo_tex</a> =</div>
+<div class="line"><span class="lineno">   62</span>      <a class="code hl_class" href="../../d2/d7f/class_texture.html">Texture</a>(texture_logo.str().c_str(), std::make_shared&lt;RepeatMode&gt;());</div>
+<div class="line"><span class="lineno">   63</span>  <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acf6faac123139da0adfc857f02524e24">logo_tex</a>.<a class="code hl_function" href="../../d2/d7f/class_texture.html#aac8edf700b4323b86a7bfa322d186ca5">load_texture_with_alpha_channel</a>();</div>
+<div class="line"><span class="lineno">   64</span>}</div>
+<div class="ttc" id="a_open_g_l_renderer_config_8h_html_a06f3f84c6add75aba385bb130c129978"><div class="ttname"><a href="../../d3/d0f/_open_g_l_renderer_config_8h.html#a06f3f84c6add75aba385bb130c129978">CMAKELISTS_DIR</a></div><div class="ttdeci">#define CMAKELISTS_DIR</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d0f/_open_g_l_renderer_config_8h_source.html#l00012">OpenGLRendererConfig.h:12</a></div></div>
 <div class="ttc" id="aclass_g_u_i_html_a01a5110670f0b8a067da117e0900d03b"><div class="ttname"><a href="../../d3/d57/class_g_u_i.html#a01a5110670f0b8a067da117e0900d03b">GUI::cloud_scale</a></div><div class="ttdeci">float cloud_scale</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5d/_g_u_i_8h_source.html#l00034">GUI.h:34</a></div></div>
 <div class="ttc" id="aclass_g_u_i_html_a0329dd6c22ccf4d9362a70268ae2bcdf"><div class="ttname"><a href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">GUI::cascaded_shadow_intensity</a></div><div class="ttdeci">float cascaded_shadow_intensity</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5d/_g_u_i_8h_source.html#l00049">GUI.h:49</a></div></div>
 <div class="ttc" id="aclass_g_u_i_html_a1134046a490b5da7f9b99be561fb52cc"><div class="ttname"><a href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">GUI::num_shadow_cascades</a></div><div class="ttdeci">int num_shadow_cascades</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5d/_g_u_i_8h_source.html#l00047">GUI.h:47</a></div></div>
@@ -244,11 +244,11 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclass_g_u_i_html_af747e13131424f5881b507c5bf8e8ea0"><div class="ttname"><a href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">GUI::cloud_speed</a></div><div class="ttdeci">int cloud_speed</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5d/_g_u_i_8h_source.html#l00033">GUI.h:33</a></div></div>
 <div class="ttc" id="aclass_g_u_i_html_afdd4eceba83069d60cf193acf4b662aa"><div class="ttname"><a href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">GUI::directional_light_direction</a></div><div class="ttdeci">float directional_light_direction[3]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5d/_g_u_i_8h_source.html#l00031">GUI.h:31</a></div></div>
 <div class="ttc" id="aclass_g_u_i_html_afe82bfcc92afcf717d04f8c51b10139e"><div class="ttname"><a href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">GUI::shadow_map_res_index</a></div><div class="ttdeci">int shadow_map_res_index</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5d/_g_u_i_8h_source.html#l00045">GUI.h:45</a></div></div>
-<div class="ttc" id="aclass_texture_html"><div class="ttname"><a href="../../d2/d7f/class_texture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbf/_texture_8h_source.html#l00015">Texture.h:15</a></div></div>
-<div class="ttc" id="aclass_texture_html_aac8edf700b4323b86a7bfa322d186ca5"><div class="ttname"><a href="../../d2/d7f/class_texture.html#aac8edf700b4323b86a7bfa322d186ca5">Texture::load_texture_with_alpha_channel</a></div><div class="ttdeci">bool load_texture_with_alpha_channel()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d26/_texture_8cpp_source.html#l00056">Texture.cpp:56</a></div></div>
+<div class="ttc" id="aclass_texture_html"><div class="ttname"><a href="../../d2/d7f/class_texture.html">Texture</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbf/_texture_8h_source.html#l00016">Texture.h:16</a></div></div>
+<div class="ttc" id="aclass_texture_html_aac8edf700b4323b86a7bfa322d186ca5"><div class="ttname"><a href="../../d2/d7f/class_texture.html#aac8edf700b4323b86a7bfa322d186ca5">Texture::load_texture_with_alpha_channel</a></div><div class="ttdeci">bool load_texture_with_alpha_channel()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d26/_texture_8cpp_source.html#l00067">Texture.cpp:67</a></div></div>
 <div class="ttc" id="ahost__device__shared_8h_html_a58ab116350055b66986e91b6c99ad4ef"><div class="ttname"><a href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a></div><div class="ttdeci">const int NUM_CASCADES</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/host__device__shared_8h_source.html#l00005">host_device_shared.h:5</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00050">available_shadow_map_resolutions</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00049">cascaded_shadow_intensity</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00037">cloud_cirrus_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00035">cloud_density</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00039">cloud_mesh_offset</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00038">cloud_mesh_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00041">cloud_movement_direction</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00042">cloud_num_march_steps</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00043">cloud_num_march_steps_to_light</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00036">cloud_pillowness</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00040">cloud_powder_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00034">cloud_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00033">cloud_speed</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00029">direcional_light_radiance</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00030">directional_light_color</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00031">directional_light_direction</a>, <a class="el" href="../../da/d26/_texture_8cpp_source.html#l00056">Texture::load_texture_with_alpha_channel()</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00027">logo_tex</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00005">NUM_CASCADES</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00047">num_shadow_cascades</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00048">pcf_radius</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00045">shadow_map_res_index</a>, and <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00046">shadow_resolution_changed</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00050">available_shadow_map_resolutions</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00049">cascaded_shadow_intensity</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00037">cloud_cirrus_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00035">cloud_density</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00039">cloud_mesh_offset</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00038">cloud_mesh_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00041">cloud_movement_direction</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00042">cloud_num_march_steps</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00043">cloud_num_march_steps_to_light</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00036">cloud_pillowness</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00040">cloud_powder_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00034">cloud_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00033">cloud_speed</a>, <a class="el" href="../../d3/d0f/_open_g_l_renderer_config_8h_source.html#l00012">CMAKELISTS_DIR</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00029">direcional_light_radiance</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00030">directional_light_color</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00031">directional_light_direction</a>, <a class="el" href="../../da/d26/_texture_8cpp_source.html#l00067">Texture::load_texture_with_alpha_channel()</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00027">logo_tex</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00005">NUM_CASCADES</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00047">num_shadow_cascades</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00048">pcf_radius</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00045">shadow_map_res_index</a>, and <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00046">shadow_resolution_changed</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -275,12 +275,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00262">262</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  263</span>{</div>
-<div class="line"><span class="lineno">  264</span>  ImGui_ImplOpenGL3_Shutdown();</div>
-<div class="line"><span class="lineno">  265</span>  ImGui_ImplGlfw_Shutdown();</div>
-<div class="line"><span class="lineno">  266</span>  ImGui::DestroyContext();</div>
-<div class="line"><span class="lineno">  267</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00273">273</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  273</span>          {</div>
+<div class="line"><span class="lineno">  274</span>  ImGui_ImplOpenGL3_Shutdown();</div>
+<div class="line"><span class="lineno">  275</span>  ImGui_ImplGlfw_Shutdown();</div>
+<div class="line"><span class="lineno">  276</span>  ImGui::DestroyContext();</div>
+<div class="line"><span class="lineno">  277</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -301,25 +301,25 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00067">67</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
-<div class="line"><span class="lineno">   69</span>  <span class="comment">// Setup Dear ImGui context</span></div>
-<div class="line"><span class="lineno">   70</span>  IMGUI_CHECKVERSION();</div>
-<div class="line"><span class="lineno">   71</span>  ImGui::CreateContext();</div>
-<div class="line"><span class="lineno">   72</span>  <span class="comment">//ImGuiIO&amp; io = ImGui::GetIO();</span></div>
-<div class="line"><span class="lineno">   73</span>  <span class="keyword">const</span> ImGuiStyle&amp; style = ImGui::GetStyle();</div>
-<div class="line"><span class="lineno">   74</span>  <span class="comment">// Setup Platform/Renderer bindings</span></div>
-<div class="line"><span class="lineno">   75</span>  ImGui_ImplGlfw_InitForOpenGL(main_window-&gt;get_window(), <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   76</span>  <span class="keyword">const</span> <span class="keywordtype">char</span>* glsl_version = <span class="stringliteral">&quot;#version 460&quot;</span>;</div>
-<div class="line"><span class="lineno">   77</span>  ImGui_ImplOpenGL3_Init(glsl_version);</div>
-<div class="line"><span class="lineno">   78</span>  <span class="comment">// Setup Dear ImGui style</span></div>
-<div class="line"><span class="lineno">   79</span>  ImGui::StyleColorsDark();</div>
-<div class="line"><span class="lineno">   80</span>  ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 10);</div>
-<div class="line"><span class="lineno">   81</span>  ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 10);</div>
-<div class="line"><span class="lineno">   82</span>  ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 1);</div>
-<div class="line"><span class="lineno">   83</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                {</div>
+<div class="line"><span class="lineno">   67</span>  <span class="comment">// Setup Dear ImGui context</span></div>
+<div class="line"><span class="lineno">   68</span>  IMGUI_CHECKVERSION();</div>
+<div class="line"><span class="lineno">   69</span>  ImGui::CreateContext();</div>
+<div class="line"><span class="lineno">   70</span>  <span class="comment">// ImGuiIO&amp; io = ImGui::GetIO();</span></div>
+<div class="line"><span class="lineno">   71</span>  <span class="keyword">const</span> ImGuiStyle&amp; style = ImGui::GetStyle();</div>
+<div class="line"><span class="lineno">   72</span>  <span class="comment">// Setup Platform/Renderer bindings</span></div>
+<div class="line"><span class="lineno">   73</span>  ImGui_ImplGlfw_InitForOpenGL(main_window-&gt;get_window(), <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   74</span>  <span class="keyword">const</span> <span class="keywordtype">char</span>* glsl_version = <span class="stringliteral">&quot;#version 460&quot;</span>;</div>
+<div class="line"><span class="lineno">   75</span>  ImGui_ImplOpenGL3_Init(glsl_version);</div>
+<div class="line"><span class="lineno">   76</span>  <span class="comment">// Setup Dear ImGui style</span></div>
+<div class="line"><span class="lineno">   77</span>  ImGui::StyleColorsDark();</div>
+<div class="line"><span class="lineno">   78</span>  ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 10);</div>
+<div class="line"><span class="lineno">   79</span>  ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 10);</div>
+<div class="line"><span class="lineno">   80</span>  ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 1);</div>
+<div class="line"><span class="lineno">   81</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="../../dc/db4/_app_8cpp_source.html#l00026">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/db4/_app_8cpp_source.html#l00025">main()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -363,57 +363,59 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">85</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>{</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>  <span class="comment">// feed inputs to dear imgui, start new frame</span></div>
-<div class="line"><span class="lineno">   89</span>  <span class="comment">//UI.start_new_frame();</span></div>
-<div class="line"><span class="lineno">   90</span>  ImGui_ImplOpenGL3_NewFrame();</div>
-<div class="line"><span class="lineno">   91</span>  ImGui_ImplGlfw_NewFrame();</div>
-<div class="line"><span class="lineno">   92</span>  ImGui::NewFrame();</div>
-<div class="line"><span class="lineno">   93</span>  <span class="comment">// render your GUI</span></div>
-<div class="line"><span class="lineno">   94</span>  ImGui::Begin(<span class="stringliteral">&quot;GUI v1.3.3&quot;</span>);</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>  <span class="keywordflow">if</span> (loading_in_progress) {</div>
-<div class="line"><span class="lineno">   97</span>    ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));</div>
-<div class="line"><span class="lineno">   98</span>    ImGui::SameLine(0.0f, ImGui::GetStyle().ItemInnerSpacing.x);</div>
-<div class="line"><span class="lineno">   99</span>    ImGui::Text(<span class="stringliteral">&quot;Loading scene&quot;</span>);</div>
-<div class="line"><span class="lineno">  100</span>    ImGui::Separator();</div>
-<div class="line"><span class="lineno">  101</span>  }</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span> </div>
-<div class="line"><span class="lineno">  104</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;Hot shader reload&quot;</span>)) {</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">83</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>                                                    {</div>
+<div class="line"><span class="lineno">   85</span>  <span class="comment">// feed inputs to dear imgui, start new frame</span></div>
+<div class="line"><span class="lineno">   86</span>  <span class="comment">// UI.start_new_frame();</span></div>
+<div class="line"><span class="lineno">   87</span>  ImGui_ImplOpenGL3_NewFrame();</div>
+<div class="line"><span class="lineno">   88</span>  ImGui_ImplGlfw_NewFrame();</div>
+<div class="line"><span class="lineno">   89</span>  ImGui::NewFrame();</div>
+<div class="line"><span class="lineno">   90</span>  <span class="comment">// render your GUI</span></div>
+<div class="line"><span class="lineno">   91</span>  ImGui::Begin(<span class="stringliteral">&quot;GUI v1.3.3&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>  <span class="keywordflow">if</span> (loading_in_progress) {</div>
+<div class="line"><span class="lineno">   94</span>    ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));</div>
+<div class="line"><span class="lineno">   95</span>    ImGui::SameLine(0.0f, ImGui::GetStyle().ItemInnerSpacing.x);</div>
+<div class="line"><span class="lineno">   96</span>    ImGui::Text(<span class="stringliteral">&quot;Loading scene&quot;</span>);</div>
+<div class="line"><span class="lineno">   97</span>    ImGui::Separator();</div>
+<div class="line"><span class="lineno">   98</span>  }</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;Hot shader reload&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Hot reload ALL shaders!&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  102</span>      shader_hot_reload_triggered = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  103</span>    }</div>
+<div class="line"><span class="lineno">  104</span>  }</div>
 <div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Hot reload ALL shaders!&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  107</span>      shader_hot_reload_triggered = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  108</span>    }</div>
-<div class="line"><span class="lineno">  109</span>  }</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>  ImGui::Separator();</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;Graphic Settings&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (ImGui::TreeNode(<span class="stringliteral">&quot;Directional Light&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  116</span>      ImGui::Separator();</div>
-<div class="line"><span class="lineno">  117</span>      ImGui::SliderFloat(<span class="stringliteral">&quot;Radiance&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af320b01219d9cf648f8fa9b93356b0cc">direcional_light_radiance</a>, 0.0f, 50.0f);</div>
-<div class="line"><span class="lineno">  118</span>      ImGui::Separator();</div>
-<div class="line"><span class="lineno">  119</span>      <span class="comment">// Edit a color (stored as ~4 floats)</span></div>
-<div class="line"><span class="lineno">  120</span>      ImGui::ColorEdit3(<span class="stringliteral">&quot;Directional Light Color&quot;</span>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>);</div>
-<div class="line"><span class="lineno">  121</span>      ImGui::Separator();</div>
-<div class="line"><span class="lineno">  122</span>      ImGui::SliderFloat3(<span class="stringliteral">&quot;Light Direction&quot;</span>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>, -1.f, 1.0f);</div>
-<div class="line"><span class="lineno">  123</span> </div>
-<div class="line"><span class="lineno">  124</span>      <span class="keywordflow">if</span> (ImGui::TreeNode(<span class="stringliteral">&quot;Shadows&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordtype">int</span> shadow_map_res_index_before = <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>;</div>
-<div class="line"><span class="lineno">  127</span>        ImGui::Combo(<span class="stringliteral">&quot;Shadow Map Resolution&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>, IM_ARRAYSIZE(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>));</div>
-<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">if</span> (shadow_map_res_index_before != <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>) <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>        <span class="keywordtype">int</span> num_cascades_before = <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a>;</div>
-<div class="line"><span class="lineno">  131</span>        ImGui::SliderInt(<span class="stringliteral">&quot;# cascades&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a>, <a class="code hl_define" href="../../d4/df9/_global_values_8h.html#a940e59fee68aa3e904e465e9c13b32a1">NUM_MIN_CASCADES</a>, <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a>);</div>
-<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">if</span> (num_cascades_before != <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a>) <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>        ImGui::SliderInt(<span class="stringliteral">&quot;PCF radius&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1897ac6ac617fb944773c6b25b353bae">pcf_radius</a>, 1, 20);</div>
-<div class="line"><span class="lineno">  135</span>        ImGui::SliderFloat(<span class="stringliteral">&quot;Shadow intensity&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">cascaded_shadow_intensity</a>, 0.0f, 1.0f);</div>
+<div class="line"><span class="lineno">  106</span>  ImGui::Separator();</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;Graphic Settings&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (ImGui::TreeNode(<span class="stringliteral">&quot;Directional Light&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  110</span>      ImGui::Separator();</div>
+<div class="line"><span class="lineno">  111</span>      ImGui::SliderFloat(<span class="stringliteral">&quot;Radiance&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af320b01219d9cf648f8fa9b93356b0cc">direcional_light_radiance</a>, 0.0f, 50.0f);</div>
+<div class="line"><span class="lineno">  112</span>      ImGui::Separator();</div>
+<div class="line"><span class="lineno">  113</span>      <span class="comment">// Edit a color (stored as ~4 floats)</span></div>
+<div class="line"><span class="lineno">  114</span>      ImGui::ColorEdit3(<span class="stringliteral">&quot;Directional Light Color&quot;</span>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>);</div>
+<div class="line"><span class="lineno">  115</span>      ImGui::Separator();</div>
+<div class="line"><span class="lineno">  116</span>      ImGui::SliderFloat3(<span class="stringliteral">&quot;Light Direction&quot;</span>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>, -1.f,</div>
+<div class="line"><span class="lineno">  117</span>                          1.0f);</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>      <span class="keywordflow">if</span> (ImGui::TreeNode(<span class="stringliteral">&quot;Shadows&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordtype">int</span> shadow_map_res_index_before = <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>;</div>
+<div class="line"><span class="lineno">  121</span>        ImGui::Combo(<span class="stringliteral">&quot;Shadow Map Resolution&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>,</div>
+<div class="line"><span class="lineno">  122</span>                     <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>,</div>
+<div class="line"><span class="lineno">  123</span>                     IM_ARRAYSIZE(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#aa365b4496bdedbb74a849561afbd05a2">available_shadow_map_resolutions</a>));</div>
+<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">if</span> (shadow_map_res_index_before != <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>)</div>
+<div class="line"><span class="lineno">  125</span>          <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>        <span class="keywordtype">int</span> num_cascades_before = <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a>;</div>
+<div class="line"><span class="lineno">  128</span>        ImGui::SliderInt(<span class="stringliteral">&quot;# cascades&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a>, <a class="code hl_define" href="../../d4/df9/_global_values_8h.html#a940e59fee68aa3e904e465e9c13b32a1">NUM_MIN_CASCADES</a>,</div>
+<div class="line"><span class="lineno">  129</span>                         <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a>);</div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">if</span> (num_cascades_before != <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1134046a490b5da7f9b99be561fb52cc">num_shadow_cascades</a>)</div>
+<div class="line"><span class="lineno">  131</span>          <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>        ImGui::SliderInt(<span class="stringliteral">&quot;PCF radius&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1897ac6ac617fb944773c6b25b353bae">pcf_radius</a>, 1, 20);</div>
+<div class="line"><span class="lineno">  134</span>        ImGui::SliderFloat(<span class="stringliteral">&quot;Shadow intensity&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">cascaded_shadow_intensity</a>, 0.0f,</div>
+<div class="line"><span class="lineno">  135</span>                           1.0f);</div>
 <div class="line"><span class="lineno">  136</span> </div>
 <div class="line"><span class="lineno">  137</span>        ImGui::TreePop();</div>
 <div class="line"><span class="lineno">  138</span>      }</div>
@@ -421,13 +423,13 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  140</span>      ImGui::TreePop();</div>
 <div class="line"><span class="lineno">  141</span>    }</div>
 <div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">if</span> (ImGui::TreeNode(<span class="stringliteral">&quot;Cloud Settings&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  145</span> </div>
-<div class="line"><span class="lineno">  146</span>      ImGui::SliderInt(<span class="stringliteral">&quot;Speed&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">cloud_speed</a>, 0, 30);</div>
-<div class="line"><span class="lineno">  147</span>      ImGui::SliderInt(<span class="stringliteral">&quot;# march steps&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a620082c167a6a776fdba1a5c6fa5a1de">cloud_num_march_steps</a>, 1, 128);</div>
-<div class="line"><span class="lineno">  148</span>      ImGui::SliderInt(<span class="stringliteral">&quot;# march steps to light&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a34b080ebc838921010531caf6e4b99a0">cloud_num_march_steps_to_light</a>, 1, 128);</div>
-<div class="line"><span class="lineno">  149</span>      ImGui::SliderFloat3(<span class="stringliteral">&quot;Movement Direction&quot;</span>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>, -10.f, 10.0f);</div>
+<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">if</span> (ImGui::TreeNode(<span class="stringliteral">&quot;Cloud Settings&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  144</span>      ImGui::SliderInt(<span class="stringliteral">&quot;Speed&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">cloud_speed</a>, 0, 30);</div>
+<div class="line"><span class="lineno">  145</span>      ImGui::SliderInt(<span class="stringliteral">&quot;# march steps&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a620082c167a6a776fdba1a5c6fa5a1de">cloud_num_march_steps</a>, 1, 128);</div>
+<div class="line"><span class="lineno">  146</span>      ImGui::SliderInt(<span class="stringliteral">&quot;# march steps to light&quot;</span>,</div>
+<div class="line"><span class="lineno">  147</span>                       &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a34b080ebc838921010531caf6e4b99a0">cloud_num_march_steps_to_light</a>, 1, 128);</div>
+<div class="line"><span class="lineno">  148</span>      ImGui::SliderFloat3(<span class="stringliteral">&quot;Movement Direction&quot;</span>, <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>, -10.f,</div>
+<div class="line"><span class="lineno">  149</span>                          10.0f);</div>
 <div class="line"><span class="lineno">  150</span>      ImGui::SliderFloat(<span class="stringliteral">&quot;Illumination intensity&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a01a5110670f0b8a067da117e0900d03b">cloud_scale</a>, 0.f, 1.0f);</div>
 <div class="line"><span class="lineno">  151</span>      ImGui::SliderFloat(<span class="stringliteral">&quot;Density&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a22299c626ade213ffdf666adabaff89d">cloud_density</a>, 0.f, 1.0f);</div>
 <div class="line"><span class="lineno">  152</span>      ImGui::SliderFloat(<span class="stringliteral">&quot;Pillowness&quot;</span>, &amp;<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acd93d6c7546825256c9e00062f8a6ee8">cloud_pillowness</a>, 0.f, 1.0f);</div>
@@ -452,44 +454,49 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  171</span> </div>
 <div class="line"><span class="lineno">  172</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;GUI Settings&quot;</span>)) {</div>
 <div class="line"><span class="lineno">  173</span>    ImGuiStyle&amp; style = ImGui::GetStyle();</div>
-<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (ImGui::SliderFloat(<span class="stringliteral">&quot;Frame Rounding&quot;</span>, &amp;style.FrameRounding, 0.0f, 12.0f, <span class="stringliteral">&quot;%.0f&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  175</span>      style.GrabRounding = style.FrameRounding; <span class="comment">// Make GrabRounding always the same value as FrameRounding</span></div>
-<div class="line"><span class="lineno">  176</span>    }</div>
-<div class="line"><span class="lineno">  177</span>    {</div>
-<div class="line"><span class="lineno">  178</span>      <span class="keywordtype">bool</span> border = (style.FrameBorderSize &gt; 0.0f);</div>
-<div class="line"><span class="lineno">  179</span>      <span class="keywordflow">if</span> (ImGui::Checkbox(<span class="stringliteral">&quot;FrameBorder&quot;</span>, &amp;border)) {</div>
-<div class="line"><span class="lineno">  180</span>        style.FrameBorderSize = border ? 1.0f : 0.0f;</div>
-<div class="line"><span class="lineno">  181</span>      }</div>
-<div class="line"><span class="lineno">  182</span>    }</div>
-<div class="line"><span class="lineno">  183</span>    ImGui::SliderFloat(<span class="stringliteral">&quot;WindowRounding&quot;</span>, &amp;style.WindowRounding, 0.0f, 12.0f, <span class="stringliteral">&quot;%.0f&quot;</span>);</div>
-<div class="line"><span class="lineno">  184</span>  }</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="line"><span class="lineno">  186</span>  ImGui::Separator();</div>
-<div class="line"><span class="lineno">  187</span> </div>
-<div class="line"><span class="lineno">  188</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;KEY Bindings&quot;</span>)) {</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>    ImGui::Text(<span class="stringliteral">&quot;WASD for moving Forward, backward and to the side\n QE for rotating &quot;</span>);</div>
-<div class="line"><span class="lineno">  191</span>  }</div>
-<div class="line"><span class="lineno">  192</span> </div>
-<div class="line"><span class="lineno">  193</span>  ImGui::Separator();</div>
-<div class="line"><span class="lineno">  194</span> </div>
-<div class="line"><span class="lineno">  195</span>  ImGui::Text(<span class="stringliteral">&quot;Application average %.3f ms/frame (%.1f FPS)&quot;</span>, 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);</div>
-<div class="line"><span class="lineno">  196</span>  <span class="comment">//ImGui::ShowDemoWindow();</span></div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (ImGui::SliderFloat(<span class="stringliteral">&quot;Frame Rounding&quot;</span>, &amp;style.FrameRounding, 0.0f, 12.0f,</div>
+<div class="line"><span class="lineno">  175</span>                           <span class="stringliteral">&quot;%.0f&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  176</span>      style.GrabRounding = style.FrameRounding;  <span class="comment">// Make GrabRounding always the</span></div>
+<div class="line"><span class="lineno">  177</span>                                                 <span class="comment">// same value as FrameRounding</span></div>
+<div class="line"><span class="lineno">  178</span>    }</div>
+<div class="line"><span class="lineno">  179</span>    {</div>
+<div class="line"><span class="lineno">  180</span>      <span class="keywordtype">bool</span> border = (style.FrameBorderSize &gt; 0.0f);</div>
+<div class="line"><span class="lineno">  181</span>      <span class="keywordflow">if</span> (ImGui::Checkbox(<span class="stringliteral">&quot;FrameBorder&quot;</span>, &amp;border)) {</div>
+<div class="line"><span class="lineno">  182</span>        style.FrameBorderSize = border ? 1.0f : 0.0f;</div>
+<div class="line"><span class="lineno">  183</span>      }</div>
+<div class="line"><span class="lineno">  184</span>    }</div>
+<div class="line"><span class="lineno">  185</span>    ImGui::SliderFloat(<span class="stringliteral">&quot;WindowRounding&quot;</span>, &amp;style.WindowRounding, 0.0f, 12.0f,</div>
+<div class="line"><span class="lineno">  186</span>                       <span class="stringliteral">&quot;%.0f&quot;</span>);</div>
+<div class="line"><span class="lineno">  187</span>  }</div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span>  ImGui::Separator();</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>  <span class="keywordflow">if</span> (ImGui::CollapsingHeader(<span class="stringliteral">&quot;KEY Bindings&quot;</span>)) {</div>
+<div class="line"><span class="lineno">  192</span>    ImGui::Text(</div>
+<div class="line"><span class="lineno">  193</span>        <span class="stringliteral">&quot;WASD for moving Forward, backward and to the side\n QE for rotating &quot;</span>);</div>
+<div class="line"><span class="lineno">  194</span>  }</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>  ImGui::Separator();</div>
 <div class="line"><span class="lineno">  197</span> </div>
-<div class="line"><span class="lineno">  198</span>  ImGui::Image((<span class="keywordtype">void</span>*)(intptr_t)<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acf6faac123139da0adfc857f02524e24">logo_tex</a>.<a class="code hl_function" href="../../d2/d7f/class_texture.html#a53aa350bde0fc93271c74e2bd2b391fa">get_id</a>(), ImVec2(200, 200), ImVec2(0, 1), ImVec2(1, 0));</div>
-<div class="line"><span class="lineno">  199</span> </div>
-<div class="line"><span class="lineno">  200</span>  ImGui::End();</div>
+<div class="line"><span class="lineno">  198</span>  ImGui::Text(<span class="stringliteral">&quot;Application average %.3f ms/frame (%.1f FPS)&quot;</span>,</div>
+<div class="line"><span class="lineno">  199</span>              1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);</div>
+<div class="line"><span class="lineno">  200</span>  <span class="comment">// ImGui::ShowDemoWindow();</span></div>
 <div class="line"><span class="lineno">  201</span> </div>
-<div class="line"><span class="lineno">  202</span>  <span class="comment">// feed inputs to dear imgui, start new frame</span></div>
-<div class="line"><span class="lineno">  203</span>  ImGui::Render();</div>
-<div class="line"><span class="lineno">  204</span>  ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());</div>
-<div class="line"><span class="lineno">  205</span>}</div>
+<div class="line"><span class="lineno">  202</span>  ImGui::Image((<span class="keywordtype">void</span>*)(intptr_t)<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acf6faac123139da0adfc857f02524e24">logo_tex</a>.<a class="code hl_function" href="../../d2/d7f/class_texture.html#a53aa350bde0fc93271c74e2bd2b391fa">get_id</a>(), ImVec2(200, 200),</div>
+<div class="line"><span class="lineno">  203</span>               ImVec2(0, 1), ImVec2(1, 0));</div>
+<div class="line"><span class="lineno">  204</span> </div>
+<div class="line"><span class="lineno">  205</span>  ImGui::End();</div>
+<div class="line"><span class="lineno">  206</span> </div>
+<div class="line"><span class="lineno">  207</span>  <span class="comment">// feed inputs to dear imgui, start new frame</span></div>
+<div class="line"><span class="lineno">  208</span>  ImGui::Render();</div>
+<div class="line"><span class="lineno">  209</span>  ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());</div>
+<div class="line"><span class="lineno">  210</span>}</div>
 <div class="ttc" id="a_global_values_8h_html_a940e59fee68aa3e904e465e9c13b32a1"><div class="ttname"><a href="../../d4/df9/_global_values_8h.html#a940e59fee68aa3e904e465e9c13b32a1">NUM_MIN_CASCADES</a></div><div class="ttdeci">#define NUM_MIN_CASCADES</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/df9/_global_values_8h_source.html#l00004">GlobalValues.h:4</a></div></div>
-<div class="ttc" id="aclass_texture_html_a53aa350bde0fc93271c74e2bd2b391fa"><div class="ttname"><a href="../../d2/d7f/class_texture.html#a53aa350bde0fc93271c74e2bd2b391fa">Texture::get_id</a></div><div class="ttdeci">GLuint get_id() const</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d26/_texture_8cpp_source.html#l00177">Texture.cpp:177</a></div></div>
+<div class="ttc" id="aclass_texture_html_a53aa350bde0fc93271c74e2bd2b391fa"><div class="ttname"><a href="../../d2/d7f/class_texture.html#a53aa350bde0fc93271c74e2bd2b391fa">Texture::get_id</a></div><div class="ttdeci">GLuint get_id() const</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d26/_texture_8cpp_source.html#l00192">Texture.cpp:192</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00050">available_shadow_map_resolutions</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00049">cascaded_shadow_intensity</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00037">cloud_cirrus_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00035">cloud_density</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00039">cloud_mesh_offset</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00038">cloud_mesh_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00041">cloud_movement_direction</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00042">cloud_num_march_steps</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00043">cloud_num_march_steps_to_light</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00036">cloud_pillowness</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00040">cloud_powder_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00034">cloud_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00033">cloud_speed</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00029">direcional_light_radiance</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00030">directional_light_color</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00031">directional_light_direction</a>, <a class="el" href="../../da/d26/_texture_8cpp_source.html#l00177">Texture::get_id()</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00027">logo_tex</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00005">NUM_CASCADES</a>, <a class="el" href="../../d4/df9/_global_values_8h_source.html#l00004">NUM_MIN_CASCADES</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00047">num_shadow_cascades</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00048">pcf_radius</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00045">shadow_map_res_index</a>, and <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00046">shadow_resolution_changed</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00050">available_shadow_map_resolutions</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00049">cascaded_shadow_intensity</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00037">cloud_cirrus_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00035">cloud_density</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00039">cloud_mesh_offset</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00038">cloud_mesh_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00041">cloud_movement_direction</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00042">cloud_num_march_steps</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00043">cloud_num_march_steps_to_light</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00036">cloud_pillowness</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00040">cloud_powder_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00034">cloud_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00033">cloud_speed</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00029">direcional_light_radiance</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00030">directional_light_color</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00031">directional_light_direction</a>, <a class="el" href="../../da/d26/_texture_8cpp_source.html#l00192">Texture::get_id()</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00027">logo_tex</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00005">NUM_CASCADES</a>, <a class="el" href="../../d4/df9/_global_values_8h_source.html#l00004">NUM_MIN_CASCADES</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00047">num_shadow_cascades</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00048">pcf_radius</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00045">shadow_map_res_index</a>, and <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00046">shadow_resolution_changed</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/db4/_app_8cpp_source.html#l00026">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/db4/_app_8cpp_source.html#l00025">main()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -525,64 +532,71 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">207</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  208</span>{</div>
-<div class="line"><span class="lineno">  209</span>  std::shared_ptr&lt;DirectionalLight&gt; main_light = scene-&gt;get_sun();</div>
-<div class="line"><span class="lineno">  210</span>  main_light-&gt;set_radiance(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af320b01219d9cf648f8fa9b93356b0cc">direcional_light_radiance</a>);</div>
-<div class="line"><span class="lineno">  211</span>  main_light-&gt;get_shadow_map()-&gt;set_intensity(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">cascaded_shadow_intensity</a>);</div>
-<div class="line"><span class="lineno">  212</span>  main_light-&gt;get_shadow_map()-&gt;set_pcf_radius(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1897ac6ac617fb944773c6b25b353bae">pcf_radius</a>);</div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>  glm::vec3 new_main_light_color(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[1], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[2]);</div>
-<div class="line"><span class="lineno">  215</span> </div>
-<div class="line"><span class="lineno">  216</span>  main_light-&gt;set_color(new_main_light_color);</div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">212</a> of file <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  212</span>                                                      {</div>
+<div class="line"><span class="lineno">  213</span>  std::shared_ptr&lt;DirectionalLight&gt; main_light = scene-&gt;get_sun();</div>
+<div class="line"><span class="lineno">  214</span>  main_light-&gt;set_radiance(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af320b01219d9cf648f8fa9b93356b0cc">direcional_light_radiance</a>);</div>
+<div class="line"><span class="lineno">  215</span>  main_light-&gt;get_shadow_map()-&gt;set_intensity(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a0329dd6c22ccf4d9362a70268ae2bcdf">cascaded_shadow_intensity</a>);</div>
+<div class="line"><span class="lineno">  216</span>  main_light-&gt;get_shadow_map()-&gt;set_pcf_radius(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a1897ac6ac617fb944773c6b25b353bae">pcf_radius</a>);</div>
 <div class="line"><span class="lineno">  217</span> </div>
-<div class="line"><span class="lineno">  218</span>  glm::vec3 new_main_light_pos(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[1], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[2]);</div>
-<div class="line"><span class="lineno">  219</span> </div>
-<div class="line"><span class="lineno">  220</span>  main_light-&gt;set_direction(new_main_light_pos);</div>
+<div class="line"><span class="lineno">  218</span>  glm::vec3 new_main_light_color(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[0],</div>
+<div class="line"><span class="lineno">  219</span>                                 <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[1],</div>
+<div class="line"><span class="lineno">  220</span>                                 <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#ab9a7959e78c8fdedcea4b13e60b76afb">directional_light_color</a>[2]);</div>
 <div class="line"><span class="lineno">  221</span> </div>
-<div class="line"><span class="lineno">  222</span>  glm::vec3 cloud_move(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[1], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[2]);</div>
+<div class="line"><span class="lineno">  222</span>  main_light-&gt;set_color(new_main_light_color);</div>
 <div class="line"><span class="lineno">  223</span> </div>
-<div class="line"><span class="lineno">  224</span>  std::shared_ptr&lt;Clouds&gt; clouds = scene-&gt;get_clouds();</div>
-<div class="line"><span class="lineno">  225</span> </div>
-<div class="line"><span class="lineno">  226</span>  clouds-&gt;set_movement_direction(cloud_move);</div>
-<div class="line"><span class="lineno">  227</span>  clouds-&gt;set_movement_speed(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">cloud_speed</a>));</div>
-<div class="line"><span class="lineno">  228</span>  clouds-&gt;set_density(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a22299c626ade213ffdf666adabaff89d">cloud_density</a>);</div>
-<div class="line"><span class="lineno">  229</span>  clouds-&gt;set_scale(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a01a5110670f0b8a067da117e0900d03b">cloud_scale</a>);</div>
-<div class="line"><span class="lineno">  230</span>  clouds-&gt;set_pillowness(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acd93d6c7546825256c9e00062f8a6ee8">cloud_pillowness</a>);</div>
-<div class="line"><span class="lineno">  231</span>  clouds-&gt;set_cirrus_effect(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a7480810812e57b5bf662ce567836b642">cloud_cirrus_effect</a>);</div>
-<div class="line"><span class="lineno">  232</span>  clouds-&gt;set_powder_effect(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a31e9c58cef2f5c298ef19ea4417b9831">cloud_powder_effect</a>);</div>
-<div class="line"><span class="lineno">  233</span> </div>
-<div class="line"><span class="lineno">  234</span>  clouds-&gt;set_scale(glm::vec3(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[1], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[2]));</div>
-<div class="line"><span class="lineno">  235</span> </div>
-<div class="line"><span class="lineno">  236</span>  clouds-&gt;set_translation(glm::vec3(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[1], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[2]));</div>
-<div class="line"><span class="lineno">  237</span> </div>
-<div class="line"><span class="lineno">  238</span>  GLfloat shadow_map_resolution = 4096.f;</div>
-<div class="line"><span class="lineno">  239</span> </div>
-<div class="line"><span class="lineno">  240</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a>) {</div>
-<div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>) {</div>
-<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><span class="lineno">  244</span>      shadow_map_resolution = 512.f;</div>
-<div class="line"><span class="lineno">  245</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  246</span>    <span class="keywordflow">case</span> 1:</div>
-<div class="line"><span class="lineno">  247</span>      shadow_map_resolution = 1024.f;</div>
-<div class="line"><span class="lineno">  248</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  249</span>    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><span class="lineno">  250</span>      shadow_map_resolution = 2048.f;</div>
-<div class="line"><span class="lineno">  251</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  252</span>    <span class="keywordflow">case</span> 3:</div>
-<div class="line"><span class="lineno">  253</span>      shadow_map_resolution = 4096.f;</div>
-<div class="line"><span class="lineno">  254</span>    }</div>
-<div class="line"><span class="lineno">  255</span> </div>
-<div class="line"><span class="lineno">  256</span>    main_light-&gt;update_shadow_map(shadow_map_resolution, shadow_map_resolution, <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a>);</div>
-<div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span>    <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  259</span>  }</div>
-<div class="line"><span class="lineno">  260</span>}</div>
+<div class="line"><span class="lineno">  224</span>  glm::vec3 new_main_light_pos(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[0],</div>
+<div class="line"><span class="lineno">  225</span>                               <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[1],</div>
+<div class="line"><span class="lineno">  226</span>                               <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afdd4eceba83069d60cf193acf4b662aa">directional_light_direction</a>[2]);</div>
+<div class="line"><span class="lineno">  227</span> </div>
+<div class="line"><span class="lineno">  228</span>  main_light-&gt;set_direction(new_main_light_pos);</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>  glm::vec3 cloud_move(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[1],</div>
+<div class="line"><span class="lineno">  231</span>                       <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a25463880732cdea8af35f59674c79a39">cloud_movement_direction</a>[2]);</div>
+<div class="line"><span class="lineno">  232</span> </div>
+<div class="line"><span class="lineno">  233</span>  std::shared_ptr&lt;Clouds&gt; clouds = scene-&gt;get_clouds();</div>
+<div class="line"><span class="lineno">  234</span> </div>
+<div class="line"><span class="lineno">  235</span>  clouds-&gt;set_movement_direction(cloud_move);</div>
+<div class="line"><span class="lineno">  236</span>  clouds-&gt;set_movement_speed(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#af747e13131424f5881b507c5bf8e8ea0">cloud_speed</a>));</div>
+<div class="line"><span class="lineno">  237</span>  clouds-&gt;set_density(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a22299c626ade213ffdf666adabaff89d">cloud_density</a>);</div>
+<div class="line"><span class="lineno">  238</span>  clouds-&gt;set_scale(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a01a5110670f0b8a067da117e0900d03b">cloud_scale</a>);</div>
+<div class="line"><span class="lineno">  239</span>  clouds-&gt;set_pillowness(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#acd93d6c7546825256c9e00062f8a6ee8">cloud_pillowness</a>);</div>
+<div class="line"><span class="lineno">  240</span>  clouds-&gt;set_cirrus_effect(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a7480810812e57b5bf662ce567836b642">cloud_cirrus_effect</a>);</div>
+<div class="line"><span class="lineno">  241</span>  clouds-&gt;set_powder_effect(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a31e9c58cef2f5c298ef19ea4417b9831">cloud_powder_effect</a>);</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>  clouds-&gt;set_scale(</div>
+<div class="line"><span class="lineno">  244</span>      glm::vec3(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[1], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a611800f0b5d6f785145c27683127a182">cloud_mesh_scale</a>[2]));</div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span>  clouds-&gt;set_translation(glm::vec3(<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[0], <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[1],</div>
+<div class="line"><span class="lineno">  247</span>                                    <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a882545d562a6d970f53093b1e0aa2dbb">cloud_mesh_offset</a>[2]));</div>
+<div class="line"><span class="lineno">  248</span> </div>
+<div class="line"><span class="lineno">  249</span>  GLfloat shadow_map_resolution = 4096.f;</div>
+<div class="line"><span class="lineno">  250</span> </div>
+<div class="line"><span class="lineno">  251</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a>) {</div>
+<div class="line"><span class="lineno">  252</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#afe82bfcc92afcf717d04f8c51b10139e">shadow_map_res_index</a>) {</div>
+<div class="line"><span class="lineno">  253</span>      <span class="keywordflow">case</span> 0:</div>
+<div class="line"><span class="lineno">  254</span>        shadow_map_resolution = 512.f;</div>
+<div class="line"><span class="lineno">  255</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  256</span>      <span class="keywordflow">case</span> 1:</div>
+<div class="line"><span class="lineno">  257</span>        shadow_map_resolution = 1024.f;</div>
+<div class="line"><span class="lineno">  258</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  259</span>      <span class="keywordflow">case</span> 2:</div>
+<div class="line"><span class="lineno">  260</span>        shadow_map_resolution = 2048.f;</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  262</span>      <span class="keywordflow">case</span> 3:</div>
+<div class="line"><span class="lineno">  263</span>        shadow_map_resolution = 4096.f;</div>
+<div class="line"><span class="lineno">  264</span>    }</div>
+<div class="line"><span class="lineno">  265</span> </div>
+<div class="line"><span class="lineno">  266</span>    main_light-&gt;update_shadow_map(shadow_map_resolution, shadow_map_resolution,</div>
+<div class="line"><span class="lineno">  267</span>                                  <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#a58ab116350055b66986e91b6c99ad4ef">NUM_CASCADES</a>);</div>
+<div class="line"><span class="lineno">  268</span> </div>
+<div class="line"><span class="lineno">  269</span>    <a class="code hl_variable" href="../../d3/d57/class_g_u_i.html#a54612de34b2ed15bec195a6187ac2dfd">shadow_resolution_changed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  270</span>  }</div>
+<div class="line"><span class="lineno">  271</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00049">cascaded_shadow_intensity</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00037">cloud_cirrus_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00035">cloud_density</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00039">cloud_mesh_offset</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00038">cloud_mesh_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00041">cloud_movement_direction</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00036">cloud_pillowness</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00040">cloud_powder_effect</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00034">cloud_scale</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00033">cloud_speed</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00029">direcional_light_radiance</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00030">directional_light_color</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00031">directional_light_direction</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00005">NUM_CASCADES</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00048">pcf_radius</a>, <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00045">shadow_map_res_index</a>, and <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00046">shadow_resolution_changed</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/db4/_app_8cpp_source.html#l00026">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/db4/_app_8cpp_source.html#l00025">main()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -617,7 +631,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00050">50</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>.</p>
 
 </div>
 </div>
@@ -643,7 +657,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00049">49</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -669,7 +683,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00037">37</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -695,7 +709,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00035">35</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -721,7 +735,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00039">39</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -747,7 +761,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00038">38</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -773,7 +787,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00041">41</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -799,7 +813,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00042">42</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>.</p>
 
 </div>
 </div>
@@ -825,7 +839,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00043">43</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>.</p>
 
 </div>
 </div>
@@ -851,7 +865,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00036">36</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -877,7 +891,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00040">40</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -903,7 +917,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00034">34</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -929,7 +943,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00033">33</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -955,7 +969,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00029">29</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -981,7 +995,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00030">30</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +1021,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00031">31</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -1033,7 +1047,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00027">27</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1073,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00047">47</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1099,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00048">48</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -1111,7 +1125,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00045">45</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -1137,7 +1151,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../da/d5d/_g_u_i_8h_source.html#l00046">46</a> of file <a class="el" href="../../da/d5d/_g_u_i_8h_source.html">GUI.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00008">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00085">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00207">update_user_input()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00009">GUI()</a>, <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00083">render()</a>, and <a class="el" href="../../d3/d27/_g_u_i_8cpp_source.html#l00212">update_user_input()</a>.</p>
 
 </div>
 </div>
@@ -1151,7 +1165,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d57/class_g_u_i.html">GUI</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:33 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

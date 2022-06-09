@@ -113,7 +113,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a36df44a63e4de846aa99ce76178f0499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d37/class_noise.html#a36df44a63e4de846aa99ce76178f0499">create_shader_programs</a> ()</td></tr>
 <tr class="separator:a36df44a63e4de846aa99ce76178f0499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cc57872513b97af71ec08b226705ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">generate_cells</a> (GLuint <a class="el" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>, GLuint cell_index)</td></tr>
-<tr class="memdesc:a0cc57872513b97af71ec08b226705ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ num_cells_per_axis: current voxel grid dimension @ cell_index: index into global array for all voxel grids  <a href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">More...</a><br /></td></tr>
 <tr class="separator:a0cc57872513b97af71ec08b226705ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a73f6a6ac1b92a93be098babb1073f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d37/class_noise.html#a2a73f6a6ac1b92a93be098babb1073f0">generate_textures</a> ()</td></tr>
 <tr class="separator:a2a73f6a6ac1b92a93be098babb1073f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,7 +150,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00015">15</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00017">17</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a875a47574d1c86c793296b542e7de9f3" name="a875a47574d1c86c793296b542e7de9f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a875a47574d1c86c793296b542e7de9f3">&#9670;&nbsp;</a></span>Noise()</h2>
@@ -169,33 +168,32 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00005">5</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>             :</div>
-<div class="line"><span class="lineno">    6</span> </div>
-<div class="line"><span class="lineno">    7</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>(128), <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>(32)</div>
-<div class="line"><span class="lineno">    8</span> </div>
-<div class="line"><span class="lineno">    9</span>{</div>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>    :</div>
+<div class="line"><span class="lineno">    7</span> </div>
+<div class="line"><span class="lineno">    8</span>      <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>(128),</div>
+<div class="line"><span class="lineno">    9</span>      <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>(32)</div>
 <div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   11</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a36df44a63e4de846aa99ce76178f0499">create_shader_programs</a>();</div>
-<div class="line"><span class="lineno">   12</span> </div>
-<div class="line"><span class="lineno">   13</span>  <span class="comment">// we need 3d-voxel grids with different sizes for</span></div>
-<div class="line"><span class="lineno">   14</span>  <span class="comment">// creating different worley frequencies</span></div>
-<div class="line"><span class="lineno">   15</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
-<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   11</span>{</div>
+<div class="line"><span class="lineno">   12</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a36df44a63e4de846aa99ce76178f0499">create_shader_programs</a>();</div>
+<div class="line"><span class="lineno">   13</span> </div>
+<div class="line"><span class="lineno">   14</span>  <span class="comment">// we need 3d-voxel grids with different sizes for</span></div>
+<div class="line"><span class="lineno">   15</span>  <span class="comment">// creating different worley frequencies</span></div>
+<div class="line"><span class="lineno">   16</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
 <div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i] = <span class="keyword">static_cast&lt;</span>GLuint<span class="keyword">&gt;</span>(pow(2, i + 1));</div>
 <div class="line"><span class="lineno">   18</span>    <a class="code hl_function" href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">generate_cells</a>(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], i);</div>
 <div class="line"><span class="lineno">   19</span>  }</div>
 <div class="line"><span class="lineno">   20</span> </div>
 <div class="line"><span class="lineno">   21</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a2a73f6a6ac1b92a93be098babb1073f0">generate_textures</a>();</div>
 <div class="line"><span class="lineno">   22</span>}</div>
-<div class="ttc" id="aclass_noise_html_a0cc57872513b97af71ec08b226705ab4"><div class="ttname"><a href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">Noise::generate_cells</a></div><div class="ttdeci">void generate_cells(GLuint num_cells_per_axis, GLuint cell_index)</div><div class="ttdoc">@ num_cells_per_axis: current voxel grid dimension @ cell_index: index into global array for all voxe...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00150">Noise.cpp:150</a></div></div>
-<div class="ttc" id="aclass_noise_html_a1a8dad3e2a7f1bf03932f5628c03d65e"><div class="ttname"><a href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">Noise::num_cells_per_axis</a></div><div class="ttdeci">GLuint num_cells_per_axis[NUM_CELL_POSITIONS]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00055">Noise.h:55</a></div></div>
-<div class="ttc" id="aclass_noise_html_a1d561ba97a11610c79b6210eaaf3d05a"><div class="ttname"><a href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">Noise::texture_dim_2</a></div><div class="ttdeci">GLuint texture_dim_2</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00051">Noise.h:51</a></div></div>
-<div class="ttc" id="aclass_noise_html_a2a73f6a6ac1b92a93be098babb1073f0"><div class="ttname"><a href="../../db/d37/class_noise.html#a2a73f6a6ac1b92a93be098babb1073f0">Noise::generate_textures</a></div><div class="ttdeci">void generate_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00033">Noise.cpp:33</a></div></div>
+<div class="ttc" id="aclass_noise_html_a0cc57872513b97af71ec08b226705ab4"><div class="ttname"><a href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">Noise::generate_cells</a></div><div class="ttdeci">void generate_cells(GLuint num_cells_per_axis, GLuint cell_index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00150">Noise.cpp:150</a></div></div>
+<div class="ttc" id="aclass_noise_html_a1a8dad3e2a7f1bf03932f5628c03d65e"><div class="ttname"><a href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">Noise::num_cells_per_axis</a></div><div class="ttdeci">GLuint num_cells_per_axis[NUM_CELL_POSITIONS]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00057">Noise.h:57</a></div></div>
+<div class="ttc" id="aclass_noise_html_a1d561ba97a11610c79b6210eaaf3d05a"><div class="ttname"><a href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">Noise::texture_dim_2</a></div><div class="ttdeci">GLuint texture_dim_2</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00053">Noise.h:53</a></div></div>
+<div class="ttc" id="aclass_noise_html_a2a73f6a6ac1b92a93be098babb1073f0"><div class="ttname"><a href="../../db/d37/class_noise.html#a2a73f6a6ac1b92a93be098babb1073f0">Noise::generate_textures</a></div><div class="ttdeci">void generate_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00034">Noise.cpp:34</a></div></div>
 <div class="ttc" id="aclass_noise_html_a36df44a63e4de846aa99ce76178f0499"><div class="ttname"><a href="../../db/d37/class_noise.html#a36df44a63e4de846aa99ce76178f0499">Noise::create_shader_programs</a></div><div class="ttdeci">void create_shader_programs()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00024">Noise.cpp:24</a></div></div>
-<div class="ttc" id="aclass_noise_html_a768c1caf0db9bf0633e7b228a0354755"><div class="ttname"><a href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">Noise::texture_dim_1</a></div><div class="ttdeci">GLuint texture_dim_1</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00046">Noise.h:46</a></div></div>
+<div class="ttc" id="aclass_noise_html_a768c1caf0db9bf0633e7b228a0354755"><div class="ttname"><a href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">Noise::texture_dim_1</a></div><div class="ttdeci">GLuint texture_dim_1</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00048">Noise.h:48</a></div></div>
 <div class="ttc" id="ahost__device__shared_8h_html_adacca7d242edb71b53adfbbee34f9147"><div class="ttname"><a href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a></div><div class="ttdeci">const int NUM_CELL_POSITIONS</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/host__device__shared_8h_source.html#l00020">host_device_shared.h:20</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">create_shader_programs()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00033">generate_textures()</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">create_shader_programs()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00034">generate_textures()</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -222,11 +220,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00287">287</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  287</span>{ <a class="code hl_function" href="../../db/d37/class_noise.html#a8e7a8f983d022dad4994e6df6f69d935">delete_textures</a>(); }</div>
-<div class="ttc" id="aclass_noise_html_a8e7a8f983d022dad4994e6df6f69d935"><div class="ttname"><a href="../../db/d37/class_noise.html#a8e7a8f983d022dad4994e6df6f69d935">Noise::delete_textures</a></div><div class="ttdeci">void delete_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00278">Noise.cpp:278</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00284">284</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  284</span>{ <a class="code hl_function" href="../../db/d37/class_noise.html#a8e7a8f983d022dad4994e6df6f69d935">delete_textures</a>(); }</div>
+<div class="ttc" id="aclass_noise_html_a8e7a8f983d022dad4994e6df6f69d935"><div class="ttname"><a href="../../db/d37/class_noise.html#a8e7a8f983d022dad4994e6df6f69d935">Noise::delete_textures</a></div><div class="ttdeci">void delete_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00277">Noise.cpp:277</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00278">delete_textures()</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00277">delete_textures()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -254,45 +252,45 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00197">197</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  198</span>{</div>
-<div class="line"><span class="lineno">  199</span> </div>
-<div class="line"><span class="lineno">  200</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;use_shader_program();</div>
-<div class="line"><span class="lineno">  201</span> </div>
-<div class="line"><span class="lineno">  202</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ab33e9e629597c653feccb86cd28e138e">NOISE_128D_IMAGE_SLOT</a>, <span class="stringliteral">&quot;noise&quot;</span>);</div>
-<div class="line"><span class="lineno">  203</span> </div>
-<div class="line"><span class="lineno">  204</span>  std::stringstream ss;</div>
-<div class="line"><span class="lineno">  205</span> </div>
-<div class="line"><span class="lineno">  206</span>  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
-<div class="line"><span class="lineno">  207</span> </div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00200">200</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  200</span>                                {</div>
+<div class="line"><span class="lineno">  201</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;use_shader_program();</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ab33e9e629597c653feccb86cd28e138e">NOISE_128D_IMAGE_SLOT</a>, <span class="stringliteral">&quot;noise&quot;</span>);</div>
+<div class="line"><span class="lineno">  204</span> </div>
+<div class="line"><span class="lineno">  205</span>  std::stringstream ss;</div>
+<div class="line"><span class="lineno">  206</span> </div>
+<div class="line"><span class="lineno">  207</span>  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
 <div class="line"><span class="lineno">  208</span>    ss &lt;&lt; <span class="stringliteral">&quot;cell_positions[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><span class="lineno">  209</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a> + i, ss.str());</div>
-<div class="line"><span class="lineno">  210</span>    ss.clear();</div>
-<div class="line"><span class="lineno">  211</span>    ss.str(std::string());</div>
-<div class="line"><span class="lineno">  212</span> </div>
-<div class="line"><span class="lineno">  213</span>    ss &lt;&lt; <span class="stringliteral">&quot;num_cells[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><span class="lineno">  214</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;setUniformInt(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], ss.str());</div>
-<div class="line"><span class="lineno">  215</span>    ss.clear();</div>
-<div class="line"><span class="lineno">  216</span>    ss.str(std::string());</div>
-<div class="line"><span class="lineno">  217</span> </div>
-<div class="line"><span class="lineno">  218</span>    glActiveTexture(GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a> + i);</div>
-<div class="line"><span class="lineno">  219</span>    glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>[i]);</div>
-<div class="line"><span class="lineno">  220</span>  }</div>
-<div class="line"><span class="lineno">  221</span> </div>
-<div class="line"><span class="lineno">  222</span>  glDispatchCompute((GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>);</div>
-<div class="line"><span class="lineno">  223</span> </div>
-<div class="line"><span class="lineno">  224</span>  <span class="comment">// make sure writing to image has finished before read</span></div>
-<div class="line"><span class="lineno">  225</span>  glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);</div>
-<div class="line"><span class="lineno">  226</span>  <span class="comment">//glMemoryBarrier(GL_ALL_BARRIER_BITS);</span></div>
-<div class="line"><span class="lineno">  227</span> </div>
-<div class="line"><span class="lineno">  228</span>  glBindTexture(GL_TEXTURE_3D, 0);</div>
-<div class="line"><span class="lineno">  229</span>}</div>
-<div class="ttc" id="abindings_8h_html_a6180bc0c05d7bf1f7ac7ab028fbd9bd7"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a></div><div class="ttdeci">#define NOISE_CELL_POSITIONS_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00014">bindings.h:14</a></div></div>
-<div class="ttc" id="abindings_8h_html_ab33e9e629597c653feccb86cd28e138e"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#ab33e9e629597c653feccb86cd28e138e">NOISE_128D_IMAGE_SLOT</a></div><div class="ttdeci">#define NOISE_128D_IMAGE_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00018">bindings.h:18</a></div></div>
-<div class="ttc" id="aclass_noise_html_a49dbdafa9225b7a39ef9aa11bbb55f62"><div class="ttname"><a href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">Noise::texture_1_shader_program</a></div><div class="ttdeci">std::shared_ptr&lt; ComputeShaderProgram &gt; texture_1_shader_program</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00047">Noise.h:47</a></div></div>
-<div class="ttc" id="aclass_noise_html_a50e7cff652627d970f992e253bbf51c9"><div class="ttname"><a href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">Noise::cell_ids</a></div><div class="ttdeci">GLuint cell_ids[NUM_CELL_POSITIONS]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00054">Noise.h:54</a></div></div>
+<div class="line"><span class="lineno">  209</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a> + i,</div>
+<div class="line"><span class="lineno">  210</span>                                            ss.str());</div>
+<div class="line"><span class="lineno">  211</span>    ss.clear();</div>
+<div class="line"><span class="lineno">  212</span>    ss.str(std::string());</div>
+<div class="line"><span class="lineno">  213</span> </div>
+<div class="line"><span class="lineno">  214</span>    ss &lt;&lt; <span class="stringliteral">&quot;num_cells[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><span class="lineno">  215</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;setUniformInt(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], ss.str());</div>
+<div class="line"><span class="lineno">  216</span>    ss.clear();</div>
+<div class="line"><span class="lineno">  217</span>    ss.str(std::string());</div>
+<div class="line"><span class="lineno">  218</span> </div>
+<div class="line"><span class="lineno">  219</span>    glActiveTexture(GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a> + i);</div>
+<div class="line"><span class="lineno">  220</span>    glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>[i]);</div>
+<div class="line"><span class="lineno">  221</span>  }</div>
+<div class="line"><span class="lineno">  222</span> </div>
+<div class="line"><span class="lineno">  223</span>  glDispatchCompute((GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>,</div>
+<div class="line"><span class="lineno">  224</span>                    (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>);</div>
+<div class="line"><span class="lineno">  225</span> </div>
+<div class="line"><span class="lineno">  226</span>  <span class="comment">// make sure writing to image has finished before read</span></div>
+<div class="line"><span class="lineno">  227</span>  glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);</div>
+<div class="line"><span class="lineno">  228</span>  <span class="comment">// glMemoryBarrier(GL_ALL_BARRIER_BITS);</span></div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>  glBindTexture(GL_TEXTURE_3D, 0);</div>
+<div class="line"><span class="lineno">  231</span>}</div>
+<div class="ttc" id="abindings_8h_html_a6180bc0c05d7bf1f7ac7ab028fbd9bd7"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a></div><div class="ttdeci">#define NOISE_CELL_POSITIONS_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00015">bindings.h:15</a></div></div>
+<div class="ttc" id="abindings_8h_html_ab33e9e629597c653feccb86cd28e138e"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#ab33e9e629597c653feccb86cd28e138e">NOISE_128D_IMAGE_SLOT</a></div><div class="ttdeci">#define NOISE_128D_IMAGE_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00019">bindings.h:19</a></div></div>
+<div class="ttc" id="aclass_noise_html_a49dbdafa9225b7a39ef9aa11bbb55f62"><div class="ttname"><a href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">Noise::texture_1_shader_program</a></div><div class="ttdeci">std::shared_ptr&lt; ComputeShaderProgram &gt; texture_1_shader_program</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00049">Noise.h:49</a></div></div>
+<div class="ttc" id="aclass_noise_html_a50e7cff652627d970f992e253bbf51c9"><div class="ttname"><a href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">Noise::cell_ids</a></div><div class="ttdeci">GLuint cell_ids[NUM_CELL_POSITIONS]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00056">Noise.h:56</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">cell_ids</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00018">NOISE_128D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00014">NOISE_CELL_POSITIONS_SLOT</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">texture_1_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00046">texture_dim_1</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">cell_ids</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00019">NOISE_128D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00015">NOISE_CELL_POSITIONS_SLOT</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00049">texture_1_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00048">texture_dim_1</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -321,9 +319,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00231">231</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  232</span>{</div>
-<div class="line"><span class="lineno">  233</span> </div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00233">233</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  233</span>                               {</div>
 <div class="line"><span class="lineno">  234</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;use_shader_program();</div>
 <div class="line"><span class="lineno">  235</span> </div>
 <div class="line"><span class="lineno">  236</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ae102fd04de1e0f7e67114690a8191da4">NOISE_32D_IMAGE_SLOT</a>, <span class="stringliteral">&quot;noise&quot;</span>);</div>
@@ -331,9 +328,9 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  238</span>  std::stringstream ss;</div>
 <div class="line"><span class="lineno">  239</span> </div>
 <div class="line"><span class="lineno">  240</span>  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
-<div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>    ss &lt;&lt; <span class="stringliteral">&quot;cell_positions[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><span class="lineno">  243</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a> + i, ss.str());</div>
+<div class="line"><span class="lineno">  241</span>    ss &lt;&lt; <span class="stringliteral">&quot;cell_positions[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><span class="lineno">  242</span>    <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;setUniformInt(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#a6180bc0c05d7bf1f7ac7ab028fbd9bd7">NOISE_CELL_POSITIONS_SLOT</a> + i,</div>
+<div class="line"><span class="lineno">  243</span>                                            ss.str());</div>
 <div class="line"><span class="lineno">  244</span>    ss.clear();</div>
 <div class="line"><span class="lineno">  245</span>    ss.str(std::string());</div>
 <div class="line"><span class="lineno">  246</span> </div>
@@ -346,17 +343,18 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  253</span>    glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>[i]);</div>
 <div class="line"><span class="lineno">  254</span>  }</div>
 <div class="line"><span class="lineno">  255</span> </div>
-<div class="line"><span class="lineno">  256</span>  glDispatchCompute((GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>);</div>
-<div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span>  <span class="comment">// make sure writing to image has finished before read</span></div>
-<div class="line"><span class="lineno">  259</span>  glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);</div>
-<div class="line"><span class="lineno">  260</span>  <span class="comment">//glMemoryBarrier(GL_ALL_BARRIER_BITS);</span></div>
-<div class="line"><span class="lineno">  261</span>  glBindTexture(GL_TEXTURE_3D, 0);</div>
-<div class="line"><span class="lineno">  262</span>}</div>
-<div class="ttc" id="abindings_8h_html_ae102fd04de1e0f7e67114690a8191da4"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#ae102fd04de1e0f7e67114690a8191da4">NOISE_32D_IMAGE_SLOT</a></div><div class="ttdeci">#define NOISE_32D_IMAGE_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00019">bindings.h:19</a></div></div>
-<div class="ttc" id="aclass_noise_html_a7a9dab01dff486532297277b037e0d9a"><div class="ttname"><a href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">Noise::texture_2_shader_program</a></div><div class="ttdeci">std::shared_ptr&lt; ComputeShaderProgram &gt; texture_2_shader_program</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00052">Noise.h:52</a></div></div>
+<div class="line"><span class="lineno">  256</span>  glDispatchCompute((GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>,</div>
+<div class="line"><span class="lineno">  257</span>                    (GLuint)<a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>);</div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>  <span class="comment">// make sure writing to image has finished before read</span></div>
+<div class="line"><span class="lineno">  260</span>  glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);</div>
+<div class="line"><span class="lineno">  261</span>  <span class="comment">// glMemoryBarrier(GL_ALL_BARRIER_BITS);</span></div>
+<div class="line"><span class="lineno">  262</span>  glBindTexture(GL_TEXTURE_3D, 0);</div>
+<div class="line"><span class="lineno">  263</span>}</div>
+<div class="ttc" id="abindings_8h_html_ae102fd04de1e0f7e67114690a8191da4"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#ae102fd04de1e0f7e67114690a8191da4">NOISE_32D_IMAGE_SLOT</a></div><div class="ttdeci">#define NOISE_32D_IMAGE_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00020">bindings.h:20</a></div></div>
+<div class="ttc" id="aclass_noise_html_a7a9dab01dff486532297277b037e0d9a"><div class="ttname"><a href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">Noise::texture_2_shader_program</a></div><div class="ttdeci">std::shared_ptr&lt; ComputeShaderProgram &gt; texture_2_shader_program</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00054">Noise.h:54</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">cell_ids</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00019">NOISE_32D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00014">NOISE_CELL_POSITIONS_SLOT</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">texture_2_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00051">texture_dim_2</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">cell_ids</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00020">NOISE_32D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00015">NOISE_CELL_POSITIONS_SLOT</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">texture_2_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00053">texture_dim_2</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -394,15 +392,17 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">24</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a> = std::make_shared&lt;ComputeShaderProgram&gt;();</div>
-<div class="line"><span class="lineno">   27</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a> = std::make_shared&lt;ComputeShaderProgram&gt;();</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;create_computer_shader_program_from_file(<span class="stringliteral">&quot;clouds/noise_texture_128_res.comp&quot;</span>);</div>
-<div class="line"><span class="lineno">   30</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;create_computer_shader_program_from_file(<span class="stringliteral">&quot;clouds/noise_texture_32_res.comp&quot;</span>);</div>
-<div class="line"><span class="lineno">   31</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                                   {</div>
+<div class="line"><span class="lineno">   25</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a> = std::make_shared&lt;ComputeShaderProgram&gt;();</div>
+<div class="line"><span class="lineno">   26</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a> = std::make_shared&lt;ComputeShaderProgram&gt;();</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;create_computer_shader_program_from_file(</div>
+<div class="line"><span class="lineno">   29</span>      <span class="stringliteral">&quot;clouds/noise_texture_128_res.comp&quot;</span>);</div>
+<div class="line"><span class="lineno">   30</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;create_computer_shader_program_from_file(</div>
+<div class="line"><span class="lineno">   31</span>      <span class="stringliteral">&quot;clouds/noise_texture_32_res.comp&quot;</span>);</div>
+<div class="line"><span class="lineno">   32</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">texture_1_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">texture_2_shader_program</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00049">texture_1_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">texture_2_shader_program</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00005">Noise()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -439,20 +439,19 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00278">278</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  279</span>{</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00277">277</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  277</span>                            {</div>
+<div class="line"><span class="lineno">  278</span>  glDeleteTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
+<div class="line"><span class="lineno">  279</span>  glDeleteTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
 <div class="line"><span class="lineno">  280</span> </div>
-<div class="line"><span class="lineno">  281</span>  glDeleteTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
-<div class="line"><span class="lineno">  282</span>  glDeleteTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
-<div class="line"><span class="lineno">  283</span> </div>
-<div class="line"><span class="lineno">  284</span>  glDeleteTextures(<a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>);</div>
-<div class="line"><span class="lineno">  285</span>}</div>
-<div class="ttc" id="aclass_noise_html_ab9ee6c24efb3e2b02661cb75b051fb26"><div class="ttname"><a href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">Noise::texture_2_id</a></div><div class="ttdeci">GLuint texture_2_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00050">Noise.h:50</a></div></div>
-<div class="ttc" id="aclass_noise_html_aee277b74e7f8df33b924692ea625bea9"><div class="ttname"><a href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">Noise::texture_1_id</a></div><div class="ttdeci">GLuint texture_1_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00045">Noise.h:45</a></div></div>
+<div class="line"><span class="lineno">  281</span>  glDeleteTextures(<a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>);</div>
+<div class="line"><span class="lineno">  282</span>}</div>
+<div class="ttc" id="aclass_noise_html_ab9ee6c24efb3e2b02661cb75b051fb26"><div class="ttname"><a href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">Noise::texture_2_id</a></div><div class="ttdeci">GLuint texture_2_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00052">Noise.h:52</a></div></div>
+<div class="ttc" id="aclass_noise_html_aee277b74e7f8df33b924692ea625bea9"><div class="ttname"><a href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">Noise::texture_1_id</a></div><div class="ttdeci">GLuint texture_1_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00047">Noise.h:47</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">cell_ids</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00045">texture_1_id</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00050">texture_2_id</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">cell_ids</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">texture_1_id</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">texture_2_id</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00287">~Noise()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00284">~Noise()</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -497,59 +496,63 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>@ num_cells_per_axis: current voxel grid dimension @ cell_index: index into global array for all voxel grids </p>
-<p >needed for generating different worley frequencies later on </p>
-
+<pre class="fragment"> @ num_cells_per_axis:      current voxel grid dimension
+ @ cell_index:                      index into global array for all voxel
+</pre><p> grids </p><pre class="fragment"> needed for generating different worley frequencies later on
+</pre> 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">150</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  151</span>{</div>
-<div class="line"><span class="lineno">  152</span> </div>
-<div class="line"><span class="lineno">  153</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].reserve(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a> * <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a> * <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a> * 4);</div>
-<div class="line"><span class="lineno">  154</span> </div>
-<div class="line"><span class="lineno">  155</span>  <span class="comment">// guess which birthday this is ;)</span></div>
-<div class="line"><span class="lineno">  156</span>  std::mt19937_64 gen64(25121995);</div>
-<div class="line"><span class="lineno">  157</span>  std::uniform_real_distribution&lt;float&gt; dis(0, 1);</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>  <span class="comment">//depth</span></div>
-<div class="line"><span class="lineno">  160</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>); i++) {</div>
-<div class="line"><span class="lineno">  161</span>    <span class="comment">//height</span></div>
-<div class="line"><span class="lineno">  162</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>); k++) {</div>
-<div class="line"><span class="lineno">  163</span>      <span class="comment">//width</span></div>
-<div class="line"><span class="lineno">  164</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> m = 0; m &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>); m++) {</div>
-<div class="line"><span class="lineno">  165</span> </div>
-<div class="line"><span class="lineno">  166</span>        <span class="comment">// from: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage3D.xhtml</span></div>
-<div class="line"><span class="lineno">  167</span>        <span class="comment">// &quot;The first element corresponds to the lower left corner of the texture image.</span></div>
-<div class="line"><span class="lineno">  168</span>        <span class="comment">// Subsequent elements progress left-to-right through the remaining texels in the lowest row</span></div>
-<div class="line"><span class="lineno">  169</span>        <span class="comment">// of the texture image, and then in successively higher rows of the texture image.</span></div>
-<div class="line"><span class="lineno">  170</span>        <span class="comment">// The final element corresponds to the upper right corner of the texture image.&quot;</span></div>
+<div class="fragment"><div class="line"><span class="lineno">  150</span>                                                                       {</div>
+<div class="line"><span class="lineno">  151</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].reserve(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a> * <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a> *</div>
+<div class="line"><span class="lineno">  152</span>                                <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a> * 4);</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>  <span class="comment">// guess which birthday this is ;)</span></div>
+<div class="line"><span class="lineno">  155</span>  std::mt19937_64 gen64(25121995);</div>
+<div class="line"><span class="lineno">  156</span>  std::uniform_real_distribution&lt;float&gt; dis(0, 1);</div>
+<div class="line"><span class="lineno">  157</span> </div>
+<div class="line"><span class="lineno">  158</span>  <span class="comment">// depth</span></div>
+<div class="line"><span class="lineno">  159</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>); i++) {</div>
+<div class="line"><span class="lineno">  160</span>    <span class="comment">// height</span></div>
+<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>); k++) {</div>
+<div class="line"><span class="lineno">  162</span>      <span class="comment">// width</span></div>
+<div class="line"><span class="lineno">  163</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> m = 0; m &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>); m++) {</div>
+<div class="line"><span class="lineno">  164</span>        <span class="comment">// from:</span></div>
+<div class="line"><span class="lineno">  165</span>        <span class="comment">// https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage3D.xhtml</span></div>
+<div class="line"><span class="lineno">  166</span>        <span class="comment">// &quot;The first element corresponds to the lower left corner of the</span></div>
+<div class="line"><span class="lineno">  167</span>        <span class="comment">// texture image. Subsequent elements progress left-to-right through the</span></div>
+<div class="line"><span class="lineno">  168</span>        <span class="comment">// remaining texels in the lowest row of the texture image, and then in</span></div>
+<div class="line"><span class="lineno">  169</span>        <span class="comment">// successively higher rows of the texture image. The final element</span></div>
+<div class="line"><span class="lineno">  170</span>        <span class="comment">// corresponds to the upper right corner of the texture image.&quot;</span></div>
 <div class="line"><span class="lineno">  171</span> </div>
-<div class="line"><span class="lineno">  172</span>        <span class="keyword">const</span> GLfloat random_offset[3] = { dis(gen64), dis(gen64), dis(gen64) };</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keyword">const</span> GLfloat random_offset[3] = {dis(gen64), dis(gen64), dis(gen64)};</div>
 <div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>        GLfloat position[3] = { (m + random_offset[0]), (k + random_offset[1]), (i + random_offset[2]) };</div>
-<div class="line"><span class="lineno">  175</span> </div>
-<div class="line"><span class="lineno">  176</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(position[0]);</div>
-<div class="line"><span class="lineno">  177</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(position[1]);</div>
-<div class="line"><span class="lineno">  178</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(position[2]);</div>
-<div class="line"><span class="lineno">  179</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(1.0f);</div>
-<div class="line"><span class="lineno">  180</span> </div>
-<div class="line"><span class="lineno">  181</span>        <span class="comment">// i leave this more c-style approach for my further me</span></div>
-<div class="line"><span class="lineno">  182</span>        <span class="comment">// to clearify things :)</span></div>
-<div class="line"><span class="lineno">  183</span>        <span class="comment">//GLuint index = (i + num_cells_per_axis * (k + m * num_cells_per_axis)) * 4;</span></div>
-<div class="line"><span class="lineno">  184</span>        <span class="comment">/*GLfloat position[3] = {       (i + random_offset[0]), </span></div>
-<div class="line"><span class="lineno">  185</span><span class="comment">                                                                                (k + random_offset[1]), </span></div>
-<div class="line"><span class="lineno">  186</span><span class="comment">                                                                                (m + random_offset[2])};*/</span></div>
-<div class="line"><span class="lineno">  187</span> </div>
-<div class="line"><span class="lineno">  188</span>        <span class="comment">/*cell_data[cell_index][index]          = position[0];</span></div>
-<div class="line"><span class="lineno">  189</span><span class="comment">                                cell_data[cell_index][index + 1]        = position[1];</span></div>
-<div class="line"><span class="lineno">  190</span><span class="comment">                                cell_data[cell_index][index + 2]        = position[2];</span></div>
-<div class="line"><span class="lineno">  191</span><span class="comment">                                cell_data[cell_index][index + 3]        = 1.0f;*/</span></div>
-<div class="line"><span class="lineno">  192</span>      }</div>
-<div class="line"><span class="lineno">  193</span>    }</div>
-<div class="line"><span class="lineno">  194</span>  }</div>
-<div class="line"><span class="lineno">  195</span>}</div>
-<div class="ttc" id="aclass_noise_html_a53606dbb0aa37b44150d7ab641aa9c93"><div class="ttname"><a href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">Noise::cell_data</a></div><div class="ttdeci">std::array&lt; std::vector&lt; GLfloat &gt;, NUM_CELL_POSITIONS &gt; cell_data</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00056">Noise.h:56</a></div></div>
+<div class="line"><span class="lineno">  174</span>        GLfloat position[3] = {(m + random_offset[0]), (k + random_offset[1]),</div>
+<div class="line"><span class="lineno">  175</span>                               (i + random_offset[2])};</div>
+<div class="line"><span class="lineno">  176</span> </div>
+<div class="line"><span class="lineno">  177</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(position[0]);</div>
+<div class="line"><span class="lineno">  178</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(position[1]);</div>
+<div class="line"><span class="lineno">  179</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(position[2]);</div>
+<div class="line"><span class="lineno">  180</span>        <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[cell_index].push_back(1.0f);</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>        <span class="comment">// i leave this more c-style approach for my further me</span></div>
+<div class="line"><span class="lineno">  183</span>        <span class="comment">// to clearify things :)</span></div>
+<div class="line"><span class="lineno">  184</span>        <span class="comment">// GLuint index = (i + num_cells_per_axis * (k + m *</span></div>
+<div class="line"><span class="lineno">  185</span>        <span class="comment">// num_cells_per_axis)) * 4;</span></div>
+<div class="line"><span class="lineno">  186</span>        <span class="comment">/*GLfloat position[3] = {       (i + random_offset[0]),</span></div>
+<div class="line"><span class="lineno">  187</span><span class="comment">                                                                                (k + random_offset[1]),</span></div>
+<div class="line"><span class="lineno">  188</span><span class="comment">                                                                                (m + random_offset[2])};*/</span></div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>        <span class="comment">/*cell_data[cell_index][index]          = position[0];</span></div>
+<div class="line"><span class="lineno">  191</span><span class="comment">                                cell_data[cell_index][index + 1]        =</span></div>
+<div class="line"><span class="lineno">  192</span><span class="comment">           position[1]; cell_data[cell_index][index + 2]        = position[2];</span></div>
+<div class="line"><span class="lineno">  193</span><span class="comment">                                cell_data[cell_index][index + 3]</span></div>
+<div class="line"><span class="lineno">  194</span><span class="comment">           = 1.0f;*/</span></div>
+<div class="line"><span class="lineno">  195</span>      }</div>
+<div class="line"><span class="lineno">  196</span>    }</div>
+<div class="line"><span class="lineno">  197</span>  }</div>
+<div class="line"><span class="lineno">  198</span>}</div>
+<div class="ttc" id="aclass_noise_html_a53606dbb0aa37b44150d7ab641aa9c93"><div class="ttname"><a href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">Noise::cell_data</a></div><div class="ttdeci">std::array&lt; std::vector&lt; GLfloat &gt;, NUM_CELL_POSITIONS &gt; cell_data</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_noise_8h_source.html#l00058">Noise.h:58</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">cell_data</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00058">cell_data</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00005">Noise()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -586,29 +589,30 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   42</span>{</div>
-<div class="line"><span class="lineno">   43</span>  glGenTextures(<a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>);</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>[i]);</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], 0, GL_RGBA, GL_FLOAT, <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[i].data());</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);</div>
-<div class="line"><span class="lineno">   52</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);</div>
-<div class="line"><span class="lineno">   53</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);</div>
-<div class="line"><span class="lineno">   54</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);</div>
-<div class="line"><span class="lineno">   55</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    glBindTexture(GL_TEXTURE_3D, 0);</div>
-<div class="line"><span class="lineno">   58</span>  }</div>
-<div class="line"><span class="lineno">   59</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00040">40</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>                                        {</div>
+<div class="line"><span class="lineno">   41</span>  glGenTextures(<a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>);</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
+<div class="line"><span class="lineno">   44</span>    glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#a50e7cff652627d970f992e253bbf51c9">cell_ids</a>[i]);</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i],</div>
+<div class="line"><span class="lineno">   47</span>                 <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], 0, GL_RGBA,</div>
+<div class="line"><span class="lineno">   48</span>                 GL_FLOAT, <a class="code hl_variable" href="../../db/d37/class_noise.html#a53606dbb0aa37b44150d7ab641aa9c93">cell_data</a>[i].data());</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);</div>
+<div class="line"><span class="lineno">   51</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);</div>
+<div class="line"><span class="lineno">   52</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);</div>
+<div class="line"><span class="lineno">   53</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);</div>
+<div class="line"><span class="lineno">   54</span>    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    glBindTexture(GL_TEXTURE_3D, 0);</div>
+<div class="line"><span class="lineno">   57</span>  }</div>
+<div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">cell_data</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">cell_ids</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00058">cell_data</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">cell_ids</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00033">generate_textures()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00034">generate_textures()</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -643,16 +647,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
-<div class="line"><span class="lineno">   63</span>  glGenTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>  glActiveTexture(GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a68c720249fec89156cfd1a1eeb356c25">NOISE_128D_TEXTURES_SLOT</a>);</div>
-<div class="line"><span class="lineno">   66</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, 0, GL_RGBA, GL_FLOAT, NULL);</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>  glBindImageTexture(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ab33e9e629597c653feccb86cd28e138e">NOISE_128D_IMAGE_SLOT</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>                                          {</div>
+<div class="line"><span class="lineno">   61</span>  glGenTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>  glActiveTexture(GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a68c720249fec89156cfd1a1eeb356c25">NOISE_128D_TEXTURES_SLOT</a>);</div>
+<div class="line"><span class="lineno">   64</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>,</div>
+<div class="line"><span class="lineno">   67</span>               <a class="code hl_variable" href="../../db/d37/class_noise.html#a768c1caf0db9bf0633e7b228a0354755">texture_dim_1</a>, 0, GL_RGBA, GL_FLOAT, NULL);</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>  glBindImageTexture(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ab33e9e629597c653feccb86cd28e138e">NOISE_128D_IMAGE_SLOT</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>, 0, GL_FALSE, 0,</div>
+<div class="line"><span class="lineno">   70</span>                     GL_READ_WRITE, GL_RGBA32F);</div>
 <div class="line"><span class="lineno">   71</span> </div>
 <div class="line"><span class="lineno">   72</span>  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);</div>
 <div class="line"><span class="lineno">   73</span>  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);</div>
@@ -662,11 +668,11 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   77</span> </div>
 <div class="line"><span class="lineno">   78</span>  glBindTexture(GL_TEXTURE_3D, 0);</div>
 <div class="line"><span class="lineno">   79</span>}</div>
-<div class="ttc" id="abindings_8h_html_a68c720249fec89156cfd1a1eeb356c25"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a68c720249fec89156cfd1a1eeb356c25">NOISE_128D_TEXTURES_SLOT</a></div><div class="ttdeci">#define NOISE_128D_TEXTURES_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00012">bindings.h:12</a></div></div>
+<div class="ttc" id="abindings_8h_html_a68c720249fec89156cfd1a1eeb356c25"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a68c720249fec89156cfd1a1eeb356c25">NOISE_128D_TEXTURES_SLOT</a></div><div class="ttdeci">#define NOISE_128D_TEXTURES_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00013">bindings.h:13</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00018">NOISE_128D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00012">NOISE_128D_TEXTURES_SLOT</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00045">texture_1_id</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00046">texture_dim_1</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00019">NOISE_128D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00013">NOISE_128D_TEXTURES_SLOT</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">texture_1_id</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00048">texture_dim_1</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00033">generate_textures()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00034">generate_textures()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
@@ -702,16 +708,17 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>                                         {</div>
+<div class="line"><span class="lineno">   82</span>  glGenTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
 <div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>  glGenTextures(1, &amp;<a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
-<div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>  glActiveTexture(GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a94ab45fae493b604905baff7c57d9745">NOISE_32D_TEXTURES_SLOT</a>);</div>
-<div class="line"><span class="lineno">   87</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
-<div class="line"><span class="lineno">   88</span> </div>
-<div class="line"><span class="lineno">   89</span>  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, 0, GL_RGBA, GL_FLOAT, NULL);</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>  glBindImageTexture(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ae102fd04de1e0f7e67114690a8191da4">NOISE_32D_IMAGE_SLOT</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);</div>
+<div class="line"><span class="lineno">   84</span>  glActiveTexture(GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a94ab45fae493b604905baff7c57d9745">NOISE_32D_TEXTURES_SLOT</a>);</div>
+<div class="line"><span class="lineno">   85</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGBA32F, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>,</div>
+<div class="line"><span class="lineno">   88</span>               <a class="code hl_variable" href="../../db/d37/class_noise.html#a1d561ba97a11610c79b6210eaaf3d05a">texture_dim_2</a>, 0, GL_RGBA, GL_FLOAT, NULL);</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>  glBindImageTexture(<a class="code hl_define" href="../../dc/d49/bindings_8h.html#ae102fd04de1e0f7e67114690a8191da4">NOISE_32D_IMAGE_SLOT</a>, <a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>, 0, GL_FALSE, 0,</div>
+<div class="line"><span class="lineno">   91</span>                     GL_READ_WRITE, GL_RGBA32F);</div>
 <div class="line"><span class="lineno">   92</span> </div>
 <div class="line"><span class="lineno">   93</span>  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);</div>
 <div class="line"><span class="lineno">   94</span>  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);</div>
@@ -721,11 +728,11 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   98</span> </div>
 <div class="line"><span class="lineno">   99</span>  glBindTexture(GL_TEXTURE_3D, 0);</div>
 <div class="line"><span class="lineno">  100</span>}</div>
-<div class="ttc" id="abindings_8h_html_a94ab45fae493b604905baff7c57d9745"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a94ab45fae493b604905baff7c57d9745">NOISE_32D_TEXTURES_SLOT</a></div><div class="ttdeci">#define NOISE_32D_TEXTURES_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00013">bindings.h:13</a></div></div>
+<div class="ttc" id="abindings_8h_html_a94ab45fae493b604905baff7c57d9745"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a94ab45fae493b604905baff7c57d9745">NOISE_32D_TEXTURES_SLOT</a></div><div class="ttdeci">#define NOISE_32D_TEXTURES_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00014">bindings.h:14</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00019">NOISE_32D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00013">NOISE_32D_TEXTURES_SLOT</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00050">texture_2_id</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00051">texture_dim_2</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00020">NOISE_32D_IMAGE_SLOT</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00014">NOISE_32D_TEXTURES_SLOT</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">texture_2_id</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00053">texture_dim_2</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00033">generate_textures()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00034">generate_textures()</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -760,18 +767,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a30e72a5a59f3764c7c4b461514981a06">generate_num_cells_textures</a>();</div>
-<div class="line"><span class="lineno">   37</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a3ab95abfa0550705d535156cf16a9933">generate_res128_noise_texture</a>();</div>
-<div class="line"><span class="lineno">   38</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#abca8dcad9ab9752441bdcc9325a0d4de">generate_res32_noise_texture</a>();</div>
-<div class="line"><span class="lineno">   39</span>}</div>
-<div class="ttc" id="aclass_noise_html_a30e72a5a59f3764c7c4b461514981a06"><div class="ttname"><a href="../../db/d37/class_noise.html#a30e72a5a59f3764c7c4b461514981a06">Noise::generate_num_cells_textures</a></div><div class="ttdeci">void generate_num_cells_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00041">Noise.cpp:41</a></div></div>
-<div class="ttc" id="aclass_noise_html_a3ab95abfa0550705d535156cf16a9933"><div class="ttname"><a href="../../db/d37/class_noise.html#a3ab95abfa0550705d535156cf16a9933">Noise::generate_res128_noise_texture</a></div><div class="ttdeci">void generate_res128_noise_texture()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00061">Noise.cpp:61</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                              {</div>
+<div class="line"><span class="lineno">   35</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a30e72a5a59f3764c7c4b461514981a06">generate_num_cells_textures</a>();</div>
+<div class="line"><span class="lineno">   36</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a3ab95abfa0550705d535156cf16a9933">generate_res128_noise_texture</a>();</div>
+<div class="line"><span class="lineno">   37</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#abca8dcad9ab9752441bdcc9325a0d4de">generate_res32_noise_texture</a>();</div>
+<div class="line"><span class="lineno">   38</span>}</div>
+<div class="ttc" id="aclass_noise_html_a30e72a5a59f3764c7c4b461514981a06"><div class="ttname"><a href="../../db/d37/class_noise.html#a30e72a5a59f3764c7c4b461514981a06">Noise::generate_num_cells_textures</a></div><div class="ttdeci">void generate_num_cells_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00040">Noise.cpp:40</a></div></div>
+<div class="ttc" id="aclass_noise_html_a3ab95abfa0550705d535156cf16a9933"><div class="ttname"><a href="../../db/d37/class_noise.html#a3ab95abfa0550705d535156cf16a9933">Noise::generate_res128_noise_texture</a></div><div class="ttdeci">void generate_res128_noise_texture()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00060">Noise.cpp:60</a></div></div>
 <div class="ttc" id="aclass_noise_html_abca8dcad9ab9752441bdcc9325a0d4de"><div class="ttname"><a href="../../db/d37/class_noise.html#abca8dcad9ab9752441bdcc9325a0d4de">Noise::generate_res32_noise_texture</a></div><div class="ttdeci">void generate_res32_noise_texture()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00081">Noise.cpp:81</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00041">generate_num_cells_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00061">generate_res128_noise_texture()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">generate_res32_noise_texture()</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00040">generate_num_cells_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00060">generate_res128_noise_texture()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">generate_res32_noise_texture()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00005">Noise()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -817,23 +823,24 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00102">102</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>                                           {</div>
+<div class="line"><span class="lineno">  103</span>  <span class="keywordtype">int</span> work_grp_cnt[3];</div>
 <div class="line"><span class="lineno">  104</span> </div>
-<div class="line"><span class="lineno">  105</span>  <span class="keywordtype">int</span> work_grp_cnt[3];</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 0, &amp;work_grp_cnt[0]);</div>
-<div class="line"><span class="lineno">  108</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 1, &amp;work_grp_cnt[1]);</div>
-<div class="line"><span class="lineno">  109</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 2, &amp;work_grp_cnt[2]);</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>  printf(<span class="stringliteral">&quot;max global (total) work group counts x:%i y:%i z:%i\n&quot;</span>, work_grp_cnt[0], work_grp_cnt[1], work_grp_cnt[2]);</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>  <span class="keywordtype">int</span> work_grp_size[3];</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 0, &amp;work_grp_size[0]);</div>
-<div class="line"><span class="lineno">  116</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 1, &amp;work_grp_size[1]);</div>
-<div class="line"><span class="lineno">  117</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 2, &amp;work_grp_size[2]);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>  printf(<span class="stringliteral">&quot;max local (in one shader) work group sizes x:%i y:%i z:%i\n&quot;</span>, work_grp_size[0], work_grp_size[1], work_grp_size[2]);</div>
+<div class="line"><span class="lineno">  105</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 0, &amp;work_grp_cnt[0]);</div>
+<div class="line"><span class="lineno">  106</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 1, &amp;work_grp_cnt[1]);</div>
+<div class="line"><span class="lineno">  107</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_COUNT, 2, &amp;work_grp_cnt[2]);</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>  printf(<span class="stringliteral">&quot;max global (total) work group counts x:%i y:%i z:%i\n&quot;</span>,</div>
+<div class="line"><span class="lineno">  110</span>         work_grp_cnt[0], work_grp_cnt[1], work_grp_cnt[2]);</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>  <span class="keywordtype">int</span> work_grp_size[3];</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 0, &amp;work_grp_size[0]);</div>
+<div class="line"><span class="lineno">  115</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 1, &amp;work_grp_size[1]);</div>
+<div class="line"><span class="lineno">  116</span>  glGetIntegeri_v(GL_MAX_COMPUTE_WORK_GROUP_SIZE, 2, &amp;work_grp_size[2]);</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>  printf(<span class="stringliteral">&quot;max local (in one shader) work group sizes x:%i y:%i z:%i\n&quot;</span>,</div>
+<div class="line"><span class="lineno">  119</span>         work_grp_size[0], work_grp_size[1], work_grp_size[2]);</div>
 <div class="line"><span class="lineno">  120</span>}</div>
 </div><!-- fragment -->
 </div>
@@ -853,14 +860,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00264">264</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  265</span>{</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00265">265</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  265</span>                              {</div>
 <div class="line"><span class="lineno">  266</span>  GLuint texture_index = GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a68c720249fec89156cfd1a1eeb356c25">NOISE_128D_TEXTURES_SLOT</a>;</div>
 <div class="line"><span class="lineno">  267</span>  glActiveTexture((GLenum)texture_index);</div>
 <div class="line"><span class="lineno">  268</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#aee277b74e7f8df33b924692ea625bea9">texture_1_id</a>);</div>
 <div class="line"><span class="lineno">  269</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00012">NOISE_128D_TEXTURES_SLOT</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00045">texture_1_id</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00013">NOISE_128D_TEXTURES_SLOT</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">texture_1_id</a>.</p>
 
 </div>
 </div>
@@ -880,13 +887,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00271">271</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  272</span>{</div>
-<div class="line"><span class="lineno">  273</span>  GLuint texture_index = GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a94ab45fae493b604905baff7c57d9745">NOISE_32D_TEXTURES_SLOT</a>;</div>
-<div class="line"><span class="lineno">  274</span>  glActiveTexture((GLenum)texture_index);</div>
-<div class="line"><span class="lineno">  275</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
-<div class="line"><span class="lineno">  276</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  271</span>                             {</div>
+<div class="line"><span class="lineno">  272</span>  GLuint texture_index = GL_TEXTURE0 + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a94ab45fae493b604905baff7c57d9745">NOISE_32D_TEXTURES_SLOT</a>;</div>
+<div class="line"><span class="lineno">  273</span>  glActiveTexture((GLenum)texture_index);</div>
+<div class="line"><span class="lineno">  274</span>  glBindTexture(GL_TEXTURE_3D, <a class="code hl_variable" href="../../db/d37/class_noise.html#ab9ee6c24efb3e2b02661cb75b051fb26">texture_2_id</a>);</div>
+<div class="line"><span class="lineno">  275</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00013">NOISE_32D_TEXTURES_SLOT</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00050">texture_2_id</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00014">NOISE_32D_TEXTURES_SLOT</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">texture_2_id</a>.</p>
 
 </div>
 </div>
@@ -916,10 +923,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00141">141</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  141</span>{ this-&gt;<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[index] = <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00138">138</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  138</span>                                                                 {</div>
+<div class="line"><span class="lineno">  139</span>  this-&gt;<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[index] = <a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>;</div>
+<div class="line"><span class="lineno">  140</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>.</p>
+<p class="reference">References <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>.</p>
 
 </div>
 </div>
@@ -939,27 +948,25 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">122</a> of file <a class="el" href="../../d5/d23/_noise_8cpp_source.html">Noise.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
+<div class="fragment"><div class="line"><span class="lineno">  122</span>                   {</div>
+<div class="line"><span class="lineno">  123</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a8e7a8f983d022dad4994e6df6f69d935">delete_textures</a>();</div>
 <div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a8e7a8f983d022dad4994e6df6f69d935">delete_textures</a>();</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;reload();</div>
-<div class="line"><span class="lineno">  128</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;reload();</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
+<div class="line"><span class="lineno">  125</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a49dbdafa9225b7a39ef9aa11bbb55f62">texture_1_shader_program</a>-&gt;reload();</div>
+<div class="line"><span class="lineno">  126</span>  <a class="code hl_variable" href="../../db/d37/class_noise.html#a7a9dab01dff486532297277b037e0d9a">texture_2_shader_program</a>-&gt;reload();</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="../../d1/d7a/host__device__shared_8h.html#adacca7d242edb71b53adfbbee34f9147">NUM_CELL_POSITIONS</a>; i++) {</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">generate_cells</a>(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], i);</div>
+<div class="line"><span class="lineno">  130</span>  }</div>
 <div class="line"><span class="lineno">  131</span> </div>
-<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="../../db/d37/class_noise.html#a0cc57872513b97af71ec08b226705ab4">generate_cells</a>(<a class="code hl_variable" href="../../db/d37/class_noise.html#a1a8dad3e2a7f1bf03932f5628c03d65e">num_cells_per_axis</a>[i], i);</div>
-<div class="line"><span class="lineno">  133</span>  }</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a2a73f6a6ac1b92a93be098babb1073f0">generate_textures</a>();</div>
-<div class="line"><span class="lineno">  136</span> </div>
-<div class="line"><span class="lineno">  137</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a8b2e2a67333910ca9f5b032e5f71964d">create_res128_noise</a>();</div>
-<div class="line"><span class="lineno">  138</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a683dc7958db6d4b85c5ab94455a8941a">create_res32_noise</a>();</div>
-<div class="line"><span class="lineno">  139</span>}</div>
-<div class="ttc" id="aclass_noise_html_a683dc7958db6d4b85c5ab94455a8941a"><div class="ttname"><a href="../../db/d37/class_noise.html#a683dc7958db6d4b85c5ab94455a8941a">Noise::create_res32_noise</a></div><div class="ttdeci">void create_res32_noise()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00231">Noise.cpp:231</a></div></div>
-<div class="ttc" id="aclass_noise_html_a8b2e2a67333910ca9f5b032e5f71964d"><div class="ttname"><a href="../../db/d37/class_noise.html#a8b2e2a67333910ca9f5b032e5f71964d">Noise::create_res128_noise</a></div><div class="ttdeci">void create_res128_noise()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00197">Noise.cpp:197</a></div></div>
+<div class="line"><span class="lineno">  132</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a2a73f6a6ac1b92a93be098babb1073f0">generate_textures</a>();</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a8b2e2a67333910ca9f5b032e5f71964d">create_res128_noise</a>();</div>
+<div class="line"><span class="lineno">  135</span>  <a class="code hl_function" href="../../db/d37/class_noise.html#a683dc7958db6d4b85c5ab94455a8941a">create_res32_noise</a>();</div>
+<div class="line"><span class="lineno">  136</span>}</div>
+<div class="ttc" id="aclass_noise_html_a683dc7958db6d4b85c5ab94455a8941a"><div class="ttname"><a href="../../db/d37/class_noise.html#a683dc7958db6d4b85c5ab94455a8941a">Noise::create_res32_noise</a></div><div class="ttdeci">void create_res32_noise()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00233">Noise.cpp:233</a></div></div>
+<div class="ttc" id="aclass_noise_html_a8b2e2a67333910ca9f5b032e5f71964d"><div class="ttname"><a href="../../db/d37/class_noise.html#a8b2e2a67333910ca9f5b032e5f71964d">Noise::create_res128_noise</a></div><div class="ttdeci">void create_res128_noise()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d23/_noise_8cpp_source.html#l00200">Noise.cpp:200</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00197">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00231">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00278">delete_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00033">generate_textures()</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">num_cells_per_axis</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">texture_1_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">texture_2_shader_program</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00200">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00233">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00277">delete_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00034">generate_textures()</a>, <a class="el" href="../../d1/d7a/host__device__shared_8h_source.html#l00020">NUM_CELL_POSITIONS</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">num_cells_per_axis</a>, <a class="el" href="../../d0/dde/_noise_8h_source.html#l00049">texture_1_shader_program</a>, and <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">texture_2_shader_program</a>.</p>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -992,9 +999,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">56</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00058">58</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00041">generate_num_cells_textures()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00040">generate_num_cells_textures()</a>.</p>
 
 </div>
 </div>
@@ -1018,9 +1025,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">54</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00056">56</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00197">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00231">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00278">delete_textures()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00041">generate_num_cells_textures()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00200">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00233">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00277">delete_textures()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00040">generate_num_cells_textures()</a>.</p>
 
 </div>
 </div>
@@ -1044,9 +1051,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00055">55</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00057">57</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00197">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00231">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00041">generate_num_cells_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00005">Noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00141">set_num_cells()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00200">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00233">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00150">generate_cells()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00040">generate_num_cells_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00005">Noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00138">set_num_cells()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 
 </div>
 </div>
@@ -1070,9 +1077,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00045">45</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">47</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00278">delete_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00061">generate_res128_noise_texture()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00264">read_res128_noise()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00277">delete_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00060">generate_res128_noise_texture()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00265">read_res128_noise()</a>.</p>
 
 </div>
 </div>
@@ -1096,9 +1103,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00047">47</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00049">49</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00197">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">create_shader_programs()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00200">create_res128_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">create_shader_programs()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 
 </div>
 </div>
@@ -1122,9 +1129,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00050">50</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">52</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00278">delete_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">generate_res32_noise_texture()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00271">read_res32_noise()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00277">delete_textures()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">generate_res32_noise_texture()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00271">read_res32_noise()</a>.</p>
 
 </div>
 </div>
@@ -1148,9 +1155,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00052">52</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00054">54</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00231">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">create_shader_programs()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00233">create_res32_noise()</a>, <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00024">create_shader_programs()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00122">update()</a>.</p>
 
 </div>
 </div>
@@ -1174,9 +1181,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00046">46</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00048">48</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00197">create_res128_noise()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00061">generate_res128_noise_texture()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00200">create_res128_noise()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00060">generate_res128_noise_texture()</a>.</p>
 
 </div>
 </div>
@@ -1200,9 +1207,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00051">51</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dde/_noise_8h_source.html#l00053">53</a> of file <a class="el" href="../../d0/dde/_noise_8h_source.html">Noise.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00231">create_res32_noise()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">generate_res32_noise_texture()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00233">create_res32_noise()</a>, and <a class="el" href="../../d5/d23/_noise_8cpp_source.html#l00081">generate_res32_noise_texture()</a>.</p>
 
 </div>
 </div>
@@ -1216,7 +1223,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d37/class_noise.html">Noise</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:33 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

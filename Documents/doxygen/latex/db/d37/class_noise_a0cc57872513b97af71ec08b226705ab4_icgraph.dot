@@ -6,7 +6,7 @@ digraph "Noise::generate_cells"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="RL";
-  Node1 [label="Noise::generate_cells",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="@ num_cells_per_axis: current voxel grid dimension @ cell_index: index into global array for all voxe..."];
+  Node1 [label="Noise::generate_cells",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="Noise::Noise",height=0.2,width=0.4,color="black",URL="$db/d37/class_noise.html#a875a47574d1c86c793296b542e7de9f3",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];

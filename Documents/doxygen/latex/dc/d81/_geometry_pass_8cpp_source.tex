@@ -6,38 +6,38 @@
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00002}00002 }
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00003}\mbox{\hyperlink{class_geometry_pass_ac708fe1cb3367a83c94452f6c604f3b3}{00003}} \mbox{\hyperlink{class_geometry_pass_ac708fe1cb3367a83c94452f6c604f3b3}{GeometryPass::GeometryPass}}() : skybox() \{ \mbox{\hyperlink{class_geometry_pass_a135027fef172b587a875d15a33fc84e7}{create\_shader\_program}}(); \}}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00004}00004 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00005}\mbox{\hyperlink{class_geometry_pass_a6a34e55efa6ef571a8e5f5e55b28813c}{00005}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_geometry_pass_a6a34e55efa6ef571a8e5f5e55b28813c}{GeometryPass::execute}}(glm::mat4 projection\_matrix, std::shared\_ptr<Camera> main\_camera, GLuint window\_width, GLuint window\_height, GLuint gbuffer\_id,}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00006}00006   GLfloat delta\_time, std::shared\_ptr<Scene> scene)}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00007}00007 \{}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00009}00009   glBindFramebuffer(GL\_FRAMEBUFFER, gbuffer\_id);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00011}00011   glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00012}00012   glViewport(0, 0, window\_width, window\_height);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00014}00014   glEnable(GL\_CULL\_FACE);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00015}00015   glCullFace(GL\_BACK);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00016}00016   glFrontFace(GL\_CCW);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00018}00018   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>use\_shader\_program();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00020}00020   glm::mat4 view\_matrix = main\_camera-\/>get\_viewmatrix();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00021}00021   std::vector<ObjMaterial> materials = scene-\/>get\_materials();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00023}00023   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(projection\_matrix, \textcolor{stringliteral}{"{}projection"{}});}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00024}00024   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(view\_matrix, \textcolor{stringliteral}{"{}view"{}});}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00026}00026   std::stringstream ss;}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00027}00027   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(scene-\/>get\_texture\_count(0)); i++) \{}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00029}00029     ss << \textcolor{stringliteral}{"{}model\_textures["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00030}00030     \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{MODEL\_TEXTURES\_SLOT}} + i, ss.str());}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00031}00031     ss.clear();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00032}00032     ss.str(std::string());}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00033}00033   \}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00035}00035   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(materials.size()); i++) \{}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00005}\mbox{\hyperlink{class_geometry_pass_a6a34e55efa6ef571a8e5f5e55b28813c}{00005}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_geometry_pass_a6a34e55efa6ef571a8e5f5e55b28813c}{GeometryPass::execute}}(glm::mat4 projection\_matrix,}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00006}00006                            std::shared\_ptr<Camera> main\_camera,}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00007}00007                            GLuint window\_width, GLuint window\_height,}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00008}00008                            GLuint gbuffer\_id, GLfloat delta\_time,}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00009}00009                            std::shared\_ptr<Scene> scene) \{}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00010}00010   glBindFramebuffer(GL\_FRAMEBUFFER, gbuffer\_id);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00012}00012   glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00013}00013   glViewport(0, 0, window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00015}00015   glEnable(GL\_CULL\_FACE);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00016}00016   glCullFace(GL\_BACK);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00017}00017   glFrontFace(GL\_CCW);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00019}00019   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>use\_shader\_program();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00021}00021   glm::mat4 view\_matrix = main\_camera-\/>get\_viewmatrix();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00022}00022   std::vector<ObjMaterial> materials = scene-\/>get\_materials();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00024}00024   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(projection\_matrix, \textcolor{stringliteral}{"{}projection"{}});}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00025}00025   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(view\_matrix, \textcolor{stringliteral}{"{}view"{}});}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00027}00027   std::stringstream ss;}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00028}00028   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(scene-\/>get\_texture\_count(0));}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00029}00029        i++) \{}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00030}00030     ss << \textcolor{stringliteral}{"{}model\_textures["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00031}00031     \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformInt(\mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{MODEL\_TEXTURES\_SLOT}} + i, ss.str());}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00032}00032     ss.clear();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00033}00033     ss.str(std::string());}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00034}00034   \}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00036}00036   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(materials.size()); i++) \{}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00037}00037     ss << \textcolor{stringliteral}{"{}materials["{}} << i << \textcolor{stringliteral}{"{}].ambient"{}};}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00038}00038     \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformVec3(materials[i].get\_ambient(), ss.str());}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00039}00039     ss.clear();}
@@ -93,48 +93,51 @@
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00089}00089 }
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00090}00090   scene-\/>bind\_textures\_and\_buffer();}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00091}00091 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00092}00092   \textcolor{comment}{//glPolygonMode(GL\_FRONT\_AND\_BACK, GL\_LINE);}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00093}00093   \textcolor{comment}{//aabb-\/>render();}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00094}00094   \textcolor{comment}{//glPolygonMode(GL\_FRONT\_AND\_BACK, GL\_FILL);}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00092}00092   \textcolor{comment}{// glPolygonMode(GL\_FRONT\_AND\_BACK, GL\_LINE);}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00093}00093   \textcolor{comment}{// aabb-\/>render();}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00094}00094   \textcolor{comment}{// glPolygonMode(GL\_FRONT\_AND\_BACK, GL\_FILL);}}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00095}00095   \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00096}00096 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00097}00097   std::vector<std::shared\_ptr<GameObject>> game\_objects = scene-\/>get\_game\_objects();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00098}00098 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00099}00099   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00097}00097   std::vector<std::shared\_ptr<GameObject>> game\_objects =}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00098}00098       scene-\/>get\_game\_objects();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00100}00100   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00101}00101     \textcolor{comment}{/* if (object\_is\_visible(object)) \{*/}}
 \DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00102}00102 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00103}00103     \mbox{\hyperlink{class_geometry_pass_a2d69ed136867affd1160cde6a0949c33}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(), object-\/>get\_normal\_world\_trafo());}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00104}00104 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00105}00105     \textcolor{keywordtype}{object}-\/>render();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00106}00106     \textcolor{comment}{//\}}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00107}00107   \}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00108}00108 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00109}00109   \mbox{\hyperlink{class_geometry_pass_a5182204d04279293c494d2e1b375659f}{skybox}}.\mbox{\hyperlink{class_sky_box_a6c51645083bf8f99e9400851c85f1bef}{draw\_sky\_box}}(projection\_matrix, view\_matrix, window\_width, window\_height, delta\_time);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00110}00110 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00111}00111   \textcolor{comment}{/*glCullFace(GL\_FRONT);}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00112}00112 \textcolor{comment}{    glFrontFace(GL\_CCW);*/}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00113}00113   \textcolor{comment}{// render the AABB for the clouds}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00114}00114   glDisable(GL\_CULL\_FACE);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00115}00115   std::shared\_ptr<Clouds> clouds = scene-\/>get\_clouds();}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00116}00116   clouds-\/>render(projection\_matrix, view\_matrix, window\_width, window\_height);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00117}00117 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00118}00118   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00119}00119 \}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00121}\mbox{\hyperlink{class_geometry_pass_a135027fef172b587a875d15a33fc84e7}{00121}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_geometry_pass_a135027fef172b587a875d15a33fc84e7}{GeometryPass::create\_shader\_program}}()}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00122}00122 \{}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00123}00123   this-\/>\mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}} = std::make\_shared<GeometryPassShaderProgram>(\mbox{\hyperlink{class_geometry_pass_shader_program}{GeometryPassShaderProgram}}\{\});}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00124}00124   this-\/>\mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}rasterizer/g\_buffer\_geometry\_pass.vert"{}}, \textcolor{stringliteral}{"{}rasterizer/g\_buffer\_geometry\_pass.frag"{}});}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00125}00125 \}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00126}00126 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00127}\mbox{\hyperlink{class_geometry_pass_a2d69ed136867affd1160cde6a0949c33}{00127}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_geometry_pass_a2d69ed136867affd1160cde6a0949c33}{GeometryPass::set\_game\_object\_uniforms}}(glm::mat4 model, glm::mat4 normal\_model)}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00128}00128 \{}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00129}00129 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00130}00130   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}});}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00131}00131   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(normal\_model, \textcolor{stringliteral}{"{}normal\_model"{}});}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00132}00132 \}}
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00133}00133 }
-\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00134}\mbox{\hyperlink{class_geometry_pass_a874d732d02e397da1b222d6ecf0f2d76}{00134}} \mbox{\hyperlink{class_geometry_pass_a874d732d02e397da1b222d6ecf0f2d76}{GeometryPass::\string~GeometryPass}}() \{ \}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00103}00103     \mbox{\hyperlink{class_geometry_pass_a2d69ed136867affd1160cde6a0949c33}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(),}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00104}00104                              object-\/>get\_normal\_world\_trafo());}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00106}00106     \textcolor{keywordtype}{object}-\/>render();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00107}00107     \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00108}00108   \}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00110}00110   \mbox{\hyperlink{class_geometry_pass_a5182204d04279293c494d2e1b375659f}{skybox}}.\mbox{\hyperlink{class_sky_box_a6c51645083bf8f99e9400851c85f1bef}{draw\_sky\_box}}(projection\_matrix, view\_matrix, window\_width,}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00111}00111                       window\_height, delta\_time);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00113}00113   \textcolor{comment}{/*glCullFace(GL\_FRONT);}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00114}00114 \textcolor{comment}{    glFrontFace(GL\_CCW);*/}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00115}00115   \textcolor{comment}{// render the AABB for the clouds}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00116}00116   glDisable(GL\_CULL\_FACE);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00117}00117   std::shared\_ptr<Clouds> clouds = scene-\/>get\_clouds();}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00118}00118   clouds-\/>render(projection\_matrix, view\_matrix, window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00120}00120   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00121}00121 \}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00123}\mbox{\hyperlink{class_geometry_pass_a135027fef172b587a875d15a33fc84e7}{00123}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_geometry_pass_a135027fef172b587a875d15a33fc84e7}{GeometryPass::create\_shader\_program}}() \{}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00124}00124   this-\/>\mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}} =}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00125}00125       std::make\_shared<GeometryPassShaderProgram>(\mbox{\hyperlink{class_geometry_pass_shader_program}{GeometryPassShaderProgram}}\{\});}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00126}00126   this-\/>\mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>create\_from\_files(}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00127}00127       \textcolor{stringliteral}{"{}rasterizer/g\_buffer\_geometry\_pass.vert"{}},}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00128}00128       \textcolor{stringliteral}{"{}rasterizer/g\_buffer\_geometry\_pass.frag"{}});}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00129}00129 \}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00131}\mbox{\hyperlink{class_geometry_pass_a2d69ed136867affd1160cde6a0949c33}{00131}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_geometry_pass_a2d69ed136867affd1160cde6a0949c33}{GeometryPass::set\_game\_object\_uniforms}}(glm::mat4 model,}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00132}00132                                             glm::mat4 normal\_model) \{}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00133}00133   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}});}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00134}00134   \mbox{\hyperlink{class_geometry_pass_a26a4af31640b663d79706f88bf586cf8}{shader\_program}}-\/>setUniformMatrix4fv(normal\_model, \textcolor{stringliteral}{"{}normal\_model"{}});}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00135}00135 \}}
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{_geometry_pass_8cpp_source_l00137}\mbox{\hyperlink{class_geometry_pass_a874d732d02e397da1b222d6ecf0f2d76}{00137}} \mbox{\hyperlink{class_geometry_pass_a874d732d02e397da1b222d6ecf0f2d76}{GeometryPass::\string~GeometryPass}}() \{\}}
 
 \end{DoxyCode}

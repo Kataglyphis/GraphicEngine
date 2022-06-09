@@ -48,16 +48,16 @@ Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00010}{10}}
 
 
 
-Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00004 \{ \mbox{\hyperlink{class_omni_shadow_map_pass_aca137cc519e683b64ac643eb362c255e}{create\_shader\_program}}(); \}}
+\DoxyCodeLine{00005 \{ \mbox{\hyperlink{class_omni_shadow_map_pass_aca137cc519e683b64ac643eb362c255e}{create\_shader\_program}}(); \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00046}{create\+\_\+shader\+\_\+program()}}.
+References \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00050}{create\+\_\+shader\+\_\+program()}}.
 
 Here is the call graph for this function\+:
 % FIG 2
@@ -69,11 +69,11 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00053 \{ \}}
+\DoxyCodeLine{00058 \{\}}
 
 \end{DoxyCode}
 
@@ -91,24 +91,26 @@ Implements \mbox{\hyperlink{class_render_pass_scene_dependend_aecc84491efaa1e267
 
 
 
-Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00047 \{}
-\DoxyCodeLine{00048   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}} = std::make\_shared<OmniDirShadowShaderProgram>(\mbox{\hyperlink{class_omni_dir_shadow_shader_program}{OmniDirShadowShaderProgram}}\{\});}
-\DoxyCodeLine{00049   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>create\_from\_files(}
-\DoxyCodeLine{00050     \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.vert"{}}, \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.geom"{}}, \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.frag"{}});}
-\DoxyCodeLine{00051 \}}
+\DoxyCodeLine{00050                                               \{}
+\DoxyCodeLine{00051   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}} = std::make\_shared<OmniDirShadowShaderProgram>(}
+\DoxyCodeLine{00052       \mbox{\hyperlink{class_omni_dir_shadow_shader_program}{OmniDirShadowShaderProgram}}\{\});}
+\DoxyCodeLine{00053   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>create\_from\_files(\textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.vert"{}},}
+\DoxyCodeLine{00054                                     \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.geom"{}},}
+\DoxyCodeLine{00055                                     \textcolor{stringliteral}{"{}rasterizer/shadows/omni\_shadow\_map.frag"{}});}
+\DoxyCodeLine{00056 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00023}{shader\+\_\+program}}.
+References \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00024}{shader\+\_\+program}}.
 
 
 
-Referenced by \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00004}{Omni\+Shadow\+Map\+Pass()}}.
+Referenced by \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00005}{Omni\+Shadow\+Map\+Pass()}}.
 
 Here is the caller graph for this function\+:
 % FIG 3
@@ -120,51 +122,51 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00007 \{}
-\DoxyCodeLine{00008 }
+\DoxyCodeLine{00008                                                             \{}
 \DoxyCodeLine{00009   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>use\_shader\_program();}
 \DoxyCodeLine{00010 }
-\DoxyCodeLine{00011   glViewport(0, 0, p\_light-\/>get\_omni\_shadow\_map()-\/>get\_shadow\_width(), p\_light-\/>get\_omni\_shadow\_map()-\/>get\_shadow\_height());}
-\DoxyCodeLine{00012 }
-\DoxyCodeLine{00013   p\_light-\/>get\_omni\_shadow\_map()-\/>write();}
-\DoxyCodeLine{00014   glClear(GL\_DEPTH\_BUFFER\_BIT);}
-\DoxyCodeLine{00015 }
-\DoxyCodeLine{00016   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformVec3(p\_light-\/>get\_position(), \textcolor{stringliteral}{"{}light\_pos"{}});}
-\DoxyCodeLine{00017   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformFloat(p\_light-\/>get\_far\_plane(), \textcolor{stringliteral}{"{}far\_plane"{}});}
-\DoxyCodeLine{00018 }
-\DoxyCodeLine{00019   std::vector<glm::mat4> light\_matrices = p\_light-\/>calculate\_light\_transform();}
-\DoxyCodeLine{00020 }
-\DoxyCodeLine{00021   std::stringstream ss;}
-\DoxyCodeLine{00022   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < 6; i++) \{}
-\DoxyCodeLine{00023 }
+\DoxyCodeLine{00011   glViewport(0, 0, p\_light-\/>get\_omni\_shadow\_map()-\/>get\_shadow\_width(),}
+\DoxyCodeLine{00012              p\_light-\/>get\_omni\_shadow\_map()-\/>get\_shadow\_height());}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014   p\_light-\/>get\_omni\_shadow\_map()-\/>write();}
+\DoxyCodeLine{00015   glClear(GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformVec3(p\_light-\/>get\_position(), \textcolor{stringliteral}{"{}light\_pos"{}});}
+\DoxyCodeLine{00018   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformFloat(p\_light-\/>get\_far\_plane(), \textcolor{stringliteral}{"{}far\_plane"{}});}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020   std::vector<glm::mat4> light\_matrices = p\_light-\/>calculate\_light\_transform();}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022   std::stringstream ss;}
+\DoxyCodeLine{00023   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < 6; i++) \{}
 \DoxyCodeLine{00024     ss << \textcolor{stringliteral}{"{}light\_matrices["{}} << i << \textcolor{stringliteral}{"{}]"{}};}
 \DoxyCodeLine{00025     \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformMatrix4fv(light\_matrices[i], ss.str());}
 \DoxyCodeLine{00026   \}}
 \DoxyCodeLine{00027 }
 \DoxyCodeLine{00028   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>validate\_program();}
 \DoxyCodeLine{00029 }
-\DoxyCodeLine{00030   std::vector<std::shared\_ptr<GameObject>> game\_objects = scene-\/>get\_game\_objects();}
-\DoxyCodeLine{00031 }
-\DoxyCodeLine{00032   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
-\DoxyCodeLine{00033 }
+\DoxyCodeLine{00030   std::vector<std::shared\_ptr<GameObject>> game\_objects =}
+\DoxyCodeLine{00031       scene-\/>get\_game\_objects();}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033   \textcolor{keywordflow}{for} (std::shared\_ptr<GameObject> \textcolor{keywordtype}{object} : game\_objects) \{}
 \DoxyCodeLine{00034     \textcolor{comment}{/* if (object\_is\_visible(object)) \{*/}}
-\DoxyCodeLine{00035     \mbox{\hyperlink{class_omni_shadow_map_pass_a5a6942df1c3288b6238d1b2a3ebccabf}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(), object-\/>get\_normal\_world\_trafo());}
-\DoxyCodeLine{00036 }
-\DoxyCodeLine{00037     \textcolor{keywordtype}{object}-\/>render();}
-\DoxyCodeLine{00038     \textcolor{comment}{//\}}}
-\DoxyCodeLine{00039   \}}
-\DoxyCodeLine{00040 }
-\DoxyCodeLine{00041   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
-\DoxyCodeLine{00042 \}}
+\DoxyCodeLine{00035     \mbox{\hyperlink{class_omni_shadow_map_pass_a5a6942df1c3288b6238d1b2a3ebccabf}{set\_game\_object\_uniforms}}(object-\/>get\_world\_trafo(),}
+\DoxyCodeLine{00036                              object-\/>get\_normal\_world\_trafo());}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038     \textcolor{keywordtype}{object}-\/>render();}
+\DoxyCodeLine{00039     \textcolor{comment}{//\}}}
+\DoxyCodeLine{00040   \}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{00043 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00044}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}, and \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00023}{shader\+\_\+program}}.
+References \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00045}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}, and \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00024}{shader\+\_\+program}}.
 
 Here is the call graph for this function\+:
 % FIG 4
@@ -180,20 +182,22 @@ Implements \mbox{\hyperlink{class_render_pass_scene_dependend_adc8f66429e7f71eab
 
 
 
-Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
+Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source}{Omni\+Shadow\+Map\+Pass.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00044 \{ \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}}); \}}
+\DoxyCodeLine{00046                                                                        \{}
+\DoxyCodeLine{00047   \mbox{\hyperlink{class_omni_shadow_map_pass_a84d28753c7983be9c11c378c43dffca0}{shader\_program}}-\/>setUniformMatrix4fv(model, \textcolor{stringliteral}{"{}model"{}});}
+\DoxyCodeLine{00048 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00023}{shader\+\_\+program}}.
+References \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00024}{shader\+\_\+program}}.
 
 
 
-Referenced by \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00006}{execute()}}.
+Referenced by \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00007}{execute()}}.
 
 Here is the caller graph for this function\+:
 % FIG 5
@@ -208,11 +212,11 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00023}{23}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8h_source}{Omni\+Shadow\+Map\+Pass.\+h}}.
+Definition at line \mbox{\hyperlink{_omni_shadow_map_pass_8h_source_l00024}{24}} of file \mbox{\hyperlink{_omni_shadow_map_pass_8h_source}{Omni\+Shadow\+Map\+Pass.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00046}{create\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00006}{execute()}}, and \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00044}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}.
+Referenced by \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00050}{create\+\_\+shader\+\_\+program()}}, \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00007}{execute()}}, and \mbox{\hyperlink{_omni_shadow_map_pass_8cpp_source_l00045}{set\+\_\+game\+\_\+object\+\_\+uniforms()}}.
 
 
 

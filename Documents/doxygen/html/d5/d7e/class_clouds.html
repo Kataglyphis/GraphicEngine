@@ -218,57 +218,72 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    3</span>               :</div>
-<div class="line"><span class="lineno">    4</span> </div>
-<div class="line"><span class="lineno">    5</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>(std::make_shared&lt;ShaderProgram&gt;(<a class="code hl_class" href="../../d8/dc4/class_shader_program.html">ShaderProgram</a>{})), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>(std::make_shared&lt;Noise&gt;()), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a316d9dc9fe93f94b90c17605538ffd40">random_numbers</a>(std::make_shared&lt;RandomNumbers&gt;()),</div>
-<div class="line"><span class="lineno">    6</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>(glm::mat4(1.f)), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">aabb</a>(<a class="code hl_class" href="../../dc/d47/class_a_a_b_b.html">AABB</a>()),</div>
-<div class="line"><span class="lineno">    7</span> </div>
-<div class="line"><span class="lineno">    8</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7f02d0e23bc7403879d3f5b27094287c">minX</a>(-1.f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af0a8f74bdd42579b5559f68a0db3e0c5">maxX</a>(1.f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a9c9307bff01354b41f00e409a8ddcc34">minY</a>(-1.f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a701f57923f13ccb48ad509800318f5e7">maxY</a>(1.f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a94cc7e7e677f76323f8d631f0e8466e9">minZ</a>(-1.f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ae6f4f066b6ea89cc6cd4c025c7029111">maxZ</a>(1.f),</div>
-<div class="line"><span class="lineno">    9</span> </div>
-<div class="line"><span class="lineno">   10</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">movement_direction</a>(glm::vec3(0.0f, 0.0f, 1.0f)), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a>(glm::vec3(1.f)), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a>(glm::vec3(0.0f)),</div>
+<div class="fragment"><div class="line"><span class="lineno">    4</span>    :</div>
+<div class="line"><span class="lineno">    5</span> </div>
+<div class="line"><span class="lineno">    6</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>(std::make_shared&lt;ShaderProgram&gt;(<a class="code hl_class" href="../../d8/dc4/class_shader_program.html">ShaderProgram</a>{})),</div>
+<div class="line"><span class="lineno">    7</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>(std::make_shared&lt;Noise&gt;()),</div>
+<div class="line"><span class="lineno">    8</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a316d9dc9fe93f94b90c17605538ffd40">random_numbers</a>(std::make_shared&lt;RandomNumbers&gt;()),</div>
+<div class="line"><span class="lineno">    9</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>(glm::mat4(1.f)),</div>
+<div class="line"><span class="lineno">   10</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">aabb</a>(<a class="code hl_class" href="../../dc/d47/class_a_a_b_b.html">AABB</a>()),</div>
 <div class="line"><span class="lineno">   11</span> </div>
-<div class="line"><span class="lineno">   12</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">movement_speed</a>(0.65f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a>(0.7f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>(0.63f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">pillowness</a>(1.0f), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a>(0.0f),</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a>(8), <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a>(3),</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">powder_effect</a>(<span class="keyword">true</span>)</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>{</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;create_from_files(<span class="stringliteral">&quot;clouds/CloudsRectangle.vert&quot;</span>, <span class="stringliteral">&quot;clouds/CloudsRectangle.frag&quot;</span>);</div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>  <a class="code hl_function" href="../../d5/d7e/class_clouds.html#acf8ebf390d2ef0a436d31496d877817a">create_noise_textures</a>();</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">aabb</a>.<a class="code hl_function" href="../../dc/d47/class_a_a_b_b.html#ac889fe5a3a32175d57ddf45539e81231">init</a>(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7f02d0e23bc7403879d3f5b27094287c">minX</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af0a8f74bdd42579b5559f68a0db3e0c5">maxX</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a9c9307bff01354b41f00e409a8ddcc34">minY</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a701f57923f13ccb48ad509800318f5e7">maxY</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a94cc7e7e677f76323f8d631f0e8466e9">minZ</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ae6f4f066b6ea89cc6cd4c025c7029111">maxZ</a>);</div>
-<div class="line"><span class="lineno">   25</span>}</div>
-<div class="ttc" id="aclass_a_a_b_b_html"><div class="ttname"><a href="../../dc/d47/class_a_a_b_b.html">AABB</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d00/_a_a_b_b_8h_source.html#l00013">AABB.h:13</a></div></div>
-<div class="ttc" id="aclass_a_a_b_b_html_ac889fe5a3a32175d57ddf45539e81231"><div class="ttname"><a href="../../dc/d47/class_a_a_b_b.html#ac889fe5a3a32175d57ddf45539e81231">AABB::init</a></div><div class="ttdeci">void init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat minZ, GLfloat maxZ)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00018">AABB.cpp:18</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a2fbcf13024a8aac54fb130863a525da8"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">Clouds::scale_factor</a></div><div class="ttdeci">glm::vec3 scale_factor</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00060">Clouds.h:60</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a316d9dc9fe93f94b90c17605538ffd40"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a316d9dc9fe93f94b90c17605538ffd40">Clouds::random_numbers</a></div><div class="ttdeci">std::shared_ptr&lt; RandomNumbers &gt; random_numbers</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00052">Clouds.h:52</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a383c7b49c11b8e36c23dc44105e594b9"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">Clouds::shader_program</a></div><div class="ttdeci">std::shared_ptr&lt; ShaderProgram &gt; shader_program</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00050">Clouds.h:50</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a49377e4170f02fa14ad8099e7fea7f88"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">Clouds::movement_speed</a></div><div class="ttdeci">GLfloat movement_speed</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00062">Clouds.h:62</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a701f57923f13ccb48ad509800318f5e7"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a701f57923f13ccb48ad509800318f5e7">Clouds::maxY</a></div><div class="ttdeci">GLfloat maxY</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a71962e1f05fbeb296de084add4c45f17"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">Clouds::movement_direction</a></div><div class="ttdeci">glm::vec3 movement_direction</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00059">Clouds.h:59</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a762a93fcdafd5e488fda5779f37f6817"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">Clouds::cirrus_effect</a></div><div class="ttdeci">GLfloat cirrus_effect</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00062">Clouds.h:62</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a7d55e990449a3a00d2a1e2f0b9d85e29"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">Clouds::aabb</a></div><div class="ttdeci">AABB aabb</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00055">Clouds.h:55</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a7f02d0e23bc7403879d3f5b27094287c"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a7f02d0e23bc7403879d3f5b27094287c">Clouds::minX</a></div><div class="ttdeci">GLfloat minX</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a94cc7e7e677f76323f8d631f0e8466e9"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a94cc7e7e677f76323f8d631f0e8466e9">Clouds::minZ</a></div><div class="ttdeci">GLfloat minZ</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a9c9307bff01354b41f00e409a8ddcc34"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a9c9307bff01354b41f00e409a8ddcc34">Clouds::minY</a></div><div class="ttdeci">GLfloat minY</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
-<div class="ttc" id="aclass_clouds_html_aa1a1003ffebef4965867eb3b7637cb82"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">Clouds::pillowness</a></div><div class="ttdeci">GLfloat pillowness</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00062">Clouds.h:62</a></div></div>
-<div class="ttc" id="aclass_clouds_html_aa1c7ecde8611ea348f26fb148499fe82"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">Clouds::num_march_steps</a></div><div class="ttdeci">GLuint num_march_steps</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
-<div class="ttc" id="aclass_clouds_html_aa634fbf15915365f9bb06b7bd036e9b0"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">Clouds::density</a></div><div class="ttdeci">GLfloat density</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00062">Clouds.h:62</a></div></div>
-<div class="ttc" id="aclass_clouds_html_aaaf08863324dd72ab17d375d9cd6e905"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">Clouds::num_march_steps_to_light</a></div><div class="ttdeci">GLuint num_march_steps_to_light</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
-<div class="ttc" id="aclass_clouds_html_aae622d87842febfe7f11c7049916186e"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">Clouds::model</a></div><div class="ttdeci">glm::mat4 model</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00054">Clouds.h:54</a></div></div>
-<div class="ttc" id="aclass_clouds_html_ab1556db3b3ac1a7e2852085cfce8489e"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">Clouds::noise</a></div><div class="ttdeci">std::shared_ptr&lt; Noise &gt; noise</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00051">Clouds.h:51</a></div></div>
-<div class="ttc" id="aclass_clouds_html_ac0ecbd0f1f88312d92c8d3073ad0ae65"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">Clouds::scale</a></div><div class="ttdeci">GLfloat scale</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00062">Clouds.h:62</a></div></div>
-<div class="ttc" id="aclass_clouds_html_acf8ebf390d2ef0a436d31496d877817a"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#acf8ebf390d2ef0a436d31496d877817a">Clouds::create_noise_textures</a></div><div class="ttdeci">void create_noise_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/_clouds_8cpp_source.html#l00050">Clouds.cpp:50</a></div></div>
-<div class="ttc" id="aclass_clouds_html_adf7ae42fa6486a1a793feacbdc0c0de1"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">Clouds::translation</a></div><div class="ttdeci">glm::vec3 translation</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00060">Clouds.h:60</a></div></div>
-<div class="ttc" id="aclass_clouds_html_ae6f4f066b6ea89cc6cd4c025c7029111"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#ae6f4f066b6ea89cc6cd4c025c7029111">Clouds::maxZ</a></div><div class="ttdeci">GLfloat maxZ</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
-<div class="ttc" id="aclass_clouds_html_af0a8f74bdd42579b5559f68a0db3e0c5"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#af0a8f74bdd42579b5559f68a0db3e0c5">Clouds::maxX</a></div><div class="ttdeci">GLfloat maxX</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
-<div class="ttc" id="aclass_clouds_html_af2b1e688b7757bdf7f3e74de7d4cd6b3"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">Clouds::powder_effect</a></div><div class="ttdeci">bool powder_effect</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00066">Clouds.h:66</a></div></div>
+<div class="line"><span class="lineno">   12</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7f02d0e23bc7403879d3f5b27094287c">minX</a>(-1.f),</div>
+<div class="line"><span class="lineno">   13</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af0a8f74bdd42579b5559f68a0db3e0c5">maxX</a>(1.f),</div>
+<div class="line"><span class="lineno">   14</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a9c9307bff01354b41f00e409a8ddcc34">minY</a>(-1.f),</div>
+<div class="line"><span class="lineno">   15</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a701f57923f13ccb48ad509800318f5e7">maxY</a>(1.f),</div>
+<div class="line"><span class="lineno">   16</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a94cc7e7e677f76323f8d631f0e8466e9">minZ</a>(-1.f),</div>
+<div class="line"><span class="lineno">   17</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ae6f4f066b6ea89cc6cd4c025c7029111">maxZ</a>(1.f),</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">movement_direction</a>(glm::vec3(0.0f, 0.0f, 1.0f)),</div>
+<div class="line"><span class="lineno">   20</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a>(glm::vec3(1.f)),</div>
+<div class="line"><span class="lineno">   21</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a>(glm::vec3(0.0f)),</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">movement_speed</a>(0.65f),</div>
+<div class="line"><span class="lineno">   24</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a>(0.7f),</div>
+<div class="line"><span class="lineno">   25</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>(0.63f),</div>
+<div class="line"><span class="lineno">   26</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">pillowness</a>(1.0f),</div>
+<div class="line"><span class="lineno">   27</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a>(0.0f),</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a>(8),</div>
+<div class="line"><span class="lineno">   30</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a>(3),</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>      <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">powder_effect</a>(<span class="keyword">true</span>)</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>{</div>
+<div class="line"><span class="lineno">   35</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;create_from_files(<span class="stringliteral">&quot;clouds/CloudsRectangle.vert&quot;</span>,</div>
+<div class="line"><span class="lineno">   36</span>                                    <span class="stringliteral">&quot;clouds/CloudsRectangle.frag&quot;</span>);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>  <a class="code hl_function" href="../../d5/d7e/class_clouds.html#acf8ebf390d2ef0a436d31496d877817a">create_noise_textures</a>();</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">aabb</a>.<a class="code hl_function" href="../../dc/d47/class_a_a_b_b.html#ac889fe5a3a32175d57ddf45539e81231">init</a>(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7f02d0e23bc7403879d3f5b27094287c">minX</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af0a8f74bdd42579b5559f68a0db3e0c5">maxX</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a9c9307bff01354b41f00e409a8ddcc34">minY</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a701f57923f13ccb48ad509800318f5e7">maxY</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a94cc7e7e677f76323f8d631f0e8466e9">minZ</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ae6f4f066b6ea89cc6cd4c025c7029111">maxZ</a>);</div>
+<div class="line"><span class="lineno">   41</span>}</div>
+<div class="ttc" id="aclass_a_a_b_b_html"><div class="ttname"><a href="../../dc/d47/class_a_a_b_b.html">AABB</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d00/_a_a_b_b_8h_source.html#l00014">AABB.h:14</a></div></div>
+<div class="ttc" id="aclass_a_a_b_b_html_ac889fe5a3a32175d57ddf45539e81231"><div class="ttname"><a href="../../dc/d47/class_a_a_b_b.html#ac889fe5a3a32175d57ddf45539e81231">AABB::init</a></div><div class="ttdeci">void init(GLfloat minX, GLfloat maxX, GLfloat minY, GLfloat maxY, GLfloat minZ, GLfloat maxZ)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00017">AABB.cpp:17</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a2fbcf13024a8aac54fb130863a525da8"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">Clouds::scale_factor</a></div><div class="ttdeci">glm::vec3 scale_factor</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00067">Clouds.h:67</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a316d9dc9fe93f94b90c17605538ffd40"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a316d9dc9fe93f94b90c17605538ffd40">Clouds::random_numbers</a></div><div class="ttdeci">std::shared_ptr&lt; RandomNumbers &gt; random_numbers</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00059">Clouds.h:59</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a383c7b49c11b8e36c23dc44105e594b9"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">Clouds::shader_program</a></div><div class="ttdeci">std::shared_ptr&lt; ShaderProgram &gt; shader_program</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00057">Clouds.h:57</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a49377e4170f02fa14ad8099e7fea7f88"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">Clouds::movement_speed</a></div><div class="ttdeci">GLfloat movement_speed</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00069">Clouds.h:69</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a701f57923f13ccb48ad509800318f5e7"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a701f57923f13ccb48ad509800318f5e7">Clouds::maxY</a></div><div class="ttdeci">GLfloat maxY</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a71962e1f05fbeb296de084add4c45f17"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">Clouds::movement_direction</a></div><div class="ttdeci">glm::vec3 movement_direction</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00066">Clouds.h:66</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a762a93fcdafd5e488fda5779f37f6817"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">Clouds::cirrus_effect</a></div><div class="ttdeci">GLfloat cirrus_effect</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00069">Clouds.h:69</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a7d55e990449a3a00d2a1e2f0b9d85e29"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">Clouds::aabb</a></div><div class="ttdeci">AABB aabb</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00062">Clouds.h:62</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a7f02d0e23bc7403879d3f5b27094287c"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a7f02d0e23bc7403879d3f5b27094287c">Clouds::minX</a></div><div class="ttdeci">GLfloat minX</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a94cc7e7e677f76323f8d631f0e8466e9"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a94cc7e7e677f76323f8d631f0e8466e9">Clouds::minZ</a></div><div class="ttdeci">GLfloat minZ</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a9c9307bff01354b41f00e409a8ddcc34"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a9c9307bff01354b41f00e409a8ddcc34">Clouds::minY</a></div><div class="ttdeci">GLfloat minY</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
+<div class="ttc" id="aclass_clouds_html_aa1a1003ffebef4965867eb3b7637cb82"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">Clouds::pillowness</a></div><div class="ttdeci">GLfloat pillowness</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00069">Clouds.h:69</a></div></div>
+<div class="ttc" id="aclass_clouds_html_aa1c7ecde8611ea348f26fb148499fe82"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">Clouds::num_march_steps</a></div><div class="ttdeci">GLuint num_march_steps</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00071">Clouds.h:71</a></div></div>
+<div class="ttc" id="aclass_clouds_html_aa634fbf15915365f9bb06b7bd036e9b0"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">Clouds::density</a></div><div class="ttdeci">GLfloat density</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00069">Clouds.h:69</a></div></div>
+<div class="ttc" id="aclass_clouds_html_aaaf08863324dd72ab17d375d9cd6e905"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">Clouds::num_march_steps_to_light</a></div><div class="ttdeci">GLuint num_march_steps_to_light</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00071">Clouds.h:71</a></div></div>
+<div class="ttc" id="aclass_clouds_html_aae622d87842febfe7f11c7049916186e"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">Clouds::model</a></div><div class="ttdeci">glm::mat4 model</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00061">Clouds.h:61</a></div></div>
+<div class="ttc" id="aclass_clouds_html_ab1556db3b3ac1a7e2852085cfce8489e"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">Clouds::noise</a></div><div class="ttdeci">std::shared_ptr&lt; Noise &gt; noise</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00058">Clouds.h:58</a></div></div>
+<div class="ttc" id="aclass_clouds_html_ac0ecbd0f1f88312d92c8d3073ad0ae65"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">Clouds::scale</a></div><div class="ttdeci">GLfloat scale</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00069">Clouds.h:69</a></div></div>
+<div class="ttc" id="aclass_clouds_html_acf8ebf390d2ef0a436d31496d877817a"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#acf8ebf390d2ef0a436d31496d877817a">Clouds::create_noise_textures</a></div><div class="ttdeci">void create_noise_textures()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/_clouds_8cpp_source.html#l00063">Clouds.cpp:63</a></div></div>
+<div class="ttc" id="aclass_clouds_html_adf7ae42fa6486a1a793feacbdc0c0de1"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">Clouds::translation</a></div><div class="ttdeci">glm::vec3 translation</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00067">Clouds.h:67</a></div></div>
+<div class="ttc" id="aclass_clouds_html_ae6f4f066b6ea89cc6cd4c025c7029111"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#ae6f4f066b6ea89cc6cd4c025c7029111">Clouds::maxZ</a></div><div class="ttdeci">GLfloat maxZ</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
+<div class="ttc" id="aclass_clouds_html_af0a8f74bdd42579b5559f68a0db3e0c5"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#af0a8f74bdd42579b5559f68a0db3e0c5">Clouds::maxX</a></div><div class="ttdeci">GLfloat maxX</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00064">Clouds.h:64</a></div></div>
+<div class="ttc" id="aclass_clouds_html_af2b1e688b7757bdf7f3e74de7d4cd6b3"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">Clouds::powder_effect</a></div><div class="ttdeci">bool powder_effect</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3e/_clouds_8h_source.html#l00073">Clouds.h:73</a></div></div>
 <div class="ttc" id="aclass_shader_program_html"><div class="ttname"><a href="../../d8/dc4/class_shader_program.html">ShaderProgram</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbe/_shader_program_8h_source.html#l00013">ShaderProgram.h:13</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00055">aabb</a>, <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00050">create_noise_textures()</a>, <a class="el" href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00018">AABB::init()</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">maxX</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">maxY</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">maxZ</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">minX</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">minY</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">minZ</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00050">shader_program</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">aabb</a>, <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00063">create_noise_textures()</a>, <a class="el" href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00017">AABB::init()</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">maxX</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">maxY</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">maxZ</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">minX</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">minY</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">minZ</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">shader_program</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -295,8 +310,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>{ }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00111">111</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -316,13 +331,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00050">50</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>{</div>
-<div class="line"><span class="lineno">   52</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;create_res128_noise();</div>
-<div class="line"><span class="lineno">   53</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;create_res32_noise();</div>
-<div class="line"><span class="lineno">   54</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>                                   {</div>
+<div class="line"><span class="lineno">   64</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;create_res128_noise();</div>
+<div class="line"><span class="lineno">   65</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;create_res32_noise();</div>
+<div class="line"><span class="lineno">   66</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00051">noise</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00058">noise</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -359,10 +374,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00028">28</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00031">31</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">cirrus_effect</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">cirrus_effect</a>.</p>
 
 </div>
 </div>
@@ -389,10 +404,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00025">25</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00028">28</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">density</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">density</a>.</p>
 
 </div>
 </div>
@@ -419,10 +434,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00023">23</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00026">26</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">scale_factor</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">scale_factor</a>.</p>
 
 </div>
 </div>
@@ -441,17 +456,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   73</span>{</div>
-<div class="line"><span class="lineno">   74</span>  glm::mat4 <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a> = glm::mat4(1.f);</div>
-<div class="line"><span class="lineno">   75</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a> = glm::translate(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a>);</div>
-<div class="line"><span class="lineno">   76</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a> = glm::scale(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a>);</div>
-<div class="line"><span class="lineno">   77</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>;</div>
-<div class="line"><span class="lineno">   78</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00092">92</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>                                {</div>
+<div class="line"><span class="lineno">   93</span>  glm::mat4 <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a> = glm::mat4(1.f);</div>
+<div class="line"><span class="lineno">   94</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a> = glm::translate(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a>);</div>
+<div class="line"><span class="lineno">   95</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a> = glm::scale(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>, <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a>);</div>
+<div class="line"><span class="lineno">   96</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>;</div>
+<div class="line"><span class="lineno">   97</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00054">model</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">scale_factor</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">translation</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00061">model</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">scale_factor</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">translation</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00027">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00043">render()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -486,10 +501,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00020">20</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">movement_direction</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00021">21</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">movement_direction</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00059">movement_direction</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00066">movement_direction</a>.</p>
 
 </div>
 </div>
@@ -516,10 +531,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00024">24</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">movement_speed</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00027">27</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">movement_speed</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">movement_speed</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">movement_speed</a>.</p>
 
 </div>
 </div>
@@ -546,10 +561,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00022">22</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>{ <span class="keywordflow">return</span> glm::transpose(glm::inverse(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>)); };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00023">23</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                   {</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">return</span> glm::transpose(glm::inverse(<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aae622d87842febfe7f11c7049916186e">model</a>));</div>
+<div class="line"><span class="lineno">   25</span>  };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00054">model</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00061">model</a>.</p>
 
 </div>
 </div>
@@ -576,10 +593,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00029">29</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   29</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00032">32</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   32</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">num_march_steps</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00071">num_march_steps</a>.</p>
 
 </div>
 </div>
@@ -606,10 +623,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00030">30</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   30</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00033">33</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                                              {</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a>;</div>
+<div class="line"><span class="lineno">   35</span>  };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">num_march_steps_to_light</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00071">num_march_steps_to_light</a>.</p>
 
 </div>
 </div>
@@ -636,10 +655,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00027">27</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">pillowness</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00030">30</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">pillowness</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">pillowness</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">pillowness</a>.</p>
 
 </div>
 </div>
@@ -666,10 +685,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00031">31</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   31</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">powder_effect</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00036">36</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">powder_effect</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00066">powder_effect</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00073">powder_effect</a>.</p>
 
 </div>
 </div>
@@ -696,10 +715,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00021">21</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a> / 2.f; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00022">22</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a> / 2.f; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">scale_factor</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">scale_factor</a>.</p>
 
 </div>
 </div>
@@ -726,10 +745,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00026">26</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   26</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00029">29</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>; };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">scale</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">scale</a>.</p>
 
 </div>
 </div>
@@ -756,10 +775,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00033">33</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>; };</div>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00038">38</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                          {</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>;</div>
+<div class="line"><span class="lineno">   40</span>  };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00050">shader_program</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">shader_program</a>.</p>
 
 </div>
 </div>
@@ -778,15 +799,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00042">42</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a316d9dc9fe93f94b90c17605538ffd40">random_numbers</a>-&gt;read();</div>
-<div class="line"><span class="lineno">   46</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;read_res128_noise();</div>
-<div class="line"><span class="lineno">   47</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;read_res32_noise();</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                  {</div>
+<div class="line"><span class="lineno">   58</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a316d9dc9fe93f94b90c17605538ffd40">random_numbers</a>-&gt;read();</div>
+<div class="line"><span class="lineno">   59</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;read_res128_noise();</div>
+<div class="line"><span class="lineno">   60</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ab1556db3b3ac1a7e2852085cfce8489e">noise</a>-&gt;read_res32_noise();</div>
+<div class="line"><span class="lineno">   61</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00051">noise</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00052">random_numbers</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00058">noise</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00059">random_numbers</a>.</p>
 
 </div>
 </div>
@@ -828,24 +848,23 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;use_shader_program();</div>
-<div class="line"><span class="lineno">   31</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;setUniformMatrix4fv(projection_matrix, <span class="stringliteral">&quot;projection&quot;</span>);</div>
-<div class="line"><span class="lineno">   32</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;setUniformMatrix4fv(view_matrix, <span class="stringliteral">&quot;view&quot;</span>);</div>
-<div class="line"><span class="lineno">   33</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;setUniformMatrix4fv(<a class="code hl_function" href="../../d5/d7e/class_clouds.html#a5934b242efdd9dc5b7e86fcac09d6a57">get_model</a>(), <span class="stringliteral">&quot;model&quot;</span>);</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;validate_program();</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>  <span class="comment">//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);</span></div>
-<div class="line"><span class="lineno">   38</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">aabb</a>.<a class="code hl_function" href="../../dc/d47/class_a_a_b_b.html#a50cd5cfb2b3436d88225d00c57d18ce4">render</a>();</div>
-<div class="line"><span class="lineno">   39</span>  <span class="comment">//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);</span></div>
-<div class="line"><span class="lineno">   40</span>}</div>
-<div class="ttc" id="aclass_a_a_b_b_html_a50cd5cfb2b3436d88225d00c57d18ce4"><div class="ttname"><a href="../../dc/d47/class_a_a_b_b.html#a50cd5cfb2b3436d88225d00c57d18ce4">AABB::render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00112">AABB.cpp:112</a></div></div>
-<div class="ttc" id="aclass_clouds_html_a5934b242efdd9dc5b7e86fcac09d6a57"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a5934b242efdd9dc5b7e86fcac09d6a57">Clouds::get_model</a></div><div class="ttdeci">glm::mat4 get_model() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/_clouds_8cpp_source.html#l00072">Clouds.cpp:72</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00043">43</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>                                                               {</div>
+<div class="line"><span class="lineno">   45</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;use_shader_program();</div>
+<div class="line"><span class="lineno">   46</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;setUniformMatrix4fv(projection_matrix, <span class="stringliteral">&quot;projection&quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;setUniformMatrix4fv(view_matrix, <span class="stringliteral">&quot;view&quot;</span>);</div>
+<div class="line"><span class="lineno">   48</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;setUniformMatrix4fv(<a class="code hl_function" href="../../d5/d7e/class_clouds.html#a5934b242efdd9dc5b7e86fcac09d6a57">get_model</a>(), <span class="stringliteral">&quot;model&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a383c7b49c11b8e36c23dc44105e594b9">shader_program</a>-&gt;validate_program();</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>  <span class="comment">// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);</span></div>
+<div class="line"><span class="lineno">   53</span>  <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a7d55e990449a3a00d2a1e2f0b9d85e29">aabb</a>.<a class="code hl_function" href="../../dc/d47/class_a_a_b_b.html#a50cd5cfb2b3436d88225d00c57d18ce4">render</a>();</div>
+<div class="line"><span class="lineno">   54</span>  <span class="comment">// glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);</span></div>
+<div class="line"><span class="lineno">   55</span>}</div>
+<div class="ttc" id="aclass_a_a_b_b_html_a50cd5cfb2b3436d88225d00c57d18ce4"><div class="ttname"><a href="../../dc/d47/class_a_a_b_b.html#a50cd5cfb2b3436d88225d00c57d18ce4">AABB::render</a></div><div class="ttdeci">void render()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00090">AABB.cpp:90</a></div></div>
+<div class="ttc" id="aclass_clouds_html_a5934b242efdd9dc5b7e86fcac09d6a57"><div class="ttname"><a href="../../d5/d7e/class_clouds.html#a5934b242efdd9dc5b7e86fcac09d6a57">Clouds::get_model</a></div><div class="ttdeci">glm::mat4 get_model() const</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/_clouds_8cpp_source.html#l00092">Clouds.cpp:92</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00055">aabb</a>, <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">get_model()</a>, <a class="el" href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00112">AABB::render()</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00050">shader_program</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">aabb</a>, <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00092">get_model()</a>, <a class="el" href="../../d4/dfe/_a_a_b_b_8cpp_source.html#l00090">AABB::render()</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">shader_program</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -873,10 +892,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>                                                    {</div>
+<div class="line"><span class="lineno">   73</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a762a93fcdafd5e488fda5779f37f6817">cirrus_effect</a>;</div>
+<div class="line"><span class="lineno">   74</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">cirrus_effect</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">cirrus_effect</a>.</p>
 
 </div>
 </div>
@@ -896,10 +917,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00064">64</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa634fbf15915365f9bb06b7bd036e9b0">density</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">density</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">density</a>.</p>
 
 </div>
 </div>
@@ -919,10 +940,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00080">80</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">movement_direction</a> = movement_dir; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>                                                        {</div>
+<div class="line"><span class="lineno">  100</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a71962e1f05fbeb296de084add4c45f17">movement_direction</a> = movement_dir;</div>
+<div class="line"><span class="lineno">  101</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00059">movement_direction</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00066">movement_direction</a>.</p>
 
 </div>
 </div>
@@ -942,10 +965,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   66</span>{ <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">movement_speed</a> = speed; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>{ <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a49377e4170f02fa14ad8099e7fea7f88">movement_speed</a> = speed; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">movement_speed</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">movement_speed</a>.</p>
 
 </div>
 </div>
@@ -965,10 +988,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                       {</div>
+<div class="line"><span class="lineno">  104</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1c7ecde8611ea348f26fb148499fe82">num_march_steps</a>;</div>
+<div class="line"><span class="lineno">  105</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">num_march_steps</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00071">num_march_steps</a>.</p>
 
 </div>
 </div>
@@ -988,10 +1013,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>                                                                         {</div>
+<div class="line"><span class="lineno">  108</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aaaf08863324dd72ab17d375d9cd6e905">num_march_steps_to_light</a>;</div>
+<div class="line"><span class="lineno">  109</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">num_march_steps_to_light</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00071">num_march_steps_to_light</a>.</p>
 
 </div>
 </div>
@@ -1011,10 +1038,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">pillowness</a> = cloud_pillowness; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00076">76</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   76</span>                                                    {</div>
+<div class="line"><span class="lineno">   77</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#aa1a1003ffebef4965867eb3b7637cb82">pillowness</a> = cloud_pillowness;</div>
+<div class="line"><span class="lineno">   78</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">pillowness</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">pillowness</a>.</p>
 
 </div>
 </div>
@@ -1034,10 +1063,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00056">56</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">powder_effect</a> = cloud_powder_effect; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                       {</div>
+<div class="line"><span class="lineno">   69</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#af2b1e688b7757bdf7f3e74de7d4cd6b3">powder_effect</a> = cloud_powder_effect;</div>
+<div class="line"><span class="lineno">   70</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00066">powder_effect</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00073">powder_effect</a>.</p>
 
 </div>
 </div>
@@ -1057,10 +1088,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00080">80</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">scale</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">scale</a>.</p>
 
 </div>
 </div>
@@ -1080,10 +1111,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>{ <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{ <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#a2fbcf13024a8aac54fb130863a525da8">scale_factor</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#ac0ecbd0f1f88312d92c8d3073ad0ae65">scale</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">scale</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">scale_factor</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">scale</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">scale_factor</a>.</p>
 
 </div>
 </div>
@@ -1103,10 +1134,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00070">70</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>{ this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d0/d50/_clouds_8cpp_source.html">Clouds.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                {</div>
+<div class="line"><span class="lineno">   89</span>  this-&gt;<a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a> = <a class="code hl_variable" href="../../d5/d7e/class_clouds.html#adf7ae42fa6486a1a793feacbdc0c0de1">translation</a>;</div>
+<div class="line"><span class="lineno">   90</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">translation</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">translation</a>.</p>
 
 </div>
 </div>
@@ -1131,9 +1164,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00055">55</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">62</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00027">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00043">render()</a>.</p>
 
 </div>
 </div>
@@ -1157,9 +1190,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">62</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">69</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00028">get_cirrus_effect()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00058">set_cirrus_effect()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00031">get_cirrus_effect()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">set_cirrus_effect()</a>.</p>
 
 </div>
 </div>
@@ -1183,9 +1216,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">62</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">69</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00025">get_density()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00064">set_density()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00028">get_density()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00082">set_density()</a>.</p>
 
 </div>
 </div>
@@ -1209,7 +1242,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 
@@ -1235,7 +1268,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 
@@ -1261,7 +1294,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 
@@ -1287,7 +1320,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 
@@ -1313,7 +1346,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 
@@ -1339,7 +1372,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>.</p>
 
@@ -1365,9 +1398,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00054">54</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00061">61</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">get_model()</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00022">get_normal_model()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00092">get_model()</a>, and <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00023">get_normal_model()</a>.</p>
 
 </div>
 </div>
@@ -1391,9 +1424,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00059">59</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00066">66</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00020">get_movement_direction()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00080">set_movement_direction()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00021">get_movement_direction()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00099">set_movement_direction()</a>.</p>
 
 </div>
 </div>
@@ -1417,9 +1450,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">62</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">69</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00024">get_movement_speed()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00066">set_movement_speed()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00027">get_movement_speed()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00084">set_movement_speed()</a>.</p>
 
 </div>
 </div>
@@ -1443,9 +1476,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00051">51</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00058">58</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00050">create_noise_textures()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00042">read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00063">create_noise_textures()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00057">read()</a>.</p>
 
 </div>
 </div>
@@ -1469,9 +1502,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00071">71</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00029">get_num_march_steps()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00082">set_num_march_steps()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00032">get_num_march_steps()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00103">set_num_march_steps()</a>.</p>
 
 </div>
 </div>
@@ -1495,9 +1528,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00064">64</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00071">71</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00030">get_num_march_steps_to_light()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00084">set_num_march_steps_to_light()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00033">get_num_march_steps_to_light()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00107">set_num_march_steps_to_light()</a>.</p>
 
 </div>
 </div>
@@ -1521,9 +1554,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">62</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">69</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00027">get_pillowness()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00060">set_pillowness()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00030">get_pillowness()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00076">set_pillowness()</a>.</p>
 
 </div>
 </div>
@@ -1547,9 +1580,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00066">66</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00073">73</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00031">get_powder_effect()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00056">set_powder_effect()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00036">get_powder_effect()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00068">set_powder_effect()</a>.</p>
 
 </div>
 </div>
@@ -1573,9 +1606,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00052">52</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00059">59</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00042">read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00057">read()</a>.</p>
 
 </div>
 </div>
@@ -1599,9 +1632,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00062">62</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00069">69</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00026">get_scale()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00062">set_scale()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00029">get_scale()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00080">set_scale()</a>.</p>
 
 </div>
 </div>
@@ -1625,9 +1658,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">60</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">67</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00023">get_mesh_scale()</a>, <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">get_model()</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00021">get_radius()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00068">set_scale()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00026">get_mesh_scale()</a>, <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00092">get_model()</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00022">get_radius()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00086">set_scale()</a>.</p>
 
 </div>
 </div>
@@ -1651,9 +1684,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00050">50</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00033">get_shader_program()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00027">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00003">Clouds()</a>, <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00038">get_shader_program()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00043">render()</a>.</p>
 
 </div>
 </div>
@@ -1677,9 +1710,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00060">60</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d3e/_clouds_8h_source.html#l00067">67</a> of file <a class="el" href="../../da/d3e/_clouds_8h_source.html">Clouds.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00072">get_model()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00070">set_translation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00092">get_model()</a>, and <a class="el" href="../../d0/d50/_clouds_8cpp_source.html#l00088">set_translation()</a>.</p>
 
 </div>
 </div>
@@ -1693,7 +1726,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d5/d7e/class_clouds.html">Clouds</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:33 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

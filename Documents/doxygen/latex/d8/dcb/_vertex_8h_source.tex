@@ -7,61 +7,55 @@
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glm/gtx/hash.hpp>}}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00004}00004 }
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00005}\mbox{\hyperlink{struct_vertex}{00005}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_vertex}{Vertex}} \{}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00006}00006   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00006}00006  \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00007}00007   \textcolor{comment}{// this is public because to access the size of pos, norm, tex Cood.}}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00008}\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{00008}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}};}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00009}\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{00009}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}};}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00010}\mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{00010}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00011}\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{00011}}   glm::vec2 \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}};}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00012}00012 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00013}\mbox{\hyperlink{struct_vertex_a97488994a2482d70da74e1b91d40e169}{00013}}   \mbox{\hyperlink{struct_vertex_a97488994a2482d70da74e1b91d40e169}{Vertex}}()}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00014}00014   \{}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00016}00016     this-\/>position = glm::vec3(0);}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00017}00017     this-\/>normal = glm::vec3(0);}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00018}00018     this-\/>color = glm::vec3(0);}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00019}00019     this-\/>texture\_coords = glm::vec2(0);}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00020}00020   \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00022}\mbox{\hyperlink{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}{00022}}   \mbox{\hyperlink{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}{Vertex}}(glm::vec3 pos, glm::vec3 \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}, glm::vec3 \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}}, glm::vec2 \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}})}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00023}00023   \{}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00025}00025     this-\/>position = pos;}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00026}00026     this-\/>normal = \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00027}00027     this-\/>color = \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00028}00028     this-\/>texture\_coords = \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00029}00029   \};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00031}\mbox{\hyperlink{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}{00031}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}{get\_position}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}}; \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00033}\mbox{\hyperlink{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}{00033}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}{get\_normal}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}; \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00035}\mbox{\hyperlink{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}{00035}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}{get\_color}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}}; \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00037}\mbox{\hyperlink{struct_vertex_a3cf900933d214e6b8c18c940a413eece}{00037}}   glm::vec2 \mbox{\hyperlink{struct_vertex_a3cf900933d214e6b8c18c940a413eece}{get\_tex\_coors}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}}; \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00039}\mbox{\hyperlink{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}{00039}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_vertex}{Vertex}}\& other)\textcolor{keyword}{ const}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00040}00040 \textcolor{keyword}{  }\{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00013}\mbox{\hyperlink{struct_vertex_a97488994a2482d70da74e1b91d40e169}{00013}}   \mbox{\hyperlink{struct_vertex_a97488994a2482d70da74e1b91d40e169}{Vertex}}() \{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00014}00014     this-\/>position = glm::vec3(0);}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00015}00015     this-\/>normal = glm::vec3(0);}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00016}00016     this-\/>color = glm::vec3(0);}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00017}00017     this-\/>texture\_coords = glm::vec2(0);}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00018}00018   \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00020}\mbox{\hyperlink{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}{00020}}   \mbox{\hyperlink{struct_vertex_a09bb2ccaea37adb6e0fa9eb1e11a0431}{Vertex}}(glm::vec3 pos, glm::vec3 \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}, glm::vec3 \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}},}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00021}00021          glm::vec2 \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}}) \{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00022}00022     this-\/>position = pos;}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00023}00023     this-\/>normal = \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}};}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00024}00024     this-\/>color = \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00025}00025     this-\/>texture\_coords = \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}};}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00026}00026   \};}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00028}\mbox{\hyperlink{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}{00028}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a605a7ed0035785ef8dc6989b0ae735ac}{get\_position}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}}; \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00030}\mbox{\hyperlink{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}{00030}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a25ee75c5a5e936d1ad94f0dce9c0d04a}{get\_normal}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}}; \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00032}\mbox{\hyperlink{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}{00032}}   glm::vec3 \mbox{\hyperlink{struct_vertex_a009b6e405fe9acb623a4f1bae6b20d92}{get\_color}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}}; \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00034}\mbox{\hyperlink{struct_vertex_a3cf900933d214e6b8c18c940a413eece}{00034}}   glm::vec2 \mbox{\hyperlink{struct_vertex_a3cf900933d214e6b8c18c940a413eece}{get\_tex\_coors}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}}; \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00036}\mbox{\hyperlink{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}{00036}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_vertex_a80a54a84866d511b63bcc6f38899bed9}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_vertex}{Vertex}}\& other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00037}00037     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} == other.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} \&\& \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} == other.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} \&\&}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00038}00038            \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} == other.\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} \&\& \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}} == other.\mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00039}00039   \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00040}00040 \};}
 \DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00042}00042     \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} == other.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} \&\& \mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} == other.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} \&\& \mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} == other.\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}} \&\& \mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}} == other.\mbox{\hyperlink{struct_vertex_a1b0993d04d8fa271065e9cec1cf1685e}{color}};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00043}00043   \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00044}00044 \};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00046}\mbox{\hyperlink{namespacestd}{00046}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestd}{std}} \{}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00047}00047 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00048}\mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4}{00048}} \textcolor{keyword}{template} <> \textcolor{keyword}{struct }hash<\mbox{\hyperlink{struct_vertex}{Vertex}}> \{}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00049}00049 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00050}\mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}{00050}}   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}{operator()}}(\mbox{\hyperlink{struct_vertex}{Vertex}} \textcolor{keyword}{const}\& vert)\textcolor{keyword}{ const}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00051}00051 \textcolor{keyword}{  }\{}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00053}00053     \textcolor{keywordtype}{size\_t} h1 = hash<glm::vec3>()(vert.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}});}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00054}00054     \textcolor{keywordtype}{size\_t} h2 = hash<glm::vec3>()(vert.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}});}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00055}00055     \textcolor{keywordtype}{size\_t} h3 = hash<glm::vec2>()(vert.\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}});}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00057}00057     \textcolor{comment}{// combine hashed wonderfully :))))}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00058}00058     \textcolor{keywordflow}{return} ((h1 \string^ (h2 << 1)) >> 1) \string^ h3;}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00059}00059   \}}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00060}00060 \};}
-\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00061}00061 \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00042}\mbox{\hyperlink{namespacestd}{00042}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestd}{std}} \{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00044}00044 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00045}\mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4}{00045}} \textcolor{keyword}{struct }hash<\mbox{\hyperlink{struct_vertex}{Vertex}}> \{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00046}\mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}{00046}}   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f9b776d8fab93b3443}{operator()}}(\mbox{\hyperlink{struct_vertex}{Vertex}} \textcolor{keyword}{const}\& vert)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00047}00047     \textcolor{keywordtype}{size\_t} h1 = hash<glm::vec3>()(vert.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}});}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00048}00048     \textcolor{keywordtype}{size\_t} h2 = hash<glm::vec3>()(vert.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}});}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00049}00049     \textcolor{keywordtype}{size\_t} h3 = hash<glm::vec2>()(vert.\mbox{\hyperlink{struct_vertex_ac623a13a29e99ec5a475908cbff8684f}{texture\_coords}});}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00051}00051     \textcolor{comment}{// combine hashed wonderfully :))))}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00052}00052     \textcolor{keywordflow}{return} ((h1 \string^ (h2 << 1)) >> 1) \string^ h3;}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00053}00053   \}}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00054}00054 \};}
+\DoxyCodeLine{\Hypertarget{_vertex_8h_source_l00055}00055 \}  \textcolor{comment}{// namespace std}}
 
 \end{DoxyCode}

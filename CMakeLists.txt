@@ -1,9 +1,19 @@
 cmake_minimum_required(VERSION 3.18)
 
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
+
 # set the project name
 project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
                        LANGUAGES CXX C)
+
+# configure vulkan version
+set(OPENGL_VERSION_MAJOR 4)
+set(OPENGL_VERSION_MINOR 6)
+
+# we are using this dir strings for removing hard coded file locations
+# at c++ side
+configure_file(OpenGLRendererConfig.h.in "${CMAKE_CURRENT_SOURCE_DIR}/Src/renderer/OpenGLRendererConfig.h")
 
 # specify the C/C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -347,7 +357,6 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./ExternalLib/GLAD/include"
                                                 ${OPENGL_INCLUDE_DIRS})
 
-
 target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
                                                 Threads::Threads
                                                 ${OPENGL_LIBRARIES}
@@ -359,10 +368,6 @@ target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
 
 
 target_link_libraries(${PROJECT_NAME}   PRIVATE GSL)
-
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
-set(CPACK_PACKAGE_VERSION_MAJOR "${GraphicsEngine_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${GraphicsEngine_VERSION_MINOR}")
 
 # we really need this; glew already build its libraries in bin/ folder
 # otherwise program will not find our library!
@@ -577,5 +582,39 @@ add_custom_target(${COMPILE_TEST_SUITE}_Runner
 
 add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
 
+# for correct library output needed
+if(UNIX)
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+else()
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+endif()
+
+set(CMAKE_INSTALL_DATADIR Resources/)
+install(DIRECTORY Resources/ DESTINATION ${CMAKE_INSTALL_DATADIR})
+
+include(InstallRequiredSystemLibraries)
+
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+set(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+
+set(CPACK_SOURCE_IGNORE_FILES
+    /.git
+    /out
+    /.*build.*
+)
+
+if(MSVC)
+   set(CPACK_SOURCE_GENERATOR "NSIS")
+   set(CPACK_NSIS_MUI_ICON ${CMAKE_CURRENT_SOURCE_DIR}/images/faviconNew.ico)
+   set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
+   set(CPACK_NSIS_HELP_LINK https://jotrockenmitlocken.de/)
+   set(CPACK_NSIS_URL_INFO_ABOUT https://jotrockenmitlocken.de/)
+   set(CPACK_NSIS_CONTACT https://jotrockenmitlocken.de/)
+   set (CPACK_NSIS_MODIFY_PATH "ON")
+ else() 
+   set(CPACK_SOURCE_GENERATOR "TGZ")
+ endif()
 
 include(CPack)

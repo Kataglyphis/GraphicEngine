@@ -117,8 +117,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00082">82</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00083">83</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                   {</div>
 <div class="line"><span class="lineno">   84</span><span class="preprocessor">#ifdef NDEBUG</span></div>
 <div class="line"><span class="lineno">   85</span>  <span class="comment">// nondebug</span></div>
 <div class="line"><span class="lineno">   86</span><span class="preprocessor">#else</span></div>
@@ -129,10 +129,11 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">   91</span>    glEnable(GL_DEBUG_OUTPUT);</div>
 <div class="line"><span class="lineno">   92</span>    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);</div>
 <div class="line"><span class="lineno">   93</span>    glDebugMessageCallback(<a class="code hl_function" href="../../d0/d31/_debug_app_8cpp.html#af833243b97061a22e702b3b11a7b647c">glDebugOutput</a>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">   94</span>    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, <span class="keyword">nullptr</span>, GL_TRUE);</div>
-<div class="line"><span class="lineno">   95</span>  }</div>
-<div class="line"><span class="lineno">   96</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">   97</span>}</div>
+<div class="line"><span class="lineno">   94</span>    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, <span class="keyword">nullptr</span>,</div>
+<div class="line"><span class="lineno">   95</span>                          GL_TRUE);</div>
+<div class="line"><span class="lineno">   96</span>  }</div>
+<div class="line"><span class="lineno">   97</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">   98</span>}</div>
 <div class="ttc" id="a_debug_app_8cpp_html_af833243b97061a22e702b3b11a7b647c"><div class="ttname"><a href="../../d0/d31/_debug_app_8cpp.html#af833243b97061a22e702b3b11a7b647c">glDebugOutput</a></div><div class="ttdeci">void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenum severity, GLsizei length, const char *message, const void *userParam)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d31/_debug_app_8cpp_source.html#l00004">DebugApp.cpp:4</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00004">glDebugOutput()</a>.</p>
@@ -162,8 +163,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00189">189</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  189</span>{ }</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00190">190</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  190</span>{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -200,49 +201,49 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00099">99</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  100</span>{</div>
-<div class="line"><span class="lineno">  101</span><span class="preprocessor">#ifdef NDEBUG</span></div>
-<div class="line"><span class="lineno">  102</span>  <span class="comment">// nondebug</span></div>
-<div class="line"><span class="lineno">  103</span>  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  104</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">  105</span>  GLenum err;</div>
-<div class="line"><span class="lineno">  106</span>  <span class="keywordtype">bool</span> isError = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  107</span>  <span class="keywordflow">while</span> ((err = glGetError()) != GL_NO_ERROR) {</div>
-<div class="line"><span class="lineno">  108</span>    std::string errorCode;</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">switch</span> (err) {</div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">case</span> GL_INVALID_ENUM:</div>
-<div class="line"><span class="lineno">  111</span>      errorCode = <span class="stringliteral">&quot;INVALID_ENUM&quot;</span>;</div>
-<div class="line"><span class="lineno">  112</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">case</span> GL_INVALID_VALUE:</div>
-<div class="line"><span class="lineno">  114</span>      errorCode = <span class="stringliteral">&quot;INVALID_VALUE&quot;</span>;</div>
-<div class="line"><span class="lineno">  115</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">case</span> GL_INVALID_OPERATION:</div>
-<div class="line"><span class="lineno">  117</span>      errorCode = <span class="stringliteral">&quot;INVALID_OPERATION&quot;</span>;</div>
-<div class="line"><span class="lineno">  118</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">case</span> GL_STACK_OVERFLOW:</div>
-<div class="line"><span class="lineno">  120</span>      errorCode = <span class="stringliteral">&quot;STACK_OVERFLOW&quot;</span>;</div>
-<div class="line"><span class="lineno">  121</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">case</span> GL_STACK_UNDERFLOW:</div>
-<div class="line"><span class="lineno">  123</span>      errorCode = <span class="stringliteral">&quot;STACK_UNDERFLOW&quot;</span>;</div>
-<div class="line"><span class="lineno">  124</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">case</span> GL_OUT_OF_MEMORY:</div>
-<div class="line"><span class="lineno">  126</span>      errorCode = <span class="stringliteral">&quot;OUT_OF_MEMORY&quot;</span>;</div>
-<div class="line"><span class="lineno">  127</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">case</span> GL_INVALID_FRAMEBUFFER_OPERATION:</div>
-<div class="line"><span class="lineno">  129</span>      errorCode = <span class="stringliteral">&quot;INVALID_FRAMEBUFFER_OPERATION&quot;</span>;</div>
-<div class="line"><span class="lineno">  130</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  131</span>    }</div>
-<div class="line"><span class="lineno">  132</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Error, &quot;</span> &lt;&lt; errorCode &lt;&lt; <span class="stringliteral">&quot; | &quot;</span></div>
-<div class="line"><span class="lineno">  133</span>              &lt;&lt; <span class="stringliteral">&quot;\nAdditional Error Message: &quot;</span> &lt;&lt; AdditionalArrayMessage &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><span class="lineno">  134</span>              &lt;&lt; <span class="stringliteral">&quot;In File: &quot;</span> &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot;, Line: &quot;</span> &lt;&lt; line &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  135</span>    isError = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  136</span>  }</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>  <span class="keywordflow">return</span> isError;</div>
-<div class="line"><span class="lineno">  139</span>  <span class="comment">// debug code</span></div>
-<div class="line"><span class="lineno">  140</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  141</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00100">100</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  101</span>                                                            {</div>
+<div class="line"><span class="lineno">  102</span><span class="preprocessor">#ifdef NDEBUG</span></div>
+<div class="line"><span class="lineno">  103</span>  <span class="comment">// nondebug</span></div>
+<div class="line"><span class="lineno">  104</span>  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  105</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">  106</span>  GLenum err;</div>
+<div class="line"><span class="lineno">  107</span>  <span class="keywordtype">bool</span> isError = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  108</span>  <span class="keywordflow">while</span> ((err = glGetError()) != GL_NO_ERROR) {</div>
+<div class="line"><span class="lineno">  109</span>    std::string errorCode;</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">switch</span> (err) {</div>
+<div class="line"><span class="lineno">  111</span>      <span class="keywordflow">case</span> GL_INVALID_ENUM:</div>
+<div class="line"><span class="lineno">  112</span>        errorCode = <span class="stringliteral">&quot;INVALID_ENUM&quot;</span>;</div>
+<div class="line"><span class="lineno">  113</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  114</span>      <span class="keywordflow">case</span> GL_INVALID_VALUE:</div>
+<div class="line"><span class="lineno">  115</span>        errorCode = <span class="stringliteral">&quot;INVALID_VALUE&quot;</span>;</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  117</span>      <span class="keywordflow">case</span> GL_INVALID_OPERATION:</div>
+<div class="line"><span class="lineno">  118</span>        errorCode = <span class="stringliteral">&quot;INVALID_OPERATION&quot;</span>;</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  120</span>      <span class="keywordflow">case</span> GL_STACK_OVERFLOW:</div>
+<div class="line"><span class="lineno">  121</span>        errorCode = <span class="stringliteral">&quot;STACK_OVERFLOW&quot;</span>;</div>
+<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  123</span>      <span class="keywordflow">case</span> GL_STACK_UNDERFLOW:</div>
+<div class="line"><span class="lineno">  124</span>        errorCode = <span class="stringliteral">&quot;STACK_UNDERFLOW&quot;</span>;</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  126</span>      <span class="keywordflow">case</span> GL_OUT_OF_MEMORY:</div>
+<div class="line"><span class="lineno">  127</span>        errorCode = <span class="stringliteral">&quot;OUT_OF_MEMORY&quot;</span>;</div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  129</span>      <span class="keywordflow">case</span> GL_INVALID_FRAMEBUFFER_OPERATION:</div>
+<div class="line"><span class="lineno">  130</span>        errorCode = <span class="stringliteral">&quot;INVALID_FRAMEBUFFER_OPERATION&quot;</span>;</div>
+<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  132</span>    }</div>
+<div class="line"><span class="lineno">  133</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Error, &quot;</span> &lt;&lt; errorCode &lt;&lt; <span class="stringliteral">&quot; | &quot;</span></div>
+<div class="line"><span class="lineno">  134</span>              &lt;&lt; <span class="stringliteral">&quot;\nAdditional Error Message: &quot;</span> &lt;&lt; AdditionalArrayMessage &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><span class="lineno">  135</span>              &lt;&lt; <span class="stringliteral">&quot;In File: &quot;</span> &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot;, Line: &quot;</span> &lt;&lt; line &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  136</span>    isError = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  137</span>  }</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>  <span class="keywordflow">return</span> isError;</div>
+<div class="line"><span class="lineno">  140</span>  <span class="comment">// debug code</span></div>
+<div class="line"><span class="lineno">  141</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  142</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -278,51 +279,51 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  144</span>{</div>
-<div class="line"><span class="lineno">  145</span><span class="preprocessor">#ifdef NDEBUG</span></div>
-<div class="line"><span class="lineno">  146</span>  <span class="comment">// nondebug</span></div>
-<div class="line"><span class="lineno">  147</span>  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  148</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">  149</span>  <span class="comment">// debug code</span></div>
-<div class="line"><span class="lineno">  150</span>  GLenum err;</div>
-<div class="line"><span class="lineno">  151</span>  <span class="keywordtype">bool</span> isError = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  152</span>  <span class="keywordflow">while</span> ((err = glGetError()) != GL_NO_ERROR) {</div>
-<div class="line"><span class="lineno">  153</span>    std::string errorCode;</div>
-<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">switch</span> (err) {</div>
-<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">case</span> GL_INVALID_ENUM:</div>
-<div class="line"><span class="lineno">  156</span>      errorCode = <span class="stringliteral">&quot;INVALID_ENUM&quot;</span>;</div>
-<div class="line"><span class="lineno">  157</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  158</span>    <span class="keywordflow">case</span> GL_INVALID_VALUE:</div>
-<div class="line"><span class="lineno">  159</span>      errorCode = <span class="stringliteral">&quot;INVALID_VALUE&quot;</span>;</div>
-<div class="line"><span class="lineno">  160</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">case</span> GL_INVALID_OPERATION:</div>
-<div class="line"><span class="lineno">  162</span>      errorCode = <span class="stringliteral">&quot;INVALID_OPERATION&quot;</span>;</div>
-<div class="line"><span class="lineno">  163</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  164</span>    <span class="keywordflow">case</span> GL_STACK_OVERFLOW:</div>
-<div class="line"><span class="lineno">  165</span>      errorCode = <span class="stringliteral">&quot;STACK_OVERFLOW&quot;</span>;</div>
-<div class="line"><span class="lineno">  166</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">case</span> GL_STACK_UNDERFLOW:</div>
-<div class="line"><span class="lineno">  168</span>      errorCode = <span class="stringliteral">&quot;STACK_UNDERFLOW&quot;</span>;</div>
-<div class="line"><span class="lineno">  169</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">case</span> GL_OUT_OF_MEMORY:</div>
-<div class="line"><span class="lineno">  171</span>      errorCode = <span class="stringliteral">&quot;OUT_OF_MEMORY&quot;</span>;</div>
-<div class="line"><span class="lineno">  172</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  173</span>    <span class="keywordflow">case</span> GL_INVALID_FRAMEBUFFER_OPERATION:</div>
-<div class="line"><span class="lineno">  174</span>      errorCode = <span class="stringliteral">&quot;INVALID_FRAMEBUFFER_OPERATION&quot;</span>;</div>
-<div class="line"><span class="lineno">  175</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  176</span>    }</div>
-<div class="line"><span class="lineno">  177</span>    std::cout &lt;&lt; errorCode &lt;&lt; <span class="stringliteral">&quot; Error appears befor executing the function, &quot;</span></div>
-<div class="line"><span class="lineno">  178</span>              &lt;&lt; <span class="stringliteral">&quot; | &quot;</span></div>
-<div class="line"><span class="lineno">  179</span>              &lt;&lt; <span class="stringliteral">&quot;\nAdditional Error Message: &quot;</span> &lt;&lt; AdditionalArrayMessage &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><span class="lineno">  180</span>              &lt;&lt; <span class="stringliteral">&quot;In File: &quot;</span> &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot;, Line: &quot;</span> &lt;&lt; line &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  181</span>    isError = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  182</span>  }</div>
-<div class="line"><span class="lineno">  183</span> </div>
-<div class="line"><span class="lineno">  184</span>  <span class="keywordflow">return</span> isError;</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="line"><span class="lineno">  186</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  187</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html#l00144">144</a> of file <a class="el" href="../../d0/d31/_debug_app_8cpp_source.html">DebugApp.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  145</span>                                                       {</div>
+<div class="line"><span class="lineno">  146</span><span class="preprocessor">#ifdef NDEBUG</span></div>
+<div class="line"><span class="lineno">  147</span>  <span class="comment">// nondebug</span></div>
+<div class="line"><span class="lineno">  148</span>  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  149</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">  150</span>  <span class="comment">// debug code</span></div>
+<div class="line"><span class="lineno">  151</span>  GLenum err;</div>
+<div class="line"><span class="lineno">  152</span>  <span class="keywordtype">bool</span> isError = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  153</span>  <span class="keywordflow">while</span> ((err = glGetError()) != GL_NO_ERROR) {</div>
+<div class="line"><span class="lineno">  154</span>    std::string errorCode;</div>
+<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">switch</span> (err) {</div>
+<div class="line"><span class="lineno">  156</span>      <span class="keywordflow">case</span> GL_INVALID_ENUM:</div>
+<div class="line"><span class="lineno">  157</span>        errorCode = <span class="stringliteral">&quot;INVALID_ENUM&quot;</span>;</div>
+<div class="line"><span class="lineno">  158</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  159</span>      <span class="keywordflow">case</span> GL_INVALID_VALUE:</div>
+<div class="line"><span class="lineno">  160</span>        errorCode = <span class="stringliteral">&quot;INVALID_VALUE&quot;</span>;</div>
+<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  162</span>      <span class="keywordflow">case</span> GL_INVALID_OPERATION:</div>
+<div class="line"><span class="lineno">  163</span>        errorCode = <span class="stringliteral">&quot;INVALID_OPERATION&quot;</span>;</div>
+<div class="line"><span class="lineno">  164</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  165</span>      <span class="keywordflow">case</span> GL_STACK_OVERFLOW:</div>
+<div class="line"><span class="lineno">  166</span>        errorCode = <span class="stringliteral">&quot;STACK_OVERFLOW&quot;</span>;</div>
+<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  168</span>      <span class="keywordflow">case</span> GL_STACK_UNDERFLOW:</div>
+<div class="line"><span class="lineno">  169</span>        errorCode = <span class="stringliteral">&quot;STACK_UNDERFLOW&quot;</span>;</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  171</span>      <span class="keywordflow">case</span> GL_OUT_OF_MEMORY:</div>
+<div class="line"><span class="lineno">  172</span>        errorCode = <span class="stringliteral">&quot;OUT_OF_MEMORY&quot;</span>;</div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  174</span>      <span class="keywordflow">case</span> GL_INVALID_FRAMEBUFFER_OPERATION:</div>
+<div class="line"><span class="lineno">  175</span>        errorCode = <span class="stringliteral">&quot;INVALID_FRAMEBUFFER_OPERATION&quot;</span>;</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  177</span>    }</div>
+<div class="line"><span class="lineno">  178</span>    std::cout &lt;&lt; errorCode &lt;&lt; <span class="stringliteral">&quot; Error appears befor executing the function, &quot;</span></div>
+<div class="line"><span class="lineno">  179</span>              &lt;&lt; <span class="stringliteral">&quot; | &quot;</span></div>
+<div class="line"><span class="lineno">  180</span>              &lt;&lt; <span class="stringliteral">&quot;\nAdditional Error Message: &quot;</span> &lt;&lt; AdditionalArrayMessage &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><span class="lineno">  181</span>              &lt;&lt; <span class="stringliteral">&quot;In File: &quot;</span> &lt;&lt; file &lt;&lt; <span class="stringliteral">&quot;, Line: &quot;</span> &lt;&lt; line &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  182</span>    isError = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  183</span>  }</div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>  <span class="keywordflow">return</span> isError;</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  188</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -336,7 +337,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/d2e/class_debug_app.html">DebugApp</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:33 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

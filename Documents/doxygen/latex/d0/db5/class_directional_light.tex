@@ -92,25 +92,26 @@ Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00003}{3}} o
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00003                                    :}
-\DoxyCodeLine{00004 }
-\DoxyCodeLine{00005     \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(), \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}(std::make\_shared<CascadedShadowMap>()),}
-\DoxyCodeLine{00006 }
-\DoxyCodeLine{00007     \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}(glm::vec3\{ 0, 0, 0 \}),}
+\DoxyCodeLine{00004     :}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006       \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(),}
+\DoxyCodeLine{00007       \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}(std::make\_shared<CascadedShadowMap>()),}
 \DoxyCodeLine{00008 }
-\DoxyCodeLine{00009     \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}}(0.f), \mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}(0.f),}
+\DoxyCodeLine{00009       \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}(glm::vec3\{0, 0, 0\}),}
 \DoxyCodeLine{00010 }
-\DoxyCodeLine{00011     \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
-\DoxyCodeLine{00012 }
-\DoxyCodeLine{00013 \{}
-\DoxyCodeLine{00014 }
-\DoxyCodeLine{00015   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
-\DoxyCodeLine{00016 \}}
+\DoxyCodeLine{00011       \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}}(0.f),}
+\DoxyCodeLine{00012       \mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}(0.f),}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014       \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \{}
+\DoxyCodeLine{00017   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
+\DoxyCodeLine{00018 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_light_8h_source_l00023}{Light\+::light\+\_\+proj}}.
+References \mbox{\hyperlink{_light_8h_source_l00024}{Light\+::light\+\_\+proj}}.
 
 \mbox{\Hypertarget{class_directional_light_a96cafa7297b0d162b530eb6630e87154}\label{class_directional_light_a96cafa7297b0d162b530eb6630e87154}} 
 \index{DirectionalLight@{DirectionalLight}!DirectionalLight@{DirectionalLight}}
@@ -120,30 +121,31 @@ References \mbox{\hyperlink{_light_8h_source_l00023}{Light\+::light\+\_\+proj}}.
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00020                                                                                          :}
-\DoxyCodeLine{00021 }
-\DoxyCodeLine{00022     \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(red, green, blue, \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}),}
-\DoxyCodeLine{00023     \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}(std::make\_shared<CascadedShadowMap>()), \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}(glm::vec3\{ x\_dir, y\_dir, z\_dir \}),}
-\DoxyCodeLine{00024 }
-\DoxyCodeLine{00025     \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}}(near\_plane), \mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}(far\_plane),}
-\DoxyCodeLine{00026 }
-\DoxyCodeLine{00027     \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
-\DoxyCodeLine{00028 }
-\DoxyCodeLine{00029 \{}
-\DoxyCodeLine{00030 }
-\DoxyCodeLine{00031   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
-\DoxyCodeLine{00032 }
-\DoxyCodeLine{00033   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>init(shadow\_width, shadow\_height, num\_cascades);}
-\DoxyCodeLine{00034 \}}
+\DoxyCodeLine{00026     :}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028       \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(red, green, blue, \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}),}
+\DoxyCodeLine{00029       \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}(std::make\_shared<CascadedShadowMap>()),}
+\DoxyCodeLine{00030       \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}(glm::vec3\{x\_dir, y\_dir, z\_dir\}),}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032       \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}}(near\_plane),}
+\DoxyCodeLine{00033       \mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}(far\_plane),}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035       \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037 \{}
+\DoxyCodeLine{00038   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>init(shadow\_width, shadow\_height, num\_cascades);}
+\DoxyCodeLine{00041 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_light_8h_source_l00023}{Light\+::light\+\_\+proj}}, and \mbox{\hyperlink{_directional_light_8h_source_l00043}{shadow\+\_\+map}}.
+References \mbox{\hyperlink{_light_8h_source_l00024}{Light\+::light\+\_\+proj}}, and \mbox{\hyperlink{_directional_light_8h_source_l00050}{shadow\+\_\+map}}.
 
 \mbox{\Hypertarget{class_directional_light_ac4aca6c806e752c65ffea9b2f237b245}\label{class_directional_light_ac4aca6c806e752c65ffea9b2f237b245}} 
 \index{DirectionalLight@{DirectionalLight}!````~DirectionalLight@{$\sim$DirectionalLight}}
@@ -153,11 +155,11 @@ References \mbox{\hyperlink{_light_8h_source_l00023}{Light\+::light\+\_\+proj}},
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00178}{178}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00178 \{ \}}
+\DoxyCodeLine{00197 \{\}}
 
 \end{DoxyCode}
 
@@ -171,42 +173,41 @@ Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00178}{178}}
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00082 \{}
-\DoxyCodeLine{00083   GLuint number\_of\_elements = \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>get\_num\_active\_cascades();}
-\DoxyCodeLine{00084 }
-\DoxyCodeLine{00085   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
-\DoxyCodeLine{00086 }
-\DoxyCodeLine{00087     \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i] = 100000.f;}
-\DoxyCodeLine{00088   \}}
-\DoxyCodeLine{00089 }
-\DoxyCodeLine{00090   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(number\_of\_elements + 1); i++) \{}
-\DoxyCodeLine{00091     \textcolor{keywordflow}{if} (i == 0) \{}
-\DoxyCodeLine{00092 }
-\DoxyCodeLine{00093       (\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}})[i] = \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}};}
-\DoxyCodeLine{00094 }
-\DoxyCodeLine{00095     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00096 }
-\DoxyCodeLine{00097       (\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}})[i] = (\mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}) * ((GLfloat)i / (GLfloat)(number\_of\_elements));}
-\DoxyCodeLine{00098     \}}
-\DoxyCodeLine{00099   \}}
-\DoxyCodeLine{00100 }
-\DoxyCodeLine{00101   \textcolor{comment}{//cascade\_slots = \{ shadow\_near\_plane, shadow\_far\_plane / 50.f, shadow\_far\_plane / 25.f, shadow\_far\_plane \};}}
-\DoxyCodeLine{00102 }
-\DoxyCodeLine{00103   \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00104 \}}
+\DoxyCodeLine{00093                                            \{}
+\DoxyCodeLine{00094   GLuint number\_of\_elements = \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>get\_num\_active\_cascades();}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
+\DoxyCodeLine{00097     \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i] = 100000.f;}
+\DoxyCodeLine{00098   \}}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(number\_of\_elements + 1); i++) \{}
+\DoxyCodeLine{00101     \textcolor{keywordflow}{if} (i == 0) \{}
+\DoxyCodeLine{00102       (\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}})[i] = \mbox{\hyperlink{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}{shadow\_near\_plane}};}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00105       (\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}})[i] =}
+\DoxyCodeLine{00106           (\mbox{\hyperlink{class_directional_light_a19451034e37a3d401ac43cd3a9914612}{shadow\_far\_plane}}) * ((GLfloat)i / (GLfloat)(number\_of\_elements));}
+\DoxyCodeLine{00107     \}}
+\DoxyCodeLine{00108   \}}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110   \textcolor{comment}{// cascade\_slots = \{ shadow\_near\_plane, shadow\_far\_plane / 50.f,}}
+\DoxyCodeLine{00111   \textcolor{comment}{// shadow\_far\_plane / 25.f, shadow\_far\_plane \};}}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113   \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00114 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00048}{cascade\+\_\+slots}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_directional_light_8h_source_l00046}{shadow\+\_\+far\+\_\+plane}}, \mbox{\hyperlink{_directional_light_8h_source_l00043}{shadow\+\_\+map}}, and \mbox{\hyperlink{_directional_light_8h_source_l00046}{shadow\+\_\+near\+\_\+plane}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00055}{cascade\+\_\+slots}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_directional_light_8h_source_l00053}{shadow\+\_\+far\+\_\+plane}}, \mbox{\hyperlink{_directional_light_8h_source_l00050}{shadow\+\_\+map}}, and \mbox{\hyperlink{_directional_light_8h_source_l00053}{shadow\+\_\+near\+\_\+plane}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{calc\+\_\+orthogonal\+\_\+projections()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00116}{calc\+\_\+orthogonal\+\_\+projections()}}.
 
 Here is the caller graph for this function\+:
 % FIG 2
@@ -218,76 +219,79 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00108 \{}
-\DoxyCodeLine{00109   \textcolor{comment}{//calc the start and end point for our cascaded shadow maps}}
-\DoxyCodeLine{00110   \mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{calc\_cascaded\_slots}}();}
-\DoxyCodeLine{00111 }
-\DoxyCodeLine{00112 }
-\DoxyCodeLine{00113   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(current\_num\_cascades); i++) \{}
-\DoxyCodeLine{00114 }
-\DoxyCodeLine{00115     glm::mat4 curr\_cascade\_proj = glm::perspective(glm::radians(fov), (\textcolor{keywordtype}{float})window\_width / (\textcolor{keywordtype}{float})window\_height, \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i], \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i + 1]);}
-\DoxyCodeLine{00116 }
-\DoxyCodeLine{00117     std::vector<glm::vec4> frustumCornerWorldSpace = \mbox{\hyperlink{class_directional_light_afbd16177e322c47830b6fad5f3c445ec}{get\_frustum\_corners\_world\_space}}(curr\_cascade\_proj, camera\_view\_matrix);}
-\DoxyCodeLine{00118 }
-\DoxyCodeLine{00119     glm::vec3 center = glm::vec3(0, 0, 0);}
-\DoxyCodeLine{00120     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& v : frustumCornerWorldSpace) \{}
-\DoxyCodeLine{00121       center += glm::vec3(v);}
-\DoxyCodeLine{00122     \}}
-\DoxyCodeLine{00123 }
-\DoxyCodeLine{00124     center /= frustumCornerWorldSpace.size();}
-\DoxyCodeLine{00125 }
-\DoxyCodeLine{00126     glm::mat4 light\_view\_matrix = glm::lookAt(center -\/ \mbox{\hyperlink{class_directional_light_a7a3e577a1d4693a784963325bf39de94}{get\_direction}}(), center, glm::vec3(0.0f, 1.0f, 0.0f));}
-\DoxyCodeLine{00127 }
-\DoxyCodeLine{00128     \textcolor{comment}{// the \# of frustum corners = 8}}
-\DoxyCodeLine{00129     GLfloat minX = std::numeric\_limits<float>::max();}
-\DoxyCodeLine{00130     GLfloat maxX = std::numeric\_limits<float>::min();}
-\DoxyCodeLine{00131     GLfloat minY = std::numeric\_limits<float>::max();}
-\DoxyCodeLine{00132     GLfloat maxY = std::numeric\_limits<float>::min();}
-\DoxyCodeLine{00133     GLfloat minZ = std::numeric\_limits<float>::max();}
-\DoxyCodeLine{00134     GLfloat maxZ = std::numeric\_limits<float>::min();}
-\DoxyCodeLine{00135 }
-\DoxyCodeLine{00136     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m = 0; m < frustumCornerWorldSpace.size(); m++) \{}
-\DoxyCodeLine{00137       \textcolor{comment}{//transform each corner from view to world space}}
-\DoxyCodeLine{00138       glm::vec4 v\_light\_view = light\_view\_matrix * frustumCornerWorldSpace[m];}
-\DoxyCodeLine{00139       \textcolor{comment}{//now go to light space}}
-\DoxyCodeLine{00140       minX = std::min(minX, v\_light\_view.x);}
-\DoxyCodeLine{00141       maxX = std::max(maxX, v\_light\_view.x);}
-\DoxyCodeLine{00142       \textcolor{comment}{// we always have negativ y values}}
-\DoxyCodeLine{00143       minY = std::min(minY, v\_light\_view.y);}
-\DoxyCodeLine{00144       maxY = std::max(maxY, v\_light\_view.y);}
-\DoxyCodeLine{00145 }
-\DoxyCodeLine{00146       minZ = std::min(minZ, v\_light\_view.z);}
-\DoxyCodeLine{00147       maxZ = std::max(maxZ, v\_light\_view.z);}
-\DoxyCodeLine{00148     \}}
-\DoxyCodeLine{00149 }
-\DoxyCodeLine{00150     \textcolor{comment}{// Tune this parameter according to the scene}}
-\DoxyCodeLine{00151     \textcolor{comment}{// for having objects casting shadows that are actually not in the frustum :)}}
-\DoxyCodeLine{00152     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{float} zMult = 10.0f;}
-\DoxyCodeLine{00153     \textcolor{keywordflow}{if} (minZ < 0) \{}
-\DoxyCodeLine{00154       minZ *= zMult;}
-\DoxyCodeLine{00155     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00156       minZ /= zMult;}
-\DoxyCodeLine{00157     \}}
-\DoxyCodeLine{00158     \textcolor{keywordflow}{if} (maxZ < 0) \{}
-\DoxyCodeLine{00159       maxZ /= zMult;}
-\DoxyCodeLine{00160     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00161       maxZ *= zMult;}
-\DoxyCodeLine{00162     \}}
-\DoxyCodeLine{00163 }
-\DoxyCodeLine{00164     glm::mat4 light\_projection = glm::ortho(minX, maxX, minY, maxY, minZ, maxZ);}
-\DoxyCodeLine{00165 }
-\DoxyCodeLine{00166     \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}[i] = light\_projection * light\_view\_matrix;}
-\DoxyCodeLine{00167   \}}
-\DoxyCodeLine{00168 \}}
+\DoxyCodeLine{00118                                                        \{}
+\DoxyCodeLine{00119   \textcolor{comment}{// calc the start and end point for our cascaded shadow maps}}
+\DoxyCodeLine{00120   \mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{calc\_cascaded\_slots}}();}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(current\_num\_cascades); i++) \{}
+\DoxyCodeLine{00123     glm::mat4 curr\_cascade\_proj = glm::perspective(}
+\DoxyCodeLine{00124         glm::radians(fov), (\textcolor{keywordtype}{float})window\_width / (\textcolor{keywordtype}{float})window\_height,}
+\DoxyCodeLine{00125         \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i], \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i + 1]);}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127     std::vector<glm::vec4> frustumCornerWorldSpace =}
+\DoxyCodeLine{00128         \mbox{\hyperlink{class_directional_light_afbd16177e322c47830b6fad5f3c445ec}{get\_frustum\_corners\_world\_space}}(curr\_cascade\_proj, camera\_view\_matrix);}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130     glm::vec3 center = glm::vec3(0, 0, 0);}
+\DoxyCodeLine{00131     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& v : frustumCornerWorldSpace) \{}
+\DoxyCodeLine{00132       center += glm::vec3(v);}
+\DoxyCodeLine{00133     \}}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135     center /= frustumCornerWorldSpace.size();}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137     glm::mat4 light\_view\_matrix = glm::lookAt(center -\/ \mbox{\hyperlink{class_directional_light_a7a3e577a1d4693a784963325bf39de94}{get\_direction}}(), center,}
+\DoxyCodeLine{00138                                               glm::vec3(0.0f, 1.0f, 0.0f));}
+\DoxyCodeLine{00139 }
+\DoxyCodeLine{00140     \textcolor{comment}{// the \# of frustum corners = 8}}
+\DoxyCodeLine{00141     GLfloat minX = std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00142     GLfloat maxX = std::numeric\_limits<float>::min();}
+\DoxyCodeLine{00143     GLfloat minY = std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00144     GLfloat maxY = std::numeric\_limits<float>::min();}
+\DoxyCodeLine{00145     GLfloat minZ = std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00146     GLfloat maxZ = std::numeric\_limits<float>::min();}
+\DoxyCodeLine{00147 }
+\DoxyCodeLine{00148     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m = 0; m < frustumCornerWorldSpace.size(); m++) \{}
+\DoxyCodeLine{00149       \textcolor{comment}{// transform each corner from view to world space}}
+\DoxyCodeLine{00150       glm::vec4 v\_light\_view = light\_view\_matrix * frustumCornerWorldSpace[m];}
+\DoxyCodeLine{00151       \textcolor{comment}{// now go to light space}}
+\DoxyCodeLine{00152       minX = std::min(minX, v\_light\_view.x);}
+\DoxyCodeLine{00153       maxX = std::max(maxX, v\_light\_view.x);}
+\DoxyCodeLine{00154       \textcolor{comment}{// we always have negativ y values}}
+\DoxyCodeLine{00155       minY = std::min(minY, v\_light\_view.y);}
+\DoxyCodeLine{00156       maxY = std::max(maxY, v\_light\_view.y);}
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158       minZ = std::min(minZ, v\_light\_view.z);}
+\DoxyCodeLine{00159       maxZ = std::max(maxZ, v\_light\_view.z);}
+\DoxyCodeLine{00160     \}}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162     \textcolor{comment}{// Tune this parameter according to the scene}}
+\DoxyCodeLine{00163     \textcolor{comment}{// for having objects casting shadows that are actually not in the frustum}}
+\DoxyCodeLine{00164     \textcolor{comment}{// :)}}
+\DoxyCodeLine{00165     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{float} zMult = 10.0f;}
+\DoxyCodeLine{00166     \textcolor{keywordflow}{if} (minZ < 0) \{}
+\DoxyCodeLine{00167       minZ *= zMult;}
+\DoxyCodeLine{00168     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00169       minZ /= zMult;}
+\DoxyCodeLine{00170     \}}
+\DoxyCodeLine{00171     \textcolor{keywordflow}{if} (maxZ < 0) \{}
+\DoxyCodeLine{00172       maxZ /= zMult;}
+\DoxyCodeLine{00173     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00174       maxZ *= zMult;}
+\DoxyCodeLine{00175     \}}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177     glm::mat4 light\_projection = glm::ortho(minX, maxX, minY, maxY, minZ, maxZ);}
+\DoxyCodeLine{00178 }
+\DoxyCodeLine{00179     \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}[i] = light\_projection * light\_view\_matrix;}
+\DoxyCodeLine{00180   \}}
+\DoxyCodeLine{00181 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+cascaded\+\_\+slots()}}, \mbox{\hyperlink{_directional_light_8h_source_l00049}{cascade\+\_\+light\+\_\+matrices}}, \mbox{\hyperlink{_directional_light_8h_source_l00048}{cascade\+\_\+slots}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00038}{get\+\_\+direction()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00064}{get\+\_\+frustum\+\_\+corners\+\_\+world\+\_\+space()}}.
+References \mbox{\hyperlink{_directional_light_8cpp_source_l00093}{calc\+\_\+cascaded\+\_\+slots()}}, \mbox{\hyperlink{_directional_light_8h_source_l00056}{cascade\+\_\+light\+\_\+matrices}}, \mbox{\hyperlink{_directional_light_8h_source_l00055}{cascade\+\_\+slots}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00048}{get\+\_\+direction()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00075}{get\+\_\+frustum\+\_\+corners\+\_\+world\+\_\+space()}}.
 
 Here is the call graph for this function\+:
 % FIG 3
@@ -299,16 +303,18 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00170}{170}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00183}{183}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00170 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * \mbox{\hyperlink{class_directional_light_a557c365dfdd157d67e110f7a060e3d07}{get\_light\_view\_matrix}}(); \}}
+\DoxyCodeLine{00183                                                     \{}
+\DoxyCodeLine{00184   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * \mbox{\hyperlink{class_directional_light_a557c365dfdd157d67e110f7a060e3d07}{get\_light\_view\_matrix}}();}
+\DoxyCodeLine{00185 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8cpp_source_l00036}{get\+\_\+light\+\_\+view\+\_\+matrix()}}, and \mbox{\hyperlink{_light_8h_source_l00023}{Light\+::light\+\_\+proj}}.
+References \mbox{\hyperlink{_directional_light_8cpp_source_l00043}{get\+\_\+light\+\_\+view\+\_\+matrix()}}, and \mbox{\hyperlink{_light_8h_source_l00024}{Light\+::light\+\_\+proj}}.
 
 Here is the call graph for this function\+:
 % FIG 4
@@ -320,16 +326,18 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00056 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}}; \}}
+\DoxyCodeLine{00064                                                                   \{}
+\DoxyCodeLine{00065   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a2273f0ad46ee6b82bb038c622cdb8f70}{cascade\_light\_matrices}};}
+\DoxyCodeLine{00066 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00049}{cascade\+\_\+light\+\_\+matrices}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00056}{cascade\+\_\+light\+\_\+matrices}}.
 
 \mbox{\Hypertarget{class_directional_light_af4fcc2d54d4ab313684a9c72367692d9}\label{class_directional_light_af4fcc2d54d4ab313684a9c72367692d9}} 
 \index{DirectionalLight@{DirectionalLight}!get\_cascaded\_slots@{get\_cascaded\_slots}}
@@ -339,25 +347,24 @@ References \mbox{\hyperlink{_directional_light_8h_source_l00049}{cascade\+\_\+li
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00045 \{}
-\DoxyCodeLine{00046   std::vector<GLfloat> result;}
-\DoxyCodeLine{00047 }
-\DoxyCodeLine{00048   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
-\DoxyCodeLine{00049 }
-\DoxyCodeLine{00050     result.push\_back(\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i]);}
-\DoxyCodeLine{00051   \}}
-\DoxyCodeLine{00052 }
-\DoxyCodeLine{00053   \textcolor{keywordflow}{return} result;}
-\DoxyCodeLine{00054 \}}
+\DoxyCodeLine{00054                                                               \{}
+\DoxyCodeLine{00055   std::vector<GLfloat> result;}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
+\DoxyCodeLine{00058     result.push\_back(\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i]);}
+\DoxyCodeLine{00059   \}}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00062 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00048}{cascade\+\_\+slots}}, and \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00055}{cascade\+\_\+slots}}, and \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}.
 
 \mbox{\Hypertarget{class_directional_light_ae8319a37ffe026faa8d2b82a5b8f324a}\label{class_directional_light_ae8319a37ffe026faa8d2b82a5b8f324a}} 
 \index{DirectionalLight@{DirectionalLight}!get\_color@{get\_color}}
@@ -367,16 +374,16 @@ References \mbox{\hyperlink{_directional_light_8h_source_l00048}{cascade\+\_\+sl
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00040 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \}}
+\DoxyCodeLine{00050 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_light_8h_source_l00020}{Light\+::color}}.
+References \mbox{\hyperlink{_light_8h_source_l00021}{Light\+::color}}.
 
 \mbox{\Hypertarget{class_directional_light_a7a3e577a1d4693a784963325bf39de94}\label{class_directional_light_a7a3e577a1d4693a784963325bf39de94}} 
 \index{DirectionalLight@{DirectionalLight}!get\_direction@{get\_direction}}
@@ -386,20 +393,20 @@ References \mbox{\hyperlink{_light_8h_source_l00020}{Light\+::color}}.
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00038 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}; \}}
+\DoxyCodeLine{00048 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}; \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00045}{direction}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00052}{direction}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{calc\+\_\+orthogonal\+\_\+projections()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00116}{calc\+\_\+orthogonal\+\_\+projections()}}.
 
 Here is the caller graph for this function\+:
 % FIG 5
@@ -411,30 +418,31 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00065 \{}
-\DoxyCodeLine{00066   \textcolor{keyword}{const} \textcolor{keyword}{auto} inv = glm::inverse(proj * view);}
-\DoxyCodeLine{00067 }
-\DoxyCodeLine{00068   std::vector<glm::vec4> frustumCorners;}
-\DoxyCodeLine{00069   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x = 0; x < 2; ++x) \{}
-\DoxyCodeLine{00070     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y = 0; y < 2; ++y) \{}
-\DoxyCodeLine{00071       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} z = 0; z < 2; ++z) \{}
-\DoxyCodeLine{00072         \textcolor{keyword}{const} glm::vec4 pt = inv * glm::vec4(2.0f * x -\/ 1.0f, 2.0f * y -\/ 1.0f, 2.0f * z -\/ 1.0f, 1.0f);}
-\DoxyCodeLine{00073         frustumCorners.push\_back(pt / pt.w);}
-\DoxyCodeLine{00074       \}}
-\DoxyCodeLine{00075     \}}
-\DoxyCodeLine{00076   \}}
-\DoxyCodeLine{00077 }
-\DoxyCodeLine{00078   \textcolor{keywordflow}{return} frustumCorners;}
-\DoxyCodeLine{00079 \}}
+\DoxyCodeLine{00076                                               \{}
+\DoxyCodeLine{00077   \textcolor{keyword}{const} \textcolor{keyword}{auto} inv = glm::inverse(proj * view);}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079   std::vector<glm::vec4> frustumCorners;}
+\DoxyCodeLine{00080   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x = 0; x < 2; ++x) \{}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y = 0; y < 2; ++y) \{}
+\DoxyCodeLine{00082       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} z = 0; z < 2; ++z) \{}
+\DoxyCodeLine{00083         \textcolor{keyword}{const} glm::vec4 pt = inv * glm::vec4(2.0f * x -\/ 1.0f, 2.0f * y -\/ 1.0f,}
+\DoxyCodeLine{00084                                              2.0f * z -\/ 1.0f, 1.0f);}
+\DoxyCodeLine{00085         frustumCorners.push\_back(pt / pt.w);}
+\DoxyCodeLine{00086       \}}
+\DoxyCodeLine{00087     \}}
+\DoxyCodeLine{00088   \}}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090   \textcolor{keywordflow}{return} frustumCorners;}
+\DoxyCodeLine{00091 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{calc\+\_\+orthogonal\+\_\+projections()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00116}{calc\+\_\+orthogonal\+\_\+projections()}}.
 
 Here is the caller graph for this function\+:
 % FIG 6
@@ -446,20 +454,23 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00036 \{ \textcolor{keywordflow}{return} glm::lookAt(\mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f)); \}}
+\DoxyCodeLine{00043                                                       \{}
+\DoxyCodeLine{00044   \textcolor{keywordflow}{return} glm::lookAt(\mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}, glm::vec3(0.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{00045                      glm::vec3(0.0f, 1.0f, 0.0f));}
+\DoxyCodeLine{00046 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00045}{direction}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00052}{direction}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00170}{calculate\+\_\+light\+\_\+transform()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00183}{calculate\+\_\+light\+\_\+transform()}}.
 
 Here is the caller graph for this function\+:
 % FIG 7
@@ -471,16 +482,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00042 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \}}
+\DoxyCodeLine{00052 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_light_8h_source_l00021}{Light\+::radiance}}.
+References \mbox{\hyperlink{_light_8h_source_l00022}{Light\+::radiance}}.
 
 \mbox{\Hypertarget{class_directional_light_af3de895b8b06124e655cf06b117957b3}\label{class_directional_light_af3de895b8b06124e655cf06b117957b3}} 
 \index{DirectionalLight@{DirectionalLight}!get\_shadow\_map@{get\_shadow\_map}}
@@ -490,16 +501,18 @@ References \mbox{\hyperlink{_light_8h_source_l00021}{Light\+::radiance}}.
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00019}{19}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00021}{21}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00019 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}; \}}
+\DoxyCodeLine{00021                                                           \{}
+\DoxyCodeLine{00022     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}};}
+\DoxyCodeLine{00023   \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00043}{shadow\+\_\+map}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00050}{shadow\+\_\+map}}.
 
 \mbox{\Hypertarget{class_directional_light_aa13e07a40ee9762e52d24b755c0d464f}\label{class_directional_light_aa13e07a40ee9762e52d24b755c0d464f}} 
 \index{DirectionalLight@{DirectionalLight}!set\_color@{set\_color}}
@@ -509,16 +522,16 @@ References \mbox{\hyperlink{_directional_light_8h_source_l00043}{shadow\+\_\+map
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00176}{176}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00176 \{ this-\/>\mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}} = \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \}}
+\DoxyCodeLine{00195 \{ this-\/>\mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}} = \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_light_8h_source_l00020}{Light\+::color}}.
+References \mbox{\hyperlink{_light_8h_source_l00021}{Light\+::color}}.
 
 \mbox{\Hypertarget{class_directional_light_a78923fbf655c53f364490eb230dac661}\label{class_directional_light_a78923fbf655c53f364490eb230dac661}} 
 \index{DirectionalLight@{DirectionalLight}!set\_direction@{set\_direction}}
@@ -528,16 +541,18 @@ References \mbox{\hyperlink{_light_8h_source_l00020}{Light\+::color}}.
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00172 \{ this-\/>\mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}} = \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}}; \}}
+\DoxyCodeLine{00187                                                       \{}
+\DoxyCodeLine{00188   this-\/>\mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}} = \mbox{\hyperlink{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}{direction}};}
+\DoxyCodeLine{00189 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00045}{direction}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00052}{direction}}.
 
 \mbox{\Hypertarget{class_directional_light_ae376bbf7334e447ffba84bc349847460}\label{class_directional_light_ae376bbf7334e447ffba84bc349847460}} 
 \index{DirectionalLight@{DirectionalLight}!set\_radiance@{set\_radiance}}
@@ -547,16 +562,18 @@ References \mbox{\hyperlink{_directional_light_8h_source_l00045}{direction}}.
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00174}{174}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00191}{191}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00174 \{ this-\/>\mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}} = \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \}}
+\DoxyCodeLine{00191                                                   \{}
+\DoxyCodeLine{00192   this-\/>\mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}} = \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}};}
+\DoxyCodeLine{00193 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_light_8h_source_l00021}{Light\+::radiance}}.
+References \mbox{\hyperlink{_light_8h_source_l00022}{Light\+::radiance}}.
 
 \mbox{\Hypertarget{class_directional_light_a4cd04fb65847e8579be25c405b5643ef}\label{class_directional_light_a4cd04fb65847e8579be25c405b5643ef}} 
 \index{DirectionalLight@{DirectionalLight}!update\_shadow\_map@{update\_shadow\_map}}
@@ -566,19 +583,19 @@ References \mbox{\hyperlink{_light_8h_source_l00021}{Light\+::radiance}}.
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
+Definition at line \mbox{\hyperlink{_directional_light_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{_directional_light_8cpp_source}{Directional\+Light.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00059 \{}
-\DoxyCodeLine{00060   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}.reset(\textcolor{keyword}{new} \mbox{\hyperlink{class_cascaded_shadow_map}{CascadedShadowMap}});}
-\DoxyCodeLine{00061   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>init((GLuint)shadow\_width, (GLuint)shadow\_height, num\_cascades);}
-\DoxyCodeLine{00062 \}}
+\DoxyCodeLine{00070                                                               \{}
+\DoxyCodeLine{00071   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}.reset(\textcolor{keyword}{new} \mbox{\hyperlink{class_cascaded_shadow_map}{CascadedShadowMap}});}
+\DoxyCodeLine{00072   \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>init((GLuint)shadow\_width, (GLuint)shadow\_height, num\_cascades);}
+\DoxyCodeLine{00073 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_directional_light_8h_source_l00043}{shadow\+\_\+map}}.
+References \mbox{\hyperlink{_directional_light_8h_source_l00050}{shadow\+\_\+map}}.
 
 
 
@@ -591,11 +608,11 @@ References \mbox{\hyperlink{_directional_light_8h_source_l00043}{shadow\+\_\+map
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00049}{49}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00056}{56}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{calc\+\_\+orthogonal\+\_\+projections()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00056}{get\+\_\+cascaded\+\_\+light\+\_\+matrices()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00116}{calc\+\_\+orthogonal\+\_\+projections()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00064}{get\+\_\+cascaded\+\_\+light\+\_\+matrices()}}.
 
 \mbox{\Hypertarget{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}\label{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}} 
 \index{DirectionalLight@{DirectionalLight}!cascade\_slots@{cascade\_slots}}
@@ -605,11 +622,11 @@ Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{calc\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00048}{48}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00055}{55}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+cascaded\+\_\+slots()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00106}{calc\+\_\+orthogonal\+\_\+projections()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00044}{get\+\_\+cascaded\+\_\+slots()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00093}{calc\+\_\+cascaded\+\_\+slots()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00116}{calc\+\_\+orthogonal\+\_\+projections()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00054}{get\+\_\+cascaded\+\_\+slots()}}.
 
 \mbox{\Hypertarget{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}\label{class_directional_light_a5b2956fd8583e5ef45fbf1f1e778cd39}} 
 \index{DirectionalLight@{DirectionalLight}!direction@{direction}}
@@ -619,11 +636,11 @@ Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00045}{45}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00052}{52}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00038}{get\+\_\+direction()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00036}{get\+\_\+light\+\_\+view\+\_\+matrix()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00172}{set\+\_\+direction()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00048}{get\+\_\+direction()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00043}{get\+\_\+light\+\_\+view\+\_\+matrix()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00187}{set\+\_\+direction()}}.
 
 \mbox{\Hypertarget{class_directional_light_a19451034e37a3d401ac43cd3a9914612}\label{class_directional_light_a19451034e37a3d401ac43cd3a9914612}} 
 \index{DirectionalLight@{DirectionalLight}!shadow\_far\_plane@{shadow\_far\_plane}}
@@ -633,11 +650,11 @@ Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00038}{get\+\_\+d
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00046}{46}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00053}{53}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+cascaded\+\_\+slots()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00093}{calc\+\_\+cascaded\+\_\+slots()}}.
 
 \mbox{\Hypertarget{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}\label{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}} 
 \index{DirectionalLight@{DirectionalLight}!shadow\_map@{shadow\_map}}
@@ -647,11 +664,11 @@ Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00043}{43}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00050}{50}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+cascaded\+\_\+slots()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00019}{Directional\+Light()}}, \mbox{\hyperlink{_directional_light_8h_source_l00019}{get\+\_\+shadow\+\_\+map()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00058}{update\+\_\+shadow\+\_\+map()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00093}{calc\+\_\+cascaded\+\_\+slots()}}, \mbox{\hyperlink{_directional_light_8cpp_source_l00020}{Directional\+Light()}}, \mbox{\hyperlink{_directional_light_8h_source_l00021}{get\+\_\+shadow\+\_\+map()}}, and \mbox{\hyperlink{_directional_light_8cpp_source_l00068}{update\+\_\+shadow\+\_\+map()}}.
 
 \mbox{\Hypertarget{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}\label{class_directional_light_a4f69686e8e7ee553d83e1268db95a78c}} 
 \index{DirectionalLight@{DirectionalLight}!shadow\_near\_plane@{shadow\_near\_plane}}
@@ -661,11 +678,11 @@ Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00046}{46}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
+Definition at line \mbox{\hyperlink{_directional_light_8h_source_l00053}{53}} of file \mbox{\hyperlink{_directional_light_8h_source}{Directional\+Light.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00081}{calc\+\_\+cascaded\+\_\+slots()}}.
+Referenced by \mbox{\hyperlink{_directional_light_8cpp_source_l00093}{calc\+\_\+cascaded\+\_\+slots()}}.
 
 
 

@@ -18,7 +18,7 @@ size\+\_\+t \mbox{\hyperlink{structstd_1_1hash_3_01_vertex_01_4_a325edc9bd1ecd0f
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_vertex_8h_source_l00048}{48}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00045}{45}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
 
 
 
@@ -31,19 +31,18 @@ Definition at line \mbox{\hyperlink{_vertex_8h_source_l00048}{48}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{_vertex_8h_source_l00050}{50}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
+Definition at line \mbox{\hyperlink{_vertex_8h_source_l00046}{46}} of file \mbox{\hyperlink{_vertex_8h_source}{Vertex.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00051   \{}
-\DoxyCodeLine{00052 }
-\DoxyCodeLine{00053     \textcolor{keywordtype}{size\_t} h1 = hash<glm::vec3>()(vert.position);}
-\DoxyCodeLine{00054     \textcolor{keywordtype}{size\_t} h2 = hash<glm::vec3>()(vert.normal);}
-\DoxyCodeLine{00055     \textcolor{keywordtype}{size\_t} h3 = hash<glm::vec2>()(vert.texture\_coords);}
-\DoxyCodeLine{00056 }
-\DoxyCodeLine{00057     \textcolor{comment}{// combine hashed wonderfully :))))}}
-\DoxyCodeLine{00058     \textcolor{keywordflow}{return} ((h1 \string^ (h2 << 1)) >> 1) \string^ h3;}
-\DoxyCodeLine{00059   \}}
+\DoxyCodeLine{00046                                               \{}
+\DoxyCodeLine{00047     \textcolor{keywordtype}{size\_t} h1 = hash<glm::vec3>()(vert.position);}
+\DoxyCodeLine{00048     \textcolor{keywordtype}{size\_t} h2 = hash<glm::vec3>()(vert.normal);}
+\DoxyCodeLine{00049     \textcolor{keywordtype}{size\_t} h3 = hash<glm::vec2>()(vert.texture\_coords);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{comment}{// combine hashed wonderfully :))))}}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{return} ((h1 \string^ (h2 << 1)) >> 1) \string^ h3;}
+\DoxyCodeLine{00053   \}}
 
 \end{DoxyCode}
 

@@ -23,6 +23,14 @@
 #include "host_device_shared.h"
 
 int main() {
+
+    // https://discourse.glfw.org/t/dont-want-a-console-window/401 
+    // for disabling console during production build under windows
+    // The console window appears because you’re building your application for the console subsystem. 
+    // You need to build it for the Win32 subsystem and it will go away. 
+    // Note that the linker will then by default be looking for a WinMain() entry point, not a main() one. 
+    // If you wish to keep your main() entry point, set the entry point to mainCRTStartup under Advanced Linker Settings (assuming you’re using Visual C++).
+
   bool loading_screen_finished = false;
 
   GLint window_width = 1200;

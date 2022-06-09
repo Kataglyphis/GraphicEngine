@@ -136,7 +136,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00016">16</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00015">15</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae3b375de5f6df4faf74a95d64748e048" name="ae3b375de5f6df4faf74a95d64748e048"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3b375de5f6df4faf74a95d64748e048">&#9670;&nbsp;</a></span>Model()</h2>
@@ -154,8 +154,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    3</span>: <a class="code hl_variable" href="../../d0/de3/class_model.html#a033e87c24e4e58c8bdfadb4a02dbf2a9">aabb</a>(std::make_shared&lt;AABB&gt;()) { }</div>
-<div class="ttc" id="aclass_model_html_a033e87c24e4e58c8bdfadb4a02dbf2a9"><div class="ttname"><a href="../../d0/de3/class_model.html#a033e87c24e4e58c8bdfadb4a02dbf2a9">Model::aabb</a></div><div class="ttdeci">std::shared_ptr&lt; AABB &gt; aabb</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00042">Model.h:42</a></div></div>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>: <a class="code hl_variable" href="../../d0/de3/class_model.html#a033e87c24e4e58c8bdfadb4a02dbf2a9">aabb</a>(std::make_shared&lt;AABB&gt;()) {}</div>
+<div class="ttc" id="aclass_model_html_a033e87c24e4e58c8bdfadb4a02dbf2a9"><div class="ttname"><a href="../../d0/de3/class_model.html#a033e87c24e4e58c8bdfadb4a02dbf2a9">Model::aabb</a></div><div class="ttdeci">std::shared_ptr&lt; AABB &gt; aabb</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00041">Model.h:41</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -174,10 +174,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00063">63</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>{</div>
-<div class="line"><span class="lineno">   65</span>  <span class="comment">// unbind material index buffer</span></div>
-<div class="line"><span class="lineno">   66</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>              {</div>
+<div class="line"><span class="lineno">   63</span>  <span class="comment">// unbind material index buffer</span></div>
+<div class="line"><span class="lineno">   64</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,18 +198,19 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00045">45</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
-<div class="line"><span class="lineno">   47</span>  glBindBufferBase(GL_SHADER_STORAGE_BUFFER, <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a934aa1a1a657e97b7ce0af0aaf957d9d">STORAGE_BUFFER_MATERIAL_ID_BINDING</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#ab8b3bec22f784608ab53bc4cd298d2e8">ssbo</a>);</div>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>                            {</div>
+<div class="line"><span class="lineno">   46</span>  glBindBufferBase(GL_SHADER_STORAGE_BUFFER, <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a934aa1a1a657e97b7ce0af0aaf957d9d">STORAGE_BUFFER_MATERIAL_ID_BINDING</a>,</div>
+<div class="line"><span class="lineno">   47</span>                   <a class="code hl_variable" href="../../d0/de3/class_model.html#ab8b3bec22f784608ab53bc4cd298d2e8">ssbo</a>);</div>
 <div class="line"><span class="lineno">   48</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>.size()); i++) {</div>
 <div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>[i]-&gt;use_texture(i + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a9b0d1cd1d0e10441196f4451e91713c8">MODEL_TEXTURES_SLOT</a>);</div>
 <div class="line"><span class="lineno">   50</span>  }</div>
 <div class="line"><span class="lineno">   51</span>}</div>
-<div class="ttc" id="abindings_8h_html_a934aa1a1a657e97b7ce0af0aaf957d9d"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a934aa1a1a657e97b7ce0af0aaf957d9d">STORAGE_BUFFER_MATERIAL_ID_BINDING</a></div><div class="ttdeci">#define STORAGE_BUFFER_MATERIAL_ID_BINDING</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00022">bindings.h:22</a></div></div>
+<div class="ttc" id="abindings_8h_html_a934aa1a1a657e97b7ce0af0aaf957d9d"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a934aa1a1a657e97b7ce0af0aaf957d9d">STORAGE_BUFFER_MATERIAL_ID_BINDING</a></div><div class="ttdeci">#define STORAGE_BUFFER_MATERIAL_ID_BINDING</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00023">bindings.h:23</a></div></div>
 <div class="ttc" id="abindings_8h_html_a9b0d1cd1d0e10441196f4451e91713c8"><div class="ttname"><a href="../../dc/d49/bindings_8h.html#a9b0d1cd1d0e10441196f4451e91713c8">MODEL_TEXTURES_SLOT</a></div><div class="ttdeci">#define MODEL_TEXTURES_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d49/bindings_8h_source.html#l00006">bindings.h:6</a></div></div>
-<div class="ttc" id="aclass_model_html_a94b3624baee6038c0c568d63671ef718"><div class="ttname"><a href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">Model::texture_list</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; Texture &gt; &gt; texture_list</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00047">Model.h:47</a></div></div>
-<div class="ttc" id="aclass_model_html_ab8b3bec22f784608ab53bc4cd298d2e8"><div class="ttname"><a href="../../d0/de3/class_model.html#ab8b3bec22f784608ab53bc4cd298d2e8">Model::ssbo</a></div><div class="ttdeci">GLuint ssbo</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00038">Model.h:38</a></div></div>
+<div class="ttc" id="aclass_model_html_a94b3624baee6038c0c568d63671ef718"><div class="ttname"><a href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">Model::texture_list</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; Texture &gt; &gt; texture_list</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00046">Model.h:46</a></div></div>
+<div class="ttc" id="aclass_model_html_ab8b3bec22f784608ab53bc4cd298d2e8"><div class="ttname"><a href="../../d0/de3/class_model.html#ab8b3bec22f784608ab53bc4cd298d2e8">Model::ssbo</a></div><div class="ttdeci">GLuint ssbo</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00037">Model.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00006">MODEL_TEXTURES_SLOT</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00038">ssbo</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00022">STORAGE_BUFFER_MATERIAL_ID_BINDING</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00047">texture_list</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00006">MODEL_TEXTURES_SLOT</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00037">ssbo</a>, <a class="el" href="../../dc/d49/bindings_8h_source.html#l00023">STORAGE_BUFFER_MATERIAL_ID_BINDING</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00046">texture_list</a>.</p>
 
 </div>
 </div>
@@ -228,13 +229,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                  {</div>
 <div class="line"><span class="lineno">   22</span>  <a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>.resize(<a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>.size());</div>
 <div class="line"><span class="lineno">   23</span> </div>
 <div class="line"><span class="lineno">   24</span>  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; static_cast&lt;uint32_t&gt;(<a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>.size()); i++) {</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>[i] = std::make_shared&lt;Texture&gt;(<a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>[i].c_str(), std::make_shared&lt;RepeatMode&gt;());</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>[i] = std::make_shared&lt;Texture&gt;(<a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>[i].c_str(),</div>
+<div class="line"><span class="lineno">   26</span>                                                std::make_shared&lt;RepeatMode&gt;());</div>
 <div class="line"><span class="lineno">   27</span> </div>
 <div class="line"><span class="lineno">   28</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>[i]-&gt;load_SRGB_texture_without_alpha_channel()) {</div>
 <div class="line"><span class="lineno">   29</span>      printf(<span class="stringliteral">&quot;Failed to load texture at: %s\n&quot;</span>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>[i].c_str());</div>
@@ -248,17 +249,17 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   37</span>  glGenBuffers(1, &amp;<a class="code hl_variable" href="../../d0/de3/class_model.html#ab8b3bec22f784608ab53bc4cd298d2e8">ssbo</a>);</div>
 <div class="line"><span class="lineno">   38</span>  glBindBuffer(GL_SHADER_STORAGE_BUFFER, <a class="code hl_variable" href="../../d0/de3/class_model.html#ab8b3bec22f784608ab53bc4cd298d2e8">ssbo</a>);</div>
 <div class="line"><span class="lineno">   39</span>  glBufferData(GL_SHADER_STORAGE_BUFFER,</div>
-<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">materialIndex</a>.size() * <span class="keyword">sizeof</span>(glm::vec4),</div>
-<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">materialIndex</a>.data(),</div>
-<div class="line"><span class="lineno">   42</span>    GL_STREAM_READ); <span class="comment">//sizeof(data) only works for statically sized C/C++ arrays.</span></div>
+<div class="line"><span class="lineno">   40</span>               <a class="code hl_variable" href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">materialIndex</a>.size() * <span class="keyword">sizeof</span>(glm::vec4), <a class="code hl_variable" href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">materialIndex</a>.data(),</div>
+<div class="line"><span class="lineno">   41</span>               GL_STREAM_READ);  <span class="comment">// sizeof(data) only works for statically sized</span></div>
+<div class="line"><span class="lineno">   42</span>                                 <span class="comment">// C/C++ arrays.</span></div>
 <div class="line"><span class="lineno">   43</span>}</div>
-<div class="ttc" id="aclass_model_html_a52bf7d84e4bd938767f41565f898d5dc"><div class="ttname"><a href="../../d0/de3/class_model.html#a52bf7d84e4bd938767f41565f898d5dc">Model::indices</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; indices</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00046">Model.h:46</a></div></div>
-<div class="ttc" id="aclass_model_html_a82c4b4618a960db5eed5602a7c138ab8"><div class="ttname"><a href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">Model::textures</a></div><div class="ttdeci">std::vector&lt; std::string &gt; textures</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00050">Model.h:50</a></div></div>
-<div class="ttc" id="aclass_model_html_ac25a39c318a2295730dff9115f5d6797"><div class="ttname"><a href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">Model::materialIndex</a></div><div class="ttdeci">std::vector&lt; glm::vec4 &gt; materialIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00049">Model.h:49</a></div></div>
-<div class="ttc" id="aclass_model_html_ae28a557329ebec3aaf91f8012f6c0c02"><div class="ttname"><a href="../../d0/de3/class_model.html#ae28a557329ebec3aaf91f8012f6c0c02">Model::mesh</a></div><div class="ttdeci">std::shared_ptr&lt; Mesh &gt; mesh</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00044">Model.h:44</a></div></div>
-<div class="ttc" id="aclass_model_html_ae69c72e4776b916f3ffd2e18a70ba605"><div class="ttname"><a href="../../d0/de3/class_model.html#ae69c72e4776b916f3ffd2e18a70ba605">Model::vertices</a></div><div class="ttdeci">std::vector&lt; Vertex &gt; vertices</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00045">Model.h:45</a></div></div>
+<div class="ttc" id="aclass_model_html_a52bf7d84e4bd938767f41565f898d5dc"><div class="ttname"><a href="../../d0/de3/class_model.html#a52bf7d84e4bd938767f41565f898d5dc">Model::indices</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; indices</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00045">Model.h:45</a></div></div>
+<div class="ttc" id="aclass_model_html_a82c4b4618a960db5eed5602a7c138ab8"><div class="ttname"><a href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">Model::textures</a></div><div class="ttdeci">std::vector&lt; std::string &gt; textures</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00049">Model.h:49</a></div></div>
+<div class="ttc" id="aclass_model_html_ac25a39c318a2295730dff9115f5d6797"><div class="ttname"><a href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">Model::materialIndex</a></div><div class="ttdeci">std::vector&lt; glm::vec4 &gt; materialIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00048">Model.h:48</a></div></div>
+<div class="ttc" id="aclass_model_html_ae28a557329ebec3aaf91f8012f6c0c02"><div class="ttname"><a href="../../d0/de3/class_model.html#ae28a557329ebec3aaf91f8012f6c0c02">Model::mesh</a></div><div class="ttdeci">std::shared_ptr&lt; Mesh &gt; mesh</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00043">Model.h:43</a></div></div>
+<div class="ttc" id="aclass_model_html_ae69c72e4776b916f3ffd2e18a70ba605"><div class="ttname"><a href="../../d0/de3/class_model.html#ae69c72e4776b916f3ffd2e18a70ba605">Model::vertices</a></div><div class="ttdeci">std::vector&lt; Vertex &gt; vertices</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00044">Model.h:44</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00046">indices</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00049">materialIndex</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00044">mesh</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00038">ssbo</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00047">texture_list</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00050">textures</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00045">vertices</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00045">indices</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00048">materialIndex</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00043">mesh</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00037">ssbo</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00046">texture_list</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00049">textures</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00044">vertices</a>.</p>
 
 </div>
 </div>
@@ -280,7 +281,7 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00005">5</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    5</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d0/de3/class_model.html#a033e87c24e4e58c8bdfadb4a02dbf2a9">aabb</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00042">aabb</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00041">aabb</a>.</p>
 
 </div>
 </div>
@@ -301,9 +302,9 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00007">7</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    7</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d0/de3/class_model.html#a7cba4923a9806fc94cdb1d245e701113">materials</a>; }</div>
-<div class="ttc" id="aclass_model_html_a7cba4923a9806fc94cdb1d245e701113"><div class="ttname"><a href="../../d0/de3/class_model.html#a7cba4923a9806fc94cdb1d245e701113">Model::materials</a></div><div class="ttdeci">std::vector&lt; ObjMaterial &gt; materials</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00048">Model.h:48</a></div></div>
+<div class="ttc" id="aclass_model_html_a7cba4923a9806fc94cdb1d245e701113"><div class="ttname"><a href="../../d0/de3/class_model.html#a7cba4923a9806fc94cdb1d245e701113">Model::materials</a></div><div class="ttdeci">std::vector&lt; ObjMaterial &gt; materials</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00047">Model.h:47</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00048">materials</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00047">materials</a>.</p>
 
 </div>
 </div>
@@ -323,9 +324,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00009">9</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{ <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>.size()); }</div>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                   {</div>
+<div class="line"><span class="lineno">   10</span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>.size());</div>
+<div class="line"><span class="lineno">   11</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00047">texture_list</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00046">texture_list</a>.</p>
 
 </div>
 </div>
@@ -345,17 +348,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">11</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>{</div>
-<div class="line"><span class="lineno">   13</span> </div>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                                                         {</div>
 <div class="line"><span class="lineno">   14</span>  <a class="code hl_variable" href="../../d0/de3/class_model.html#acca54d89c856dfdd0be645912d8786dd">loader</a> = <a class="code hl_class" href="../../d5/dd8/class_obj_loader.html">ObjLoader</a>();</div>
-<div class="line"><span class="lineno">   15</span>  <a class="code hl_variable" href="../../d0/de3/class_model.html#acca54d89c856dfdd0be645912d8786dd">loader</a>.<a class="code hl_function" href="../../d5/dd8/class_obj_loader.html#a41db1c0ada11d10ae9a60c5aa78b0920">load</a>(model_path, <a class="code hl_variable" href="../../d0/de3/class_model.html#ae69c72e4776b916f3ffd2e18a70ba605">vertices</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a52bf7d84e4bd938767f41565f898d5dc">indices</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a7cba4923a9806fc94cdb1d245e701113">materials</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">materialIndex</a>);</div>
-<div class="line"><span class="lineno">   16</span>}</div>
-<div class="ttc" id="aclass_model_html_acca54d89c856dfdd0be645912d8786dd"><div class="ttname"><a href="../../d0/de3/class_model.html#acca54d89c856dfdd0be645912d8786dd">Model::loader</a></div><div class="ttdeci">ObjLoader loader</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00040">Model.h:40</a></div></div>
+<div class="line"><span class="lineno">   15</span>  <a class="code hl_variable" href="../../d0/de3/class_model.html#acca54d89c856dfdd0be645912d8786dd">loader</a>.<a class="code hl_function" href="../../d5/dd8/class_obj_loader.html#a41db1c0ada11d10ae9a60c5aa78b0920">load</a>(model_path, <a class="code hl_variable" href="../../d0/de3/class_model.html#ae69c72e4776b916f3ffd2e18a70ba605">vertices</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a52bf7d84e4bd938767f41565f898d5dc">indices</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a82c4b4618a960db5eed5602a7c138ab8">textures</a>, <a class="code hl_variable" href="../../d0/de3/class_model.html#a7cba4923a9806fc94cdb1d245e701113">materials</a>,</div>
+<div class="line"><span class="lineno">   16</span>              <a class="code hl_variable" href="../../d0/de3/class_model.html#ac25a39c318a2295730dff9115f5d6797">materialIndex</a>);</div>
+<div class="line"><span class="lineno">   17</span>}</div>
+<div class="ttc" id="aclass_model_html_acca54d89c856dfdd0be645912d8786dd"><div class="ttname"><a href="../../d0/de3/class_model.html#acca54d89c856dfdd0be645912d8786dd">Model::loader</a></div><div class="ttdeci">ObjLoader loader</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ded/_model_8h_source.html#l00039">Model.h:39</a></div></div>
 <div class="ttc" id="aclass_obj_loader_html"><div class="ttname"><a href="../../d5/dd8/class_obj_loader.html">ObjLoader</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6c/_obj_loader_8h_source.html#l00011">ObjLoader.h:11</a></div></div>
 <div class="ttc" id="aclass_obj_loader_html_a41db1c0ada11d10ae9a60c5aa78b0920"><div class="ttname"><a href="../../d5/dd8/class_obj_loader.html#a41db1c0ada11d10ae9a60c5aa78b0920">ObjLoader::load</a></div><div class="ttdeci">void load(std::string modelFile, std::vector&lt; Vertex &gt; &amp;vertices, std::vector&lt; unsigned int &gt; &amp;indices, std::vector&lt; std::string &gt; &amp;texture_list, std::vector&lt; ObjMaterial &gt; &amp;materials, std::vector&lt; glm::vec4 &gt; &amp;materialIndex)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dbc/_obj_loader_8cpp_source.html#l00008">ObjLoader.cpp:8</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00046">indices</a>, <a class="el" href="../../dd/dbc/_obj_loader_8cpp_source.html#l00008">ObjLoader::load()</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00040">loader</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00049">materialIndex</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00048">materials</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00050">textures</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00045">vertices</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00045">indices</a>, <a class="el" href="../../dd/dbc/_obj_loader_8cpp_source.html#l00008">ObjLoader::load()</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00039">loader</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00048">materialIndex</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00047">materials</a>, <a class="el" href="../../da/ded/_model_8h_source.html#l00049">textures</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00044">vertices</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -382,10 +385,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>{ <a class="code hl_variable" href="../../d0/de3/class_model.html#ae28a557329ebec3aaf91f8012f6c0c02">mesh</a>-&gt;render(); }</div>
+<p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>{ <a class="code hl_variable" href="../../d0/de3/class_model.html#ae28a557329ebec3aaf91f8012f6c0c02">mesh</a>-&gt;render(); }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00044">mesh</a>.</p>
+<p class="reference">References <a class="el" href="../../da/ded/_model_8h_source.html#l00043">mesh</a>.</p>
 
 </div>
 </div>
@@ -405,14 +408,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00053">53</a> of file <a class="el" href="../../d2/d31/_model_8cpp_source.html">Model.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>{</div>
-<div class="line"><span class="lineno">   55</span>  glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);</div>
-<div class="line"><span class="lineno">   56</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>.size()); i++) {</div>
-<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>[i]-&gt;unbind_texture(i + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a9b0d1cd1d0e10441196f4451e91713c8">MODEL_TEXTURES_SLOT</a>);</div>
-<div class="line"><span class="lineno">   58</span>  }</div>
-<div class="line"><span class="lineno">   59</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>                             {</div>
+<div class="line"><span class="lineno">   54</span>  glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);</div>
+<div class="line"><span class="lineno">   55</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(<a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>.size()); i++) {</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="../../d0/de3/class_model.html#a94b3624baee6038c0c568d63671ef718">texture_list</a>[i]-&gt;unbind_texture(i + <a class="code hl_define" href="../../dc/d49/bindings_8h.html#a9b0d1cd1d0e10441196f4451e91713c8">MODEL_TEXTURES_SLOT</a>);</div>
+<div class="line"><span class="lineno">   57</span>  }</div>
+<div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00006">MODEL_TEXTURES_SLOT</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00047">texture_list</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/d49/bindings_8h_source.html#l00006">MODEL_TEXTURES_SLOT</a>, and <a class="el" href="../../da/ded/_model_8h_source.html#l00046">texture_list</a>.</p>
 
 </div>
 </div>
@@ -437,7 +440,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00042">42</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00041">41</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00005">get_aabb()</a>.</p>
 
@@ -463,9 +466,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00046">46</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00045">45</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">load_model_in_ram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">load_model_in_ram()</a>.</p>
 
 </div>
 </div>
@@ -489,9 +492,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00040">40</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00039">39</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">load_model_in_ram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">load_model_in_ram()</a>.</p>
 
 </div>
 </div>
@@ -515,9 +518,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00049">49</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00048">48</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">load_model_in_ram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">load_model_in_ram()</a>.</p>
 
 </div>
 </div>
@@ -541,9 +544,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00048">48</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00047">47</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00007">get_materials()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">load_model_in_ram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00007">get_materials()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">load_model_in_ram()</a>.</p>
 
 </div>
 </div>
@@ -567,9 +570,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00044">44</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00043">43</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00061">render()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00060">render()</a>.</p>
 
 </div>
 </div>
@@ -593,9 +596,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00038">38</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00037">37</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00045">bind_ressources()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00045">bind_ressources()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>.</p>
 
 </div>
 </div>
@@ -619,9 +622,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00047">47</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00046">46</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00045">bind_ressources()</a>, <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>, <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00009">get_texture_count()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00053">unbind_resources()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00045">bind_ressources()</a>, <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>, <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00009">get_texture_count()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00053">unbind_resources()</a>.</p>
 
 </div>
 </div>
@@ -645,9 +648,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00050">50</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00049">49</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">load_model_in_ram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">load_model_in_ram()</a>.</p>
 
 </div>
 </div>
@@ -671,9 +674,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00045">45</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/ded/_model_8h_source.html#l00044">44</a> of file <a class="el" href="../../da/ded/_model_8h_source.html">Model.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00020">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00011">load_model_in_ram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00021">create_render_context()</a>, and <a class="el" href="../../d2/d31/_model_8cpp_source.html#l00013">load_model_in_ram()</a>.</p>
 
 </div>
 </div>
@@ -687,7 +690,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/de3/class_model.html">Model</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 18:06:04 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Thu Jun 9 2022 19:33:33 for GraphicsEngine by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

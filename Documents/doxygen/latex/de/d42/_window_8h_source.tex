@@ -3,13 +3,13 @@
 \mbox{\hyperlink{_window_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <glad/glad.h>}}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <stdio.h>}}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00006}00006 }
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00007}\mbox{\hyperlink{class_window}{00007}} \textcolor{keyword}{class }\mbox{\hyperlink{class_window}{Window}} \{}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00008}00008   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00008}00008  \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00009}00009   \mbox{\hyperlink{class_window_a74e6087da23d3c24e9fac0245e5ec92c}{Window}}();}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00010}00010   \mbox{\hyperlink{class_window_a74e6087da23d3c24e9fac0245e5ec92c}{Window}}(GLint \mbox{\hyperlink{class_window_ad2e08dafcc4f527755aef2bd2001a98d}{window\_width}}, GLint \mbox{\hyperlink{class_window_a386e06995b8e5329c28744871d16f18a}{window\_height}});}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00011}00011 }
@@ -33,7 +33,7 @@
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00029}00029 }
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00030}00030   \mbox{\hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{\string~Window}}();}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00032}00032   \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00032}00032  \textcolor{keyword}{private}:}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00033}\mbox{\hyperlink{class_window_a29271446c15ae31178feb8690821fe9f}{00033}}   GLFWwindow* \mbox{\hyperlink{class_window_a29271446c15ae31178feb8690821fe9f}{main\_window}};}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00034}00034 }
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00035}\mbox{\hyperlink{class_window_a386e06995b8e5329c28744871d16f18a}{00035}}   GLint \mbox{\hyperlink{class_window_ad2e08dafcc4f527755aef2bd2001a98d}{window\_width}}, \mbox{\hyperlink{class_window_a386e06995b8e5329c28744871d16f18a}{window\_height}};}
@@ -45,18 +45,21 @@
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00041}\mbox{\hyperlink{class_window_a515066df088abdbc809800c7bcd13c51}{00041}}   GLfloat \mbox{\hyperlink{class_window_a515066df088abdbc809800c7bcd13c51}{y\_change}};}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00042}\mbox{\hyperlink{class_window_ab769fa1c96eca0fb852467c5606c6fc5}{00042}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_window_ab769fa1c96eca0fb852467c5606c6fc5}{mouse\_first\_moved}};}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00044}00044   \textcolor{comment}{//buffers to store our window data to}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00044}00044   \textcolor{comment}{// buffers to store our window data to}}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00045}\mbox{\hyperlink{class_window_a260f2102c4b6dd2a9223a60e8202cf98}{00045}}   GLint \mbox{\hyperlink{class_window_ab194db7813d49a174b88c881c7e50a7d}{window\_buffer\_width}}, \mbox{\hyperlink{class_window_a260f2102c4b6dd2a9223a60e8202cf98}{window\_buffer\_height}};}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00047}00047   \textcolor{comment}{//we need to start our window callbacks for interaction}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00047}00047   \textcolor{comment}{// we need to start our window callbacks for interaction}}
 \DoxyCodeLine{\Hypertarget{_window_8h_source_l00048}00048   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_ab9cd23eafdebb7ae204005f4f8cd823d}{init\_callbacks}}();}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00049}00049   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a0341974d42a2f19b6bcd32136845e3c0}{framebuffer\_size\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00050}00050   \textcolor{comment}{//after window resizing, update framebuffers}}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00052}00052   \textcolor{comment}{//need to be static ...}}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00053}00053   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a73521d40cd80d47d12056d8223f4bbd6}{key\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{int} key, \textcolor{keywordtype}{int} code, \textcolor{keywordtype}{int} action, \textcolor{keywordtype}{int} mode);}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00054}00054   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a73596766c8244a65ccb23a484187b25f}{mouse\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{double} x\_pos, \textcolor{keywordtype}{double} y\_pos);}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00055}00055   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_ad8c5512dd0fa97c97dc0439b86db10c4}{mouse\_button\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{int} button, \textcolor{keywordtype}{int} action, \textcolor{keywordtype}{int} mods);}
-\DoxyCodeLine{\Hypertarget{_window_8h_source_l00056}00056 \};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00049}00049   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a0341974d42a2f19b6bcd32136845e3c0}{framebuffer\_size\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{int} width,}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00050}00050                                         \textcolor{keywordtype}{int} height);}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00051}00051   \textcolor{comment}{// after window resizing, update framebuffers}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00053}00053   \textcolor{comment}{// need to be static ...}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00054}00054   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a73521d40cd80d47d12056d8223f4bbd6}{key\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{int} key, \textcolor{keywordtype}{int} code, \textcolor{keywordtype}{int} action,}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00055}00055                            \textcolor{keywordtype}{int} mode);}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00056}00056   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a73596766c8244a65ccb23a484187b25f}{mouse\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{double} x\_pos, \textcolor{keywordtype}{double} y\_pos);}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00057}00057   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_ad8c5512dd0fa97c97dc0439b86db10c4}{mouse\_button\_callback}}(GLFWwindow* window, \textcolor{keywordtype}{int} button, \textcolor{keywordtype}{int} action,}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00058}00058                                     \textcolor{keywordtype}{int} mods);}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00059}00059 \};}
 
 \end{DoxyCode}

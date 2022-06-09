@@ -4690,6 +4690,37 @@
                 </Subnodes>
                </Node>
                <Node>
+                <Name>OpenGLRendererConfig.h</Name>
+                <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+              <Subnodes>
+                 <Node>
+                  <Name>CMAKELISTS_DIR</Name>
+                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+                  <Anchor>a06f3f84c6add75aba385bb130c129978</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>OPENGL_VERSION_MAJOR</Name>
+                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+                  <Anchor>af9f9cd3d34e4b510b2626e4cf9137b70</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>OPENGL_VERSION_MINOR</Name>
+                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+                  <Anchor>a6845a5c7db4a30ada21a2ec30fe3dc80</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>VulkanRenderer_VERSION_MAJOR</Name>
+                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+                  <Anchor>a04547974aab6616742b970a38eb6999c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>VulkanRenderer_VERSION_MINOR</Name>
+                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+                  <Anchor>aa98b688897d8e82a300ab44d239ee739</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>Renderer.cpp</Name>
                 <Path>da/d84/_renderer_8cpp.html</Path>
                </Node>

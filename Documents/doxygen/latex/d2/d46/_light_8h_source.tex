@@ -4,27 +4,28 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_light_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{\Hypertarget{_light_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <glad/glad.h>}}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00005}00005 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cascaded_shadow_map_8h}{CascadedShadowMap.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00008}\mbox{\hyperlink{class_light}{00008}} \textcolor{keyword}{class }\mbox{\hyperlink{class_light}{Light}} \{}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00009}00009   \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00010}00010   \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}();}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00012}00012   \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(GLfloat red, GLfloat green, GLfloat blue, GLfloat \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}});}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00014}\mbox{\hyperlink{class_light_a84a9c8081398be8b5ba2cf23f151cca0}{00014}}   glm::vec3 \mbox{\hyperlink{class_light_a84a9c8081398be8b5ba2cf23f151cca0}{get\_color}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \};}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00015}\mbox{\hyperlink{class_light_a867a0b360bbb396c5f00afbee6dd090c}{00015}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_light_a867a0b360bbb396c5f00afbee6dd090c}{get\_radiance}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \};}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00017}00017   \mbox{\hyperlink{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}{\string~Light}}();}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00019}00019   \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00020}\mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{00020}}   glm::vec3 \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}};}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00021}\mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{00021}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}};}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00023}\mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{00023}}   glm::mat4 \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}};}
-\DoxyCodeLine{\Hypertarget{_light_8h_source_l00024}00024 \};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cascaded_shadow_map_8h}{CascadedShadowMap.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00009}\mbox{\hyperlink{class_light}{00009}} \textcolor{keyword}{class }\mbox{\hyperlink{class_light}{Light}} \{}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00010}00010  \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00011}00011   \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}();}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00013}00013   \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(GLfloat red, GLfloat green, GLfloat blue, GLfloat \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}});}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00015}\mbox{\hyperlink{class_light_a84a9c8081398be8b5ba2cf23f151cca0}{00015}}   glm::vec3 \mbox{\hyperlink{class_light_a84a9c8081398be8b5ba2cf23f151cca0}{get\_color}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}}; \};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00016}\mbox{\hyperlink{class_light_a867a0b360bbb396c5f00afbee6dd090c}{00016}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_light_a867a0b360bbb396c5f00afbee6dd090c}{get\_radiance}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}; \};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00018}00018   \mbox{\hyperlink{class_light_ad0e59fad13bb6cfadc25b2c477e9ddc7}{\string~Light}}();}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00020}00020  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00021}\mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{00021}}   glm::vec3 \mbox{\hyperlink{class_light_a91d73d70b4bd4beb402c0f16dab19a25}{color}};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00022}\mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{00022}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00024}\mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{00024}}   glm::mat4 \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}};}
+\DoxyCodeLine{\Hypertarget{_light_8h_source_l00025}00025 \};}
 
 \end{DoxyCode}

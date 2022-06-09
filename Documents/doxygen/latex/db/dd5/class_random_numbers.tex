@@ -34,7 +34,7 @@ std\+::shared\+\_\+ptr$<$ GLfloat\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{class_
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_random_numbers_8h_source_l00009}{9}} of file \mbox{\hyperlink{_random_numbers_8h_source}{Random\+Numbers.\+h}}.
+Definition at line \mbox{\hyperlink{_random_numbers_8h_source_l00010}{10}} of file \mbox{\hyperlink{_random_numbers_8h_source}{Random\+Numbers.\+h}}.
 
 
 
@@ -47,11 +47,11 @@ Definition at line \mbox{\hyperlink{_random_numbers_8h_source_l00009}{9}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_random_numbers_8cpp_source}{Random\+Numbers.\+cpp}}.
+Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_random_numbers_8cpp_source}{Random\+Numbers.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00006                              \{}
 \DoxyCodeLine{00007   \mbox{\hyperlink{class_random_numbers_aa2bed0794baa45d0f80b6a0ea4c4abc4}{generate\_random\_numbers}}();}
 \DoxyCodeLine{00008 }
 \DoxyCodeLine{00009   glGenTextures(1, \&\mbox{\hyperlink{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}{random\_number\_id}});}
@@ -61,10 +61,11 @@ Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00005}{5}} of f
 \DoxyCodeLine{00013   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
 \DoxyCodeLine{00014   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
 \DoxyCodeLine{00015   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00016   \textcolor{comment}{//assuming full HD will be maximum resolution}}
-\DoxyCodeLine{00017   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}}, \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}}, 0, GL\_RGBA, GL\_FLOAT, \mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get());}
-\DoxyCodeLine{00018   glBindTexture(GL\_TEXTURE\_2D, 0);}
-\DoxyCodeLine{00019 \}}
+\DoxyCodeLine{00016   \textcolor{comment}{// assuming full HD will be maximum resolution}}
+\DoxyCodeLine{00017   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}}, \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}},}
+\DoxyCodeLine{00018                0, GL\_RGBA, GL\_FLOAT, \mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get());}
+\DoxyCodeLine{00019   glBindTexture(GL\_TEXTURE\_2D, 0);}
+\DoxyCodeLine{00020 \}}
 
 \end{DoxyCode}
 
@@ -81,11 +82,11 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_random_numbers_8cpp_source}{Random\+Numbers.\+cpp}}.
+Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_random_numbers_8cpp_source}{Random\+Numbers.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00050 \{ glDeleteTextures(1, \&\mbox{\hyperlink{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}{random\_number\_id}}); \}}
+\DoxyCodeLine{00048 \{ glDeleteTextures(1, \&\mbox{\hyperlink{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}{random\_number\_id}}); \}}
 
 \end{DoxyCode}
 
@@ -107,27 +108,26 @@ Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00027}{27}} of 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00028 \{}
-\DoxyCodeLine{00029 }
-\DoxyCodeLine{00030   \mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}} = std::shared\_ptr<GLfloat[]>(\textcolor{keyword}{new} GLfloat[\mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}} * \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}} * 4]);}
-\DoxyCodeLine{00031   std::mt19937\_64 gen64(25121995);}
-\DoxyCodeLine{00032   std::uniform\_real\_distribution<float> dis(0, 1);}
-\DoxyCodeLine{00033 }
-\DoxyCodeLine{00034   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}}; i++) \{}
-\DoxyCodeLine{00035 }
-\DoxyCodeLine{00036     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}}; k++) \{}
+\DoxyCodeLine{00027                                             \{}
+\DoxyCodeLine{00028   \mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}} = std::shared\_ptr<GLfloat[]>(}
+\DoxyCodeLine{00029       \textcolor{keyword}{new} GLfloat[\mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}} * \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}} * 4]);}
+\DoxyCodeLine{00030   std::mt19937\_64 gen64(25121995);}
+\DoxyCodeLine{00031   std::uniform\_real\_distribution<float> dis(0, 1);}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}}; i++) \{}
+\DoxyCodeLine{00034     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}}; k++) \{}
+\DoxyCodeLine{00035       \textcolor{keyword}{const} GLfloat random\_offset[4] = \{dis(gen64), dis(gen64), dis(gen64),}
+\DoxyCodeLine{00036                                         dis(gen64)\};}
 \DoxyCodeLine{00037 }
-\DoxyCodeLine{00038       \textcolor{keyword}{const} GLfloat random\_offset[4] = \{ dis(gen64), dis(gen64), dis(gen64), dis(gen64) \};}
+\DoxyCodeLine{00038       GLuint index = (\mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}} * i + k) * 4;}
 \DoxyCodeLine{00039 }
-\DoxyCodeLine{00040       GLuint index = (\mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}} * i + k) * 4;}
-\DoxyCodeLine{00041 }
-\DoxyCodeLine{00042       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index) = random\_offset[0];}
-\DoxyCodeLine{00043       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 1) = random\_offset[1];}
-\DoxyCodeLine{00044       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 2) = random\_offset[2];}
-\DoxyCodeLine{00045       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 3) = random\_offset[3];}
-\DoxyCodeLine{00046     \}}
-\DoxyCodeLine{00047   \}}
-\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00040       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index) = random\_offset[0];}
+\DoxyCodeLine{00041       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 1) = random\_offset[1];}
+\DoxyCodeLine{00042       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 2) = random\_offset[2];}
+\DoxyCodeLine{00043       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 3) = random\_offset[3];}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045   \}}
+\DoxyCodeLine{00046 \}}
 
 \end{DoxyCode}
 
@@ -136,7 +136,7 @@ References \mbox{\hyperlink{_global_values_8h_source_l00005}{MAX\+\_\+\+RESOLUTI
 
 
 
-Referenced by \mbox{\hyperlink{_random_numbers_8cpp_source_l00005}{Random\+Numbers()}}.
+Referenced by \mbox{\hyperlink{_random_numbers_8cpp_source_l00006}{Random\+Numbers()}}.
 
 Here is the caller graph for this function\+:
 % FIG 2
@@ -148,11 +148,11 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_random_numbers_8cpp_source}{Random\+Numbers.\+cpp}}.
+Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_random_numbers_8cpp_source}{Random\+Numbers.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00022 \{}
+\DoxyCodeLine{00022                          \{}
 \DoxyCodeLine{00023   glActiveTexture(GL\_TEXTURE0 + (GLenum)\mbox{\hyperlink{bindings_8h_a05989250a93ec0f9dfe63bad8ae1d95c}{RANDOM\_NUMBERS\_SLOT}});}
 \DoxyCodeLine{00024   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}{random\_number\_id}});}
 \DoxyCodeLine{00025 \}}
@@ -160,7 +160,7 @@ Definition at line \mbox{\hyperlink{_random_numbers_8cpp_source_l00021}{21}} of 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_random_numbers_8h_source_l00019}{random\+\_\+number\+\_\+id}}, and \mbox{\hyperlink{bindings_8h_source_l00015}{RANDOM\+\_\+\+NUMBERS\+\_\+\+SLOT}}.
+References \mbox{\hyperlink{_random_numbers_8h_source_l00019}{random\+\_\+number\+\_\+id}}, and \mbox{\hyperlink{bindings_8h_source_l00016}{RANDOM\+\_\+\+NUMBERS\+\_\+\+SLOT}}.
 
 
 
@@ -177,7 +177,7 @@ Definition at line \mbox{\hyperlink{_random_numbers_8h_source_l00020}{20}} of fi
 
 
 
-Referenced by \mbox{\hyperlink{_random_numbers_8cpp_source_l00027}{generate\+\_\+random\+\_\+numbers()}}, and \mbox{\hyperlink{_random_numbers_8cpp_source_l00005}{Random\+Numbers()}}.
+Referenced by \mbox{\hyperlink{_random_numbers_8cpp_source_l00027}{generate\+\_\+random\+\_\+numbers()}}, and \mbox{\hyperlink{_random_numbers_8cpp_source_l00006}{Random\+Numbers()}}.
 
 \mbox{\Hypertarget{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}\label{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}} 
 \index{RandomNumbers@{RandomNumbers}!random\_number\_id@{random\_number\_id}}
@@ -191,7 +191,7 @@ Definition at line \mbox{\hyperlink{_random_numbers_8h_source_l00019}{19}} of fi
 
 
 
-Referenced by \mbox{\hyperlink{_random_numbers_8cpp_source_l00005}{Random\+Numbers()}}, \mbox{\hyperlink{_random_numbers_8cpp_source_l00021}{read()}}, and \mbox{\hyperlink{_random_numbers_8cpp_source_l00050}{$\sim$\+Random\+Numbers()}}.
+Referenced by \mbox{\hyperlink{_random_numbers_8cpp_source_l00006}{Random\+Numbers()}}, \mbox{\hyperlink{_random_numbers_8cpp_source_l00022}{read()}}, and \mbox{\hyperlink{_random_numbers_8cpp_source_l00048}{$\sim$\+Random\+Numbers()}}.
 
 
 
