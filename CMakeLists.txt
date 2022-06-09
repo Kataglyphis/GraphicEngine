@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
+# set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
 
 # set the project name
 project(GraphicsEngine VERSION 1.9
@@ -10,10 +10,6 @@ project(GraphicsEngine VERSION 1.9
 # configure vulkan version
 set(OPENGL_VERSION_MAJOR 4)
 set(OPENGL_VERSION_MINOR 6)
-
-# we are using this dir strings for removing hard coded file locations
-# at c++ side
-configure_file(OpenGLRendererConfig.h.in "${CMAKE_CURRENT_SOURCE_DIR}/Src/renderer/OpenGLRendererConfig.h")
 
 # specify the C/C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -109,7 +105,7 @@ FetchContent_Declare(GSL
 FetchContent_MakeAvailable(GSL)
 
 # for removing dirty file directories in the cpp-code
-add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
+# add_compile_definitions(CMAKELISTS_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
 
 # control where the static and shared libraries are built so that on windows
 # we don't need to tinker with the path to run the executable
@@ -583,14 +579,21 @@ add_custom_target(${COMPILE_TEST_SUITE}_Runner
 add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
 
 # for correct library output needed
-if(UNIX)
-install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-else()
-install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
-endif()
+# if(UNIX)
+# install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+# else()
+install(TARGETS ${PROJECT_NAME}
+        CONFIGURATIONS Release
+        RUNTIME DESTINATION bin)
+
+#endif()
 
 set(CMAKE_INSTALL_DATADIR Resources/)
 install(DIRECTORY Resources/ DESTINATION ${CMAKE_INSTALL_DATADIR})
+
+# we are using this dir strings for removing hard coded file locations
+# at c++ side
+configure_file(OpenGLRendererConfig.h.in "${CMAKE_CURRENT_SOURCE_DIR}/Src/renderer/OpenGLRendererConfig.h")
 
 include(InstallRequiredSystemLibraries)
 

@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"d4/d44/class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd":[1,0,32,1],
 "d4/d51/_geometry_pass_8h.html":[2,0,0,5,0,3],
 "d4/d51/_geometry_pass_8h_source.html":[2,0,0,5,0,3],
 "d4/d65/_lighting_pass_shader_program_8cpp.html":[2,0,0,5,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "d9/d8e/class_cascaded_shadow_map.html#ad0ac597461aef9fe593b886258d58469":[1,0,3,8],
 "d9/d8e/class_cascaded_shadow_map.html#ad5b48b63a512bc4b0b964a47afe8664d":[1,0,3,16],
 "d9/d8e/class_cascaded_shadow_map.html#add2ea1de1e03efb5dc17718ce88e2830":[1,0,3,15],
-"d9/d8e/class_cascaded_shadow_map.html#af76bbb279ee89b4a1701937115a545f5":[1,0,3,14],
-"d9/d8e/class_cascaded_shadow_map.html#af76c57bc305ee76aee62272adbd23a51":[1,0,3,0]
+"d9/d8e/class_cascaded_shadow_map.html#af76bbb279ee89b4a1701937115a545f5":[1,0,3,14]
 };

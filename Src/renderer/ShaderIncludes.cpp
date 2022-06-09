@@ -1,4 +1,5 @@
 #include "ShaderIncludes.h"
+#include "OpenGLRendererConfig.h"
 
 #include <stdio.h>
 #include <string.h>

@@ -3,12 +3,13 @@
 #ifndef RENDERER_CONFIG_GUARD
 #define RENDERER_CONFIG_GUARD
 
-#define VulkanRenderer_VERSION_MAJOR "1"
-#define VulkanRenderer_VERSION_MINOR "9"
+#define OpenGLRenderer_VERSION_MAJOR "1"
+#define OpenGLRenderer_VERSION_MINOR "9"
 
 #define OPENGL_VERSION_MAJOR "4"
 #define OPENGL_VERSION_MINOR "6"
 
-#define CMAKELISTS_DIR "C:/Program Files (x86)/GraphicsEngine"
+#define CMAKELISTS_DIR "C:/Program Files (x86)/GraphicsEngine/Resources/"
+#define RESOURCE_PATH "C:/Users/jonas/Desktop/GraphicEngine"
 
 #endif

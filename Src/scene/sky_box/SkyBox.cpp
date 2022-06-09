@@ -3,6 +3,8 @@
 #include <array>
 #include <sstream>
 
+#include "OpenGLRendererConfig.h"
+
 SkyBox::SkyBox() {
   std::stringstream skybox_base_dir;
   skybox_base_dir << CMAKELISTS_DIR;

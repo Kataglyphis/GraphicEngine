@@ -1,5 +1,6 @@
 #include "Scene.h"
 
+#include "OpenGLRendererConfig.h"
 #include <sstream>
 
 Scene::Scene()

@@ -7284,6 +7284,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>RESOURCE_PATH</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+    <Anchor>afc1cfb5a0bf2af2664cccd67d53aa0b8</Anchor>
+    <DeclaredIn>OpenGLRendererConfig.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>SKYBOX_MATERIAL_ID</Name>
       <APILanguage>c</APILanguage>
       <Type>data</Type>

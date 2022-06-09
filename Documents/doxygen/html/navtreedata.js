@@ -54,9 +54,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d51/_geometry_pass_8h.html",
-"d9/d8e/class_cascaded_shadow_map.html#af78fe0f5d8beb6b8e25f5c2a8f8f139a",
-"dc/db4/_app_8cpp.html"
+"d4/d44/class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd",
+"d9/d8e/class_cascaded_shadow_map.html#af76c57bc305ee76aee62272adbd23a51",
+"dc/d9d/_cascaded_shadow_map_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

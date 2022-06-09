@@ -3,6 +3,7 @@
 #include <sstream>
 
 #include "File.h"
+#include "OpenGLRendererConfig.h"
 
 ShaderProgram::ShaderProgram()
     :

@@ -1,4 +1,5 @@
 #include "GUI.h"
+#include "OpenGLRendererConfig.h"
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>

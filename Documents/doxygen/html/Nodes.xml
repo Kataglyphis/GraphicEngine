@@ -4709,6 +4709,11 @@
                   <Anchor>a6845a5c7db4a30ada21a2ec30fe3dc80</Anchor>
                  </Node>
                  <Node>
+                  <Name>RESOURCE_PATH</Name>
+                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
+                  <Anchor>afc1cfb5a0bf2af2664cccd67d53aa0b8</Anchor>
+                 </Node>
+                 <Node>
                   <Name>VulkanRenderer_VERSION_MAJOR</Name>
                   <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
                   <Anchor>a04547974aab6616742b970a38eb6999c</Anchor>
