@@ -76,7 +76,7 @@ int main() {
 //      assert(freopen("errorLog.txt", "w", stdout));
 //      assert(freopen("errorLog.txt", "w", stderr));
 //#endif
-  std::cout << "Current path is " << std::filesystem::current_path() << '\n';  // (1)
+
   while (!main_window->get_should_close()) {
     glViewport(0, 0, window_width, window_height);
 

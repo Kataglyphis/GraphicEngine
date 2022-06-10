@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
 
-# set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
-
 # set the project name
 project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
@@ -17,8 +15,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
-
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
 # add compile flags; as restrictive as possible
 # for windows
@@ -577,25 +573,20 @@ target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
 target_link_libraries(${COMPILE_TEST_SUITE}      PRIVATE GSL)
 
 include(GoogleTest)
-gtest_discover_tests(   ${COMMIT_TEST_SUITE} ${COMPILE_TEST_SUITE})# ${CMAKE_CURRENT_SOURCE_DIR}/Tests
-
+gtest_discover_tests(   ${COMMIT_TEST_SUITE})# ${CMAKE_CURRENT_SOURCE_DIR}/Tests
+gtest_discover_tests(   ${COMPILE_TEST_SUITE})
 # add test after each build
 # src: https://quickturnstudio.com/running-test-in-compile-time/
-# add_custom_target(${COMPILE_TEST_SUITE}_Runner
-#                   COMMAND ${COMPILE_TEST_SUITE}
-#                   COMMENT "Running tests after each compilation.")
+add_custom_target(${COMPILE_TEST_SUITE}_Runner
+                  COMMAND ${COMPILE_TEST_SUITE}
+                  COMMENT "Running tests after each compilation.")
 
-# add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
+add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
 
 # for correct library output needed
-# if(UNIX)
-# install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-# else()
 install(TARGETS ${PROJECT_NAME}
         CONFIGURATIONS Release
         RUNTIME DESTINATION bin)
-
-#endif()
 
 install(DIRECTORY Resources/ DESTINATION Resources/)
 

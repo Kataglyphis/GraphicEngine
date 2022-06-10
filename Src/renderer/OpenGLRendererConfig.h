@@ -9,6 +9,6 @@
 #define OPENGL_VERSION_MAJOR "4"
 #define OPENGL_VERSION_MINOR "6"
 
-#define RELATIVE_RESOURCE_PATH "/../../Resources/"
+#define RELATIVE_RESOURCE_PATH "/../Resources/"
 
 #endif
