@@ -7,5 +7,5 @@ digraph "ShaderIncludes"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{ShaderIncludes\n||+  ShaderIncludes()\l+  ~ShaderIncludes()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -file_locations_relative\n-includeNames" ,arrowhead="odiamond"];
-  Node2 [label="{vector\< const char * \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{vector\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

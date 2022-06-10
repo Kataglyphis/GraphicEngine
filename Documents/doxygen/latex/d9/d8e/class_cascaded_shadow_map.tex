@@ -6,8 +6,13 @@
 
 
 
-Collaboration diagram for Cascaded\+Shadow\+Map\+:
-% FIG 0
+Collaboration diagram for Cascaded\+Shadow\+Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{dc/d5c/class_cascaded_shadow_map__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -80,18 +85,18 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00007}{7}}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00008     :}
-\DoxyCodeLine{00009 }
-\DoxyCodeLine{00010       \mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}}(0),}
-\DoxyCodeLine{00011       \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}(0),}
-\DoxyCodeLine{00012       \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}}(0),}
-\DoxyCodeLine{00013       \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}(0),}
-\DoxyCodeLine{00014       \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}}(0),}
-\DoxyCodeLine{00015       \mbox{\hyperlink{class_cascaded_shadow_map_a195d5c7c19b6f32b4372153ad3edad3c}{num\_active\_cascades}}(0),}
-\DoxyCodeLine{00016       \mbox{\hyperlink{class_cascaded_shadow_map_a9ef8c9dec3258244a8beb62ce968f59f}{pcf\_radius}}(1),}
-\DoxyCodeLine{00017       \mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}}(1)}
-\DoxyCodeLine{00018 }
-\DoxyCodeLine{00019 \{\}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00008}00008     :}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00010}00010       \mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}}(0),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00011}00011       \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}(0),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00012}00012       \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}}(0),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00013}00013       \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}(0),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00014}00014       \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}}(0),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00015}00015       \mbox{\hyperlink{class_cascaded_shadow_map_a195d5c7c19b6f32b4372153ad3edad3c}{num\_active\_cascades}}(0),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00016}00016       \mbox{\hyperlink{class_cascaded_shadow_map_a9ef8c9dec3258244a8beb62ce968f59f}{pcf\_radius}}(1),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00017}00017       \mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}}(1)}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00019}00019 \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_cascaded_shadow_map_a376f28a8ba00e2ed190c6d512a3bab56}\label{class_cascaded_shadow_map_a376f28a8ba00e2ed190c6d512a3bab56}} 
@@ -106,15 +111,15 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00091}{91}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00091                                       \{}
-\DoxyCodeLine{00092   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}}) \{}
-\DoxyCodeLine{00093     glDeleteFramebuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}});}
-\DoxyCodeLine{00094   \}}
-\DoxyCodeLine{00095 }
-\DoxyCodeLine{00096   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}) \{}
-\DoxyCodeLine{00097     glDeleteTextures(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
-\DoxyCodeLine{00098   \}}
-\DoxyCodeLine{00099 \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00091}00091                                       \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00092}00092   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}}) \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00093}00093     glDeleteFramebuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00094}00094   \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00096}00096   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}) \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00097}00097     glDeleteTextures(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00098}00098   \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00099}00099 \}}
 
 \end{DoxyCode}
 
@@ -136,7 +141,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00029}{29}} 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00029 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}; \};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00029}00029 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}; \};}
 
 \end{DoxyCode}
 
@@ -155,7 +160,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00026}{26}} 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00026 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}}; \};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00026}00026 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}}; \};}
 
 \end{DoxyCode}
 
@@ -174,7 +179,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00030}{30}} 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00030 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a195d5c7c19b6f32b4372153ad3edad3c}{num\_active\_cascades}}; \};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00030}00030 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a195d5c7c19b6f32b4372153ad3edad3c}{num\_active\_cascades}}; \};}
 
 \end{DoxyCode}
 
@@ -193,7 +198,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00031}{31}} 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00031 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a9ef8c9dec3258244a8beb62ce968f59f}{pcf\_radius}}; \};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00031}00031 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a9ef8c9dec3258244a8beb62ce968f59f}{pcf\_radius}}; \};}
 
 \end{DoxyCode}
 
@@ -212,7 +217,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00028}{28}} 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00028 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}; \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00028}00028 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}; \}}
 
 \end{DoxyCode}
 
@@ -231,7 +236,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00027}{27}} 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00027 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}}; \};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00027}00027 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}}; \};}
 
 \end{DoxyCode}
 
@@ -250,57 +255,57 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00021}{21}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00021                                                                              \{}
-\DoxyCodeLine{00022   \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}} = width;}
-\DoxyCodeLine{00023   \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}} = height;}
-\DoxyCodeLine{00024 }
-\DoxyCodeLine{00025   \mbox{\hyperlink{class_cascaded_shadow_map_a195d5c7c19b6f32b4372153ad3edad3c}{num\_active\_cascades}} = num\_cascades;}
-\DoxyCodeLine{00026 }
-\DoxyCodeLine{00027   glGenFramebuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}});}
-\DoxyCodeLine{00028   glGenTextures(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
-\DoxyCodeLine{00029   glBindTexture(GL\_TEXTURE\_2D\_ARRAY, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
-\DoxyCodeLine{00030   glTexImage3D(GL\_TEXTURE\_2D\_ARRAY, 0, GL\_DEPTH\_COMPONENT32F, \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}},}
-\DoxyCodeLine{00031                \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}, \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT,}
-\DoxyCodeLine{00032                \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00033 }
-\DoxyCodeLine{00034   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00035   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00036   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_BORDER);}
-\DoxyCodeLine{00037   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_BORDER);}
-\DoxyCodeLine{00038 }
-\DoxyCodeLine{00039   \textcolor{keyword}{constexpr} \textcolor{keywordtype}{float} bordercolor[] = \{1.0f, 1.0f, 1.0f, 1.0f\};}
-\DoxyCodeLine{00040   glTexParameterfv(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_BORDER\_COLOR, bordercolor);}
-\DoxyCodeLine{00041 }
-\DoxyCodeLine{00042   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}});}
-\DoxyCodeLine{00043   glFramebufferTexture(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}, 0);}
-\DoxyCodeLine{00044   glDrawBuffer(GL\_NONE);}
-\DoxyCodeLine{00045   glReadBuffer(GL\_NONE);}
-\DoxyCodeLine{00046 }
-\DoxyCodeLine{00047   \textcolor{keywordtype}{int} status = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
-\DoxyCodeLine{00048   \textcolor{keywordflow}{if} (status != GL\_FRAMEBUFFER\_COMPLETE) \{}
-\DoxyCodeLine{00049     std::cout << \textcolor{stringliteral}{"{}ERROR::FRAMEBUFFER:: Framebuffer is not complete!"{}};}
-\DoxyCodeLine{00050     \textcolor{keywordflow}{throw} 0;}
-\DoxyCodeLine{00051   \}}
-\DoxyCodeLine{00052 }
-\DoxyCodeLine{00053   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
-\DoxyCodeLine{00054 }
-\DoxyCodeLine{00055   \textcolor{comment}{// setting up our buffer for the light matrics}}
-\DoxyCodeLine{00056   \textcolor{comment}{// for every cascade we will have 1 matrix in the geometry shader}}
-\DoxyCodeLine{00057   glGenBuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
-\DoxyCodeLine{00058   glBindBuffer(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
-\DoxyCodeLine{00059   glBufferData(GL\_UNIFORM\_BUFFER, \textcolor{keyword}{sizeof}(glm::mat4) * \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, \textcolor{keyword}{nullptr},}
-\DoxyCodeLine{00060                GL\_DYNAMIC\_DRAW);}
-\DoxyCodeLine{00061   glBindBufferBase(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{bindings_8h_a6cffb6c61d3a48bb1b5b5afe62b6331d}{UNIFORM\_LIGHT\_MATRICES\_BINDING}},}
-\DoxyCodeLine{00062                    \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
-\DoxyCodeLine{00063   glBindBuffer(GL\_UNIFORM\_BUFFER, 0);}
-\DoxyCodeLine{00064 }
-\DoxyCodeLine{00065   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{00066 \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00021}00021                                                                              \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00022}00022   \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}} = width;}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00023}00023   \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}} = height;}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00025}00025   \mbox{\hyperlink{class_cascaded_shadow_map_a195d5c7c19b6f32b4372153ad3edad3c}{num\_active\_cascades}} = num\_cascades;}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00027}00027   glGenFramebuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00028}00028   glGenTextures(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00029}00029   glBindTexture(GL\_TEXTURE\_2D\_ARRAY, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00030}00030   glTexImage3D(GL\_TEXTURE\_2D\_ARRAY, 0, GL\_DEPTH\_COMPONENT32F, \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}},}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00031}00031                \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}, NUM\_CASCADES, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT,}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00032}00032                \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00034}00034   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00035}00035   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00036}00036   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_BORDER);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00037}00037   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_BORDER);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00039}00039   \textcolor{keyword}{constexpr} \textcolor{keywordtype}{float} bordercolor[] = \{1.0f, 1.0f, 1.0f, 1.0f\};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00040}00040   glTexParameterfv(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_BORDER\_COLOR, bordercolor);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00042}00042   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00043}00043   glFramebufferTexture(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}}, 0);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00044}00044   glDrawBuffer(GL\_NONE);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00045}00045   glReadBuffer(GL\_NONE);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00047}00047   \textcolor{keywordtype}{int} status = glCheckFramebufferStatus(GL\_FRAMEBUFFER);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00048}00048   \textcolor{keywordflow}{if} (status != GL\_FRAMEBUFFER\_COMPLETE) \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00049}00049     std::cout << \textcolor{stringliteral}{"{}ERROR::FRAMEBUFFER:: Framebuffer is not complete!"{}};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00050}00050     \textcolor{keywordflow}{throw} 0;}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00051}00051   \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00053}00053   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00055}00055   \textcolor{comment}{// setting up our buffer for the light matrics}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00056}00056   \textcolor{comment}{// for every cascade we will have 1 matrix in the geometry shader}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00057}00057   glGenBuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00058}00058   glBindBuffer(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00059}00059   glBufferData(GL\_UNIFORM\_BUFFER, \textcolor{keyword}{sizeof}(glm::mat4) * NUM\_CASCADES, \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00060}00060                GL\_DYNAMIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00061}00061   glBindBufferBase(GL\_UNIFORM\_BUFFER, UNIFORM\_LIGHT\_MATRICES\_BINDING,}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00062}00062                    \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00063}00063   glBindBuffer(GL\_UNIFORM\_BUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00065}00065   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00066}00066 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00036}{FBO}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00040}{matrices\+\_\+\+UBO}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00042}{num\+\_\+active\+\_\+cascades}}, \mbox{\hyperlink{host__device__shared_8h_source_l00005}{NUM\+\_\+\+CASCADES}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00038}{shadow\+\_\+height}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00036}{shadow\+\_\+maps}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00038}{shadow\+\_\+width}}, and \mbox{\hyperlink{bindings_8h_source_l00024}{UNIFORM\+\_\+\+LIGHT\+\_\+\+MATRICES\+\_\+\+BINDING}}.
+References \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00036}{FBO}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00040}{matrices\+\_\+\+UBO}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00042}{num\+\_\+active\+\_\+cascades}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00038}{shadow\+\_\+height}}, \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00036}{shadow\+\_\+maps}}, and \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00038}{shadow\+\_\+width}}.
 
 \mbox{\Hypertarget{class_cascaded_shadow_map_aca9bdec07fbebfd7c7fd362f6806620e}\label{class_cascaded_shadow_map_aca9bdec07fbebfd7c7fd362f6806620e}} 
 \index{CascadedShadowMap@{CascadedShadowMap}!read@{read}}
@@ -314,10 +319,10 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00080}{80}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00080                                                 \{}
-\DoxyCodeLine{00081   glActiveTexture(GL\_TEXTURE0 + texture\_unit);}
-\DoxyCodeLine{00082   glBindTexture(GL\_TEXTURE\_2D\_ARRAY, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
-\DoxyCodeLine{00083 \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00080}00080                                                 \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00081}00081   glActiveTexture(GL\_TEXTURE0 + texture\_unit);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00082}00082   glBindTexture(GL\_TEXTURE\_2D\_ARRAY, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00083}00083 \}}
 
 \end{DoxyCode}
 
@@ -336,9 +341,9 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00087}{87}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00087                                                        \{}
-\DoxyCodeLine{00088   this-\/>\mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}} = \mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}};}
-\DoxyCodeLine{00089 \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00087}00087                                                        \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00088}00088   this-\/>\mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}} = \mbox{\hyperlink{class_cascaded_shadow_map_add2ea1de1e03efb5dc17718ce88e2830}{intensity}};}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00089}00089 \}}
 
 \end{DoxyCode}
 
@@ -357,7 +362,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00085}{85}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00085 \{ \mbox{\hyperlink{class_cascaded_shadow_map_a9ef8c9dec3258244a8beb62ce968f59f}{pcf\_radius}} = radius; \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00085}00085 \{ \mbox{\hyperlink{class_cascaded_shadow_map_a9ef8c9dec3258244a8beb62ce968f59f}{pcf\_radius}} = radius; \}}
 
 \end{DoxyCode}
 
@@ -376,7 +381,7 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00078}{78}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00078 \{ glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}}); \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00078}00078 \{ glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_af76bbb279ee89b4a1701937115a545f5}{FBO}}); \}}
 
 \end{DoxyCode}
 
@@ -395,14 +400,14 @@ Definition at line \mbox{\hyperlink{_cascaded_shadow_map_8cpp_source_l00068}{68}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00069                                          \{}
-\DoxyCodeLine{00070   glBindBuffer(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
-\DoxyCodeLine{00071   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < lightMatrices.size(); ++i) \{}
-\DoxyCodeLine{00072     glBufferSubData(GL\_UNIFORM\_BUFFER, i * \textcolor{keyword}{sizeof}(glm::mat4x4),}
-\DoxyCodeLine{00073                     \textcolor{keyword}{sizeof}(glm::mat4x4), \&lightMatrices[i]);}
-\DoxyCodeLine{00074   \}}
-\DoxyCodeLine{00075   glBindBuffer(GL\_UNIFORM\_BUFFER, 0);}
-\DoxyCodeLine{00076 \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00069}00069                                          \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00070}00070   glBindBuffer(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00071}00071   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < lightMatrices.size(); ++i) \{}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00072}00072     glBufferSubData(GL\_UNIFORM\_BUFFER, i * \textcolor{keyword}{sizeof}(glm::mat4x4),}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00073}00073                     \textcolor{keyword}{sizeof}(glm::mat4x4), \&lightMatrices[i]);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00074}00074   \}}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00075}00075   glBindBuffer(GL\_UNIFORM\_BUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{class_cascaded_shadow_map_l00076}00076 \}}
 
 \end{DoxyCode}
 
@@ -528,5 +533,5 @@ Referenced by \mbox{\hyperlink{_cascaded_shadow_map_8h_source_l00027}{get\+\_\+s
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/directional\+\_\+light/\mbox{\hyperlink{_cascaded_shadow_map_8h}{Cascaded\+Shadow\+Map.\+h}}\item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/directional\+\_\+light/\mbox{\hyperlink{_cascaded_shadow_map_8cpp}{Cascaded\+Shadow\+Map.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/directional\+\_\+light/\mbox{\hyperlink{_cascaded_shadow_map_8h}{Cascaded\+Shadow\+Map.\+h}}\item 
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/directional\+\_\+light/\mbox{\hyperlink{_cascaded_shadow_map_8cpp}{Cascaded\+Shadow\+Map.\+cpp}}\end{DoxyCompactItemize}

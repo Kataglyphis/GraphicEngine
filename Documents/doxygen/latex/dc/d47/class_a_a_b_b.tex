@@ -6,8 +6,13 @@
 
 
 
-Collaboration diagram for AABB\+:
-% FIG 0
+Collaboration diagram for AABB\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{d4/d66/class_a_a_b_b__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -68,7 +73,7 @@ Definition at line \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00005}{5}} of file \mb
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00005 \{\}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00005}00005 \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_a_a_b_b_afd5f4956a2043597167ff66821f7b223}\label{class_a_a_b_b_afd5f4956a2043597167ff66821f7b223}} 
@@ -83,7 +88,7 @@ Definition at line \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00092}{92}} of file \m
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00092 \{\}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00092}00092 \{\}}
 
 \end{DoxyCode}
 
@@ -101,15 +106,15 @@ Definition at line \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00007}{7}} of file \mb
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00007                                                   \{}
-\DoxyCodeLine{00008   std::vector<glm::vec3> corners\_world\_space;}
-\DoxyCodeLine{00009 }
-\DoxyCodeLine{00010   \textcolor{keywordflow}{for} (glm::vec3 corner : \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}) \{}
-\DoxyCodeLine{00011     corners\_world\_space.push\_back(glm::vec3(model * glm::vec4(corner, 1.0f)));}
-\DoxyCodeLine{00012   \}}
-\DoxyCodeLine{00013 }
-\DoxyCodeLine{00014   \textcolor{keywordflow}{return} corners\_world\_space;}
-\DoxyCodeLine{00015 \}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00007}00007                                                   \{}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00008}00008   std::vector<glm::vec3> corners\_world\_space;}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00010}00010   \textcolor{keywordflow}{for} (glm::vec3 corner : \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}) \{}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00011}00011     corners\_world\_space.push\_back(glm::vec3(model * glm::vec4(corner, 1.0f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00012}00012   \}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00014}00014   \textcolor{keywordflow}{return} corners\_world\_space;}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00015}00015 \}}
 
 \end{DoxyCode}
 
@@ -128,10 +133,10 @@ Definition at line \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00085}{85}} of file \m
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00085                          \{}
-\DoxyCodeLine{00086   \textcolor{keywordflow}{return} glm::vec3(std::abs(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}} -\/ \mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}), std::abs(\mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}} -\/ \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}),}
-\DoxyCodeLine{00087                    std::abs(\mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}} -\/ \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
-\DoxyCodeLine{00088 \}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00085}00085                          \{}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00086}00086   \textcolor{keywordflow}{return} glm::vec3(std::abs(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}} -\/ \mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}), std::abs(\mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}} -\/ \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00087}00087                    std::abs(\mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}} -\/ \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00088}00088 \}}
 
 \end{DoxyCode}
 
@@ -150,72 +155,72 @@ Definition at line \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00017}{17}} of file \m
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00018                                             \{}
-\DoxyCodeLine{00019   this-\/>\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}} = \mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}};}
-\DoxyCodeLine{00020   this-\/>\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}} = \mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}};}
-\DoxyCodeLine{00021   this-\/>\mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}} = \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}};}
-\DoxyCodeLine{00022   this-\/>\mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}} = \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}};}
-\DoxyCodeLine{00023   this-\/>\mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}} = \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}};}
-\DoxyCodeLine{00024   this-\/>\mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}} = \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}};}
-\DoxyCodeLine{00025 }
-\DoxyCodeLine{00026   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
-\DoxyCodeLine{00027   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
-\DoxyCodeLine{00028   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
-\DoxyCodeLine{00029   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
-\DoxyCodeLine{00030   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
-\DoxyCodeLine{00031   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
-\DoxyCodeLine{00032   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
-\DoxyCodeLine{00033   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
-\DoxyCodeLine{00034 }
-\DoxyCodeLine{00035   \textcolor{comment}{// 0: left  bottom  front}}
-\DoxyCodeLine{00036   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00037                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00038   \textcolor{comment}{// 1: right bottom  front}}
-\DoxyCodeLine{00039   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00040                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00041   \textcolor{comment}{// 2: left  top     front}}
-\DoxyCodeLine{00042   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00043                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00044   \textcolor{comment}{// 3: right top     front}}
-\DoxyCodeLine{00045   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00046                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00047   \textcolor{comment}{// 4: left  bottom  far}}
-\DoxyCodeLine{00048   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00049                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00050   \textcolor{comment}{// 5: right bottom  far}}
-\DoxyCodeLine{00051   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00052                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00053   \textcolor{comment}{// 6: left  top     far}}
-\DoxyCodeLine{00054   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00055                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00056   \textcolor{comment}{// 7: right top     far}}
-\DoxyCodeLine{00057   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
-\DoxyCodeLine{00058                             glm::vec3(0.f), glm::vec2(0.f)));}
-\DoxyCodeLine{00059 }
-\DoxyCodeLine{00060   \mbox{\hyperlink{class_a_a_b_b_a3147da33a08a777bb3a4a4cd5c7c5ba3}{indices}} = \{\textcolor{comment}{// note that we start from 0!}}
-\DoxyCodeLine{00061 }
-\DoxyCodeLine{00062              \textcolor{comment}{// left}}
-\DoxyCodeLine{00063              4, 2, 6, 4, 0, 2,}
-\DoxyCodeLine{00064 }
-\DoxyCodeLine{00065              \textcolor{comment}{// right}}
-\DoxyCodeLine{00066              3, 5, 7, 5, 3, 1,}
-\DoxyCodeLine{00067 }
-\DoxyCodeLine{00068              \textcolor{comment}{// top}}
-\DoxyCodeLine{00069              2, 3, 6, 6, 3, 7,}
-\DoxyCodeLine{00070 }
-\DoxyCodeLine{00071              \textcolor{comment}{// bottom}}
-\DoxyCodeLine{00072              4, 1, 0, 5, 1, 4,}
-\DoxyCodeLine{00073 }
-\DoxyCodeLine{00074              \textcolor{comment}{// back}}
-\DoxyCodeLine{00075              7, 4, 6, 5, 4, 7,}
-\DoxyCodeLine{00076 }
-\DoxyCodeLine{00077              \textcolor{comment}{// front}}
-\DoxyCodeLine{00078              0, 3, 2, 0, 1, 3}
-\DoxyCodeLine{00079 }
-\DoxyCodeLine{00080   \};}
-\DoxyCodeLine{00081 }
-\DoxyCodeLine{00082   \mbox{\hyperlink{class_a_a_b_b_a5b043619eabfdc39a7920b94e2f2ee0f}{mesh}} = std::make\_shared<Mesh>(\mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}, \mbox{\hyperlink{class_a_a_b_b_a3147da33a08a777bb3a4a4cd5c7c5ba3}{indices}});}
-\DoxyCodeLine{00083 \}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00018}00018                                             \{}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00019}00019   this-\/>\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}} = \mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00020}00020   this-\/>\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}} = \mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00021}00021   this-\/>\mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}} = \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00022}00022   this-\/>\mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}} = \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00023}00023   this-\/>\mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}} = \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00024}00024   this-\/>\mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}} = \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00026}00026   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00027}00027   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00028}00028   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00029}00029   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00030}00030   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00031}00031   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00032}00032   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00033}00033   \mbox{\hyperlink{class_a_a_b_b_a8893cce18831956016e4309b06e417ae}{corners}}.push\_back(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00035}00035   \textcolor{comment}{// 0: left  bottom  front}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00036}00036   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00037}00037                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00038}00038   \textcolor{comment}{// 1: right bottom  front}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00039}00039   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00040}00040                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00041}00041   \textcolor{comment}{// 2: left  top     front}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00042}00042   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00043}00043                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00044}00044   \textcolor{comment}{// 3: right top     front}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00045}00045   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a85761abf193c532aecabbc6790000d93}{maxZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00046}00046                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00047}00047   \textcolor{comment}{// 4: left  bottom  far}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00048}00048   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00049}00049                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00050}00050   \textcolor{comment}{// 5: right bottom  far}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00051}00051   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a0c05814dabcd0b2b4a09a287e0abd2e6}{minY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00052}00052                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00053}00053   \textcolor{comment}{// 6: left  top     far}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00054}00054   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a90f7249300cbd52e5e8166607f03be4c}{minX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00055}00055                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00056}00056   \textcolor{comment}{// 7: right top     far}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00057}00057   \mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}.push\_back(\mbox{\hyperlink{struct_vertex}{Vertex}}(glm::vec3(\mbox{\hyperlink{class_a_a_b_b_a7c7c23c19c0cb7d3c8d6beed42f97b0e}{maxX}}, \mbox{\hyperlink{class_a_a_b_b_a8b044c50088da3aa2eaf9119b923237c}{maxY}}, \mbox{\hyperlink{class_a_a_b_b_a3e499715849fb04bb3c73dff6d3ad833}{minZ}}), glm::vec3(0.f),}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00058}00058                             glm::vec3(0.f), glm::vec2(0.f)));}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00060}00060   \mbox{\hyperlink{class_a_a_b_b_a3147da33a08a777bb3a4a4cd5c7c5ba3}{indices}} = \{\textcolor{comment}{// note that we start from 0!}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00062}00062              \textcolor{comment}{// left}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00063}00063              4, 2, 6, 4, 0, 2,}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00065}00065              \textcolor{comment}{// right}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00066}00066              3, 5, 7, 5, 3, 1,}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00068}00068              \textcolor{comment}{// top}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00069}00069              2, 3, 6, 6, 3, 7,}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00071}00071              \textcolor{comment}{// bottom}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00072}00072              4, 1, 0, 5, 1, 4,}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00074}00074              \textcolor{comment}{// back}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00075}00075              7, 4, 6, 5, 4, 7,}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00077}00077              \textcolor{comment}{// front}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00078}00078              0, 3, 2, 0, 1, 3}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00080}00080   \};}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00082}00082   \mbox{\hyperlink{class_a_a_b_b_a5b043619eabfdc39a7920b94e2f2ee0f}{mesh}} = std::make\_shared<Mesh>(\mbox{\hyperlink{class_a_a_b_b_a8c7cff92c976212a603d0694d4b85e16}{vertices}}, \mbox{\hyperlink{class_a_a_b_b_a3147da33a08a777bb3a4a4cd5c7c5ba3}{indices}});}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00083}00083 \}}
 
 \end{DoxyCode}
 
@@ -226,8 +231,13 @@ References \mbox{\hyperlink{_a_a_b_b_8h_source_l00035}{corners}}, \mbox{\hyperli
 
 Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00003}{Clouds\+::\+Clouds()}}.
 
-Here is the caller graph for this function\+:
-% FIG 1
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{dc/d47/class_a_a_b_b_ac889fe5a3a32175d57ddf45539e81231_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_a_a_b_b_a50cd5cfb2b3436d88225d00c57d18ce4}\label{class_a_a_b_b_a50cd5cfb2b3436d88225d00c57d18ce4}} 
 \index{AABB@{AABB}!render@{render}}
 \index{render@{render}!AABB@{AABB}}
@@ -240,7 +250,7 @@ Definition at line \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00090}{90}} of file \m
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00090 \{ \mbox{\hyperlink{class_a_a_b_b_a5b043619eabfdc39a7920b94e2f2ee0f}{mesh}}-\/>render(); \}}
+\DoxyCodeLine{\Hypertarget{class_a_a_b_b_l00090}00090 \{ \mbox{\hyperlink{class_a_a_b_b_a5b043619eabfdc39a7920b94e2f2ee0f}{mesh}}-\/>render(); \}}
 
 \end{DoxyCode}
 
@@ -251,8 +261,13 @@ References \mbox{\hyperlink{_a_a_b_b_8h_source_l00033}{mesh}}.
 
 Referenced by \mbox{\hyperlink{_clouds_8cpp_source_l00043}{Clouds\+::render()}}.
 
-Here is the caller graph for this function\+:
-% FIG 2
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{dc/d47/class_a_a_b_b_a50cd5cfb2b3436d88225d00c57d18ce4_icgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Field Documentation}
@@ -400,5 +415,5 @@ Referenced by \mbox{\hyperlink{_a_a_b_b_8cpp_source_l00017}{init()}}.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_a_a_b_b_8h}{AABB.\+h}}\item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_a_a_b_b_8cpp}{AABB.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_a_a_b_b_8h}{AABB.\+h}}\item 
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_a_a_b_b_8cpp}{AABB.\+cpp}}\end{DoxyCompactItemize}

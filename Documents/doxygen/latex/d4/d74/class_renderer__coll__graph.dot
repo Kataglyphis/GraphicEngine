@@ -7,21 +7,12 @@ digraph "Renderer"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Renderer\n||+  Renderer(GLuint window\l_width, GLuint window\l_height)\l+ void drawFrame(std\l::shared_ptr\< Camera\l \> main_camera, std::\lshared_ptr\< Scene \> scene,\l glm::mat4 projection_matrix,\l GLfloat delta_time)\l+ void update_window\l_params(GLuint window\l_width, GLuint window\l_height)\l+ void reload_shader\l_programs()\l+  ~Renderer()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -window_height\n-window_width" ,arrowhead="odiamond"];
-  Node2 [label="{GLuint\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
-  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -gbuffer" ,arrowhead="odiamond"];
-  Node3 [label="{shared_ptr\< GBuffer \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{GLuint\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -directional_shadow\l_map_pass\n-gbuffer\n-geometry_pass\n-lighting_pass\n-omni_shadow_map\l_pass" ,arrowhead="odiamond"];
+  Node3 [label="{shared_ptr\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -shader_includes" ,arrowhead="odiamond"];
   Node4 [label="{ShaderIncludes\n||+  ShaderIncludes()\l+  ~ShaderIncludes()\l}",height=0.2,width=0.4,color="black",URL="$de/d00/class_shader_includes.html",tooltip=" "];
   Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" -file_locations_relative\n-includeNames" ,arrowhead="odiamond"];
-  Node5 [label="{vector\< const char * \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
-  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -render_passes" ,arrowhead="odiamond"];
-  Node6 [label="{vector\< std::shared\l_ptr\< RenderPass \> \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
-  Node7 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -omni_shadow_map_pass" ,arrowhead="odiamond"];
-  Node7 [label="{shared_ptr\< OmniShadowMap\lPass \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
-  Node8 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -directional_shadow\l_map_pass" ,arrowhead="odiamond"];
-  Node8 [label="{shared_ptr\< DirectionalShadow\lMapPass \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
-  Node9 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -geometry_pass" ,arrowhead="odiamond"];
-  Node9 [label="{shared_ptr\< GeometryPass \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
-  Node10 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -lighting_pass" ,arrowhead="odiamond"];
-  Node10 [label="{shared_ptr\< LightingPass \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node5 [label="{vector\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -render_passes" ,arrowhead="odiamond"];
 }

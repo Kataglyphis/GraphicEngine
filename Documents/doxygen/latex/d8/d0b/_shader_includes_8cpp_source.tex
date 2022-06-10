@@ -1,44 +1,48 @@
 \hypertarget{_shader_includes_8cpp_source}{}\doxysection{Shader\+Includes.\+cpp}
-\label{_shader_includes_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.cpp}}
+\label{_shader_includes_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/renderer/ShaderIncludes.cpp}}
 \mbox{\hyperlink{_shader_includes_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_shader_includes_8h}{ShaderIncludes.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <string.h>}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00005}00005 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <array>}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <cassert>}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include <sstream>}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00009}00009 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_file_8h}{File.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_open_g_l_renderer_config_8h}{OpenGLRendererConfig.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00010}00010 \textcolor{preprocessor}{\#include <filesystem>}}
 \DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00012}00012 \textcolor{comment}{// this method is setting all files we want to use in a shader per \#include}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00013}00013 \textcolor{comment}{// you have to specify the name(how file appears in shader)}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00014}00014 \textcolor{comment}{// and its actual file location relatively}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00015}00015 \textcolor{comment}{// https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB\_shading\_language\_include.txt}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00016}\mbox{\hyperlink{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}{00016}} \mbox{\hyperlink{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}{ShaderIncludes::ShaderIncludes}}() \{}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00017}00017   assert(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size() == \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}}.size());}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00019}00019   std::vector<std::string> file\_locations\_abs;}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00020}00020   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size()); i++) \{}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00021}00021     std::stringstream aux;}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00022}00022     aux << \mbox{\hyperlink{_open_g_l_renderer_config_8h_a06f3f84c6add75aba385bb130c129978}{CMAKELISTS\_DIR}};}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00023}00023     aux << \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}}[i];}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00024}00024     file\_locations\_abs.push\_back(aux.str());}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00025}00025   \}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00027}00027   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size()); i++) \{}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00028}00028     \mbox{\hyperlink{class_file}{File}} file(file\_locations\_abs[i]);}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00029}00029     std::string file\_content = file.\mbox{\hyperlink{class_file_a45badf982efdf5f4b3a74053948e342e}{read}}();}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00030}00030     \textcolor{keywordtype}{char} tmpstr[200];}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00031}00031     snprintf(tmpstr, 200, \textcolor{stringliteral}{"{}/\%s"{}}, \mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}[i]);}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00032}00032     glNamedStringARB(GL\_SHADER\_INCLUDE\_ARB, \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(strlen(tmpstr)),}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00033}00033                      tmpstr, \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(strlen(file\_content.c\_str())),}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00034}00034                      file\_content.c\_str());}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00035}00035   \}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00036}00036 \}}
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00038}\mbox{\hyperlink{class_shader_includes_a39cde13eaaf507862593a575e6045a54}{00038}} \mbox{\hyperlink{class_shader_includes_a39cde13eaaf507862593a575e6045a54}{ShaderIncludes::\string~ShaderIncludes}}() \{\}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_file_8h}{File.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00014}00014 \textcolor{comment}{// this method is setting all files we want to use in a shader per \#include}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00015}00015 \textcolor{comment}{// you have to specify the name(how file appears in shader)}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00016}00016 \textcolor{comment}{// and its actual file location relatively}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00017}00017 \textcolor{comment}{// https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB\_shading\_language\_include.txt}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00018}\mbox{\hyperlink{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}{00018}} \mbox{\hyperlink{class_shader_includes_ad089d6eca53dd668cdd3b4403dc8ac27}{ShaderIncludes::ShaderIncludes}}() \{}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00019}00019   assert(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size() == \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}}.size());}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00021}00021   std::vector<std::string> file\_locations\_abs;}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00022}00022   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size()); i++) \{}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00023}00023     std::stringstream aux;}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00024}00024     std::filesystem::path cwd = std::filesystem::current\_path();}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00025}00025     aux << cwd.string();}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00026}00026     aux << \mbox{\hyperlink{_open_g_l_renderer_config_8h_a21612190890d0d71e82a71c6bb2b524b}{RELATIVE\_RESOURCE\_PATH}};}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00027}00027     aux << \mbox{\hyperlink{class_shader_includes_aff630c1557af5522c2e94fe20f130f6d}{file\_locations\_relative}}[i];}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00028}00028     file\_locations\_abs.push\_back(aux.str());}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00029}00029   \}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00031}00031   \textcolor{keywordflow}{for} (uint32\_t i = 0; i < static\_cast<uint32\_t>(\mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}.size()); i++) \{}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00032}00032     \mbox{\hyperlink{class_file}{File}} file(file\_locations\_abs[i]);}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00033}00033     std::string file\_content = file.\mbox{\hyperlink{class_file_a45badf982efdf5f4b3a74053948e342e}{read}}();}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00034}00034     \textcolor{keywordtype}{char} tmpstr[200];}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00035}00035     snprintf(tmpstr, 200, \textcolor{stringliteral}{"{}/\%s"{}}, \mbox{\hyperlink{class_shader_includes_aca5d44a6394acc9b26eab371cd950473}{includeNames}}[i]);}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00036}00036     glNamedStringARB(GL\_SHADER\_INCLUDE\_ARB, \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(strlen(tmpstr)),}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00037}00037                      tmpstr, \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(strlen(file\_content.c\_str())),}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00038}00038                      file\_content.c\_str());}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00039}00039   \}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00040}00040 \}}
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_shader_includes_8cpp_source_l00042}\mbox{\hyperlink{class_shader_includes_a39cde13eaaf507862593a575e6045a54}{00042}} \mbox{\hyperlink{class_shader_includes_a39cde13eaaf507862593a575e6045a54}{ShaderIncludes::\string~ShaderIncludes}}() \{\}}
 
 \end{DoxyCode}

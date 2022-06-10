@@ -6,8 +6,13 @@
 
 
 
-Collaboration diagram for GBuffer\+:
-% FIG 0
+Collaboration diagram for GBuffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{d4/d31/class_g_buffer__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,7 +45,7 @@ GLuint \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\+\_\
 \item 
 GLuint \mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\+\_\+depth}}
 \item 
-GLuint \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\+\_\+buffer\+\_\+attachment}} \mbox{[}\mbox{\hyperlink{_global_values_8h_abadbe5e4569238b8941b70e9721e4740}{G\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}
+GLuint \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\+\_\+buffer\+\_\+attachment}} \mbox{[}G\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
 \item 
 GLuint \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\+\_\+width}}
 \item 
@@ -68,10 +73,10 @@ Definition at line \mbox{\hyperlink{_g_buffer_8cpp_source_l00005}{5}} of file \m
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00005                  \{}
-\DoxyCodeLine{00006   this-\/>\mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}} = 1024;}
-\DoxyCodeLine{00007   this-\/>\mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}} = 768;}
-\DoxyCodeLine{00008 \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00005}00005                  \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00006}00006   this-\/>\mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}} = 1024;}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00007}00007   this-\/>\mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}} = 768;}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00008}00008 \}}
 
 \end{DoxyCode}
 
@@ -90,10 +95,10 @@ Definition at line \mbox{\hyperlink{_g_buffer_8cpp_source_l00010}{10}} of file \
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00010                                                         \{}
-\DoxyCodeLine{00011   this-\/>\mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}} = \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}};}
-\DoxyCodeLine{00012   this-\/>\mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}} = \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}};}
-\DoxyCodeLine{00013 \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00010}00010                                                         \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00011}00011   this-\/>\mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}} = \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}};}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00012}00012   this-\/>\mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}} = \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}};}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00013}00013 \}}
 
 \end{DoxyCode}
 
@@ -112,13 +117,13 @@ Definition at line \mbox{\hyperlink{_g_buffer_8cpp_source_l00101}{101}} of file 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00101                   \{}
-\DoxyCodeLine{00102   glDeleteFramebuffers(1, \&\mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}});}
-\DoxyCodeLine{00103   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
-\DoxyCodeLine{00104   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
-\DoxyCodeLine{00105   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
-\DoxyCodeLine{00106   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
-\DoxyCodeLine{00107 \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00101}00101                   \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00102}00102   glDeleteFramebuffers(1, \&\mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00103}00103   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00104}00104   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00105}00105   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00106}00106   glDeleteTextures(1, \&\mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00107}00107 \}}
 
 \end{DoxyCode}
 
@@ -140,68 +145,68 @@ Definition at line \mbox{\hyperlink{_g_buffer_8cpp_source_l00015}{15}} of file \
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00015                      \{}
-\DoxyCodeLine{00016   glGenFramebuffers(1, \&\mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}});}
-\DoxyCodeLine{00017   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}});}
-\DoxyCodeLine{00018 }
-\DoxyCodeLine{00019   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
-\DoxyCodeLine{00020   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
-\DoxyCodeLine{00021   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
-\DoxyCodeLine{00022                GL\_RGBA, GL\_FLOAT, NULL);}
-\DoxyCodeLine{00023   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00024   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00025   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[0], GL\_TEXTURE\_2D,}
-\DoxyCodeLine{00026                          \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}}, 0);}
-\DoxyCodeLine{00027 }
-\DoxyCodeLine{00028   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
-\DoxyCodeLine{00029   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
-\DoxyCodeLine{00030   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
-\DoxyCodeLine{00031                GL\_RGBA, GL\_FLOAT, NULL);}
-\DoxyCodeLine{00032   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00033   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00034   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[1], GL\_TEXTURE\_2D,}
-\DoxyCodeLine{00035                          \mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}}, 0);}
-\DoxyCodeLine{00036 }
-\DoxyCodeLine{00037   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
-\DoxyCodeLine{00038   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
-\DoxyCodeLine{00039   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
-\DoxyCodeLine{00040                GL\_RGBA, GL\_UNSIGNED\_BYTE, NULL);}
-\DoxyCodeLine{00041   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00042   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00043   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[2], GL\_TEXTURE\_2D,}
-\DoxyCodeLine{00044                          \mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}}, 0);}
-\DoxyCodeLine{00045 }
-\DoxyCodeLine{00046   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
-\DoxyCodeLine{00047   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
-\DoxyCodeLine{00048   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
-\DoxyCodeLine{00049                GL\_RGBA, GL\_UNSIGNED\_INT, NULL);}
-\DoxyCodeLine{00050   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00051   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
-\DoxyCodeLine{00052   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[3], GL\_TEXTURE\_2D,}
-\DoxyCodeLine{00053                          \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}}, 0);}
-\DoxyCodeLine{00054 }
-\DoxyCodeLine{00055   glDrawBuffers(\mbox{\hyperlink{_global_values_8h_abadbe5e4569238b8941b70e9721e4740}{G\_BUFFER\_SIZE}}, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}});}
-\DoxyCodeLine{00056 }
-\DoxyCodeLine{00057   \textcolor{comment}{// create and attach depth buffer (renderbuffer)}}
-\DoxyCodeLine{00058   \textcolor{comment}{// renderbuffers are a bit more performant}}
-\DoxyCodeLine{00059   glGenRenderbuffers(1, \&\mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\_depth}});}
-\DoxyCodeLine{00060   glBindRenderbuffer(GL\_RENDERBUFFER, \mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\_depth}});}
-\DoxyCodeLine{00061   glRenderbufferStorage(GL\_RENDERBUFFER, GL\_DEPTH\_COMPONENT32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}},}
-\DoxyCodeLine{00062                         \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}});}
-\DoxyCodeLine{00063   glFramebufferRenderbuffer(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT,}
-\DoxyCodeLine{00064                             GL\_RENDERBUFFER, \mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\_depth}});}
-\DoxyCodeLine{00065 }
-\DoxyCodeLine{00066   \textcolor{keywordflow}{if} (glCheckFramebufferStatus(GL\_FRAMEBUFFER) != GL\_FRAMEBUFFER\_COMPLETE) \{}
-\DoxyCodeLine{00067     printf(\textcolor{stringliteral}{"{}Framebuffer not complete!"{}});}
-\DoxyCodeLine{00068   \}}
-\DoxyCodeLine{00069 }
-\DoxyCodeLine{00070   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
-\DoxyCodeLine{00071 \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00015}00015                      \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00016}00016   glGenFramebuffers(1, \&\mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00017}00017   glBindFramebuffer(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00019}00019   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00020}00020   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00021}00021   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00022}00022                GL\_RGBA, GL\_FLOAT, NULL);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00023}00023   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00024}00024   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00025}00025   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[0], GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00026}00026                          \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}}, 0);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00028}00028   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00029}00029   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00030}00030   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00031}00031                GL\_RGBA, GL\_FLOAT, NULL);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00032}00032   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00033}00033   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00034}00034   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[1], GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00035}00035                          \mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}}, 0);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00037}00037   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00038}00038   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00039}00039   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00040}00040                GL\_RGBA, GL\_UNSIGNED\_BYTE, NULL);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00041}00041   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00042}00042   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00043}00043   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[2], GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00044}00044                          \mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}}, 0);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00046}00046   glGenTextures(1, \&\mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00047}00047   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00048}00048   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}}, \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}}, 0,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00049}00049                GL\_RGBA, GL\_UNSIGNED\_INT, NULL);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00050}00050   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00051}00051   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00052}00052   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[3], GL\_TEXTURE\_2D,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00053}00053                          \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}}, 0);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00055}00055   glDrawBuffers(G\_BUFFER\_SIZE, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00057}00057   \textcolor{comment}{// create and attach depth buffer (renderbuffer)}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00058}00058   \textcolor{comment}{// renderbuffers are a bit more performant}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00059}00059   glGenRenderbuffers(1, \&\mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\_depth}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00060}00060   glBindRenderbuffer(GL\_RENDERBUFFER, \mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\_depth}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00061}00061   glRenderbufferStorage(GL\_RENDERBUFFER, GL\_DEPTH\_COMPONENT32F, \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}},}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00062}00062                         \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00063}00063   glFramebufferRenderbuffer(GL\_FRAMEBUFFER, GL\_DEPTH\_ATTACHMENT,}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00064}00064                             GL\_RENDERBUFFER, \mbox{\hyperlink{class_g_buffer_a7f63bc17a9bba91114c7075f7592a5f0}{g\_depth}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00066}00066   \textcolor{keywordflow}{if} (glCheckFramebufferStatus(GL\_FRAMEBUFFER) != GL\_FRAMEBUFFER\_COMPLETE) \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00067}00067     printf(\textcolor{stringliteral}{"{}Framebuffer not complete!"{}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00068}00068   \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00070}00070   glBindFramebuffer(GL\_FRAMEBUFFER, 0);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00071}00071 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+albedo}}, \mbox{\hyperlink{_g_buffer_8h_source_l00028}{g\+\_\+buffer}}, \mbox{\hyperlink{_g_buffer_8h_source_l00032}{g\+\_\+buffer\+\_\+attachment}}, \mbox{\hyperlink{_global_values_8h_source_l00008}{G\+\_\+\+BUFFER\+\_\+\+SIZE}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+depth}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+material\+\_\+id}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+normal}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+position}}, \mbox{\hyperlink{_g_buffer_8h_source_l00036}{window\+\_\+height}}, and \mbox{\hyperlink{_g_buffer_8h_source_l00036}{window\+\_\+width}}.
+References \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+albedo}}, \mbox{\hyperlink{_g_buffer_8h_source_l00028}{g\+\_\+buffer}}, \mbox{\hyperlink{_g_buffer_8h_source_l00032}{g\+\_\+buffer\+\_\+attachment}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+depth}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+material\+\_\+id}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+normal}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+position}}, \mbox{\hyperlink{_g_buffer_8h_source_l00036}{window\+\_\+height}}, and \mbox{\hyperlink{_g_buffer_8h_source_l00036}{window\+\_\+width}}.
 
 \mbox{\Hypertarget{class_g_buffer_a6bbe7800b5dc6694dc73e4c97ccc6bf9}\label{class_g_buffer_a6bbe7800b5dc6694dc73e4c97ccc6bf9}} 
 \index{GBuffer@{GBuffer}!get\_id@{get\_id}}
@@ -215,7 +220,7 @@ Definition at line \mbox{\hyperlink{_g_buffer_8h_source_l00023}{23}} of file \mb
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00023 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}}; \};}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00023}00023 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_g_buffer_a60fafce7a6c124b0e4703a727cf181bb}{g\_buffer}}; \};}
 
 \end{DoxyCode}
 
@@ -234,33 +239,33 @@ Definition at line \mbox{\hyperlink{_g_buffer_8cpp_source_l00073}{73}} of file \
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00073                                                               \{}
-\DoxyCodeLine{00074   \textcolor{comment}{// GBUFFER}}
-\DoxyCodeLine{00075   GLuint texture\_index = \mbox{\hyperlink{bindings_8h_a31363a524a58bb08ee547d9827c12c52}{GBUFFER\_TEXTURES\_SLOT}};}
-\DoxyCodeLine{00076   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_position"{}});}
-\DoxyCodeLine{00077   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
-\DoxyCodeLine{00078   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
-\DoxyCodeLine{00079 }
-\DoxyCodeLine{00080   texture\_index++;}
-\DoxyCodeLine{00081   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_normal"{}});}
-\DoxyCodeLine{00082   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
-\DoxyCodeLine{00083   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
-\DoxyCodeLine{00084 }
-\DoxyCodeLine{00085   texture\_index++;}
-\DoxyCodeLine{00086   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_albedo"{}});}
-\DoxyCodeLine{00087   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
-\DoxyCodeLine{00088   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
-\DoxyCodeLine{00089 }
-\DoxyCodeLine{00090   texture\_index++;}
-\DoxyCodeLine{00091   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_material\_id"{}});}
-\DoxyCodeLine{00092   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
-\DoxyCodeLine{00093   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
-\DoxyCodeLine{00094 \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00073}00073                                                               \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00074}00074   \textcolor{comment}{// GBUFFER}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00075}00075   GLuint texture\_index = GBUFFER\_TEXTURES\_SLOT;}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00076}00076   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_position"{}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00077}00077   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00078}00078   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00080}00080   texture\_index++;}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00081}00081   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_normal"{}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00082}00082   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00083}00083   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_af64479485c23b91b212f6bdf69695cae}{g\_normal}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00085}00085   texture\_index++;}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00086}00086   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_albedo"{}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00087}00087   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00088}00088   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa5d874bc3c44ea5e08b4e528f833f844}{g\_albedo}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00090}00090   texture\_index++;}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00091}00091   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_material\_id"{}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00092}00092   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00093}00093   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}});}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00094}00094 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+albedo}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+material\+\_\+id}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+normal}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+position}}, and \mbox{\hyperlink{bindings_8h_source_l00008}{GBUFFER\+\_\+\+TEXTURES\+\_\+\+SLOT}}.
+References \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+albedo}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+material\+\_\+id}}, \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+normal}}, and \mbox{\hyperlink{_g_buffer_8h_source_l00030}{g\+\_\+position}}.
 
 \mbox{\Hypertarget{class_g_buffer_a62c4de4dc8dbc43c84c48330dd8d8215}\label{class_g_buffer_a62c4de4dc8dbc43c84c48330dd8d8215}} 
 \index{GBuffer@{GBuffer}!update\_window\_params@{update\_window\_params}}
@@ -274,10 +279,10 @@ Definition at line \mbox{\hyperlink{_g_buffer_8cpp_source_l00096}{96}} of file \
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00096                                                                             \{}
-\DoxyCodeLine{00097   this-\/>\mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}} = \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}};}
-\DoxyCodeLine{00098   this-\/>\mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}} = \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}};}
-\DoxyCodeLine{00099 \}}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00096}00096                                                                             \{}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00097}00097   this-\/>\mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}} = \mbox{\hyperlink{class_g_buffer_a62c0dc62cabacda07771fd084ded148f}{window\_width}};}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00098}00098   this-\/>\mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}} = \mbox{\hyperlink{class_g_buffer_a0f2fafbc6ed85700b872f586ef6b8d30}{window\_height}};}
+\DoxyCodeLine{\Hypertarget{class_g_buffer_l00099}00099 \}}
 
 \end{DoxyCode}
 
@@ -319,7 +324,7 @@ Referenced by \mbox{\hyperlink{_g_buffer_8cpp_source_l00015}{create()}}, \mbox{\
 \index{GBuffer@{GBuffer}!g\_buffer\_attachment@{g\_buffer\_attachment}}
 \index{g\_buffer\_attachment@{g\_buffer\_attachment}!GBuffer@{GBuffer}}
 \doxysubsubsection{\texorpdfstring{g\_buffer\_attachment}{g\_buffer\_attachment}}
-{\footnotesize\ttfamily GLuint GBuffer\+::g\+\_\+buffer\+\_\+attachment\mbox{[}\mbox{\hyperlink{_global_values_8h_abadbe5e4569238b8941b70e9721e4740}{G\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily GLuint GBuffer\+::g\+\_\+buffer\+\_\+attachment\mbox{[}G\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
@@ -424,5 +429,5 @@ Referenced by \mbox{\hyperlink{_g_buffer_8cpp_source_l00015}{create()}}, \mbox{\
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/deferred/\mbox{\hyperlink{_g_buffer_8h}{GBuffer.\+h}}\item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/renderer/deferred/\mbox{\hyperlink{_g_buffer_8cpp}{GBuffer.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/renderer/deferred/\mbox{\hyperlink{_g_buffer_8h}{GBuffer.\+h}}\item 
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/renderer/deferred/\mbox{\hyperlink{_g_buffer_8cpp}{GBuffer.\+cpp}}\end{DoxyCompactItemize}

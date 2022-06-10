@@ -1,13 +1,15 @@
-\hypertarget{_app_8cpp}{}\doxysection{C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/app/\+App.cpp File Reference}
-\label{_app_8cpp}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/app/App.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/app/App.cpp}}
+\hypertarget{_app_8cpp}{}\doxysection{C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/app/\+App.cpp File Reference}
+\label{_app_8cpp}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/app/App.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/app/App.cpp}}
 {\ttfamily \#include $<$glad/glad.\+h$>$}\newline
 {\ttfamily \#include $<$GLFW/glfw3.\+h$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include $<$mutex$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$thread$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
 {\ttfamily \#include \char`\"{}File.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}GUI.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Loading\+Screen.\+h\char`\"{}}\newline
@@ -18,8 +20,13 @@
 {\ttfamily \#include \char`\"{}Scene.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Window.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}host\+\_\+device\+\_\+shared.\+h\char`\"{}}\newline
-Include dependency graph for App.\+cpp\+:
-% FIG 0
+Include dependency graph for App.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d27/_app_8cpp__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,123 +43,138 @@ int \mbox{\hyperlink{_app_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 
 
 
-Definition at line \mbox{\hyperlink{_app_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{_app_8cpp_source}{App.\+cpp}}.
+Definition at line \mbox{\hyperlink{_app_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_app_8cpp_source}{App.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00025            \{}
-\DoxyCodeLine{00026 }
-\DoxyCodeLine{00027     \textcolor{comment}{// https://discourse.glfw.org/t/dont-\/want-\/a-\/console-\/window/401 }}
-\DoxyCodeLine{00028     \textcolor{comment}{// for disabling console during production build under windows}}
-\DoxyCodeLine{00029     \textcolor{comment}{// The console window appears because you’re building your application for the console subsystem. }}
-\DoxyCodeLine{00030     \textcolor{comment}{// You need to build it for the Win32 subsystem and it will go away. }}
-\DoxyCodeLine{00031     \textcolor{comment}{// Note that the linker will then by default be looking for a WinMain() entry point, not a main() one. }}
-\DoxyCodeLine{00032     \textcolor{comment}{// If you wish to keep your main() entry point, set the entry point to mainCRTStartup under Advanced Linker Settings (assuming you’re using Visual C++).}}
-\DoxyCodeLine{00033 }
-\DoxyCodeLine{00034   \textcolor{keywordtype}{bool} loading\_screen\_finished = \textcolor{keyword}{false};}
-\DoxyCodeLine{00035 }
-\DoxyCodeLine{00036   GLint window\_width = 1200;}
-\DoxyCodeLine{00037   GLint window\_height = 800;}
-\DoxyCodeLine{00038 }
-\DoxyCodeLine{00039   \textcolor{comment}{// make sure ti initialize window first}}
-\DoxyCodeLine{00040   \textcolor{comment}{// this will create opengl context!}}
-\DoxyCodeLine{00041   std::shared\_ptr<Window> main\_window =}
-\DoxyCodeLine{00042       std::make\_shared<Window>(window\_width, window\_height);}
-\DoxyCodeLine{00043 }
-\DoxyCodeLine{00044   \mbox{\hyperlink{class_debug_app}{DebugApp}} debugCallbacks;}
-\DoxyCodeLine{00045 }
-\DoxyCodeLine{00046   \mbox{\hyperlink{class_renderer}{Renderer}} renderer(window\_width, window\_height);}
-\DoxyCodeLine{00047 }
-\DoxyCodeLine{00048   \mbox{\hyperlink{class_g_u_i}{GUI}} gui;}
-\DoxyCodeLine{00049   gui.\mbox{\hyperlink{class_g_u_i_abe01c4db97be141742d52be2e1f19b15}{init}}(main\_window);}
-\DoxyCodeLine{00050 }
-\DoxyCodeLine{00051   \mbox{\hyperlink{class_loading_screen}{LoadingScreen}} loading\_screen;}
-\DoxyCodeLine{00052   loading\_screen.\mbox{\hyperlink{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}{init}}();}
-\DoxyCodeLine{00053 }
-\DoxyCodeLine{00054   std::shared\_ptr<Camera> main\_camera = std::make\_shared<Camera>();}
-\DoxyCodeLine{00055 }
-\DoxyCodeLine{00056   std::shared\_ptr<Scene> scene =}
-\DoxyCodeLine{00057       std::make\_shared<Scene>(main\_camera, main\_window);}
-\DoxyCodeLine{00058 }
-\DoxyCodeLine{00059   \textcolor{comment}{// load scene in an other thread than the rendering thread; would block}}
-\DoxyCodeLine{00060   \textcolor{comment}{// otherwise}}
-\DoxyCodeLine{00061   std::thread t1 = scene-\/>spwan();}
-\DoxyCodeLine{00062   t1.detach();}
-\DoxyCodeLine{00063 }
-\DoxyCodeLine{00064   GLfloat delta\_time = 0.0f;}
-\DoxyCodeLine{00065   GLfloat last\_time = 0.0f;}
-\DoxyCodeLine{00066 }
-\DoxyCodeLine{00067   \textcolor{comment}{// enable depth testing}}
-\DoxyCodeLine{00068   glEnable(GL\_DEPTH\_TEST);}
-\DoxyCodeLine{00069 }
-\DoxyCodeLine{00070   \textcolor{keywordflow}{while} (!main\_window-\/>get\_should\_close()) \{}
-\DoxyCodeLine{00071     glViewport(0, 0, window\_width, window\_height);}
-\DoxyCodeLine{00072 }
-\DoxyCodeLine{00073     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);}
-\DoxyCodeLine{00074     glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
-\DoxyCodeLine{00075 }
-\DoxyCodeLine{00076     \textcolor{comment}{// we need the projection matrix, just use glm::perspective function}}
-\DoxyCodeLine{00077     glm::mat4 projection\_matrix = glm::perspectiveFov(}
-\DoxyCodeLine{00078         glm::radians(main\_camera-\/>get\_fov()), (GLfloat)window\_width,}
-\DoxyCodeLine{00079         (GLfloat)window\_height, main\_camera-\/>get\_near\_plane(),}
-\DoxyCodeLine{00080         main\_camera-\/>get\_far\_plane());}
-\DoxyCodeLine{00081 }
-\DoxyCodeLine{00082     \textcolor{comment}{// we should make the application independet of processor speed :)}}
-\DoxyCodeLine{00083     \textcolor{comment}{//  take time into account is crucial}}
-\DoxyCodeLine{00084     \textcolor{comment}{//  concept of delta time: https://bell0bytes.eu/keeping-\/track-\/of-\/time/}}
-\DoxyCodeLine{00085     GLfloat now = (float)glfwGetTime();}
-\DoxyCodeLine{00086     delta\_time = now -\/ last\_time;}
-\DoxyCodeLine{00087     last\_time = now;}
-\DoxyCodeLine{00088 }
-\DoxyCodeLine{00089     \textcolor{comment}{// poll all events incoming from user}}
-\DoxyCodeLine{00090     glfwPollEvents();}
-\DoxyCodeLine{00091 }
-\DoxyCodeLine{00092     \textcolor{comment}{// handle events for the camera}}
-\DoxyCodeLine{00093     main\_camera-\/>key\_control(main\_window-\/>get\_keys(), delta\_time);}
-\DoxyCodeLine{00094     main\_camera-\/>mouse\_control(main\_window-\/>get\_x\_change(),}
-\DoxyCodeLine{00095                                main\_window-\/>get\_y\_change());}
-\DoxyCodeLine{00096 }
-\DoxyCodeLine{00097     \textcolor{keywordflow}{if} (scene-\/>is\_loaded()) \{}
-\DoxyCodeLine{00098       \textcolor{keywordflow}{if} (!loading\_screen\_finished) loading\_screen\_finished = \textcolor{keyword}{true};}
-\DoxyCodeLine{00099 }
-\DoxyCodeLine{00100       \textcolor{keywordflow}{if} (!scene-\/>get\_context\_setup()) scene-\/>setup\_game\_object\_context();}
-\DoxyCodeLine{00101 }
-\DoxyCodeLine{00102       renderer.drawFrame(main\_camera, scene, projection\_matrix, delta\_time);}
-\DoxyCodeLine{00103 }
-\DoxyCodeLine{00104     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00105       \textcolor{comment}{// play the audio}}
-\DoxyCodeLine{00106       \textcolor{comment}{// SoundEngine-\/>play2D("{}Audio/Red\_Dead\_Redemption\_2 \_Loading\_Screen.mp3"{},}}
-\DoxyCodeLine{00107       \textcolor{comment}{// true); //}}
-\DoxyCodeLine{00108       loading\_screen.\mbox{\hyperlink{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}{render}}();}
-\DoxyCodeLine{00109     \}}
-\DoxyCodeLine{00110 }
-\DoxyCodeLine{00111     \textcolor{keywordtype}{bool} shader\_hot\_reload\_triggered = \textcolor{keyword}{false};}
-\DoxyCodeLine{00112     gui.\mbox{\hyperlink{class_g_u_i_a560db89fa6ec13445c91ce73f3c6f2e0}{render}}(!scene-\/>is\_loaded(), scene-\/>get\_progress(),}
-\DoxyCodeLine{00113                shader\_hot\_reload\_triggered);}
-\DoxyCodeLine{00114 }
-\DoxyCodeLine{00115     \textcolor{keywordflow}{if} (shader\_hot\_reload\_triggered) renderer.reload\_shader\_programs();}
-\DoxyCodeLine{00116 }
-\DoxyCodeLine{00117     gui.\mbox{\hyperlink{class_g_u_i_a8567aa88b4d6a2a14e7951dd74401c6b}{update\_user\_input}}(scene);}
-\DoxyCodeLine{00118 }
-\DoxyCodeLine{00119     main\_window-\/>update\_viewport();}
-\DoxyCodeLine{00120     GLuint new\_window\_width = main\_window-\/>get\_buffer\_width();}
-\DoxyCodeLine{00121     GLuint new\_window\_height = main\_window-\/>get\_buffer\_height();}
-\DoxyCodeLine{00122 }
-\DoxyCodeLine{00123     \textcolor{keywordflow}{if} ((\textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(new\_window\_width) == window\_width \&\&}
-\DoxyCodeLine{00124          \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(new\_window\_height) == window\_height) == \textcolor{keyword}{false}) \{}
-\DoxyCodeLine{00125       window\_height = new\_window\_height;}
-\DoxyCodeLine{00126       window\_width = new\_window\_width;}
-\DoxyCodeLine{00127       renderer.update\_window\_params(window\_width, window\_height);}
-\DoxyCodeLine{00128     \}}
-\DoxyCodeLine{00129 }
-\DoxyCodeLine{00130     main\_window-\/>swap\_buffers();}
-\DoxyCodeLine{00131   \}}
-\DoxyCodeLine{00132 \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00028}00028            \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00030}00030     \textcolor{comment}{// https://discourse.glfw.org/t/dont-\/want-\/a-\/console-\/window/401 }}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00031}00031     \textcolor{comment}{// for disabling console during production build under windows}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00032}00032     \textcolor{comment}{// The console window appears because you’re building your application for the console subsystem. }}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00033}00033     \textcolor{comment}{// You need to build it for the Win32 subsystem and it will go away. }}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00034}00034     \textcolor{comment}{// Note that the linker will then by default be looking for a WinMain() entry point, not a main() one. }}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00035}00035     \textcolor{comment}{// If you wish to keep your main() entry point, set the entry point to mainCRTStartup under Advanced Linker Settings (assuming you’re using Visual C++).}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00037}00037   \textcolor{keywordtype}{bool} loading\_screen\_finished = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00039}00039   GLint window\_width = 1200;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00040}00040   GLint window\_height = 800;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00042}00042   \textcolor{comment}{// make sure ti initialize window first}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00043}00043   \textcolor{comment}{// this will create opengl context!}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00044}00044   std::shared\_ptr<Window> main\_window =}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00045}00045       std::make\_shared<Window>(window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00047}00047   \mbox{\hyperlink{class_debug_app}{DebugApp}} debugCallbacks;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00049}00049   \mbox{\hyperlink{class_renderer}{Renderer}} renderer(window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00051}00051   \mbox{\hyperlink{class_g_u_i}{GUI}} gui;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00052}00052   gui.\mbox{\hyperlink{class_g_u_i_abe01c4db97be141742d52be2e1f19b15}{init}}(main\_window);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00054}00054   \mbox{\hyperlink{class_loading_screen}{LoadingScreen}} loading\_screen;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00055}00055   loading\_screen.\mbox{\hyperlink{class_loading_screen_a72cc9b197a54aab590ebf062971626b2}{init}}();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00057}00057   std::shared\_ptr<Camera> main\_camera = std::make\_shared<Camera>();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00059}00059   std::shared\_ptr<Scene> scene =}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00060}00060       std::make\_shared<Scene>(main\_camera, main\_window);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00062}00062   \textcolor{comment}{// load scene in an other thread than the rendering thread; would block}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00063}00063   \textcolor{comment}{// otherwise}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00064}00064   std::thread t1 = scene-\/>spwan();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00065}00065   t1.detach();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00067}00067   GLfloat delta\_time = 0.0f;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00068}00068   GLfloat last\_time = 0.0f;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00070}00070   \textcolor{comment}{// enable depth testing}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00071}00071   glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00073}00073   \textcolor{comment}{// Create and open a text file for logging console outpout/error}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00074}00074 \textcolor{comment}{//\#if NDEBUG}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00075}00075 \textcolor{comment}{//\#else }}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00076}00076 \textcolor{comment}{//      assert(freopen("{}errorLog.txt"{}, "{}w"{}, stdout));}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00077}00077 \textcolor{comment}{//      assert(freopen("{}errorLog.txt"{}, "{}w"{}, stderr));}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00078}00078 \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00079}00079   std::cout << \textcolor{stringliteral}{"{}Current path is "{}} << std::filesystem::current\_path() << \textcolor{charliteral}{'\(\backslash\)n'};  \textcolor{comment}{// (1)}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00080}00080   \textcolor{keywordflow}{while} (!main\_window-\/>get\_should\_close()) \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00081}00081     glViewport(0, 0, window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00083}00083     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00084}00084     glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00086}00086     \textcolor{comment}{// we need the projection matrix, just use glm::perspective function}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00087}00087     glm::mat4 projection\_matrix = glm::perspectiveFov(}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00088}00088         glm::radians(main\_camera-\/>get\_fov()), (GLfloat)window\_width,}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00089}00089         (GLfloat)window\_height, main\_camera-\/>get\_near\_plane(),}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00090}00090         main\_camera-\/>get\_far\_plane());}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00092}00092     \textcolor{comment}{// we should make the application independet of processor speed :)}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00093}00093     \textcolor{comment}{//  take time into account is crucial}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00094}00094     \textcolor{comment}{//  concept of delta time: https://bell0bytes.eu/keeping-\/track-\/of-\/time/}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00095}00095     GLfloat now = (float)glfwGetTime();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00096}00096     delta\_time = now -\/ last\_time;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00097}00097     last\_time = now;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00099}00099     \textcolor{comment}{// poll all events incoming from user}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00100}00100     glfwPollEvents();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00102}00102     \textcolor{comment}{// handle events for the camera}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00103}00103     main\_camera-\/>key\_control(main\_window-\/>get\_keys(), delta\_time);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00104}00104     main\_camera-\/>mouse\_control(main\_window-\/>get\_x\_change(),}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00105}00105                                main\_window-\/>get\_y\_change());}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00107}00107     \textcolor{keywordflow}{if} (scene-\/>is\_loaded()) \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00108}00108       \textcolor{keywordflow}{if} (!loading\_screen\_finished) loading\_screen\_finished = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00110}00110       \textcolor{keywordflow}{if} (!scene-\/>get\_context\_setup()) scene-\/>setup\_game\_object\_context();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00112}00112       renderer.drawFrame(main\_camera, scene, projection\_matrix, delta\_time);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00114}00114     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00115}00115       \textcolor{comment}{// play the audio}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00116}00116       \textcolor{comment}{// SoundEngine-\/>play2D("{}Audio/Red\_Dead\_Redemption\_2 \_Loading\_Screen.mp3"{},}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00117}00117       \textcolor{comment}{// true); //}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00118}00118       loading\_screen.\mbox{\hyperlink{class_loading_screen_a840499311847eb8d02a4d1a162506ccf}{render}}();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00119}00119     \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00121}00121     \textcolor{keywordtype}{bool} shader\_hot\_reload\_triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00122}00122     gui.\mbox{\hyperlink{class_g_u_i_a560db89fa6ec13445c91ce73f3c6f2e0}{render}}(!scene-\/>is\_loaded(), scene-\/>get\_progress(),}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00123}00123                shader\_hot\_reload\_triggered);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00125}00125     \textcolor{keywordflow}{if} (shader\_hot\_reload\_triggered) renderer.reload\_shader\_programs();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00127}00127     gui.\mbox{\hyperlink{class_g_u_i_a8567aa88b4d6a2a14e7951dd74401c6b}{update\_user\_input}}(scene);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00129}00129     main\_window-\/>update\_viewport();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00130}00130     GLuint new\_window\_width = main\_window-\/>get\_buffer\_width();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00131}00131     GLuint new\_window\_height = main\_window-\/>get\_buffer\_height();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00133}00133     \textcolor{keywordflow}{if} ((\textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(new\_window\_width) == window\_width \&\&}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00134}00134          \textcolor{keyword}{static\_cast<}GLint\textcolor{keyword}{>}(new\_window\_height) == window\_height) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00135}00135       window\_height = new\_window\_height;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00136}00136       window\_width = new\_window\_width;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00137}00137       renderer.update\_window\_params(window\_width, window\_height);}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00138}00138     \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00140}00140     main\_window-\/>swap\_buffers();}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00141}00141   \}}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00142}00142 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00143}00143   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{_app_8cpp_l00145}00145 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_renderer_8cpp_source_l00026}{Renderer\+::draw\+Frame()}}, \mbox{\hyperlink{_loading_screen_8cpp_source_l00007}{Loading\+Screen\+::init()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00066}{GUI\+::init()}}, \mbox{\hyperlink{_renderer_8cpp_source_l00055}{Renderer\+::reload\+\_\+shader\+\_\+programs()}}, \mbox{\hyperlink{_loading_screen_8cpp_source_l00027}{Loading\+Screen\+::render()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00083}{GUI\+::render()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00212}{GUI\+::update\+\_\+user\+\_\+input()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00048}{Renderer\+::update\+\_\+window\+\_\+params()}}.
+References \mbox{\hyperlink{_renderer_8cpp_source_l00026}{Renderer\+::draw\+Frame()}}, \mbox{\hyperlink{_loading_screen_8cpp_source_l00009}{Loading\+Screen\+::init()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00070}{GUI\+::init()}}, \mbox{\hyperlink{_renderer_8cpp_source_l00055}{Renderer\+::reload\+\_\+shader\+\_\+programs()}}, \mbox{\hyperlink{_loading_screen_8cpp_source_l00031}{Loading\+Screen\+::render()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00087}{GUI\+::render()}}, \mbox{\hyperlink{_g_u_i_8cpp_source_l00216}{GUI\+::update\+\_\+user\+\_\+input()}}, and \mbox{\hyperlink{_renderer_8cpp_source_l00048}{Renderer\+::update\+\_\+window\+\_\+params()}}.
 
-Here is the call graph for this function\+:
-% FIG 1
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/db4/_app_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}

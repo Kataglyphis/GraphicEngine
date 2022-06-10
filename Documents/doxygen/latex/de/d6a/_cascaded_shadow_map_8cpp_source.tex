@@ -1,12 +1,12 @@
 \hypertarget{_cascaded_shadow_map_8cpp_source}{}\doxysection{Cascaded\+Shadow\+Map.\+cpp}
-\label{_cascaded_shadow_map_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/directional\_light/CascadedShadowMap.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/directional\_light/CascadedShadowMap.cpp}}
+\label{_cascaded_shadow_map_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional\_light/CascadedShadowMap.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional\_light/CascadedShadowMap.cpp}}
 \mbox{\hyperlink{_cascaded_shadow_map_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cascaded_shadow_map_8h}{CascadedShadowMap.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00002}00002 }
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00004}00004 }
-\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bindings_8h}{bindings.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include "{}bindings.h"{}}}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00006}00006 }
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00007}\mbox{\hyperlink{class_cascaded_shadow_map_af76c57bc305ee76aee62272adbd23a51}{00007}} \mbox{\hyperlink{class_cascaded_shadow_map_af76c57bc305ee76aee62272adbd23a51}{CascadedShadowMap::CascadedShadowMap}}()}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00008}00008     :}
@@ -32,7 +32,7 @@
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00028}00028   glGenTextures(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00029}00029   glBindTexture(GL\_TEXTURE\_2D\_ARRAY, \mbox{\hyperlink{class_cascaded_shadow_map_afe80dd76b20f227bf29d0d42973ed8fa}{shadow\_maps}});}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00030}00030   glTexImage3D(GL\_TEXTURE\_2D\_ARRAY, 0, GL\_DEPTH\_COMPONENT32F, \mbox{\hyperlink{class_cascaded_shadow_map_a3e68beab2a58b5feba159a4689a9f9c5}{shadow\_width}},}
-\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00031}00031                \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}, \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT,}
+\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00031}00031                \mbox{\hyperlink{class_cascaded_shadow_map_a69527c19b28e05c7c76f7c3f3392bbf7}{shadow\_height}}, NUM\_CASCADES, 0, GL\_DEPTH\_COMPONENT, GL\_FLOAT,}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00032}00032                \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00033}00033 }
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00034}00034   glTexParameteri(GL\_TEXTURE\_2D\_ARRAY, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
@@ -60,9 +60,9 @@
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00056}00056   \textcolor{comment}{// for every cascade we will have 1 matrix in the geometry shader}}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00057}00057   glGenBuffers(1, \&\mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00058}00058   glBindBuffer(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
-\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00059}00059   glBufferData(GL\_UNIFORM\_BUFFER, \textcolor{keyword}{sizeof}(glm::mat4) * \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00059}00059   glBufferData(GL\_UNIFORM\_BUFFER, \textcolor{keyword}{sizeof}(glm::mat4) * NUM\_CASCADES, \textcolor{keyword}{nullptr},}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00060}00060                GL\_DYNAMIC\_DRAW);}
-\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00061}00061   glBindBufferBase(GL\_UNIFORM\_BUFFER, \mbox{\hyperlink{bindings_8h_a6cffb6c61d3a48bb1b5b5afe62b6331d}{UNIFORM\_LIGHT\_MATRICES\_BINDING}},}
+\DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00061}00061   glBindBufferBase(GL\_UNIFORM\_BUFFER, UNIFORM\_LIGHT\_MATRICES\_BINDING,}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00062}00062                    \mbox{\hyperlink{class_cascaded_shadow_map_ad5b48b63a512bc4b0b964a47afe8664d}{matrices\_UBO}});}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00063}00063   glBindBuffer(GL\_UNIFORM\_BUFFER, 0);}
 \DoxyCodeLine{\Hypertarget{_cascaded_shadow_map_8cpp_source_l00064}00064 }

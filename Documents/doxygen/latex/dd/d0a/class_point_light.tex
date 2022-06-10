@@ -6,12 +6,22 @@
 
 
 
-Inheritance diagram for Point\+Light\+:
-% FIG 0
+Inheritance diagram for Point\+Light\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d0/d65/class_point_light__inherit__graph}
+\end{center}
+\end{figure}
 
 
-Collaboration diagram for Point\+Light\+:
-% FIG 1
+Collaboration diagram for Point\+Light\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d6/ddf/class_point_light__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -74,15 +84,15 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00003}{3}} of file
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00004     :}
-\DoxyCodeLine{00005 }
-\DoxyCodeLine{00006       \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}(glm::vec3(0.0f)),}
-\DoxyCodeLine{00007       \mbox{\hyperlink{class_point_light_a72cb039b9584e827a392626819352884}{constant}}(1.0f),}
-\DoxyCodeLine{00008       \mbox{\hyperlink{class_point_light_ab28020d15cddb3db3ca0bac4f58e4185}{linear}}(0.0f),}
-\DoxyCodeLine{00009       \mbox{\hyperlink{class_point_light_a4fd242e693a8a33f0a92b89e566d36c0}{exponent}}(0.0f),}
-\DoxyCodeLine{00010       \mbox{\hyperlink{class_point_light_ae6f89e45cbbc3bc8ceec2b785f943d84}{far\_plane}}(0.f)}
-\DoxyCodeLine{00011 }
-\DoxyCodeLine{00012 \{\}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00004}00004     :}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00006}00006       \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}(glm::vec3(0.0f)),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00007}00007       \mbox{\hyperlink{class_point_light_a72cb039b9584e827a392626819352884}{constant}}(1.0f),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00008}00008       \mbox{\hyperlink{class_point_light_ab28020d15cddb3db3ca0bac4f58e4185}{linear}}(0.0f),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00009}00009       \mbox{\hyperlink{class_point_light_a4fd242e693a8a33f0a92b89e566d36c0}{exponent}}(0.0f),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00010}00010       \mbox{\hyperlink{class_point_light_ae6f89e45cbbc3bc8ceec2b785f943d84}{far\_plane}}(0.f)}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00012}00012 \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_point_light_aa7f0ef31fe459d01118b9ad03939c47c}\label{class_point_light_aa7f0ef31fe459d01118b9ad03939c47c}} 
@@ -97,20 +107,20 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00014}{14}} of fil
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00018     :}
-\DoxyCodeLine{00019 }
-\DoxyCodeLine{00020       \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(red, green, blue, \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}),}
-\DoxyCodeLine{00021       \mbox{\hyperlink{class_point_light_ad798ad548a9bac3b6c6f1369aaed0e8a}{omni\_dir\_shadow\_map}}(std::make\_shared<OmniDirShadowMap>()),}
-\DoxyCodeLine{00022 }
-\DoxyCodeLine{00023       \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}(glm::vec3(x\_pos, y\_pos, z\_pos)),}
-\DoxyCodeLine{00024       \mbox{\hyperlink{class_point_light_a72cb039b9584e827a392626819352884}{constant}}(con),}
-\DoxyCodeLine{00025       \mbox{\hyperlink{class_point_light_ab28020d15cddb3db3ca0bac4f58e4185}{linear}}(lin),}
-\DoxyCodeLine{00026       \mbox{\hyperlink{class_point_light_a4fd242e693a8a33f0a92b89e566d36c0}{exponent}}(exp),}
-\DoxyCodeLine{00027       \mbox{\hyperlink{class_point_light_ae6f89e45cbbc3bc8ceec2b785f943d84}{far\_plane}}(far) \{}
-\DoxyCodeLine{00028   \textcolor{keywordtype}{float} aspect = (float)shadow\_width / (\textcolor{keywordtype}{float})shadow\_height;}
-\DoxyCodeLine{00029   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::perspective(glm::radians(90.0f), aspect, near, far);}
-\DoxyCodeLine{00030   \mbox{\hyperlink{class_point_light_ad798ad548a9bac3b6c6f1369aaed0e8a}{omni\_dir\_shadow\_map}}-\/>init(shadow\_width, shadow\_height);}
-\DoxyCodeLine{00031 \}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00018}00018     :}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00020}00020       \mbox{\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light}}(red, green, blue, \mbox{\hyperlink{class_light_af4f02df94cfac77c152ecf26495e39bf}{radiance}}),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00021}00021       \mbox{\hyperlink{class_point_light_ad798ad548a9bac3b6c6f1369aaed0e8a}{omni\_dir\_shadow\_map}}(std::make\_shared<OmniDirShadowMap>()),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00023}00023       \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}(glm::vec3(x\_pos, y\_pos, z\_pos)),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00024}00024       \mbox{\hyperlink{class_point_light_a72cb039b9584e827a392626819352884}{constant}}(con),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00025}00025       \mbox{\hyperlink{class_point_light_ab28020d15cddb3db3ca0bac4f58e4185}{linear}}(lin),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00026}00026       \mbox{\hyperlink{class_point_light_a4fd242e693a8a33f0a92b89e566d36c0}{exponent}}(exp),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00027}00027       \mbox{\hyperlink{class_point_light_ae6f89e45cbbc3bc8ceec2b785f943d84}{far\_plane}}(far) \{}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00028}00028   \textcolor{keywordtype}{float} aspect = (float)shadow\_width / (\textcolor{keywordtype}{float})shadow\_height;}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00029}00029   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::perspective(glm::radians(90.0f), aspect, near, far);}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00030}00030   \mbox{\hyperlink{class_point_light_ad798ad548a9bac3b6c6f1369aaed0e8a}{omni\_dir\_shadow\_map}}-\/>init(shadow\_width, shadow\_height);}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00031}00031 \}}
 
 \end{DoxyCode}
 
@@ -129,7 +139,7 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00070}{70}} of fil
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00070 \{\}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00070}00070 \{\}}
 
 \end{DoxyCode}
 
@@ -147,36 +157,36 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00033}{33}} of fil
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00033                                                          \{}
-\DoxyCodeLine{00034   std::vector<glm::mat4> light\_matrices;}
-\DoxyCodeLine{00035   \textcolor{comment}{// make sure all light matrices align with the order we were defining in}}
-\DoxyCodeLine{00036   \textcolor{comment}{// OmniShadowMap GL\_TEXTURE\_CUBE\_MAP\_POSITIVE\_X+i; therefoe start off with}}
-\DoxyCodeLine{00037   \textcolor{comment}{// glm::vec3(1.0, 0.0,0.0) +x,-\/x}}
-\DoxyCodeLine{00038   light\_matrices.push\_back(}
-\DoxyCodeLine{00039       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(1.0, 0.0, 0.0),}
-\DoxyCodeLine{00040                                glm::vec3(0.0, -\/1.0, 0.0)));}
-\DoxyCodeLine{00041   light\_matrices.push\_back(}
-\DoxyCodeLine{00042       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(-\/1.0, 0.0, 0.0),}
-\DoxyCodeLine{00043                                glm::vec3(0.0, -\/1.0, 0.0)));}
-\DoxyCodeLine{00044 }
-\DoxyCodeLine{00045   \textcolor{comment}{//+y,-\/y}}
-\DoxyCodeLine{00046   light\_matrices.push\_back(}
-\DoxyCodeLine{00047       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, 1.0, 0.0),}
-\DoxyCodeLine{00048                                glm::vec3(0.0, 0.0, 1.0)));}
-\DoxyCodeLine{00049   light\_matrices.push\_back(}
-\DoxyCodeLine{00050       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, -\/1.0, 0.0),}
-\DoxyCodeLine{00051                                glm::vec3(0.0, 0.0, -\/1.0)));}
-\DoxyCodeLine{00052 }
-\DoxyCodeLine{00053   \textcolor{comment}{//+z,-\/z}}
-\DoxyCodeLine{00054   light\_matrices.push\_back(}
-\DoxyCodeLine{00055       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, 0.0, 1.0),}
-\DoxyCodeLine{00056                                glm::vec3(0.0, -\/1.0, 0.0)));}
-\DoxyCodeLine{00057   light\_matrices.push\_back(}
-\DoxyCodeLine{00058       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, 0.0, -\/1.0),}
-\DoxyCodeLine{00059                                glm::vec3(0.0, -\/1.0, 0.0)));}
-\DoxyCodeLine{00060 }
-\DoxyCodeLine{00061   \textcolor{keywordflow}{return} light\_matrices;}
-\DoxyCodeLine{00062 \}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00033}00033                                                          \{}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00034}00034   std::vector<glm::mat4> light\_matrices;}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00035}00035   \textcolor{comment}{// make sure all light matrices align with the order we were defining in}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00036}00036   \textcolor{comment}{// OmniShadowMap GL\_TEXTURE\_CUBE\_MAP\_POSITIVE\_X+i; therefoe start off with}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00037}00037   \textcolor{comment}{// glm::vec3(1.0, 0.0,0.0) +x,-\/x}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00038}00038   light\_matrices.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00039}00039       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(1.0, 0.0, 0.0),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00040}00040                                glm::vec3(0.0, -\/1.0, 0.0)));}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00041}00041   light\_matrices.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00042}00042       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(-\/1.0, 0.0, 0.0),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00043}00043                                glm::vec3(0.0, -\/1.0, 0.0)));}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00045}00045   \textcolor{comment}{//+y,-\/y}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00046}00046   light\_matrices.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00047}00047       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, 1.0, 0.0),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00048}00048                                glm::vec3(0.0, 0.0, 1.0)));}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00049}00049   light\_matrices.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00050}00050       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, -\/1.0, 0.0),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00051}00051                                glm::vec3(0.0, 0.0, -\/1.0)));}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00053}00053   \textcolor{comment}{//+z,-\/z}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00054}00054   light\_matrices.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00055}00055       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, 0.0, 1.0),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00056}00056                                glm::vec3(0.0, -\/1.0, 0.0)));}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00057}00057   light\_matrices.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00058}00058       \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} * glm::lookAt(\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}, \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} + glm::vec3(0.0, 0.0, -\/1.0),}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00059}00059                                glm::vec3(0.0, -\/1.0, 0.0)));}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{class_point_light_l00061}00061   \textcolor{keywordflow}{return} light\_matrices;}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00062}00062 \}}
 
 \end{DoxyCode}
 
@@ -195,7 +205,7 @@ Definition at line \mbox{\hyperlink{_point_light_8h_source_l00027}{27}} of file 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00027 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_a72cb039b9584e827a392626819352884}{constant}}; \};}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00027}00027 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_a72cb039b9584e827a392626819352884}{constant}}; \};}
 
 \end{DoxyCode}
 
@@ -214,7 +224,7 @@ Definition at line \mbox{\hyperlink{_point_light_8h_source_l00030}{30}} of file 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00030 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_a4fd242e693a8a33f0a92b89e566d36c0}{exponent}}; \};}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00030}00030 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_a4fd242e693a8a33f0a92b89e566d36c0}{exponent}}; \};}
 
 \end{DoxyCode}
 
@@ -233,7 +243,7 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00066}{66}} of fil
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00066 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_ae6f89e45cbbc3bc8ceec2b785f943d84}{far\_plane}}; \}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00066}00066 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_ae6f89e45cbbc3bc8ceec2b785f943d84}{far\_plane}}; \}}
 
 \end{DoxyCode}
 
@@ -252,7 +262,7 @@ Definition at line \mbox{\hyperlink{_point_light_8h_source_l00028}{28}} of file 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00028 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_ab28020d15cddb3db3ca0bac4f58e4185}{linear}}; \};}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00028}00028 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_ab28020d15cddb3db3ca0bac4f58e4185}{linear}}; \};}
 
 \end{DoxyCode}
 
@@ -271,9 +281,9 @@ Definition at line \mbox{\hyperlink{_point_light_8h_source_l00022}{22}} of file 
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00022                                                         \{}
-\DoxyCodeLine{00023     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_ad798ad548a9bac3b6c6f1369aaed0e8a}{omni\_dir\_shadow\_map}};}
-\DoxyCodeLine{00024   \};}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00022}00022                                                         \{}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00023}00023     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_ad798ad548a9bac3b6c6f1369aaed0e8a}{omni\_dir\_shadow\_map}};}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00024}00024   \};}
 
 \end{DoxyCode}
 
@@ -292,7 +302,7 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00068}{68}} of fil
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00068 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}; \}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00068}00068 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}; \}}
 
 \end{DoxyCode}
 
@@ -311,7 +321,7 @@ Definition at line \mbox{\hyperlink{_point_light_8cpp_source_l00064}{64}} of fil
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00064 \{ this-\/>\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} = \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}; \}}
+\DoxyCodeLine{\Hypertarget{class_point_light_l00064}00064 \{ this-\/>\mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}} = \mbox{\hyperlink{class_point_light_a6dc6e70f9a91e8a6bbecf08707143cad}{position}}; \}}
 
 \end{DoxyCode}
 
@@ -409,5 +419,5 @@ Referenced by \mbox{\hyperlink{_point_light_8cpp_source_l00033}{calculate\+\_\+l
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/point\+\_\+light/\mbox{\hyperlink{_point_light_8h}{Point\+Light.\+h}}\item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/point\+\_\+light/\mbox{\hyperlink{_point_light_8cpp}{Point\+Light.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/point\+\_\+light/\mbox{\hyperlink{_point_light_8h}{Point\+Light.\+h}}\item 
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/light/point\+\_\+light/\mbox{\hyperlink{_point_light_8cpp}{Point\+Light.\+cpp}}\end{DoxyCompactItemize}

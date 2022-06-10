@@ -11,5 +11,5 @@ digraph "OmniShadowMapPass"
   Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
   Node3 [label="{RenderPass\n||+ virtual void create\l_shader_program()=0\l}",height=0.2,width=0.4,color="black",URL="$d8/d96/class_render_pass.html",tooltip=" "];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -shader_program" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node4 [label="{shared_ptr\< OmniDirShadow\lShaderProgram \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node4 [label="{shared_ptr\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

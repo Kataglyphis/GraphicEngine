@@ -7,9 +7,9 @@ digraph "Noise"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Noise\n||+  Noise()\l+ void create_res128\l_noise()\l+ void create_res32_noise()\l+ void read_res128_noise()\l+ void read_res32_noise()\l+ void update()\l+ void set_num_cells\l(GLuint num_cells_per\l_axis, GLuint index)\l+  ~Noise()\l- void create_shader\l_programs()\l- void generate_cells\l(GLuint num_cells_per\l_axis, GLuint cell_index)\l- void generate_textures()\l- void generate_num_cells\l_textures()\l- void generate_res128\l_noise_texture()\l- void generate_res32\l_noise_texture()\l- void delete_textures()\l- void print_comp_shader\l_capabilities()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -cell_ids\n-num_cells_per_axis\n-texture_1_id\n-texture_2_id\n-texture_dim_1\n-texture_dim_2" ,arrowhead="odiamond"];
-  Node2 [label="{GLuint\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{GLuint\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -texture_1_shader_program\n-texture_2_shader_program" ,arrowhead="odiamond"];
-  Node3 [label="{shared_ptr\< ComputeShader\lProgram \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{shared_ptr\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -cell_data" ,arrowhead="odiamond"];
-  Node4 [label="{array\< std::vector\l\< GLfloat \>, NUM_CELL\l_POSITIONS \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node4 [label="{array\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

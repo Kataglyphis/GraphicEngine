@@ -7,7 +7,7 @@ digraph "Rotation"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Rotation\n||}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +degrees" ,arrowhead="odiamond"];
-  Node2 [label="{GLfloat\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{GLfloat\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +axis" ,arrowhead="odiamond"];
-  Node3 [label="{vec3\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{vec3\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

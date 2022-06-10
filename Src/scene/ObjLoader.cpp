@@ -3,6 +3,7 @@
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
+#include <filesystem>
 
 ObjLoader::ObjLoader() {}
 
@@ -37,7 +38,9 @@ void ObjLoader::load(std::string modelFile, std::vector<Vertex>& vertices,
   int texture_id = 1;
 
   std::stringstream texture_base_dir;
-  texture_base_dir << CMAKELISTS_DIR << "/Textures/plain.png";
+  std::filesystem::path cwd = std::filesystem::current_path();
+  texture_base_dir << cwd.string();
+  texture_base_dir << RELATIVE_RESOURCE_PATH << "Textures/plain.png";
   texture_list.push_back(texture_base_dir.str());
 
   // we now iterate over all materials to get diffuse textures

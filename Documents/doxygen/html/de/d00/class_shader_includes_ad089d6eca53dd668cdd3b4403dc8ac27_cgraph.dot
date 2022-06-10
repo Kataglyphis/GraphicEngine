@@ -9,4 +9,6 @@ digraph "ShaderIncludes::ShaderIncludes"
   Node1 [label="ShaderIncludes::ShaderIncludes",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="File::read",height=0.2,width=0.4,color="black",URL="$d1/d31/class_file.html#a45badf982efdf5f4b3a74053948e342e",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="File::makePathsWithBlanks\lPossible",height=0.2,width=0.4,color="black",URL="$d1/d31/class_file.html#aa167ad718e978abc1b342167ea2b8409",tooltip=" "];
 }

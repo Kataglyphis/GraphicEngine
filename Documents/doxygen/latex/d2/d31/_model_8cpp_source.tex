@@ -1,5 +1,5 @@
 \hypertarget{_model_8cpp_source}{}\doxysection{Model.\+cpp}
-\label{_model_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/Model.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/Model.cpp}}
+\label{_model_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/Model.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/Model.cpp}}
 \mbox{\hyperlink{_model_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_model_8h}{Model.h}}"{}}}
@@ -47,17 +47,17 @@
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00043}00043 \}}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00044}00044 }
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00045}\mbox{\hyperlink{class_model_abea22e8123549c261cc80a366a2ed93b}{00045}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_model_abea22e8123549c261cc80a366a2ed93b}{Model::bind\_ressources}}() \{}
-\DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00046}00046   glBindBufferBase(GL\_SHADER\_STORAGE\_BUFFER, \mbox{\hyperlink{bindings_8h_a934aa1a1a657e97b7ce0af0aaf957d9d}{STORAGE\_BUFFER\_MATERIAL\_ID\_BINDING}},}
+\DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00046}00046   glBindBufferBase(GL\_SHADER\_STORAGE\_BUFFER, STORAGE\_BUFFER\_MATERIAL\_ID\_BINDING,}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00047}00047                    \mbox{\hyperlink{class_model_ab8b3bec22f784608ab53bc4cd298d2e8}{ssbo}});}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00048}00048   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(\mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}.size()); i++) \{}
-\DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00049}00049     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>use\_texture(i + \mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{MODEL\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00049}00049     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>use\_texture(i + MODEL\_TEXTURES\_SLOT);}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00050}00050   \}}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00051}00051 \}}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00052}00052 }
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00053}\mbox{\hyperlink{class_model_acf8689f9ce360896172eafb2ab896039}{00053}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_model_acf8689f9ce360896172eafb2ab896039}{Model::unbind\_resources}}() \{}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00054}00054   glBindBuffer(GL\_SHADER\_STORAGE\_BUFFER, 0);}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00055}00055   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < static\_cast<int>(\mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}.size()); i++) \{}
-\DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00056}00056     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>unbind\_texture(i + \mbox{\hyperlink{bindings_8h_a9b0d1cd1d0e10441196f4451e91713c8}{MODEL\_TEXTURES\_SLOT}});}
+\DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00056}00056     \mbox{\hyperlink{class_model_a94b3624baee6038c0c568d63671ef718}{texture\_list}}[i]-\/>unbind\_texture(i + MODEL\_TEXTURES\_SLOT);}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00057}00057   \}}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00058}00058 \}}
 \DoxyCodeLine{\Hypertarget{_model_8cpp_source_l00059}00059 }

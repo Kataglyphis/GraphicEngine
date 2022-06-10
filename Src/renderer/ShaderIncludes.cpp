@@ -7,6 +7,7 @@
 #include <array>
 #include <cassert>
 #include <sstream>
+#include <filesystem>
 
 #include "File.h"
 
@@ -20,7 +21,9 @@ ShaderIncludes::ShaderIncludes() {
   std::vector<std::string> file_locations_abs;
   for (uint32_t i = 0; i < static_cast<uint32_t>(includeNames.size()); i++) {
     std::stringstream aux;
-    aux << CMAKELISTS_DIR;
+    std::filesystem::path cwd = std::filesystem::current_path();
+    aux << cwd.string();
+    aux << RELATIVE_RESOURCE_PATH;
     aux << file_locations_relative[i];
     file_locations_abs.push_back(aux.str());
   }

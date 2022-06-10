@@ -1,5 +1,7 @@
 # ignore vs files
 .vs/*
+# ignore doxygen files
+Documents/doxygen/*
 # Prerequisites
 *.d
 

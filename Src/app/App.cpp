@@ -3,11 +3,14 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <cstdio>
+
 #include <memory>
 #include <mutex>
 #include <string>
 #include <thread>
 #include <vector>
+#include <filesystem>
 
 #include "File.h"
 #include "GUI.h"
@@ -67,6 +70,13 @@ int main() {
   // enable depth testing
   glEnable(GL_DEPTH_TEST);
 
+  // Create and open a text file for logging console outpout/error
+//#if NDEBUG
+//#else 
+//      assert(freopen("errorLog.txt", "w", stdout));
+//      assert(freopen("errorLog.txt", "w", stderr));
+//#endif
+  std::cout << "Current path is " << std::filesystem::current_path() << '\n';  // (1)
   while (!main_window->get_should_close()) {
     glViewport(0, 0, window_width, window_height);
 
@@ -129,4 +139,7 @@ int main() {
 
     main_window->swap_buffers();
   }
+
+  return 0;
+
 }

@@ -8,8 +8,5 @@ var dir_413f4e031a85da0d68269c6fd2f76e1c =
     [ "renderer", "dir_110bf15beb781d7cd423359a55b6cfac.html", "dir_110bf15beb781d7cd423359a55b6cfac" ],
     [ "scene", "dir_bd4132eaf25bc91ffa6e489ae31851f6.html", "dir_bd4132eaf25bc91ffa6e489ae31851f6" ],
     [ "util", "dir_517feb0deace64d74c1e186f0ef34274.html", "dir_517feb0deace64d74c1e186f0ef34274" ],
-    [ "window", "dir_6b7c82ac0387e0a7563fc456991bd83c.html", "dir_6b7c82ac0387e0a7563fc456991bd83c" ],
-    [ "bindings.h", "dc/d49/bindings_8h.html", "dc/d49/bindings_8h" ],
-    [ "GlobalValues.h", "d4/df9/_global_values_8h.html", "d4/df9/_global_values_8h" ],
-    [ "host_device_shared.h", "d1/d7a/host__device__shared_8h.html", "d1/d7a/host__device__shared_8h" ]
+    [ "window", "dir_6b7c82ac0387e0a7563fc456991bd83c.html", "dir_6b7c82ac0387e0a7563fc456991bd83c" ]
 ];

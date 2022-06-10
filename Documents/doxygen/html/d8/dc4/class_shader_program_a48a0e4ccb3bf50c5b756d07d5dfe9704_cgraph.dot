@@ -17,4 +17,6 @@ digraph "ShaderProgram::create_from_files"
   Node5 [label="ShaderProgram::validate\l_program",height=0.2,width=0.4,color="black",URL="$d8/dc4/class_shader_program.html#a6cadcf193ab6170f965a466b183ebc94",tooltip=" "];
   Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node6 [label="File::read",height=0.2,width=0.4,color="black",URL="$d1/d31/class_file.html#a45badf982efdf5f4b3a74053948e342e",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="File::makePathsWithBlanks\lPossible",height=0.2,width=0.4,color="black",URL="$d1/d31/class_file.html#aa167ad718e978abc1b342167ea2b8409",tooltip=" "];
 }

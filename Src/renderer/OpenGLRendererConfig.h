@@ -9,7 +9,6 @@
 #define OPENGL_VERSION_MAJOR "4"
 #define OPENGL_VERSION_MINOR "6"
 
-#define CMAKELISTS_DIR "C:/Program Files (x86)/GraphicsEngine/Resources/"
-#define RESOURCE_PATH "C:/Users/jonas/Desktop/GraphicEngine"
+#define RELATIVE_RESOURCE_PATH "/../../Resources/"
 
 #endif

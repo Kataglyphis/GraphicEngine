@@ -1,14 +1,17 @@
 #include "LoadingScreen.h"
 #include "OpenGLRendererConfig.h"
 
+#include <filesystem>
 #include <sstream>
 
 LoadingScreen::LoadingScreen() { create_shader_program(); }
 
 void LoadingScreen::init() {
   std::stringstream texture_base_dir;
-  texture_base_dir << CMAKELISTS_DIR;
-  texture_base_dir << "/Textures/";
+  std::filesystem::path cwd = std::filesystem::current_path();
+  texture_base_dir << cwd.string();
+  texture_base_dir << RELATIVE_RESOURCE_PATH;
+  texture_base_dir << "Textures/";
 
   std::stringstream texture_loading_screen;
   texture_loading_screen << texture_base_dir.str()

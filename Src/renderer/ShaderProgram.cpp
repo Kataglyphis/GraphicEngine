@@ -1,6 +1,7 @@
 #include "ShaderProgram.h"
 
 #include <sstream>
+#include <filesystem>
 
 #include "File.h"
 #include "OpenGLRendererConfig.h"
@@ -16,8 +17,10 @@ ShaderProgram::ShaderProgram()
 
 {
   std::stringstream aux;
-  aux << CMAKELISTS_DIR;
-  aux << "/Shaders/";
+  std::filesystem::path cwd = std::filesystem::current_path();
+  aux << cwd.string();
+  aux << RELATIVE_RESOURCE_PATH;
+  aux << "Shaders/";
 
   shader_base_dir = aux.str();
 }

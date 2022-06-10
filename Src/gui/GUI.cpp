@@ -6,6 +6,7 @@
 #include <imgui_impl_opengl3.h>
 
 #include <sstream>
+#include <filesystem>
 
 GUI::GUI() {
   // give some arbitrary values; we will update these values after 1 frame :)
@@ -54,8 +55,10 @@ GUI::GUI() {
   this->available_shadow_map_resolutions[3] = "4096";
 
   std::stringstream texture_base_dir;
-  texture_base_dir << CMAKELISTS_DIR;
-  texture_base_dir << "/Textures/";
+  std::filesystem::path cwd = std::filesystem::current_path();
+  texture_base_dir << cwd.string();
+  texture_base_dir << RELATIVE_RESOURCE_PATH;
+  texture_base_dir << "Textures/";
 
   std::stringstream texture_logo;
   texture_logo << texture_base_dir.str() << "Loading_Screen/Engine_logo.png";

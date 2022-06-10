@@ -1,5 +1,5 @@
 \hypertarget{_directional_light_8cpp_source}{}\doxysection{Directional\+Light.\+cpp}
-\label{_directional_light_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/directional\_light/DirectionalLight.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/light/directional\_light/DirectionalLight.cpp}}
+\label{_directional_light_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional\_light/DirectionalLight.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/light/directional\_light/DirectionalLight.cpp}}
 \mbox{\hyperlink{_directional_light_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_directional_light_8h}{DirectionalLight.h}}"{}}}
@@ -15,7 +15,7 @@
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00011}00011       shadow\_near\_plane(0.f),}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00012}00012       shadow\_far\_plane(0.f),}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00014}00014       cascade\_light\_matrices(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00014}00014       cascade\_light\_matrices(NUM\_CASCADES, glm::mat4(0.f))}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00015}00015 }
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00016}00016 \{}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00017}00017   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
@@ -36,7 +36,7 @@
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00032}00032       shadow\_near\_plane(near\_plane),}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00033}00033       shadow\_far\_plane(far\_plane),}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00035}00035       cascade\_light\_matrices(\mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}}, glm::mat4(0.f))}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00035}00035       cascade\_light\_matrices(NUM\_CASCADES, glm::mat4(0.f))}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00036}00036 }
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00037}00037 \{}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00038}00038   \mbox{\hyperlink{class_light_a5b6fe7345006aace1eefdcf134b4a538}{light\_proj}} = glm::ortho(-\/20.0f, 20.0f, -\/20.0f, 20.0f, 0.1f, 100.f);}
@@ -58,7 +58,7 @@
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00054}\mbox{\hyperlink{class_directional_light_af4fcc2d54d4ab313684a9c72367692d9}{00054}} std::vector<GLfloat> \mbox{\hyperlink{class_directional_light_af4fcc2d54d4ab313684a9c72367692d9}{DirectionalLight::get\_cascaded\_slots}}()\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00055}00055   std::vector<GLfloat> result;}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00057}00057   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00057}00057   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < NUM\_CASCADES + 1; i++) \{}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00058}00058     result.push\_back(\mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i]);}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00059}00059   \}}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00060}00060 }
@@ -97,7 +97,7 @@
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00093}\mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{00093}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_directional_light_ad426fcfde5a1003dd6772d36420db665}{DirectionalLight::calc\_cascaded\_slots}}() \{}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00094}00094   GLuint number\_of\_elements = \mbox{\hyperlink{class_directional_light_a8f8b97e90f11cee8aad87ad858a6a5de}{shadow\_map}}-\/>get\_num\_active\_cascades();}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00096}00096   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{host__device__shared_8h_a58ab116350055b66986e91b6c99ad4ef}{NUM\_CASCADES}} + 1; i++) \{}
+\DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00096}00096   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < NUM\_CASCADES + 1; i++) \{}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00097}00097     \mbox{\hyperlink{class_directional_light_a5fed0c8d0c09d9d484af1eb9a0ddce86}{cascade\_slots}}[i] = 100000.f;}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00098}00098   \}}
 \DoxyCodeLine{\Hypertarget{_directional_light_8cpp_source_l00099}00099 }

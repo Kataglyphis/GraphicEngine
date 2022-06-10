@@ -7,7 +7,7 @@ digraph "Vertex"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Vertex\n||+  Vertex()\l+  Vertex(glm::vec3 pos,\l glm::vec3 normal, glm\l::vec3 color, glm::vec2\l texture_coords)\l+ glm::vec3 get_position\l() const\l+ glm::vec3 get_normal\l() const\l+ glm::vec3 get_color\l() const\l+ glm::vec2 get_tex_coors\l() const\l+ bool operator==(const\l Vertex &other) const\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +color\n+normal\n+position" ,arrowhead="odiamond"];
-  Node2 [label="{vec3\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{vec3\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +texture_coords" ,arrowhead="odiamond"];
-  Node3 [label="{vec2\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{vec2\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

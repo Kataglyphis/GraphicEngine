@@ -2,13 +2,16 @@
 
 #include <array>
 #include <sstream>
+#include <filesystem>
 
 #include "OpenGLRendererConfig.h"
 
 SkyBox::SkyBox() {
   std::stringstream skybox_base_dir;
-  skybox_base_dir << CMAKELISTS_DIR;
-  skybox_base_dir << "/Textures/Skybox/DOOM2016/";
+  std::filesystem::path cwd = std::filesystem::current_path();
+  skybox_base_dir << cwd.string();
+  skybox_base_dir << RELATIVE_RESOURCE_PATH;
+  skybox_base_dir << "Textures/Skybox/DOOM2016/";
 
   std::stringstream texture_loading;
   std::array<std::string, 6> skybox_textures = {"DOOM16RT.png", "DOOM16LF.png",

@@ -7,11 +7,11 @@ digraph "Window"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Window\n||+  Window()\l+  Window(GLint window\l_width, GLint window\l_height)\l+ bool get_should_close()\l+ void swap_buffers()\l+ int initialize()\l+ void update_viewport()\l+ GLuint get_buffer_width\l() const\l+ GLuint get_buffer_height\l() const\l+ GLfloat get_x_change()\l+ GLfloat get_y_change()\l+ GLFWwindow * get_window()\l+ bool * get_keys()\l+  ~Window()\l- void init_callbacks()\l- static void framebuffer\l_size_callback(GLFWwindow\l *window, int width, int\l height)\l- static void key_callback\l(GLFWwindow *window, int\l key, int code, int action,\l int mode)\l- static void mouse_callback\l(GLFWwindow *window, double\l x_pos, double y_pos)\l- static void mouse_button\l_callback(GLFWwindow *window,\l int button, int action, int mods)\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -main_window" ,arrowhead="odiamond"];
-  Node2 [label="{GLFWwindow *\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{GLFWwindow *\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -window_buffer_height\n-window_buffer_width\n-window_height\n-window_width" ,arrowhead="odiamond"];
-  Node3 [label="{GLint\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{GLint\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -keys\n-mouse_first_moved" ,arrowhead="odiamond"];
-  Node4 [label="{bool\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node4 [label="{bool\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -last_x\n-last_y\n-x_change\n-y_change" ,arrowhead="odiamond"];
-  Node5 [label="{GLfloat\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node5 [label="{GLfloat\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

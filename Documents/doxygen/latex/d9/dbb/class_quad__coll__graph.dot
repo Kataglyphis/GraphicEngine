@@ -7,7 +7,7 @@ digraph "Quad"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Quad\n||+  Quad()\l+ void render()\l+  ~Quad()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -q_vao\n-q_vbo" ,arrowhead="odiamond"];
-  Node2 [label="{GLuint\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{GLuint\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -vertices" ,arrowhead="odiamond"];
-  Node3 [label="{float\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{float\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

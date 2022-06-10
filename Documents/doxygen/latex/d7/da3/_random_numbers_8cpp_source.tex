@@ -1,11 +1,11 @@
 \hypertarget{_random_numbers_8cpp_source}{}\doxysection{Random\+Numbers.\+cpp}
-\label{_random_numbers_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/util/RandomNumbers.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/util/RandomNumbers.cpp}}
+\label{_random_numbers_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/util/RandomNumbers.cpp}}
 \mbox{\hyperlink{_random_numbers_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_random_numbers_8h}{RandomNumbers.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bindings_8h}{bindings.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{host__device__shared_8h}{host\_device\_shared.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}bindings.h"{}}}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}host\_device\_shared.h"{}}}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00005}00005 }
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00006}\mbox{\hyperlink{class_random_numbers_a4fc77d1cb0734a65f806b5d0ca40eafc}{00006}} \mbox{\hyperlink{class_random_numbers_a4fc77d1cb0734a65f806b5d0ca40eafc}{RandomNumbers::RandomNumbers}}() \{}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00007}00007   \mbox{\hyperlink{class_random_numbers_aa2bed0794baa45d0f80b6a0ea4c4abc4}{generate\_random\_numbers}}();}
@@ -18,28 +18,28 @@
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00014}00014   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00015}00015   glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00016}00016   \textcolor{comment}{// assuming full HD will be maximum resolution}}
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00017}00017   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, \mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}}, \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}},}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00017}00017   glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA32F, MAX\_RESOLUTION\_X, MAX\_RESOLUTION\_Y,}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00018}00018                0, GL\_RGBA, GL\_FLOAT, \mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get());}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00019}00019   glBindTexture(GL\_TEXTURE\_2D, 0);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00020}00020 \}}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00021}00021 }
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00022}\mbox{\hyperlink{class_random_numbers_a1065063a0762cea3be8f180599607eff}{00022}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_random_numbers_a1065063a0762cea3be8f180599607eff}{RandomNumbers::read}}() \{}
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00023}00023   glActiveTexture(GL\_TEXTURE0 + (GLenum)\mbox{\hyperlink{bindings_8h_a05989250a93ec0f9dfe63bad8ae1d95c}{RANDOM\_NUMBERS\_SLOT}});}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00023}00023   glActiveTexture(GL\_TEXTURE0 + (GLenum)RANDOM\_NUMBERS\_SLOT);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00024}00024   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_random_numbers_abb0658ad3900860a5df56fe55bd1495a}{random\_number\_id}});}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00025}00025 \}}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00026}00026 }
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00027}\mbox{\hyperlink{class_random_numbers_aa2bed0794baa45d0f80b6a0ea4c4abc4}{00027}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_random_numbers_aa2bed0794baa45d0f80b6a0ea4c4abc4}{RandomNumbers::generate\_random\_numbers}}() \{}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00028}00028   \mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}} = std::shared\_ptr<GLfloat[]>(}
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00029}00029       \textcolor{keyword}{new} GLfloat[\mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}} * \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}} * 4]);}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00029}00029       \textcolor{keyword}{new} GLfloat[MAX\_RESOLUTION\_X * MAX\_RESOLUTION\_Y * 4]);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00030}00030   std::mt19937\_64 gen64(25121995);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00031}00031   std::uniform\_real\_distribution<float> dis(0, 1);}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00033}00033   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_global_values_8h_a281397dbde1a87608c6350fb68dc2c9b}{MAX\_RESOLUTION\_X}}; i++) \{}
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00034}00034     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < \mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}}; k++) \{}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00033}00033   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < MAX\_RESOLUTION\_X; i++) \{}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00034}00034     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < MAX\_RESOLUTION\_Y; k++) \{}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00035}00035       \textcolor{keyword}{const} GLfloat random\_offset[4] = \{dis(gen64), dis(gen64), dis(gen64),}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00036}00036                                         dis(gen64)\};}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00038}00038       GLuint index = (\mbox{\hyperlink{_global_values_8h_a082cf569e4acab0d9a143c750fb1bc33}{MAX\_RESOLUTION\_Y}} * i + k) * 4;}
+\DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00038}00038       GLuint index = (MAX\_RESOLUTION\_Y * i + k) * 4;}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00039}00039 }
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00040}00040       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index) = random\_offset[0];}
 \DoxyCodeLine{\Hypertarget{_random_numbers_8cpp_source_l00041}00041       *(\mbox{\hyperlink{class_random_numbers_a16d9b83e5cd6ce3a01b9d68e2c90646f}{random\_number\_data}}.get() + index + 1) = random\_offset[1];}

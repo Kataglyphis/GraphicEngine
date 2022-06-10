@@ -1,5 +1,5 @@
 \hypertarget{_view_frustum_culling_8cpp_source}{}\doxysection{View\+Frustum\+Culling.\+cpp}
-\label{_view_frustum_culling_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.cpp}}
+\label{_view_frustum_culling_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/scene/ViewFrustumCulling.cpp}}
 \mbox{\hyperlink{_view_frustum_culling_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_view_frustum_culling_8h}{ViewFrustumCulling.h}}"{}}}
@@ -67,11 +67,11 @@
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00063}00063   GLint outcode\_right = 1;}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00064}00064   \textcolor{comment}{// GLint outcode;}}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00066}00066   GLint outcodes\_pattern[\mbox{\hyperlink{_global_values_8h_ac8343ff8e7950ec5ad29488f3f66549a}{NUM\_FRUSTUM\_PLANES}}] = \{}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00066}00066   GLint outcodes\_pattern[NUM\_FRUSTUM\_PLANES] = \{}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00067}00067       outcode\_near\_plane, outcode\_far\_plane, outcode\_up,}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00068}00068       outcode\_bottom,     outcode\_left,      outcode\_right\};}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00070}00070   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_global_values_8h_ac8343ff8e7950ec5ad29488f3f66549a}{NUM\_FRUSTUM\_PLANES}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00070}00070   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < NUM\_FRUSTUM\_PLANES; i++) \{}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00071}00071     \mbox{\hyperlink{struct_view_frustum_culling_1_1frustum__plane}{frustum\_plane}} plane = \mbox{\hyperlink{class_view_frustum_culling_a27423a399d5e3c821d5baf6b0c042d5e}{frustum\_planes}}[i];}
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00072}00072 }
 \DoxyCodeLine{\Hypertarget{_view_frustum_culling_8cpp_source_l00073}00073     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_view_frustum_culling_ae8ece7a3d69025bb175fe508f9a3d0df}{corners\_outside\_plane}}(aabb\_corners, plane, outcodes\_pattern[i])) \{}

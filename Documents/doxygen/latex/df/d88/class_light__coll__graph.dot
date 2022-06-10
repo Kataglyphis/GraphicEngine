@@ -7,9 +7,9 @@ digraph "Light"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Light\n||+  Light()\l+  Light(GLfloat red,\l GLfloat green, GLfloat\l blue, GLfloat radiance)\l+ glm::vec3 get_color\l() const\l+ float get_radiance\l() const\l+  ~Light()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #color" ,arrowhead="odiamond"];
-  Node2 [label="{vec3\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{vec3\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #radiance" ,arrowhead="odiamond"];
-  Node3 [label="{float\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{float\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #light_proj" ,arrowhead="odiamond"];
-  Node4 [label="{mat4\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node4 [label="{mat4\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

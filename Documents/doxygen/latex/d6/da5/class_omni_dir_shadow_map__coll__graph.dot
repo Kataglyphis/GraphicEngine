@@ -9,5 +9,5 @@ digraph "OmniDirShadowMap"
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
   Node2 [label="{ShadowMap\n||+  ShadowMap()\l+ virtual bool init(GLuint\l width, GLuint height)\l+ virtual void write()\l+ virtual void read(GLenum\l texture_unit)\l+ GLuint get_shadow_width\l() const\l+ GLuint get_shadow_height\l() const\l+ GLuint get_id() const\l+ virtual ~ShadowMap()\l}",height=0.2,width=0.4,color="black",URL="$d8/da9/class_shadow_map.html",tooltip=" "];
   Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" #FBO\n#shadow_height\n#shadow_map\n#shadow_width" ,arrowhead="odiamond"];
-  Node3 [label="{GLuint\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{GLuint\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

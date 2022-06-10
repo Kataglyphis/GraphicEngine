@@ -6,8 +6,13 @@
 
 
 
-Collaboration diagram for Obj\+Loader\+:
-% FIG 0
+Collaboration diagram for Obj\+Loader\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{df/dcd/class_obj_loader__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,11 +60,11 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00011}{11}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_obj_loader_8cpp_source}{Obj\+Loader.\+cpp}}.
+Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_obj_loader_8cpp_source}{Obj\+Loader.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00006 \{\}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00008}00008 \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_obj_loader_a54187b058cfa8fbf5fede044c97c49b4}\label{class_obj_loader_a54187b058cfa8fbf5fede044c97c49b4}} 
@@ -70,11 +75,11 @@ Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00006}{6}} of file 
 
 
 
-Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00184}{184}} of file \mbox{\hyperlink{_obj_loader_8cpp_source}{Obj\+Loader.\+cpp}}.
+Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{_obj_loader_8cpp_source}{Obj\+Loader.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00184 \{\}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00188}00188 \{\}}
 
 \end{DoxyCode}
 
@@ -92,19 +97,24 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00031}{31}} of file \
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00031                                                            \{}
-\DoxyCodeLine{00032     \textcolor{keywordflow}{if} (filepath.find\_last\_of(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)"{}}) != std::string::npos)}
-\DoxyCodeLine{00033       \textcolor{keywordflow}{return} filepath.substr(0, filepath.find\_last\_of(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)"{}}));}
-\DoxyCodeLine{00034     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00035   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00031}00031                                                            \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00032}00032     \textcolor{keywordflow}{if} (filepath.find\_last\_of(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)"{}}) != std::string::npos)}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00033}00033       \textcolor{keywordflow}{return} filepath.substr(0, filepath.find\_last\_of(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)"{}}));}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00034}00034     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00035}00035   \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
-Here is the caller graph for this function\+:
-% FIG 1
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/dd8/class_obj_loader_ab6a45a8814c4bc29125661bc1951e024_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_obj_loader_a41db1c0ada11d10ae9a60c5aa78b0920}\label{class_obj_loader_a41db1c0ada11d10ae9a60c5aa78b0920}} 
 \index{ObjLoader@{ObjLoader}!load@{load}}
 \index{load@{load}!ObjLoader@{ObjLoader}}
@@ -113,195 +123,207 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_obj_loader_8cpp_source}{Obj\+Loader.\+cpp}}.
+Definition at line \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_obj_loader_8cpp_source}{Obj\+Loader.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012                                                         \{}
-\DoxyCodeLine{00013   tinyobj::ObjReaderConfig reader\_config;}
-\DoxyCodeLine{00014   tinyobj::ObjReader reader;}
-\DoxyCodeLine{00015 }
-\DoxyCodeLine{00016   \textcolor{keywordflow}{if} (!reader.ParseFromFile(modelFile, reader\_config)) \{}
-\DoxyCodeLine{00017     \textcolor{keywordflow}{if} (!reader.Error().empty()) \{}
-\DoxyCodeLine{00018       std::cerr << \textcolor{stringliteral}{"{}TinyObjReader: "{}} << reader.Error();}
-\DoxyCodeLine{00019     \}}
-\DoxyCodeLine{00020     exit(EXIT\_FAILURE);}
-\DoxyCodeLine{00021   \}}
-\DoxyCodeLine{00022 }
-\DoxyCodeLine{00023   \textcolor{keywordflow}{if} (!reader.Warning().empty()) \{}
-\DoxyCodeLine{00024     std::cout << \textcolor{stringliteral}{"{}TinyObjReader: "{}} << reader.Warning();}
-\DoxyCodeLine{00025   \}}
-\DoxyCodeLine{00026 }
-\DoxyCodeLine{00027   \textcolor{keyword}{auto}\& tol\_materials = reader.GetMaterials();}
-\DoxyCodeLine{00028   \textcolor{comment}{// texture\_list.reserve(tol\_materials.size());}}
-\DoxyCodeLine{00029 }
-\DoxyCodeLine{00030   \textcolor{keywordflow}{if} (\textcolor{keyword}{static\_cast<}GLuint\textcolor{keyword}{>}(tol\_materials.size() > \mbox{\hyperlink{host__device__shared_8h_afaa201acc17911367dbffba9aad2a69a}{MAX\_MATERIALS}}))}
-\DoxyCodeLine{00031     std::runtime\_error(}
-\DoxyCodeLine{00032         \textcolor{stringliteral}{"{}ObjLoader: We try to load more materials then MAX\_MATERIALS is "{}}}
-\DoxyCodeLine{00033         \textcolor{stringliteral}{"{}defined!"{}});}
-\DoxyCodeLine{00034 }
-\DoxyCodeLine{00035   \textcolor{comment}{// texture at position 0 is plain texture to handle non existing materials}}
-\DoxyCodeLine{00036   \textcolor{keywordtype}{int} texture\_id = 1;}
-\DoxyCodeLine{00037 }
-\DoxyCodeLine{00038   std::stringstream texture\_base\_dir;}
-\DoxyCodeLine{00039   texture\_base\_dir << \mbox{\hyperlink{_open_g_l_renderer_config_8h_a06f3f84c6add75aba385bb130c129978}{CMAKELISTS\_DIR}} << \textcolor{stringliteral}{"{}/Resources/Textures/plain.png"{}};}
-\DoxyCodeLine{00040   texture\_list.push\_back(texture\_base\_dir.str());}
-\DoxyCodeLine{00041 }
-\DoxyCodeLine{00042   \textcolor{comment}{// we now iterate over all materials to get diffuse textures}}
-\DoxyCodeLine{00043   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < tol\_materials.size(); i++) \{}
-\DoxyCodeLine{00044     \textcolor{keyword}{const} tinyobj::material\_t* mp = \&tol\_materials[i];}
-\DoxyCodeLine{00045     \mbox{\hyperlink{class_obj_material}{ObjMaterial}} material;}
-\DoxyCodeLine{00046     material.\mbox{\hyperlink{class_obj_material_a9c65773a38a0e4dee86795a4bed09ddb}{ambient}} =}
-\DoxyCodeLine{00047         glm::vec3(mp-\/>ambient[0], mp-\/>ambient[1], mp-\/>ambient[2]);}
-\DoxyCodeLine{00048     material.\mbox{\hyperlink{class_obj_material_a0bee7a876d20446f6bbe06663fbfbf5a}{diffuse}} =}
-\DoxyCodeLine{00049         glm::vec3(mp-\/>diffuse[0], mp-\/>diffuse[1], mp-\/>diffuse[2]);}
-\DoxyCodeLine{00050     material.\mbox{\hyperlink{class_obj_material_a8b47d0173f7e765cf6773e9f89b114c8}{specular}} =}
-\DoxyCodeLine{00051         glm::vec3(mp-\/>specular[0], mp-\/>specular[1], mp-\/>specular[2]);}
-\DoxyCodeLine{00052     material.\mbox{\hyperlink{class_obj_material_ab71365730eaba969554c9a6ae8227f69}{emission}} =}
-\DoxyCodeLine{00053         glm::vec3(mp-\/>emission[0], mp-\/>emission[1], mp-\/>emission[2]);}
-\DoxyCodeLine{00054     material.\mbox{\hyperlink{class_obj_material_ab0f246116851ebbaac5ed368520fdacf}{transmittance}} = glm::vec3(}
-\DoxyCodeLine{00055         mp-\/>transmittance[0], mp-\/>transmittance[1], mp-\/>transmittance[2]);}
-\DoxyCodeLine{00056     material.\mbox{\hyperlink{class_obj_material_acb312a519a725c63b482bfae1e799dcf}{dissolve}} = mp-\/>dissolve;}
-\DoxyCodeLine{00057     material.\mbox{\hyperlink{class_obj_material_ac9f474f5e03af56b5ad6ea9ff25738c0}{ior}} = mp-\/>ior;}
-\DoxyCodeLine{00058     material.\mbox{\hyperlink{class_obj_material_a3f5d797a2549dddac031ad61c94c9b5e}{shininess}} = mp-\/>shininess;}
-\DoxyCodeLine{00059     material.\mbox{\hyperlink{class_obj_material_a73f1632007214c150002b12dec5ab3b1}{illum}} = mp-\/>illum;}
-\DoxyCodeLine{00060 }
-\DoxyCodeLine{00061     \textcolor{keywordflow}{if} (mp-\/>diffuse\_texname.length() > 0) \{}
-\DoxyCodeLine{00062       std::string relative\_texture\_filename = mp-\/>diffuse\_texname;}
-\DoxyCodeLine{00063       std::string texture\_filename =}
-\DoxyCodeLine{00064           \mbox{\hyperlink{class_obj_loader_ab6a45a8814c4bc29125661bc1951e024}{get\_base\_dir}}(modelFile) + \textcolor{stringliteral}{"{}/"{}} + relative\_texture\_filename;}
-\DoxyCodeLine{00065 }
-\DoxyCodeLine{00066       texture\_list.push\_back(texture\_filename);}
-\DoxyCodeLine{00067 }
-\DoxyCodeLine{00068       material.\mbox{\hyperlink{class_obj_material_a834a3b3a19aeab4db26d0603df7a7a99}{textureID}} = texture\_id;}
-\DoxyCodeLine{00069       texture\_id++;}
-\DoxyCodeLine{00070 }
-\DoxyCodeLine{00071     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00072       \textcolor{comment}{// this means no texture was assigned; we catch it here and assign our}}
-\DoxyCodeLine{00073       \textcolor{comment}{// plain texture at position 0}}
-\DoxyCodeLine{00074       material.\mbox{\hyperlink{class_obj_material_a834a3b3a19aeab4db26d0603df7a7a99}{textureID}} = 0;}
-\DoxyCodeLine{00075     \}}
-\DoxyCodeLine{00076 }
-\DoxyCodeLine{00077     materials.push\_back(material);}
-\DoxyCodeLine{00078   \}}
-\DoxyCodeLine{00079 }
-\DoxyCodeLine{00080   \textcolor{comment}{// for the case no .mtl file is given place some random standard material ...}}
-\DoxyCodeLine{00081   \textcolor{keywordflow}{if} (tol\_materials.empty()) \{}
-\DoxyCodeLine{00082     materials.emplace\_back(\mbox{\hyperlink{class_obj_material}{ObjMaterial}}());}
-\DoxyCodeLine{00083   \}}
-\DoxyCodeLine{00084 }
-\DoxyCodeLine{00085   \textcolor{keyword}{auto}\& attrib = reader.GetAttrib();}
-\DoxyCodeLine{00086   \textcolor{keyword}{auto}\& shapes = reader.GetShapes();}
-\DoxyCodeLine{00087 }
-\DoxyCodeLine{00088   std::unordered\_map<Vertex, uint32\_t> vertices\_map\{\};}
-\DoxyCodeLine{00089 }
-\DoxyCodeLine{00090   \textcolor{comment}{// Loop over shapes}}
-\DoxyCodeLine{00091   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} s = 0; s < shapes.size(); s++) \{}
-\DoxyCodeLine{00092     \textcolor{comment}{// prepare for enlargement}}
-\DoxyCodeLine{00093     vertices.reserve(shapes[s].mesh.indices.size() + vertices.size());}
-\DoxyCodeLine{00094     indices.reserve(shapes[s].mesh.indices.size() + indices.size());}
-\DoxyCodeLine{00095 }
-\DoxyCodeLine{00096     \textcolor{comment}{// Loop over faces(polygon)}}
-\DoxyCodeLine{00097     \textcolor{keywordtype}{size\_t} index\_offset = 0;}
-\DoxyCodeLine{00098     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} f = 0; f < shapes[s].mesh.num\_face\_vertices.size(); f++) \{}
-\DoxyCodeLine{00099       \textcolor{keywordtype}{size\_t} fv = size\_t(shapes[s].mesh.num\_face\_vertices[f]);}
-\DoxyCodeLine{00100 }
-\DoxyCodeLine{00101       \textcolor{comment}{// Loop over vertices in the face.}}
-\DoxyCodeLine{00102       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} v = 0; v < fv; v++) \{}
-\DoxyCodeLine{00103         \textcolor{comment}{// access to vertex}}
-\DoxyCodeLine{00104         tinyobj::index\_t idx = shapes[s].mesh.indices[index\_offset + v];}
-\DoxyCodeLine{00105         tinyobj::real\_t vx = attrib.vertices[3 * size\_t(idx.vertex\_index) + 0];}
-\DoxyCodeLine{00106         tinyobj::real\_t vy = attrib.vertices[3 * size\_t(idx.vertex\_index) + 1];}
-\DoxyCodeLine{00107         tinyobj::real\_t vz = attrib.vertices[3 * size\_t(idx.vertex\_index) + 2];}
-\DoxyCodeLine{00108         glm::vec3 pos = \{vx, vy, vz\};}
-\DoxyCodeLine{00109 }
-\DoxyCodeLine{00110         \mbox{\hyperlink{class_obj_loader_a5bb0a0f2ebf18fcc768cd3b272321161}{minX}} = std::min(\mbox{\hyperlink{class_obj_loader_a5bb0a0f2ebf18fcc768cd3b272321161}{minX}}, pos.x);}
-\DoxyCodeLine{00111         \mbox{\hyperlink{class_obj_loader_a8961da6a414e2e085f8b10e3f2355981}{maxX}} = std::max(\mbox{\hyperlink{class_obj_loader_a8961da6a414e2e085f8b10e3f2355981}{maxX}}, pos.x);}
-\DoxyCodeLine{00112         \mbox{\hyperlink{class_obj_loader_a86430b76d080bbb9dcc613514472b5aa}{minY}} = std::min(\mbox{\hyperlink{class_obj_loader_a86430b76d080bbb9dcc613514472b5aa}{minY}}, pos.y);}
-\DoxyCodeLine{00113         \mbox{\hyperlink{class_obj_loader_a243b023b5556a1374cb9e788904a0dab}{maxY}} = std::max(\mbox{\hyperlink{class_obj_loader_a243b023b5556a1374cb9e788904a0dab}{maxY}}, pos.y);}
-\DoxyCodeLine{00114         \mbox{\hyperlink{class_obj_loader_a86422b9b78a170d7fee5fc2d9d6eb9b3}{minZ}} = std::min(\mbox{\hyperlink{class_obj_loader_a86422b9b78a170d7fee5fc2d9d6eb9b3}{minZ}}, pos.z);}
-\DoxyCodeLine{00115         \mbox{\hyperlink{class_obj_loader_ab3327309c780d0b0989e51066589752c}{maxZ}} = std::max(\mbox{\hyperlink{class_obj_loader_ab3327309c780d0b0989e51066589752c}{maxZ}}, pos.z);}
-\DoxyCodeLine{00116 }
-\DoxyCodeLine{00117         glm::vec3 normals(0.0f);}
-\DoxyCodeLine{00118         \textcolor{comment}{// Check if `normal\_index` is zero or positive. negative = no normal}}
-\DoxyCodeLine{00119         \textcolor{comment}{// data}}
-\DoxyCodeLine{00120         \textcolor{keywordflow}{if} (idx.normal\_index >= 0 \&\& !attrib.normals.empty()) \{}
-\DoxyCodeLine{00121           tinyobj::real\_t nx = attrib.normals[3 * size\_t(idx.normal\_index) + 0];}
-\DoxyCodeLine{00122           tinyobj::real\_t ny = attrib.normals[3 * size\_t(idx.normal\_index) + 1];}
-\DoxyCodeLine{00123           tinyobj::real\_t nz = attrib.normals[3 * size\_t(idx.normal\_index) + 2];}
-\DoxyCodeLine{00124           normals = glm::vec3(nx, ny, nz);}
-\DoxyCodeLine{00125         \}}
-\DoxyCodeLine{00126 }
-\DoxyCodeLine{00127         glm::vec3 color(-\/1.f);}
-\DoxyCodeLine{00128         \textcolor{keywordflow}{if} (!attrib.colors.empty()) \{}
-\DoxyCodeLine{00129           tinyobj::real\_t red = attrib.colors[3 * size\_t(idx.vertex\_index) + 0];}
-\DoxyCodeLine{00130           tinyobj::real\_t green =}
-\DoxyCodeLine{00131               attrib.colors[3 * size\_t(idx.vertex\_index) + 1];}
-\DoxyCodeLine{00132           tinyobj::real\_t blue =}
-\DoxyCodeLine{00133               attrib.colors[3 * size\_t(idx.vertex\_index) + 2];}
-\DoxyCodeLine{00134           color = glm::vec3(red, green, blue);}
-\DoxyCodeLine{00135         \}}
-\DoxyCodeLine{00136 }
-\DoxyCodeLine{00137         glm::vec2 tex\_coords(0.0f);}
-\DoxyCodeLine{00138         \textcolor{comment}{// Check if `texcoord\_index` is zero or positive. negative = no texcoord}}
-\DoxyCodeLine{00139         \textcolor{comment}{// data}}
-\DoxyCodeLine{00140         \textcolor{keywordflow}{if} (idx.texcoord\_index >= 0 \&\& !attrib.texcoords.empty()) \{}
-\DoxyCodeLine{00141           tinyobj::real\_t tx =}
-\DoxyCodeLine{00142               attrib.texcoords[2 * size\_t(idx.texcoord\_index) + 0];}
-\DoxyCodeLine{00143           \textcolor{comment}{// flip y coordinate !!}}
-\DoxyCodeLine{00144           tinyobj::real\_t ty =}
-\DoxyCodeLine{00145               1.f -\/ attrib.texcoords[2 * size\_t(idx.texcoord\_index) + 1];}
-\DoxyCodeLine{00146           tex\_coords = glm::vec2(tx, ty);}
-\DoxyCodeLine{00147         \}}
-\DoxyCodeLine{00148 }
-\DoxyCodeLine{00149         \mbox{\hyperlink{struct_vertex}{Vertex}} vert\{pos, normals, color, tex\_coords\};}
-\DoxyCodeLine{00150 }
-\DoxyCodeLine{00151         \textcolor{keywordflow}{if} (vertices\_map.count(vert) == 0) \{}
-\DoxyCodeLine{00152           vertices\_map[vert] = \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(vertices.size());}
-\DoxyCodeLine{00153           vertices.push\_back(vert);}
-\DoxyCodeLine{00154         \}}
-\DoxyCodeLine{00155 }
-\DoxyCodeLine{00156         indices.push\_back(vertices\_map[vert]);}
-\DoxyCodeLine{00157       \}}
-\DoxyCodeLine{00158 }
-\DoxyCodeLine{00159       index\_offset += fv;}
-\DoxyCodeLine{00160 }
-\DoxyCodeLine{00161       \textcolor{comment}{// per-\/face material; face usually is triangle}}
-\DoxyCodeLine{00162       \textcolor{comment}{// matToTex[shapes[s].mesh.material\_ids[f]]}}
-\DoxyCodeLine{00163       materialIndex.push\_back(}
-\DoxyCodeLine{00164           glm::vec4(shapes[s].mesh.material\_ids[f], 0.0f, 0.0f, 0.0f));}
-\DoxyCodeLine{00165     \}}
-\DoxyCodeLine{00166   \}}
-\DoxyCodeLine{00167 }
-\DoxyCodeLine{00168   \textcolor{comment}{// precompute normals if no provided}}
-\DoxyCodeLine{00169   \textcolor{keywordflow}{if} (attrib.normals.empty()) \{}
-\DoxyCodeLine{00170     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < indices.size(); i += 3) \{}
-\DoxyCodeLine{00171       \mbox{\hyperlink{struct_vertex}{Vertex}}\& v0 = vertices[indices[i + 0]];}
-\DoxyCodeLine{00172       \mbox{\hyperlink{struct_vertex}{Vertex}}\& v1 = vertices[indices[i + 1]];}
-\DoxyCodeLine{00173       \mbox{\hyperlink{struct_vertex}{Vertex}}\& v2 = vertices[indices[i + 2]];}
-\DoxyCodeLine{00174 }
-\DoxyCodeLine{00175       glm::vec3 n = glm::normalize(}
-\DoxyCodeLine{00176           glm::cross((v1.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} -\/ v0.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}}), (v2.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} -\/ v0.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}})));}
-\DoxyCodeLine{00177       v0.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = n;}
-\DoxyCodeLine{00178       v1.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = n;}
-\DoxyCodeLine{00179       v2.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = n;}
-\DoxyCodeLine{00180     \}}
-\DoxyCodeLine{00181   \}}
-\DoxyCodeLine{00182 \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00014}00014                                                         \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00015}00015   tinyobj::ObjReaderConfig reader\_config;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00016}00016   tinyobj::ObjReader reader;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00018}00018   \textcolor{keywordflow}{if} (!reader.ParseFromFile(modelFile, reader\_config)) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00019}00019     \textcolor{keywordflow}{if} (!reader.Error().empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00020}00020       std::cerr << \textcolor{stringliteral}{"{}TinyObjReader: "{}} << reader.Error();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00021}00021     \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00022}00022     exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00023}00023   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00025}00025   \textcolor{keywordflow}{if} (!reader.Warning().empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00026}00026     std::cout << \textcolor{stringliteral}{"{}TinyObjReader: "{}} << reader.Warning();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00027}00027   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00029}00029   \textcolor{keyword}{auto}\& tol\_materials = reader.GetMaterials();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00030}00030   \textcolor{comment}{// texture\_list.reserve(tol\_materials.size());}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00032}00032   \textcolor{keywordflow}{if} (\textcolor{keyword}{static\_cast<}GLuint\textcolor{keyword}{>}(tol\_materials.size() > MAX\_MATERIALS))}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00033}00033     std::runtime\_error(}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00034}00034         \textcolor{stringliteral}{"{}ObjLoader: We try to load more materials then MAX\_MATERIALS is "{}}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00035}00035         \textcolor{stringliteral}{"{}defined!"{}});}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00037}00037   \textcolor{comment}{// texture at position 0 is plain texture to handle non existing materials}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00038}00038   \textcolor{keywordtype}{int} texture\_id = 1;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00040}00040   std::stringstream texture\_base\_dir;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00041}00041   std::filesystem::path cwd = std::filesystem::current\_path();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00042}00042   texture\_base\_dir << cwd.string();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00043}00043   texture\_base\_dir << \mbox{\hyperlink{_open_g_l_renderer_config_8h_a21612190890d0d71e82a71c6bb2b524b}{RELATIVE\_RESOURCE\_PATH}} << \textcolor{stringliteral}{"{}Textures/plain.png"{}};}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00044}00044   texture\_list.push\_back(texture\_base\_dir.str());}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00046}00046   \textcolor{comment}{// we now iterate over all materials to get diffuse textures}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00047}00047   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < tol\_materials.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00048}00048     \textcolor{keyword}{const} tinyobj::material\_t* mp = \&tol\_materials[i];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00049}00049     \mbox{\hyperlink{class_obj_material}{ObjMaterial}} material;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00050}00050     material.\mbox{\hyperlink{class_obj_material_a9c65773a38a0e4dee86795a4bed09ddb}{ambient}} =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00051}00051         glm::vec3(mp-\/>ambient[0], mp-\/>ambient[1], mp-\/>ambient[2]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00052}00052     material.\mbox{\hyperlink{class_obj_material_a0bee7a876d20446f6bbe06663fbfbf5a}{diffuse}} =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00053}00053         glm::vec3(mp-\/>diffuse[0], mp-\/>diffuse[1], mp-\/>diffuse[2]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00054}00054     material.\mbox{\hyperlink{class_obj_material_a8b47d0173f7e765cf6773e9f89b114c8}{specular}} =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00055}00055         glm::vec3(mp-\/>specular[0], mp-\/>specular[1], mp-\/>specular[2]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00056}00056     material.\mbox{\hyperlink{class_obj_material_ab71365730eaba969554c9a6ae8227f69}{emission}} =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00057}00057         glm::vec3(mp-\/>emission[0], mp-\/>emission[1], mp-\/>emission[2]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00058}00058     material.\mbox{\hyperlink{class_obj_material_ab0f246116851ebbaac5ed368520fdacf}{transmittance}} = glm::vec3(}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00059}00059         mp-\/>transmittance[0], mp-\/>transmittance[1], mp-\/>transmittance[2]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00060}00060     material.\mbox{\hyperlink{class_obj_material_acb312a519a725c63b482bfae1e799dcf}{dissolve}} = mp-\/>dissolve;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00061}00061     material.\mbox{\hyperlink{class_obj_material_ac9f474f5e03af56b5ad6ea9ff25738c0}{ior}} = mp-\/>ior;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00062}00062     material.\mbox{\hyperlink{class_obj_material_a3f5d797a2549dddac031ad61c94c9b5e}{shininess}} = mp-\/>shininess;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00063}00063     material.\mbox{\hyperlink{class_obj_material_a73f1632007214c150002b12dec5ab3b1}{illum}} = mp-\/>illum;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00065}00065     \textcolor{keywordflow}{if} (mp-\/>diffuse\_texname.length() > 0) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00066}00066       std::string relative\_texture\_filename = mp-\/>diffuse\_texname;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00067}00067       std::string texture\_filename =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00068}00068           \mbox{\hyperlink{class_obj_loader_ab6a45a8814c4bc29125661bc1951e024}{get\_base\_dir}}(modelFile) + \textcolor{stringliteral}{"{}/"{}} + relative\_texture\_filename;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00070}00070       texture\_list.push\_back(texture\_filename);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00072}00072       material.\mbox{\hyperlink{class_obj_material_a834a3b3a19aeab4db26d0603df7a7a99}{textureID}} = texture\_id;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00073}00073       texture\_id++;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00075}00075     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00076}00076       \textcolor{comment}{// this means no texture was assigned; we catch it here and assign our}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00077}00077       \textcolor{comment}{// plain texture at position 0}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00078}00078       material.\mbox{\hyperlink{class_obj_material_a834a3b3a19aeab4db26d0603df7a7a99}{textureID}} = 0;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00079}00079     \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00081}00081     materials.push\_back(material);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00082}00082   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00084}00084   \textcolor{comment}{// for the case no .mtl file is given place some random standard material ...}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00085}00085   \textcolor{keywordflow}{if} (tol\_materials.empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00086}00086     materials.emplace\_back(\mbox{\hyperlink{class_obj_material}{ObjMaterial}}());}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00087}00087   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00089}00089   \textcolor{keyword}{auto}\& attrib = reader.GetAttrib();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00090}00090   \textcolor{keyword}{auto}\& shapes = reader.GetShapes();}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00092}00092   std::unordered\_map<Vertex, uint32\_t> vertices\_map\{\};}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00094}00094   \textcolor{comment}{// Loop over shapes}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00095}00095   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} s = 0; s < shapes.size(); s++) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00096}00096     \textcolor{comment}{// prepare for enlargement}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00097}00097     vertices.reserve(shapes[s].mesh.indices.size() + vertices.size());}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00098}00098     indices.reserve(shapes[s].mesh.indices.size() + indices.size());}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00100}00100     \textcolor{comment}{// Loop over faces(polygon)}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00101}00101     \textcolor{keywordtype}{size\_t} index\_offset = 0;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00102}00102     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} f = 0; f < shapes[s].mesh.num\_face\_vertices.size(); f++) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00103}00103       \textcolor{keywordtype}{size\_t} fv = size\_t(shapes[s].mesh.num\_face\_vertices[f]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00105}00105       \textcolor{comment}{// Loop over vertices in the face.}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00106}00106       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} v = 0; v < fv; v++) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00107}00107         \textcolor{comment}{// access to vertex}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00108}00108         tinyobj::index\_t idx = shapes[s].mesh.indices[index\_offset + v];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00109}00109         tinyobj::real\_t vx = attrib.vertices[3 * size\_t(idx.vertex\_index) + 0];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00110}00110         tinyobj::real\_t vy = attrib.vertices[3 * size\_t(idx.vertex\_index) + 1];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00111}00111         tinyobj::real\_t vz = attrib.vertices[3 * size\_t(idx.vertex\_index) + 2];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00112}00112         glm::vec3 pos = \{vx, vy, vz\};}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00114}00114         \mbox{\hyperlink{class_obj_loader_a5bb0a0f2ebf18fcc768cd3b272321161}{minX}} = std::min(\mbox{\hyperlink{class_obj_loader_a5bb0a0f2ebf18fcc768cd3b272321161}{minX}}, pos.x);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00115}00115         \mbox{\hyperlink{class_obj_loader_a8961da6a414e2e085f8b10e3f2355981}{maxX}} = std::max(\mbox{\hyperlink{class_obj_loader_a8961da6a414e2e085f8b10e3f2355981}{maxX}}, pos.x);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00116}00116         \mbox{\hyperlink{class_obj_loader_a86430b76d080bbb9dcc613514472b5aa}{minY}} = std::min(\mbox{\hyperlink{class_obj_loader_a86430b76d080bbb9dcc613514472b5aa}{minY}}, pos.y);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00117}00117         \mbox{\hyperlink{class_obj_loader_a243b023b5556a1374cb9e788904a0dab}{maxY}} = std::max(\mbox{\hyperlink{class_obj_loader_a243b023b5556a1374cb9e788904a0dab}{maxY}}, pos.y);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00118}00118         \mbox{\hyperlink{class_obj_loader_a86422b9b78a170d7fee5fc2d9d6eb9b3}{minZ}} = std::min(\mbox{\hyperlink{class_obj_loader_a86422b9b78a170d7fee5fc2d9d6eb9b3}{minZ}}, pos.z);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00119}00119         \mbox{\hyperlink{class_obj_loader_ab3327309c780d0b0989e51066589752c}{maxZ}} = std::max(\mbox{\hyperlink{class_obj_loader_ab3327309c780d0b0989e51066589752c}{maxZ}}, pos.z);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00121}00121         glm::vec3 normals(0.0f);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00122}00122         \textcolor{comment}{// Check if `normal\_index` is zero or positive. negative = no normal}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00123}00123         \textcolor{comment}{// data}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00124}00124         \textcolor{keywordflow}{if} (idx.normal\_index >= 0 \&\& !attrib.normals.empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00125}00125           tinyobj::real\_t nx = attrib.normals[3 * size\_t(idx.normal\_index) + 0];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00126}00126           tinyobj::real\_t ny = attrib.normals[3 * size\_t(idx.normal\_index) + 1];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00127}00127           tinyobj::real\_t nz = attrib.normals[3 * size\_t(idx.normal\_index) + 2];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00128}00128           normals = glm::vec3(nx, ny, nz);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00129}00129         \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00131}00131         glm::vec3 color(-\/1.f);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00132}00132         \textcolor{keywordflow}{if} (!attrib.colors.empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00133}00133           tinyobj::real\_t red = attrib.colors[3 * size\_t(idx.vertex\_index) + 0];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00134}00134           tinyobj::real\_t green =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00135}00135               attrib.colors[3 * size\_t(idx.vertex\_index) + 1];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00136}00136           tinyobj::real\_t blue =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00137}00137               attrib.colors[3 * size\_t(idx.vertex\_index) + 2];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00138}00138           color = glm::vec3(red, green, blue);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00139}00139         \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00141}00141         glm::vec2 tex\_coords(0.0f);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00142}00142         \textcolor{comment}{// Check if `texcoord\_index` is zero or positive. negative = no texcoord}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00143}00143         \textcolor{comment}{// data}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00144}00144         \textcolor{keywordflow}{if} (idx.texcoord\_index >= 0 \&\& !attrib.texcoords.empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00145}00145           tinyobj::real\_t tx =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00146}00146               attrib.texcoords[2 * size\_t(idx.texcoord\_index) + 0];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00147}00147           \textcolor{comment}{// flip y coordinate !!}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00148}00148           tinyobj::real\_t ty =}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00149}00149               1.f -\/ attrib.texcoords[2 * size\_t(idx.texcoord\_index) + 1];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00150}00150           tex\_coords = glm::vec2(tx, ty);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00151}00151         \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00152}00152 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00153}00153         \mbox{\hyperlink{struct_vertex}{Vertex}} vert\{pos, normals, color, tex\_coords\};}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00155}00155         \textcolor{keywordflow}{if} (vertices\_map.count(vert) == 0) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00156}00156           vertices\_map[vert] = \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(vertices.size());}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00157}00157           vertices.push\_back(vert);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00158}00158         \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00160}00160         indices.push\_back(vertices\_map[vert]);}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00161}00161       \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00163}00163       index\_offset += fv;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00165}00165       \textcolor{comment}{// per-\/face material; face usually is triangle}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00166}00166       \textcolor{comment}{// matToTex[shapes[s].mesh.material\_ids[f]]}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00167}00167       materialIndex.push\_back(}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00168}00168           glm::vec4(shapes[s].mesh.material\_ids[f], 0.0f, 0.0f, 0.0f));}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00169}00169     \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00170}00170   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00172}00172   \textcolor{comment}{// precompute normals if no provided}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00173}00173   \textcolor{keywordflow}{if} (attrib.normals.empty()) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00174}00174     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < indices.size(); i += 3) \{}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00175}00175       \mbox{\hyperlink{struct_vertex}{Vertex}}\& v0 = vertices[indices[i + 0]];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00176}00176       \mbox{\hyperlink{struct_vertex}{Vertex}}\& v1 = vertices[indices[i + 1]];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00177}00177       \mbox{\hyperlink{struct_vertex}{Vertex}}\& v2 = vertices[indices[i + 2]];}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00179}00179       glm::vec3 n = glm::normalize(}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00180}00180           glm::cross((v1.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} -\/ v0.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}}), (v2.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}} -\/ v0.\mbox{\hyperlink{struct_vertex_a030819fdc241743bbd3e180a6b132ed3}{position}})));}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00181}00181       v0.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = n;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00182}00182       v1.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = n;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00183}00183       v2.\mbox{\hyperlink{struct_vertex_a3aa35fe84025ecf1acccb5f65f5577fd}{normal}} = n;}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00184}00184     \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00185}00185   \}}
+\DoxyCodeLine{\Hypertarget{class_obj_loader_l00186}00186 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_obj_material_8h_source_l00034}{Obj\+Material\+::ambient}}, \mbox{\hyperlink{_open_g_l_renderer_config_8h_source_l00012}{CMAKELISTS\+\_\+\+DIR}}, \mbox{\hyperlink{_obj_material_8h_source_l00035}{Obj\+Material\+::diffuse}}, \mbox{\hyperlink{_obj_material_8h_source_l00041}{Obj\+Material\+::dissolve}}, \mbox{\hyperlink{_obj_material_8h_source_l00038}{Obj\+Material\+::emission}}, \mbox{\hyperlink{_obj_loader_8h_source_l00031}{get\+\_\+base\+\_\+dir()}}, \mbox{\hyperlink{_obj_material_8h_source_l00043}{Obj\+Material\+::illum}}, \mbox{\hyperlink{_obj_material_8h_source_l00040}{Obj\+Material\+::ior}}, \mbox{\hyperlink{host__device__shared_8h_source_l00009}{MAX\+\_\+\+MATERIALS}}, \mbox{\hyperlink{_obj_loader_8h_source_l00025}{maxX}}, \mbox{\hyperlink{_obj_loader_8h_source_l00027}{maxY}}, \mbox{\hyperlink{_obj_loader_8h_source_l00029}{maxZ}}, \mbox{\hyperlink{_obj_loader_8h_source_l00024}{minX}}, \mbox{\hyperlink{_obj_loader_8h_source_l00026}{minY}}, \mbox{\hyperlink{_obj_loader_8h_source_l00028}{minZ}}, \mbox{\hyperlink{_vertex_8h_source_l00009}{Vertex\+::normal}}, \mbox{\hyperlink{_vertex_8h_source_l00008}{Vertex\+::position}}, \mbox{\hyperlink{_obj_material_8h_source_l00039}{Obj\+Material\+::shininess}}, \mbox{\hyperlink{_obj_material_8h_source_l00036}{Obj\+Material\+::specular}}, \mbox{\hyperlink{_obj_material_8h_source_l00044}{Obj\+Material\+::texture\+ID}}, and \mbox{\hyperlink{_obj_material_8h_source_l00037}{Obj\+Material\+::transmittance}}.
+References \mbox{\hyperlink{_obj_material_8h_source_l00034}{Obj\+Material\+::ambient}}, \mbox{\hyperlink{_obj_material_8h_source_l00035}{Obj\+Material\+::diffuse}}, \mbox{\hyperlink{_obj_material_8h_source_l00041}{Obj\+Material\+::dissolve}}, \mbox{\hyperlink{_obj_material_8h_source_l00038}{Obj\+Material\+::emission}}, \mbox{\hyperlink{_obj_loader_8h_source_l00031}{get\+\_\+base\+\_\+dir()}}, \mbox{\hyperlink{_obj_material_8h_source_l00043}{Obj\+Material\+::illum}}, \mbox{\hyperlink{_obj_material_8h_source_l00040}{Obj\+Material\+::ior}}, \mbox{\hyperlink{_obj_loader_8h_source_l00025}{maxX}}, \mbox{\hyperlink{_obj_loader_8h_source_l00027}{maxY}}, \mbox{\hyperlink{_obj_loader_8h_source_l00029}{maxZ}}, \mbox{\hyperlink{_obj_loader_8h_source_l00024}{minX}}, \mbox{\hyperlink{_obj_loader_8h_source_l00026}{minY}}, \mbox{\hyperlink{_obj_loader_8h_source_l00028}{minZ}}, \mbox{\hyperlink{_vertex_8h_source_l00009}{Vertex\+::normal}}, \mbox{\hyperlink{_vertex_8h_source_l00008}{Vertex\+::position}}, \mbox{\hyperlink{_open_g_l_renderer_config_8h_source_l00012}{RELATIVE\+\_\+\+RESOURCE\+\_\+\+PATH}}, \mbox{\hyperlink{_obj_material_8h_source_l00039}{Obj\+Material\+::shininess}}, \mbox{\hyperlink{_obj_material_8h_source_l00036}{Obj\+Material\+::specular}}, \mbox{\hyperlink{_obj_material_8h_source_l00044}{Obj\+Material\+::texture\+ID}}, and \mbox{\hyperlink{_obj_material_8h_source_l00037}{Obj\+Material\+::transmittance}}.
 
 
 
 Referenced by \mbox{\hyperlink{_model_8cpp_source_l00013}{Model\+::load\+\_\+model\+\_\+in\+\_\+ram()}}.
 
-Here is the call graph for this function\+:
-% FIG 2
-Here is the caller graph for this function\+:
-% FIG 3
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{d5/dd8/class_obj_loader_a41db1c0ada11d10ae9a60c5aa78b0920_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{d5/dd8/class_obj_loader_a41db1c0ada11d10ae9a60c5aa78b0920_icgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Field Documentation}
@@ -317,7 +339,7 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00025}{25}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
 \mbox{\Hypertarget{class_obj_loader_a243b023b5556a1374cb9e788904a0dab}\label{class_obj_loader_a243b023b5556a1374cb9e788904a0dab}} 
 \index{ObjLoader@{ObjLoader}!maxY@{maxY}}
@@ -331,7 +353,7 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00027}{27}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
 \mbox{\Hypertarget{class_obj_loader_ab3327309c780d0b0989e51066589752c}\label{class_obj_loader_ab3327309c780d0b0989e51066589752c}} 
 \index{ObjLoader@{ObjLoader}!maxZ@{maxZ}}
@@ -345,7 +367,7 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00029}{29}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
 \mbox{\Hypertarget{class_obj_loader_a5bb0a0f2ebf18fcc768cd3b272321161}\label{class_obj_loader_a5bb0a0f2ebf18fcc768cd3b272321161}} 
 \index{ObjLoader@{ObjLoader}!minX@{minX}}
@@ -359,7 +381,7 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00024}{24}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
 \mbox{\Hypertarget{class_obj_loader_a86430b76d080bbb9dcc613514472b5aa}\label{class_obj_loader_a86430b76d080bbb9dcc613514472b5aa}} 
 \index{ObjLoader@{ObjLoader}!minY@{minY}}
@@ -373,7 +395,7 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00026}{26}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
 \mbox{\Hypertarget{class_obj_loader_a86422b9b78a170d7fee5fc2d9d6eb9b3}\label{class_obj_loader_a86422b9b78a170d7fee5fc2d9d6eb9b3}} 
 \index{ObjLoader@{ObjLoader}!minZ@{minZ}}
@@ -387,11 +409,11 @@ Definition at line \mbox{\hyperlink{_obj_loader_8h_source_l00028}{28}} of file \
 
 
 
-Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00008}{load()}}.
+Referenced by \mbox{\hyperlink{_obj_loader_8cpp_source_l00010}{load()}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_obj_loader_8h}{Obj\+Loader.\+h}}\item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_obj_loader_8cpp}{Obj\+Loader.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_obj_loader_8h}{Obj\+Loader.\+h}}\item 
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/scene/\mbox{\hyperlink{_obj_loader_8cpp}{Obj\+Loader.\+cpp}}\end{DoxyCompactItemize}

@@ -18,6 +18,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
+set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/build)
+
 # add compile flags; as restrictive as possible
 # for windows
 # source: https://github.com/cpp-best-practices/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
@@ -579,11 +581,11 @@ gtest_discover_tests(   ${COMMIT_TEST_SUITE} ${COMPILE_TEST_SUITE})# ${CMAKE_CUR
 
 # add test after each build
 # src: https://quickturnstudio.com/running-test-in-compile-time/
-add_custom_target(${COMPILE_TEST_SUITE}_Runner
-                  COMMAND ${COMPILE_TEST_SUITE}
-                  COMMENT "Running tests after each compilation.")
+# add_custom_target(${COMPILE_TEST_SUITE}_Runner
+#                   COMMAND ${COMPILE_TEST_SUITE}
+#                   COMMENT "Running tests after each compilation.")
 
-add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
+# add_dependencies(${PROJECT_NAME} ${COMPILE_TEST_SUITE}_Runner)
 
 # for correct library output needed
 # if(UNIX)
@@ -595,8 +597,7 @@ install(TARGETS ${PROJECT_NAME}
 
 #endif()
 
-set(CMAKE_INSTALL_DATADIR Resources/)
-install(DIRECTORY Resources/ DESTINATION ${CMAKE_INSTALL_DATADIR})
+install(DIRECTORY Resources/ DESTINATION Resources/)
 
 # we are using this dir strings for removing hard coded file locations
 # at c++ side

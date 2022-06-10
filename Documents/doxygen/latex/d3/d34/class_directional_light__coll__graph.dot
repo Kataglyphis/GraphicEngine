@@ -9,18 +9,18 @@ digraph "DirectionalLight"
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
   Node2 [label="{Light\n||+  Light()\l+  Light(GLfloat red,\l GLfloat green, GLfloat\l blue, GLfloat radiance)\l+ glm::vec3 get_color\l() const\l+ float get_radiance\l() const\l+  ~Light()\l}",height=0.2,width=0.4,color="black",URL="$da/d7c/class_light.html",tooltip=" "];
   Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" #color" ,arrowhead="odiamond"];
-  Node3 [label="{vec3\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{vec3\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node2 [color="grey25",fontsize="10",style="solid",label=" #radiance" ,arrowhead="odiamond"];
-  Node4 [label="{float\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node4 [label="{float\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node5 -> Node2 [color="grey25",fontsize="10",style="solid",label=" #light_proj" ,arrowhead="odiamond"];
-  Node5 [label="{mat4\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node5 [label="{mat4\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -shadow_map" ,arrowhead="odiamond"];
-  Node6 [label="{shared_ptr\< CascadedShadow\lMap \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node6 [label="{shared_ptr\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -direction" ,arrowhead="odiamond"];
   Node7 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -shadow_far_plane\n-shadow_near_plane" ,arrowhead="odiamond"];
-  Node7 [label="{GLfloat\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node7 [label="{GLfloat\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node8 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -cascade_slots" ,arrowhead="odiamond"];
-  Node8 [label="{array\< GLfloat, NUM\l_CASCADES+1 \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node8 [label="{array\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node9 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -cascade_light_matrices" ,arrowhead="odiamond"];
-  Node9 [label="{vector\< glm::mat4 \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node9 [label="{vector\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

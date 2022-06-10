@@ -6,8 +6,13 @@
 
 
 
-Collaboration diagram for File\+:
-% FIG 0
+Collaboration diagram for File\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{db/db8/class_file__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,6 +21,11 @@ Collaboration diagram for File\+:
 std\+::string \mbox{\hyperlink{class_file_a45badf982efdf5f4b3a74053948e342e}{read}} ()
 \item 
 \mbox{\hyperlink{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}{$\sim$\+File}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_file_aa167ad718e978abc1b342167ea2b8409}{make\+Paths\+With\+Blanks\+Possible}} (const std\+::string \&file\+\_\+location\+\_\+with\+\_\+possible\+\_\+blanks)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -44,9 +54,9 @@ Definition at line \mbox{\hyperlink{_file_8cpp_source_l00006}{6}} of file \mbox{
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00006                                          \{}
-\DoxyCodeLine{00007   this-\/>\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}} = \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}};}
-\DoxyCodeLine{00008 \}}
+\DoxyCodeLine{\Hypertarget{class_file_l00006}00006                                          \{}
+\DoxyCodeLine{\Hypertarget{class_file_l00007}00007   this-\/>\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}} = \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}};}
+\DoxyCodeLine{\Hypertarget{class_file_l00008}00008 \}}
 
 \end{DoxyCode}
 
@@ -61,16 +71,50 @@ References \mbox{\hyperlink{_file_8h_source_l00013}{file\+\_\+location}}.
 
 
 
-Definition at line \mbox{\hyperlink{_file_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_file_8cpp_source}{File.\+cpp}}.
+Definition at line \mbox{\hyperlink{_file_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_file_8cpp_source}{File.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00029 \{\}}
+\DoxyCodeLine{\Hypertarget{class_file_l00030}00030 \{\}}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_aa167ad718e978abc1b342167ea2b8409}\label{class_file_aa167ad718e978abc1b342167ea2b8409}} 
+\index{File@{File}!makePathsWithBlanksPossible@{makePathsWithBlanksPossible}}
+\index{makePathsWithBlanksPossible@{makePathsWithBlanksPossible}!File@{File}}
+\doxysubsubsection{\texorpdfstring{makePathsWithBlanksPossible()}{makePathsWithBlanksPossible()}}
+{\footnotesize\ttfamily std\+::string File\+::make\+Paths\+With\+Blanks\+Possible (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+location\+\_\+with\+\_\+possible\+\_\+blanks }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_file_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_file_8cpp_source}{File.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{class_file_l00035}00035                                                          \{}
+\DoxyCodeLine{\Hypertarget{class_file_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{class_file_l00037}00037     std::string new\_file\_location = file\_location\_with\_possible\_blanks;}
+\DoxyCodeLine{\Hypertarget{class_file_l00038}00038          \textcolor{keyword}{const} std::string quotationMark = std::string(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{\Hypertarget{class_file_l00039}00039     new\_file\_location.insert(0, quotationMark);}
+\DoxyCodeLine{\Hypertarget{class_file_l00040}00040          new\_file\_location+=(quotationMark);}
+\DoxyCodeLine{\Hypertarget{class_file_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{class_file_l00042}00042   \textcolor{keywordflow}{return} std::string();}
+\DoxyCodeLine{\Hypertarget{class_file_l00043}00043 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_file_8cpp_source_l00010}{read()}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d31/class_file_aa167ad718e978abc1b342167ea2b8409_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_file_a45badf982efdf5f4b3a74053948e342e}\label{class_file_a45badf982efdf5f4b3a74053948e342e}} 
 \index{File@{File}!read@{read}}
 \index{read@{read}!File@{File}}
@@ -83,36 +127,49 @@ Definition at line \mbox{\hyperlink{_file_8cpp_source_l00010}{10}} of file \mbox
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00010                      \{}
-\DoxyCodeLine{00011   std::string content;}
-\DoxyCodeLine{00012   std::ifstream file\_stream(\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}, std::ios::in);}
-\DoxyCodeLine{00013 }
-\DoxyCodeLine{00014   \textcolor{keywordflow}{if} (!file\_stream.is\_open()) \{}
-\DoxyCodeLine{00015     printf(\textcolor{stringliteral}{"{}Failed to read \%s. File does not exist."{}}, \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}.c\_str());}
-\DoxyCodeLine{00016     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00017   \}}
-\DoxyCodeLine{00018 }
-\DoxyCodeLine{00019   std::string line = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00020   \textcolor{keywordflow}{while} (!file\_stream.eof()) \{}
-\DoxyCodeLine{00021     std::getline(file\_stream, line);}
-\DoxyCodeLine{00022     content.append(line + \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{00023   \}}
-\DoxyCodeLine{00024 }
-\DoxyCodeLine{00025   file\_stream.close();}
-\DoxyCodeLine{00026   \textcolor{keywordflow}{return} content;}
-\DoxyCodeLine{00027 \}}
+\DoxyCodeLine{\Hypertarget{class_file_l00010}00010                      \{}
+\DoxyCodeLine{\Hypertarget{class_file_l00011}00011   std::string content;}
+\DoxyCodeLine{\Hypertarget{class_file_l00012}00012   std::string fileLocationWrappedInquotationMarks = \mbox{\hyperlink{class_file_aa167ad718e978abc1b342167ea2b8409}{makePathsWithBlanksPossible}}(\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}});}
+\DoxyCodeLine{\Hypertarget{class_file_l00013}00013   std::ifstream file\_stream(\mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}, std::ios::in);}
+\DoxyCodeLine{\Hypertarget{class_file_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{class_file_l00015}00015   \textcolor{keywordflow}{if} (!file\_stream.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{class_file_l00016}00016     printf(\textcolor{stringliteral}{"{}Failed to read \%s. File does not exist."{}}, \mbox{\hyperlink{class_file_aaee11df48454fa5ddc266db5bdaf77ca}{file\_location}}.c\_str());}
+\DoxyCodeLine{\Hypertarget{class_file_l00017}00017     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{class_file_l00018}00018   \}}
+\DoxyCodeLine{\Hypertarget{class_file_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{class_file_l00020}00020   std::string line = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{class_file_l00021}00021   \textcolor{keywordflow}{while} (!file\_stream.eof()) \{}
+\DoxyCodeLine{\Hypertarget{class_file_l00022}00022     std::getline(file\_stream, line);}
+\DoxyCodeLine{\Hypertarget{class_file_l00023}00023     content.append(line + \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{class_file_l00024}00024   \}}
+\DoxyCodeLine{\Hypertarget{class_file_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{class_file_l00026}00026   file\_stream.close();}
+\DoxyCodeLine{\Hypertarget{class_file_l00027}00027   \textcolor{keywordflow}{return} content;}
+\DoxyCodeLine{\Hypertarget{class_file_l00028}00028 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{_file_8h_source_l00013}{file\+\_\+location}}.
+References \mbox{\hyperlink{_file_8h_source_l00013}{file\+\_\+location}}, and \mbox{\hyperlink{_file_8cpp_source_l00034}{make\+Paths\+With\+Blanks\+Possible()}}.
 
 
 
-Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00076}{Shader\+Program\+::create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00024}{Shader\+Program\+::create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_shader_includes_8cpp_source_l00016}{Shader\+Includes\+::\+Shader\+Includes()}}.
+Referenced by \mbox{\hyperlink{_shader_program_8cpp_source_l00080}{Shader\+Program\+::create\+\_\+computer\+\_\+shader\+\_\+program\+\_\+from\+\_\+file()}}, \mbox{\hyperlink{_shader_program_8cpp_source_l00028}{Shader\+Program\+::create\+\_\+from\+\_\+files()}}, and \mbox{\hyperlink{_shader_includes_8cpp_source_l00018}{Shader\+Includes\+::\+Shader\+Includes()}}.
 
-Here is the caller graph for this function\+:
-% FIG 1
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{d1/d31/class_file_a45badf982efdf5f4b3a74053948e342e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d31/class_file_a45badf982efdf5f4b3a74053948e342e_icgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Field Documentation}
@@ -134,5 +191,5 @@ Referenced by \mbox{\hyperlink{_file_8cpp_source_l00006}{File()}}, and \mbox{\hy
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/util/\mbox{\hyperlink{_file_8h}{File.\+h}}\item 
-C\+:/\+Users/jonas/\+Desktop/\+Graphic\+Engine/\+Src/util/\mbox{\hyperlink{_file_8cpp}{File.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/util/\mbox{\hyperlink{_file_8h}{File.\+h}}\item 
+C\+:/\+Users/jonas\+\_\+l6e3q/\+Desktop/\+Graphic\+Engine/\+Src/util/\mbox{\hyperlink{_file_8cpp}{File.\+cpp}}\end{DoxyCompactItemize}

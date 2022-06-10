@@ -7,13 +7,13 @@ digraph "GameObject"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{GameObject\n||+  GameObject()\l+  GameObject(const std\l::string &model_path,\l glm::vec3 translation,\l GLfloat scale, Rotation rot)\l+ void init(const std\l::string &model_path,\l glm::vec3 translation,\l GLfloat scale, Rotation rot)\l+ glm::mat4 get_world\l_trafo()\l+ glm::mat4 get_normal\l_world_trafo()\l+ std::shared_ptr\< AABB\l \> get_aabb()\l+ std::shared_ptr\< Model\l \> get_model()\l+ void translate(glm\l::vec3 translate)\l+ void scale(GLfloat\l scale_factor)\l+ void rotate(Rotation rot)\l+ void render()\l+  ~GameObject()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -model" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node2 [label="{shared_ptr\< Model \>\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{shared_ptr\<\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -scale_factor" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node3 [label="{GLfloat\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{GLfloat\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -rot" ,arrowhead="odiamond",fontname="Helvetica"];
   Node4 [label="{Rotation\n||}",height=0.2,width=0.4,color="black",URL="$df/def/struct_rotation.html",tooltip=" "];
   Node3 -> Node4 [color="grey25",fontsize="10",style="solid",label=" +degrees" ,arrowhead="odiamond",fontname="Helvetica"];
   Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" +axis" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node5 [label="{vec3\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node5 [label="{vec3\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -translation" ,arrowhead="odiamond",fontname="Helvetica"];
 }

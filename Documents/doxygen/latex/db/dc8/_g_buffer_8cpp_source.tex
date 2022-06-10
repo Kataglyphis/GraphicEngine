@@ -1,5 +1,5 @@
 \hypertarget{_g_buffer_8cpp_source}{}\doxysection{GBuffer.\+cpp}
-\label{_g_buffer_8cpp_source}\index{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/deferred/GBuffer.cpp@{C:/Users/jonas/Desktop/GraphicEngine/Src/renderer/deferred/GBuffer.cpp}}
+\label{_g_buffer_8cpp_source}\index{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GBuffer.cpp@{C:/Users/jonas\_l6e3q/Desktop/GraphicEngine/Src/renderer/deferred/GBuffer.cpp}}
 \mbox{\hyperlink{_g_buffer_8cpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_g_buffer_8h}{GBuffer.h}}"{}}}
@@ -56,7 +56,7 @@
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00052}00052   glFramebufferTexture2D(GL\_FRAMEBUFFER, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}}[3], GL\_TEXTURE\_2D,}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00053}00053                          \mbox{\hyperlink{class_g_buffer_a8f646366f9c372cb28652024ecd91bad}{g\_material\_id}}, 0);}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00054}00054 }
-\DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00055}00055   glDrawBuffers(\mbox{\hyperlink{_global_values_8h_abadbe5e4569238b8941b70e9721e4740}{G\_BUFFER\_SIZE}}, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}});}
+\DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00055}00055   glDrawBuffers(G\_BUFFER\_SIZE, \mbox{\hyperlink{class_g_buffer_ae34ec0cc3f2c7f02af0d605f5a18a89d}{g\_buffer\_attachment}});}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00056}00056 }
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00057}00057   \textcolor{comment}{// create and attach depth buffer (renderbuffer)}}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00058}00058   \textcolor{comment}{// renderbuffers are a bit more performant}}
@@ -76,7 +76,7 @@
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00072}00072 }
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00073}\mbox{\hyperlink{class_g_buffer_ade01a94e8ec533ee881190e1cd924b79}{00073}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_buffer_ade01a94e8ec533ee881190e1cd924b79}{GBuffer::read}}(std::shared\_ptr<ShaderProgram> shader\_program) \{}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00074}00074   \textcolor{comment}{// GBUFFER}}
-\DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00075}00075   GLuint texture\_index = \mbox{\hyperlink{bindings_8h_a31363a524a58bb08ee547d9827c12c52}{GBUFFER\_TEXTURES\_SLOT}};}
+\DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00075}00075   GLuint texture\_index = GBUFFER\_TEXTURES\_SLOT;}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00076}00076   shader\_program-\/>setUniformInt(texture\_index, \textcolor{stringliteral}{"{}g\_position"{}});}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00077}00077   glActiveTexture(GL\_TEXTURE0 + texture\_index);}
 \DoxyCodeLine{\Hypertarget{_g_buffer_8cpp_source_l00078}00078   glBindTexture(GL\_TEXTURE\_2D, \mbox{\hyperlink{class_g_buffer_aa6ce5d711ec0a67d174cc9f33e016740}{g\_position}});}

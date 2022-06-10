@@ -933,6 +933,11 @@
               <Anchor>ac704ebdf5f57d7a1c5ddf409d797fb69</Anchor>
              </Node>
              <Node>
+              <Name>makePathsWithBlanksPossible</Name>
+              <Path>d1/d31/class_file.html</Path>
+              <Anchor>aa167ad718e978abc1b342167ea2b8409</Anchor>
+             </Node>
+             <Node>
               <Name>read</Name>
               <Path>d1/d31/class_file.html</Path>
               <Anchor>a45badf982efdf5f4b3a74053948e342e</Anchor>
@@ -4694,11 +4699,6 @@
                 <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
               <Subnodes>
                  <Node>
-                  <Name>CMAKELISTS_DIR</Name>
-                  <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
-                  <Anchor>a06f3f84c6add75aba385bb130c129978</Anchor>
-                 </Node>
-                 <Node>
                   <Name>OPENGL_VERSION_MAJOR</Name>
                   <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
                   <Anchor>af9f9cd3d34e4b510b2626e4cf9137b70</Anchor>
@@ -4709,19 +4709,19 @@
                   <Anchor>a6845a5c7db4a30ada21a2ec30fe3dc80</Anchor>
                  </Node>
                  <Node>
-                  <Name>RESOURCE_PATH</Name>
+                  <Name>OpenGLRenderer_VERSION_MAJOR</Name>
                   <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
-                  <Anchor>afc1cfb5a0bf2af2664cccd67d53aa0b8</Anchor>
+                  <Anchor>a47ccf36173fff455daa7119b15833f0a</Anchor>
                  </Node>
                  <Node>
-                  <Name>VulkanRenderer_VERSION_MAJOR</Name>
+                  <Name>OpenGLRenderer_VERSION_MINOR</Name>
                   <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
-                  <Anchor>a04547974aab6616742b970a38eb6999c</Anchor>
+                  <Anchor>a06c4dfa6a90bedd2f4c8065d41126363</Anchor>
                  </Node>
                  <Node>
-                  <Name>VulkanRenderer_VERSION_MINOR</Name>
+                  <Name>RELATIVE_RESOURCE_PATH</Name>
                   <Path>d3/d0f/_open_g_l_renderer_config_8h.html</Path>
-                  <Anchor>aa98b688897d8e82a300ab44d239ee739</Anchor>
+                  <Anchor>a21612190890d0d71e82a71c6bb2b524b</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -7665,6 +7665,11 @@
                     <Anchor>ac704ebdf5f57d7a1c5ddf409d797fb69</Anchor>
                    </Node>
                    <Node>
+                    <Name>makePathsWithBlanksPossible</Name>
+                    <Path>d1/d31/class_file.html</Path>
+                    <Anchor>aa167ad718e978abc1b342167ea2b8409</Anchor>
+                   </Node>
+                   <Node>
                     <Name>read</Name>
                     <Path>d1/d31/class_file.html</Path>
                     <Anchor>a45badf982efdf5f4b3a74053948e342e</Anchor>
@@ -7893,159 +7898,6 @@
                </Node>
               </Subnodes>
              </Node>
-             <Node>
-              <Name>bindings.h</Name>
-              <Path>dc/d49/bindings_8h.html</Path>
-            <Subnodes>
-               <Node>
-                <Name>D_LIGHT_SHADOW_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>ac36ba418d7f8ae5c2087a6adde404302</Anchor>
-               </Node>
-               <Node>
-                <Name>GBUFFER_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a31363a524a58bb08ee547d9827c12c52</Anchor>
-               </Node>
-               <Node>
-                <Name>MODEL_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a9b0d1cd1d0e10441196f4451e91713c8</Anchor>
-               </Node>
-               <Node>
-                <Name>NOISE_128D_IMAGE_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>ab33e9e629597c653feccb86cd28e138e</Anchor>
-               </Node>
-               <Node>
-                <Name>NOISE_128D_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a68c720249fec89156cfd1a1eeb356c25</Anchor>
-               </Node>
-               <Node>
-                <Name>NOISE_32D_IMAGE_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>ae102fd04de1e0f7e67114690a8191da4</Anchor>
-               </Node>
-               <Node>
-                <Name>NOISE_32D_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a94ab45fae493b604905baff7c57d9745</Anchor>
-               </Node>
-               <Node>
-                <Name>NOISE_CELL_POSITIONS_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a6180bc0c05d7bf1f7ac7ab028fbd9bd7</Anchor>
-               </Node>
-               <Node>
-                <Name>P_LIGHT_SHADOW_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>aebcea6f2b0037163df5486ea47118eff</Anchor>
-               </Node>
-               <Node>
-                <Name>RANDOM_NUMBERS_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a05989250a93ec0f9dfe63bad8ae1d95c</Anchor>
-               </Node>
-               <Node>
-                <Name>SKYBOX_TEXTURES_SLOT</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a2309a50ca4d83b91328dea7a1a52284a</Anchor>
-               </Node>
-               <Node>
-                <Name>STORAGE_BUFFER_MATERIAL_ID_BINDING</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a934aa1a1a657e97b7ce0af0aaf957d9d</Anchor>
-               </Node>
-               <Node>
-                <Name>UNIFORM_LIGHT_MATRICES_BINDING</Name>
-                <Path>dc/d49/bindings_8h.html</Path>
-                <Anchor>a6cffb6c61d3a48bb1b5b5afe62b6331d</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>GlobalValues.h</Name>
-              <Path>d4/df9/_global_values_8h.html</Path>
-            <Subnodes>
-               <Node>
-                <Name>MAX_RESOLUTION_X</Name>
-                <Path>d4/df9/_global_values_8h.html</Path>
-                <Anchor>a281397dbde1a87608c6350fb68dc2c9b</Anchor>
-               </Node>
-               <Node>
-                <Name>MAX_RESOLUTION_Y</Name>
-                <Path>d4/df9/_global_values_8h.html</Path>
-                <Anchor>a082cf569e4acab0d9a143c750fb1bc33</Anchor>
-               </Node>
-               <Node>
-                <Name>NUM_MIN_CASCADES</Name>
-                <Path>d4/df9/_global_values_8h.html</Path>
-                <Anchor>a940e59fee68aa3e904e465e9c13b32a1</Anchor>
-               </Node>
-               <Node>
-                <Name>G_BUFFER_SIZE</Name>
-                <Path>d4/df9/_global_values_8h.html</Path>
-                <Anchor>abadbe5e4569238b8941b70e9721e4740</Anchor>
-               </Node>
-               <Node>
-                <Name>NUM_CLOUDS</Name>
-                <Path>d4/df9/_global_values_8h.html</Path>
-                <Anchor>a1c9db1367859e10bbe2740c675d228a1</Anchor>
-               </Node>
-               <Node>
-                <Name>NUM_FRUSTUM_PLANES</Name>
-                <Path>d4/df9/_global_values_8h.html</Path>
-                <Anchor>ac8343ff8e7950ec5ad29488f3f66549a</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>host_device_shared.h</Name>
-              <Path>d1/d7a/host__device__shared_8h.html</Path>
-            <Subnodes>
-               <Node>
-                <Name>CLOUDS_MATERIAL_ID</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>aa437d67662de083704e7fb6c6b32bb40</Anchor>
-               </Node>
-               <Node>
-                <Name>MAX_MATERIALS</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>afaa201acc17911367dbffba9aad2a69a</Anchor>
-               </Node>
-               <Node>
-                <Name>MAX_POINT_LIGHTS</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>a991a0bb648e97839d1392618e8e7340d</Anchor>
-               </Node>
-               <Node>
-                <Name>MAX_TEXTURE_COUNT</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>aec898d582e4364700455ca5272d89891</Anchor>
-               </Node>
-               <Node>
-                <Name>NUM_CASCADES</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>a58ab116350055b66986e91b6c99ad4ef</Anchor>
-               </Node>
-               <Node>
-                <Name>NUM_CELL_POSITIONS</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>adacca7d242edb71b53adfbbee34f9147</Anchor>
-               </Node>
-               <Node>
-                <Name>PI</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>aa08a577393243b86dfd2a97e61443673</Anchor>
-               </Node>
-               <Node>
-                <Name>SKYBOX_MATERIAL_ID</Name>
-                <Path>d1/d7a/host__device__shared_8h.html</Path>
-                <Anchor>a19c71c6c39925c2f3dcc0970dc1a5a30</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
             </Subnodes>
            </Node>
           </Subnodes>
@@ -8061,10 +7913,6 @@
            <Node>
             <Name>Functions</Name>
             <Path>globals_func.html</Path>
-           </Node>
-           <Node>
-            <Name>Variables</Name>
-            <Path>globals_vars.html</Path>
            </Node>
            <Node>
             <Name>Macros</Name>

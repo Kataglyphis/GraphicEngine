@@ -7,7 +7,7 @@ digraph "Camera"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{Camera\n||+  Camera()\l+  Camera(glm::vec3 start\l_position, glm::vec3 start\l_up, GLfloat start_yaw, GLfloat\l start_pitch, GLfloat start_move\l_speed, GLfloat start_turn_speed,\l GLfloat near_plane, GLfloat far\l_plane, GLfloat fov)\l+ void key_control(bool\l *keys, GLfloat delta_time)\l+ void mouse_control\l(GLfloat x_change, GLfloat\l y_change)\l+ glm::vec3 get_camera\l_position() const\l+ glm::vec3 get_camera\l_direction() const\l+ glm::vec3 get_up_axis\l() const\l+ glm::vec3 get_right\l_axis() const\l+ GLfloat get_near_plane\l() const\l+ GLfloat get_far_plane\l() const\l+ GLfloat get_fov() const\l+ GLfloat get_yaw() const\l+ glm::mat4 get_viewmatrix\l() const\l+ void set_near_plane\l(GLfloat near_plane)\l+ void set_far_plane\l(GLfloat far_plane)\l+ void set_fov(GLfloat fov)\l+ void set_camera_position\l(glm::vec3 new_camera_position)\l+  ~Camera()\l- void update()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -front\n-position\n-right\n-up\n-world_up" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node2 [label="{vec3\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node2 [label="{vec3\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -far_plane\n-fov\n-movement_speed\n-near_plane\n-pitch\n-turn_speed\n-yaw" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node3 [label="{GLfloat\n||}",height=0.2,width=0.4,color="black",tooltip=" "];
+  Node3 [label="{GLfloat\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }
