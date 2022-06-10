@@ -167,6 +167,9 @@ FILE(GLOB COMMON_FILTER                 "Src/*.h"                               
 FILE(GLOB GLAD_FILTER                   "ExternalLib/GLAD/include/glad/*.h"                     "ExternalLib/GLAD/src/*.c"
                                         "ExternalLib/GLAD/include/KHR/*.h")
 
+FILE(GLOB SHADER_HOST_DEVICE_FILTER     "Resources/Shaders/hostDevice/*.h"                     "Resources/Shaders/hostDevice/*.cpp"
+                                        "Resources/Shaders/hostDevice/*.hpp")
+
 # add filters to the solution explorer for the shaders :))
 file(GLOB SHADER_FILTER   
         ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/*.vert
@@ -244,6 +247,7 @@ source_group("gui"                                      FILES ${GUI_FILTER})
 source_group("gui/imgui"                                FILES ${IMGUI_FILTER})
 
 source_group("shaders"                                  FILES ${SHADER_FILTER})
+source_group("shaders/hostDevice"                       FILES ${SHADER_HOST_DEVICE_FILTER})
 source_group("shaders/pbr"                              FILES ${PBR_SHADER_FILTER})
 source_group("shaders/pbr/brdf"                         FILES ${BRDF_SHADER_FILTER})
 source_group("shaders/common"                           FILES ${COMMON_SHADER_FILTER})
@@ -351,6 +355,7 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/gui"
                                                 PUBLIC "./Src/util"  
                                                 PUBLIC "./ExternalLib/GLAD/include"
+                                                PUBLIC "./Resources/Shaders/hostDevice"
                                                 ${OPENGL_INCLUDE_DIRS})
 
 target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
@@ -520,6 +525,7 @@ target_include_directories(${COMMIT_TEST_SUITE}         PUBLIC "./Src"
                                                         PUBLIC "./Src/gui"
                                                         PUBLIC "./Src/util"  
                                                         PUBLIC "./ExternalLib/GLAD/include"
+                                                        PUBLIC "./Resources/Shaders/hostDevice"
                                                         ${OPENGL_INCLUDE_DIRS})
 
 target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC "./Src"
@@ -541,6 +547,7 @@ target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC "./Src"
                                                         PUBLIC "./Src/gui"
                                                         PUBLIC "./Src/util"  
                                                         PUBLIC "./ExternalLib/GLAD/include"
+                                                        PUBLIC "./Resources/Shaders/hostDevice"
                                                         ${OPENGL_INCLUDE_DIRS})
 
 target_link_libraries(${COMMIT_TEST_SUITE}      PUBLIC  gtest_main

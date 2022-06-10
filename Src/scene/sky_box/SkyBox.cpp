@@ -8,7 +8,7 @@
 SkyBox::SkyBox() {
   std::stringstream skybox_base_dir;
   skybox_base_dir << CMAKELISTS_DIR;
-  skybox_base_dir << "/Resources/Textures/Skybox/DOOM2016/";
+  skybox_base_dir << "/Textures/Skybox/DOOM2016/";
 
   std::stringstream texture_loading;
   std::array<std::string, 6> skybox_textures = {"DOOM16RT.png", "DOOM16LF.png",

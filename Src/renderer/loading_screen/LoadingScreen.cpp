@@ -8,7 +8,7 @@ LoadingScreen::LoadingScreen() { create_shader_program(); }
 void LoadingScreen::init() {
   std::stringstream texture_base_dir;
   texture_base_dir << CMAKELISTS_DIR;
-  texture_base_dir << "/Resources/Textures/";
+  texture_base_dir << "/Textures/";
 
   std::stringstream texture_loading_screen;
   texture_loading_screen << texture_base_dir.str()

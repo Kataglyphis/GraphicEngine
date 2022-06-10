@@ -17,7 +17,7 @@ ShaderProgram::ShaderProgram()
 {
   std::stringstream aux;
   aux << CMAKELISTS_DIR;
-  aux << "/Resources/Shaders/";
+  aux << "/Shaders/";
 
   shader_base_dir = aux.str();
 }

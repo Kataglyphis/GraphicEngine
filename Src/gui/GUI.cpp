@@ -55,7 +55,7 @@ GUI::GUI() {
 
   std::stringstream texture_base_dir;
   texture_base_dir << CMAKELISTS_DIR;
-  texture_base_dir << "/Resources/Textures/";
+  texture_base_dir << "/Textures/";
 
   std::stringstream texture_logo;
   texture_logo << texture_base_dir.str() << "Loading_Screen/Engine_logo.png";
