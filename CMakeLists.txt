@@ -5,10 +5,6 @@ project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
                        LANGUAGES CXX C)
 
-# configure vulkan version
-set(OPENGL_VERSION_MAJOR 4)
-set(OPENGL_VERSION_MINOR 6)
-
 # specify the C/C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -16,72 +12,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
-# add compile flags; as restrictive as possible
-# for windows
-# source: https://github.com/cpp-best-practices/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
-set(MSVC_WARNINGS
-          /W4 # All reasonable warnings
-          /w14242  #'identfier': conversion from 'type1' to 'type1', possible loss of data
-          /w14254  #'operator': conversion from 'type1:field_bits' to 'type2:field_bits', possible loss of data
-          /w14263  #'function': member function does not override any base class virtual member function
-          /w14265  #'classname': class has virtual functions, but destructor is not virtual instances of this class may not be destructed correctly
-          /w14287  #'operator': unsigned/negative constant mismatch
-          /we4289  #nonstandard extension used: 'variable': loop control variable declared in the for-loop is used outside the for-loop scope
-          /w14296  #'operator': expression is always 'boolean_value'
-          /w14311  #'variable': pointer truncation from 'type1' to 'type2'
-          /w14545  #expression before comma evaluates to a function which is missing an argument list
-          /w14546  #function call before comma missing argument list
-          /w14547  #'operator': operator before comma has no effect; expected operator with side-effect
-          /w14549  #'operator': operator before comma has no effect; did you intend 'operator'?
-          /w14555  #expression has no effect; expected expression with side-effect
-          /w14619  #pragma warning: there is no warning number 'number'
-          /w14640  #Enable warning on thread un-safe static member initialization
-          /w14826  #Conversion from 'type1' to 'type_2' is sign-extended. This may cause unexpected runtime behavior.
-          /w14905  #wide string literal cast to 'LPSTR'
-          /w14906  #string literal cast to 'LPWSTR'
-          /w14928  #illegal copy-initialization; more than one user-defined conversion has been implicitly applied
-)
+# link this library for using warnings specified in cmake/CmakeWarnings.cmake
+add_library(project_warnings INTERFACE)
+include(cmake/CompilerWarnings.cmake)
+set_project_warnings(project_warnings)
 
-# CLANG
-set(CLANG_WARNINGS
-          -pedantic -Warn # on language extensions
-          -Wall -Wextra # reasonable and standard
-          -Wshadow # warn the user if a variable declaration shadows one from a parent context
-          -Wnon-virtual-dtor # warn the user if a class with virtual functions has a non-virtual destructor. This helps catch hard to track down memory errors
-          -Wold-style-cast # warn for c-style casts
-          -Wcast-align # warn for potential performance problem casts
-          -Wunused # warn on anything being unused
-          -Woverloaded-virtual # warn if you overload (not override) a virtual function
-          -Wpedantic # (all versions of GCC, Clang >= 3.2) warn if non-standard C++ is used
-          -Wconversion # warn on type conversions that may lose data
-          -Wsign-conversion # (Clang all versions, GCC >= 4.3) warn on sign conversions
-          -Wmisleading-indentation # (only in GCC >= 6.0) warn if indentation implies blocks where blocks do not exist
-          -Wduplicated-cond # (only in GCC >= 6.0) warn if if / else chain has duplicated conditions
-          -Wduplicated-branches # (only in GCC >= 7.0) warn if if / else branches have duplicated code
-          -Wlogical-op # (only in GCC) warn about logical operations being used where bitwise were probably wanted
-          -Wnull-dereference # (only in GCC >= 6.0) warn if a null dereference is detected
-          -Wuseless-cast # (only in GCC >= 4.8) warn if you perform a cast to the same type
-          -Wdouble-promotion # (GCC >= 4.6, Clang >= 3.8) warn if float is implicit promoted to double
-          -Wformat=2 # warn on security issues around functions that format output (ie printf)
-          -Wlifetime #(only special branch of Clang currently) shows object lifetime issues
-)
+# add sanitizers if GCC/CLANG
+add_library(project_sanitizers INTERFACE)
+include(cmake/Sanitizers.cmake)
+enable_sanitizers(project_sanitizers)
 
-option(TREAT_WARNINGS_AS_ERRORS "Treat warnings as errors" ON)
-if(TREAT_WARNINGS_AS_ERRORS)
-  set(CLANG_WARNINGS ${CLANG_WARNINGS} -Werror)
-  set(MSVC_WARNINGS ${MSVC_WARNINGS} /WX)
-endif()
+include(cmake/Doxygen.cmake)
+enable_doxygen()
 
-# GCC 
-set(GCC_WARNINGS ${CLANG_WARNINGS})
-
-if(MSVC)
-  set(PROJECT_WARNINGS ${MSVC_WARNINGS})
-elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  set(PROJECT_WARNINGS ${CLANG_WARNINGS})
-else()
-  set(PROJECT_WARNINGS ${GCC_WARNINGS})
-endif()
+include(cmake/StaticAnalyzers.cmake)
 
 include(FetchContent)
 # include google test to project
@@ -124,11 +68,18 @@ add_subdirectory(ExternalLib/GLFW)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
+# configure OpenGL version
+set(OPENGL_VERSION_MAJOR 4)
+set(OPENGL_VERSION_MINOR 6)
 #surpress warnings
 set(OpenGL_GL_PREFERENCE GLVND)
 
 # for faster building
 find_package(Threads REQUIRED)
+
+# https://stackoverflow.com/questions/1027247/is-it-better-to-specify-source-files-with-glob-or-each-file-individually-in-cmak
+# https://stackoverflow.com/questions/45090926/cmake-generate-list-of-source-files-without-glob
+# lets remove the FILE GLOB ... it is bad (as stated in the docs ... https://cmake.org/cmake/help/latest/command/file.html)
 
 FILE(GLOB GUI_FILTER                    "Src/gui/*.h"                                           "Src/gui/*.cpp")
 FILE(GLOB IMGUI_FILTER                  "ExternalLib/IMGUI/*.h"                                 "ExternalLib/IMGUI/*.cpp"
@@ -217,13 +168,7 @@ file(GLOB LOADING_SHADER_FILTER
 	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/loading_screen/*.geom
 )
 
-file(GLOB RASTERIZER_SHADER_FILTER   
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.vert
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.frag
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.glsl
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.comp
-	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/*.geom
-)
+include(cmake/SetFilters.cmake)
 
 file(GLOB RASTERIZER_SHADOWS_SHADER_FILTER   
         ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.vert
@@ -231,14 +176,6 @@ file(GLOB RASTERIZER_SHADOWS_SHADER_FILTER
         ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.glsl
         ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.comp
 	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/rasterizer/shadows/*.geom
-)
-
-file(GLOB SKYBOX_SHADER_FILTER   
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.vert
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.frag
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.glsl
-        ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.comp
-	${CMAKE_CURRENT_SOURCE_DIR}/Resources/Shaders/skybox/*.geom
 )
 
 source_group("gui"                                      FILES ${GUI_FILTER})
@@ -284,19 +221,19 @@ source_group("app"                                      FILES ${APP_FILTER})
 source_group("common"                                   FILES ${COMMON_FILTER})
 
 #set all your sources accordingly
-file(GLOB_RECURSE SOURCES "Src/*.cpp"
-                          "Src/*.c"
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/GLAD/*.c
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/*.cpp
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
+# file(GLOB_RECURSE SOURCES "Src/*.cpp"
+#                           "Src/*.c"
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/GLAD/*.c
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/*.cpp
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_glfw.cpp
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_opengl3.cpp)
 
-file(GLOB_RECURSE HEADERS "Src/*.h"
-                          "Src/*.hpp"
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/GLAD/*.h
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/*.h
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_glfw.h
-                          ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
+# file(GLOB_RECURSE HEADERS "Src/*.h"
+#                           "Src/*.hpp"
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/GLAD/*.h
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/*.h
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_glfw.h
+#                           ${CMAKE_CURRENT_SOURCE_DIR}/ExternalLib/IMGUI/backends/imgui_impl_opengl3.h)
 
 # add the executable
 add_executable( ${PROJECT_NAME} 
@@ -331,8 +268,6 @@ add_executable( ${PROJECT_NAME}
                 ${SCENE_FILTER}
                 ${COMMON_FILTER}
                 ${APP_FILTER})
-
-target_compile_options(${PROJECT_NAME} INTERFACE ${PROJECT_WARNINGS})
         
 target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Src/camera"
@@ -356,63 +291,22 @@ target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
                                                 PUBLIC "./Resources/Shaders/hostDevice"
                                                 ${OPENGL_INCLUDE_DIRS})
 
-target_link_libraries(${PROJECT_NAME}   PUBLIC  ${CMAKE_DL_LIBS} # for imgui
+target_link_libraries(${PROJECT_NAME}   PUBLIC  # for imgui
+                                                ${CMAKE_DL_LIBS} 
                                                 Threads::Threads
                                                 ${OPENGL_LIBRARIES}
                                                 glfw
                                                 imgui
                                                 stb 
                                                 glm 
-                                                tinyobjloader)
+                                                tinyobjloader
+                                                # enable compiler warnings
+                                                project_warnings
+                                                # enable sanitizers
+                                                project_sanitizers)
 
 
 target_link_libraries(${PROJECT_NAME}   PRIVATE GSL)
-
-# we really need this; glew already build its libraries in bin/ folder
-# otherwise program will not find our library!
-set_target_properties( ${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-                                                    ${PROJECT_BINARY_DIR})
-
-set_target_properties( ${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY
-                       ${PROJECT_BINARY_DIR})
-
-# first we can indicate the documentation build as an option and set it to ON by default
-option(BUILD_DOC "Build documentation" ON)
-
-# check if Doxygen is installed
-if(BUILD_DOC)
-        find_package(Doxygen)
-        if (DOXYGEN_FOUND)
-        # set input and output files
-        set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
-        set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)    # request to configure the file
-        configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-        message("Doxygen build started")    # note the option ALL which allows to build the docs together with the application
-        add_custom_target( doc_doxygen ALL
-                COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-                COMMENT "Generating API documentation with Doxygen"
-                VERBATIM )
-        else (DOXYGEN_FOUND)
-        message("Doxygen need to be installed to generate the doxygen documentation")
-        endif (DOXYGEN_FOUND)
-endif()
-
-option(ENABLE_CPPCHECK "Enable cppcheck" OFF)#ON
-if(ENABLE_CPPCHECK)
-        find_program(CPPCHECK cppcheck)
-        if(CPPCHECK)
-        set(CMAKE_CXX_CPPCHECK ${CPPCHECK} --suppress=missingInclude --enable=all --suppressions-list=Documents/cppcheck/suppressions.txt)
-        endif(CPPCHECK)
-endif()
-
-option(ENABLE_CLANGTIDY "Enable clangtidy" OFF)#ON
-if(ENABLE_CLANGTIDY)
-        find_program(CLANGTIDY clang-tidy)
-        if(CLANGTIDY)
-        set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
-        endif(CLANGTIDY)
-endif()
 
 # all testing related stuff
 enable_testing()
@@ -573,7 +467,7 @@ target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
 target_link_libraries(${COMPILE_TEST_SUITE}      PRIVATE GSL)
 
 include(GoogleTest)
-gtest_discover_tests(   ${COMMIT_TEST_SUITE})# ${CMAKE_CURRENT_SOURCE_DIR}/Tests
+gtest_discover_tests(   ${COMMIT_TEST_SUITE})
 gtest_discover_tests(   ${COMPILE_TEST_SUITE})
 # add test after each build
 # src: https://quickturnstudio.com/running-test-in-compile-time/
