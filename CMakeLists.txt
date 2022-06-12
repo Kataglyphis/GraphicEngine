@@ -58,13 +58,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
 
 # add all external libs as interface
-add_subdirectory(ExternalLib)
-
 # set all glfw dependencies
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(ExternalLib/GLFW)
+
+add_subdirectory(ExternalLib)
 
 # we depend on OpenGL
 find_package( OpenGL REQUIRED COMPONENTS OpenGL)
@@ -125,26 +124,26 @@ add_executable( ${PROJECT_NAME}
                 ${COMMON_FILTER}
                 ${APP_FILTER})
         
-target_include_directories(${PROJECT_NAME}      PUBLIC "./Src"
-                                                PUBLIC "./Src/camera"
-                                                PUBLIC "./Src/compute"
-                                                PUBLIC "./Src/renderer"
-                                                PUBLIC "./Src/renderer/loading_screen"
-                                                PUBLIC "./Src/renderer/deferred"
-                                                PUBLIC "./Src/debug"
-                                                PUBLIC "./Src/window"
-                                                PUBLIC "./Src/scene"
-                                                PUBLIC "./Src/scene/atmospheric_effects/clouds"
-                                                PUBLIC "./Src/scene/light"
-                                                PUBLIC "./Src/scene/light/directional_light"
-                                                PUBLIC "./Src/scene/light/point_light"
-                                                PUBLIC "./Src/scene/shadows"
-                                                PUBLIC "./Src/scene/sky_box"
-                                                PUBLIC "./Src/scene/texture"
-                                                PUBLIC "./Src/gui"
-                                                PUBLIC "./Src/util"  
-                                                PUBLIC "./ExternalLib/GLAD/include"
-                                                PUBLIC "./Resources/Shaders/hostDevice"
+target_include_directories(${PROJECT_NAME}      PUBLIC ./Src
+                                                PUBLIC ./Src/camera
+                                                PUBLIC ./Src/compute
+                                                PUBLIC ./Src/renderer
+                                                PUBLIC ./Src/renderer/loading_screen
+                                                PUBLIC ./Src/renderer/deferred
+                                                PUBLIC ./Src/debug
+                                                PUBLIC ./Src/window
+                                                PUBLIC ./Src/scene
+                                                PUBLIC ./Src/scene/atmospheric_effects/clouds
+                                                PUBLIC ./Src/scene/light
+                                                PUBLIC ./Src/scene/light/directional_light
+                                                PUBLIC ./Src/scene/light/point_light
+                                                PUBLIC ./Src/scene/shadows
+                                                PUBLIC ./Src/scene/sky_box
+                                                PUBLIC ./Src/scene/texture
+                                                PUBLIC ./Src/gui
+                                                PUBLIC ./Src/util
+                                                PUBLIC ./ExternalLib/GLAD/include
+                                                PUBLIC ./Resources/Shaders/hostDevice
                                                 ${OPENGL_INCLUDE_DIRS})
 
 target_link_libraries(${PROJECT_NAME}   PUBLIC  # for imgui

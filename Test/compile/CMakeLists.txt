@@ -1,11 +1,13 @@
-# update current positions
-set(PROJECT_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/)
-set(EXTERNAL_LIB_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLib/)
-set(SHADER_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../Resources/Shaders/)
+set(WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/filters/SetShaderFilters.cmake)
-include(${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/filters/SetProjectFilters.cmake)
-include(${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/filters/SetExternalLibsFilters.cmake)
+# update current positions
+set(PROJECT_SRC_DIR ${WORKING_DIRECTORY}Src/)
+set(EXTERNAL_LIB_SRC_DIR ${WORKING_DIRECTORY}ExternalLib/)
+set(SHADER_SRC_DIR ${WORKING_DIRECTORY}Resources/Shaders/)
+
+include(${WORKING_DIRECTORY}cmake/filters/SetShaderFilters.cmake)
+include(${WORKING_DIRECTORY}cmake/filters/SetProjectFilters.cmake)
+include(${WORKING_DIRECTORY}cmake/filters/SetExternalLibsFilters.cmake)
 
 include(cmake/SetTestFilters.cmake)
 
@@ -47,27 +49,27 @@ add_executable(
         ${COMMON_FILTER}
 )
 
-target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/camera
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/compute
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/renderer
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/renderer/loading_screen
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/renderer/deferred
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/debug
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/window
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/atmospheric_effects/clouds
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/light
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/light/directional_light
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/light/point_light
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/shadows
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/sky_box
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/scene/texture
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/gui
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Src/util
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../ExternalLib/GLAD/include
-                                                        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../Resources/Shaders/hostDevice
-                                                        ${OPENGL_INCLUDE_DIRS})
+target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC ${WORKING_DIRECTORY}Src
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/camera
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/compute
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/renderer
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/renderer/loading_screen
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/renderer/deferred
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/debug
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/window
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/atmospheric_effects/clouds
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/light
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/light/directional_light
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/light/point_light
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/shadows
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/sky_box
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/scene/texture
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/gui
+                                                        PUBLIC ${WORKING_DIRECTORY}Src/util
+                                                        PUBLIC ${WORKING_DIRECTORY}ExternalLib/GLAD/include
+                                                        PUBLIC ${WORKING_DIRECTORY}Resources/Shaders/hostDevice
+                                                        PUBLIC ${OPENGL_INCLUDE_DIRS}) 
 
 target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
                                                         ${CMAKE_DL_LIBS} # for imgui
