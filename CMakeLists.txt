@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.18)
 # set the project name
 project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
+                       HOMEPAGE_URL "https://jotrockenmitlocken.de/"
                        LANGUAGES CXX C)
 
 # specify the C/C++ standard
@@ -70,7 +71,6 @@ find_package( OpenGL REQUIRED COMPONENTS OpenGL)
 # configure OpenGL version
 set(OPENGL_VERSION_MAJOR 4)
 set(OPENGL_VERSION_MINOR 6)
-#surpress warnings
 set(OpenGL_GL_PREFERENCE GLVND)
 
 # for faster building
