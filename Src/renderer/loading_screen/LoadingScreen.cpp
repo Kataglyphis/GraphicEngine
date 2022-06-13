@@ -1,5 +1,5 @@
-#include "LoadingScreen.h"
-#include "OpenGLRendererConfig.h"
+#include "LoadingScreen.hpp"
+#include "OpenGLRendererConfig.hpp"
 
 #include <filesystem>
 #include <sstream>

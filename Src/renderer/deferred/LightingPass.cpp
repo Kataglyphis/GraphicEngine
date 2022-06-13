@@ -1,4 +1,4 @@
-#include "LightingPass.h"
+#include "LightingPass.hpp"
 
 LightingPass::LightingPass()
     :

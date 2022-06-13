@@ -1,4 +1,4 @@
-#include "MirroredRepeatMode.h"
+#include "MirroredRepeatMode.hpp"
 
 MirroredRepeatMode::MirroredRepeatMode() {}
 

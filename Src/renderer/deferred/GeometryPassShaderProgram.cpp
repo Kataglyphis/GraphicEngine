@@ -1,4 +1,4 @@
-#include "GeometryPassShaderProgram.h"
+#include "GeometryPassShaderProgram.hpp"
 
 GeometryPassShaderProgram::GeometryPassShaderProgram() {}
 

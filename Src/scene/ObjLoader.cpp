@@ -1,5 +1,5 @@
-#include "ObjLoader.h"
-#include "OpenGLRendererConfig.h"
+#include "ObjLoader.hpp"
+#include "OpenGLRendererConfig.hpp"
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>

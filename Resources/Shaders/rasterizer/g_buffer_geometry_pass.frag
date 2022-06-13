@@ -3,8 +3,8 @@
 
 #include "/material.glsl"
 
-#include "/host_device_shared.h"
-#include "/bindings.h"
+#include "/host_device_shared.hpp"
+#include "/bindings.hpp"
 
 layout(location = 0) out vec3   g_position;
 layout(location = 1) out vec3   g_normal;

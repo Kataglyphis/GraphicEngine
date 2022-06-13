@@ -2,7 +2,7 @@
 
 #extension GL_ARB_shading_language_include : require
 
-#include "/host_device_shared.h"
+#include "/host_device_shared.hpp"
 
 layout(location = 0) in vec3 in_position;
 layout(location = 1) in vec3 in_normal;

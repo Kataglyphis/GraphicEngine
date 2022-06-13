@@ -1,4 +1,4 @@
-#include "Quad.h"
+#include "Quad.hpp"
 
 Quad::Quad() {
   glGenVertexArrays(1, &q_vao);

@@ -1,4 +1,4 @@
-#include "OmniDirShadowShaderProgram.h"
+#include "OmniDirShadowShaderProgram.hpp"
 
 OmniDirShadowShaderProgram::OmniDirShadowShaderProgram() {}
 

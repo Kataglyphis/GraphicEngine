@@ -1,4 +1,4 @@
-#include "Model.h"
+#include "Model.hpp"
 
 Model::Model() : aabb(std::make_shared<AABB>()) {}
 

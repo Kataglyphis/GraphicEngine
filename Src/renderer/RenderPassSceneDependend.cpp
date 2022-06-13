@@ -1,4 +1,4 @@
-#include "RenderPassSceneDependend.h"
+#include "RenderPassSceneDependend.hpp"
 
 RenderPassSceneDependend::RenderPassSceneDependend() : RenderPass() {}
 

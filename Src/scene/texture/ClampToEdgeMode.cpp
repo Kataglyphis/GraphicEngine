@@ -1,4 +1,4 @@
-#include "ClampToEdgeMode.h"
+#include "ClampToEdgeMode.hpp"
 
 ClampToEdgeMode::ClampToEdgeMode() {}
 

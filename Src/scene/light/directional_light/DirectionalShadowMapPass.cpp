@@ -1,4 +1,4 @@
-#include "DirectionalShadowMapPass.h"
+#include "DirectionalShadowMapPass.hpp"
 
 #include <memory>
 

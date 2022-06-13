@@ -1,4 +1,4 @@
-#include "OmniDirShadowMap.h"
+#include "OmniDirShadowMap.hpp"
 
 OmniDirShadowMap::OmniDirShadowMap() : ShadowMap() {}
 

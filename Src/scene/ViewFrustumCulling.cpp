@@ -1,4 +1,4 @@
-#include "ViewFrustumCulling.h"
+#include "ViewFrustumCulling.hpp"
 
 ViewFrustumCulling::ViewFrustumCulling()
     :

@@ -1,4 +1,4 @@
-#include "/host_device_shared.h"
+#include "/host_device_shared.hpp"
 #include "/Matlib.glsl"
 #include "/directional_light.glsl"
 

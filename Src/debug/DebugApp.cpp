@@ -1,4 +1,4 @@
-#include "DebugApp.h"
+#include "DebugApp.hpp"
 
 // stolen from: https://learnopengl.com/In-Practice/Debugging
 void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id,

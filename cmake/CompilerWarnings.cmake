@@ -1,4 +1,5 @@
 function(set_project_warnings project_name)
+
     option(TREAT_WARNINGS_AS_ERRORS "Treat warnings as errors" OFF)
     # add compile flags; as restrictive as possible
     # for windows

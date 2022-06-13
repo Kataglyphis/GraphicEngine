@@ -1,4 +1,4 @@
-#include "GameObject.h"
+#include "GameObject.hpp"
 
 GameObject::GameObject() : model(std::make_shared<Model>(Model())) {}
 

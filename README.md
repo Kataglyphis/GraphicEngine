@@ -148,7 +148,9 @@ For building an installer on windows you will need [NSIS](https://nsis.sourcefor
    ```sh
    git clone --recurse-submodules git@github.com:Kataglyphis/GraphicEngine.git
    ```
-   Important for init the submodules
+   Important for init the submodules.
+   > **_NOTE:_**  With powershell in Windows git has currently a problem with cloning recursively. You might consider using
+the git bash.
 
 2. Then build your solution with [CMAKE] (https://cmake.org/)
 

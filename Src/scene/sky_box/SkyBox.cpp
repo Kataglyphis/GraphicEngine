@@ -1,10 +1,10 @@
-#include "SkyBox.h"
+#include "SkyBox.hpp"
 
 #include <array>
 #include <sstream>
 #include <filesystem>
 
-#include "OpenGLRendererConfig.h"
+#include "OpenGLRendererConfig.hpp"
 
 SkyBox::SkyBox() {
   std::stringstream skybox_base_dir;

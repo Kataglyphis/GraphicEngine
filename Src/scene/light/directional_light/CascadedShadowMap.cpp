@@ -1,8 +1,8 @@
-#include "CascadedShadowMap.h"
+#include "CascadedShadowMap.hpp"
 
 #include <iostream>
 
-#include "bindings.h"
+#include "bindings.hpp"
 
 CascadedShadowMap::CascadedShadowMap()
     :

@@ -1,4 +1,4 @@
-#include "OmniShadowMapPass.h"
+#include "OmniShadowMapPass.hpp"
 
 #include <sstream>
 

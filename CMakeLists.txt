@@ -1,10 +1,12 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.20)
 
 # set the project name
 project(GraphicsEngine VERSION 1.9
                        DESCRIPTION "Epic Graphics"
                        HOMEPAGE_URL "https://jotrockenmitlocken.de/"
                        LANGUAGES CXX C)
+
+set(AUTHOR "Jotrockenmitlocken")
 
 # specify the C/C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -178,31 +180,10 @@ install(DIRECTORY Resources/ DESTINATION Resources/)
 
 # we are using this dir strings for removing hard coded file locations
 # at c++ side
-configure_file(OpenGLRendererConfig.h.in "${CMAKE_CURRENT_SOURCE_DIR}/Src/renderer/OpenGLRendererConfig.h")
+configure_file(OpenGLRendererConfig.hpp.in "${CMAKE_CURRENT_SOURCE_DIR}/Src/renderer/OpenGLRendererConfig.hpp")
 
 include(InstallRequiredSystemLibraries)
 
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
-set(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
-set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
-
-set(CPACK_SOURCE_IGNORE_FILES
-    /.git
-    /out
-    /.*build.*
-)
-
-if(MSVC)
-   set(CPACK_SOURCE_GENERATOR "NSIS")
-   set(CPACK_NSIS_MUI_ICON ${CMAKE_CURRENT_SOURCE_DIR}/images/faviconNew.ico)
-   set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
-   set(CPACK_NSIS_HELP_LINK https://jotrockenmitlocken.de/)
-   set(CPACK_NSIS_URL_INFO_ABOUT https://jotrockenmitlocken.de/)
-   set(CPACK_NSIS_CONTACT https://jotrockenmitlocken.de/)
-   set (CPACK_NSIS_MODIFY_PATH "ON")
- else() 
-   set(CPACK_SOURCE_GENERATOR "TGZ")
- endif()
+include(cmake/CPackOptions.cmake)
 
 include(CPack)

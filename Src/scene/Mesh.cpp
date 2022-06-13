@@ -1,10 +1,10 @@
-#include "Mesh.h"
+#include "Mesh.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Texture.h"
+#include "Texture.hpp"
 
 Mesh::Mesh()
     : m_vao(-1),

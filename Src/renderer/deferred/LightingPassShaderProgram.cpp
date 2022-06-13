@@ -1,6 +1,6 @@
-#include "LightingPassShaderProgram.h"
+#include "LightingPassShaderProgram.hpp"
 
-#include "bindings.h"
+#include "bindings.hpp"
 
 LightingPassShaderProgram::LightingPassShaderProgram() {}
 

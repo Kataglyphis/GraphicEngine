@@ -1,7 +1,7 @@
-#include "RandomNumbers.h"
+#include "RandomNumbers.hpp"
 
-#include "bindings.h"
-#include "host_device_shared.h"
+#include "bindings.hpp"
+#include "host_device_shared.hpp"
 
 RandomNumbers::RandomNumbers() {
   generate_random_numbers();

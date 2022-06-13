@@ -1,4 +1,4 @@
-#include "Noise.h"
+#include "Noise.hpp"
 
 #include <sstream>
 

@@ -1,4 +1,4 @@
-#include "GeometryPass.h"
+#include "GeometryPass.hpp"
 
 GeometryPass::GeometryPass() : skybox() { create_shader_program(); }
 

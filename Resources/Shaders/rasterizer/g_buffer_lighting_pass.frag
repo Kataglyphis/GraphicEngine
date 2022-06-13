@@ -2,8 +2,8 @@
 
 #extension GL_ARB_shading_language_include : require
 
-#include "/host_device_shared.h"
-#include "/bindings.h"
+#include "/host_device_shared.hpp"
+#include "/bindings.hpp"
 
 #include "/Matlib.glsl"
 

@@ -1,5 +1,5 @@
-#include "ShaderIncludes.h"
-#include "OpenGLRendererConfig.h"
+#include "ShaderIncludes.hpp"
+#include "OpenGLRendererConfig.hpp"
 
 #include <stdio.h>
 #include <string.h>
@@ -9,7 +9,7 @@
 #include <sstream>
 #include <filesystem>
 
-#include "File.h"
+#include "File.hpp"
 
 // this method is setting all files we want to use in a shader per #include
 // you have to specify the name(how file appears in shader)

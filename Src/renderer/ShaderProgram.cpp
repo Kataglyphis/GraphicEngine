@@ -1,10 +1,10 @@
-#include "ShaderProgram.h"
+#include "ShaderProgram.hpp"
 
 #include <sstream>
 #include <filesystem>
 
-#include "File.h"
-#include "OpenGLRendererConfig.h"
+#include "File.hpp"
+#include "OpenGLRendererConfig.hpp"
 
 ShaderProgram::ShaderProgram()
     :

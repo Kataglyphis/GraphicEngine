@@ -1,4 +1,4 @@
-#include "/host_device_shared.h"
+#include "/host_device_shared.hpp"
 
 // worley noise implementation;
 // inspired by Sebastian Lague: https://www.youtube.com/watch?v=4QOcCGI6xOU&t=104s

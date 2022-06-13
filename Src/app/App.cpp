@@ -12,18 +12,18 @@
 #include <vector>
 #include <filesystem>
 
-#include "File.h"
-#include "GUI.h"
-#include "LoadingScreen.h"
-#include "Renderer.h"
+#include "File.hpp"
+#include "GUI.hpp"
+#include "LoadingScreen.hpp"
+#include "Renderer.hpp"
 
 // all scene/game logic/ game object related stuff
-#include "Camera.h"
-#include "DebugApp.h"
-#include "GlobalValues.h"
-#include "Scene.h"
-#include "Window.h"
-#include "host_device_shared.h"
+#include "Camera.hpp"
+#include "DebugApp.hpp"
+#include "GlobalValues.hpp"
+#include "Scene.hpp"
+#include "Window.hpp"
+#include "host_device_shared.hpp"
 
 int main() {
 

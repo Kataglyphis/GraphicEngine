@@ -1,4 +1,4 @@
-#include "GBuffer.h"
+#include "GBuffer.hpp"
 
 #include <stdio.h>
 

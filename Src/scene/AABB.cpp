@@ -1,4 +1,4 @@
-#include "AABB.h"
+#include "AABB.hpp"
 
 #include <algorithm>
 
