@@ -1,12 +1,12 @@
 [submodule "ExternalLib/STB"]
 	path = ExternalLib/STB
-	url = git@github.com:nothings/stb.git
+	url = https://github.com/nothings/stb
 [submodule "ExternalLib/IMGUI"]
 	path = ExternalLib/IMGUI
-	url = git@github.com:ocornut/imgui.git
+	url = https://github.com/ocornut/imgui
 [submodule "ExternalLib/GLM"]
 	path = ExternalLib/GLM
-	url = git@github.com:g-truc/glm.git
+	url = https://github.com/g-truc/glm
 [submodule "ExternalLib/TOL"]
 	path = ExternalLib/TOL
 	url = https://github.com/tinyobjloader/tinyobjloader

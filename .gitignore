@@ -1,3 +1,6 @@
+# cmake configure file
+Src/renderer/OpenGLRendererConfig.hpp
+
 # ignore vs files
 .vs/*
 # ignore doxygen files
