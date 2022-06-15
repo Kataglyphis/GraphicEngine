@@ -18,35 +18,9 @@ add_executable(
         # all test specific files -- start
         ${RENDERER_COMPILE_TEST_FILTER}
         # all test specific files -- end
-        ${PBR_SHADER_FILTER}
-        ${BRDF_SHADER_FILTER} 
-        ${CAMERA_FILTER} 
-        ${COMMON_SHADER_FILTER}  
-        ${CLOUDS_SHADER_FILTER}
-        ${LOADING_SHADER_FILTER}
-        ${RASTERIZER_SHADER_FILTER}
-        ${RASTERIZER_SHADOWS_SHADER_FILTER}
-        ${SKYBOX_SHADER_FILTER}
-        ${GUI_FILTER}
-        ${IMGUI_FILTER}
-        ${GLAD_FILTER}
-        ${WINDOW_FILTER}
-        ${DEBUG_FILTER}
-        ${UTIL_FILTER}
-        ${COMPUTE_FILTER}
-        ${RENDERER_FILTER}
-        ${DEFERRED_FILTER}
-        ${LOAD_SCREEN_FILTER}
-        ${ATMOSPHERE_EFFECTS_FILTER}
-        ${LIGHT_FILTER}
-        ${D_LIGHT_FILTER}
-        ${P_LIGHT_FILTER}
-        ${CLOUD_FILTER}
-        ${SHADOWS_FILTER}
-        ${SKY_BOX_FILTER}
-        ${TEXTURE_FILTER}
-        ${SCENE_FILTER}
-        ${COMMON_FILTER}
+        $<TARGET_OBJECTS:PROJECT_FILES_TO_TEST>
+        $<TARGET_OBJECTS:IMGUI>
+        $<TARGET_OBJECTS:GLAD>
 )
 
 target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC ${WORKING_DIRECTORY}Src
@@ -67,11 +41,10 @@ target_include_directories(${COMPILE_TEST_SUITE}        PUBLIC ${WORKING_DIRECTO
                                                         PUBLIC ${WORKING_DIRECTORY}Src/scene/texture
                                                         PUBLIC ${WORKING_DIRECTORY}Src/gui
                                                         PUBLIC ${WORKING_DIRECTORY}Src/util
-                                                        PUBLIC ${WORKING_DIRECTORY}ExternalLib/GLAD/include
                                                         PUBLIC ${WORKING_DIRECTORY}Resources/Shaders/hostDevice
                                                         PUBLIC ${OPENGL_INCLUDE_DIRS}) 
 
-target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
+target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC gtest_main
                                                         ${CMAKE_DL_LIBS} # for imgui
                                                         Threads::Threads
                                                         ${OPENGL_LIBRARIES}
@@ -79,12 +52,22 @@ target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC  gtest_main
                                                         imgui
                                                         stb 
                                                         glm 
-                                                        tinyobjloader)
+                                                        tinyobjloader
+                                                        glad)
 
 target_link_libraries(${COMPILE_TEST_SUITE}      PRIVATE GSL)
 
 include(GoogleTest)
 gtest_discover_tests(   ${COMPILE_TEST_SUITE})
+
+# disable all warnings for our test suite
+if(MSVC)
+  target_compile_options(${COMPILE_TEST_SUITE} INTERFACE /w)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  target_compile_options(${COMPILE_TEST_SUITE} INTERFACE -w)
+else()
+  target_compile_options(${COMPILE_TEST_SUITE} INTERFACE -w)
+endif()
 
 # add test after each build
 # src: https://quickturnstudio.com/running-test-in-compile-time/

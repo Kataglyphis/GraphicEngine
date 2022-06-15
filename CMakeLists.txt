@@ -93,6 +93,13 @@ include(cmake/filters/SetExternalLibsFilters.cmake)
 
 include(cmake/SetSourceGroups.cmake)
 
+# https://stackoverflow.com/questions/49591804/clang-tidy-cmake-exclude-file-from-check/49591908#49591908
+# with this trick IMGUI will be excluded from time consuming static code analysis
+# we do not want to analyze imgui ...
+include(cmake/CreateProjectFilesToTestLib.cmake)
+# and we will not to all this for our testing executable again :)
+include(cmake/CreateExternalLibs.cmake)
+
 # add the executable
 add_executable( ${PROJECT_NAME} 
                 ${PBR_SHADER_FILTER}
@@ -105,8 +112,9 @@ add_executable( ${PROJECT_NAME}
                 ${RASTERIZER_SHADOWS_SHADER_FILTER}
                 ${SKYBOX_SHADER_FILTER}
                 ${GUI_FILTER}
-                ${IMGUI_FILTER}
-                ${GLAD_FILTER}
+                # this is great; no CPPCHECK,CLANG_TIDY here
+                $<TARGET_OBJECTS:IMGUI>
+                $<TARGET_OBJECTS:GLAD>
                 ${WINDOW_FILTER}
                 ${DEBUG_FILTER}
                 ${UTIL_FILTER}
@@ -144,9 +152,10 @@ target_include_directories(${PROJECT_NAME}      PUBLIC ./Src
                                                 PUBLIC ./Src/scene/texture
                                                 PUBLIC ./Src/gui
                                                 PUBLIC ./Src/util
-                                                PUBLIC ./ExternalLib/GLAD/include
                                                 PUBLIC ./Resources/Shaders/hostDevice
-                                                ${OPENGL_INCLUDE_DIRS})
+                          )
+
+target_include_directories(${PROJECT_NAME}      PRIVATE ${OPENGL_INCLUDE_DIRS})
 
 target_link_libraries(${PROJECT_NAME}   PUBLIC  # for imgui
                                                 ${CMAKE_DL_LIBS} 
@@ -157,6 +166,7 @@ target_link_libraries(${PROJECT_NAME}   PUBLIC  # for imgui
                                                 stb 
                                                 glm 
                                                 tinyobjloader
+                                                glad
                                                 # enable compiler warnings
                                                 project_warnings
                                                 # enable sanitizers
