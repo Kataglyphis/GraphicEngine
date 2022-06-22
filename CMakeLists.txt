@@ -7,6 +7,7 @@ project(GraphicsEngine VERSION 1.9
                        LANGUAGES CXX C)
 
 set(AUTHOR "Jotrockenmitlocken")
+set(CMAKE_BUILD_TYPE Debug)
 
 # specify the C/C++ standard
 set(CMAKE_CXX_STANDARD 20)
