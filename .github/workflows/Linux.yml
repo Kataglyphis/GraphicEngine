@@ -43,7 +43,8 @@ jobs:
       run: ctest -C ${{env.BUILD_TYPE}}
     - name: Build Code Coverage 
       run: make coverage_xml -C ${{github.workspace}}/build/
-    - uses: codecov/codecov-action@v2
+    - name: Codecov
+      uses: codecov/codecov-action@v3.1.0
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         files: ./coverage_xml.xml, # optional
