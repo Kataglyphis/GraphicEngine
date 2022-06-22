@@ -45,7 +45,7 @@ jobs:
       run: make coverage_xml -C ${{github.workspace}}/build/
     - uses: codecov/codecov-action@v2
       with:
-        # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         files: ./coverage_xml.xml, # optional
         flags: unittests # optional
         name: codecov-umbrella # optional

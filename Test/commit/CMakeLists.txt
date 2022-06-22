@@ -97,12 +97,14 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang
           EXECUTABLE ctest -j ${n_cores} # Executable in PROJECT_BINARY_DIR
           EXCLUDE   "ExternalLib/*"
                     "build/*"
+                    "Documents/*"
   )
   setup_target_for_coverage_gcovr_html(
           NAME coverage_html                 
           EXECUTABLE ctest -j ${n_cores} # Executable in PROJECT_BINARY_DIR
           EXCLUDE   "ExternalLib/*"
                     "build/*"
+                    "Documents/*"
   )
   
   endif()
