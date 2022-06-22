@@ -9,7 +9,7 @@
 #define OPENGL_VERSION_MAJOR "@OPENGL_VERSION_MAJOR@"
 #define OPENGL_VERSION_MINOR "@OPENGL_VERSION_MINOR@"
 
-//change this path when installing
+//change this path when installing 
 #define RELATIVE_RESOURCE_PATH "/../Resources/"
 
 #endif

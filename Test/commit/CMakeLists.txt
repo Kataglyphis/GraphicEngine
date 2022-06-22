@@ -12,7 +12,7 @@ include(${WORKING_DIRECTORY}cmake/filters/SetProjectFilters.cmake)
 include(${WORKING_DIRECTORY}cmake/filters/SetExternalLibsFilters.cmake)
 
 include(cmake/SetTestFilters.cmake)
- 
+
 set (COMMIT_TEST_SUITE commitTestSuite)
 
 add_executable(
@@ -58,6 +58,23 @@ target_link_libraries(${COMMIT_TEST_SUITE}      PUBLIC  gtest_main
                                                         glm 
                                                         tinyobjloader
                                                         glad)
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  include(cmake/CodeCoverage.cmake)
+  option(ENABLE_COVERAGE "Enable coverage reporting for gcc/clang" ON)
+  if(ENABLE_COVERAGE)
+    target_compile_options(${COMMIT_TEST_SUITE}  INTERFACE -O0)
+    include(CodeCoverage)
+    append_coverage_compiler_flags_to_target(${COMMIT_TEST_SUITE})
+    setup_target_for_coverage_gcovr_html(
+            NAME coverage
+            EXECUTABLE testrunner
+            # BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            EXCLUDE "ExternalLib/*")
+      
+  endif()
+
+endif()
 
 # disable all warnings for our test suite
 if(MSVC)

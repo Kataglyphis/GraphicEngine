@@ -25,6 +25,10 @@ add_library(project_sanitizers INTERFACE)
 include(cmake/Sanitizers.cmake)
 enable_sanitizers(project_sanitizers)
 
+add_library(ipo INTERFACE)
+include(cmake/Optimizations.cmake)
+enable_ipo_for_target(ipo)
+
 include(cmake/Doxygen.cmake)
 enable_doxygen()
 
@@ -170,7 +174,9 @@ target_link_libraries(${PROJECT_NAME}   PUBLIC  # for imgui
                                                 # enable compiler warnings
                                                 project_warnings
                                                 # enable sanitizers
-                                                project_sanitizers)
+                                                project_sanitizers
+                                                # enable ipo
+                                                ipo)
 
 
 target_link_libraries(${PROJECT_NAME}   PRIVATE GSL)
