@@ -18,7 +18,33 @@ add_executable(
         # all test specific files -- start
         ${RENDERER_COMPILE_TEST_FILTER}
         # all test specific files -- end
-        $<TARGET_OBJECTS:PROJECT_FILES_TO_TEST>
+        ${PBR_SHADER_FILTER}
+        ${BRDF_SHADER_FILTER} 
+        ${CAMERA_FILTER} 
+        ${COMMON_SHADER_FILTER}  
+        ${CLOUDS_SHADER_FILTER}
+        ${LOADING_SHADER_FILTER}
+        ${RASTERIZER_SHADER_FILTER}
+        ${RASTERIZER_SHADOWS_SHADER_FILTER}
+        ${SKYBOX_SHADER_FILTER}
+        ${GUI_FILTER}
+        ${WINDOW_FILTER}
+        ${DEBUG_FILTER}
+        ${UTIL_FILTER}
+        ${COMPUTE_FILTER}
+        ${RENDERER_FILTER}
+        ${DEFERRED_FILTER}
+        ${LOAD_SCREEN_FILTER}
+        ${ATMOSPHERE_EFFECTS_FILTER}
+        ${LIGHT_FILTER}
+        ${D_LIGHT_FILTER}
+        ${P_LIGHT_FILTER}
+        ${CLOUD_FILTER}
+        ${SHADOWS_FILTER}
+        ${SKY_BOX_FILTER}
+        ${TEXTURE_FILTER}
+        ${SCENE_FILTER}
+        ${COMMON_FILTER}
         $<TARGET_OBJECTS:IMGUI>
         $<TARGET_OBJECTS:GLAD>
 )

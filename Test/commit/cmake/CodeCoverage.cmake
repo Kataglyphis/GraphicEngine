@@ -1,5 +1,17 @@
-# source: https://raw.githubusercontent.com/bilke/cmake-modules/master/CodeCoverage.cmake
+# option(COVERAGE "Enable Code Coverage" ON)
+# function(add_coverage project_name)
+    
+#     if(COVERAGE)
+#         if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+#             target_compile_options(${project_name} INTERFACE --coverage -O0 -g)
+#             target_link_libraries(${project_name} INTERFACE --coverage)
+#         endif()
+#     endif()
 
+# endfunction()
+
+# info: https://stackoverflow.com/questions/52255589/code-coverage-analysis-using-codecoverage-cmake-with-multiple-targets
+# src: https://github.com/bilke/cmake-modules/blob/master/CodeCoverage.cmake
 # Copyright (c) 2012 - 2017, Lars Bilke
 # All rights reserved.
 #

@@ -20,7 +20,33 @@ add_executable(
         # all test specific files -- start
         ${RENDERER_COMMIT_TEST_FILTER}
         # all test specific files -- end
-        $<TARGET_OBJECTS:PROJECT_FILES_TO_TEST>
+        ${PBR_SHADER_FILTER}
+        ${BRDF_SHADER_FILTER} 
+        ${CAMERA_FILTER} 
+        ${COMMON_SHADER_FILTER}  
+        ${CLOUDS_SHADER_FILTER}
+        ${LOADING_SHADER_FILTER}
+        ${RASTERIZER_SHADER_FILTER}
+        ${RASTERIZER_SHADOWS_SHADER_FILTER}
+        ${SKYBOX_SHADER_FILTER}
+        ${GUI_FILTER}
+        ${WINDOW_FILTER}
+        ${DEBUG_FILTER}
+        ${UTIL_FILTER}
+        ${COMPUTE_FILTER}
+        ${RENDERER_FILTER}
+        ${DEFERRED_FILTER}
+        ${LOAD_SCREEN_FILTER}
+        ${ATMOSPHERE_EFFECTS_FILTER}
+        ${LIGHT_FILTER}
+        ${D_LIGHT_FILTER}
+        ${P_LIGHT_FILTER}
+        ${CLOUD_FILTER}
+        ${SHADOWS_FILTER}
+        ${SKY_BOX_FILTER}
+        ${TEXTURE_FILTER}
+        ${SCENE_FILTER}
+        ${COMMON_FILTER}
         $<TARGET_OBJECTS:IMGUI>
         $<TARGET_OBJECTS:GLAD>
 )
@@ -59,21 +85,27 @@ target_link_libraries(${COMMIT_TEST_SUITE}      PUBLIC  gtest_main
                                                         tinyobjloader
                                                         glad)
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-  include(cmake/CodeCoverage.cmake)
-  option(ENABLE_COVERAGE "Enable coverage reporting for gcc/clang" ON)
-  if(ENABLE_COVERAGE)
-    target_compile_options(${COMMIT_TEST_SUITE}  INTERFACE -O0)
-    include(CodeCoverage)
-    append_coverage_compiler_flags_to_target(${COMMIT_TEST_SUITE})
-    setup_target_for_coverage_gcovr_html(
-            NAME coverage
-            EXECUTABLE testrunner
-            # BASE_DIRECTORY "${PROJECT_SOURCE_DIR}"
-            EXCLUDE "ExternalLib/*")
-      
-  endif()
+target_link_libraries(${COMMIT_TEST_SUITE}   PRIVATE GSL)
 
+option(COVERAGE "Enable Code Coverage" ON)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  if(COVERAGE)
+  include(cmake/CodeCoverage.cmake)
+  append_coverage_compiler_flags()
+  setup_target_for_coverage_gcovr_xml(
+          NAME coverage_xml                 
+          EXECUTABLE ctest -j ${n_cores} # Executable in PROJECT_BINARY_DIR
+          EXCLUDE   "ExternalLib/*"
+                    "build/*"
+  )
+  setup_target_for_coverage_gcovr_html(
+          NAME coverage_html                 
+          EXECUTABLE ctest -j ${n_cores} # Executable in PROJECT_BINARY_DIR
+          EXCLUDE   "ExternalLib/*"
+                    "build/*"
+  )
+  
+  endif()
 endif()
 
 # disable all warnings for our test suite

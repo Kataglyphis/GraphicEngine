@@ -137,7 +137,10 @@ add_executable( ${PROJECT_NAME}
                 ${SCENE_FILTER}
                 ${COMMON_FILTER}
                 ${APP_FILTER})
-        
+
+enable_cppcheck(${PROJECT_NAME})
+enable_clangtidy(${PROJECT_NAME})
+  
 target_include_directories(${PROJECT_NAME}      PUBLIC ./Src
                                                 PUBLIC ./Src/camera
                                                 PUBLIC ./Src/compute
