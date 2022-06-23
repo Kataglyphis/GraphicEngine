@@ -137,7 +137,8 @@ add_executable( ${PROJECT_NAME}
                 ${TEXTURE_FILTER}
                 ${SCENE_FILTER}
                 ${COMMON_FILTER}
-                ${APP_FILTER})
+                ${APP_FILTER}
+)
 
 enable_cppcheck(${PROJECT_NAME})
 enable_clangtidy(${PROJECT_NAME})

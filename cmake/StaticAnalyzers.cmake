@@ -1,5 +1,5 @@
 function(enable_cppcheck project_name)
-        option(ENABLE_CPPCHECK "Enable cppcheck" OFF)#
+        option(ENABLE_CPPCHECK "Enable cppcheck" ON)#
         if(ENABLE_CPPCHECK)
                 find_program(CPPCHECK cppcheck)
                 if(CPPCHECK)
@@ -20,7 +20,7 @@ function(enable_cppcheck project_name)
 endfunction()
 
 function(enable_clangtidy project_name)
-        option(ENABLE_CLANGTIDY "Enable clangtidy" OFF)#
+        option(ENABLE_CLANGTIDY "Enable clangtidy" ON)#
         if(ENABLE_CLANGTIDY)
                 find_program(CLANGTIDY clang-tidy)
                 if(CLANGTIDY)
