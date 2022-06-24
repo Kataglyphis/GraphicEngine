@@ -12,8 +12,13 @@ set(AUTHOR "Jotrockenmitlocken")
 if(MSVC)
   set(CMAKE_CXX_FLAGS_DEBUG /DEBUG /Od)
   set(CMAKE_CXX_FLAGS_RELEASE /O2)
-else()
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  # https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html
   set(CMAKE_CXX_FLAGS_DEBUG -g -O0)
+  set(CMAKE_CXX_FLAGS_RELEASE -O3 -DNDEBUG)
+  # https://clang.llvm.org/docs/UsersManual.html
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  set(CMAKE_CXX_FLAGS_DEBUG /Od /O0)
   set(CMAKE_CXX_FLAGS_RELEASE -O3 -DNDEBUG)
 endif()
 
