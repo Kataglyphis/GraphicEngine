@@ -17,8 +17,6 @@
 // Demonstrate some basic assertions.
 TEST(RendererTest, BasicSetup) {
 
-	Renderer renderer(1200,800);
-
 	GLint window_width = 1200;
     GLint window_height = 800;
 
