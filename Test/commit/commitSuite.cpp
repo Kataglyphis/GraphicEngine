@@ -3,6 +3,14 @@
 #include <sstream>
 #include <filesystem>
 #include <vector>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include <iostream>
+#include <cstdio>
+
+#include <memory>
+#include <string>
 
 #include "ObjLoader.hpp"
 #include "Rotation.hpp"
@@ -13,6 +21,17 @@
 #include "DebugApp.hpp"
 #include "GUI.hpp"
 #include "LoadingScreen.hpp"
+
+#include "File.hpp"
+#include "LoadingScreen.hpp"
+
+// all scene/game logic/ game object related stuff
+#include "Camera.hpp"
+#include "DebugApp.hpp"
+#include "GlobalValues.hpp"
+#include "Scene.hpp"
+#include "Window.hpp"
+#include "host_device_shared.hpp"
 
 // Demonstrate some basic assertions.
 TEST(RendererTest, BasicSetup) {
