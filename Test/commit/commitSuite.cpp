@@ -1,5 +1,14 @@
 #include <gtest/gtest.h>
 
+#include <sstream>
+#include <filesystem>
+#include <vector>
+
+#include "ObjLoader.hpp"
+#include "Rotation.hpp"
+#include "OpenGLRendererConfig.hpp"
+#include "GameObject.hpp"
+
 // Demonstrate some basic assertions.
 TEST(HelloTest1, BasicAssertions) {
 
@@ -10,20 +19,25 @@ TEST(HelloTest1, BasicAssertions) {
 
 }
 
-TEST(VulkanBuffer1, blob)
+TEST(ObjLoaderTest, blob)
 {
 	
-	int c = 0;
+	std::vector<std::shared_ptr<GameObject>> gameObjects;
 
-	// Test that counter 0 returns 0
-	EXPECT_EQ(0, c);
+  glm::vec3 sponza_offset = glm::vec3(0.f, 0.0f, 0.0f);
+  GLfloat sponza_scale = 10.f;
+  Rotation sponza_rot;
+  sponza_rot.degrees = 0.0f;
+  sponza_rot.axis = glm::vec3(0.0f, 1.0f, 0.0f);
 
-	// EXPECT_EQ() evaluates its arguments exactly once, so they
-	// can have side effects.
+  std::stringstream modelFile;
+  std::filesystem::path cwd = std::filesystem::current_path();
+  modelFile << cwd.string();
+  modelFile << RELATIVE_RESOURCE_PATH << "Models/dinosaurs.obj";
 
-	EXPECT_EQ(0, c++);
-	EXPECT_EQ(1, c++);
-	EXPECT_EQ(2, c++);
-
-	EXPECT_EQ(3, c++);
+  ASSERT_EQ(static_cast<uint32_t>(gameObjects.size()), 0);
+  std::shared_ptr<GameObject> sponza = std::make_shared<GameObject>(
+      modelFile.str(), sponza_offset, sponza_scale, sponza_rot);
+  gameObjects.push_back(sponza);
+  ASSERT_EQ(static_cast<uint32_t>(gameObjects.size()), 1);
 }
