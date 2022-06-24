@@ -18,6 +18,7 @@
 [![Donate](https://img.shields.io/github/languages/top/Kataglyphis/GraphicEngine)]()
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=BX9AVVES2P9LN)
 [![Twitter](https://img.shields.io/twitter/follow/Cataglyphis_?style=social)](https://twitter.com/Cataglyphis_)
+[![YouTube](https://img.shields.io/youtube/channel/subscribers/UC3LZiH4sZzzaVBCUV8knYeg?style=social)](https://www.youtube.com/channel/UC3LZiH4sZzzaVBCUV8knYeg)
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
@@ -72,8 +73,10 @@
 
 This project provides me a solid modern OpenGL renderer starting point
 for implementing modern established rendering techniques and getting quickly
-started in own research topics. 
-
+started in own research topics. <br/>
+Frequently tested under <br /> 
+* [latest windows and ubuntu version]
+* [GCC/CLANG/MSVC] 
 ### Key Features
 
 <!-- ❌ -->
@@ -133,21 +136,32 @@ You might only clone the repo and get to go immediately :)
 Dependencies to libraries are stated above.<br />
 C++20 or higher required.<br />
 C17 or higher required.<br />
+CMake 3.20 or higher required.<br />
 > **_NOTE:_** This project relies on the newest OpenGL version and their features.
+
+
 
 ### Installation
 
 1. Clone the repo
 
    ```sh
-   git clone --recurse-submodules git@github.com:Kataglyphis/GraphicEngine.git
+   $ git clone --recurse-submodules git@github.com:Kataglyphis/GraphicEngine.git
    ```
    Important for init the submodules.
    > **_NOTE:_**  With powershell in Windows git has currently a problem with cloning recursively. You might consider using
 the git bash.
 
-2. Then build your solution with [CMAKE] (https://cmake.org/)
-
+2. Then build your solution with [CMAKE] (https://cmake.org/) <br />
+  Here the recommended way over command line after cloning the repo:<br />
+  (for clarity: Assumption you are in the dir you have cloned the repo into)
+  ```sh
+  $ mkdir build ; cd build
+  $ cmake ../
+  $ cmake --build .
+  # necessary for making Resources available to test framework
+  $ cmake -E copy_directory ../Resources/ Test/Resources/
+  ```
 
 <!-- TESTS -->
 ## Tests
