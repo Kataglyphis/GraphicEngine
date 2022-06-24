@@ -44,7 +44,7 @@ TEST(RendererTest, BasicSetup) {
     std::shared_ptr<Window> main_window =
         std::make_shared<Window>(window_width, window_height);
 
-    DebugApp debugCallbacks;
+    /*DebugApp debugCallbacks;
 
     Renderer renderer(window_width, window_height);
 
@@ -69,7 +69,7 @@ TEST(RendererTest, BasicSetup) {
 
     GLfloat now = (float)glfwGetTime();
     delta_time = now - last_time;
-    last_time = now;
+    last_time = now;*/
 
 }
 
