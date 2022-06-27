@@ -1,5 +1,5 @@
 ﻿{
-  "version": 5,
+  "version": 3,
   "cmakeMinimumRequired": {
     "major": 3,
     "minor": 20,
@@ -11,9 +11,9 @@
       "displayName": "Linux Debug",
       "description": "Go with Linux",
       "generator": "Unix Makefile",
-      "binaryDir": "${sourceDir}/build",
-      "cacheVariables": { 
-        "CMAKE_BUILD_TYPE": "Debug" },
+      "binaryDir": "${sourceDir}/build/",
+      "installDir": "${sourceDir}/build/",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" },
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
@@ -24,11 +24,10 @@
       "name": "linux-release",
       "displayName": "Linux Release",
       "description": "Go with Linux",
-      "generator": "Unix Makefile",
-      "binaryDir": "${sourceDir}/build",
-      "cacheVariables": { 
-        "CMAKE_BUILD_TYPE": "Release" 
-      },
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/",
+      "installDir": "${sourceDir}/build/",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" },
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
@@ -36,39 +35,49 @@
       }
     },
     {
-      "name": "windows-base",
-      "description": "Hiermit wird Windows mit der Visual Studio-Entwicklungsumgebung als Ziel verwendet.",
-      "hidden": true,
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/out/build/${presetName}",
-      "installDir": "${sourceDir}/out/install/${presetName}",
+      "name": "x64-MSVC-Windows",
+      "description": "Windows and standard MSVC",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/",
+      "installDir": "${sourceDir}/build/",
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "cl.exe",
-        "CMAKE_CXX_COMPILER": "cl.exe"
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
       },
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
         "rhs": "Windows"
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "set"
       }
     },
     {
-      "name": "x64-debug",
-      "displayName": "x64 Debug",
-      "description": "Hiermit wird Windows (64 Bit) mit der Visual Studio-Entwicklungsumgebung als Ziel verwendet. (Debug)",
-      "inherits": "windows-base",
+      "name": "x64-Clang-Windows",
+      "description": "Windows and Clang",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/",
+      "installDir": "${sourceDir}/build/",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-c1",
+        "CMAKE_CXX_COMPILER": "clang-c1"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
       "architecture": {
         "value": "x64",
-        "strategy": "external"
+        "strategy": "set"
       },
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
-    },
-    {
-      "name": "x64-release",
-      "displayName": "x64 Release",
-      "description": "Hiermit wird Windows (64 Bit) mit der Visual Studio-Entwicklungsumgebung als Ziel verwendet. (RelWithDebInfo)",
-      "inherits": "x64-debug",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "intelliSenseMode": "windows-clang-x64"
+        }
+      }
     }
   ]
 }
