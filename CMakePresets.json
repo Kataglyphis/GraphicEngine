@@ -64,6 +64,7 @@
         "CMAKE_C_COMPILER": "clang-c1",
         "CMAKE_CXX_COMPILER": "clang-c1"
       },
+      "toolset": "ClangCL",
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
