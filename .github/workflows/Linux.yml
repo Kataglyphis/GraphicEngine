@@ -15,7 +15,7 @@ jobs:
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-    runs-on: ubuntu-latest
+    runs-on: x64-ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -35,10 +35,6 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-    # make resources available to the google testing suite
-    - name: Copy Resources for Testing framework
-      run: cmake -E copy_directory ${{github.workspace}}/Resources/ ${{github.workspace}}/build/Test/Resources/
 
     - name: Test
       working-directory: ${{github.workspace}}/build

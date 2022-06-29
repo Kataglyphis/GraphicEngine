@@ -206,6 +206,7 @@ target_link_libraries(${PROJECT_NAME}   PRIVATE GSL)
 
 # all testing related stuff
 enable_testing()
+include(GoogleTest)
 
 add_subdirectory(Test/commit)
 add_subdirectory(Test/compile)

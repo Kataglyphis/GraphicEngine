@@ -83,7 +83,6 @@ target_link_libraries(${COMPILE_TEST_SUITE}      PUBLIC gtest_main
 
 target_link_libraries(${COMPILE_TEST_SUITE}      PRIVATE GSL)
 
-include(GoogleTest)
 gtest_discover_tests(   ${COMPILE_TEST_SUITE})
 
 # disable all warnings for our test suite
@@ -94,6 +93,17 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 else()
   target_compile_options(${COMPILE_TEST_SUITE} INTERFACE -w)
 endif()
+
+# make our sources available to testing framework
+add_custom_target(resourcefilesForCompileTestSuite ALL
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory 
+                    ${CMAKE_SOURCE_DIR}/Resources 
+                    ${CMAKE_BINARY_DIR}/Test/Resources
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory 
+                    ${CMAKE_SOURCE_DIR}/ExternalLib/IMGUI/misc/fonts/ 
+                    ${CMAKE_BINARY_DIR}/Test/ExternalLib/IMGUI/misc/fonts/)
+
+add_dependencies(${COMPILE_TEST_SUITE} resourcefilesForCompileTestSuite)
 
 # add test after each build
 # src: https://quickturnstudio.com/running-test-in-compile-time/
