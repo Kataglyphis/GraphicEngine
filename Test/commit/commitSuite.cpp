@@ -76,7 +76,7 @@ TEST(RendererTest, BasicSetup) {
 TEST(ObjLoaderTest, blob)
 {
 	
-    std::vector<std::shared_ptr<GameObject>> gameObjects;
+std::vector<std::shared_ptr<GameObject>> gameObjects;
 
   glm::vec3 sponza_offset = glm::vec3(0.f, 0.0f, 0.0f);
   GLfloat sponza_scale = 10.f;

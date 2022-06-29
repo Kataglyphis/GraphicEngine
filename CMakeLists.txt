@@ -53,6 +53,8 @@ enable_doxygen()
 
 include(cmake/StaticAnalyzers.cmake)
 
+include(cmake/Speedup.cmake)
+
 include(FetchContent)
 # include google test to project
 FetchContent_Declare(
@@ -119,7 +121,7 @@ include(cmake/SetSourceGroups.cmake)
 # https://stackoverflow.com/questions/49591804/clang-tidy-cmake-exclude-file-from-check/49591908#49591908
 # with this trick IMGUI will be excluded from time consuming static code analysis
 # we do not want to analyze imgui ...
-include(cmake/CreateProjectFilesToTestLib.cmake)
+# include(cmake/CreateProjectFilesToTestLib.cmake)
 # and we will not to all this for our testing executable again :)
 include(cmake/CreateExternalLibs.cmake)
 
@@ -217,6 +219,7 @@ install(TARGETS ${PROJECT_NAME}
         RUNTIME DESTINATION bin)
 
 install(DIRECTORY Resources/ DESTINATION Resources/)
+install(DIRECTORY ExternalLib/IMGUI/misc/fonts/ DESTINATION ExternalLib/IMGUI/misc/fonts/)
 
 # we are using this dir strings for removing hard coded file locations
 # at c++ side
