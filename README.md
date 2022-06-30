@@ -165,6 +165,13 @@ the git bash.
   $ cmake -E copy_directory ../Resources/ Test/Resources/
   ```
 
+  Alternatively you can use the build scripts I use for my standard configuration: <br/>
+  * [`buildEngine.sh`] 
+  * [`buildEngine.bat`]
+  ```sh
+  $ {WORKING_DIR}/GraphicsEngine/buildEngine[.sh/.bat]
+  ```
+
 <!-- TESTS -->
 ## Tests
 * [Watch test results here](Documents/googletest/test_detail.xml)

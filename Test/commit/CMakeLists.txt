@@ -87,6 +87,9 @@ target_link_libraries(${COMMIT_TEST_SUITE}      PUBLIC  gtest_main
 
 target_link_libraries(${COMMIT_TEST_SUITE}   PRIVATE GSL)
 
+gtest_discover_tests(   ${COMMIT_TEST_SUITE}
+                        DISCOVERY_TIMEOUT 300)
+
 # good source: https://stackoverflow.com/questions/52255589/code-coverage-analysis-using-codecoverage-cmake-with-multiple-targets
 option(COVERAGE "Enable Code Coverage" ON)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -111,6 +114,17 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   endif()
 endif()
 
+# make all resources available to our testing framework properly 
+add_custom_target(resourcefilesForCommitTestSuite ALL
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory 
+                    ${CMAKE_SOURCE_DIR}/Resources 
+                    ${CMAKE_BINARY_DIR}/Test/Resources
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory 
+                    ${CMAKE_SOURCE_DIR}/ExternalLib/IMGUI/misc/fonts/ 
+                    ${CMAKE_BINARY_DIR}/Test/ExternalLib/IMGUI/misc/fonts/)
+
+add_dependencies(${COMMIT_TEST_SUITE} resourcefilesForCommitTestSuite)
+
 # disable all warnings for our test suite
 if(MSVC)
   target_compile_options(${COMMIT_TEST_SUITE}  INTERFACE /w)
@@ -119,6 +133,3 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 else()
   target_compile_options(${COMMIT_TEST_SUITE}  INTERFACE -w)
 endif()
-
-include(GoogleTest)
-gtest_discover_tests(   ${COMMIT_TEST_SUITE})

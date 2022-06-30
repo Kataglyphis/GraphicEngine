@@ -10,7 +10,7 @@
 #define OPENGL_VERSION_MINOR "6"
 
 //change this path when installing 
-// "C:/Users/jonas_l6e3q/Desktop/GraphicEngine/Resources/"
+// "/home/jones/Desktop/GraphicEngine/Resources/"
 #define RELATIVE_RESOURCE_PATH "/../Resources/"
 
 #endif
