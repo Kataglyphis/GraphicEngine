@@ -5,7 +5,8 @@ add_library(
     ${IMGUI_FILTER}
 )
 
-target_link_libraries(IMGUI         PRIVATE ${OPENGL_LIBRARIES}
+target_link_libraries(IMGUI         PRIVATE ${CMAKE_DL_LIBS}
+                                            ${OPENGL_LIBRARIES}
                                             glfw 
                                             imgui
 
