@@ -3,6 +3,9 @@
 #include "bindings.hpp"
 #include "host_device_shared.hpp"
 
+#include <random>
+#include "GlobalValues.hpp"
+
 RandomNumbers::RandomNumbers() {
   generate_random_numbers();
 

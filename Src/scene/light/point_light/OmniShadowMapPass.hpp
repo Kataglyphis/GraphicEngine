@@ -1,11 +1,9 @@
 #pragma once
 
-#include "Clouds.hpp"
 #include "OmniDirShadowShaderProgram.hpp"
 #include "PointLight.hpp"
-#include "RenderPassSceneDependend.hpp"
 #include "Scene.hpp"
-#include "ViewFrustumCulling.hpp"
+#include "RenderPassSceneDependend.hpp"
 
 class OmniShadowMapPass : public RenderPassSceneDependend {
  public:

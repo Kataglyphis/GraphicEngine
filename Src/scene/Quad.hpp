@@ -1,11 +1,6 @@
 #pragma once
 #include <glad/glad.h>
 
-#include <glm/glm.hpp>
-#include <vector>
-
-#include "GlobalValues.hpp"
-
 class Quad {
  public:
   Quad();

@@ -1,6 +1,5 @@
 #pragma once
 #include "ShaderProgram.hpp"
-#include "host_device_shared.hpp"
 
 class GeometryPassShaderProgram : public ShaderProgram {
  public:

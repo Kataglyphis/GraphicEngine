@@ -1,14 +1,10 @@
 #pragma once
 #include <glad/glad.h>
 
-#include <cassert>
-#include <fstream>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <iostream>
-#include <sstream>
+
 #include <string>
-#include <vector>
 
 class ShaderProgram {
  public:

@@ -1,14 +1,12 @@
 #pragma once
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+//#include <glad/glad.h>
+//#include <GLFW/glfw3.h>
 
 #include <memory>
 
-#include "Clouds.hpp"
 #include "Scene.hpp"
 #include "Texture.hpp"
 #include "Window.hpp"
-#include "host_device_shared.hpp"
 
 class GUI {
  public:

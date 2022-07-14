@@ -2,11 +2,8 @@
 #include <memory>
 #include <stdexcept>
 
-#include "Mesh.hpp"
 #include "ObjMaterial.hpp"
-#include "Texture.hpp"
 #include "Vertex.hpp"
-#include "host_device_shared.hpp"
 
 class ObjLoader {
  public:

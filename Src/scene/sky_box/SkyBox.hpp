@@ -1,22 +1,13 @@
 #pragma once
 #include <glad/glad.h>
-#include <time.h>
 
-#include <cassert>
-#include <chrono>
-#include <ctime>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <random>
-#include <sstream>
-#include <vector>
 
 #include "GlobalValues.hpp"
 #include "Mesh.hpp"
 #include "ShaderProgram.hpp"
-#include "Vertex.hpp"
-#include "bindings.hpp"
 
 class SkyBox {
  public:

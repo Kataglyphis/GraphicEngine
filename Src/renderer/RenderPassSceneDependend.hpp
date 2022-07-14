@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
 
-#include "Model.hpp"
+//#include "Model.hpp"
+#include <glm/glm.hpp>
 #include "RenderPass.hpp"
 
 class RenderPassSceneDependend : public RenderPass {

@@ -1,6 +1,9 @@
 #include "ShaderIncludes.hpp"
 #include "OpenGLRendererConfig.hpp"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 #include <stdio.h>
 #include <string.h>
 

@@ -1,5 +1,10 @@
 #include "Quad.hpp"
 
+#include <glm/glm.hpp>
+#include <vector>
+
+#include "GlobalValues.hpp"
+
 Quad::Quad() {
   glGenVertexArrays(1, &q_vao);
   glGenBuffers(1, &q_vbo);

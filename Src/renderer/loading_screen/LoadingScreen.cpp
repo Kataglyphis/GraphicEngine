@@ -3,6 +3,7 @@
 
 #include <filesystem>
 #include <sstream>
+#include "RepeatMode.hpp"
 
 LoadingScreen::LoadingScreen() { create_shader_program(); }
 

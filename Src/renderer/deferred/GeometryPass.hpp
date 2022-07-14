@@ -2,13 +2,10 @@
 #include <array>
 
 #include "Camera.hpp"
-#include "Clouds.hpp"
-#include "DirectionalLight.hpp"
 #include "GeometryPassShaderProgram.hpp"
 #include "RenderPassSceneDependend.hpp"
 #include "Scene.hpp"
 #include "SkyBox.hpp"
-#include "ViewFrustumCulling.hpp"
 
 class GeometryPass : public RenderPassSceneDependend {
  public:

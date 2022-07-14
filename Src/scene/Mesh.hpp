@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "GlobalValues.hpp"
-#include "Texture.hpp"
 #include "Vertex.hpp"
 
 // this a simple Mesh without mesh generation

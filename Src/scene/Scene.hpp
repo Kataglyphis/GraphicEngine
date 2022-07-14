@@ -8,7 +8,7 @@
 #include "GameObject.hpp"
 #include "ObjMaterial.hpp"
 #include "PointLight.hpp"
-#include "RenderPassSceneDependend.hpp"
+//#include "RenderPassSceneDependend.hpp"
 #include "Rotation.hpp"
 #include "ViewFrustumCulling.hpp"
 #include "Window.hpp"

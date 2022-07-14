@@ -6,6 +6,7 @@
 
 #include "Light.hpp"
 #include "host_device_shared.hpp"
+#include "CascadedShadowMap.hpp"
 
 class DirectionalLight : public Light {
  public:

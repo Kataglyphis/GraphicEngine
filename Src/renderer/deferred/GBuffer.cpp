@@ -1,5 +1,7 @@
 #include "GBuffer.hpp"
 
+#include "bindings.hpp"
+
 #include <stdio.h>
 
 GBuffer::GBuffer() {

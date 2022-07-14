@@ -2,6 +2,10 @@
 
 #include "Texture.hpp"
 
+#include "ClampToEdgeMode.hpp"
+#include "MirroredRepeatMode.hpp"
+#include "RepeatMode.hpp"
+
 #include <iostream>
 
 Texture::Texture()

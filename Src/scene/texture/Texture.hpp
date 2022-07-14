@@ -7,10 +7,7 @@
 #include <memory>
 #include <string>
 
-#include "ClampToEdgeMode.hpp"
 #include "GlobalValues.hpp"
-#include "MirroredRepeatMode.hpp"
-#include "RepeatMode.hpp"
 #include "TextureWrappingMode.hpp"
 
 class Texture {

@@ -1,5 +1,9 @@
 #include "DebugApp.hpp"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include <iostream>
 // stolen from: https://learnopengl.com/In-Practice/Debugging
 void APIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id,
                             GLenum severity, GLsizei length,

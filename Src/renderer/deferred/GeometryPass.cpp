@@ -1,4 +1,7 @@
 #include "GeometryPass.hpp"
+#include "Clouds.hpp"
+#include "DirectionalLight.hpp"
+#include "ViewFrustumCulling.hpp"
 
 GeometryPass::GeometryPass() : skybox() { create_shader_program(); }
 

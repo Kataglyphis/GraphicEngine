@@ -4,6 +4,11 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 #include <filesystem>
+#include <iostream>
+#include <unordered_map>
+#include "Mesh.hpp"
+#include "GlobalValues.hpp"
+#include "host_device_shared.hpp"
 
 ObjLoader::ObjLoader() {}
 

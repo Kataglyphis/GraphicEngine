@@ -8,6 +8,10 @@
 #include <sstream>
 #include <filesystem>
 
+#include "RepeatMode.hpp"
+#include "Clouds.hpp"
+#include "host_device_shared.hpp"
+
 GUI::GUI() {
   // give some arbitrary values; we will update these values after 1 frame :)
   this->direcional_light_radiance = 4.0f;

@@ -4,8 +4,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "CascadedShadowMap.hpp"
-
 class Light {
  public:
   Light();

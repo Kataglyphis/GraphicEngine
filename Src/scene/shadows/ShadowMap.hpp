@@ -1,7 +1,6 @@
 #pragma once
 
 #include <glad/glad.h>
-#include <stdio.h>
 
 class ShadowMap {
  public:

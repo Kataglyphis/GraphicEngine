@@ -1,4 +1,11 @@
 #include "LightingPass.hpp"
+#include "Clouds.hpp"
+#include "ObjMaterial.hpp"
+
+#include <time.h>
+#include <cassert>
+#include <chrono>
+#include <ctime>
 
 LightingPass::LightingPass()
     :

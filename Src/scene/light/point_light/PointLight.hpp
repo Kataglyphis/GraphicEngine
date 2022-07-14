@@ -4,7 +4,6 @@
 
 #include "Light.hpp"
 #include "OmniDirShadowMap.hpp"
-#include "ShaderProgram.hpp"
 
 class PointLight : public Light {
  public:

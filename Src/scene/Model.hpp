@@ -1,16 +1,13 @@
 #pragma once
-#include <iostream>
 #include <memory>
-#include <unordered_map>
 #include <vector>
 
 #include "AABB.hpp"
-#include "GlobalValues.hpp"
 #include "Mesh.hpp"
 #include "ObjLoader.hpp"
 #include "ObjMaterial.hpp"
 #include "Vertex.hpp"
-#include "bindings.hpp"
+#include "Texture.hpp"
 
 class Model {
  public:

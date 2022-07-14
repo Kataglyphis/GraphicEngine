@@ -1,22 +1,18 @@
 #pragma once
-#include <time.h>
 
-#include <cassert>
-#include <chrono>
-#include <ctime>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <memory>
 
 #include "Camera.hpp"
-#include "Clouds.hpp"
 #include "GBuffer.hpp"
 #include "LightingPassShaderProgram.hpp"
-#include "Noise.hpp"
-#include "ObjMaterial.hpp"
+//#include "Noise.hpp"
+
+#include "RenderPass.hpp"
 #include "Quad.hpp"
-#include "RandomNumbers.hpp"
+//#include "RandomNumbers.hpp"
 #include "Scene.hpp"
 
 class LightingPass : public RenderPass {

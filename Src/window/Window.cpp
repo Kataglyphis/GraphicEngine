@@ -5,6 +5,7 @@
 #include <imgui_impl_opengl3.h>
 
 #include <iostream>
+#include <stdio.h>
 
 Window::Window()
     : window_width(800), window_height(600), x_change(0.0f), y_change(0.0f) {

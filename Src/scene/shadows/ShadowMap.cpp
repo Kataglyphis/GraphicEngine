@@ -1,5 +1,7 @@
 #include "ShadowMap.hpp"
 
+#include <stdio.h>
+
 ShadowMap::ShadowMap()
     :
 
