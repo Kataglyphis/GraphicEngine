@@ -6,6 +6,7 @@
 #include <cassert>
 #include <chrono>
 #include <ctime>
+#include <sstream>
 
 LightingPass::LightingPass()
     :
