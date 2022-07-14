@@ -3,6 +3,7 @@
 #include "DirectionalLight.hpp"
 #include "ViewFrustumCulling.hpp"
 
+#include <sstream>
 GeometryPass::GeometryPass() : skybox() { create_shader_program(); }
 
 void GeometryPass::execute(glm::mat4 projection_matrix,
