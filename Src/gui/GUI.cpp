@@ -1,15 +1,15 @@
 #include "GUI.hpp"
-#include "OpenGLRendererConfig.hpp"
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-#include <sstream>
 #include <filesystem>
+#include <sstream>
 
-#include "RepeatMode.hpp"
 #include "Clouds.hpp"
+#include "OpenGLRendererConfig.hpp"
+#include "RepeatMode.hpp"
 #include "host_device_shared.hpp"
 
 GUI::GUI() {
@@ -206,9 +206,8 @@ void GUI::render(bool loading_in_progress, float progress,
   ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
               1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
   // ImGui::ShowDemoWindow();
-
-  ImGui::Image((void*)(intptr_t)logo_tex.get_id(), ImVec2(200, 200),
-               ImVec2(0, 1), ImVec2(1, 0));
+  // (void*)(intptr_t)
+  ImGui::Image(logo_tex.get_id(), ImVec2(200, 200), ImVec2(0, 1), ImVec2(1, 0));
 
   ImGui::End();
 

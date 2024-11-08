@@ -103,6 +103,7 @@ With the provided CMake file you are able to built the project on Linux (Ubuntu 
 and Windows. I do not provide support for MacOS. Be aware of the dependencies: 
 
 * [OpenGL 4.6](https://www.opengl.org//)
+* [GLAD](https://glad.dav1d.de/)
 * [glm](https://github.com/g-truc/glm)
 * [glfw](https://www.glfw.org/)
 * [tinyobjloader](https://github.com/tinyobjloader/tinyobjloader)
