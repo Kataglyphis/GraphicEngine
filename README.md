@@ -224,6 +224,7 @@ I want to thank my partner Kansei who worked with me on a project. This project 
 
 Thanks for free 3D Models: 
 * [Morgan McGuire, Computer Graphics Archive, July 2017 (https://casual-effects.com/data)](http://casual-effects.com/data/)
+
 ## Literature 
 
 Some very helpful literature, tutorials, etc. 
