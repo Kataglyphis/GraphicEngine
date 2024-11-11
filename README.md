@@ -1,3 +1,5 @@
+> **__NOTE:__** I moved development of this repo to my graphics engine that also supports Vulkan (see [here](https://github.com/Kataglyphis/GraphicsEngineVulkan)).
+
 <h1 align="center">
   <br>
   <a href="https://jotrockenmitlocken.de"><img src="images/logo.png" alt="OpenGLEngine" width="150"></a>
